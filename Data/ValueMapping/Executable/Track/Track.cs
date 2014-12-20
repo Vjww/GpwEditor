@@ -1,0 +1,82 @@
+﻿using Core.Entities.Executable.Track;
+
+namespace Data.ValueMapping.Executable.Track
+{
+    public class Track : ITrack
+    {
+        // Offset values
+        private const int BaseOffset = 1058252;
+        private const int LocalOffset = 210;
+        private const int LapsOffset = 0;
+        private const int DesignOffset = 10;
+        private const int LapRecordDriverOffset = 20;
+        private const int LapRecordTeamOffset = 30;
+        private const int LapRecordTimeOffset = 40;
+        private const int Unknown1Offset = 50;
+        private const int LapRecordYearOffset = 60;
+        private const int Unknown2Offset = 70;
+        private const int Unknown3Offset = 80;
+        private const int LastRaceYearOffset = 90;
+        private const int LastRaceTimeOffset = 100;
+        private const int SpeedOffset = 110;
+        private const int GripOffset = 120;
+        private const int SurfaceOffset = 130;
+        private const int TarmacOffset = 140;
+        private const int DustOffset = 150;
+        private const int OvertakingOffset = 160;
+        private const int BrakingOffset = 170;
+        private const int RainOffset = 180;
+        private const int HeatOffset = 190;
+        private const int WindOffset = 200;
+
+        public int Laps { get; set; }
+        public int Design { get; set; }
+        public int Unknown1 { get; set; }
+        public int Unknown2 { get; set; }
+        public int Unknown3 { get; set; }
+        public int LastRaceYear { get; set; }
+        public int LastRaceTime { get; set; }
+        public int LapRecordDriver { get; set; }
+        public int LapRecordTeam { get; set; }
+        public int LapRecordTime { get; set; }
+        public int LapRecordYear { get; set; }
+        public int Speed { get; set; }
+        public int Grip { get; set; }
+        public int Surface { get; set; }
+        public int Tarmac { get; set; }
+        public int Dust { get; set; }
+        public int Overtaking { get; set; }
+        public int Braking { get; set; }
+        public int Rain { get; set; }
+        public int Heat { get; set; }
+        public int Wind { get; set; }
+
+        public Track(int id)
+        {
+            // Calculate step offset from zero based index
+            var stepOffset = LocalOffset * id;
+
+            Laps = BaseOffset + stepOffset + LapsOffset;
+            Design = BaseOffset + stepOffset + DesignOffset;
+            Unknown1 = BaseOffset + stepOffset + Unknown1Offset;
+            Unknown2 = BaseOffset + stepOffset + Unknown2Offset;
+            Unknown3 = BaseOffset + stepOffset + Unknown3Offset;
+            LastRaceYear = BaseOffset + stepOffset + LastRaceYearOffset;
+            LastRaceTime = BaseOffset + stepOffset + LastRaceTimeOffset;
+            LapRecordDriver = BaseOffset + stepOffset + LapRecordDriverOffset;
+            LapRecordTeam = BaseOffset + stepOffset + LapRecordTeamOffset;
+            LapRecordTime = BaseOffset + stepOffset + LapRecordTimeOffset;
+            LapRecordYear = BaseOffset + stepOffset + LapRecordYearOffset;
+            Speed = BaseOffset + stepOffset + SpeedOffset;
+            Grip = BaseOffset + stepOffset + GripOffset;
+            Surface = BaseOffset + stepOffset + SurfaceOffset;
+            Tarmac = BaseOffset + stepOffset + TarmacOffset;
+            Dust = BaseOffset + stepOffset + DustOffset;
+            Overtaking = BaseOffset + stepOffset + OvertakingOffset;
+            Braking = BaseOffset + stepOffset + BrakingOffset;
+            Rain = BaseOffset + stepOffset + RainOffset;
+            Heat = BaseOffset + stepOffset + HeatOffset;
+            Wind = BaseOffset + stepOffset + WindOffset;
+        }
+    }
+}

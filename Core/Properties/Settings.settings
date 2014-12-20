@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Core.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ApplicationName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">GPW Edit</Value>
+    </Setting>
+    <Setting Name="RegistryKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SOFTWARE\MicroProse\Grand Prix World\1.00.000</Value>
+    </Setting>
+    <Setting Name="DefaultExecutableFileName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">gpw.exe</Value>
+    </Setting>
+    <Setting Name="DefaultLanguageFileName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">english.txt</Value>
+    </Setting>
+    <Setting Name="DefaultGameFolderPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Program Files\MicroProse\Grand Prix World</Value>
+    </Setting>
+    <Setting Name="ImportExecutableFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ImportLanguageFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ImportSaveGameFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ExportExecutableFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ExportLanguageFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ExportSaveGameFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UserGameFolderPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UserExecutableFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="InitialRun" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
