@@ -1,5 +1,5 @@
 ﻿
-namespace Data.Patchers.CodeShiftPatcher.Units
+namespace Data.Patchers.CodeShifting.Units
 {
     /// <summary>
     /// Driver initialisation data has been manually extracted from the

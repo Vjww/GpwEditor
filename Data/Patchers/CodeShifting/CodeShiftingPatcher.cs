@@ -1,16 +1,15 @@
-﻿using Core.Helpers;
-using Data.Enums;
-using Data.FileConnection;
-using Data.Patchers.CodeShiftPatcher.Units;
-
-// How to write call to new function
+﻿// How to write call to new function
 // var functionInstructions = new byte[5] { 0xE8, 0x00, 0x00, 0x00, 0x00 };
 // Array.Copy(BitConverter.GetBytes(positionOfNewFunction - (nopPositions[0] + 5)), 0, functionInstructions, 1, 4);
 // executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(nopPositions[0]), functionInstructions);
+using Core.Helpers;
+using Data.Enums;
+using Data.FileConnection;
+using Data.Patchers.CodeShifting.Units;
 
-namespace Data.Patchers.CodeShiftPatcher
+namespace Data.Patchers.CodeShifting
 {
-    public class CodeShiftPatcher
+    public class CodeShiftingPatcher
     {
         public void Apply(string filePath)
         {

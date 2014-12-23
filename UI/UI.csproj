@@ -130,6 +130,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icon1.ico" />
     <Content Include="Resources\logo1.png" />
     <Content Include="Resources\logo2.png" />
     <Content Include="Resources\logo3.png" />

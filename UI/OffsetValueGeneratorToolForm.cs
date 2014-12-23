@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Windows.Forms;
+using UI.Properties;
 
 namespace UI
 {
@@ -9,6 +10,12 @@ namespace UI
         public OffsetValueGeneratorToolForm()
         {
             InitializeComponent();
+        }
+
+        private void OffsetValueGeneratorToolForm_Load(object sender, EventArgs e)
+        {
+            // Set icon
+            Icon = Resources.icon1;
         }
 
         private void GenerateButton_Click(object sender, EventArgs e)

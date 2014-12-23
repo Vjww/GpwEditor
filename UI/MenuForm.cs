@@ -20,6 +20,9 @@ namespace UI
 
         private void MenuForm_Load(object sender, EventArgs e)
         {
+            // Set icon
+            Icon = Resources.icon1;
+
 #if (!DEBUG)
             {
                 // Set form title text

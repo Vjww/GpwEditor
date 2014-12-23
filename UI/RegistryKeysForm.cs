@@ -3,6 +3,7 @@ using Core.Registry;
 using System;
 using System.IO;
 using System.Windows.Forms;
+using UI.Properties;
 
 namespace UI
 {
@@ -15,6 +16,9 @@ namespace UI
 
         private void RegistryKeysForm_Load(object sender, EventArgs e)
         {
+            // Set icon
+            Icon = Resources.icon1;
+
             var registry = new GpwRegistry();
 
             // If registry keys exist

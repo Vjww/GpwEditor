@@ -1,8 +1,9 @@
-﻿using Data.Patchers.CodeShiftPatcher;
+﻿using Data.Patchers.CodeShifting;
 using Data.Patchers.JumpBypassPatcher;
 using Data.Patchers.SwitchIdiomPatcher;
 using System;
 using System.Windows.Forms;
+using UI.Properties;
 
 namespace UI
 {
@@ -16,6 +17,12 @@ namespace UI
 
             InitializeComponent();
             FilePathTextBox.Text = _filePath;
+        }
+
+        private void SettingsForm_Load(object sender, EventArgs e)
+        {
+            // Set icon
+            Icon = Resources.icon1;
         }
 
         private void SwitchIdiomButton_Click(object sender, EventArgs e)
@@ -105,7 +112,7 @@ namespace UI
 
         private void ApplyCodeShiftPatcher()
         {
-            var patcher = new CodeShiftPatcher();
+            var patcher = new CodeShiftingPatcher();
             patcher.Apply(_filePath);
         }
 

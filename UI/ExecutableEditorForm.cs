@@ -8,6 +8,7 @@ using Data.Database.Executable;
 using System;
 using System.IO;
 using System.Windows.Forms;
+using UI.Properties;
 
 namespace UI
 {
@@ -30,6 +31,9 @@ namespace UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // Set icon
+            Icon = Resources.icon1;
+
             // Set form title text
             Text = string.Format(Text, Settings.Default.ApplicationName) + " - Game Editor";
 

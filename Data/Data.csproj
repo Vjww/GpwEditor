@@ -47,11 +47,11 @@
     <Compile Include="FileConnection\IFileConnection.cs" />
     <Compile Include="FileConnection\LanguageConnection.cs" />
     <Compile Include="FileConnection\TextFileConnectionBase.cs" />
-    <Compile Include="Patchers\CodeShiftPatcher\CodeShiftPatcher.cs" />
-    <Compile Include="Patchers\CodeShiftPatcher\Units\DriverData.cs" />
-    <Compile Include="Patchers\CodeShiftPatcher\Units\PersonnelData.cs" />
-    <Compile Include="Patchers\CodeShiftPatcher\Units\TeamData.cs" />
-    <Compile Include="Patchers\CodeShiftPatcher\Units\TrackData.cs" />
+    <Compile Include="Patchers\CodeShifting\CodeShiftingPatcher.cs" />
+    <Compile Include="Patchers\CodeShifting\Units\DriverData.cs" />
+    <Compile Include="Patchers\CodeShifting\Units\PersonnelData.cs" />
+    <Compile Include="Patchers\CodeShifting\Units\TeamData.cs" />
+    <Compile Include="Patchers\CodeShifting\Units\TrackData.cs" />
     <Compile Include="Patchers\Enhancements\Units\CarHandlingPerformanceFix.cs" />
     <Compile Include="Patchers\Enhancements\Units\CarDesignCalculationUpdate.cs" />
     <Compile Include="Patchers\Enhancements\Units\DisplayModeFix.cs" />
@@ -76,10 +76,67 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IntegrationTasks\GpwExe\Text\gpwmod_carperformancecalc.txt" />
+    <Content Include="IntegrationTasks\GpwExe\Text\gpwmod_handlingpercentagecalc_ai.txt" />
+    <Content Include="IntegrationTasks\GpwExe\Text\gpwmod_handlingpercentagecalc_player.txt" />
+    <Content Include="IntegrationTasks\GpwExe\Text\gpwmod_racepoints.txt" />
+    <Content Include="IntegrationTasks\GpwExe\Text\PerformanceCurve\gpwhandling.png" />
+    <Content Include="IntegrationTasks\GpwExe\Text\PerformanceCurve\performance_curve.txt" />
+    <Content Include="IntegrationTasks\GpwExe\Text\PitStopBug\pit.txt" />
+    <Content Include="IntegrationTasks\GpwExe\Text\PitStopBug\pitbox.txt" />
+    <Content Include="IntegrationTasks\GpwExe\Text\PitStopBug\pitstop.asm.txt" />
+    <Content Include="IntegrationTasks\GpwExe\Text\PitStopBug\pitstop.c.txt" />
+    <Content Include="IntegrationTasks\GpwExe\Text\SoundFix\sound_errors.txt" />
+    <Content Include="IntegrationTasks\GpwExe\Text\SoundFix\waveformat_specs.txt" />
+    <Content Include="IntegrationTasks\GpwXpExe\Text\asm_handling_ai.txt" />
+    <Content Include="IntegrationTasks\GpwXpExe\Text\asm_handling_ai_new.txt" />
+    <Content Include="IntegrationTasks\GpwXpExe\Text\asm_handling_player.txt" />
+    <Content Include="IntegrationTasks\GpwXpExe\Text\asm_handling_player_new.txt" />
+    <Content Include="IntegrationTasks\GpwXpExe\Text\asm_ignoreyellowflag_new.txt" />
+    <Content Include="IntegrationTasks\GpwXpExe\Text\asm_racepoints.txt" />
+    <Content Include="IntegrationTasks\GpwXpExe\Text\asm_racepoints_new.txt" />
+    <Content Include="IntegrationTasks\GpwXpExe\Text\c_handling_ai.txt" />
+    <Content Include="IntegrationTasks\GpwXpExe\Text\c_handling_player.txt" />
+    <Content Include="IntegrationTasks\GpwXpExe\Text\c_racepoints.txt" />
+    <Content Include="IntegrationTasks\GpwXpExe\Text\c_racepoints_new.txt" />
+    <Content Include="IntegrationTasks\GpwXpExe\Text\ViewportDefaults\viewport_default.txt" />
     <Content Include="Notes\Executable\Drivers.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="IntegrationTasks\BackupIdb\BackupIdb.zip" />
+    <None Include="IntegrationTasks\GpwExe\Binary\gpwidb.zip" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpwfix_designbyengineer.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpwfix_displaymodecheck.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpwmod_carperformancecalc.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpwmod_handlingpercentagecalc.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpw_factory.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpw_fastestlaps.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpw_hof.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpw_misc.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpw_soundfix.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpw_sponsors.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpw_staffcostandeffort.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpw_suppliers.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpw_teammisc.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpw_teamsdrivers.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpw_viewportdefaults.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\gpw_yellowflagfix.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\SoundFix\DSBUFFERDESC Structure.website" />
+    <None Include="IntegrationTasks\GpwExe\Text\SoundFix\WAVEFORMATEX Structure.website" />
+    <None Include="IntegrationTasks\GpwXpExe\Binary\gpwxpidb.zip" />
+    <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_gameplay.hbk" />
+    <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_misc.hbk" />
+    <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_perfcurvecalcfix.hbk" />
+    <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_racespeed.hbk" />
+    <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_tracks.hbk" />
+    <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_tyres.hbk" />
+    <None Include="IntegrationTasks\Release103\gpwv103b.zip" />
+    <None Include="IntegrationTasks\Release103\gpwv103idb.zip" />
+    <None Include="IntegrationTasks\Release103\gpw_103testing.zip" />
     <None Include="Notes\Executable\LoadEffectiveAddressCalc.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IntegrationTasks\Release102\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
