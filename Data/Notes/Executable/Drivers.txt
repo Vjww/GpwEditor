@@ -1,0 +1,340 @@
+﻿This file contains an extract of the driver data in the original gpw.exe.
+Use as a reference for troubleshooting/replacing the three missing test drivers.
+
+Commentary indices
+for (var i = 0, i < 11, i++)
+  dword_12DF1C0[i * 8 + 6] = 94;    dword_12DF1C0[i * 8 + 7] = 95;    dword_12DF1C0[i * 8 + 8] = 96;    // Team 1
+  dword_12DF1C0[i * 8 + 6] = 72;    dword_12DF1C0[i * 8 + 7] = 73;    dword_12DF1C0[i * 8 + 8] = 74;    // Team 2
+  dword_12DF1C0[i * 8 + 6] = 70;    dword_12DF1C0[i * 8 + 7] = 71;                                      // Team 3
+  dword_12DF1C0[i * 8 + 6] = 77;    dword_12DF1C0[i * 8 + 7] = 78;    dword_12DF1C0[i * 8 + 8] = 79;    // Team 4
+  dword_12DF1C0[i * 8 + 6] = 75;    dword_12DF1C0[i * 8 + 7] = 76;                                      // Team 5
+  dword_12DF1C0[i * 8 + 6] = 83;    dword_12DF1C0[i * 8 + 7] = 84;    dword_12DF1C0[i * 8 + 8] = 85;    // Team 6
+  dword_12DF1C0[i * 8 + 6] = 86;    dword_12DF1C0[i * 8 + 7] = 87;    dword_12DF1C0[i * 8 + 8] = 88;    // Team 7
+  dword_12DF1C0[i * 8 + 6] = 67;    dword_12DF1C0[i * 8 + 7] = 68;    dword_12DF1C0[i * 8 + 8] = 69;    // Team 8
+  dword_12DF1C0[i * 8 + 6] = 89;    dword_12DF1C0[i * 8 + 7] = 90;                                      // Team 9
+  dword_12DF1C0[i * 8 + 6] = 92;    dword_12DF1C0[i * 8 + 7] = 91;    dword_12DF1C0[i * 8 + 8] = 93;    // Team 10
+  dword_12DF1C0[i * 8 + 6] = 80;    dword_12DF1C0[i * 8 + 7] = 81;    dword_12DF1C0[i * 8 + 8] = 82;    // Team 11
+                                                                                                        
+Car numbers                                                                                             
+  dword_1206280 = 1;                dword_1206284 = 2;                                                  // Team 1
+  dword_1208110 = 3;                dword_1208114 = 4;                                                  // Team 2
+  dword_1209FA0 = 5;                dword_1209FA4 = 6;                                                  // Team 3
+  dword_120BE30 = 8;                dword_120BE34 = 7;                                                  // Team 4
+  dword_120DCC0 = 9;                dword_120DCC4 = 10;                                                 // Team 5
+  dword_120FB50 = 11;               dword_120FB54 = 12;                                                 // Team 6
+  dword_12119E0 = 14;               dword_12119E4 = 15;                                                 // Team 7
+  dword_1213870 = 16;               dword_1213874 = 17;                                                 // Team 8
+  dword_1215700 = 18;               dword_1215704 = 19;                                                 // Team 9
+  dword_1217590 = 20;               dword_1217594 = 21;                                                 // Team 10
+  dword_1219420 = 22;               dword_1219424 = 23;                                                 // Team 11
+                                                                                                        
+Team 1                                                                                                  
+  dword_116C414 = 9600000;          dword_116C414 = 3200000;          dword_116C414 = 72000;            // Salary
+  dword_116C41C = 150000;           dword_116C41C = 50000;            dword_116C41C = 1125;             // Race Bonus
+  dword_116C420 = 2400000;          dword_116C420 = 800000;           dword_116C420 = 18000;            // Championship Bonus
+  dword_116D070 = 2;                dword_116D070 = 2;                dword_116D070 = 4;                // Nationality
+  dword_116C4A8 = 1;                dword_116C4A8 = 2;                dword_116C4A8 = 12;               // Career Championships
+  dword_116D078 = 1;                dword_116D078 = 0;                dword_116D078 = 0;                // Career Points Finishes
+  dword_116D084 = 22;               dword_116D084 = 24;               dword_116D084 = 0;                // Driver Role
+  dword_116C438 = 1;                dword_116C438 = 3;                dword_116C438 = 0;                // 1997 Championship Position
+  dword_116C418 = 26;               dword_116C418 = 30;               dword_116C418 = 22;               // Age
+  dword_116D06C = 0;                dword_116D06C = 0;                dword_116D06C = 0;                // Pay Rating (Pay Driver only)
+  dword_116D068 = 0;                dword_116D068 = 0;                dword_116D068 = 0;                // Positive Salary (Pay Driver only)
+  dword_116D07C = 49;               dword_116D07C = 80;               dword_116D07C = 0;                // Career Races
+  dword_116C43C = 11;               dword_116C43C = 1;                dword_116C43C = 0;                // Career Wins
+  dword_116C440 = 13;               dword_116C440 = 1;                dword_116C440 = 0;                // Career Pole Positions
+  dword_116D088 = 9;                dword_116D088 = 6;                dword_116D088 = 0;                // Career Fastest Laps
+  dword_116D040 = 4;                dword_116D040 = 4;                dword_116D040 = 1;                // Speed
+  dword_116D060 = 3;                dword_116D060 = 3;                dword_116D060 = 1;                // Skill
+  dword_116D044 = 4;                dword_116D044 = 3;                dword_116D044 = 1;                // Overtaking
+  dword_116D048 = 2;                dword_116D048 = 3;                dword_116D048 = 1;                // Wet Weather
+  dword_116D04C = 3;                dword_116D04C = 3;                dword_116D04C = 1;                // Concentration
+  dword_116D050 = 3;                dword_116D050 = 3;                dword_116D050 = 1;                // Experience
+  dword_116D054 = 4;                dword_116D054 = 3;                dword_116D054 = 1;                // Stamina
+  dword_116D058 = 60;               dword_116D058 = 80;               dword_116D058 = 100;              // Morale
+  dword_116C430 = 159;              dword_116C430 = 71;               dword_116C430 = 0;                // Career Points
+  dword_116D1B4 = 1;                dword_116D1B4 = 2;                dword_116D1B4 = 0;                // Car number
+  dword_116D1BC = 1;                dword_116D1BC = 2;                dword_116D1BC = 0;                // Race Entry
+                                                                                                        
+Team 2                                                                                                  
+  dword_116C414 = 24000000;         dword_116C414 = 5280000;          dword_116C414 = 80000;            
+  dword_116C41C = 450000;           dword_116C41C = 99000;            dword_116C41C = 1500;             
+  dword_116C420 = 7200000;          dword_116C420 = 1584000;          dword_116C420 = 24000;            
+  dword_116C4A8 = 2;                dword_116C4A8 = 3;                dword_116C4A8 = 4;                
+  dword_116D078 = 2;                dword_116D078 = 0;                dword_116D078 = 0;                
+  dword_116D084 = 67;               dword_116D084 = 18;               dword_116D084 = 0;                
+  dword_116D070 = 1;                dword_116D070 = 3;                dword_116D070 = 4;                
+  dword_116C438 = 2;                dword_116C438 = 8;                dword_116C438 = 0;                
+  dword_116C418 = 29;               dword_116C418 = 32;               dword_116C418 = 27;               
+  dword_116D06C = 0;                dword_116D06C = 0;                dword_116D06C = 0;                
+  dword_116D068 = 0;                dword_116D068 = 0;                dword_116D068 = 0;                
+  dword_116D07C = 118;              dword_116D07C = 81;               dword_116D07C = 0;                
+  dword_116C43C = 33;               dword_116C43C = 0;                dword_116C43C = 0;                
+  dword_116C440 = 20;               dword_116C440 = 0;                dword_116C440 = 0;                
+  dword_116D088 = 33;               dword_116D088 = 0;                dword_116D088 = 0;                
+  dword_116D040 = 5;                dword_116D040 = 4;                dword_116D040 = 1;                
+  dword_116D060 = 5;                dword_116D060 = 3;                dword_116D060 = 1;                
+  dword_116D044 = 5;                dword_116D044 = 4;                dword_116D044 = 1;                
+  dword_116D048 = 5;                dword_116D048 = 3;                dword_116D048 = 1;                
+  dword_116D04C = 4;                dword_116D04C = 3;                dword_116D04C = 1;                
+  dword_116D050 = 4;                dword_116D050 = 3;                dword_116D050 = 2;                
+  dword_116D054 = 5;                dword_116D054 = 2;                dword_116D054 = 2;                
+  dword_116D058 = 80;               dword_116D058 = 80;               dword_116D058 = 100;              
+  dword_116C430 = 440;              dword_116C430 = 52;               dword_116C430 = 0;                
+  dword_116D1B4 = 3;                dword_116D1B4 = 4;                dword_116D1B4 = 0;                
+  dword_116D1BC = 3;                dword_116D1BC = 4;                dword_116D1BC = 0;                
+                                                                                                        
+Team 3                                                                                                  
+                                                                      dword_116C400 = dword_15F60C0;    // Missing driver flag
+  dword_116C414 = 2080000;          dword_116C414 = 1600000;                                            
+  dword_116C41C = 32500;            dword_116C41C = 25000;                                              
+  dword_116C420 = 520000;           dword_116C420 = 400000;                                             
+  dword_116C4A8 = 4;                dword_116C4A8 = 5;                                                  
+  dword_116D078 = 0;                dword_116D078 = 0;                                                  
+  dword_116D084 = 6;                dword_116D084 = 1;                                                  
+  dword_116D070 = 1;                dword_116D070 = 3;                                                  
+  dword_116C438 = 9;                dword_116C438 = 15;                                                 
+  dword_116C418 = 25;               dword_116C418 = 24;                                                 
+  dword_116D06C = 0;                dword_116D06C = 0;                                                  
+  dword_116D068 = 0;                dword_116D068 = 0;                                                  
+  dword_116D07C = 41;               dword_116D07C = 19;                                                 
+  dword_116C43C = 0;                dword_116C43C = 0;                                                  
+  dword_116C440 = 1;                dword_116C440 = 0;                                                  
+  dword_116D088 = 0;                dword_116D088 = 1;                                                  
+  dword_116D040 = 3;                dword_116D040 = 3;                                                  
+  dword_116D060 = 3;                dword_116D060 = 3;                                                  
+  dword_116D044 = 2;                dword_116D044 = 2;                                                  
+  dword_116D048 = 3;                dword_116D048 = 3;                                                  
+  dword_116D04C = 2;                dword_116D04C = 3;                                                  
+  dword_116D050 = 2;                dword_116D050 = 2;                                                  
+  dword_116D054 = 3;                dword_116D054 = 3;                                                  
+  dword_116D058 = 60;               dword_116D058 = 60;                                                 
+  dword_116C430 = 20;               dword_116C430 = 4;                                                  
+  dword_116D1B4 = 5;                dword_116D1B4 = 6;                                                  
+  dword_116D1BC = 5;                dword_116D1BC = 6;                dword_116D1BC = 0;                
+                                                                                                        
+Team 4                                                                                                  
+  dword_116C414 = 7200000;          dword_116C414 = 3680000;          dword_116C414 = 64000;            
+  dword_116C41C = 135000;           dword_116C41C = 69000;            dword_116C41C = 1200;             
+  dword_116C420 = 2160000;          dword_116C420 = 1104000;          dword_116C420 = 19200;            
+  dword_116C4A8 = 6;                dword_116C4A8 = 3;                dword_116C4A8 = 8;                
+  dword_116D078 = 0;                dword_116D078 = 0;                dword_116D078 = 0;                
+  dword_116D084 = 35;               dword_116D084 = 26;               dword_116D084 = 0;                
+  dword_116D070 = 2;                dword_116D070 = 2;                dword_116D070 = 4;                
+  dword_116C438 = 7;                dword_116C438 = 4;                dword_116C438 = 0;                
+  dword_116C418 = 29;               dword_116C418 = 26;               dword_116C418 = 21;               
+  dword_116D06C = 0;                dword_116D06C = 0;                dword_116D06C = 0;                
+  dword_116D068 = 0;                dword_116D068 = 0;                dword_116D068 = 0;                
+  dword_116D07C = 112;              dword_116D07C = 74;               dword_116D07C = 0;                
+  dword_116C43C = 9;                dword_116C43C = 4;                dword_116C43C = 0;                
+  dword_116C440 = 10;               dword_116C440 = 8;                dword_116C440 = 0;                
+  dword_116D088 = 8;                dword_116D088 = 7;                dword_116D088 = 0;                
+  dword_116D040 = 5;                dword_116D040 = 4;                dword_116D040 = 1;                
+  dword_116D060 = 4;                dword_116D060 = 3;                dword_116D060 = 1;                
+  dword_116D044 = 4;                dword_116D044 = 3;                dword_116D044 = 1;                
+  dword_116D048 = 4;                dword_116D048 = 3;                dword_116D048 = 1;                
+  dword_116D04C = 5;                dword_116D04C = 2;                dword_116D04C = 1;                
+  dword_116D050 = 4;                dword_116D050 = 3;                dword_116D050 = 1;                
+  dword_116D054 = 4;                dword_116D054 = 4;                dword_116D054 = 2;                
+  dword_116D058 = 100;              dword_116D058 = 100;              dword_116D058 = 100;              
+  dword_116C430 = 117;              dword_116C430 = 118;              dword_116C430 = 0;                
+  dword_116D1B4 = 8;                dword_116D1B4 = 7;                dword_116D1B4 = 0;                
+  dword_116D1BC = 7;                dword_116D1BC = 8;                dword_116D1BC = 0;                
+                                                                                                        
+Team 5                                                                                                  
+                                                                      dword_116C400 = dword_15F60C0;    // Missing driver flag
+  dword_116C414 = 8000000;          dword_116C414 = 3200000;                                            
+  dword_116C41C = 100000;           dword_116C41C = 40000;                                              
+  dword_116C420 = 1600000;          dword_116C420 = 640000;                                             
+  dword_116C4A8 = 3;                dword_116C4A8 = 2;                                                  
+  dword_116D078 = 1;                dword_116D078 = 0;                                                  
+  dword_116D084 = 47;               dword_116D084 = 6;                                                  
+  dword_116D070 = 1;                dword_116D070 = 3;                                                  
+  dword_116C438 = 13;               dword_116C438 = 12;                                                 
+  dword_116C418 = 37;               dword_116C418 = 22;                                                 
+  dword_116D06C = 0;                dword_116D06C = 0;                                                  
+  dword_116D068 = 0;                dword_116D068 = 0;                                                  
+  dword_116D07C = 100;              dword_116D07C = 33;                                                 
+  dword_116C43C = 22;               dword_116C43C = 0;                                                  
+  dword_116C440 = 20;               dword_116C440 = 0;                                                  
+  dword_116D088 = 19;               dword_116D088 = 0;                                                  
+  dword_116D040 = 4;                dword_116D040 = 3;                                                  
+  dword_116D060 = 3;                dword_116D060 = 3;                                                  
+  dword_116D044 = 2;                dword_116D044 = 3;                                                  
+  dword_116D048 = 5;                dword_116D048 = 3;                                                  
+  dword_116D04C = 4;                dword_116D04C = 2;                                                  
+  dword_116D050 = 4;                dword_116D050 = 2;                                                  
+  dword_116D054 = 5;                dword_116D054 = 3;                                                  
+  dword_116D058 = 40;               dword_116D058 = 40;                                                 
+  dword_116C430 = 333;              dword_116C430 = 13;                                                 
+  dword_116D1B4 = 9;                dword_116D1B4 = 10;                                                 
+  dword_116D1BC = 9;                dword_116D1BC = 10;               dword_116D1BC = 0;                
+                                                                                                        
+Team 6                                                                                                  
+  dword_116C414 = 2080000;          dword_116C414 = 1440000;          dword_116C414 = 56000;            
+  dword_116C41C = 26000;            dword_116C41C = 18000;            dword_116C41C = 700;              
+  dword_116C420 = 416000;           dword_116C420 = 288000;           dword_116C420 = 11200;            
+  dword_116C4A8 = 7;                dword_116C4A8 = 4;                dword_116C4A8 = 7;                
+  dword_116D078 = 0;                dword_116D078 = 0;                dword_116D078 = 0;                
+  dword_116D084 = 17;               dword_116D084 = 1;                dword_116D084 = 0;                
+  dword_116D070 = 1;                dword_116D070 = 3;                dword_116D070 = 4;                
+  dword_116C438 = 10;               dword_116C438 = 16;               dword_116C438 = 0;                
+  dword_116C418 = 31;               dword_116C418 = 23;               dword_116C418 = 23;               
+  dword_116D06C = 0;                dword_116D06C = 0;                dword_116D06C = 0;                
+  dword_116D068 = 0;                dword_116D068 = 0;                dword_116D068 = 0;                
+  dword_116D07C = 75;               dword_116D07C = 23;               dword_116D07C = 0;                
+  dword_116C43C = 1;                dword_116C43C = 0;                dword_116C43C = 0;                
+  dword_116C440 = 0;                dword_116C440 = 0;                dword_116C440 = 0;                
+  dword_116D088 = 0;                dword_116D088 = 0;                dword_116D088 = 0;                
+  dword_116D040 = 2;                dword_116D040 = 1;                dword_116D040 = 1;                
+  dword_116D060 = 4;                dword_116D060 = 2;                dword_116D060 = 1;                
+  dword_116D044 = 2;                dword_116D044 = 2;                dword_116D044 = 1;                
+  dword_116D048 = 2;                dword_116D048 = 3;                dword_116D048 = 1;                
+  dword_116D04C = 3;                dword_116D04C = 2;                dword_116D04C = 1;                
+  dword_116D050 = 3;                dword_116D050 = 2;                dword_116D050 = 1;                
+  dword_116D054 = 2;                dword_116D054 = 3;                dword_116D054 = 2;                
+  dword_116D058 = 40;               dword_116D058 = 60;               dword_116D058 = 60;               
+  dword_116C430 = 54;               dword_116C430 = 3;                dword_116C430 = 0;                
+  dword_116D1B4 = 11;               dword_116D1B4 = 12;               dword_116D1B4 = 0;                
+  dword_116D1BC = 11;               dword_116D1BC = 12;               dword_116D1BC = 0;                
+                                                                                                        
+Team 7                                                                                                  
+  dword_116C414 = 6400000;          dword_116C414 = 3040000;          dword_116C414 = 48000;            
+  dword_116C41C = 60000;            dword_116C41C = 28500;            dword_116C41C = 450;              
+  dword_116C420 = 960000;           dword_116C420 = 456000;           dword_116C420 = 7200;             
+  dword_116C4A8 = 7;                dword_116C4A8 = 3;                dword_116C4A8 = 2;                
+  dword_116D078 = 0;                dword_116D078 = 0;                dword_116D078 = 0;                
+  dword_116D084 = 60;               dword_116D084 = 25;               dword_116D084 = 0;                
+  dword_116D070 = 1;                dword_116D070 = 3;                dword_116D070 = 4;                
+  dword_116C438 = 5;                dword_116C438 = 11;               dword_116C438 = 0;                
+  dword_116C418 = 33;               dword_116C418 = 33;               dword_116C418 = 28;               
+  dword_116D06C = 0;                dword_116D06C = 0;                dword_116D06C = 0;                
+  dword_116D068 = 0;                dword_116D068 = 0;                dword_116D068 = 0;                
+  dword_116D07C = 151;              dword_116D07C = 129;              dword_116D07C = 0;                
+  dword_116C43C = 1;                dword_116C43C = 2;                dword_116C43C = 0;                
+  dword_116C440 = 2;                dword_116C440 = 0;                dword_116C440 = 0;                
+  dword_116D088 = 4;                dword_116D088 = 0;                dword_116D088 = 0;                
+  dword_116D040 = 3;                dword_116D040 = 3;                dword_116D040 = 1;                
+  dword_116D060 = 3;                dword_116D060 = 2;                dword_116D060 = 1;                
+  dword_116D044 = 3;                dword_116D044 = 2;                dword_116D044 = 1;                
+  dword_116D048 = 4;                dword_116D048 = 2;                dword_116D048 = 1;                
+  dword_116D04C = 2;                dword_116D04C = 3;                dword_116D04C = 1;                
+  dword_116D050 = 5;                dword_116D050 = 5;                dword_116D050 = 1;                
+  dword_116D054 = 3;                dword_116D054 = 2;                dword_116D054 = 1;                
+  dword_116D058 = 60;               dword_116D058 = 40;               dword_116D058 = 60;               
+  dword_116C430 = 225;              dword_116C430 = 82;               dword_116C430 = 0;                
+  dword_116D1B4 = 14;               dword_116D1B4 = 15;               dword_116D1B4 = 0;                
+  dword_116D1BC = 13;               dword_116D1BC = 14;               dword_116D1BC = 0;                
+                                                                                                        
+Team 8                                                                                                  
+  dword_116C414 = -9600000;         dword_116C414 = 1920000;          dword_116C414 = 40000;            
+  dword_116C41C = 0;                dword_116C41C = 18000;            dword_116C41C = 375;              
+  dword_116C420 = 0;                dword_116C420 = 288000;           dword_116C420 = 6000;             
+  dword_116C4A8 = 8;                dword_116C4A8 = 6;                dword_116C4A8 = 7;                
+  dword_116D078 = 0;                dword_116D078 = 0;                dword_116D078 = 0;                
+  dword_116D084 = 3;                dword_116D084 = 7;                dword_116D084 = 0;                
+  dword_116D070 = 2;                dword_116D070 = 2;                dword_116D070 = 4;                
+  dword_116C438 = 18;               dword_116C438 = 17;               dword_116C438 = 0;                
+  dword_116C418 = 27;               dword_116C418 = 31;               dword_116C418 = 26;               
+  dword_116D06C = 5;                dword_116D06C = 0;                dword_116D06C = 0;                
+  dword_116D068 = 9600000;          dword_116D068 = 0;                dword_116D068 = 0;                
+  dword_116D07C = 66;               dword_116D07C = 68;               dword_116D07C = 0;                
+  dword_116C43C = 0;                dword_116C43C = 0;                dword_116C43C = 0;                
+  dword_116C440 = 0;                dword_116C440 = 0;                dword_116C440 = 0;                
+  dword_116D088 = 0;                dword_116D088 = 0;                dword_116D088 = 0;                
+  dword_116D040 = 2;                dword_116D040 = 2;                dword_116D040 = 1;                
+  dword_116D060 = 2;                dword_116D060 = 1;                dword_116D060 = 1;                
+  dword_116D044 = 1;                dword_116D044 = 1;                dword_116D044 = 1;                
+  dword_116D048 = 3;                dword_116D048 = 2;                dword_116D048 = 1;                
+  dword_116D04C = 3;                dword_116D04C = 3;                dword_116D04C = 1;                
+  dword_116D050 = 3;                dword_116D050 = 3;                dword_116D050 = 1;                
+  dword_116D054 = 3;                dword_116D054 = 3;                dword_116D054 = 1;                
+  dword_116D058 = 60;               dword_116D058 = 60;               dword_116D058 = 60;               
+  dword_116C430 = 4;                dword_116C430 = 12;               dword_116C430 = 0;                
+  dword_116D1B4 = 16;               dword_116D1B4 = 17;               dword_116D1B4 = 0;                
+  dword_116D1BC = 15;               dword_116D1BC = 16;               dword_116D1BC = 0;                
+                                                                                                        
+Team 9                                                                                                  
+                                                                      dword_116C400 = dword_15F60C0;    // Missing driver flag
+  dword_116C414 = 4160000;          dword_116C414 = 1280000;                                            
+  dword_116C41C = 26000;            dword_116C41C = 8000;                                               
+  dword_116C420 = 416000;           dword_116C420 = 128000;                                             
+  dword_116C4A8 = 8;                dword_116C4A8 = 9;                                                  
+  dword_116D078 = 0;                dword_116D078 = 0;                                                  
+  dword_116D084 = 19;               dword_116D084 = 0;                                                  
+  dword_116D070 = 1;                dword_116D070 = 3;                                                  
+  dword_116C438 = 14;               dword_116C438 = 0;                                                  
+  dword_116C418 = 25;               dword_116C418 = 24;                                                 
+  dword_116D06C = 0;                dword_116D06C = 0;                                                  
+  dword_116D068 = 0;                dword_116D068 = 0;                                                  
+  dword_116D07C = 97;               dword_116D07C = 57;                                                 
+  dword_116C43C = 0;                dword_116C43C = 0;                                                  
+  dword_116C440 = 1;                dword_116C440 = 0;                                                  
+  dword_116D088 = 0;                dword_116D088 = 0;                                                  
+  dword_116D040 = 3;                dword_116D040 = 1;                                                  
+  dword_116D060 = 3;                dword_116D060 = 1;                                                  
+  dword_116D044 = 3;                dword_116D044 = 2;                                                  
+  dword_116D048 = 2;                dword_116D048 = 1;                                                  
+  dword_116D04C = 4;                dword_116D04C = 2;                                                  
+  dword_116D050 = 4;                dword_116D050 = 2;                                                  
+  dword_116D054 = 3;                dword_116D054 = 2;                                                  
+  dword_116D058 = 40;               dword_116D058 = 40;                                                 
+  dword_116C430 = 46;               dword_116C430 = 0;                                                  
+  dword_116D1B4 = 18;               dword_116D1B4 = 19;                                                 
+  dword_116D1BC = 17;               dword_116D1BC = 18;               dword_116D1BC = 0;                
+                                                                                                        
+Team 10                                                                                                 
+  dword_116C414 = -4300000;         dword_116C414 = -6400000;         dword_116C414 = 32000;            
+  dword_116C41C = 0;                dword_116C41C = 0;                dword_116C41C = 100;              
+  dword_116C420 = 0;                dword_116C420 = 0;                dword_116C420 = 1600;             
+  dword_116C4A8 = 8;                dword_116C4A8 = 10;               dword_116C4A8 = 4;                
+  dword_116D078 = 0;                dword_116D078 = 0;                dword_116D078 = 0;                
+  dword_116D084 = 0;                dword_116D084 = 0;                dword_116D084 = 0;                
+  dword_116D070 = 2;                dword_116D070 = 2;                dword_116D070 = 4;                
+  dword_116C438 = 0;                dword_116C438 = 0;                dword_116C438 = 0;                
+  dword_116C418 = 29;               dword_116C418 = 24;               dword_116C418 = 33;               
+  dword_116D06C = 2;                dword_116D06C = 3;                dword_116D06C = 0;                
+  dword_116D068 = 4300000;          dword_116D068 = 6400000;          dword_116D068 = 0;                
+  dword_116D07C = 16;               dword_116D07C = 16;               dword_116D07C = 0;                
+  dword_116C43C = 0;                dword_116C43C = 0;                dword_116C43C = 0;                
+  dword_116C440 = 0;                dword_116C440 = 0;                dword_116C440 = 0;                
+  dword_116D088 = 0;                dword_116D088 = 0;                dword_116D088 = 0;                
+  dword_116D040 = 1;                dword_116D040 = 1;                dword_116D040 = 1;                
+  dword_116D060 = 1;                dword_116D060 = 1;                dword_116D060 = 1;                
+  dword_116D044 = 1;                dword_116D044 = 1;                dword_116D044 = 1;                
+  dword_116D048 = 1;                dword_116D048 = 1;                dword_116D048 = 1;                
+  dword_116D04C = 1;                dword_116D04C = 3;                dword_116D04C = 1;                
+  dword_116D050 = 2;                dword_116D050 = 2;                dword_116D050 = 1;                
+  dword_116D054 = 2;                dword_116D054 = 3;                dword_116D054 = 1;                
+  dword_116D058 = 40;               dword_116D058 = 60;               dword_116D058 = 40;               
+  dword_116C430 = 0;                dword_116C430 = 0;                dword_116C430 = 0;                
+  dword_116D1B4 = 20;               dword_116D1B4 = 21;               dword_116D1B4 = 0;                
+  dword_116D1BC = 19;               dword_116D1BC = 20;               dword_116D1BC = 0;                
+                                                                                                        
+Team 11                                                                                                 
+  dword_116C414 = -2900000;         dword_116C414 = -3700000;         dword_116C414 = 24000;            
+  dword_116C41C = 0;                dword_116C41C = 0;                dword_116C41C = 150;              
+  dword_116C420 = 0;                dword_116C420 = 0;                dword_116C420 = 2400;             
+  dword_116C4A8 = 10;               dword_116C4A8 = 11;               dword_116C4A8 = 7;                
+  dword_116D078 = 0;                dword_116D078 = 0;                dword_116D078 = 0;                
+  dword_116D084 = 2;                dword_116D084 = 4;                dword_116D084 = 0;                
+  dword_116D070 = 2;                dword_116D070 = 2;                dword_116D070 = 4;                
+  dword_116C438 = 19;               dword_116C438 = 0;                dword_116C438 = 0;                
+  dword_116C418 = 26;               dword_116C418 = 19;               dword_116C418 = 24;               
+  dword_116D06C = 1;                dword_116D06C = 2;                dword_116D06C = 0;                
+  dword_116D068 = 2900000;          dword_116D068 = 3700000;          dword_116D068 = 0;                
+  dword_116D07C = 33;               dword_116D07C = 16;               dword_116D07C = 0;                
+  dword_116C43C = 0;                dword_116C43C = 0;                dword_116C43C = 0;                
+  dword_116C440 = 0;                dword_116C440 = 0;                dword_116C440 = 0;                
+  dword_116D088 = 0;                dword_116D088 = 0;                dword_116D088 = 0;                
+  dword_116D040 = 1;                dword_116D040 = 1;                dword_116D040 = 1;                
+  dword_116D060 = 2;                dword_116D060 = 1;                dword_116D060 = 1;                
+  dword_116D044 = 1;                dword_116D044 = 1;                dword_116D044 = 1;                
+  dword_116D048 = 3;                dword_116D048 = 1;                dword_116D048 = 1;                
+  dword_116D04C = 3;                dword_116D04C = 1;                dword_116D04C = 1;                
+  dword_116D050 = 2;                dword_116D050 = 2;                dword_116D050 = 1;                
+  dword_116D054 = 3;                dword_116D054 = 2;                dword_116D054 = 1;                
+  dword_116D058 = 80;               dword_116D058 = 60;               dword_116D058 = 60;               
+  dword_116C430 = 2;                dword_116C430 = 11;               dword_116C430 = 0;                
+  dword_116D1B4 = 22;               dword_116D1B4 = 23;               dword_116D1B4 = 0;                
+  dword_116D1BC = 21;               dword_116D1BC = 22;               dword_116D1BC = 0;                
