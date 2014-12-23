@@ -1,0 +1,8 @@
+sub_45CF41(driverNum) - what does this do?
+
+
+2.8600001
+
+.text:00458851
+
+dword_6E3374

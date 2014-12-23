@@ -1,0 +1,171 @@
+;  START: 0050D41E
+;    END: 0050D9F2
+; LENGTH: 000005D4 (1492 bytes)
+;   FILE: 0010C81E
+
+; Revised code alters the calculation used to determine next year's car
+; handling percentage for AI teams.  The new calculation factors in the skill
+; levels of both the Chief Designer (25%) and the Technical Director (75%)
+; and multiplies this value by a percentage weighting (in brackets). A random
+; aspect is introduced into the calculation to adjust the final percentage by
+; +/- 10%.
+
+.text:0050D41E
+.text:0050D41E ; =============== S U B R O U T I N E =======================================
+.text:0050D41E
+.text:0050D41E ; Attributes: bp-based frame
+.text:0050D41E
+.text:0050D41E sub_50D41E      proc near               ; CODE XREF: sub_403021j
+.text:0050D41E
+.text:0050D41E var_10          = dword ptr -10h
+.text:0050D41E var_C           = dword ptr -0Ch
+.text:0050D41E var_8           = dword ptr -8
+.text:0050D41E var_4           = dword ptr -4
+.text:0050D41E
+.text:0050D41E                 push    ebp                                                   55
+.text:0050D41F                 mov     ebp, esp                                              8B EC
+.text:0050D421                 sub     esp, 10h                                              83 EC 10
+.text:0050D424                 push    ebx                                                   53
+.text:0050D425                 push    esi                                                   56
+.text:0050D426                 push    edi                                                   57
+
+                               ; initialise loop
+.text:0050D427                 mov     [ebp+var_8], 1                                        C7 45 F8 01 00 00 00
+.text:0050D42E                 jmp     short loc_50D439                                      EB 09
+.text:0050D430 ; ---------------------------------------------------------------------------
+.text:0050D430
+.text:0050D430 loc_50D430:     ; increment loop        ; CODE XREF: sub_50D41E+3Bj
+.text:0050D430                                         ; sub_50D41E+118j
+.text:0050D430                 mov     eax, [ebp+var_8]                                      8B 45 F8
+.text:0050D433                 add     eax, 1                                                83 C0 01
+.text:0050D436                 mov     [ebp+var_8], eax                                      89 45 F8
+.text:0050D439
+.text:0050D439 loc_50D439:     ; for loop              ; CODE XREF: sub_50D41E+10j
+.text:0050D439                 cmp     [ebp+var_8], 0Bh  ; number of teams                   83 7D F8 0B
+.text:0050D43D                 jg      loc_50D53B        ; loop termination                  0F 8F F8 00 00 00
+.text:0050D443                 mov     ecx, [ebp+var_8]                                      8B 4D F8
+.text:0050D446                 imul    ecx, 1E90h                                            69 C9 90 1E 00 00
+.text:0050D44C                 xor     edx, edx                                              33 D2
+.text:0050D44E                 mov     dx, ds:word_12039D8[ecx]                              66 8B 91 D8 39 20 01
+.text:0050D455                 test    edx, edx          ; if players team                   85 D2
+.text:0050D457                 jz      short loc_50D45B  ; else skip next line               74 02
+.text:0050D459                 jmp     short loc_50D430  ; top of loop                       EB D5
+.text:0050D45B ; ---------------------------------------------------------------------------
+.text:0050D45B
+.text:0050D45B loc_50D45B:     ; get designer skill    ; CODE XREF: sub_50D41E+39j
+.text:0050D45B                 mov     eax, dword_15F60A8                                    A1 A8 60 5F 01
+.text:0050D460                 push    eax                                                   50
+.text:0050D461                 mov     ecx, [ebp+var_8]                                      8B 4D F8
+.text:0050D464                 push    ecx                                                   51
+.text:0050D465                 call    sub_4037B0                                            E8 46 63 EF FF
+.text:0050D46A                 add     esp, 8                                                83 C4 08
+.text:0050D46D                 mov     [ebp+var_10], eax                                     89 45 F0
+.text:0050D470                 cmp     [ebp+var_10], 0   ; if 0                              83 7D F0 00
+.text:0050D474                 jnz     short loc_50D47D  ; else skip next line               75 07
+.text:0050D476                 mov     [ebp+var_10], 1   ; make 1                            C7 45 F0 01 00 00 00
+.text:0050D47D
+.text:0050D47D loc_50D47D:     ; multiply by factor    ; CODE XREF: sub_50D41E+56j
+.text:0050D47D                 mov     edx, [ebp+var_10]                                     8B 55 F0
+.text:0050D480                 sub     edx, 1                                                83 EA 01
+.text:0050D483                 imul    edx, 5            ; factor                            6B D2 05
+.text:0050D486                 mov     [ebp+var_4], edx                                      89 55 FC
+
+                               ; get engineer skill
+.text:0050D489                 mov     eax, dword_15F60AC                                    A1 AC 60 5F 01
+.text:0050D48E                 push    eax                                                   50
+.text:0050D48F                 mov     ecx, [ebp+var_8]                                      8B 4D F8
+.text:0050D492                 push    ecx                                                   51
+.text:0050D493                 call    sub_4037B0                                            E8 18 63 EF FF
+.text:0050D498                 add     esp, 8                                                83 C4 08
+.text:0050D49B                 mov     [ebp+var_10], eax                                     89 45 F0
+.text:0050D49E                 cmp     [ebp+var_10], 0   ; if 0                              83 7D F0 00
+.text:0050D4A2                 jnz     short loc_50D4AB  ; else skip next line               75 07
+.text:0050D4A4                 mov     [ebp+var_10], 1   ; make 1                            C7 45 F0 01 00 00 00
+.text:0050D4AB
+.text:0050D4AB loc_50D4AB:     ; multiply by factor    ; CODE XREF: sub_50D41E+84j
+.text:0050D4AB                 mov     edx, [ebp+var_10]                                     8B 55 F0
+.text:0050D4AE                 sub     edx, 1                                                83 EA 01
+.text:0050D4B1                 imul    edx, 0Fh          ; factor                            6B D2 0F
+.text:0050D4B4                 add     edx, [ebp+var_4]  ; add to handling                   03 55 FC
+.text:0050D4B7                 mov     [ebp+var_4], edx  ; store new handling                89 55 FC
+
+                               ; get random value
+                               ; rand() % 21 = 0-20
+.text:0050D4BA                 call    _rand       ; random number in eax                    E8 CF 03 17 00
+.text:0050D4BF                 cdq                                                           99
+.text:0050D4C0                 mov     ecx, 15h    ; prepare to divide eax by ecx            B9 15 00 00 00
+.text:0050D4C5                 idiv    ecx         ; quotient in eax, remainder in edx       F7 F9
+.text:0050D4C7                 mov     [ebp+var_C], edx                                      89 55 F4
+
+                               ; calc handling impact
+                               ; 31 - ChampionshipPosition1To11 - Random0To20 = 0-30
+.text:0050D4CA                 mov     edx, [ebp+var_C]                                      8B 55 F4
+.text:0050D4CD                 mov     eax, 1Fh          ; 31                                B8 1F 00 00 00
+.text:0050D4D2                 sub     eax, edx          ; subtract Random0To20              2B C2
+.text:0050D4D4                 mov     ecx, [ebp+var_8]                                      8B 4D F8
+.text:0050D4D7                 imul    ecx, 1E90h                                            69 C9 90 1E 00 00
+.text:0050D4DD                 mov     edx, ds:dword_1202594[ecx]                            8B 91 94 25 20 01
+.text:0050D4E3                 sub     eax, edx          ; sub ChampionshipPosition1To11     2B C2
+.text:0050D4E5                 mov     [ebp+var_C], eax                                      89 45 F4
+
+                               ; add handling impact to handling
+.text:0050D4E8                 mov     edx, [ebp+var_4]                                      8B 55 FC
+.text:0050D4EB                 mov     eax, [ebp+var_C]                                      8B 45 F4
+.text:0050D4EE                 add     edx, eax                                              03 D0
+.text:0050D4F0                 mov     [ebp+var_4], edx                                      89 55 FC
+
+                               ; if handling is less than or equal to zero, make zero
+.text:0050D4F3                 cmp     [ebp+var_4], 0    ; if 0 or less                      83 7D FC 00
+.text:0050D4F7                 jg      short loc_50D500  ; else skip next line               7F 07
+.text:0050D4F9                 mov     [ebp+var_4], 0    ; make 0                            C7 45 FC 00 00 00 00
+
+                               ; Level 1 Designer & Level 1 Engineer & 11th place
+                               ; = Min of 0% and Max of 20%
+                               ; Level 5 Designer & Level 5 Engineer & 1st place
+                               ; = Min of 90% and Max of 110%
+
+.text:0050D500                 ; populate handling variables
+.text:0050D500 loc_50D500:                             ; CODE XREF: sub_50D41E+D9j
+.text:0050D500                 mov     eax, [ebp+var_8]                                      8B 45 F8
+.text:0050D503                 imul    eax, 2FCh                                             69 C0 FC 02 00 00
+.text:0050D509                 mov     ecx, [ebp+var_4]                                      8B 4D FC
+.text:0050D50C                 mov     ds:dword_8CF528[eax], ecx                             89 88 28 F5 8C 00
+.text:0050D512                 mov     edx, [ebp+var_8]                                      8B 55 F8
+.text:0050D515                 imul    edx, 2FCh                                             69 D2 FC 02 00 00
+.text:0050D51B                 mov     eax, [ebp+var_4]                                      8B 45 FC
+.text:0050D51E                 mov     ds:dword_8CF530[edx], eax                             89 82 30 F5 8C 00
+.text:0050D524                 mov     ecx, [ebp+var_8]                                      8B 4D F8
+.text:0050D527                 imul    ecx, 2FCh                                             69 C9 FC 02 00 00
+.text:0050D52D                 mov     edx, [ebp+var_4]                                      8B 55 FC
+.text:0050D530                 mov     ds:dword_8CF52C[ecx], edx                             89 91 2C F5 8C 00
+
+                               ; top of loop
+.text:0050D536                 jmp     loc_50D430                                            E9 F5 FE FF FF
+.text:0050D53B ; ---------------------------------------------------------------------------
+.text:0050D53B
+.text:0050D53B loc_50D53B:     ; end sub               ; CODE XREF: sub_50D41E+1Fj
+.text:0050D53B                 pop     edi                                                   5F
+.text:0050D53C                 pop     esi                                                   5E
+.text:0050D53D                 pop     ebx                                                   5B
+.text:0050D53E                 leave                                                         C9
+.text:0050D53F                 retn                                                          C3
+.text:0050D53F sub_50D41E      endp
+.text:0050D53F
+.text:0050D53F ; ---------------------------------------------------------------------------
+.text:0050D540                 db 376h dup(90h)
+.text:0050D8B6                 dd 90909090h
+.text:0050D8BA                 db 13h dup(90h)
+.text:0050D8CD                 dd 90909090h
+.text:0050D8D1                 db 71h dup(90h)
+.text:0050D942                 dd 90909090h
+.text:0050D946                 db 3Eh dup(90h)
+.text:0050D984                 dd 90909090h
+.text:0050D988                 db 14h dup(90h)
+.text:0050D99C                 dd 90909090h
+.text:0050D9A0                 db 14h dup(90h)
+.text:0050D9B4                 dd 90909090h
+.text:0050D9B8                 db 14h dup(90h)
+.text:0050D9CC                 dd 90909090h
+.text:0050D9D0                 db 14h dup(90h)
+.text:0050D9E4                 dd 90909090h
+.text:0050D9E8                 db 0Ah dup(90h)

@@ -1,0 +1,251 @@
+.text:005FCBBE ; =============== S U B R O U T I N E =======================================
+.text:005FCBBE
+.text:005FCBBE ; Attributes: bp-based frame
+.text:005FCBBE
+.text:005FCBBE GpwRace_CalcPostRacePoints proc near    ; CODE XREF: j_GpwRace_CalcPostRacePointsj
+.text:005FCBBE
+.text:005FCBBE var_28          = dword ptr -28h
+.text:005FCBBE var_24          = dword ptr -24h
+.text:005FCBBE var_20          = dword ptr -20h
+.text:005FCBBE var_1C          = dword ptr -1Ch
+.text:005FCBBE var_18          = dword ptr -18h
+.text:005FCBBE var_14          = dword ptr -14h
+.text:005FCBBE var_10          = dword ptr -10h
+.text:005FCBBE var_C           = dword ptr -0Ch
+.text:005FCBBE var_8           = dword ptr -8
+.text:005FCBBE var_4           = dword ptr -4
+.text:005FCBBE
+.text:005FCBBE                 push    ebp
+.text:005FCBBF                 mov     ebp, esp
+.text:005FCBC1                 sub     esp, 28h
+.text:005FCBC4                 mov     [ebp+var_24], 0
+.text:005FCBCB                 mov     [ebp+var_20], 0Ah
+.text:005FCBD2                 mov     [ebp+var_1C], 6
+.text:005FCBD9                 mov     [ebp+var_18], 4
+.text:005FCBE0                 mov     [ebp+var_14], 3
+.text:005FCBE7                 mov     [ebp+var_10], 2
+.text:005FCBEE                 mov     [ebp+var_C], 1
+.text:005FCBF5                 mov     [ebp+var_8], 1
+.text:005FCBFC                 jmp     short loc_5FCC07
+.text:005FCBFE ; ---------------------------------------------------------------------------
+.text:005FCBFE
+.text:005FCBFE loc_5FCBFE:                             ; CODE XREF: GpwRace_CalcPostRacePoints:loc_5FCC90j
+.text:005FCBFE                 mov     eax, [ebp+var_8]
+.text:005FCC01                 add     eax, 1
+.text:005FCC04                 mov     [ebp+var_8], eax
+.text:005FCC07
+.text:005FCC07 loc_5FCC07:                             ; CODE XREF: GpwRace_CalcPostRacePoints+3Ej
+.text:005FCC07                 cmp     [ebp+var_8], 6
+.text:005FCC0B                 jg      loc_5FCC95
+.text:005FCC11                 mov     ecx, [ebp+var_8]
+.text:005FCC14                 imul    ecx, 2B0h
+.text:005FCC1A                 mov     edx, dword_84CD44[ecx]
+.text:005FCC20                 mov     [ebp+var_28], edx
+.text:005FCC23                 mov     eax, [ebp+var_28]
+.text:005FCC26                 imul    eax, 1E90h
+.text:005FCC2C                 mov     ecx, dword_178285C[eax]
+.text:005FCC32                 mov     edx, [ebp+var_8]
+.text:005FCC35                 add     ecx, [ebp+edx*4+var_24]
+.text:005FCC39                 mov     eax, [ebp+var_28]
+.text:005FCC3C                 imul    eax, 1E90h
+.text:005FCC42                 mov     dword_178285C[eax], ecx
+.text:005FCC48                 cmp     [ebp+var_8], 1
+.text:005FCC4C                 jnz     short loc_5FCC90
+.text:005FCC4E                 mov     ecx, [ebp+var_28]
+.text:005FCC51                 imul    ecx, 1E90h
+.text:005FCC57                 mov     edx, dword_1782860[ecx]
+.text:005FCC5D                 add     edx, 1
+.text:005FCC60                 mov     eax, [ebp+var_28]
+.text:005FCC63                 imul    eax, 1E90h
+.text:005FCC69                 mov     dword_1782860[eax], edx
+.text:005FCC6F                 mov     ecx, [ebp+var_28]
+.text:005FCC72                 imul    ecx, 1E90h
+.text:005FCC78                 mov     edx, dword_178286C[ecx]
+.text:005FCC7E                 add     edx, 1
+.text:005FCC81                 mov     eax, [ebp+var_28]
+.text:005FCC84                 imul    eax, 1E90h
+.text:005FCC8A                 mov     dword_178286C[eax], edx
+.text:005FCC90
+.text:005FCC90 loc_5FCC90:                             ; CODE XREF: GpwRace_CalcPostRacePoints+8Ej
+.text:005FCC90                 jmp     loc_5FCBFE
+.text:005FCC95 ; ---------------------------------------------------------------------------
+.text:005FCC95
+.text:005FCC95 loc_5FCC95:                             ; CODE XREF: GpwRace_CalcPostRacePoints+4Dj
+.text:005FCC95                 mov     [ebp+var_8], 1
+.text:005FCC9C                 jmp     short loc_5FCCA7
+.text:005FCC9E ; ---------------------------------------------------------------------------
+.text:005FCC9E
+.text:005FCC9E loc_5FCC9E:                             ; CODE XREF: GpwRace_CalcPostRacePoints+27Dj
+.text:005FCC9E                 mov     ecx, [ebp+var_8]
+.text:005FCCA1                 add     ecx, 1
+.text:005FCCA4                 mov     [ebp+var_8], ecx
+.text:005FCCA7
+.text:005FCCA7 loc_5FCCA7:                             ; CODE XREF: GpwRace_CalcPostRacePoints+DEj
+.text:005FCCA7                 cmp     [ebp+var_8], 6
+.text:005FCCAB                 jg      loc_5FCE40
+.text:005FCCB1                 mov     edx, [ebp+var_8]
+.text:005FCCB4                 imul    edx, 2B0h
+.text:005FCCBA                 mov     eax, dword_84CD40[edx]
+.text:005FCCC0                 mov     [ebp+var_4], eax
+.text:005FCCC3                 mov     ecx, [ebp+var_8]
+.text:005FCCC6                 imul    ecx, 2B0h
+.text:005FCCCC                 mov     edx, dword_84CD44[ecx]
+.text:005FCCD2                 mov     [ebp+var_28], edx
+.text:005FCCD5                 cmp     [ebp+var_8], 1
+.text:005FCCD9                 jnz     loc_5FCDD0
+.text:005FCCDF                 mov     eax, [ebp+var_8]
+.text:005FCCE2                 imul    eax, 2B0h
+.text:005FCCE8                 mov     ecx, dword_7E1780[eax]
+.text:005FCCEE                 imul    ecx, 0DF8h
+.text:005FCCF4                 mov     edx, dword_151D480[ecx]
+.text:005FCCFA                 add     edx, 1
+.text:005FCCFD                 mov     eax, [ebp+var_8]
+.text:005FCD00                 imul    eax, 2B0h
+.text:005FCD06                 mov     ecx, dword_7E1780[eax]
+.text:005FCD0C                 imul    ecx, 0DF8h
+.text:005FCD12                 mov     dword_151D480[ecx], edx
+.text:005FCD18                 mov     edx, [ebp+var_8]
+.text:005FCD1B                 imul    edx, 2B0h
+.text:005FCD21                 mov     eax, dword_7E1780[edx]
+.text:005FCD27                 imul    eax, 0DF8h
+.text:005FCD2D                 cmp     dword_151D480[eax], 1
+.text:005FCD34                 jnz     short loc_5FCD55
+.text:005FCD36                 mov     ecx, [ebp+var_8]
+.text:005FCD39                 imul    ecx, 2B0h
+.text:005FCD3F                 mov     edx, dword_7E1780[ecx]
+.text:005FCD45                 imul    edx, 0DF8h
+.text:005FCD4B                 mov     dword_151E228[edx], 1
+.text:005FCD55
+.text:005FCD55 loc_5FCD55:                             ; CODE XREF: GpwRace_CalcPostRacePoints+176j
+.text:005FCD55                 mov     eax, [ebp+var_8]
+.text:005FCD58                 imul    eax, 2B0h
+.text:005FCD5E                 mov     ecx, dword_7E1780[eax]
+.text:005FCD64                 imul    ecx, 0DF8h
+.text:005FCD6A                 mov     edx, dword_151D484[ecx]
+.text:005FCD70                 add     edx, 1
+.text:005FCD73                 mov     eax, [ebp+var_8]
+.text:005FCD76                 imul    eax, 2B0h
+.text:005FCD7C                 mov     ecx, dword_7E1780[eax]
+.text:005FCD82                 imul    ecx, 0DF8h
+.text:005FCD88                 mov     dword_151D484[ecx], edx
+.text:005FCD8E                 mov     edx, [ebp+var_4]
+.text:005FCD91                 imul    edx, 0DF8h
+.text:005FCD97                 mov     eax, dword_151D47C[edx]
+.text:005FCD9D                 add     eax, 1
+.text:005FCDA0                 mov     ecx, [ebp+var_4]
+.text:005FCDA3                 imul    ecx, 0DF8h
+.text:005FCDA9                 mov     dword_151D47C[ecx], eax
+.text:005FCDAF                 mov     edx, [ebp+var_4]
+.text:005FCDB2                 imul    edx, 0DF8h
+.text:005FCDB8                 mov     eax, dword_151D488[edx]
+.text:005FCDBE                 add     eax, 1
+.text:005FCDC1                 mov     ecx, [ebp+var_4]
+.text:005FCDC4                 imul    ecx, 0DF8h
+.text:005FCDCA                 mov     dword_151D488[ecx], eax
+.text:005FCDD0
+.text:005FCDD0 loc_5FCDD0:                             ; CODE XREF: GpwRace_CalcPostRacePoints+11Bj
+.text:005FCDD0                 mov     edx, [ebp+var_4]
+.text:005FCDD3                 imul    edx, 0DF8h
+.text:005FCDD9                 mov     eax, dword_151E0C4[edx]
+.text:005FCDDF                 add     eax, 1
+.text:005FCDE2                 mov     ecx, [ebp+var_4]
+.text:005FCDE5                 imul    ecx, 0DF8h
+.text:005FCDEB                 mov     dword_151E0C4[ecx], eax
+.text:005FCDF1                 mov     edx, [ebp+var_4]
+.text:005FCDF4                 imul    edx, 0DF8h
+.text:005FCDFA                 mov     eax, dword_151D46C[edx]
+.text:005FCE00                 mov     ecx, [ebp+var_8]
+.text:005FCE03                 add     eax, [ebp+ecx*4+var_24]
+.text:005FCE07                 mov     edx, [ebp+var_4]
+.text:005FCE0A                 imul    edx, 0DF8h
+.text:005FCE10                 mov     dword_151D46C[edx], eax
+.text:005FCE16                 mov     eax, [ebp+var_4]
+.text:005FCE19                 imul    eax, 0DF8h
+.text:005FCE1F                 mov     ecx, dword_151D470[eax]
+.text:005FCE25                 mov     edx, [ebp+var_8]
+.text:005FCE28                 add     ecx, [ebp+edx*4+var_24]
+.text:005FCE2C                 mov     eax, [ebp+var_4]
+.text:005FCE2F                 imul    eax, 0DF8h
+.text:005FCE35                 mov     dword_151D470[eax], ecx
+.text:005FCE3B                 jmp     loc_5FCC9E
+.text:005FCE40 ; ---------------------------------------------------------------------------
+.text:005FCE40
+.text:005FCE40 loc_5FCE40:                             ; CODE XREF: GpwRace_CalcPostRacePoints+EDj
+.text:005FCE40                 mov     [ebp+var_8], 1
+.text:005FCE47                 jmp     short loc_5FCE52
+.text:005FCE49 ; ---------------------------------------------------------------------------
+.text:005FCE49
+.text:005FCE49 loc_5FCE49:                             ; CODE XREF: GpwRace_CalcPostRacePoints+2ECj
+.text:005FCE49                 mov     ecx, [ebp+var_8]
+.text:005FCE4C                 add     ecx, 1
+.text:005FCE4F                 mov     [ebp+var_8], ecx
+.text:005FCE52
+.text:005FCE52 loc_5FCE52:                             ; CODE XREF: GpwRace_CalcPostRacePoints+289j
+.text:005FCE52                 cmp     [ebp+var_8], 16h
+.text:005FCE56                 jg      short loc_5FCEAC
+.text:005FCE58                 mov     edx, [ebp+var_8]
+.text:005FCE5B                 imul    edx, 2B0h
+.text:005FCE61                 mov     eax, dword_84CD40[edx]
+.text:005FCE67                 mov     [ebp+var_4], eax
+.text:005FCE6A                 mov     ecx, [ebp+var_8]
+.text:005FCE6D                 imul    ecx, 2B0h
+.text:005FCE73                 mov     edx, dword_84CD44[ecx]
+.text:005FCE79                 mov     [ebp+var_28], edx
+.text:005FCE7C                 mov     eax, [ebp+var_4]
+.text:005FCE7F                 imul    eax, 0DF8h
+.text:005FCE85                 mov     ecx, [ebp+var_8]
+.text:005FCE88                 mov     dword_151D48C[eax+ecx*4], 0
+.text:005FCE93                 mov     edx, [ebp+var_28]
+.text:005FCE96                 imul    edx, 1E90h
+.text:005FCE9C                 mov     eax, [ebp+var_8]
+.text:005FCE9F                 mov     dword_1782874[edx+eax*4], 0
+.text:005FCEAA                 jmp     short loc_5FCE49
+.text:005FCEAC ; ---------------------------------------------------------------------------
+.text:005FCEAC
+.text:005FCEAC loc_5FCEAC:                             ; CODE XREF: GpwRace_CalcPostRacePoints+298j
+.text:005FCEAC                 mov     [ebp+var_8], 1
+.text:005FCEB3                 jmp     short loc_5FCEBE
+.text:005FCEB5 ; ---------------------------------------------------------------------------
+.text:005FCEB5
+.text:005FCEB5 loc_5FCEB5:                             ; CODE XREF: GpwRace_CalcPostRacePoints+37Cj
+.text:005FCEB5                 mov     ecx, [ebp+var_8]
+.text:005FCEB8                 add     ecx, 1
+.text:005FCEBB                 mov     [ebp+var_8], ecx
+.text:005FCEBE
+.text:005FCEBE loc_5FCEBE:                             ; CODE XREF: GpwRace_CalcPostRacePoints+2F5j
+.text:005FCEBE                 cmp     [ebp+var_8], 16h
+.text:005FCEC2                 jg      short loc_5FCF3F
+.text:005FCEC4                 mov     edx, [ebp+var_8]
+.text:005FCEC7                 imul    edx, 2B0h
+.text:005FCECD                 mov     eax, dword_84CD40[edx]
+.text:005FCED3                 mov     [ebp+var_4], eax
+.text:005FCED6                 mov     ecx, [ebp+var_8]
+.text:005FCED9                 imul    ecx, 2B0h
+.text:005FCEDF                 mov     edx, dword_84CD44[ecx]
+.text:005FCEE5                 mov     [ebp+var_28], edx
+.text:005FCEE8                 mov     eax, [ebp+var_4]
+.text:005FCEEB                 imul    eax, 0DF8h
+.text:005FCEF1                 mov     ecx, [ebp+var_8]
+.text:005FCEF4                 mov     edx, dword_151D48C[eax+ecx*4]
+.text:005FCEFB                 add     edx, 1
+.text:005FCEFE                 mov     eax, [ebp+var_4]
+.text:005FCF01                 imul    eax, 0DF8h
+.text:005FCF07                 mov     ecx, [ebp+var_8]
+.text:005FCF0A                 mov     dword_151D48C[eax+ecx*4], edx
+.text:005FCF11                 mov     edx, [ebp+var_28]
+.text:005FCF14                 imul    edx, 1E90h
+.text:005FCF1A                 mov     eax, [ebp+var_8]
+.text:005FCF1D                 mov     ecx, dword_1782874[edx+eax*4]
+.text:005FCF24                 add     ecx, 1
+.text:005FCF27                 mov     edx, [ebp+var_28]
+.text:005FCF2A                 imul    edx, 1E90h
+.text:005FCF30                 mov     eax, [ebp+var_8]
+.text:005FCF33                 mov     dword_1782874[edx+eax*4], ecx
+.text:005FCF3A                 jmp     loc_5FCEB5
+.text:005FCF3F ; ---------------------------------------------------------------------------
+.text:005FCF3F
+.text:005FCF3F loc_5FCF3F:                             ; CODE XREF: GpwRace_CalcPostRacePoints+304j
+.text:005FCF3F                 mov     esp, ebp
+.text:005FCF41                 pop     ebp
+.text:005FCF42                 retn
+.text:005FCF42 GpwRace_CalcPostRacePoints endp

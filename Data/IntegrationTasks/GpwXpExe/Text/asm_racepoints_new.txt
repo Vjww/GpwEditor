@@ -1,0 +1,243 @@
+; ---------------------------------------------------------------------------
+; NEW -----------------------------------------------------------------------
+; START 005FCBBE (1FBFBE) END 005FCF42 SIZE 384 (900b) ----------------------
+; ---------------------------------------------------------------------------
+
+; =============== S U B R O U T I N E =======================================
+
+; Attributes: bp-based frame
+
+GpwRace_CalcPostRacePoints proc near
+
+loc_start:		; start
+                var_38          = dword ptr -38h	; v4	0
+                var_34          = dword ptr -34h	; v5	25
+                var_30          = dword ptr -30h	; v6	18
+                var_2C          = dword ptr -2Ch	; v7	15
+                var_28          = dword ptr -28h	; v8	12
+                var_24          = dword ptr -24h	; v9	10
+                var_20          = dword ptr -20h	; v10	8
+                var_1C          = dword ptr -1Ch	; v11	6
+                var_18          = dword ptr -18h	; v12	4
+                var_14          = dword ptr -14h	; v13	2
+                var_10          = dword ptr -10h	; v14	1
+                var_C           = dword ptr -0Ch	; v2	index2
+                var_8           = dword ptr -8		; i		counter
+                var_4           = dword ptr -4		; v1	index1
+
+                push    ebp														55
+                mov     ebp, esp												8B EC
+                sub     esp, 38h												83 EC 38
+                mov     [ebp+var_38], 0											C7 45 C8 00 00 00 00
+                mov     [ebp+var_34], 19h										C7 45 CC 19 00 00 00
+                mov     [ebp+var_30], 12h										C7 45 D0 12 00 00 00
+                mov     [ebp+var_2C], 0Fh										C7 45 D4 0F 00 00 00
+                mov     [ebp+var_28], 0Ch										C7 45 D8 0C 00 00 00
+                mov     [ebp+var_24], 0Ah										C7 45 DC 0A 00 00 00
+                mov     [ebp+var_20], 8											C7 45 E0 08 00 00 00
+                mov     [ebp+var_1C], 6											C7 45 E4 06 00 00 00
+                mov     [ebp+var_18], 4											C7 45 E8 04 00 00 00
+                mov     [ebp+var_14], 2											C7 45 EC 02 00 00 00
+                mov     [ebp+var_10], 1											C7 45 F0 01 00 00 00
+                mov     [ebp+var_8], 1											C7 45 F8 01 00 00 00
+                jmp     short loc_loop											EB 09
+; ---------------------------------------------------------------------------
+
+loc_incloop:	; increment loop
+                mov     ecx, [ebp+var_8]										8B 4D F8
+                add     ecx, 1													83 C1 01
+                mov     [ebp+var_8], ecx										89 4D F8
+
+loc_loop:		; for loop
+                cmp     [ebp+var_8], 0Ah			; points positions			83 7D F8 0A
+                jg      loc_endloop					; jumpout		; fix		0F 8F F6 01 00 00
+
+				; populate var_4 and var_C
+                mov     edx, [ebp+var_8]										8B 55 F8
+                imul    edx, 2B0h												69 D2 B0 02 00 00
+                mov     eax, dword_84CD40[edx]									8B 82 40 CD 84 00
+                mov     [ebp+var_4], eax										89 45 FC
+                mov     ecx, [ebp+var_8]										8B 4D F8
+                imul    ecx, 2B0h												69 C9 B0 02 00 00
+                mov     edx, dword_84CD44[ecx]									8B 91 44 CD 84 00
+                mov     [ebp+var_C], edx										89 55 F4
+				
+; ADDED
+                mov     eax, [ebp+var_C]										8B 45 F4
+                imul    eax, 1E90h												69 C0 90 1E 00 00
+                mov     ecx, dword_178285C[eax]									8B 88 5C 28 78 01
+                mov     edx, [ebp+var_8]										8B 55 F8
+                add     ecx, [ebp+edx*4+var_38]									03 4C 95 C8
+                mov     eax, [ebp+var_C]										8B 45 F4
+                imul    eax, 1E90h												69 C0 90 1E 00 00
+                mov     dword_178285C[eax], ecx									89 88 5C 28 78 01
+; ADDED				
+
+				; outer if
+                cmp     [ebp+var_8], 1											83 7D F8 01
+                jnz     loc_endouterif								; fix		0F 85 33 01 00 00
+
+; ADDED
+                mov     ecx, [ebp+var_C]										8B 4D F4
+                imul    ecx, 1E90h												69 C9 90 1E 00 00
+                mov     edx, dword_1782860[ecx]									8B 91 60 28 78 01
+                add     edx, 1													83 C2 01
+                mov     eax, [ebp+var_C]										8B 45 F4
+                imul    eax, 1E90h												69 C0 90 1E 00 00
+                mov     dword_1782860[eax], edx									89 90 60 28 78 01
+
+                mov     ecx, [ebp+var_C]										8B 4D F4
+                imul    ecx, 1E90h												69 C9 90 1E 00 00
+                mov     edx, dword_178286C[ecx]									8B 91 6C 28 78 01
+                add     edx, 1													83 C2 01
+                mov     eax, [ebp+var_C]										8B 45 F4
+                imul    eax, 1E90h												69 C0 90 1E 00 00
+                mov     dword_178286C[eax], edx									89 90 6C 28 78 01
+; ADDED				
+				
+                mov     eax, [ebp+var_8]										8B 45 F8
+                imul    eax, 2B0h												69 C0 B0 02 00 00
+                mov     ecx, dword_7E1780[eax]									8B 88 80 17 7E 00
+                imul    ecx, 0DF8h												69 C9 F8 0D 00 00
+                mov     edx, dword_151D480[ecx]									8B 91 80 D4 51 01
+                add     edx, 1													83 C2 01
+                mov     eax, [ebp+var_8]										8B 45 F8
+                imul    eax, 2B0h												69 C0 B0 02 00 00
+                mov     ecx, dword_7E1780[eax]									8B 88 80 17 7E 00
+                imul    ecx, 0DF8h												69 C9 F8 0D 00 00
+                mov     dword_151D480[ecx], edx									89 91 80 D4 51 01
+
+				; inner if
+                mov     edx, [ebp+var_8]										8B 55 F8
+                imul    edx, 2B0h												69 D2 B0 02 00 00
+                mov     eax, dword_7E1780[edx]									8B 82 80 17 7E 00
+                imul    eax, 0DF8h												69 C0 F8 0D 00 00
+                cmp     dword_151D480[eax], 1									83 B8 80 D4 51 01 01
+                jnz     short loc_endinnerif						; fix		75 1F
+                mov     ecx, [ebp+var_8]										8B 4D F8
+                imul    ecx, 2B0h												69 C9 B0 02 00 00
+                mov     edx, dword_7E1780[ecx]									8B 91 80 17 7E 00
+                imul    edx, 0DF8h												69 D2 F8 0D 00 00
+                mov     dword_151E228[edx], 1									C7 82 28 E2 51 01 01 00 00 00
+				; end inner if
+
+loc_endinnerif:
+                mov     eax, [ebp+var_8]										8B 45 F8
+                imul    eax, 2B0h												69 C0 B0 02 00 00
+                mov     ecx, dword_7E1780[eax]									8B 88 80 17 7E 00
+                imul    ecx, 0DF8h												69 C9 F8 0D 00 00
+                mov     edx, dword_151D484[ecx]									8B 91 84 D4 51 01
+                add     edx, 1													83 C2 01
+                mov     eax, [ebp+var_8]										8B 45 F8
+                imul    eax, 2B0h												69 C0 B0 02 00 00
+                mov     ecx, dword_7E1780[eax]									8B 88 80 17 7E 00
+                imul    ecx, 0DF8h												69 C9 F8 0D 00 00
+                mov     dword_151D484[ecx], edx									89 91 84 D4 51 01
+                mov     edx, [ebp+var_4]										8B 55 FC
+                imul    edx, 0DF8h												69 D2 F8 0D 00 00
+                mov     eax, dword_151D47C[edx]									8B 82 7C D4 51 01
+                add     eax, 1													83 C0 01
+                mov     ecx, [ebp+var_4]										8B 4D FC
+                imul    ecx, 0DF8h												69 C9 F8 0D 00 00
+                mov     dword_151D47C[ecx], eax									89 81 7C D4 51 01
+                mov     edx, [ebp+var_4]										8B 55 FC
+                imul    edx, 0DF8h												69 D2 F8 0D 00 00
+                mov     eax, dword_151D488[edx]									8B 82 88 D4 51 01
+                add     eax, 1													83 C0 01
+                mov     ecx, [ebp+var_4]										8B 4D FC
+                imul    ecx, 0DF8h												69 C9 F8 0D 00 00
+                mov     dword_151D488[ecx], eax									89 81 88 D4 51 01
+				; end outer if
+
+loc_endouterif:
+                mov     edx, [ebp+var_4]										8B 55 FC
+                imul    edx, 0DF8h												69 D2 F8 0D 00 00
+                mov     eax, dword_151E0C4[edx]									8B 82 C4 E0 51 01
+                add     eax, 1													83 C0 01
+                mov     ecx, [ebp+var_4]										8B 4D FC
+                imul    ecx, 0DF8h												69 C9 F8 0D 00 00
+                mov     dword_151E0C4[ecx], eax									89 81 C4 E0 51 01
+                mov     edx, [ebp+var_4]										8B 55 FC
+                imul    edx, 0DF8h												69 D2 F8 0D 00 00
+                mov     eax, dword_151D46C[edx]									8B 82 6C D4 51 01
+                mov     ecx, [ebp+var_8]										8B 4D F8
+                add     eax, [ebp+ecx*4+var_38]									03 44 8D C8
+                mov     edx, [ebp+var_4]										8B 55 FC
+                imul    edx, 0DF8h												69 D2 F8 0D 00 00
+                mov     dword_151D46C[edx], eax									89 82 6C D4 51 01
+                mov     eax, [ebp+var_4]										8B 45 FC
+                imul    eax, 0DF8h												69 C0 F8 0D 00 00
+                mov     ecx, dword_151D470[eax]									8B 88 70 D4 51 01
+                mov     edx, [ebp+var_8]										8B 55 F8
+                add     ecx, [ebp+edx*4+var_38]									03 4C 95 C8
+                mov     eax, [ebp+var_4]										8B 45 FC
+                imul    eax, 0DF8h												69 C0 F8 0D 00 00
+                mov     dword_151D470[eax], ecx									89 88 70 D4 51 01
+				
+				; jump to top of loop
+                jmp     loc_incloop									; fix		E9 F7 FD FF FF
+; ---------------------------------------------------------------------------
+
+loc_endloop:	; reset loop counter, jump into new loop
+                mov     [ebp+var_8], 1											C7 45 F8 01 00 00 00
+                jmp     short loc_forloop2										EB 09
+; ---------------------------------------------------------------------------
+
+loc_incloop2:	; increment loop
+                mov     ecx, [ebp+var_8]										8B 4D F8
+                add     ecx, 1													83 C1 01
+                mov     [ebp+var_8], ecx										89 4D F8
+
+loc_forloop2:	; for loop
+                cmp     [ebp+var_8], 16h			; number of drivers			83 7D F8 16
+                jg      loc_end						; jumpout		; fix		0F 8F A9 00 00 00
+				
+				; populate var_4 and var_C
+                mov     edx, [ebp+var_8]										8B 55 F8
+                imul    edx, 2B0h												69 D2 B0 02 00 00
+                mov     eax, dword_84CD40[edx]									8B 82 40 CD 84 00
+                mov     [ebp+var_4], eax										89 45 FC
+                mov     ecx, [ebp+var_8]										8B 4D F8
+                imul    ecx, 2B0h												69 C9 B0 02 00 00
+                mov     edx, dword_84CD44[ecx]									8B 91 44 CD 84 00
+                mov     [ebp+var_C], edx										89 55 F4
+				
+                mov     eax, [ebp+var_4]										8B 45 FC
+                imul    eax, 0DF8h												69 C0 F8 0D 00 00
+                mov     ecx, [ebp+var_8]										8B 4D F8
+                mov     dword_151D48C[eax+ecx*4], 0								C7 84 88 8C D4 51 01 00 00 00 00
+                mov     edx, [ebp+var_C]										8B 55 F4
+                imul    edx, 1E90h												69 D2 90 1E 00 00
+                mov     eax, [ebp+var_8]										8B 45 F8
+                mov     dword_1782874[edx+eax*4], 0								C7 84 82 74 28 78 01 00 00 00 00
+				
+; ADDED
+                mov     eax, [ebp+var_4]										8B 45 FC
+                imul    eax, 0DF8h												69 C0 F8 0D 00 00
+                mov     ecx, [ebp+var_8]										8B 4D F8
+                mov     edx, dword_151D48C[eax+ecx*4]							8B 94 88 8C D4 51 01
+                add     edx, 1													83 C2 01
+                mov     eax, [ebp+var_4]										8B 45 FC
+                imul    eax, 0DF8h												69 C0 F8 0D 00 00
+                mov     ecx, [ebp+var_8]										8B 4D F8
+                mov     dword_151D48C[eax+ecx*4], edx							89 94 88 8C D4 51 01
+                mov     edx, [ebp+var_C]										8B 55 F4
+                imul    edx, 1E90h												69 D2 90 1E 00 00
+                mov     eax, [ebp+var_8]										8B 45 F8
+                mov     ecx, dword_1782874[edx+eax*4]							8B 8C 82 74 28 78 01
+                add     ecx, 1													83 C1 01
+                mov     edx, [ebp+var_C]										8B 55 F4
+                imul    edx, 1E90h												69 D2 90 1E 00 00
+                mov     eax, [ebp+var_8]										8B 45 F8
+                mov     dword_1782874[edx+eax*4], ecx							89 8C 82 74 28 78 01
+; ADDED
+				
+				; jump to top of loop
+                jmp     loc_incloop2								; fix		E9 44 FF FF FF
+; ---------------------------------------------------------------------------
+
+loc_end:		; end
+                mov     esp, ebp												8B E5
+                pop     ebp														5D
+                retn															C3
+GpwRace_CalcPostRacePoints endp

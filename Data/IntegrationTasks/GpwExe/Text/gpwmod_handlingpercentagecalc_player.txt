@@ -1,0 +1,312 @@
+;  START: 0050C449
+;    END: 0050C7A1
+; LENGTH: 00000358 (856 bytes)
+;   FILE: 0010B849
+
+; Revised code alters the calculation used to determine next year's car
+; handling percentage for player teams.  The new calculation factors in the
+; skill levels of both the Chief Designer (25%) and the Technical Director
+; (75%) and multiplies this value by a percentage weighting (in brackets). A
+; random aspect is introduced into the calculation to reduce the final
+; percentage by anywhere between 0% and 10%.
+
+.text:0050C449
+.text:0050C449 ; =============== S U B R O U T I N E =======================================
+.text:0050C449
+.text:0050C449 ; Attributes: bp-based frame
+.text:0050C449
+.text:0050C449 sub_50C449      proc near               ; CODE XREF: sub_401D11j
+.text:0050C449
+.text:0050C449 var_8           = dword ptr -8
+.text:0050C449 var_4           = dword ptr -4
+.text:0050C449 arg_0           = dword ptr  8
+.text:0050C449
+.text:0050C449                 push    ebp                                                   55
+.text:0050C44A                 mov     ebp, esp                                              8B EC
+.text:0050C44C                 sub     esp, 8                                                83 EC 08
+.text:0050C44F                 push    ebx                                                   53
+.text:0050C450                 push    esi                                                   56
+.text:0050C451                 push    edi                                                   57
+
+                               ; get design efficiency
+.text:0050C452                 mov     eax, [ebp+arg_0]                                      8B 45 08
+.text:0050C455                 push    eax                                                   50
+.text:0050C456                 call    sub_40130C                                            E8 B1 4E EF FF
+.text:0050C45B                 add     esp, 4                                                83 C4 04
+.text:0050C45E                 mov     ecx, [ebp+arg_0]                                      8B 4D 08
+.text:0050C461                 imul    ecx, 2FCh                                             69 C9 FC 02 00 00
+.text:0050C467                 mov     ds:dword_8CF4A0[ecx], eax                             89 81 A0 F4 8C 00
+
+                               ; get designer skill
+.text:0050C46D                 mov     edx, dword_15F60A8                                    8B 15 A8 60 5F 01
+.text:0050C473                 push    edx                                                   52
+.text:0050C474                 mov     eax, [ebp+8]                                          8B 45 08
+.text:0050C477                 push    eax                                                   50
+.text:0050C478                 call    sub_4037B0                                            E8 33 73 EF FF
+.text:0050C47D                 add     esp, 8                                                83 C4 08
+.text:0050C480                 mov     [ebp+var_8], eax                                      89 45 F8
+
+                               ; multiply by factor
+.text:0050C483                 mov     ecx, [ebp+var_8]                                      8B 4D F8
+.text:0050C486                 sub     ecx, 1                                                83 E9 01
+.text:0050C489                 imul    ecx, 5                                                6B C9 05
+.text:0050C48C                 mov     [ebp+var_4], ecx                                      89 4D FC
+
+                               ; get engineer skill
+.text:0050C48F                 mov     edx, dword_15F60AC                                    8B 15 AC 60 5F 01
+.text:0050C495                 push    edx                                                   52
+.text:0050C496                 mov     eax, [ebp+arg_0]                                      8B 45 08
+.text:0050C499                 push    eax                                                   50
+.text:0050C49A                 call    sub_4037B0                                            E8 11 73 EF FF
+.text:0050C49F                 add     esp, 8                                                83 C4 08
+.text:0050C4A2                 mov     [ebp+var_8], eax                                      89 45 F8
+
+                               ; multiply by factor
+.text:0050C4A5                 mov     ecx, [ebp+var_8]                                      8B 4D F8
+.text:0050C4A8                 sub     ecx, 1                                                83 E9 01
+.text:0050C4AB                 imul    ecx, 0Fh                                              6B C9 0F
+.text:0050C4AE                 mov     edx, [ebp+var_4]                                      8B 55 FC
+
+                               ; add to handling (carry over ecx)
+.text:0050C4B1                 add     ecx, edx                                              03 CA
+.text:0050C4B3                 mov     [ebp+var_4], ecx                                      89 4D FC
+
+                               ; add handling efficiency bonus to handling (if/else if)
+.text:0050C4B6                 mov     edx, [ebp+arg_0]                                      8B 55 08
+.text:0050C4B9                 imul    edx, 2FCh                                             69 D2 FC 02 00 00
+.text:0050C4BF                 cmp     ds:dword_8CF4A0[edx], 0Ah                             83 BA A0 F4 8C 00 0A
+.text:0050C4C6                 jg      short loc_50C4D6                                      7F 0E
+.text:0050C4C8                 mov     eax, [ebp+var_4]                                      8B 45 FC
+.text:0050C4CB                 add     eax, 2                                                83 C0 02
+.text:0050C4CE                 mov     [ebp+var_4], eax                                      89 45 FC
+.text:0050C4D1                 jmp     loc_50C6A5                                            E9 CF 01 00 00
+.text:0050C4D6 ; ---------------------------------------------------------------------------
+.text:0050C4D6
+.text:0050C4D6 loc_50C4D6:                             ; CODE XREF: sub_50C449+7Dj
+.text:0050C4D6                 mov     ecx, [ebp+arg_0]                                      8B 4D 08
+.text:0050C4D9                 imul    ecx, 2FCh                                             69 C9 FC 02 00 00
+.text:0050C4DF                 cmp     ds:dword_8CF4A0[ecx], 14h                             83 B9 A0 F4 8C 00 14
+.text:0050C4E6                 jg      short loc_50C4F6                                      7F 0E
+.text:0050C4E8                 mov     edx, [ebp+var_4]                                      8B 55 FC
+.text:0050C4EB                 add     edx, 4                                                83 C2 04
+.text:0050C4EE                 mov     [ebp+var_4], edx                                      89 55 FC
+.text:0050C4F1                 jmp     loc_50C6A5                                            E9 AF 01 00 00
+.text:0050C4F6 ; ---------------------------------------------------------------------------
+.text:0050C4F6
+.text:0050C4F6 loc_50C4F6:                             ; CODE XREF: sub_50C449+9Dj
+.text:0050C4F6                 mov     eax, [ebp+arg_0]                                      8B 45 08
+.text:0050C4F9                 imul    eax, 2FCh                                             69 C0 FC 02 00 00
+.text:0050C4FF                 cmp     ds:dword_8CF4A0[eax], 1Eh                             83 B8 A0 F4 8C 00 1E
+.text:0050C506                 jg      short loc_50C516                                      7F 0E
+.text:0050C508                 mov     ecx, [ebp+var_4]                                      8B 4D FC
+.text:0050C50B                 add     ecx, 6                                                83 C1 06
+.text:0050C50E                 mov     [ebp+var_4], ecx                                      89 4D FC
+.text:0050C511                 jmp     loc_50C6A5                                            E9 8F 01 00 00
+.text:0050C516 ; --------------------------------------------------------------------------- 
+.text:0050C516                                                                               
+.text:0050C516 loc_50C516:                             ; CODE XREF: sub_50C449+BDj        
+.text:0050C516                 mov     edx, [ebp+arg_0]                                      8B 55 08
+.text:0050C519                 imul    edx, 2FCh                                             69 D2 FC 02 00 00
+.text:0050C51F                 cmp     ds:dword_8CF4A0[edx], 28h                             83 BA A0 F4 8C 00 28
+.text:0050C526                 jg      short loc_50C536                                      7F 0E
+.text:0050C528                 mov     eax, [ebp+var_4]                                      8B 45 FC
+.text:0050C52B                 add     eax, 8                                                83 C0 08
+.text:0050C52E                 mov     [ebp+var_4], eax                                      89 45 FC
+.text:0050C531                 jmp     loc_50C6A5                                            E9 6F 01 00 00
+.text:0050C536 ; --------------------------------------------------------------------------- 
+.text:0050C536                                                                               
+.text:0050C536 loc_50C536:                             ; CODE XREF: sub_50C449+DDj        
+.text:0050C536                 mov     ecx, [ebp+arg_0]                                      8B 4D 08
+.text:0050C539                 imul    ecx, 2FCh                                             69 C9 FC 02 00 00
+.text:0050C53F                 cmp     ds:dword_8CF4A0[ecx], 2Dh                             83 B9 A0 F4 8C 00 2D
+.text:0050C546                 jg      short loc_50C556                                      7F 0E
+.text:0050C548                 mov     edx, [ebp+var_4]                                      8B 55 FC
+.text:0050C54B                 add     edx, 9                                                83 C2 09
+.text:0050C54E                 mov     [ebp+var_4], edx                                      89 55 FC
+.text:0050C551                 jmp     loc_50C6A5                                            E9 4F 01 00 00
+.text:0050C556 ; --------------------------------------------------------------------------- 
+.text:0050C556                                                                               
+.text:0050C556 loc_50C556:                             ; CODE XREF: sub_50C449+FDj        
+.text:0050C556                 mov     eax, [ebp+arg_0]                                      8B 45 08
+.text:0050C559                 imul    eax, 2FCh                                             69 C0 FC 02 00 00
+.text:0050C55F                 cmp     ds:dword_8CF4A0[eax], 32h                             83 B8 A0 F4 8C 00 32
+.text:0050C566                 jg      short loc_50C576                                      7F 0E
+.text:0050C568                 mov     ecx, [ebp+var_4]                                      8B 4D FC
+.text:0050C56B                 add     ecx, 0Ah                                              83 C1 0A
+.text:0050C56E                 mov     [ebp+var_4], ecx                                      89 4D FC
+.text:0050C571                 jmp     loc_50C6A5                                            E9 2F 01 00 00
+.text:0050C576 ; --------------------------------------------------------------------------- 
+.text:0050C576                                                                               
+.text:0050C576 loc_50C576:                             ; CODE XREF: sub_50C449+11Dj       
+.text:0050C576                 mov     edx, [ebp+arg_0]                                      8B 55 08
+.text:0050C579                 imul    edx, 2FCh                                             69 D2 FC 02 00 00
+.text:0050C57F                 cmp     ds:dword_8CF4A0[edx], 37h                             83 BA A0 F4 8C 00 37
+.text:0050C586                 jg      short loc_50C596                                      7F 0E
+.text:0050C588                 mov     eax, [ebp+var_4]                                      8B 45 FC
+.text:0050C58B                 add     eax, 0Bh                                              83 C0 0B
+.text:0050C58E                 mov     [ebp+var_4], eax                                      89 45 FC
+.text:0050C591                 jmp     loc_50C6A5                                            E9 0F 01 00 00
+.text:0050C596 ; --------------------------------------------------------------------------- 
+.text:0050C596                                                                               
+.text:0050C596 loc_50C596:                             ; CODE XREF: sub_50C449+13Dj       
+.text:0050C596                 mov     ecx, [ebp+arg_0]                                      8B 4D 08
+.text:0050C599                 imul    ecx, 2FCh                                             69 C9 FC 02 00 00
+.text:0050C59F                 cmp     ds:dword_8CF4A0[ecx], 3Ch                             83 B9 A0 F4 8C 00 3C
+.text:0050C5A6                 jg      short loc_50C5B6                                      7F 0E
+.text:0050C5A8                 mov     edx, [ebp+var_4]                                      8B 55 FC
+.text:0050C5AB                 add     edx, 0Ch                                              83 C2 0C
+.text:0050C5AE                 mov     [ebp+var_4], edx                                      89 55 FC
+.text:0050C5B1                 jmp     loc_50C6A5                                            E9 EF 00 00 00
+.text:0050C5B6 ; --------------------------------------------------------------------------- 
+.text:0050C5B6                                                                               
+.text:0050C5B6 loc_50C5B6:                             ; CODE XREF: sub_50C449+15Dj       
+.text:0050C5B6                 mov     eax, [ebp+arg_0]                                      8B 45 08
+.text:0050C5B9                 imul    eax, 2FCh                                             69 C0 FC 02 00 00
+.text:0050C5BF                 cmp     ds:dword_8CF4A0[eax], 41h                             83 B8 A0 F4 8C 00 41
+.text:0050C5C6                 jg      short loc_50C5D6                                      7F 0E
+.text:0050C5C8                 mov     ecx, [ebp+var_4]                                      8B 4D FC
+.text:0050C5CB                 add     ecx, 0Dh                                              83 C1 0D
+.text:0050C5CE                 mov     dword ptr (unk_15ECFFF-15ED003h)[ebp], ecx            89 4D FC
+.text:0050C5D1                 jmp     loc_50C6A5                                            E9 CF 00 00 00
+.text:0050C5D6 ; --------------------------------------------------------------------------- 
+.text:0050C5D6                                                                               
+.text:0050C5D6 loc_50C5D6:                             ; CODE XREF: sub_50C449+17Dj       
+.text:0050C5D6                 mov     edx, [ebp+arg_0]                                      8B 55 08
+.text:0050C5D9                 imul    edx, 2FCh                                             69 D2 FC 02 00 00
+.text:0050C5DF                 cmp     ds:dword_8CF4A0[edx], 46h                             83 BA A0 F4 8C 00 46
+.text:0050C5E6                 jg      short loc_50C5F6                                      7F 0E
+.text:0050C5E8                 mov     eax, [ebp+var_4]                                      8B 45 FC
+.text:0050C5EB                 add     eax, 0Eh                                              83 C0 0E
+.text:0050C5EE                 mov     [ebp+var_4], eax                                      89 45 FC
+.text:0050C5F1                 jmp     loc_50C6A5                                            E9 AF 00 00 00
+.text:0050C5F6 ; --------------------------------------------------------------------------- 
+.text:0050C5F6                                                                               
+.text:0050C5F6 loc_50C5F6:                             ; CODE XREF: sub_50C449+19Dj       
+.text:0050C5F6                 mov     ecx, [ebp+arg_0]                                      8B 4D 08
+.text:0050C5F9                 imul    ecx, 2FCh                                             69 C9 FC 02 00 00
+.text:0050C5FF                 cmp     ds:dword_8CF4A0[ecx], 4Bh                             83 B9 A0 F4 8C 00 4B
+.text:0050C606                 jg      short loc_50C616                                      7F 0E
+.text:0050C608                 mov     edx, [ebp+var_4]                                      8B 55 FC
+.text:0050C60B                 add     edx, 0Fh                                              83 C2 0F
+.text:0050C60E                 mov     [ebp+var_4], edx                                      89 55 FC
+.text:0050C611                 jmp     loc_50C6A5                                            E9 8F 00 00 00
+.text:0050C616 ; --------------------------------------------------------------------------- 
+.text:0050C616                                                                               
+.text:0050C616 loc_50C616:                             ; CODE XREF: sub_50C449+1BDj       
+.text:0050C616                 mov     eax, [ebp+arg_0]                                      8B 45 08
+.text:0050C619                 imul    eax, 2FCh                                             69 C0 FC 02 00 00
+.text:0050C61F                 cmp     ds:dword_8CF4A0[eax], 50h                             83 B8 A0 F4 8C 00 50
+.text:0050C626                 jg      short loc_50C633                                      7F 0B
+.text:0050C628                 mov     ecx, [ebp+var_4]                                      8B 4D FC
+.text:0050C62B                 add     ecx, 10h                                              83 C1 10
+.text:0050C62E                 mov     [ebp+var_4], ecx                                      89 4D FC
+.text:0050C631                 jmp     short loc_50C6A5                                      EB 72
+.text:0050C633 ; --------------------------------------------------------------------------- 
+.text:0050C633                                                                               
+.text:0050C633 loc_50C633:                             ; CODE XREF: sub_50C449+1DDj       
+.text:0050C633                 mov     edx, [ebp+arg_0]                                      8B 55 08
+.text:0050C636                 imul    edx, 2FCh                                             69 D2 FC 02 00 00
+.text:0050C63C                 cmp     ds:dword_8CF4A0[edx], 55h                             83 BA A0 F4 8C 00 55
+.text:0050C643                 jg      short loc_50C650                                      7F 0B
+.text:0050C645                 mov     eax, [ebp+var_4]                                      8B 45 FC
+.text:0050C648                 add     eax, 11h                                              83 C0 11
+.text:0050C64B                 mov     [ebp+var_4], eax                                      89 45 FC
+.text:0050C64E                 jmp     short loc_50C6A5                                      EB 55
+.text:0050C650 ; --------------------------------------------------------------------------- 
+.text:0050C650                                                                               
+.text:0050C650 loc_50C650:                             ; CODE XREF: sub_50C449+1FAj       
+.text:0050C650                 mov     ecx, [ebp+arg_0]                                      8B 4D 08
+.text:0050C653                 imul    ecx, 2FCh                                             69 C9 FC 02 00 00
+.text:0050C659                 cmp     ds:dword_8CF4A0[ecx], 5Ah                             83 B9 A0 F4 8C 00 5A
+.text:0050C660                 jg      short loc_50C66D                                      7F 0B
+.text:0050C662                 mov     edx, [ebp-4]                                          8B 55 FC
+.text:0050C665                 add     edx, 12h                                              83 C2 12
+.text:0050C668                 mov     [ebp+var_4], edx                                      89 55 FC
+.text:0050C66B                 jmp     short loc_50C6A5                                      EB 38
+.text:0050C66D ; --------------------------------------------------------------------------- 
+.text:0050C66D                                                                               
+.text:0050C66D loc_50C66D:                             ; CODE XREF: sub_50C449+217j       
+.text:0050C66D                 mov     eax, [ebp+arg_0]                                      8B 45 08
+.text:0050C670                 imul    eax, 2FCh                                             69 C0 FC 02 00 00
+.text:0050C676                 cmp     ds:dword_8CF4A0[eax], 5Fh                             83 B8 A0 F4 8C 00 5F
+.text:0050C67D                 jg      short loc_50C68A                                      7F 0B
+.text:0050C67F                 mov     ecx, [ebp+var_4]                                      8B 4D FC
+.text:0050C682                 add     ecx, 13h                                              83 C1 13
+.text:0050C685                 mov     [ebp+var_4], ecx                                      89 4D FC
+.text:0050C688                 jmp     short loc_50C6A5                                      EB 1B
+.text:0050C68A ; --------------------------------------------------------------------------- 
+
+.text:0050C68A                 ; if 100% efficiency, add 20% handling
+.text:0050C68A loc_50C68A:                             ; CODE XREF: sub_50C449+234j       
+.text:0050C68A                 mov     edx, [ebp+arg_0]                                      8B 55 08
+.text:0050C68D                 imul    edx, 2FCh                                             69 D2 FC 02 00 00
+.text:0050C693                 cmp     ds:dword_8CF4A0[edx], 64h                             83 BA A0 F4 8C 00 64
+.text:0050C69A                 jg      short loc_50C6A5                                      7F 09
+.text:0050C69C                 mov     eax, [ebp+var_4]                                      8B 45 FC
+.text:0050C69F                 add     eax, 14h                                              83 C0 14
+.text:0050C6A2                 mov     [ebp+var_4], eax                                      89 45 FC
+.text:0050C6A5
+.text:0050C6A5 loc_50C6A5:     ; get random value      ; CODE XREF: sub_50C449+88j
+.text:0050C6A5                 ; rand() % 11 = 0-10    ; sub_50C449+A8j ...
+.text:0050C6A5                 call    _rand       ; random number in eax                    E8 E4 11 17 00
+.text:0050C6AA                 cdq                                                           99
+.text:0050C6AB                 mov     ecx, 0Bh    ; prepare to divide eax by ecx            B9 0B 00 00 00
+.text:0050C6B0                 idiv    ecx         ; quotient in eax, remainder in edx       F7 F9
+.text:0050C6B2                 mov     [ebp+var_8], edx                                      89 55 F8
+                                                                                             
+                               ; calc random impact                                                              
+                               ; 10 - Random0To10 = 0-10                                                              
+.text:0050C6B5                 mov     edx, [ebp+var_8]                                      8B 55 F8
+.text:0050C6B8                 mov     eax, 0Ah          ; 10                                B8 0A 00 00 00
+.text:0050C6BD                 sub     eax, edx          ; subtract Random0To20              2B C2
+.text:0050C6BF                 mov     [ebp+var_8], eax                                      89 45 F8
+                                                                                             
+                               ; sub random impact from handling                                                              
+.text:0050C6C2                 mov     edx, [ebp+var_4]                                      8B 55 FC
+.text:0050C6C5                 mov     eax, [ebp+var_8]                                      8B 45 F8
+.text:0050C6C8                 sub     edx, eax                                              2B D0
+.text:0050C6CA                 mov     [ebp+var_4], edx                                      89 55 FC
+                                                                                             
+                               ; sub difficulty impact from handling                                                              
+.text:0050C6CD                 mov     edx, [ebp+var_4]                                      8B 55 FC
+.text:0050C6D0                 mov     eax, 0            ; difficulty impact value           B8 00 00 00 00
+.text:0050C6D5                 sub     edx, eax                                              2B D0
+.text:0050C6D7                 mov     [ebp+var_4], edx                                      89 55 FC
+                                                                                             
+                               ; if handling is less than or equal to zero, make zero                                                              
+.text:0050C6DA                 cmp     [ebp+var_4], 0    ; if 0 or less                      83 7D FC 00
+.text:0050C6DE                 jg      short loc_50C6E7  ; else skip next line               7F 07
+.text:0050C6E0                 mov     [ebp+var_4], 0    ; make 0                            C7 45 FC 00 00 00 00
+
+                               ; player car effectively loses handling percentage
+                               ; e.g. 100% car will be anywhere between 90-100% car
+.text:0050C6E7                 ; store final handling
+.text:0050C6E7 loc_50C6E7:                             ; CODE XREF: sub_50C449+295j
+.text:0050C6E7                 mov     eax, [ebp+arg_0]                                      8B 45 08
+.text:0050C6EA                 imul    eax, 2FCh                                             69 C0 FC 02 00 00
+.text:0050C6F0                 mov     ecx, [ebp+var_4]                                      8B 4D FC
+.text:0050C6F3                 mov     ds:dword_8CF508[eax], ecx                             89 88 08 F5 8C 00
+                                                                                             
+                               ; end sub                                                     
+.text:0050C6F9                 push    1                                                     6A 01
+.text:0050C6FB                 mov     edx, [ebp+arg_0]                                      8B 55 08
+.text:0050C6FE                 push    edx                                                   52
+.text:0050C6FF                 call    sub_403909                                            E8 05 72 EF FF
+.text:0050C704                 add     esp, 8                                                83 C4 08
+.text:0050C707                 pop     edi                                                   5F
+.text:0050C708                 pop     esi                                                   5E
+.text:0050C709                 pop     ebx                                                   5B
+.text:0050C70A                 leave                                                         C9
+.text:0050C70B                 retn                                                          C3
+.text:0050C70B sub_50C449      endp
+.text:0050C70B
+.text:0050C70B ; ---------------------------------------------------------------------------
+.text:0050C70C                 db 11h dup(90h)
+.text:0050C71D                 dd 90909090h
+.text:0050C721                 db 21h dup(90h)
+.text:0050C742                 dd 90909090h
+.text:0050C746                 db 21h dup(90h)
+.text:0050C767                 dd 90909090h
+.text:0050C76B                 db 1Fh dup(90h)
+.text:0050C78A                 dd 90909090h
+.text:0050C78E                 db 13h dup(90h)

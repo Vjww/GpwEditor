@@ -1,0 +1,336 @@
+.text:0043B2D7 ; =============== S U B R O U T I N E =======================================
+.text:0043B2D7
+.text:0043B2D7 ; Attributes: bp-based frame
+.text:0043B2D7
+.text:0043B2D7 GpwDesign_CalcThisYearsHandlingPercentage proc near
+.text:0043B2D7                                         ; CODE XREF: j_GpwDesign_CalcThisYearsHandlingPercentagej
+.text:0043B2D7
+.text:0043B2D7 var_1F0         = dword ptr -1F0h
+.text:0043B2D7 var_1EC         = dword ptr -1ECh
+.text:0043B2D7 var_1E8         = dword ptr -1E8h
+.text:0043B2D7 var_1E4         = dword ptr -1E4h
+.text:0043B2D7 var_1E0         = dword ptr -1E0h
+.text:0043B2D7 var_1DC         = dword ptr -1DCh
+.text:0043B2D7 var_1D8         = dword ptr -1D8h
+.text:0043B2D7 var_1D4         = dword ptr -1D4h
+.text:0043B2D7 var_1D0         = dword ptr -1D0h
+.text:0043B2D7 var_1CC         = dword ptr -1CCh
+.text:0043B2D7 var_1C8         = dword ptr -1C8h
+.text:0043B2D7 var_1C4         = dword ptr -1C4h
+.text:0043B2D7 var_1C0         = dword ptr -1C0h
+.text:0043B2D7 var_1BC         = dword ptr -1BCh
+.text:0043B2D7 var_1B8         = dword ptr -1B8h
+.text:0043B2D7 var_1B4         = dword ptr -1B4h
+.text:0043B2D7 var_1B0         = dword ptr -1B0h
+.text:0043B2D7 var_1AC         = dword ptr -1ACh
+.text:0043B2D7 var_1A8         = dword ptr -1A8h
+.text:0043B2D7 var_1A4         = dword ptr -1A4h
+.text:0043B2D7 var_1A0         = dword ptr -1A0h
+.text:0043B2D7 var_19C         = dword ptr -19Ch
+.text:0043B2D7 var_198         = dword ptr -198h
+.text:0043B2D7 var_194         = dword ptr -194h
+.text:0043B2D7 var_190         = dword ptr -190h
+.text:0043B2D7 var_18C         = dword ptr -18Ch
+.text:0043B2D7 var_188         = dword ptr -188h
+.text:0043B2D7 var_184         = dword ptr -184h
+.text:0043B2D7 var_180         = dword ptr -180h
+.text:0043B2D7 var_17C         = dword ptr -17Ch
+.text:0043B2D7 var_178         = dword ptr -178h
+.text:0043B2D7 var_174         = dword ptr -174h
+.text:0043B2D7 var_170         = dword ptr -170h
+.text:0043B2D7 var_16C         = dword ptr -16Ch
+.text:0043B2D7 var_168         = dword ptr -168h
+.text:0043B2D7 var_164         = dword ptr -164h
+.text:0043B2D7 var_160         = dword ptr -160h
+.text:0043B2D7 var_15C         = dword ptr -15Ch
+.text:0043B2D7 var_158         = dword ptr -158h
+.text:0043B2D7 var_154         = dword ptr -154h
+.text:0043B2D7 var_150         = dword ptr -150h
+.text:0043B2D7 var_14C         = dword ptr -14Ch
+.text:0043B2D7 var_148         = dword ptr -148h
+.text:0043B2D7 var_144         = dword ptr -144h
+.text:0043B2D7 var_140         = dword ptr -140h
+.text:0043B2D7 var_13C         = dword ptr -13Ch
+.text:0043B2D7 var_138         = dword ptr -138h
+.text:0043B2D7 var_134         = dword ptr -134h
+.text:0043B2D7 var_130         = dword ptr -130h
+.text:0043B2D7 var_12C         = dword ptr -12Ch
+.text:0043B2D7 var_128         = dword ptr -128h
+.text:0043B2D7 var_124         = dword ptr -124h
+.text:0043B2D7 var_120         = dword ptr -120h
+.text:0043B2D7 var_11C         = dword ptr -11Ch
+.text:0043B2D7 var_118         = dword ptr -118h
+.text:0043B2D7 var_114         = dword ptr -114h
+.text:0043B2D7 var_110         = dword ptr -110h
+.text:0043B2D7 var_10C         = dword ptr -10Ch
+.text:0043B2D7 var_108         = dword ptr -108h
+.text:0043B2D7 var_104         = dword ptr -104h
+.text:0043B2D7 var_100         = dword ptr -100h
+.text:0043B2D7 var_FC          = dword ptr -0FCh
+.text:0043B2D7 var_F8          = dword ptr -0F8h
+.text:0043B2D7 var_F4          = dword ptr -0F4h
+.text:0043B2D7 var_F0          = dword ptr -0F0h
+.text:0043B2D7 var_EC          = dword ptr -0ECh
+.text:0043B2D7 var_E8          = dword ptr -0E8h
+.text:0043B2D7 var_E4          = dword ptr -0E4h
+.text:0043B2D7 var_E0          = dword ptr -0E0h
+.text:0043B2D7 var_DC          = dword ptr -0DCh
+.text:0043B2D7 var_D8          = dword ptr -0D8h
+.text:0043B2D7 var_D4          = dword ptr -0D4h
+.text:0043B2D7 var_D0          = dword ptr -0D0h
+.text:0043B2D7 var_CC          = dword ptr -0CCh
+.text:0043B2D7 var_C8          = dword ptr -0C8h
+.text:0043B2D7 var_C4          = dword ptr -0C4h
+.text:0043B2D7 var_C0          = dword ptr -0C0h
+.text:0043B2D7 var_BC          = dword ptr -0BCh
+.text:0043B2D7 var_B8          = dword ptr -0B8h
+.text:0043B2D7 var_B4          = dword ptr -0B4h
+.text:0043B2D7 var_B0          = dword ptr -0B0h
+.text:0043B2D7 var_AC          = dword ptr -0ACh
+.text:0043B2D7 var_A8          = dword ptr -0A8h
+.text:0043B2D7 var_A4          = dword ptr -0A4h
+.text:0043B2D7 var_A0          = dword ptr -0A0h
+.text:0043B2D7 var_9C          = dword ptr -9Ch
+.text:0043B2D7 var_98          = dword ptr -98h
+.text:0043B2D7 var_94          = dword ptr -94h
+.text:0043B2D7 var_90          = dword ptr -90h
+.text:0043B2D7 var_8C          = dword ptr -8Ch
+.text:0043B2D7 var_88          = dword ptr -88h
+.text:0043B2D7 var_84          = dword ptr -84h
+.text:0043B2D7 var_80          = dword ptr -80h
+.text:0043B2D7 var_7C          = dword ptr -7Ch
+.text:0043B2D7 var_78          = dword ptr -78h
+.text:0043B2D7 var_74          = dword ptr -74h
+.text:0043B2D7 var_70          = dword ptr -70h
+.text:0043B2D7 var_6C          = dword ptr -6Ch
+.text:0043B2D7 var_68          = dword ptr -68h
+.text:0043B2D7 var_64          = dword ptr -64h
+.text:0043B2D7 var_60          = dword ptr -60h
+.text:0043B2D7 var_5C          = dword ptr -5Ch
+.text:0043B2D7 var_58          = dword ptr -58h
+.text:0043B2D7 var_54          = dword ptr -54h
+.text:0043B2D7 var_50          = dword ptr -50h
+.text:0043B2D7 var_4C          = dword ptr -4Ch
+.text:0043B2D7 var_48          = dword ptr -48h
+.text:0043B2D7 var_44          = dword ptr -44h
+.text:0043B2D7 var_40          = dword ptr -40h
+.text:0043B2D7 var_3C          = dword ptr -3Ch
+.text:0043B2D7 var_38          = dword ptr -38h
+.text:0043B2D7 var_34          = dword ptr -34h
+.text:0043B2D7 var_30          = dword ptr -30h
+.text:0043B2D7 var_2C          = dword ptr -2Ch
+.text:0043B2D7 var_28          = dword ptr -28h
+.text:0043B2D7 var_24          = dword ptr -24h
+.text:0043B2D7 var_20          = dword ptr -20h
+.text:0043B2D7 var_1C          = dword ptr -1Ch
+.text:0043B2D7 var_18          = dword ptr -18h
+.text:0043B2D7 var_14          = dword ptr -14h
+.text:0043B2D7 skill           = dword ptr -10h
+.text:0043B2D7 random          = dword ptr -0Ch
+.text:0043B2D7 var_8           = dword ptr -8
+.text:0043B2D7 handling        = dword ptr -4
+.text:0043B2D7
+.text:0043B2D7                 push    ebp
+.text:0043B2D8                 mov     ebp, esp
+.text:0043B2DA                 sub     esp, 1F0h
+.text:0043B2E0                 push    esi
+.text:0043B2E1                 mov     [ebp+var_1F0], 0
+.text:0043B2EB                 mov     [ebp+var_1EC], 0
+.text:0043B2F5                 mov     [ebp+var_1E8], 0
+.text:0043B2FF                 mov     [ebp+var_1E4], 0
+.text:0043B309                 mov     [ebp+var_1E0], 0
+.text:0043B313                 mov     [ebp+var_1DC], 0
+.text:0043B31D                 mov     [ebp+var_1D8], 0
+.text:0043B327                 mov     [ebp+var_1D4], 0
+.text:0043B331                 mov     [ebp+var_1D0], 0
+.text:0043B33B                 mov     [ebp+var_1CC], 0
+.text:0043B345                 mov     [ebp+var_1C8], 10h
+.text:0043B34F                 mov     [ebp+var_1C4], 10h
+.text:0043B359                 mov     [ebp+var_1C0], 11h
+.text:0043B363                 mov     [ebp+var_1BC], 11h
+.text:0043B36D                 mov     [ebp+var_1B8], 12h
+.text:0043B377                 mov     [ebp+var_1B4], 12h
+.text:0043B381                 mov     [ebp+var_1B0], 13h
+.text:0043B38B                 mov     [ebp+var_1AC], 13h
+.text:0043B395                 mov     [ebp+var_1A8], 14h
+.text:0043B39F                 mov     [ebp+var_1A4], 14h
+.text:0043B3A9                 mov     [ebp+var_1A0], 0Fh
+.text:0043B3B3                 mov     [ebp+var_19C], 0Fh
+.text:0043B3BD                 mov     [ebp+var_198], 10h
+.text:0043B3C7                 mov     [ebp+var_194], 10h
+.text:0043B3D1                 mov     [ebp+var_190], 11h
+.text:0043B3DB                 mov     [ebp+var_18C], 11h
+.text:0043B3E5                 mov     [ebp+var_188], 12h
+.text:0043B3EF                 mov     [ebp+var_184], 12h
+.text:0043B3F9                 mov     [ebp+var_180], 13h
+.text:0043B403                 mov     [ebp+var_17C], 13h
+.text:0043B40D                 mov     [ebp+var_178], 0Eh
+.text:0043B417                 mov     [ebp+var_174], 0Eh
+.text:0043B421                 mov     [ebp+var_170], 0Fh
+.text:0043B42B                 mov     [ebp+var_16C], 0Fh
+.text:0043B435                 mov     [ebp+var_168], 10h
+.text:0043B43F                 mov     [ebp+var_164], 10h
+.text:0043B449                 mov     [ebp+var_160], 11h
+.text:0043B453                 mov     [ebp+var_15C], 11h
+.text:0043B45D                 mov     [ebp+var_158], 12h
+.text:0043B467                 mov     [ebp+var_154], 12h
+.text:0043B471                 mov     [ebp+var_150], 0Dh
+.text:0043B47B                 mov     [ebp+var_14C], 0Dh
+.text:0043B485                 mov     [ebp+var_148], 0Eh
+.text:0043B48F                 mov     [ebp+var_144], 0Eh
+.text:0043B499                 mov     [ebp+var_140], 0Fh
+.text:0043B4A3                 mov     [ebp+var_13C], 0Fh
+.text:0043B4AD                 mov     [ebp+var_138], 10h
+.text:0043B4B7                 mov     [ebp+var_134], 10h
+.text:0043B4C1                 mov     [ebp+var_130], 11h
+.text:0043B4CB                 mov     [ebp+var_12C], 11h
+.text:0043B4D5                 mov     [ebp+var_128], 0Ch
+.text:0043B4DF                 mov     [ebp+var_124], 0Ch
+.text:0043B4E9                 mov     [ebp+var_120], 0Dh
+.text:0043B4F3                 mov     [ebp+var_11C], 0Dh
+.text:0043B4FD                 mov     [ebp+var_118], 0Eh
+.text:0043B507                 mov     [ebp+var_114], 0Eh
+.text:0043B511                 mov     [ebp+var_110], 0Fh
+.text:0043B51B                 mov     [ebp+var_10C], 0Fh
+.text:0043B525                 mov     [ebp+var_108], 10h
+.text:0043B52F                 mov     [ebp+var_104], 10h
+.text:0043B539                 mov     [ebp+var_100], 0Bh
+.text:0043B543                 mov     [ebp+var_FC], 0Bh
+.text:0043B54D                 mov     [ebp+var_F8], 0Ch
+.text:0043B557                 mov     [ebp+var_F4], 0Ch
+.text:0043B561                 mov     [ebp+var_F0], 0Dh
+.text:0043B56B                 mov     [ebp+var_EC], 0Dh
+.text:0043B575                 mov     [ebp+var_E8], 0Eh
+.text:0043B57F                 mov     [ebp+var_E4], 0Eh
+.text:0043B589                 mov     [ebp+var_E0], 0Fh
+.text:0043B593                 mov     [ebp+var_DC], 0Fh
+.text:0043B59D                 mov     [ebp+var_D8], 0Ah
+.text:0043B5A7                 mov     [ebp+var_D4], 0Ah
+.text:0043B5B1                 mov     [ebp+var_D0], 0Bh
+.text:0043B5BB                 mov     [ebp+var_CC], 0Bh
+.text:0043B5C5                 mov     [ebp+var_C8], 0Ch
+.text:0043B5CF                 mov     [ebp+var_C4], 0Ch
+.text:0043B5D9                 mov     [ebp+var_C0], 0Dh
+.text:0043B5E3                 mov     [ebp+var_BC], 0Dh
+.text:0043B5ED                 mov     [ebp+var_B8], 0Eh
+.text:0043B5F7                 mov     [ebp+var_B4], 0Eh
+.text:0043B601                 mov     [ebp+var_B0], 9
+.text:0043B60B                 mov     [ebp+var_AC], 9
+.text:0043B615                 mov     [ebp+var_A8], 0Ah
+.text:0043B61F                 mov     [ebp+var_A4], 0Ah
+.text:0043B629                 mov     [ebp+var_A0], 0Bh
+.text:0043B633                 mov     [ebp+var_9C], 0Bh
+.text:0043B63D                 mov     [ebp+var_98], 0Ch
+.text:0043B647                 mov     [ebp+var_94], 0Ch
+.text:0043B651                 mov     [ebp+var_90], 0Dh
+.text:0043B65B                 mov     [ebp+var_8C], 0Dh
+.text:0043B665                 mov     [ebp+var_88], 8
+.text:0043B66F                 mov     [ebp+var_84], 8
+.text:0043B679                 mov     [ebp+var_80], 9
+.text:0043B680                 mov     [ebp+var_7C], 9
+.text:0043B687                 mov     [ebp+var_78], 0Ah
+.text:0043B68E                 mov     [ebp+var_74], 0Ah
+.text:0043B695                 mov     [ebp+var_70], 0Bh
+.text:0043B69C                 mov     [ebp+var_6C], 0Bh
+.text:0043B6A3                 mov     [ebp+var_68], 0Ch
+.text:0043B6AA                 mov     [ebp+var_64], 0Ch
+.text:0043B6B1                 mov     [ebp+var_60], 7
+.text:0043B6B8                 mov     [ebp+var_5C], 7
+.text:0043B6BF                 mov     [ebp+var_58], 8
+.text:0043B6C6                 mov     [ebp+var_54], 8
+.text:0043B6CD                 mov     [ebp+var_50], 9
+.text:0043B6D4                 mov     [ebp+var_4C], 9
+.text:0043B6DB                 mov     [ebp+var_48], 0Ah
+.text:0043B6E2                 mov     [ebp+var_44], 0Ah
+.text:0043B6E9                 mov     [ebp+var_40], 0Bh
+.text:0043B6F0                 mov     [ebp+var_3C], 0Bh
+.text:0043B6F7                 mov     [ebp+var_38], 6
+.text:0043B6FE                 mov     [ebp+var_34], 6
+.text:0043B705                 mov     [ebp+var_30], 7
+.text:0043B70C                 mov     [ebp+var_2C], 7
+.text:0043B713                 mov     [ebp+var_28], 8
+.text:0043B71A                 mov     [ebp+var_24], 8
+.text:0043B721                 mov     [ebp+var_20], 9
+.text:0043B728                 mov     [ebp+var_1C], 9
+.text:0043B72F                 mov     [ebp+var_18], 0Ah
+.text:0043B736                 mov     [ebp+var_14], 0Ah
+.text:0043B73D                 mov     [ebp+var_8], 1
+.text:0043B744                 jmp     short loc_43B74F
+.text:0043B746 ; ---------------------------------------------------------------------------
+.text:0043B746
+.text:0043B746 loc_43B746:                             ; CODE XREF: GpwDesign_CalcThisYearsHandlingPercentage+498j
+.text:0043B746                                         ; GpwDesign_CalcThisYearsHandlingPercentage+53Aj
+.text:0043B746                 mov     eax, [ebp+var_8]
+.text:0043B749                 add     eax, 1				; increment for loop
+.text:0043B74C                 mov     [ebp+var_8], eax
+.text:0043B74F
+.text:0043B74F loc_43B74F:                             ; CODE XREF: GpwDesign_CalcThisYearsHandlingPercentage+46Dj
+.text:0043B74F                 cmp     [ebp+var_8], 0Bh
+.text:0043B753                 jg      loc_43B816			; jump out of loop
+.text:0043B759                 mov     ecx, [ebp+var_8]
+.text:0043B75C                 imul    ecx, 1E90h
+.text:0043B762                 xor     edx, edx
+.text:0043B764                 mov     dx, word_1783C08[ecx]
+.text:0043B76B                 test    edx, edx
+.text:0043B76D                 jz      short loc_43B771		; commands inside loop
+.text:0043B76F                 jmp     short loc_43B746		; back to for loop
+.text:0043B771 ; ---------------------------------------------------------------------------
+.text:0043B771
+.text:0043B771 loc_43B771:                             ; CODE XREF: GpwDesign_CalcThisYearsHandlingPercentage+496j
+.text:0043B771                 mov     eax, GpwStaff_TypeId4
+.text:0043B776                 push    eax
+.text:0043B777                 mov     ecx, [ebp+var_8]
+.text:0043B77A                 push    ecx
+.text:0043B77B                 call    j_GpwStaff_GetAttribute_Skill
+.text:0043B780                 add     esp, 8
+.text:0043B783                 mov     [ebp+skill], eax
+.text:0043B786                 cmp     [ebp+skill], 0
+.text:0043B78A                 jnz     short loc_43B795
+.text:0043B78C                 mov     [ebp+handling], 0
+.text:0043B793                 jmp     short loc_43B7A1
+.text:0043B795 ; ---------------------------------------------------------------------------
+.text:0043B795
+.text:0043B795 loc_43B795:                             ; CODE XREF: GpwDesign_CalcThisYearsHandlingPercentage+4B3j
+.text:0043B795                 mov     edx, [ebp+skill]
+.text:0043B798                 sub     edx, 1
+.text:0043B79B                 imul    edx, 14h
+.text:0043B79E                 mov     [ebp+handling], edx
+.text:0043B7A1
+.text:0043B7A1 loc_43B7A1:                             ; CODE XREF: GpwDesign_CalcThisYearsHandlingPercentage+4BCj
+.text:0043B7A1                 push    64h
+.text:0043B7A3                 call    j_GpwMisc_GetRandomValue
+.text:0043B7A8                 add     esp, 4
+.text:0043B7AB                 mov     [ebp+random], eax
+.text:0043B7AE                 mov     eax, [ebp+var_8]
+.text:0043B7B1                 imul    eax, 1E90h
+.text:0043B7B7                 mov     ecx, GpwDesign__LastYearsChampionshipPosition_Unknown[eax]
+.text:0043B7BD                 imul    ecx, 28h
+.text:0043B7C0                 lea     ecx, [ebp+ecx+var_1F0]
+.text:0043B7C7                 mov     eax, [ebp+random]
+.text:0043B7CA                 cdq
+.text:0043B7CB                 mov     esi, 0Ah
+.text:0043B7D0                 idiv    esi
+.text:0043B7D2                 mov     edx, [ebp+handling]
+.text:0043B7D5                 add     edx, [ecx+eax*4]
+.text:0043B7D8                 mov     [ebp+handling], edx
+.text:0043B7DB                 mov     eax, [ebp+var_8]
+.text:0043B7DE                 imul    eax, 2FCh
+.text:0043B7E4                 mov     ecx, [ebp+handling]
+.text:0043B7E7                 mov     GpwDesign_ThisYearsHandlingPercentage_Current[eax], ecx
+.text:0043B7ED                 mov     edx, [ebp+var_8]
+.text:0043B7F0                 imul    edx, 2FCh
+.text:0043B7F6                 mov     eax, [ebp+handling]
+.text:0043B7F9                 mov     GpwDesign_ThisYearsHandlingPercentage_Unknown[edx], eax
+.text:0043B7FF                 mov     ecx, [ebp+var_8]
+.text:0043B802                 imul    ecx, 2FCh
+.text:0043B808                 mov     edx, [ebp+handling]
+.text:0043B80B                 mov     GpwDesign_ThisYearsHandlingPercentage_Development[ecx], edx
+.text:0043B811                 jmp     loc_43B746
+.text:0043B816 ; ---------------------------------------------------------------------------
+.text:0043B816
+.text:0043B816 loc_43B816:                             ; CODE XREF: GpwDesign_CalcThisYearsHandlingPercentage+47Cj
+.text:0043B816                 pop     esi
+.text:0043B817                 mov     esp, ebp
+.text:0043B819                 pop     ebp
+.text:0043B81A                 retn
+.text:0043B81A GpwDesign_CalcThisYearsHandlingPercentage endp

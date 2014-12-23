@@ -1,0 +1,1197 @@
+int __cdecl sub_455932(int a2, int a3)
+{
+  int v2; // edx@3
+  double v3; // st7@3
+  int v4; // ecx@4
+  int v6; // edx@24
+  int v7; // ecx@24
+  int *v8; // ecx@64
+  float v9; // ST10_4@64
+  int v10; // ST14_4@64
+  float v11; // ST18_4@64
+  char *v12; // ecx@64
+  int *v13; // edx@67
+  float v14; // ST10_4@67
+  int v15; // ST14_4@67
+  float v16; // ST18_4@67
+  char *v17; // edx@67
+  int *v18; // edx@118
+  int *v19; // edx@118
+  int *v20; // eax@118
+  int *v21; // eax@118
+  int *v22; // eax@121
+  int *v23; // eax@121
+  int *v24; // ecx@121
+  int *v25; // ecx@121
+  int *v26; // eax@124
+  int *v27; // eax@124
+  int *v28; // ecx@124
+  int *v29; // ecx@124
+  int v30; // ecx@152
+  int v31; // ecx@174
+  double v32; // st7@205
+  char *v33; // eax@246
+  int v34; // eax@257
+  double v35; // st7@324
+  float v36; // ST18_4@324
+  int v37; // eax@324
+  int v38; // eax@332
+  double v39; // st7@406
+  double v40; // st7@406
+  int v41; // [sp+14h] [bp-1C4h]@383
+  int v42; // [sp+1Ch] [bp-1BCh]@254
+  char v43; // [sp+34h] [bp-1A4h]@324
+  char v44; // [sp+40h] [bp-198h]@1
+  double v45; // [sp+80h] [bp-158h]@406
+  char v46; // [sp+88h] [bp-150h]@1
+  int v47; // [sp+C8h] [bp-110h]@435
+  double v48; // [sp+CCh] [bp-10Ch]@406
+  int v49; // [sp+D4h] [bp-104h]@185
+  int v50; // [sp+D8h] [bp-100h]@174
+  int v51; // [sp+DCh] [bp-FCh]@435
+  int v52; // [sp+E0h] [bp-F8h]@245
+  char v53; // [sp+E4h] [bp-F4h]@1
+  int v54; // [sp+124h] [bp-B4h]@247
+  int v55; // [sp+128h] [bp-B0h]@161
+  float v56; // [sp+12Ch] [bp-ACh]@346
+  char v57; // [sp+130h] [bp-A8h]@1
+  int k; // [sp+170h] [bp-68h]@115
+  int i; // [sp+174h] [bp-64h]@47
+  int counter1; // [sp+178h] [bp-60h]@47
+  int v61; // [sp+17Ch] [bp-5Ch]@285
+  int j; // [sp+180h] [bp-58h]@113
+  int v63; // [sp+184h] [bp-54h]@438
+  char v64; // [sp+188h] [bp-50h]@1
+  float v65; // [sp+1C8h] [bp-10h]@321
+  int counter2; // [sp+1CCh] [bp-Ch]@47
+  float v67; // [sp+1D0h] [bp-8h]@180
+  int v68; // [sp+1D4h] [bp-4h]@155
+
+  _LocaleUpdate__GetLocaleT(&v64);
+  _LocaleUpdate__GetLocaleT(&v53);
+  _LocaleUpdate__GetLocaleT(&v57);
+  _LocaleUpdate__GetLocaleT(&v46);
+  _LocaleUpdate__GetLocaleT(&v44);
+  if ( GpwFile_UnlimitDatFlag || dword_6EB014 == 7 )
+  {
+    dword_6EB028 = timeGetTime();
+    v2 = dword_6EB028 - dword_6EB02C;
+    v3 = 1000.0 / (double)(unsigned int)(dword_6EB028 - dword_6EB02C);
+    flt_6EB030 = v3;
+    dword_6EB02C = dword_6EB028;
+  }
+  else
+  {
+    do
+    {
+      dword_6EB028 = timeGetTime();
+      flt_6EB030 = 1000.0 / (double)(unsigned int)(dword_6EB028 - dword_6EB02C);
+      v3 = flt_6EB030;
+    }
+    while ( flt_6EB030 > 31.0 );
+    v4 = dword_6EB028;
+    dword_6EB02C = dword_6EB028;
+  }
+  sub_401B4A(v4, v2);
+  if ( dword_64A6BC != 1 || dword_64A6C0 != 1 || dword_786FB4 < 1 )
+  {
+    if ( !dword_64A6C0 )
+    {
+      if ( dword_786FB4 >= 1 )
+      {
+        if ( dword_786FB4 != 50 )
+        {
+          ++dword_786FB4;
+          if ( dword_786FB4 == 50 )
+          {
+            sub_401168();
+            dword_786FB4 = 0;
+          }
+        }
+      }
+    }
+  }
+  else
+  {
+    if ( dword_786FB4 != 50 )
+    {
+      ++dword_786FB4;
+      if ( dword_786FB4 == 50 )
+      {
+        sub_401168();
+        dword_786FB4 = 0;
+      }
+    }
+  }
+  if ( dword_6EB014 && dword_6EB01C < 2 )
+    return 0;
+  if ( dword_6EB018 == 1 && dword_64A6C0 == 1 )
+  {
+    if ( dword_666FE8 <= dword_64A434 )
+    {
+      sub_402DF6(v3, 2, dword_666FE8);
+      v6 = dword_666FE8++ + 1;
+    }
+    else
+    {
+      sub_403161();
+    }
+    sub_40328D(v7, v6);
+    dword_7844D8 = 0;
+    dword_6EB01C = 0;
+    return 0;
+  }
+  if ( dword_64A6A4 || dword_64A6BC || dword_64A6C0 != 1 )
+  {
+    dword_669860 = a3;
+    if ( dword_64A6A4 && (dword_64A6A4 <= 0 || dword_6EAFC4 != 1) )
+      return 0;
+    counter1 = 0;
+    counter2 = 0;
+    dword_64A418 = 0;
+    for ( i = 0; i < dword_64A430; ++i )
+    {
+      GpwRace_RaceEntryIndex_v2[4 * counter1] = i;
+      dword_6E0F64[4 * counter1] = dword_6E3038[292 * i];
+      if ( dword_6E0F64[4 * counter1] )
+      {
+        if ( dword_6E95B8[dword_6E0F64[4 * counter1]] == 30 )
+        {
+          dword_6E0F64[4 * counter1] = -2;
+        }
+        else
+        {
+          if ( dword_6E95B8[dword_6E0F64[4 * counter1]] == 50 )
+            dword_6E0F64[4 * counter1] = -1;
+        }
+      }
+      else
+      {
+        dword_6E0F64[4 * counter1] = 100;
+      }
+      dword_6E0F68[4 * counter1] = dword_6E301C[292 * i];
+      if ( !i )
+      {
+        if ( j_GpwFile_IsFileExist("dat\\Overtake.dat") )
+        {
+          if ( dword_673770[dword_6E3038[0]] == 50 )
+            dword_6E32D0[0] = 50;
+          else
+            dword_6E32D0[0] = 0;
+        }
+      }
+      if ( dword_6E3404[292 * i] < 0 )
+      {
+        v13 = &dword_6E3000[292 * i];
+        LODWORD(v14) = *v13;
+        v15 = v13[1];
+        LODWORD(v16) = v13[2];
+        v17 = (char *)&dword_673C64[715 * (dword_6E32D0[292 * i] + dword_6E3038[292 * i])]
+            + 28 * (dword_673C28[715 * (dword_6E32D0[292 * i] + dword_6E3038[292 * i])] - 1);
+        sub_4030E4(*(float *)v17, *((_DWORD *)v17 + 1), *((float *)v17 + 2), v14, v15, v16);
+        flt_6E0F6C[4 * counter1] = v3;
+      }
+      else
+      {
+        if ( dword_64A6C0 != 1 || dword_672498[dword_6E3038[292 * i]] )
+        {
+          v3 = (double)GpwRace_CarRacePositionOnSectionEntry[292 * i];
+          flt_6E0F6C[4 * counter1] = v3;
+        }
+        else
+        {
+          v8 = &dword_6E3000[292 * i];
+          LODWORD(v9) = *v8;
+          v10 = v8[1];
+          LODWORD(v11) = v8[2];
+          v12 = (char *)&dword_673C64[715 * (dword_6E32D0[292 * i] + dword_6E3038[292 * i])]
+              + 28 * dword_6E301C[292 * i];
+          sub_4030E4(*(float *)v12, *((_DWORD *)v12 + 1), *((float *)v12 + 2), v9, v10, v11);
+          flt_6E0F6C[4 * counter1] = v3;
+        }
+      }
+      ++counter1;
+      if ( dword_6E313C[292 * i] != 1 )
+        ++counter2;
+      if ( dword_6E312C[292 * i] != 3 )
+      {
+        if ( dword_6E3144[292 * i] != 1 )
+        {
+          if ( dword_6E3144[292 * i] != 2 )
+          {
+            if ( dword_6E3144[292 * i] != 4 )
+            {
+              if ( dword_6E3144[292 * i] != 5 )
+              {
+                if ( dword_6E3144[292 * i] != 6 )
+                {
+                  if ( dword_6E3144[292 * i] != 7 )
+                  {
+                    if ( !dword_64A6C0 )
+                    {
+                      if ( dword_6E3144[292 * i] != 1 || (_UNKNOWN *)dword_6E32A8[292 * i] == &unk_989677 )
+                      {
+                        if ( dword_6E3144[292 * i] == 5 )
+                        {
+                          if ( (_UNKNOWN *)dword_6E32A8[292 * i] != &unk_989677 )
+                          {
+                            if ( GpwRace_IsCarNumberPlayersCarFlag[292 * i] == 1 )
+                            {
+                              if ( sub_4025E0(dword_6E3050[292 * i] + 1) || sub_4026B7(dword_6E3050[292 * i] + 1) != 1 )
+                              {
+                                if ( sub_4025E0(dword_6E3050[292 * i] + 1) != 1 || sub_4026B7(dword_6E3050[292 * i] + 1) )
+                                {
+                                  if ( sub_4025E0(dword_6E3050[292 * i] + 1) == 1 )
+                                  {
+                                    if ( sub_4026B7(dword_6E3050[292 * i] + 1) == 1 )
+                                    {
+                                      j_GpwRace_PlaySounds(0, 303, i);
+                                      j_GpwRace_PlaySounds(0, 317, i);
+                                    }
+                                  }
+                                }
+                                else
+                                {
+                                  j_GpwRace_PlaySounds(0, 303, i);
+                                  j_GpwRace_PlaySounds(0, 317, i);
+                                  j_GpwRace_PlaySounds(0, 316, i);
+                                }
+                              }
+                              else
+                              {
+                                j_GpwRace_PlaySounds(0, 303, i);
+                                j_GpwRace_PlaySounds(0, 317, i);
+                              }
+                            }
+                            dword_6E32A8[292 * i] = (int)&unk_989677;
+                          }
+                        }
+                      }
+                      else
+                      {
+                        if ( !sub_401BE0(i) )
+                        {
+                          if ( GpwRace_IsCarNumberPlayersCarFlag[292 * i] == 1 )
+                          {
+                            j_GpwRace_PlaySounds(0, 302, i);
+                            if ( sub_4026B7(dword_6E3050[292 * i] + 1) )
+                              j_GpwRace_PlaySounds(0, 315, i);
+                            else
+                              j_GpwRace_PlaySounds(0, 316, i);
+                          }
+                          dword_6E32A8[292 * i] = (int)&unk_989677;
+                        }
+                      }
+                      if ( dword_6E3144[292 * i] == 3 )
+                      {
+                        --dword_6E32A8[292 * i];
+                        if ( !dword_6E32A8[292 * i] )
+                        {
+                          dword_6E3144[292 * i] = 0;
+                          dword_6E313C[292 * i] = 0;
+                          dword_6E3130[292 * i] = 0;
+                          dword_6E305C[292 * i] = 0;
+                          GpwQual_OutLapFlag[292 * i] = 0;
+                          dword_6E3038[292 * i] = dword_6E95B0;
+                          GpwQual_HotLapFlag[292 * i] = 0;
+                          sub_402D65(i, dword_6E95B0, 0);
+                          sub_403210(i);
+                        }
+                      }
+                    }
+                    ++dword_64A418;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    if ( !counter2 )
+      sub_403F4E();
+    for ( j = 0; j < counter1 - 1; ++j )
+    {
+      for ( k = 0; k < counter1 - 1; ++k )
+      {
+        if ( dword_6E0F64[4 * k] >= dword_6E0F64[4 * (k + 1)] )
+        {
+          if ( dword_6E0F64[4 * k] == dword_6E0F64[4 * (k + 1)] )
+          {
+            if ( dword_6E0F68[4 * k] >= dword_6E0F68[4 * (k + 1)] )
+            {
+              if ( dword_6E0F68[4 * k] == dword_6E0F68[4 * (k + 1)] )
+              {
+                if ( flt_6E0F6C[4 * k] > (double)flt_6E0F6C[4 * (k + 1)] )
+                {
+                  v26 = &GpwRace_RaceEntryIndex_v2[4 * (k + 1)];
+                  GpwRace_RaceEntryIndex_v3 = *v26;
+                  dword_66952C = v26[1];
+                  dword_669530 = v26[2];
+                  dword_669534 = v26[3];
+                  v27 = &GpwRace_RaceEntryIndex_v2[4 * k];
+                  v28 = &GpwRace_RaceEntryIndex_v2[4 * (k + 1)];
+                  *v28 = *v27;
+                  v28[1] = v27[1];
+                  v28[2] = v27[2];
+                  v28[3] = v27[3];
+                  v29 = &GpwRace_RaceEntryIndex_v2[4 * k];
+                  *v29 = GpwRace_RaceEntryIndex_v3;
+                  v29[1] = dword_66952C;
+                  v29[2] = dword_669530;
+                  v29[3] = dword_669534;
+                }
+              }
+            }
+            else
+            {
+              v22 = &GpwRace_RaceEntryIndex_v2[4 * (k + 1)];
+              GpwRace_RaceEntryIndex_v3 = *v22;
+              dword_66952C = v22[1];
+              dword_669530 = v22[2];
+              dword_669534 = v22[3];
+              v23 = &GpwRace_RaceEntryIndex_v2[4 * k];
+              v24 = &GpwRace_RaceEntryIndex_v2[4 * (k + 1)];
+              *v24 = *v23;
+              v24[1] = v23[1];
+              v24[2] = v23[2];
+              v24[3] = v23[3];
+              v25 = &GpwRace_RaceEntryIndex_v2[4 * k];
+              *v25 = GpwRace_RaceEntryIndex_v3;
+              v25[1] = dword_66952C;
+              v25[2] = dword_669530;
+              v25[3] = dword_669534;
+            }
+          }
+        }
+        else
+        {
+          v18 = &GpwRace_RaceEntryIndex_v2[4 * (k + 1)];
+          GpwRace_RaceEntryIndex_v3 = *v18;
+          dword_66952C = v18[1];
+          dword_669530 = v18[2];
+          dword_669534 = v18[3];
+          v19 = &GpwRace_RaceEntryIndex_v2[4 * k];
+          v20 = &GpwRace_RaceEntryIndex_v2[4 * (k + 1)];
+          *v20 = *v19;
+          v20[1] = v19[1];
+          v20[2] = v19[2];
+          v20[3] = v19[3];
+          v21 = &GpwRace_RaceEntryIndex_v2[4 * k];
+          *v21 = GpwRace_RaceEntryIndex_v3;
+          v21[1] = dword_66952C;
+          v21[2] = dword_669530;
+          v21[3] = dword_669534;
+        }
+      }
+    }
+    for ( j = 0; j < 22; ++j )
+    {
+      dword_78269C[7 * j] = dword_6E3050[292 * GpwRace_RaceEntryIndex_v2[4 * j]] + 1;
+      dword_782698[7 * j] = dword_6E3054[292 * GpwRace_RaceEntryIndex_v2[4 * j]];
+      dword_7826A0[7 * j] = dword_6E3404[292 * GpwRace_RaceEntryIndex_v2[4 * j]];
+      GpwRace_RaceEntryIndex_v1[7 * j] = GpwRace_RaceEntryIndex_v2[4 * j];
+      dword_7826B0[7 * j] = 50 - j + 200 * dword_7826A0[7 * j];
+    }
+    for ( j = 0; j < counter1 - 1; ++j )
+    {
+      for ( k = 0; k < counter1 - 1; ++k )
+      {
+        if ( dword_7826B0[7 * k] < dword_7826B0[7 * (k + 1)] )
+        {
+          memcpy(&unk_782900, &dword_782698[7 * (k + 1)], 0x1Cu);
+          memcpy(&dword_782698[7 * (k + 1)], &dword_782698[7 * k], 0x1Cu);
+          memcpy(&dword_782698[7 * k], &unk_782900, 0x1Cu);
+        }
+      }
+    }
+    if ( dword_64A6C0 == 1 )
+    {
+      for ( j = 0; j < 22; ++j )
+      {
+        if ( j + 1 != GpwRace_CarRacePositionOnSectionEntry[292 * GpwRace_RaceEntryIndex_v1[7 * j]] )
+        {
+          if ( GpwRace_RaceEntryIndex_v1[7 * j] == GpwRace_CarNumberIndexForDriver1 )
+            dword_7844D0[0] = 0;
+          if ( GpwRace_RaceEntryIndex_v1[7 * j] == GpwRace_CarNumberIndexForDriver2 )
+            dword_7844D4 = 0;
+          for ( k = 0; k < 4; ++k )
+          {
+            if ( GpwRace_ChannelId[29 * k] == 4 )
+              dword_709474[29 * k] = 0;
+          }
+        }
+        GpwRace_CarRacePositionOnSectionEntry[292 * GpwRace_RaceEntryIndex_v1[7 * j]] = j + 1;
+      }
+    }
+    sub_401DDE();
+    dword_15B299C = 0;
+    if ( dword_64A6C0 == 1 )
+    {
+      ++dword_6EAF98;
+    }
+    else
+    {
+      if ( !dword_64A6C0 )
+      {
+        v68 = 1;
+        if ( dword_6EB014 == 7 )
+        {
+          if ( dword_6EB018 == 1 )
+          {
+            v30 = dword_6EAF94 - dword_6EAF98;
+            if ( dword_6EAF94 - dword_6EAF98 > 3 * dword_64D828[GpwRace_DatFileTrackId] )
+              v68 = 3;
+          }
+        }
+        for ( j = 0; ; ++j )
+        {
+          if ( j >= v68 )
+            break;
+          ++dword_6EAF98;
+          v55 = sub_401FE1(v30, j);
+          if ( dword_6EAF98 <= dword_6EAF94 && v55 >= 1 )
+          {
+            if ( dword_6EAF94 - dword_6EAF98 >= 3 * dword_64D828[GpwRace_DatFileTrackId] )
+            {
+              if ( 32 * (dword_6EAF98 >> 5) == dword_6EAF98 )
+              {
+                if ( !j_GpwMisc_GetRandomValue_v2(6) )
+                  sub_401BB8();
+              }
+            }
+            else
+            {
+              if ( 16 * (dword_6EAF98 >> 4) == dword_6EAF98 )
+              {
+                if ( !j_GpwMisc_GetRandomValue_v2(3) )
+                  sub_401BB8();
+              }
+            }
+          }
+          else
+          {
+            if ( !sub_402E23() )
+            {
+              j_GpwRace_PlaySounds(1, 319, 0);
+              j___initp_misc_winxfltr_6();
+              sub_402ACC();
+              sub_402E7D();
+              sub_4019F1();
+              sub_402C16();
+              sub_40218A();
+              return 0;
+            }
+          }
+          v50 = 100 * dword_6EAF98 / dword_6EAF94;
+          v31 = 100 * dword_6EAF98 / dword_6EAF94;
+          if ( v31 >= dword_6EAA88 )
+          {
+            sub_402FE0(v31, 100 * dword_6EAF98 % dword_6EAF94);
+            sub_401B63(dword_64A6C0);
+          }
+          if ( v50 >= dword_6E9680 )
+          {
+            ++dword_6E9680;
+            sub_401D43(dword_6E9680);
+          }
+          v30 = j + 1;
+        }
+      }
+    }
+    if ( dword_6EB014 == 7 )
+      LODWORD(v67) = 1066192077;
+    else
+      v67 = flt_64A6C8;
+    for ( j = 0; ; ++j )
+    {
+      if ( j >= counter1 )
+        return 0;
+      v49 = 0;
+      i = GpwRace_RaceEntryIndex_v2[4 * j];
+      dword_6E3040[292 * i] = i;
+      dword_6E303C[292 * i] = 999;
+      if ( dword_64A6A4 > 0 )
+        dword_6E3038[292 * i] = dword_6EAFC8;
+      if ( dword_6E313C[292 * i] == 1 )
+      {
+        if ( dword_64A6C0 == 1 )
+          *(int *)((char *)&dword_66CF38[100 * i] + 4 * sub_403B7F(i)) = 3;
+        continue;
+      }
+      if ( dword_6E312C[292 * i] == 3 )
+      {
+        if ( !dword_6E3144[292 * i] )
+          dword_6E3144[292 * i] = 1;
+        ++dword_6E3134[292 * i];
+        if ( dword_6E3134[292 * i] > 1000 )
+        {
+          dword_6E313C[292 * i] = 1;
+          dword_6E0DD0[dword_6E3038[292 * i]] = 0;
+          sub_4024CD(dword_6E3038[292 * i], 0);
+          if ( dword_64A800 == i )
+            dword_64A800 = 999;
+          if ( dword_64A804 == i )
+            dword_64A804 = 999;
+          if ( dword_6E0D08[dword_6E3038[292 * i]] == i + 1 )
+          {
+            dword_6E0D08[dword_6E3038[292 * i]] = 0;
+            dword_6E0DD0[dword_6E3038[292 * i]] = 0;
+            sub_4024CD(dword_6E3038[292 * i], 0);
+          }
+          sub_40178A(i);
+          sub_403EB8(i);
+          sub_4032A6(i, 0);
+        }
+      }
+      if ( dword_64A6C0 || GpwQual_OutLapFlag[292 * i] == 1 )
+      {
+        ++dword_6E343C[292 * i];
+        ++dword_6E3438[292 * i];
+        flt_6E307C[292 * i] = flt_6E307C[292 * i] + flt_6E3074[292 * i];
+        v32 = flt_6E3448[292 * i] + v67;
+        flt_6E3448[292 * i] = v32;
+        if ( GpwRace_IsCarInThePitsFlag[292 * i] == 1 )
+        {
+          --dword_6E33F0[292 * i];
+          if ( dword_6E33F0[292 * i] < 1 )
+          {
+            ++dword_6E33F4[292 * i];
+            if ( dword_6E33F4[292 * i] >= 3 )
+            {
+              GpwRace_IsCarInThePitsFlag[292 * i] = 0;
+            }
+            else
+            {
+              if ( *(int *)((char *)&dword_6E33F8[292 * i] + 4 * dword_6E33F4[292 * i]) )
+              {
+                switch ( *(int *)((char *)&dword_6E33F8[292 * i] + 4 * dword_6E33F4[292 * i]) )
+                {
+                  case 1:
+                    dword_6E33F0[292 * i] = 21;
+                    break;
+                  case 2:
+                    dword_6E33F0[292 * i] = 16;
+                    break;
+                  case 3:
+                  case 4:
+                  case 5:
+                    dword_6E33F0[292 * i] = dword_6E3374[292 * i];
+                    break;
+                  default:
+                    break;
+                }
+              }
+              else
+              {
+                GpwRace_IsCarInThePitsFlag[292 * i] = 0;
+              }
+            }
+          }
+          if ( !GpwRace_IsCarInThePitsFlag[292 * i] )
+          {
+            for ( k = 0; k < 4; ++k )
+            {
+              if ( GpwRace_ChannelId[29 * k] != 3 )
+              {
+                if ( GpwRace_ChannelId[29 * k] != 4 )
+                {
+                  if ( GpwRace_ChannelId[29 * k] != 1 )
+                  {
+                    if ( GpwRace_ChannelId[29 * k] || dword_6EAFEC == 1 )
+                    {
+                      if ( GpwRace_ChannelId[29 * k] )
+                      {
+                        if ( dword_709464[29 * k] == i )
+                        {
+                          sub_4038AF(k, i);
+                          sub_401FAA(k);
+                        }
+                      }
+                      else
+                      {
+                        if ( dword_709468[29 * k] == i )
+                        {
+                          sub_4038AF(k, i);
+                          sub_401FAA(k);
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            if ( dword_64A6C0 == 1 )
+            {
+              if ( GpwRace_IsCarNumberPlayersCarFlag[292 * i] == 1 )
+              {
+                if ( dword_6E347C[292 * i] == 1 )
+                {
+                  dword_6E347C[292 * i] = 0;
+                }
+                else
+                {
+                  if ( !dword_6E3378[292 * i] )
+                  {
+                    if ( !GpwRace_PitStopProblemFlag[i] )
+                      j_GpwRace_PlaySounds(0, 347, i);
+                  }
+                }
+              }
+            }
+          }
+          continue;
+        }
+        v52 = dword_6E3038[292 * i];
+        if ( dword_6E32D0[292 * i] > 50 )
+        {
+          v33 = j_GpwText_GetTextFromLanguageFile4(5080);
+          j_GpwGfx_OutputDebugInformation1((int)"C:\\Gpw\\BOIDS.CPP", 2226, 0, v33);
+        }
+        v54 = dword_6E32D0[292 * i] + v52;
+        if ( !dword_673770[v52] || dword_64A6A4 > 0 )
+          v54 = v52;
+        if ( dword_6E312C[292 * i] >= 2 )
+        {
+          if ( dword_6EAE70[v52] == 1 )
+          {
+            v54 = dword_6E3038[292 * i] + 100;
+            if ( dword_6E3138[292 * i] > 0 )
+            {
+              if ( dword_6E3138[292 * i] == 1 )
+              {
+                v42 = dword_6E3130[292 * i];
+                if ( v42 == 4 )
+                {
+                  v34 = j_GpwMisc_GetRandomValue_v2(4);
+                  sub_402798(v32, i, v34);
+                }
+                else
+                {
+                  if ( v42 == 10 )
+                    sub_401460(i);
+                }
+              }
+              --dword_6E3138[292 * i];
+            }
+          }
+        }
+        if ( !dword_64A6A4 && dword_64A6BC == 1 && dword_6EAFD0 == 1 )
+        {
+          if ( dword_6E3404[292 * i] != -1 || v52 )
+          {
+            if ( !dword_6E3404[292 * i] && v52 == 1 && dword_6E3438[292 * i] < 4 * j )
+              continue;
+          }
+          else
+          {
+            v52 = dword_6E3430[292 * i];
+            if ( GpwRace_DatFileTrackId != 5 )
+            {
+              if ( GpwRace_DatFileTrackId != 11 )
+              {
+                if ( GpwRace_DatFileTrackId != 12 )
+                {
+                  if ( !j_GpwMisc_GetRandomValue_v2(3) )
+                  {
+                    if ( dword_6E343C[292 * i] == 1 )
+                    {
+                      if ( v52 == 48 )
+                      {
+                        v52 = 45;
+                      }
+                      else
+                      {
+                        if ( v52 == 47 )
+                          v52 = 46;
+                      }
+                      dword_6E3430[292 * i] = v52;
+                      dword_6E301C[292 * i] = dword_673C28[715 * v52] - 1;
+                    }
+                  }
+                }
+              }
+            }
+            v54 = v52;
+            if ( dword_6E3438[292 * i] < dword_6E3434[292 * i] )
+              continue;
+            if ( j > 0 )
+            {
+              if ( GpwRace_DatFileTrackId != 5 )
+              {
+                if ( GpwRace_DatFileTrackId != 11 )
+                {
+                  if ( GpwRace_DatFileTrackId != 12 )
+                  {
+                    for ( k = j; k > 0; --k )
+                    {
+                      v61 = GpwRace_RaceEntryIndex_v2[4 * (k - 1)];
+                      if ( v61 != i )
+                      {
+                        if ( sub_401839(
+                               *(float *)&dword_6E3000[292 * i],
+                               dword_6E3000[292 * i + 1],
+                               *(float *)&dword_6E3000[292 * i + 2],
+                               *(float *)&dword_6E3000[292 * v61],
+                               dword_6E3000[292 * v61 + 1],
+                               *(float *)&dword_6E3000[292 * v61 + 2],
+                               *(float *)&dword_673C50[715 * v54])
+                          && dword_6E313C[292 * v61] != 1
+                          && dword_6E3130[292 * v61] != 17 )
+                        {
+                          switch ( v52 )
+                          {
+                            case 48:
+                              v52 = 45;
+                              break;
+                            case 47:
+                              v52 = 46;
+                              break;
+                            case 45:
+                              v52 = 48;
+                              break;
+                            case 46:
+                              v52 = 47;
+                              break;
+                          }
+                          dword_6E3430[292 * i] = v52;
+                          dword_6E301C[292 * i] = dword_673C28[715 * v52] - 1;
+                          sub_401749(i, 1);
+                          v49 = 1;
+                        }
+                        else
+                        {
+                          if ( dword_6E3130[292 * v61] == 17 )
+                          {
+                            if ( dword_6E3430[292 * i] == dword_6E3430[292 * v61] )
+                            {
+                              if ( dword_6E3430[292 * v61] == 48 )
+                                v52 = 45;
+                              else
+                                v52 = 46;
+                              dword_6E3430[292 * i] = v52;
+                              dword_6E301C[292 * i] = dword_673C28[715 * v52] - 1;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        if ( v49 )
+          continue;
+        if ( dword_6EB034 >= 1 )
+        {
+          if ( i )
+          {
+            dword_6E313C[292 * i] = 1;
+            continue;
+          }
+          LODWORD(flt_6E3034[0]) = dword_64A698;
+        }
+        if ( dword_672498[v52] )
+        {
+          v51 = dword_6E3020[292 * i];
+          v47 = dword_6E301C[292 * i];
+          *(float *)&dword_6E3020[292 * i] = *(float *)&dword_6E3020[292 * i] + flt_6E3034[292 * i];
+          dword_6E301C[292 * i] = (signed __int64)*(float *)&dword_6E3020[292 * i];
+          if ( j > 0 )
+          {
+            v61 = GpwRace_RaceEntryIndex_v2[4 * (j - 1)];
+            dword_6E303C[292 * i] = v61;
+            if ( v47 < dword_6E301C[292 * i] )
+            {
+              if ( dword_6E3038[292 * i] == dword_6E3038[292 * v61] )
+              {
+                v63 = v47;
+                while ( v63 != dword_6E301C[292 * v61] )
+                {
+                  ++v63;
+                  if ( v63 >= dword_6E301C[292 * i] )
+                    goto LABEL_446;
+                }
+                if ( flt_6E3034[292 * v61] >= (double)dword_64D7E8[GpwRace_DatFileTrackId]
+                  || flt_6E3034[292 * i] < (double)dword_64D7E8[GpwRace_DatFileTrackId] )
+                {
+                  dword_6E301C[292 * i] = v47;
+                  dword_6E3020[292 * i] = v51;
+                }
+                else
+                {
+                  dword_6E301C[292 * i] = dword_6E301C[292 * v61];
+                  dword_6E3020[292 * i] = dword_6E3020[292 * v61];
+                  --dword_6E301C[292 * v61];
+                  *(float *)&dword_6E3020[292 * v61] = (double)dword_6E301C[292 * v61];
+                }
+              }
+            }
+          }
+LABEL_446:
+          flt_6E3448[292 * i] = flt_6E3448[292 * i] - v67;
+          flt_6E3448[292 * i] = flt_6E3448[292 * i] + 0.7099999785423279;
+          if ( dword_6E301C[292 * i] >= dword_672498[dword_6E3038[292 * i]] )
+          {
+            sub_401361(i);
+            sub_401D93(i);
+          }
+          sub_402EE6(i);
+        }
+        else
+        {
+          if ( dword_6E312C[292 * i] == 3 && dword_6E313C[292 * i] != 1 )
+          {
+            sub_4039D6(0, dword_6E3050[292 * i]);
+            sub_402F54(4, v52);
+            sub_4024CD(v52, 1);
+            continue;
+          }
+          memcpy(&unk_66F260, &dword_6E3000[292 * i], 0x490u);
+          v65 = flt_6E3034[292 * i] * *(float *)((char *)&flt_673C7C[715 * v54] + 28 * dword_6E301C[292 * i]);
+          if ( dword_6E32D8[292 * i] == 1 )
+          {
+            if ( !dword_64A6A4 )
+              v65 = v65 * 0.8999999761581421;
+          }
+          v35 = v65 * v67;
+          v65 = v35;
+          dword_6E32B0[292 * i] = dword_6E3014[292 * i];
+          sub_404223(
+            *((float *)&dword_673C6C[715 * v54] + 7 * dword_6E301C[292 * i]),
+            *((float *)&dword_673C64[715 * v54] + 7 * dword_6E301C[292 * i]),
+            *(float *)&dword_6E3008[292 * i],
+            *(float *)&dword_6E3000[292 * i]);
+          *(float *)&dword_6E3014[292 * i] = v35;
+          sub_402A27(&v64, &dword_6E3000[292 * i]);
+          v36 = -*(float *)&dword_6E3014[292 * i];
+          sub_402C4D(&v46, v36);
+          sub_403166(&v64, &v64, &v46);
+          (*(void (__stdcall **)(int, signed int, char *))(*(_DWORD *)a2 + 100))(a2, 1, &v64);
+          dword_6E3024[292 * i] = *(_DWORD *)sub_401B13(2, 0);
+          dword_6E3028[292 * i] = *(_DWORD *)sub_401B13(2, 1);
+          dword_6E302C[292 * i] = *(_DWORD *)sub_401B13(2, 2);
+          v37 = sub_402AF9(&v43, &dword_6E3024[292 * i], v65);
+          sub_4015D2(v37);
+          if ( dword_64A6BC && dword_6E312C[292 * i] != 3 )
+            sub_4039D6(1, dword_6E3050[292 * i]);
+          else
+            sub_4039D6(0, dword_6E3050[292 * i]);
+          if ( dword_6E312C[292 * i] != 2 || dword_6EAE70[dword_6E3038[292 * i]] != 1 )
+          {
+            if ( dword_6E331C[292 * i] == 1 )
+            {
+              if ( j_GpwMisc_GetRandomValue_v2(0) )
+              {
+                dword_6E331C[292 * i] = 0;
+                if ( !dword_6E312C[292 * i] )
+                  sub_4018FC(i);
+              }
+            }
+          }
+          else
+          {
+            v35 = v65;
+            if ( v65 <= 0.0 )
+            {
+              dword_6E312C[292 * i] = 3;
+              if ( dword_6E3130[292 * i] == 3 )
+              {
+                v38 = j_GpwMisc_GetRandomValue_v2(4);
+                sub_4034F9(i, v38);
+              }
+              if ( GpwRace_IsCarNumberPlayersCarFlag[292 * i] == 1 )
+              {
+                j_GpwRace_PlaySounds(0, 313, i);
+                j_GpwRace_PlaySounds(1, 190, i);
+              }
+              else
+              {
+                j_GpwRace_PlaySounds(1, 190, i);
+              }
+              sub_402AF4(i);
+            }
+          }
+          if ( j > 0 )
+          {
+            v61 = GpwRace_RaceEntryIndex_v2[4 * (j - 1)];
+            dword_6E303C[292 * i] = v61;
+            if ( dword_64A6C0 )
+            {
+              if ( v54 == dword_6E32D0[292 * v61] + dword_6E3038[292 * v61] )
+              {
+                if ( !dword_6E313C[292 * v61] )
+                {
+                  LODWORD(v56) = dword_673C50[715 * v54];
+                  if ( dword_6E95B8[dword_6E3038[292 * i]] == 10 || dword_6E95B8[dword_6E3038[292 * i]] == 30 )
+                  {
+                    v35 = v56 * 1.200000047683716;
+                    v56 = v35;
+                  }
+                  if ( sub_401839(
+                         *(float *)&dword_6E3000[292 * i],
+                         dword_6E3000[292 * i + 1],
+                         *(float *)&dword_6E3000[292 * i + 2],
+                         *(float *)&dword_6E3000[292 * v61],
+                         dword_6E3000[292 * v61 + 1],
+                         *(float *)&dword_6E3000[292 * v61 + 2],
+                         v56) )
+                  {
+                    if ( dword_6E313C[292 * v61] != 1 )
+                    {
+                      if ( dword_6E3130[292 * v61] != 17 )
+                      {
+                        memcpy(&dword_6E3000[292 * i], &unk_66F260, 0x490u);
+                        if ( dword_6EB040 == 16 )
+                        {
+                          if ( dword_6EAF7C == 1 )
+                          {
+                            if ( dword_6E3038[292 * i] > 2 )
+                            {
+                              if ( !dword_6E312C[292 * i] )
+                              {
+                                if ( !dword_6E312C[292 * v61] )
+                                {
+                                  sub_402743(i);
+                                  sub_402743(v61);
+                                  sub_401CBC(v35, i, 5);
+                                  sub_401CBC(v35, v61, 7);
+                                  sub_401749(i, 1);
+                                  dword_6EAF7C = 0;
+                                }
+                              }
+                            }
+                          }
+                        }
+                        if ( j_GpwMisc_GetRandomValue_v2(10) )
+                        {
+                          if ( !j_GpwMisc_GetRandomValue_v2(50) )
+                            sub_401992(i);
+                        }
+                        else
+                        {
+                          sub_401749(i, 1);
+                        }
+                        if ( dword_6E32D4[292 * i] <= 0 )
+                        {
+                          if ( j_GpwRace_TriggerYellowFlagAndMore_Unknown(i, v61) == 1 )
+                          {
+                            dword_6E32D4[292 * i] = 3;
+                            if ( dword_6E3404[292 * v61] >= dword_6E3404[292 * i] )
+                              sub_40382D(i, 1, v41);
+                            else
+                              sub_40382D(i, 2, v41);
+                          }
+                          else
+                          {
+                            if ( dword_6E32D0[292 * i] != 50 )
+                              flt_6E3034[292 * i] = flt_6E3034[292 * v61];
+                          }
+                        }
+                        if ( dword_6E3404[292 * v61] >= dword_6E3404[292 * i] )
+                        {
+                          sub_403841(dword_6E3050[292 * i], 8);
+                        }
+                        else
+                        {
+                          ++dword_6E3468[292 * v61];
+                          if ( dword_6E3468[292 * v61] >= 10 )
+                          {
+                            if ( dword_6E3468[292 * v61] >= 30 )
+                            {
+                              dword_6E3468[292 * v61] = 0;
+                              if ( !sub_4019C4(v61) )
+                              {
+                                if ( !GpwRace_RaceCarEventInformation[292 * v61] )
+                                {
+                                  if ( sub_401D3E(v61) == 1 )
+                                  {
+                                    if ( v61 == GpwRace_CarNumberIndexForDriver1
+                                      || v61 == GpwRace_CarNumberIndexForDriver2 )
+                                      j_GpwRace_PlaySounds(0, 324, v61);
+                                    j_GpwRace_SetRaceCarEventInformationAndOthers_Unknown(v61, 7);
+                                  }
+                                }
+                              }
+                            }
+                            else
+                            {
+                              sub_402F54(3, dword_6E3038[292 * i]);
+                            }
+                          }
+                          else
+                          {
+                            sub_402F54(12, dword_6E3038[292 * i]);
+                            if ( dword_6E3468[292 * v61] == 1 )
+                            {
+                              if ( GpwRace_IsCarNumberPlayersCarFlag[292 * v61] == 1 )
+                                j_GpwRace_PlaySounds(0, 322, v61);
+                            }
+                          }
+                        }
+                        sub_402CB1(i);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            else
+            {
+              if ( v54 == dword_6E32D0[292 * v61] + dword_6E3038[292 * v61] )
+              {
+                if ( GpwQual_OutLapFlag[292 * v61] == 1 )
+                {
+                  v56 = *(float *)&dword_673C50[715 * v54] * 1.100000023841858;
+                  if ( sub_401839(
+                         *(float *)&dword_6E3000[292 * i],
+                         dword_6E3000[292 * i + 1],
+                         *(float *)&dword_6E3000[292 * i + 2],
+                         *(float *)&dword_6E3000[292 * v61],
+                         dword_6E3000[292 * v61 + 1],
+                         *(float *)&dword_6E3000[292 * v61 + 2],
+                         v56) )
+                  {
+                    if ( dword_6E313C[292 * v61] != 1 )
+                    {
+                      if ( dword_6E3130[292 * v61] != 17 )
+                      {
+                        memcpy(&dword_6E3000[292 * i], &unk_66F260, 0x490u);
+                        if ( dword_6EB040 == 16 )
+                        {
+                          if ( dword_6EAF7C == 1 )
+                          {
+                            if ( dword_6E3038[292 * i] > 2 )
+                            {
+                              if ( !dword_6E312C[292 * i] )
+                              {
+                                if ( !dword_6E312C[292 * v61] )
+                                {
+                                  sub_402743(i);
+                                  sub_402743(v61);
+                                  sub_401CBC(v35, i, 5);
+                                  sub_401CBC(v35, v61, 7);
+                                  sub_401749(i, 1);
+                                  dword_6EAF7C = 0;
+                                }
+                              }
+                            }
+                          }
+                        }
+                        if ( !j_GpwMisc_GetRandomValue_v2(13) )
+                          sub_401749(i, 1);
+                        if ( GpwQual_HotLapFlag[292 * v61] >= 1 )
+                        {
+                          dword_6E32D4[292 * i] = 0;
+                          dword_6E32D0[292 * i] = 0;
+                        }
+                        else
+                        {
+                          dword_6E32D4[292 * i] = 3;
+                        }
+                        sub_402CB1(i);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          v39 = *((float *)&dword_673C64[715 * v54] + 7 * dword_6E301C[292 * i]) - *(float *)&dword_6E3000[292 * i];
+          fabs(v39);
+          v48 = v39;
+          v40 = *((float *)&dword_673C6C[715 * v54] + 7 * dword_6E301C[292 * i]) - *(float *)&dword_6E3008[292 * i];
+          fabs(v40);
+          v45 = v40;
+          if ( v65 < v48 || v65 < v45 )
+          {
+            if ( !j_GpwMisc_GetRandomValue_v2(3000) )
+              sub_402743(i);
+          }
+          else
+          {
+            if ( dword_64A6A4 > 0 )
+              *(int *)((char *)&dword_673C74[715 * v52] + 28 * dword_6E301C[292 * i]) = dword_6E3014[292 * i];
+            ++dword_6E301C[292 * i];
+            if ( dword_6E301C[292 * i] < dword_673C28[715 * v54] )
+              goto LABEL_431;
+            if ( dword_64A6A4 > 0 )
+            {
+              sub_402D65(0, v54, 0);
+LABEL_431:
+              sub_402EE6(i);
+              continue;
+            }
+            sub_401361(i);
+            sub_401D93(i);
+            sub_402EE6(i);
+            if ( i == GpwRace_CarNumberIndexForDriver1 || i == GpwRace_CarNumberIndexForDriver2 )
+            {
+              if ( dword_6E3404[292 * i] > 0 )
+              {
+                if ( dword_64A6C0 == 1 )
+                {
+                  if ( !sub_4019C4(i) )
+                  {
+                    if ( GpwRace_CarRacePositionOnSectionExit[292 * i] <= GpwRace_CarRacePositionOnSectionEntry[292 * i] )
+                    {
+                      if ( GpwRace_CarRacePositionOnSectionExit[292 * i] < GpwRace_CarRacePositionOnSectionEntry[292 * i] )
+                      {
+                        if ( dword_6E3478[292 * i] + 100 >= dword_6E3444[292 * i] || dword_6E3478[292 * i] <= 0 )
+                          j_GpwRace_PlaySounds(0, 298, i);
+                        else
+                          j_GpwRace_PlaySounds(0, 300, i);
+                        dword_6E3478[292 * i] = dword_6E3444[292 * i];
+                      }
+                    }
+                    else
+                    {
+                      if ( dword_6E3478[292 * i] + 100 >= dword_6E3444[292 * i] || dword_6E3478[292 * i] <= 0 )
+                        j_GpwRace_PlaySounds(0, 299, i);
+                      else
+                        j_GpwRace_PlaySounds(0, 300, i);
+                      dword_6E3478[292 * i] = dword_6E3444[292 * i];
+                    }
+                  }
+                }
+              }
+            }
+            GpwRace_CarRacePositionOnSectionExit[292 * i] = GpwRace_CarRacePositionOnSectionEntry[292 * i];
+          }
+        }
+      }
+    }
+  }
+  dword_6EB028 = timeGetTime();
+  if ( (unsigned int)(dword_6EB028 - dword_6EAFF0) > 0xFA )
+  {
+    if ( dword_6EA9F0 > 10 )
+      dword_6EA9F0 += j_GpwMisc_GetRandomValue_v2(2) + 1;
+    else
+      ++dword_6EA9F0;
+    dword_6EAFF0 = dword_6EB028;
+  }
+  if ( dword_6EA9F0 == 1 )
+  {
+    if ( dword_653B04 == 1 )
+      sub_402158("wav\\FXRSIDLE.wav", 0);
+  }
+  if ( dword_6EA9F0 > 70 )
+  {
+    dword_64A6BC = 1;
+    if ( dword_653B04 == 1 )
+    {
+      if ( !dword_6EB048 )
+      {
+        sub_403C3D("wav\\FXRSGO.wav", 1);
+        dword_6EB048 = 1;
+      }
+    }
+    sub_40368E();
+    sub_401799();
+    sub_403C4C();
+  }
+  return 0;
+}

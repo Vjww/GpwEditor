@@ -1,0 +1,39 @@
+.data:006E3964 db    2
+.data:006E3965 db    0
+.data:006E3966 db    0
+.data:006E3967 db    0
+.data:006E3968 db    2
+.data:006E3969 db    0
+.data:006E396A db    0
+.data:006E396B db    0
+
+Scenario (save05.sav):
+8 Hakinnen, comes into the pits in 15th (player team)
+3 Schumacher comes into the pits in 3rd
+1 Newhouse comes into the pits 4th
+
+Typical result:
+Schumacher may be held up by Newhouse
+Hakinnen only leaves once both drivers leave
+
+Car 3 - position 2
+Car 1 - position 3
+
+Car 3 is in the pitbox, still in position 2
+Car 1 enters the pitbox, car 3 is now position 3 and car 2 position 2.
+
+Enable breakpoint 45685F when 45AEDE is hit (when car 1 enters the pitbox).
+Positions appear to change between these two breakpoints.
+
+45AEDE = sub_455932+2842/2CD0 > sub_458665+638 > GpwRace_CalcTimingInclPitstop_Unknown+860
+45685F = sub_455932+F2D
+
+
+.data:006E33EC   ; int GpwRace_IsCarInThePitsFlag[]
+.data:006E33EC   GpwRace_IsCarInThePitsFlag dd 0         ; DATA XREF: sub_455932+1419r
+
+
+
+.text:004566A2 mov     GpwRace_CarRacePosition_Unknown[eax], ecx
+
+

@@ -1,0 +1,144 @@
+int __cdecl GpwDesign_CalcNextYearsHandlingPercentage(int a1)
+{
+  int handling; // [sp+4h] [bp-4h]@1
+
+  GpwDesign_CarDesignEfficiencyRating[191 * a1] = j_GpwDesign_CalcCarDesignEfficiencyRating(a1);
+  handling = 20 * (j_GpwStaff_GetAttribute_Skill(a1, GpwStaff_TypeId3) - 1);
+  if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 5 )
+  {
+    if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 10 )
+    {
+      if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 15 )
+      {
+        if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 20 )
+        {
+          if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 25 )
+          {
+            if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 30 )
+            {
+              if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 35 )
+              {
+                if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 40 )
+                {
+                  if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 45 )
+                  {
+                    if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 50 )
+                    {
+                      if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 55 )
+                      {
+                        if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 60 )
+                        {
+                          if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 65 )
+                          {
+                            if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 70 )
+                            {
+                              if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 75 )
+                              {
+                                if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 80 )
+                                {
+                                  if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 85 )
+                                  {
+                                    if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 90 )
+                                    {
+                                      if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] > 95 )
+                                      {
+                                        if ( GpwDesign_CarDesignEfficiencyRating[191 * a1] <= 100 )
+                                          handling += 20;
+                                      }
+                                      else
+                                      {
+                                        handling += 19;
+                                      }
+                                    }
+                                    else
+                                    {
+                                      handling += 18;
+                                    }
+                                  }
+                                  else
+                                  {
+                                    handling += 17;
+                                  }
+                                }
+                                else
+                                {
+                                  handling += 16;
+                                }
+                              }
+                              else
+                              {
+                                handling += 15;
+                              }
+                            }
+                            else
+                            {
+                              handling += 14;
+                            }
+                          }
+                          else
+                          {
+                            handling += 13;
+                          }
+                        }
+                        else
+                        {
+                          handling += 12;
+                        }
+                      }
+                      else
+                      {
+                        handling += 11;
+                      }
+                    }
+                    else
+                    {
+                      handling += 10;
+                    }
+                  }
+                  else
+                  {
+                    handling += 9;
+                  }
+                }
+                else
+                {
+                  handling += 8;
+                }
+              }
+              else
+              {
+                handling += 7;
+              }
+            }
+            else
+            {
+              handling += 6;
+            }
+          }
+          else
+          {
+            handling += 5;
+          }
+        }
+        else
+        {
+          handling += 4;
+        }
+      }
+      else
+      {
+        handling += 3;
+      }
+    }
+    else
+    {
+      handling += 2;
+    }
+  }
+  else
+  {
+    ++handling;
+  }
+  GpwDesign_NextYearsHandlingPercentage[191 * a1] = handling;
+  return j___initp_misc_winxfltr_0(a1, 1);
+}

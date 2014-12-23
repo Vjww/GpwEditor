@@ -1,0 +1,44 @@
+Unhandled expections in gpw.exe 
+-------------------------------
+Exceptions caused when calculating memory area to reset on calling _memset() under Windows XP and higher.
+
+
+Unhandled exception at 0x0049aa6b in gpw.exe: 0xC0000005: Access violation reading location 0x0771e202.
+
+.text:0049AA5F                 mov     eax, [ebp+var_18]			8B 45 E8
+.text:0049AA62                 sub     eax, [ebp+var_14]
+.text:0049AA65                 push    eax             ; Size
+.text:0049AA66                 mov     eax, ds:dword_72F218
+.text:0049AA6B                 mov     ax, [eax+0Eh]
+.text:0049AA6F                 and     eax, 0FFFFh
+.text:0049AA74                 sub     eax, 8
+.text:0049AA77                 cmp     eax, 1
+.text:0049AA7A                 sbb     eax, eax
+.text:0049AA7C                 and     eax, 80h
+.text:0049AA81                 push    eax             ; Val
+.text:0049AA82                 mov     eax, [ebp+var_14]
+.text:0049AA85                 add     eax, [ebp+var_8]
+.text:0049AA88                 push    eax             ; Dst
+.text:0049AA89                 call    _memset
+.text:0049AA8E                 add     esp, 0Ch						83 C4 0C
+
+Unhandled exception at 0x0049b41e in gpw.exe: 0xC0000005: Access violation reading location 0x01c4b04e.
+
+.text:0049B40A                 mov     eax, [ebp+var_18]			8B 45 E8
+.text:0049B40D                 sub     eax, [ebp+var_14]
+.text:0049B410                 push    eax             ; Size
+.text:0049B411                 mov     eax, [ebp+arg_4]
+.text:0049B414                 shl     eax, 2
+.text:0049B417                 mov     eax, ds:dword_72F468[eax+eax*4]
+.text:0049B41E                 mov     ax, [eax+0Eh]
+.text:0049B422                 and     eax, 0FFFFh
+.text:0049B427                 sub     eax, 8
+.text:0049B42A                 cmp     eax, 1
+.text:0049B42D                 sbb     eax, eax
+.text:0049B42F                 and     eax, 80h
+.text:0049B434                 push    eax             ; Val
+.text:0049B435                 mov     eax, [ebp+var_14]
+.text:0049B438                 add     eax, [ebp+Dst]
+.text:0049B43B                 push    eax             ; Dst
+.text:0049B43C                 call    _memset
+.text:0049B441                 add     esp, 0Ch						83 C4 0C

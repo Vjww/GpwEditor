@@ -1,0 +1,266 @@
+.text:0043A4EB ; =============== S U B R O U T I N E =======================================
+.text:0043A4EB
+.text:0043A4EB ; Attributes: bp-based frame
+.text:0043A4EB
+.text:0043A4EB GpwDesign_CalcNextYearsHandlingPercentage proc near
+.text:0043A4EB                                         ; CODE XREF: j_GpwDesign_CalcNextYearsHandlingPercentagej
+.text:0043A4EB
+.text:0043A4EB var_8           = dword ptr -8
+.text:0043A4EB handling        = dword ptr -4
+.text:0043A4EB arg_0           = dword ptr  8
+.text:0043A4EB
+.text:0043A4EB                 push    ebp
+.text:0043A4EC                 mov     ebp, esp
+.text:0043A4EE                 sub     esp, 8
+.text:0043A4F1                 mov     eax, [ebp+arg_0]
+.text:0043A4F4                 push    eax
+.text:0043A4F5                 call    j_GpwDesign_CalcCarDesignEfficiencyRating
+.text:0043A4FA                 add     esp, 4
+.text:0043A4FD                 mov     ecx, [ebp+arg_0]
+.text:0043A500                 imul    ecx, 2FCh
+.text:0043A506                 mov     GpwDesign_CarDesignEfficiencyRating[ecx], eax
+.text:0043A50C                 mov     edx, GpwStaff_TypeId3
+.text:0043A512                 push    edx
+.text:0043A513                 mov     eax, [ebp+arg_0]
+.text:0043A516                 push    eax
+.text:0043A517                 call    j_GpwStaff_GetAttribute_Skill
+.text:0043A51C                 add     esp, 8
+.text:0043A51F                 mov     [ebp+var_8], eax
+.text:0043A522                 mov     ecx, [ebp+var_8]
+.text:0043A525                 sub     ecx, 1
+.text:0043A528                 imul    ecx, 14h
+.text:0043A52B                 mov     [ebp+handling], ecx
+.text:0043A52E                 mov     edx, [ebp+arg_0]
+.text:0043A531                 imul    edx, 2FCh
+.text:0043A537                 cmp     GpwDesign_CarDesignEfficiencyRating[edx], 5
+.text:0043A53E                 jg      short loc_43A54E
+.text:0043A540                 mov     eax, [ebp+handling]
+.text:0043A543                 add     eax, 1
+.text:0043A546                 mov     [ebp+handling], eax
+.text:0043A549                 jmp     loc_43A79D
+.text:0043A54E ; ---------------------------------------------------------------------------
+.text:0043A54E
+.text:0043A54E loc_43A54E:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+53j
+.text:0043A54E                 mov     ecx, [ebp+arg_0]
+.text:0043A551                 imul    ecx, 2FCh
+.text:0043A557                 cmp     GpwDesign_CarDesignEfficiencyRating[ecx], 0Ah
+.text:0043A55E                 jg      short loc_43A56E
+.text:0043A560                 mov     edx, [ebp+handling]
+.text:0043A563                 add     edx, 2
+.text:0043A566                 mov     [ebp+handling], edx
+.text:0043A569                 jmp     loc_43A79D
+.text:0043A56E ; ---------------------------------------------------------------------------
+.text:0043A56E
+.text:0043A56E loc_43A56E:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+73j
+.text:0043A56E                 mov     eax, [ebp+arg_0]
+.text:0043A571                 imul    eax, 2FCh
+.text:0043A577                 cmp     GpwDesign_CarDesignEfficiencyRating[eax], 0Fh
+.text:0043A57E                 jg      short loc_43A58E
+.text:0043A580                 mov     ecx, [ebp+handling]
+.text:0043A583                 add     ecx, 3
+.text:0043A586                 mov     [ebp+handling], ecx
+.text:0043A589                 jmp     loc_43A79D
+.text:0043A58E ; ---------------------------------------------------------------------------
+.text:0043A58E
+.text:0043A58E loc_43A58E:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+93j
+.text:0043A58E                 mov     edx, [ebp+arg_0]
+.text:0043A591                 imul    edx, 2FCh
+.text:0043A597                 cmp     GpwDesign_CarDesignEfficiencyRating[edx], 14h
+.text:0043A59E                 jg      short loc_43A5AE
+.text:0043A5A0                 mov     eax, [ebp+handling]
+.text:0043A5A3                 add     eax, 4
+.text:0043A5A6                 mov     [ebp+handling], eax
+.text:0043A5A9                 jmp     loc_43A79D
+.text:0043A5AE ; ---------------------------------------------------------------------------
+.text:0043A5AE
+.text:0043A5AE loc_43A5AE:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+B3j
+.text:0043A5AE                 mov     ecx, [ebp+arg_0]
+.text:0043A5B1                 imul    ecx, 2FCh
+.text:0043A5B7                 cmp     GpwDesign_CarDesignEfficiencyRating[ecx], 19h
+.text:0043A5BE                 jg      short loc_43A5CE
+.text:0043A5C0                 mov     edx, [ebp+handling]
+.text:0043A5C3                 add     edx, 5
+.text:0043A5C6                 mov     [ebp+handling], edx
+.text:0043A5C9                 jmp     loc_43A79D
+.text:0043A5CE ; ---------------------------------------------------------------------------
+.text:0043A5CE
+.text:0043A5CE loc_43A5CE:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+D3j
+.text:0043A5CE                 mov     eax, [ebp+arg_0]
+.text:0043A5D1                 imul    eax, 2FCh
+.text:0043A5D7                 cmp     GpwDesign_CarDesignEfficiencyRating[eax], 1Eh
+.text:0043A5DE                 jg      short loc_43A5EE
+.text:0043A5E0                 mov     ecx, [ebp+handling]
+.text:0043A5E3                 add     ecx, 6
+.text:0043A5E6                 mov     [ebp+handling], ecx
+.text:0043A5E9                 jmp     loc_43A79D
+.text:0043A5EE ; ---------------------------------------------------------------------------
+.text:0043A5EE
+.text:0043A5EE loc_43A5EE:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+F3j
+.text:0043A5EE                 mov     edx, [ebp+arg_0]
+.text:0043A5F1                 imul    edx, 2FCh
+.text:0043A5F7                 cmp     GpwDesign_CarDesignEfficiencyRating[edx], 23h
+.text:0043A5FE                 jg      short loc_43A60E
+.text:0043A600                 mov     eax, [ebp+handling]
+.text:0043A603                 add     eax, 7
+.text:0043A606                 mov     [ebp+handling], eax
+.text:0043A609                 jmp     loc_43A79D
+.text:0043A60E ; ---------------------------------------------------------------------------
+.text:0043A60E
+.text:0043A60E loc_43A60E:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+113j
+.text:0043A60E                 mov     ecx, [ebp+arg_0]
+.text:0043A611                 imul    ecx, 2FCh
+.text:0043A617                 cmp     GpwDesign_CarDesignEfficiencyRating[ecx], 28h
+.text:0043A61E                 jg      short loc_43A62E
+.text:0043A620                 mov     edx, [ebp+handling]
+.text:0043A623                 add     edx, 8
+.text:0043A626
+.text:0043A626 loc_43A626:
+.text:0043A626                 mov     [ebp+handling], edx
+.text:0043A629                 jmp     loc_43A79D
+.text:0043A62E ; ---------------------------------------------------------------------------
+.text:0043A62E
+.text:0043A62E loc_43A62E:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+133j
+.text:0043A62E                 mov     eax, [ebp+arg_0]
+.text:0043A631                 imul    eax, 2FCh
+.text:0043A637                 cmp     GpwDesign_CarDesignEfficiencyRating[eax], 2Dh
+.text:0043A63E                 jg      short loc_43A64E
+.text:0043A640                 mov     ecx, [ebp+handling]
+.text:0043A643                 add     ecx, 9
+.text:0043A646                 mov     [ebp+handling], ecx
+.text:0043A649                 jmp     loc_43A79D
+.text:0043A64E ; ---------------------------------------------------------------------------
+.text:0043A64E
+.text:0043A64E loc_43A64E:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+153j
+.text:0043A64E                 mov     edx, [ebp+arg_0]
+.text:0043A651                 imul    edx, 2FCh
+.text:0043A657                 cmp     GpwDesign_CarDesignEfficiencyRating[edx], 32h
+.text:0043A65E                 jg      short loc_43A66E
+.text:0043A660                 mov     eax, [ebp+handling]
+.text:0043A663                 add     eax, 0Ah
+.text:0043A666                 mov     [ebp+handling], eax
+.text:0043A669                 jmp     loc_43A79D
+.text:0043A66E ; ---------------------------------------------------------------------------
+.text:0043A66E
+.text:0043A66E loc_43A66E:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+173j
+.text:0043A66E                 mov     ecx, [ebp+arg_0]
+.text:0043A671                 imul    ecx, 2FCh
+.text:0043A677                 cmp     GpwDesign_CarDesignEfficiencyRating[ecx], 37h
+.text:0043A67E                 jg      short loc_43A68E
+.text:0043A680                 mov     edx, [ebp+handling]
+.text:0043A683                 add     edx, 0Bh
+.text:0043A686                 mov     [ebp+handling], edx
+.text:0043A689                 jmp     loc_43A79D
+.text:0043A68E ; ---------------------------------------------------------------------------
+.text:0043A68E
+.text:0043A68E loc_43A68E:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+193j
+.text:0043A68E                 mov     eax, [ebp+arg_0]
+.text:0043A691                 imul    eax, 2FCh
+.text:0043A697                 cmp     GpwDesign_CarDesignEfficiencyRating[eax], 3Ch
+.text:0043A69E                 jg      short loc_43A6AE
+.text:0043A6A0                 mov     ecx, [ebp+handling]
+.text:0043A6A3                 add     ecx, 0Ch
+.text:0043A6A6                 mov     [ebp+handling], ecx
+.text:0043A6A9                 jmp     loc_43A79D
+.text:0043A6AE ; ---------------------------------------------------------------------------
+.text:0043A6AE
+.text:0043A6AE loc_43A6AE:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+1B3j
+.text:0043A6AE                 mov     edx, [ebp+arg_0]
+.text:0043A6B1                 imul    edx, 2FCh
+.text:0043A6B7                 cmp     GpwDesign_CarDesignEfficiencyRating[edx], 41h
+.text:0043A6BE                 jg      short loc_43A6CE
+.text:0043A6C0                 mov     eax, [ebp+handling]
+.text:0043A6C3                 add     eax, 0Dh
+.text:0043A6C6                 mov     [ebp+handling], eax
+.text:0043A6C9                 jmp     loc_43A79D
+.text:0043A6CE ; ---------------------------------------------------------------------------
+.text:0043A6CE
+.text:0043A6CE loc_43A6CE:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+1D3j
+.text:0043A6CE                 mov     ecx, [ebp+arg_0]
+.text:0043A6D1                 imul    ecx, 2FCh
+.text:0043A6D7                 cmp     GpwDesign_CarDesignEfficiencyRating[ecx], 46h
+.text:0043A6DE                 jg      short loc_43A6EE
+.text:0043A6E0                 mov     edx, [ebp+handling]
+.text:0043A6E3                 add     edx, 0Eh
+.text:0043A6E6                 mov     [ebp+handling], edx
+.text:0043A6E9                 jmp     loc_43A79D
+.text:0043A6EE ; ---------------------------------------------------------------------------
+.text:0043A6EE
+.text:0043A6EE loc_43A6EE:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+1F3j
+.text:0043A6EE                 mov     eax, [ebp+arg_0]
+.text:0043A6F1                 imul    eax, 2FCh
+.text:0043A6F7                 cmp     GpwDesign_CarDesignEfficiencyRating[eax], 4Bh
+.text:0043A6FE                 jg      short loc_43A70E
+.text:0043A700                 mov     ecx, [ebp+handling]
+.text:0043A703                 add     ecx, 0Fh
+.text:0043A706                 mov     [ebp+handling], ecx
+.text:0043A709                 jmp     loc_43A79D
+.text:0043A70E ; ---------------------------------------------------------------------------
+.text:0043A70E
+.text:0043A70E loc_43A70E:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+213j
+.text:0043A70E                 mov     edx, [ebp+arg_0]
+.text:0043A711                 imul    edx, 2FCh
+.text:0043A717                 cmp     GpwDesign_CarDesignEfficiencyRating[edx], 50h
+.text:0043A71E                 jg      short loc_43A72B
+.text:0043A720                 mov     eax, [ebp+handling]
+.text:0043A723                 add     eax, 10h
+.text:0043A726                 mov     [ebp+handling], eax
+.text:0043A729                 jmp     short loc_43A79D
+.text:0043A72B ; ---------------------------------------------------------------------------
+.text:0043A72B
+.text:0043A72B loc_43A72B:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+233j
+.text:0043A72B                 mov     ecx, [ebp+arg_0]
+.text:0043A72E                 imul    ecx, 2FCh
+.text:0043A734                 cmp     GpwDesign_CarDesignEfficiencyRating[ecx], 55h
+.text:0043A73B                 jg      short loc_43A748
+.text:0043A73D                 mov     edx, [ebp+handling]
+.text:0043A740                 add     edx, 11h
+.text:0043A743                 mov     [ebp+handling], edx
+.text:0043A746                 jmp     short loc_43A79D
+.text:0043A748 ; ---------------------------------------------------------------------------
+.text:0043A748
+.text:0043A748 loc_43A748:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+250j
+.text:0043A748                 mov     eax, [ebp+arg_0]
+.text:0043A74B                 imul    eax, 2FCh
+.text:0043A751                 cmp     GpwDesign_CarDesignEfficiencyRating[eax], 5Ah
+.text:0043A758                 jg      short loc_43A765
+.text:0043A75A                 mov     ecx, [ebp+handling]
+.text:0043A75D                 add     ecx, 12h
+.text:0043A760                 mov     [ebp+handling], ecx
+.text:0043A763                 jmp     short loc_43A79D
+.text:0043A765 ; ---------------------------------------------------------------------------
+.text:0043A765
+.text:0043A765 loc_43A765:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+26Dj
+.text:0043A765                 mov     edx, [ebp+arg_0]
+.text:0043A768                 imul    edx, 2FCh
+.text:0043A76E                 cmp     GpwDesign_CarDesignEfficiencyRating[edx], 5Fh
+.text:0043A775                 jg      short loc_43A782
+.text:0043A777                 mov     eax, [ebp+handling]
+.text:0043A77A                 add     eax, 13h
+.text:0043A77D                 mov     [ebp+handling], eax
+.text:0043A780                 jmp     short loc_43A79D
+.text:0043A782 ; ---------------------------------------------------------------------------
+.text:0043A782
+.text:0043A782 loc_43A782:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+28Aj
+.text:0043A782                 mov     ecx, [ebp+arg_0]
+.text:0043A785                 imul    ecx, 2FCh
+.text:0043A78B                 cmp     GpwDesign_CarDesignEfficiencyRating[ecx], 64h
+.text:0043A792                 jg      short loc_43A79D
+.text:0043A794                 mov     edx, [ebp+handling]
+.text:0043A797                 add     edx, 14h
+.text:0043A79A                 mov     [ebp+handling], edx
+.text:0043A79D
+.text:0043A79D loc_43A79D:                             ; CODE XREF: GpwDesign_CalcNextYearsHandlingPercentage+5Ej
+.text:0043A79D                                         ; GpwDesign_CalcNextYearsHandlingPercentage+7Ej ...
+.text:0043A79D                 mov     eax, [ebp+arg_0]
+.text:0043A7A0                 imul    eax, 2FCh
+.text:0043A7A6                 mov     ecx, [ebp+handling]
+.text:0043A7A9                 mov     GpwDesign_NextYearsHandlingPercentage[eax], ecx
+.text:0043A7AF                 push    1
+.text:0043A7B1                 mov     edx, [ebp+arg_0]
+.text:0043A7B4                 push    edx
+.text:0043A7B5                 call    j___initp_misc_winxfltr_0
+.text:0043A7BA                 add     esp, 8
+.text:0043A7BD                 mov     esp, ebp
+.text:0043A7BF                 pop     ebp
+.text:0043A7C0                 retn
+.text:0043A7C0 GpwDesign_CalcNextYearsHandlingPercentage endp

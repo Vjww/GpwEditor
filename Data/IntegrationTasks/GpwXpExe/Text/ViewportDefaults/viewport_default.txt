@@ -1,0 +1,67 @@
+gpwxp.exe channel default
+
+0046418B  C7 05 60 94 70 00 00 00  00 00
+004641D1  C7 05 D4 94 70 00 04 00  00 00
+00464217  C7 05 48 95 70 00 03 00  00 00
+0046425D  C7 05 BC 95 70 00 02 00  00 00
+00464267  A1 EC 44 78 00					// driver id when viewport is 2
+
+.text:0046418B                 mov     GpwRace_ChannelId, 0
+.text:00464195                 mov     dword_709464, 0
+.text:0046419F                 mov     dword_709468, 0
+.text:004641A9                 mov     dword_70946C, 0
+.text:004641B3                 mov     dword_709470, 0
+.text:004641BD                 mov     dword_709474, 0
+.text:004641C7                 mov     dword_709478, 0Ch
+.text:004641D1                 mov     dword_7094D4, 4
+.text:004641DB                 mov     dword_7094E0, 0
+.text:004641E5                 mov     dword_7094D8, 0
+.text:004641EF                 mov     dword_7094DC, 0
+.text:004641F9                 mov     dword_7094E4, 0
+.text:00464203                 mov     dword_7094E8, 0
+.text:0046420D                 mov     dword_7094EC, 0Ch
+.text:00464217                 mov     dword_709548, 3
+.text:00464221                 mov     dword_70954C, 0
+.text:0046422B                 mov     dword_709550, 0
+.text:00464235                 mov     dword_709554, 0
+.text:0046423F                 mov     dword_709558, 0
+.text:00464249                 mov     dword_70955C, 0
+.text:00464253                 mov     dword_709560, 0Ch
+.text:0046425D                 mov     dword_7095BC, 2
+.text:00464267                 mov     eax, dword_7844EC
+.text:0046426C                 mov     dword_7095C0, eax
+.text:00464271                 mov     dword_7095C4, 0
+.text:0046427B                 mov     dword_7095C8, 0
+.text:00464285                 mov     dword_7095CC, 0
+.text:0046428F                 mov     dword_7095D0, 0
+.text:00464299                 mov     dword_7095D4, 0Ch
+
+.text:0049B8A1                 mov     GpwRace_ChannelId, 0
+.text:0049B8AB                 mov     dword_709464, 0
+.text:0049B8B5                 mov     dword_709468, 0
+.text:0049B8BF                 mov     dword_70946C, 0
+.text:0049B8C9                 mov     dword_709470, 0
+.text:0049B8D3                 mov     dword_709474, 0
+.text:0049B8DD                 mov     dword_709478, 0
+.text:0049B8E7                 mov     dword_7094D4, 4
+.text:0049B8F1                 mov     dword_7094E0, 0
+.text:0049B8FB                 mov     dword_7094D8, 0
+.text:0049B905                 mov     dword_7094DC, 0
+.text:0049B90F                 mov     dword_7094E4, 0
+.text:0049B919                 mov     dword_7094E8, 0
+.text:0049B923                 mov     dword_7094EC, 0
+.text:0049B92D                 mov     dword_709548, 3
+.text:0049B937                 mov     dword_70954C, 0
+.text:0049B941                 mov     dword_709550, 0
+.text:0049B94B                 mov     dword_709554, 0
+.text:0049B955                 mov     dword_709558, 0
+.text:0049B95F                 mov     dword_70955C, 0
+.text:0049B969                 mov     dword_709560, 0
+.text:0049B973                 mov     dword_7095BC, 2
+.text:0049B97D                 mov     ecx, dword_7844EC
+.text:0049B983                 mov     dword_7095C0, ecx
+.text:0049B989                 mov     dword_7095C4, 0
+.text:0049B993                 mov     dword_7095C8, 0
+.text:0049B99D                 mov     dword_7095CC, 0
+.text:0049B9A7                 mov     dword_7095D0, 0
+.text:0049B9B1                 mov     dword_7095D4, 0

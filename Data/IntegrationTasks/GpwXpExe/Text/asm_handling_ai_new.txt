@@ -1,0 +1,135 @@
+; ---------------------------------------------------------------------------
+; NEW -----------------------------------------------------------------------
+; START 0043B2D7 (3A6D7) END 0043B81B SIZE 544 (1348b) ----------------------
+; ---------------------------------------------------------------------------
+
+; =============== S U B R O U T I N E =======================================
+
+; Attributes: bp-based frame
+
+CalcAiHandlingPercentage proc near
+
+loc_43B2D7:		; start
+				skill_10          = dword ptr -10h
+				random_C          = dword ptr -0Ch
+				counter_8         = dword ptr -8
+				handling_4        = dword ptr -4
+
+                push    ebp														55
+                mov     ebp, esp												8B EC
+                sub     esp, 10h												83 EC 10
+                push    esi														56
+                mov     [ebp+counter_8], 1										C7 45 F8 01 00 00 00
+				jmp     short loc_43B2F0										EB 09
+; ---------------------------------------------------------------------------
+
+loc_43B2E7:		; increment loop
+                mov     eax, [ebp+counter_8]									8B 45 F8
+                add     eax, 1													83 C0 01
+                mov     [ebp+counter_8], eax									89 45 F8
+
+loc_43B2F0:		; for loop
+                cmp     [ebp+counter_8], 0Bh									83 7D F8 0B
+                jg      loc_43B3E5				; jumpout						0F 8F EB 00 00 00
+                mov     ecx, [ebp+counter_8]									8B 4D F8
+                imul    ecx, 1E90h												69 C9 90 1E 00 00
+                xor     edx, edx												33 D2
+                mov     dx, word_1783C08[ecx]									66 8B 91 08 3C 78 01
+                test    edx, edx				; ignore if players team		85 D2
+                jz      short loc_43B312		; skip next line				74 02
+                jmp     short loc_43B2E7		; top of loop					EB D5
+; ---------------------------------------------------------------------------
+
+loc_43B312:		; get designer skill
+                mov     eax, StaffTypeId3										A1 48 15 65 00
+                push    eax														50
+                mov     ecx, [ebp+counter_8]									8B 4D F8
+                push    ecx														51
+                call    GetSkill												E8 F2 71 FC FF
+                add     esp, 8													83 C4 08
+                mov     [ebp+skill_10], eax										89 45 F0
+                cmp     [ebp+skill_10], 0		; if 0							83 7D F0 00
+                jnz     short loc_43B334		; else skip next line			75 07
+				mov     [ebp+skill_10], 1										C7 45 F0 01 00 00 00
+; ---------------------------------------------------------------------------
+
+loc_43B334:		; multiply skill by handling multiplier
+                mov     edx, [ebp+skill_10]										8B 55 F0
+                sub     edx, 1													83 EA 01
+                imul    edx, 5													6B D2 05
+                mov     [ebp+handling_4], edx									89 55 FC
+
+; ---------------------------------------------------------------------------
+
+				; get engineer skill
+                mov     eax, StaffTypeId4										A1 4C 15 65 00
+                push    eax														50
+                mov     ecx, [ebp+counter_8]									8B 4D F8
+                push    ecx														51
+                call    GetSkill												E8 C4 71 FC FF
+                add     esp, 8													83 C4 08
+                mov     [ebp+skill_10], eax										89 45 F0
+                cmp     [ebp+skill_10], 0		; if 0							83 7D F0 00
+                jnz     short loc_43B362		; else skip next line			75 07
+				mov     [ebp+skill_10], 1										C7 45 F0 01 00 00 00
+; ---------------------------------------------------------------------------
+
+loc_43B362:		; multiply skill by handling multiplier
+                mov     edx, [ebp+skill_10]										8B 55 F0
+                sub     edx, 1													83 EA 01
+                imul    edx, 0Fh				; 15							6B D2 0F
+                add     edx, [ebp+handling_4]	; add							03 55 FC
+                mov     [ebp+handling_4], edx	; store							89 55 FC
+
+				; get random value
+				; rand() % 5 = 0-4
+                call    _rand		; random number in eax						E8 8A DE 1E 00
+				cdq																99
+                mov     ecx, 5		; prepare to divide eax by ecx				B9 05 00 00 00
+				idiv	ecx			; quotient in eax, remainder in edx			F7 F9
+                mov     [ebp+random_C], edx										89 55 F4
+				
+				; calc handling impact
+				; 21 - ChampionshipPosition1To11 - Random0To4 = 6-20
+                mov     edx, [ebp+random_C]										8B 55 F4
+                mov     eax, 15h	; 21										B8 15 00 00 00
+                sub     eax, edx	; sub Random0To4 (idiv remainder)			2B C2
+                mov     ecx, [ebp+counter_8]									8B 4D F8
+                imul    ecx, 1E90h												69 C9 90 1E 00 00
+                mov     edx, ChampionshipPosition[ecx]							8B 91 C4 27 78 01
+                sub     eax, edx	; sub ChampionshipPosition					2B C2
+                mov     [ebp+random_C], eax										89 45 F4
+				
+				; add handling impact to handling
+                mov     edx, [ebp+handling_4]									8B 55 FC
+                mov     eax, [ebp+random_C]										8B 45 F4
+                add     edx, eax												03 D0
+                mov     [ebp+handling_4], edx									89 55 FC
+
+				; handling value will be a minimum of 6% at worst
+				; no check required to ensure handling is 0% or above
+				
+				; populate handling variables
+                mov     eax, [ebp+counter_8]									8B 45 F8
+                imul    eax, 2FCh												69 C0 FC 02 00 00
+                mov     ecx, [ebp+handling_4]									8B 4D FC
+                mov     HandlingPercentage1[eax], ecx							89 88 F8 04 D2 00
+                mov     edx, [ebp+counter_8]									8B 55 F8
+                imul    edx, 2FCh												69 D2 FC 02 00 00
+                mov     eax, [ebp+handling_4]									8B 45 FC
+                mov     HandlingPercentage3[edx], eax							89 82 00 05 D2 00
+                mov     ecx, [ebp+counter_8]									8B 4D F8
+                imul    ecx, 2FCh												69 C9 FC 02 00 00
+                mov     edx, [ebp+handling_4]									8B 55 FC
+                mov     HandlingPercentage2[ecx], edx							89 91 FC 04 D2 00
+
+				; jump to top of loop
+                jmp     loc_43B2E7												E9 02 FF FF FF
+; ---------------------------------------------------------------------------
+
+loc_43B3E5:		; end
+                pop     esi														5E
+                mov     esp, ebp												8B E5
+                pop     ebp														5D
+                retn															C3
+CalcAiHandlingPercentage endp

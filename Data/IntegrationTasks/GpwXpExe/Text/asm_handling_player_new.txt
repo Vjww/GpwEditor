@@ -1,0 +1,286 @@
+; ---------------------------------------------------------------------------
+; NEW -----------------------------------------------------------------------
+; START 0043A4EB (398EB) END 0043A7C1 SIZE 2D6 (726b) -----------------------
+; ---------------------------------------------------------------------------
+
+; =============== S U B R O U T I N E =======================================
+
+; Attributes: bp-based frame
+
+CalcPlayerHandlingPercentage proc near
+
+loc_start:		; start
+                var_8             = dword ptr -8
+                handling_4        = dword ptr -4
+                arg_0             = dword ptr  8
+
+                push    ebp														55
+                mov     ebp, esp												8B EC
+                sub     esp, 8													83 EC 08
+				
+				; get design efficiency
+                mov     eax, [ebp+arg_0]										8B 45 08
+                push    eax														50
+                call    CalcCarDesignEfficiencyRating							E8 FB 8E FC FF
+                add     esp, 4													83 C4 04
+                mov     ecx, [ebp+arg_0]										8B 4D 08
+                imul    ecx, 2FCh												69 C9 FC 02 00 00
+                mov     CarDesignEfficiencyRating[ecx], eax						89 81 70 04 D2 00
+				
+				; get designer skill
+                mov     edx, StaffTypeId3										8B 15 48 15 65 00
+                push    edx														52
+                mov     eax, [ebp+arg_0]										8B 45 08
+                push    eax														50
+                call    GetSkill												E8 F7 7F FC FF
+                add     esp, 8													83 C4 08
+                mov     [ebp+var_8], eax										89 45 F8
+                
+				; multiply skill by handling multiplier
+				mov     ecx, [ebp+var_8]										8B 4D F8
+                sub     ecx, 1													83 E9 01
+                imul    ecx, 5													6B C9 05
+                mov     [ebp+handling_4], ecx									89 4D FC
+				
+				; get engineer skill
+                mov     edx, StaffTypeId4										8B 15 4C 15 65 00
+                push    edx														52
+                mov     eax, [ebp+arg_0]										8B 45 08
+                push    eax														50
+                call    GetSkill												E8 D5 7F FC FF
+                add     esp, 8													83 C4 08
+                mov     [ebp+var_8], eax										89 45 F8
+				
+				; multiply skill by handling multiplier
+                mov     ecx, [ebp+var_8]										8B 4D F8
+                sub     ecx, 1													83 E9 01
+                imul    ecx, 0Fh												6B C9 0F
+                mov     edx, [ebp+handling_4]									8B 55 FC
+                
+				; add to handling (carry over ecx)
+				add     ecx, edx												03 CA
+                mov     [ebp+handling_4], ecx									89 4D FC
+				
+				; add handling efficiency bonus to handling (if/else if)
+                mov     edx, [ebp+arg_0]										8B 55 08
+                imul    edx, 2FCh												69 D2 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[edx], 0Ah			83 BA 70 04 D2 00 0A
+                jg      short loc_next											7F 0E
+                mov     eax, [ebp+handling_4]									8B 45 FC
+                add     eax, 2													83 C0 02
+                mov     [ebp+handling_4], eax									89 45 FC
+                jmp     loc_end													E9 CF 01 00 00
+; ---------------------------------------------------------------------------
+
+loc_next:
+                mov     ecx, [ebp+arg_0]										8B 4D 08
+                imul    ecx, 2FCh												69 C9 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[ecx], 14h			83 B9 70 04 D2 00 14
+                jg      short loc_next											7F 0E
+                mov     edx, [ebp+handling_4]									8B 55 FC
+                add     edx, 4													83 C2 04
+                mov     [ebp+handling_4], edx									89 55 FC
+                jmp     loc_end													E9 AF 01 00 00
+; ---------------------------------------------------------------------------
+
+loc_next:
+                mov     eax, [ebp+arg_0]										8B 45 08
+                imul    eax, 2FCh												69 C0 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[eax], 1Eh			83 B8 70 04 D2 00 1E
+                jg      short loc_next											7F 0E
+                mov     ecx, [ebp+handling_4]									8B 4D FC
+                add     ecx, 6													83 C1 06
+                mov     [ebp+handling_4], ecx									89 4D FC
+                jmp     loc_end													E9 8F 01 00 00
+; ---------------------------------------------------------------------------
+
+loc_next:
+                mov     edx, [ebp+arg_0]										8B 55 08
+                imul    edx, 2FCh												69 D2 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[edx], 28h			83 BA 70 04 D2 00 28
+                jg      short loc_next											7F 0E
+                mov     eax, [ebp+handling_4]									8B 45 FC
+                add     eax, 8													83 C0 08
+                mov     [ebp+handling_4], eax									89 45 FC
+                jmp     loc_end													E9 6F 01 00 00
+; ---------------------------------------------------------------------------
+
+loc_next:
+                mov     ecx, [ebp+arg_0]										8B 4D 08
+                imul    ecx, 2FCh												69 C9 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[ecx], 2Dh			83 B9 70 04 D2 00 2D
+                jg      short loc_next											7F 0E
+                mov     edx, [ebp+handling_4]									8B 55 FC
+                add     edx, 9													83 C2 09
+                mov     [ebp+handling_4], edx									89 55 FC
+                jmp     loc_end													E9 4F 01 00 00
+; ---------------------------------------------------------------------------
+
+loc_next:
+                mov     eax, [ebp+arg_0]										8B 45 08
+                imul    eax, 2FCh												69 C0 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[eax], 32h			83 B8 70 04 D2 00 32
+                jg      short loc_next											7F 0E
+                mov     ecx, [ebp+handling_4]									8B 4D FC
+                add     ecx, 0Ah												83 C1 0A
+                mov     [ebp+handling_4], ecx									89 4D FC
+                jmp     loc_end													E9 2F 01 00 00
+; ---------------------------------------------------------------------------
+
+loc_next:
+                mov     edx, [ebp+arg_0]										8B 55 08
+                imul    edx, 2FCh												69 D2 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[edx], 37h			83 BA 70 04 D2 00 37
+                jg      short loc_next											7F 0E
+                mov     eax, [ebp+handling_4]									8B 45 FC
+                add     eax, 0Bh												83 C0 0B
+                mov     [ebp+handling_4], eax									89 45 FC
+                jmp     loc_end													E9 0F 01 00 00
+; ---------------------------------------------------------------------------
+
+loc_next:
+                mov     ecx, [ebp+arg_0]										8B 4D 08
+                imul    ecx, 2FCh												69 C9 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[ecx], 3Ch			83 B9 70 04 D2 00 3C
+                jg      short loc_next											7F 0E
+                mov     edx, [ebp+handling_4]									8B 55 FC
+                add     edx, 0Ch												83 C2 0C
+                mov     [ebp+handling_4], edx									89 55 FC
+                jmp     loc_end													E9 EF 00 00 00
+; ---------------------------------------------------------------------------
+
+loc_next:
+                mov     eax, [ebp+arg_0]										8B 45 08
+                imul    eax, 2FCh												69 C0 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[eax], 41h			83 B8 70 04 D2 00 41
+                jg      short loc_next											7F 0E
+                mov     ecx, [ebp+handling_4]									8B 4D FC
+                add     ecx, 0Dh												83 C1 0D
+                mov     [ebp+handling_4], ecx									89 4D FC
+                jmp     loc_end													E9 CF 00 00 00
+; ---------------------------------------------------------------------------
+
+loc_next:
+                mov     edx, [ebp+arg_0]										8B 55 08
+                imul    edx, 2FCh												69 D2 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[edx], 46h			83 BA 70 04 D2 00 46
+                jg      short loc_next											7F 0E
+                mov     eax, [ebp+handling_4]									8B 45 FC
+                add     eax, 0Eh												83 C0 0E
+                mov     [ebp+handling_4], eax									89 45 FC
+                jmp     loc_end													E9 AF 00 00 00
+; ---------------------------------------------------------------------------
+
+loc_next:
+                mov     ecx, [ebp+arg_0]										8B 4D 08
+                imul    ecx, 2FCh												69 C9 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[ecx], 4Bh			83 B9 70 04 D2 00 4B
+                jg      short loc_next											7F 0E
+                mov     edx, [ebp+handling_4]									8B 55 FC
+                add     edx, 0Fh												83 C2 0F
+                mov     [ebp+handling_4], edx									89 55 FC
+                jmp     loc_end													E9 8F 00 00 00
+; ---------------------------------------------------------------------------
+
+loc_next:
+                mov     eax, [ebp+arg_0]										8B 45 08
+                imul    eax, 2FCh												69 C0 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[eax], 50h			83 B8 70 04 D2 00 50
+                jg      short loc_next											7F 0B
+                mov     ecx, [ebp+handling_4]									8B 4D FC
+                add     ecx, 10h												83 C1 10
+                mov     [ebp+handling_4], ecx									89 4D FC
+                jmp     short loc_end											EB 72
+; ---------------------------------------------------------------------------
+
+loc_next:
+                mov     edx, [ebp+arg_0]										8B 55 08
+                imul    edx, 2FCh												69 D2 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[edx], 55h			83 BA 70 04 D2 00 55
+                jg      short loc_next											7F 0B
+                mov     eax, [ebp+handling_4]									8B 45 FC
+                add     eax, 11h												83 C0 11
+                mov     [ebp+handling_4], eax									89 45 FC
+                jmp     short loc_end											EB 55
+; ---------------------------------------------------------------------------
+
+loc_next:
+                mov     ecx, [ebp+arg_0]										8B 4D 08
+                imul    ecx, 2FCh												69 C9 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[ecx], 5Ah			83 B9 70 04 D2 00 5A
+                jg      short loc_next											7F 0B
+                mov     edx, [ebp+handling_4]									8B 55 FC
+                add     edx, 12h												83 C2 12
+                mov     [ebp+handling_4], edx									89 55 FC
+                jmp     short loc_end											EB 38
+; ---------------------------------------------------------------------------
+
+loc_next:
+                mov     eax, [ebp+arg_0]										8B 45 08
+                imul    eax, 2FCh												69 C0 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[eax], 5Fh			83 B8 70 04 D2 00 5F
+                jg      short loc_next											7F 0B
+                mov     ecx, [ebp+handling_4]									8B 4D FC
+                add     ecx, 13h												83 C1 13
+                mov     [ebp+handling_4], ecx									89 4D FC
+                jmp     short loc_end											EB 1B
+; ---------------------------------------------------------------------------
+
+loc_next:		; if 100% efficiency, add 20% handling
+                mov     edx, [ebp+arg_0]										8B 55 08
+                imul    edx, 2FCh												69 D2 FC 02 00 00
+                cmp     GpwDesign_CarDesignEfficiencyRating[edx], 64h			83 BA 70 04 D2 00 64
+                jg      short loc_next											7F 09
+                mov     eax, [ebp+handling_4]									8B 45 FC
+                add     eax, 14h												83 C0 14
+                mov     [ebp+handling_4], eax									89 45 FC
+
+loc_end:
+				; get random value
+				; rand() % 5 = 0-4
+                call    _rand		; random number in eax						E8 B7 EA 1E 00
+				cdq																99
+                mov     ecx, 5		; prepare to divide eax by ecx				B9 05 00 00 00
+				idiv	ecx			; quotient in eax, remainder in edx			F7 F9
+                mov     [ebp+var_8], edx										89 55 F8
+				
+				; calc random impact
+				; 5 - Random0To4 = 1-5
+                mov     edx, [ebp+var_8]										8B 55 F8
+                mov     eax, 5		; 5											B8 05 00 00 00
+                sub     eax, edx	; sub Random0To4 (idiv remainder)			2B C2
+                mov     [ebp+var_8], eax										89 45 F8
+				
+				; sub random impact from handling
+                mov     edx, [ebp+handling_4]									8B 55 FC
+                mov     eax, [ebp+var_8]										8B 45 F8
+                sub     edx, eax												2B D0
+                mov     [ebp+handling_4], edx									89 55 FC
+
+				; sub difficulty impact from handling
+                mov     edx, [ebp+handling_4]									8B 55 FC
+                mov     eax, 0		; difficulty impact value					B8 00 00 00 00
+                sub     edx, eax												2B D0
+                mov     [ebp+handling_4], edx									89 55 FC
+
+				; if handling is less than or equal to zero, make zero
+                cmp     [ebp+handling_4], 0		; if zero or less				83 7D FC 00
+                jg      short loc_next			; else skip next line			7F 07
+				mov     [ebp+handling_4], 0										C7 45 FC 00 00 00 00
+				
+loc_next:		; store final handling
+                mov     eax, [ebp+arg_0]										8B 45 08
+                imul    eax, 2FCh												69 C0 FC 02 00 00
+                mov     ecx, [ebp+handling_4]									8B 4D FC
+                mov     HandlingPercentage3[eax], ecx							89 88 D8 04 D2 00
+				
+				; end
+                push    1														6A 01
+                mov     edx, [ebp+arg_0]										8B 55 08
+                push    edx														52
+                call    j___initp_misc_winxfltr_0								E8 58 77 FC FF
+                add     esp, 8													83 C4 08
+                mov     esp, ebp												8B E5
+                pop     ebp														5D
+                retn															C3
+CalcPlayerHandlingPercentage endp

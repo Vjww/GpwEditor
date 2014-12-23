@@ -1,0 +1,263 @@
+;  START: 005B8C5D
+;    END: 005B8FF4
+; LENGTH: 00000397 (919 bytes)
+;   FILE: 001B805D
+
+; Revised subroutine allows race points to be awarded to one or all finishing positions.
+; Change value in line 005B8D13 to only award points to the top XX positions.
+; Change initial values to change the points offered per position.
+
+.text:005B8C5D
+.text:005B8C5D ; =============== S U B R O U T I N E =======================================
+.text:005B8C5D
+.text:005B8C5D ; Attributes: bp-based frame
+.text:005B8C5D
+.text:005B8C5D sub_5B8C5D      proc near               ; CODE XREF: sub_402144j
+.text:005B8C5D
+.text:005B8C5D var_68          = dword ptr -68h        ; v1 (Points base offset)
+.text:005B8C5D var_64          = dword ptr -64h        ; Points for  1st position
+.text:005B8C5D var_60          = dword ptr -60h        ; Points for  2nd position
+.text:005B8C5D var_5C          = dword ptr -5Ch        ; Points for  3rd position
+.text:005B8C5D var_58          = dword ptr -58h        ; Points for  4th position
+.text:005B8C5D var_54          = dword ptr -54h        ; Points for  5th position
+.text:005B8C5D var_50          = dword ptr -50h        ; Points for  6th position
+.text:005B8C5D var_4C          = dword ptr -4Ch        ; Points for  7th position
+.text:005B8C5D var_48          = dword ptr -48h        ; Points for  8th position
+.text:005B8C5D var_44          = dword ptr -44h        ; Points for  9th position
+.text:005B8C5D var_40          = dword ptr -40h        ; Points for 10th position
+.text:005B8C5D var_3C          = dword ptr -3Ch        ; Points for 11th position
+.text:005B8C5D var_38          = dword ptr -38h        ; Points for 12th position
+.text:005B8C5D var_34          = dword ptr -34h        ; Points for 13th position
+.text:005B8C5D var_30          = dword ptr -30h        ; Points for 14th position
+.text:005B8C5D var_2C          = dword ptr -2Ch        ; Points for 15th position
+.text:005B8C5D var_28          = dword ptr -28h        ; Points for 16th position
+.text:005B8C5D var_24          = dword ptr -24h        ; Points for 17th position
+.text:005B8C5D var_20          = dword ptr -20h        ; Points for 18th position
+.text:005B8C5D var_1C          = dword ptr -1Ch        ; Points for 19th position
+.text:005B8C5D var_18          = dword ptr -18h        ; Points for 20th position
+.text:005B8C5D var_14          = dword ptr -14h        ; Points for 21st position
+.text:005B8C5D var_10          = dword ptr -10h        ; Points for 22nd position
+.text:005B8C5D var_C           = dword ptr -0Ch        ; v24
+.text:005B8C5D var_8           = dword ptr -8          ; v25
+.text:005B8C5D var_4           = dword ptr -4          ; i
+.text:005B8C5D
+.text:005B8C5D                 push    ebp                                                   55
+.text:005B8C5E                 mov     ebp, esp                                              8B EC
+.text:005B8C60                 sub     esp, 68h                                              83 EC 68
+.text:005B8C63                 push    ebx                                                   53
+.text:005B8C64                 push    esi                                                   56
+.text:005B8C65                 push    edi                                                   57
+.text:005B8C66                 mov     [ebp+var_68], 0                                       C7 45 98 00 00 00 00
+.text:005B8C6D                 mov     [ebp+var_64], 19h                                     C7 45 9C 19 00 00 00
+.text:005B8C74                 mov     [ebp+var_60], 12h                                     C7 45 A0 12 00 00 00
+.text:005B8C7B                 mov     [ebp+var_5C], 0Fh                                     C7 45 A4 0F 00 00 00
+.text:005B8C82                 mov     [ebp+var_58], 0Ch                                     C7 45 A8 0C 00 00 00
+.text:005B8C89                 mov     [ebp+var_54], 0Ah                                     C7 45 AC 0A 00 00 00
+.text:005B8C90                 mov     [ebp+var_50], 8                                       C7 45 B0 08 00 00 00
+.text:005B8C97                 mov     [ebp+var_4C], 6                                       C7 45 B4 06 00 00 00
+.text:005B8C9E                 mov     [ebp+var_48], 4                                       C7 45 B8 04 00 00 00
+.text:005B8CA5                 mov     [ebp+var_44], 2                                       C7 45 BC 02 00 00 00
+.text:005B8CAC                 mov     [ebp+var_40], 1                                       C7 45 C0 01 00 00 00
+.text:005B8CB3                 mov     [ebp+var_3C], 0                                       C7 45 C4 00 00 00 00
+.text:005B8CBA                 mov     [ebp+var_38], 0                                       C7 45 C8 00 00 00 00
+.text:005B8CC1                 mov     [ebp+var_34], 0                                       C7 45 CC 00 00 00 00
+.text:005B8CC8                 mov     [ebp+var_30], 0                                       C7 45 D0 00 00 00 00
+.text:005B8CCF                 mov     [ebp+var_2C], 0                                       C7 45 D4 00 00 00 00
+.text:005B8CD6                 mov     [ebp+var_28], 0                                       C7 45 D8 00 00 00 00
+.text:005B8CDD                 mov     [ebp+var_24], 0                                       C7 45 DC 00 00 00 00
+.text:005B8CE4                 mov     [ebp+var_20], 0                                       C7 45 E0 00 00 00 00
+.text:005B8CEB                 mov     [ebp+var_1C], 0                                       C7 45 E4 00 00 00 00
+.text:005B8CF2                 mov     [ebp+var_18], 0                                       C7 45 E8 00 00 00 00
+.text:005B8CF9                 mov     [ebp+var_14], 0                                       C7 45 EC 00 00 00 00
+.text:005B8D00                 mov     [ebp+var_10], 0                                       C7 45 F0 00 00 00 00
+
+                               ; initialise loop
+.text:005B8D07                 mov     [ebp+var_4], 1                                        C7 45 FC 01 00 00 00
+.text:005B8D0E                 jmp     short loc_5B8D13                                      EB 03
+.text:005B8D10 ; ---------------------------------------------------------------------------
+.text:005B8D10
+.text:005B8D10 loc_5B8D10:     ; increment loop        ; CODE XREF: sub_5B8C5D+2B1j
+.text:005B8D10                 inc     [ebp+var_4]                                           FF 45 FC
+.text:005B8D13
+.text:005B8D13 loc_5B8D13:     ; for loop              ; CODE XREF: sub_5B8C5D+B1j
+.text:005B8D13                 cmp     [ebp+var_4], 0Ah  ; points positions                  83 7D FC 0A
+.text:005B8D17                 jg      loc_5B8F13        ; loop termination                  0F 8F F6 01 00 00
+.text:005B8D1D                 mov     edx, [ebp+var_4]                                      8B 55 FC
+.text:005B8D20                 imul    edx, 2B0h                                             69 D2 B0 02 00 00
+.text:005B8D26                 mov     eax, ds:dword_967500[edx]                             8B 82 00 75 96 00
+.text:005B8D2C                 mov     [ebp+var_C], eax                                      89 45 F4
+.text:005B8D2F                 mov     ecx, [ebp+var_4]                                      8B 4D FC
+.text:005B8D32                 imul    ecx, 2B0h                                             69 C9 B0 02 00 00
+.text:005B8D38                 mov     edx, ds:dword_967504[ecx]                             8B 91 04 75 96 00
+.text:005B8D3E                 mov     [ebp+var_8], edx                                      89 55 F8
+.text:005B8D41                 mov     eax, [ebp+var_8]                                      8B 45 F8
+.text:005B8D44                 imul    eax, 1E90h                                            69 C0 90 1E 00 00
+.text:005B8D4A                 mov     ecx, ds:dword_120262C[eax]                            8B 88 2C 26 20 01
+.text:005B8D50                 mov     edx, [ebp+var_4]                                      8B 55 FC
+.text:005B8D53                 add     ecx, [ebp+edx*4+var_68]                               03 4C 95 98
+.text:005B8D57                 mov     eax, [ebp+var_8]                                      8B 45 F8
+.text:005B8D5A                 imul    eax, 1E90h                                            69 C0 90 1E 00 00
+.text:005B8D60                 mov     ds:dword_120262C[eax], ecx                            89 88 2C 26 20 01
+
+                               ; outer if
+.text:005B8D66                 cmp     [ebp+var_4], 1                                        83 7D FC 01
+.text:005B8D6A                 jnz     loc_5B8EA3                                            0F 85 33 01 00 00
+.text:005B8D70                 mov     ecx, [ebp+var_8]                                      8B 4D F8
+.text:005B8D73                 imul    ecx, 1E90h                                            69 C9 90 1E 00 00
+.text:005B8D79                 mov     edx, ds:dword_1202630[ecx]                            8B 91 30 26 20 01
+.text:005B8D7F                 add     edx, 1                                                83 C2 01
+.text:005B8D82                 mov     eax, [ebp+var_8]                                      8B 45 F8
+.text:005B8D85                 imul    eax, 1E90h                                            69 C0 90 1E 00 00
+.text:005B8D8B                 mov     ds:dword_1202630[eax], edx                            89 90 30 26 20 01
+.text:005B8D91                 mov     ecx, [ebp+var_8]                                      8B 4D F8
+.text:005B8D94                 imul    ecx, 1E90h                                            69 C9 90 1E 00 00
+.text:005B8D9A                 mov     edx, ds:dword_120263C[ecx]                            8B 91 3C 26 20 01
+.text:005B8DA0                 add     edx, 1                                                83 C2 01
+.text:005B8DA3                 mov     eax, [ebp+var_8]                                      8B 45 F8
+.text:005B8DA6                 imul    eax, 1E90h                                            69 C0 90 1E 00 00
+.text:005B8DAC                 mov     ds:dword_120263C[eax], edx                            89 90 3C 26 20 01
+.text:005B8DB2                 mov     eax, [ebp+var_4]                                      8B 45 FC
+.text:005B8DB5                 imul    eax, 2B0h                                             69 C0 B0 02 00 00
+.text:005B8DBB                 mov     ecx, ds:dword_9D1130[eax]                             8B 88 30 11 9D 00
+.text:005B8DC1                 imul    ecx, 0DF8h                                            69 C9 F8 0D 00 00
+.text:005B8DC7                 mov     edx, ds:dword_116C440[ecx]                            8B 91 40 C4 16 01
+.text:005B8DCD                 add     edx, 1                                                83 C2 01
+.text:005B8DD0                 mov     eax, [ebp+var_4]                                      8B 45 FC
+.text:005B8DD3                 imul    eax, 2B0h                                             69 C0 B0 02 00 00
+.text:005B8DD9                 mov     ecx, ds:dword_9D1130[eax]                             8B 88 30 11 9D 00
+.text:005B8DDF                 imul    ecx, 0DF8h                                            69 C9 F8 0D 00 00
+.text:005B8DE5                 mov     ds:dword_116C440[ecx], edx                            89 91 40 C4 16 01
+
+                               ; inner if
+.text:005B8DEB                 mov     edx, [ebp+var_4]                                      8B 55 FC
+.text:005B8DEE                 imul    edx, 2B0h                                             69 D2 B0 02 00 00
+.text:005B8DF4                 mov     eax, ds:dword_9D1130[edx]                             8B 82 30 11 9D 00
+.text:005B8DFA                 imul    eax, 0DF8h                                            69 C0 F8 0D 00 00
+.text:005B8E00                 cmp     ds:dword_116C440[eax], 1                              83 B8 40 C4 16 01 01
+.text:005B8E07                 jnz     short loc_5B8E28                                      75 1F
+.text:005B8E09                 mov     ecx, [ebp+var_4]                                      8B 4D FC
+.text:005B8E0C                 imul    ecx, 2B0h                                             69 C9 B0 02 00 00
+.text:005B8E12                 mov     edx, ds:dword_9D1130[ecx]                             8B 91 30 11 9D 00
+.text:005B8E18                 imul    edx, 0DF8h                                            69 D2 F8 0D 00 00
+.text:005B8E1E                 mov     ds:dword_116D1E8[edx], 1                              C7 82 E8 D1 16 01 01 00 00 00
+                               ; end inner if
+
+.text:005B8E28 loc_5B8E28:                             ; CODE XREF: sub_5B8C5D+1AAj
+.text:005B8E28                 mov     eax, [ebp+var_4]                                      8B 45 FC
+.text:005B8E2B                 imul    eax, 2B0h                                             69 C0 B0 02 00 00
+.text:005B8E31                 mov     ecx, ds:dword_9D1130[eax]                             8B 88 30 11 9D 00
+.text:005B8E37                 imul    ecx, 0DF8h                                            69 C9 F8 0D 00 00
+.text:005B8E3D                 mov     edx, ds:dword_116C444[ecx]                            8B 91 44 C4 16 01
+.text:005B8E43                 add     edx, 1                                                83 C2 01
+.text:005B8E46                 mov     eax, [ebp+var_4]                                      8B 45 FC
+.text:005B8E49                 imul    eax, 2B0h                                             69 C0 B0 02 00 00
+.text:005B8E4F                 mov     ecx, ds:dword_9D1130[eax]                             8B 88 30 11 9D 00
+.text:005B8E55                 imul    ecx, 0DF8h                                            69 C9 F8 0D 00 00
+.text:005B8E5B                 mov     ds:dword_116C444[ecx], edx                            89 91 44 C4 16 01
+.text:005B8E61                 mov     edx, [ebp+var_C]                                      8B 55 F4
+.text:005B8E64                 imul    edx, 0DF8h                                            69 D2 F8 0D 00 00
+.text:005B8E6A                 mov     eax, ds:dword_116C43C[edx]                            8B 82 3C C4 16 01
+.text:005B8E70                 add     eax, 1                                                83 C0 01
+.text:005B8E73                 mov     ecx, [ebp+var_C]                                      8B 4D F4
+.text:005B8E76                 imul    ecx, 0DF8h                                            69 C9 F8 0D 00 00
+.text:005B8E7C                 mov     ds:dword_116C43C[ecx], eax                            89 81 3C C4 16 01
+.text:005B8E82                 mov     edx, [ebp-0Ch]                                        8B 55 F4
+.text:005B8E85                 imul    edx, 0DF8h                                            69 D2 F8 0D 00 00
+.text:005B8E8B                 mov     eax, ds:dword_116C448[edx]                            8B 82 48 C4 16 01
+.text:005B8E91                 add     eax, 1                                                83 C0 01
+.text:005B8E94                 mov     ecx, [ebp+var_C]                                      8B 4D F4
+.text:005B8E97                 imul    ecx, 0DF8h                                            69 C9 F8 0D 00 00
+.text:005B8E9D                 mov     ds:dword_116C448[ecx], eax                            89 81 48 C4 16 01
+                               ; end outer if
+
+.text:005B8EA3 loc_5B8EA3:                             ; CODE XREF: sub_5B8C5D+10Dj
+.text:005B8EA3                 mov     edx, [ebp-0Ch]                                        8B 55 F4
+.text:005B8EA6                 imul    edx, 0DF8h                                            69 D2 F8 0D 00 00
+.text:005B8EAC                 mov     eax, ds:dword_116D084[edx]                            8B 82 84 D0 16 01
+.text:005B8EB2                 add     eax, 1                                                83 C0 01
+.text:005B8EB5                 mov     ecx, [ebp+var_C]                                      8B 4D F4
+.text:005B8EB8                 imul    ecx, 0DF8h                                            69 C9 F8 0D 00 00
+.text:005B8EBE                 mov     ds:dword_116D084[ecx], eax                            89 81 84 D0 16 01
+.text:005B8EC4                 mov     edx, [ebp+var_C]                                      8B 55 F4
+.text:005B8EC7                 imul    edx, 0DF8h                                            69 D2 F8 0D 00 00
+.text:005B8ECD                 mov     eax, ds:dword_116C42C[edx]                            8B 82 2C C4 16 01
+.text:005B8ED3                 mov     ecx, [ebp+var_4]                                      8B 4D FC
+.text:005B8ED6                 add     eax, [ebp+ecx*4+var_68]                               03 44 8D 98
+.text:005B8EDA                 mov     edx, [ebp+var_C]                                      8B 55 F4
+.text:005B8EDD                 imul    edx, 0DF8h                                            69 D2 F8 0D 00 00
+.text:005B8EE3                 mov     ds:dword_116C42C[edx], eax                            89 82 2C C4 16 01
+.text:005B8EE9                 mov     eax, [ebp+var_C]                                      8B 45 F4
+.text:005B8EEC                 imul    eax, 0DF8h                                            69 C0 F8 0D 00 00
+.text:005B8EF2                 mov     ecx, ds:dword_116C430[eax]                            8B 88 30 C4 16 01
+.text:005B8EF8                 mov     edx, [ebp+var_4]                                      8B 55 FC
+.text:005B8EFB                 add     ecx, [ebp+edx*4+var_68]                               03 4C 95 98
+.text:005B8EFF                 mov     eax, [ebp+var_C]                                      8B 45 F4
+.text:005B8F02                 imul    eax, 0DF8h                                            69 C0 F8 0D 00 00
+.text:005B8F08                 mov     ds:dword_116C430[eax], ecx                            89 88 30 C4 16 01
+
+                               ; top of loop
+.text:005B8F0E                 jmp     loc_5B8D10                                            E9 FD FD FF FF
+.text:005B8F13 ; ---------------------------------------------------------------------------
+.text:005B8F13
+.text:005B8F13 loc_5B8F13:     ; initialise loop       ; CODE XREF: sub_5B8C5D+BAj
+.text:005B8F13                 mov     [ebp+var_4], 1                                        C7 45 FC 01 00 00 00
+.text:005B8F1A                 jmp     short loc_5B8F1F                                      EB 03
+.text:005B8F1C ; ---------------------------------------------------------------------------
+.text:005B8F1C
+.text:005B8F1C loc_5B8F1C:     ; increment loop        ; CODE XREF: sub_5B8C5D+370j
+.text:005B8F1C                 inc     [ebp+var_4]                                           FF 45 FC
+.text:005B8F1F
+.text:005B8F1F loc_5B8F1F:     ; for loop              ; CODE XREF: sub_5B8C5D+2BDj
+.text:005B8F1F                 cmp     [ebp+var_4], 16h  ; number of drivers                 83 7D FC 16
+.text:005B8F23                 jg      loc_5B8FD2        ; loop termination                  0F 8F A9 00 00 00
+.text:005B8F29                 mov     edx, [ebp+var_4]                                      8B 55 FC
+.text:005B8F2C                 imul    edx, 2B0h                                             69 D2 B0 02 00 00
+.text:005B8F32                 mov     eax, ds:dword_967500[edx]                             8B 82 00 75 96 00
+.text:005B8F38                 mov     [ebp+var_C], eax                                      89 45 F4
+.text:005B8F3B                 mov     ecx, [ebp+var_4]                                      8B 4D FC
+.text:005B8F3E                 imul    ecx, 2B0h                                             69 C9 B0 02 00 00
+.text:005B8F44                 mov     edx, ds:dword_967504[ecx]                             8B 91 04 75 96 00
+.text:005B8F4A                 mov     [ebp+var_8], edx                                      89 55 F8
+.text:005B8F4D                 mov     eax, [ebp+var_C]                                      8B 45 F4
+.text:005B8F50                 imul    eax, 0DF8h                                            69 C0 F8 0D 00 00
+.text:005B8F56                 mov     ecx, [ebp+var_4]                                      8B 4D FC
+.text:005B8F59                 mov     ds:dword_116C44C[eax+ecx*4], 0                        C7 84 88 4C C4 16 01 00 00 00 00
+.text:005B8F64                 mov     edx, [ebp+var_8]                                      8B 55 F8
+.text:005B8F67                 imul    edx, 1E90h                                            69 D2 90 1E 00 00
+.text:005B8F6D                 mov     eax, [ebp+var_4]                                      8B 45 FC
+.text:005B8F70                 mov     ds:dword_1202644[edx+eax*4], 0                        C7 84 82 44 26 20 01 00 00 00 00
+.text:005B8F7B                 mov     eax, [ebp+var_C]                                      8B 45 F4
+.text:005B8F7E                 imul    eax, 0DF8h                                            69 C0 F8 0D 00 00
+.text:005B8F84                 mov     ecx, [ebp+var_4]                                      8B 4D FC
+.text:005B8F87                 mov     edx, ds:dword_116C44C[eax+ecx*4]                      8B 94 88 4C C4 16 01
+.text:005B8F8E                 add     edx, 1                                                83 C2 01
+.text:005B8F91                 mov     eax, [ebp+var_C]                                      8B 45 F4
+.text:005B8F94                 imul    eax, 0DF8h                                            69 C0 F8 0D 00 00
+.text:005B8F9A                 mov     ecx, [ebp+var_4]                                      8B 4D FC
+.text:005B8F9D                 mov     ds:dword_116C44C[eax+ecx*4], edx                      89 94 88 4C C4 16 01
+.text:005B8FA4                 mov     edx, [ebp+var_8]                                      8B 55 F8
+.text:005B8FA7                 imul    edx, 1E90h                                            69 D2 90 1E 00 00
+.text:005B8FAD                 mov     eax, [ebp+var_4]                                      8B 45 FC
+.text:005B8FB0                 mov     ecx, ds:dword_1202644[edx+eax*4]                      8B 8C 82 44 26 20 01
+.text:005B8FB7                 add     ecx, 1                                                83 C1 01
+.text:005B8FBA                 mov     edx, [ebp+var_8]                                      8B 55 F8
+.text:005B8FBD                 imul    edx, 1E90h                                            69 D2 90 1E 00 00
+.text:005B8FC3                 mov     eax, [ebp+var_4]                                      8B 45 FC
+.text:005B8FC6                 mov     ds:dword_1202644[edx+eax*4], ecx                      89 8C 82 44 26 20 01
+
+                               ; top of loop
+.text:005B8FCD                 jmp     loc_5B8F1C                                            E9 4A FF FF FF
+.text:005B8FD2 ; ---------------------------------------------------------------------------
+.text:005B8FD2
+.text:005B8FD2 loc_5B8FD2:     ; end sub               ; CODE XREF: sub_5B8C5D+2C6j
+.text:005B8FD2                 pop     edi                                                   5F
+.text:005B8FD3                 pop     esi                                                   5E
+.text:005B8FD4                 pop     ebx                                                   5B
+.text:005B8FD5                 leave                                                         C9
+.text:005B8FD6                 retn                                                          C3
+.text:005B8FD6 sub_5B8C5D      endp
+.text:005B8FD6
+.text:005B8FD6 ; ---------------------------------------------------------------------------
+.text:005B8FD7                 db 0Fh dup(90h)
+.text:005B8FE6                 dd 90909090h
+.text:005B8FEA                 db 0Ah dup(90h)

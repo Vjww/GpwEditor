@@ -1,0 +1,38 @@
+;  START: 0053656B
+;    END: 005365AB
+; LENGTH: 00000040 (64 bytes)
+;   FILE: 0013596B
+
+; Revised code removes performance steps experienced every 10% of car handling value.
+; This is done by cancelling the code that rounds the car handling value to the nearest 10%.
+; There will be a minor side effect, where a car with a car handling value of 110%, which
+; may now run higher, will still cap out at 119%, once engine power (up to 10%) is added.
+; NOTE: Original code is displayed but hex code contains NOP 0x90 instructions.
+
+                               ; divide value by 10
+.text:0053656B                 mov     ecx, 0Ah                                              90 90 90 90 90
+.text:00536570                 mov     eax, [ebp+var_40]                                     8B 45 C0
+.text:00536573                 cdq                                                           90
+.text:00536574                 idiv    ecx                                                   90 90
+.text:00536576                 mov     [ebp+var_58], eax                                     89 45 A8
+
+                               ; make sure value is 0 or greater
+.text:00536579                 cmp     [ebp+var_58], 1                                       90 90 90 90
+.text:0053657D                 jge     loc_53658F                                            90 90 90 90 90 90
+.text:00536583                 mov     [ebp+var_58], 0                                       90 90 90 90 90 90 90
+.text:0053658A                 jmp     loc_5365A0                                            90 90 90 90 90
+.text:0053658F ; ---------------------------------------------------------------------------
+
+.text:0053658F                 ; make sure value is 11 or less
+.text:0053658F loc_53658F:                             ; CODE XREF: sub_535B90+9EDj
+.text:0053658F                 cmp     [ebp+var_58], 0Bh                                     90 90 90 90
+.text:00536593                 jle     loc_5365A0                                            90 90 90 90 90 90
+.text:00536599                 mov     [ebp+var_58], 0Bh                                     90 90 90 90 90 90 90
+
+.text:005365A0                 ; multiply value by 10
+.text:005365A0 loc_5365A0:                             ; CODE XREF: sub_535B90+9FAj
+.text:005365A0                                         ; sub_535B90+A03j
+.text:005365A0                 mov     eax, [ebp+var_58]                                     90 90 90
+.text:005365A3                 lea     eax, [eax+eax*4]                                      90 90 90
+.text:005365A6                 add     eax, eax                                              90 90
+.text:005365A8                 mov     [ebp+var_58], eax                                     90 90 90

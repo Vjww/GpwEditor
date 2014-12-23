@@ -1,0 +1,6 @@
+mov [WaveFormatEx.wFormatTag],1           ;pcm
+mov [WaveFormatEx.nChannels],2            ;stereo 
+mov [WaveFormatEx.nSamplesPerSec],22050   ;22050 sample/s 
+mov [WaveFormatEx.nAvgBytesPerSec],88200  ;nSamplesPerSec * nBlockAlign 
+mov [WaveFormatEx.nBlockAlign],4          ;(nChannels * wBitsPerSample) / 8 
+mov [WaveFormatEx.wBitsPerSample],16      ;16 bits/sample 

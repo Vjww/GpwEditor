@@ -1,0 +1,3340 @@
+.text:00455932 ; =============== S U B R O U T I N E =======================================
+.text:00455932
+.text:00455932 ; Attributes: bp-based frame
+.text:00455932
+.text:00455932 sub_455932      proc near               ; CODE XREF: sub_4011F4j
+.text:00455932
+.text:00455932 var_1C8         = dword ptr -1C8h
+.text:00455932 var_1BC         = dword ptr -1BCh
+.text:00455932 var_1B8         = dword ptr -1B8h
+.text:00455932 var_1B4         = qword ptr -1B4h
+.text:00455932 var_1AC         = qword ptr -1ACh
+.text:00455932 var_1A4         = byte ptr -1A4h
+.text:00455932 var_198         = byte ptr -198h
+.text:00455932 var_158         = qword ptr -158h
+.text:00455932 var_150         = byte ptr -150h
+.text:00455932 var_110         = dword ptr -110h
+.text:00455932 var_10C         = qword ptr -10Ch
+.text:00455932 var_104         = dword ptr -104h
+.text:00455932 var_100         = dword ptr -100h
+.text:00455932 var_FC          = dword ptr -0FCh
+.text:00455932 var_F8          = dword ptr -0F8h
+.text:00455932 var_F4          = byte ptr -0F4h
+.text:00455932 var_B4          = dword ptr -0B4h
+.text:00455932 var_B0          = dword ptr -0B0h
+.text:00455932 var_AC          = dword ptr -0ACh
+.text:00455932 var_A8          = byte ptr -0A8h
+.text:00455932 var_68          = dword ptr -68h
+.text:00455932 var_64          = dword ptr -64h
+.text:00455932 counter1        = dword ptr -60h
+.text:00455932 var_5C          = dword ptr -5Ch
+.text:00455932 var_58          = dword ptr -58h
+.text:00455932 var_54          = dword ptr -54h
+.text:00455932 var_50          = byte ptr -50h
+.text:00455932 var_10          = dword ptr -10h
+.text:00455932 counter2        = dword ptr -0Ch
+.text:00455932 var_8           = dword ptr -8
+.text:00455932 var_4           = dword ptr -4
+.text:00455932 arg_0           = dword ptr  8
+.text:00455932 arg_4           = dword ptr  0Ch
+.text:00455932
+.text:00455932                 push    ebp
+.text:00455933                 mov     ebp, esp
+.text:00455935                 sub     esp, 1BCh
+.text:0045593B                 push    esi
+.text:0045593C                 push    edi
+.text:0045593D                 lea     ecx, [ebp+var_50]
+.text:00455940                 call    j_?GetLocaleT@_LocaleUpdate@@QAEPAUlocaleinfo_struct@@XZ_1 ; _LocaleUpdate::GetLocaleT(void)
+.text:00455945                 lea     ecx, [ebp+var_F4]
+.text:0045594B                 call    j_?GetLocaleT@_LocaleUpdate@@QAEPAUlocaleinfo_struct@@XZ_1 ; _LocaleUpdate::GetLocaleT(void)
+.text:00455950                 lea     ecx, [ebp+var_A8]
+.text:00455956                 call    j_?GetLocaleT@_LocaleUpdate@@QAEPAUlocaleinfo_struct@@XZ_1 ; _LocaleUpdate::GetLocaleT(void)
+.text:0045595B                 lea     ecx, [ebp+var_150]
+.text:00455961                 call    j_?GetLocaleT@_LocaleUpdate@@QAEPAUlocaleinfo_struct@@XZ_1 ; _LocaleUpdate::GetLocaleT(void)
+.text:00455966                 lea     ecx, [ebp+var_198]
+.text:0045596C                 call    j_?GetLocaleT@_LocaleUpdate@@QAEPAUlocaleinfo_struct@@XZ_1 ; _LocaleUpdate::GetLocaleT(void)
+.text:00455971                 cmp     GpwFile_UnlimitDatFlag, 0
+.text:00455978                 jnz     short loc_4559DC
+.text:0045597A                 cmp     dword_6EB014, 7
+.text:00455981                 jz      short loc_4559DC
+.text:00455983
+.text:00455983 loc_455983:                             ; CODE XREF: sub_455932+9Aj
+.text:00455983                 call    ds:timeGetTime
+.text:00455989                 mov     dword_6EB028, eax
+.text:0045598E                 mov     eax, dword_6EB028
+.text:00455993                 sub     eax, dword_6EB02C
+.text:00455999                 mov     dword ptr [ebp+var_1AC], eax
+.text:0045599F                 mov     dword ptr [ebp+var_1AC+4], 0
+.text:004559A9                 fild    [ebp+var_1AC]
+.text:004559AF                 fdivr   ds:flt_6450E8
+.text:004559B5                 fstp    flt_6EB030
+.text:004559BB                 fld     flt_6EB030
+.text:004559C1                 fcomp   ds:flt_6450EC
+.text:004559C7                 fnstsw  ax
+.text:004559C9                 test    ah, 41h
+.text:004559CC                 jz      short loc_455983
+.text:004559CE                 mov     ecx, dword_6EB028
+.text:004559D4                 mov     dword_6EB02C, ecx
+.text:004559DA                 jmp     short loc_455A1F
+.text:004559DC ; ---------------------------------------------------------------------------
+.text:004559DC
+.text:004559DC loc_4559DC:                             ; CODE XREF: sub_455932+46j
+.text:004559DC                                         ; sub_455932+4Fj
+.text:004559DC                 call    ds:timeGetTime
+.text:004559E2                 mov     dword_6EB028, eax
+.text:004559E7                 mov     edx, dword_6EB028
+.text:004559ED                 sub     edx, dword_6EB02C
+.text:004559F3                 mov     dword ptr [ebp+var_1B4], edx
+.text:004559F9                 mov     dword ptr [ebp+var_1B4+4], 0
+.text:00455A03                 fild    [ebp+var_1B4]
+.text:00455A09                 fdivr   ds:flt_6450E8
+.text:00455A0F                 fstp    flt_6EB030
+.text:00455A15                 mov     eax, dword_6EB028
+.text:00455A1A                 mov     dword_6EB02C, eax
+.text:00455A1F
+.text:00455A1F loc_455A1F:                             ; CODE XREF: sub_455932+A8j
+.text:00455A1F                 call    sub_401B4A
+.text:00455A24                 cmp     dword_64A6BC, 1
+.text:00455A2B                 jnz     short loc_455A71
+.text:00455A2D                 cmp     dword_64A6C0, 1
+.text:00455A34                 jnz     short loc_455A71
+.text:00455A36                 cmp     dword_786FB4, 1
+.text:00455A3D                 jl      short loc_455A71
+.text:00455A3F                 cmp     dword_786FB4, 32h
+.text:00455A46                 jz      short loc_455A6F
+.text:00455A48                 mov     ecx, dword_786FB4
+.text:00455A4E                 add     ecx, 1
+.text:00455A51                 mov     dword_786FB4, ecx
+.text:00455A57                 cmp     dword_786FB4, 32h
+.text:00455A5E                 jnz     short loc_455A6F
+.text:00455A60                 call    sub_401168
+.text:00455A65                 mov     dword_786FB4, 0
+.text:00455A6F
+.text:00455A6F loc_455A6F:                             ; CODE XREF: sub_455932+114j
+.text:00455A6F                                         ; sub_455932+12Cj
+.text:00455A6F                 jmp     short loc_455AB3
+.text:00455A71 ; ---------------------------------------------------------------------------
+.text:00455A71
+.text:00455A71 loc_455A71:                             ; CODE XREF: sub_455932+F9j
+.text:00455A71                                         ; sub_455932+102j ...
+.text:00455A71                 cmp     dword_64A6C0, 0
+.text:00455A78                 jnz     short loc_455AB3
+.text:00455A7A                 cmp     dword_786FB4, 1
+.text:00455A81                 jl      short loc_455AB3
+.text:00455A83                 cmp     dword_786FB4, 32h
+.text:00455A8A                 jz      short loc_455AB3
+.text:00455A8C                 mov     edx, dword_786FB4
+.text:00455A92                 add     edx, 1
+.text:00455A95                 mov     dword_786FB4, edx
+.text:00455A9B                 cmp     dword_786FB4, 32h
+.text:00455AA2                 jnz     short loc_455AB3
+.text:00455AA4                 call    sub_401168
+.text:00455AA9                 mov     dword_786FB4, 0
+.text:00455AB3
+.text:00455AB3 loc_455AB3:                             ; CODE XREF: sub_455932:loc_455A6Fj
+.text:00455AB3                                         ; sub_455932+146j ...
+.text:00455AB3                 cmp     dword_6EB014, 0
+.text:00455ABA                 jz      short loc_455ACC
+.text:00455ABC                 cmp     dword_6EB01C, 2
+.text:00455AC3                 jge     short loc_455ACC
+.text:00455AC5                 xor     eax, eax
+.text:00455AC7                 jmp     loc_458630
+.text:00455ACC ; ---------------------------------------------------------------------------
+.text:00455ACC
+.text:00455ACC loc_455ACC:                             ; CODE XREF: sub_455932+188j
+.text:00455ACC                                         ; sub_455932+191j
+.text:00455ACC                 cmp     dword_6EB018, 1
+.text:00455AD3                 jnz     short loc_455B32
+.text:00455AD5                 cmp     dword_64A6C0, 1
+.text:00455ADC                 jnz     short loc_455B32
+.text:00455ADE                 mov     eax, dword_666FE8
+.text:00455AE3                 cmp     eax, dword_64A434
+.text:00455AE9                 jle     short loc_455AF2
+.text:00455AEB                 call    sub_403161
+.text:00455AF0                 jmp     short loc_455B12
+.text:00455AF2 ; ---------------------------------------------------------------------------
+.text:00455AF2
+.text:00455AF2 loc_455AF2:                             ; CODE XREF: sub_455932+1B7j
+.text:00455AF2                 mov     ecx, dword_666FE8
+.text:00455AF8                 push    ecx
+.text:00455AF9                 push    2
+.text:00455AFB                 call    sub_402DF6
+.text:00455B00                 add     esp, 8
+.text:00455B03                 mov     edx, dword_666FE8
+.text:00455B09                 add     edx, 1
+.text:00455B0C                 mov     dword_666FE8, edx
+.text:00455B12
+.text:00455B12 loc_455B12:                             ; CODE XREF: sub_455932+1BEj
+.text:00455B12                 call    sub_40328D
+.text:00455B17                 mov     dword_7844D8, 0
+.text:00455B21                 mov     dword_6EB01C, 0
+.text:00455B2B                 xor     eax, eax
+.text:00455B2D                 jmp     loc_458630
+.text:00455B32 ; ---------------------------------------------------------------------------
+.text:00455B32
+.text:00455B32 loc_455B32:                             ; CODE XREF: sub_455932+1A1j
+.text:00455B32                                         ; sub_455932+1AAj
+.text:00455B32                 cmp     dword_64A6A4, 0
+.text:00455B39                 jnz     loc_455C2A
+.text:00455B3F                 cmp     dword_64A6BC, 0
+.text:00455B46                 jnz     loc_455C2A
+.text:00455B4C                 cmp     dword_64A6C0, 1
+.text:00455B53                 jnz     loc_455C2A
+.text:00455B59                 call    ds:timeGetTime
+.text:00455B5F                 mov     dword_6EB028, eax
+.text:00455B64                 mov     eax, dword_6EB028
+.text:00455B69                 sub     eax, dword_6EAFF0
+.text:00455B6F                 cmp     eax, 0FAh
+.text:00455B74                 jbe     short loc_455BB5
+.text:00455B76                 cmp     dword_6EA9F0, 0Ah
+.text:00455B7D                 jg      short loc_455B90
+.text:00455B7F                 mov     ecx, dword_6EA9F0
+.text:00455B85                 add     ecx, 1
+.text:00455B88                 mov     dword_6EA9F0, ecx
+.text:00455B8E                 jmp     short loc_455BA9
+.text:00455B90 ; ---------------------------------------------------------------------------
+.text:00455B90
+.text:00455B90 loc_455B90:                             ; CODE XREF: sub_455932+24Bj
+.text:00455B90                 push    2
+.text:00455B92                 call    j_GpwMisc_GetRandomValue_v2
+.text:00455B97                 add     esp, 4
+.text:00455B9A                 mov     edx, dword_6EA9F0
+.text:00455BA0                 lea     eax, [edx+eax+1]
+.text:00455BA4                 mov     dword_6EA9F0, eax
+.text:00455BA9
+.text:00455BA9 loc_455BA9:                             ; CODE XREF: sub_455932+25Cj
+.text:00455BA9                 mov     ecx, dword_6EB028
+.text:00455BAF                 mov     dword_6EAFF0, ecx
+.text:00455BB5
+.text:00455BB5 loc_455BB5:                             ; CODE XREF: sub_455932+242j
+.text:00455BB5                 cmp     dword_6EA9F0, 1
+.text:00455BBC                 jnz     short loc_455BD6
+.text:00455BBE                 cmp     dword_653B04, 1
+.text:00455BC5                 jnz     short loc_455BD6
+.text:00455BC7                 push    0
+.text:00455BC9                 push    offset aWavFxrsidle_wa ; "wav\\FXRSIDLE.wav"
+.text:00455BCE                 call    sub_402158
+.text:00455BD3                 add     esp, 8
+.text:00455BD6
+.text:00455BD6 loc_455BD6:                             ; CODE XREF: sub_455932+28Aj
+.text:00455BD6                                         ; sub_455932+293j
+.text:00455BD6                 cmp     dword_6EA9F0, 46h
+.text:00455BDD                 jle     short loc_455C23
+.text:00455BDF                 mov     dword_64A6BC, 1
+.text:00455BE9                 cmp     dword_653B04, 1
+.text:00455BF0                 jnz     short loc_455C14
+.text:00455BF2                 cmp     dword_6EB048, 0
+.text:00455BF9                 jnz     short loc_455C14
+.text:00455BFB                 push    1
+.text:00455BFD                 push    offset aWavFxrsgo_wav ; "wav\\FXRSGO.wav"
+.text:00455C02                 call    sub_403C3D
+.text:00455C07                 add     esp, 8
+.text:00455C0A                 mov     dword_6EB048, 1
+.text:00455C14
+.text:00455C14 loc_455C14:                             ; CODE XREF: sub_455932+2BEj
+.text:00455C14                                         ; sub_455932+2C7j
+.text:00455C14                 call    sub_40368E
+.text:00455C19                 call    sub_401799
+.text:00455C1E                 call    sub_403C4C
+.text:00455C23
+.text:00455C23 loc_455C23:                             ; CODE XREF: sub_455932+2ABj
+.text:00455C23                 xor     eax, eax
+.text:00455C25                 jmp     loc_458630
+.text:00455C2A ; ---------------------------------------------------------------------------
+.text:00455C2A
+.text:00455C2A loc_455C2A:                             ; CODE XREF: sub_455932+207j
+.text:00455C2A                                         ; sub_455932+214j ...
+.text:00455C2A                 mov     edx, [ebp+arg_4]
+.text:00455C2D                 mov     dword_669860, edx
+.text:00455C33                 cmp     dword_64A6A4, 0
+.text:00455C3A                 jz      short loc_455C56
+.text:00455C3C                 cmp     dword_64A6A4, 0
+.text:00455C43                 jle     loc_458627
+.text:00455C49                 cmp     dword_6EAFC4, 1
+.text:00455C50                 jnz     loc_458627
+.text:00455C56
+.text:00455C56 loc_455C56:                             ; CODE XREF: sub_455932+308j
+.text:00455C56                 mov     [ebp+counter1], 0
+.text:00455C5D                 mov     [ebp+counter2], 0
+.text:00455C64                 mov     dword_64A418, 0
+.text:00455C6E                 mov     [ebp+var_64], 0
+.text:00455C75                 jmp     short loc_455C80
+.text:00455C77 ; ---------------------------------------------------------------------------
+.text:00455C77
+.text:00455C77 loc_455C77:                             ; CODE XREF: sub_455932+617j
+.text:00455C77                                         ; sub_455932+62Ej ...
+.text:00455C77                 mov     eax, [ebp+var_64]
+.text:00455C7A                 add     eax, 1
+.text:00455C7D                 mov     [ebp+var_64], eax
+.text:00455C80
+.text:00455C80 loc_455C80:                             ; CODE XREF: sub_455932+343j
+.text:00455C80                 mov     ecx, [ebp+var_64]
+.text:00455C83                 cmp     ecx, dword_64A430
+.text:00455C89                 jge     loc_456350
+.text:00455C8F                 mov     edx, [ebp+counter1]
+.text:00455C92                 shl     edx, 4
+.text:00455C95                 mov     eax, [ebp+var_64]
+.text:00455C98                 mov     GpwRace_RaceEntryIndex_v2[edx], eax
+.text:00455C9E                 mov     ecx, [ebp+var_64]
+.text:00455CA1                 imul    ecx, 490h
+.text:00455CA7                 mov     edx, [ebp+counter1]
+.text:00455CAA                 shl     edx, 4
+.text:00455CAD                 mov     eax, dword_6E3038[ecx]
+.text:00455CB3                 mov     dword_6E0F64[edx], eax
+.text:00455CB9                 mov     ecx, [ebp+counter1]
+.text:00455CBC                 shl     ecx, 4
+.text:00455CBF                 cmp     dword_6E0F64[ecx], 0
+.text:00455CC6                 jnz     short loc_455CDA
+.text:00455CC8                 mov     edx, [ebp+counter1]
+.text:00455CCB                 shl     edx, 4
+.text:00455CCE                 mov     dword_6E0F64[edx], 64h
+.text:00455CD8                 jmp     short loc_455D28
+.text:00455CDA ; ---------------------------------------------------------------------------
+.text:00455CDA
+.text:00455CDA loc_455CDA:                             ; CODE XREF: sub_455932+394j
+.text:00455CDA                 mov     eax, [ebp+counter1]
+.text:00455CDD                 shl     eax, 4
+.text:00455CE0                 mov     ecx, dword_6E0F64[eax]
+.text:00455CE6                 cmp     dword_6E95B8[ecx*4], 1Eh
+.text:00455CEE                 jnz     short loc_455D02
+.text:00455CF0                 mov     edx, [ebp+counter1]
+.text:00455CF3                 shl     edx, 4
+.text:00455CF6                 mov     dword_6E0F64[edx], 0FFFFFFFEh
+.text:00455D00                 jmp     short loc_455D28
+.text:00455D02 ; ---------------------------------------------------------------------------
+.text:00455D02
+.text:00455D02 loc_455D02:                             ; CODE XREF: sub_455932+3BCj
+.text:00455D02                 mov     eax, [ebp+counter1]
+.text:00455D05                 shl     eax, 4
+.text:00455D08                 mov     ecx, dword_6E0F64[eax]
+.text:00455D0E                 cmp     dword_6E95B8[ecx*4], 32h
+.text:00455D16                 jnz     short loc_455D28
+.text:00455D18                 mov     edx, [ebp+counter1]
+.text:00455D1B                 shl     edx, 4
+.text:00455D1E                 mov     dword_6E0F64[edx], 0FFFFFFFFh
+.text:00455D28
+.text:00455D28 loc_455D28:                             ; CODE XREF: sub_455932+3A6j
+.text:00455D28                                         ; sub_455932+3CEj ...
+.text:00455D28                 mov     eax, [ebp+var_64]
+.text:00455D2B                 imul    eax, 490h
+.text:00455D31                 mov     ecx, [ebp+counter1]
+.text:00455D34                 shl     ecx, 4
+.text:00455D37                 mov     edx, dword_6E301C[eax]
+.text:00455D3D                 mov     dword_6E0F68[ecx], edx
+.text:00455D43                 cmp     [ebp+var_64], 0
+.text:00455D47                 jnz     short loc_455D7F
+.text:00455D49                 push    offset aDatOvertake_da ; "dat\\Overtake.dat"
+.text:00455D4E                 call    j_GpwFile_IsFileExist
+.text:00455D53                 add     esp, 4
+.text:00455D56                 test    eax, eax
+.text:00455D58                 jz      short loc_455D7F
+.text:00455D5A                 mov     eax, dword_6E3038
+.text:00455D5F                 cmp     dword_673770[eax*4], 32h
+.text:00455D67                 jnz     short loc_455D75
+.text:00455D69                 mov     dword_6E32D0, 32h
+.text:00455D73                 jmp     short loc_455D7F
+.text:00455D75 ; ---------------------------------------------------------------------------
+.text:00455D75
+.text:00455D75 loc_455D75:                             ; CODE XREF: sub_455932+435j
+.text:00455D75                 mov     dword_6E32D0, 0
+.text:00455D7F
+.text:00455D7F loc_455D7F:                             ; CODE XREF: sub_455932+415j
+.text:00455D7F                                         ; sub_455932+426j ...
+.text:00455D7F                 mov     ecx, [ebp+var_64]
+.text:00455D82                 imul    ecx, 490h
+.text:00455D88                 cmp     dword_6E3404[ecx], 0
+.text:00455D8F                 jl      loc_455E6B
+.text:00455D95                 cmp     dword_64A6C0, 1
+.text:00455D9C                 jnz     loc_455E4B
+.text:00455DA2                 mov     edx, [ebp+var_64]
+.text:00455DA5                 imul    edx, 490h
+.text:00455DAB                 mov     eax, dword_6E3038[edx]
+.text:00455DB1                 cmp     dword_672498[eax*4], 0
+.text:00455DB9                 jnz     loc_455E4B
+.text:00455DBF                 mov     ecx, [ebp+var_64]
+.text:00455DC2                 imul    ecx, 490h
+.text:00455DC8                 add     ecx, offset dword_6E3000
+.text:00455DCE                 sub     esp, 0Ch
+.text:00455DD1                 mov     edx, esp
+.text:00455DD3                 mov     eax, [ecx]
+.text:00455DD5                 mov     [edx], eax
+.text:00455DD7                 mov     eax, [ecx+4]
+.text:00455DDA                 mov     [edx+4], eax
+.text:00455DDD                 mov     ecx, [ecx+8]
+.text:00455DE0                 mov     [edx+8], ecx
+.text:00455DE3                 mov     edx, [ebp+var_64]
+.text:00455DE6                 imul    edx, 490h
+.text:00455DEC                 mov     eax, [ebp+var_64]
+.text:00455DEF                 imul    eax, 490h
+.text:00455DF5                 mov     ecx, dword_6E3038[edx]
+.text:00455DFB                 add     ecx, dword_6E32D0[eax]
+.text:00455E01                 imul    ecx, 0B2Ch
+.text:00455E07                 mov     edx, [ebp+var_64]
+.text:00455E0A                 imul    edx, 490h
+.text:00455E10                 mov     eax, dword_6E301C[edx]
+.text:00455E16                 imul    eax, 1Ch
+.text:00455E19                 lea     ecx, dword_673C64[ecx+eax]
+.text:00455E20                 sub     esp, 0Ch
+.text:00455E23                 mov     edx, esp
+.text:00455E25                 mov     eax, [ecx]
+.text:00455E27                 mov     [edx], eax
+.text:00455E29                 mov     eax, [ecx+4]
+.text:00455E2C                 mov     [edx+4], eax
+.text:00455E2F                 mov     ecx, [ecx+8]
+.text:00455E32                 mov     [edx+8], ecx
+.text:00455E35                 call    sub_4030E4
+.text:00455E3A                 add     esp, 18h
+.text:00455E3D                 mov     edx, [ebp+counter1]
+.text:00455E40                 shl     edx, 4
+.text:00455E43                 fstp    flt_6E0F6C[edx]
+.text:00455E49                 jmp     short loc_455E66
+.text:00455E4B ; ---------------------------------------------------------------------------
+.text:00455E4B
+.text:00455E4B loc_455E4B:                             ; CODE XREF: sub_455932+46Aj
+.text:00455E4B                                         ; sub_455932+487j
+.text:00455E4B                 mov     eax, [ebp+var_64]
+.text:00455E4E                 imul    eax, 490h
+.text:00455E54                 fild    GpwRace_CarRacePositionOnSectionEntry[eax]
+.text:00455E5A                 mov     ecx, [ebp+counter1]
+.text:00455E5D                 shl     ecx, 4
+.text:00455E60                 fstp    flt_6E0F6C[ecx]
+.text:00455E66
+.text:00455E66 loc_455E66:                             ; CODE XREF: sub_455932+517j
+.text:00455E66                 jmp     loc_455F13
+.text:00455E6B ; ---------------------------------------------------------------------------
+.text:00455E6B
+.text:00455E6B loc_455E6B:                             ; CODE XREF: sub_455932+45Dj
+.text:00455E6B                 mov     edx, [ebp+var_64]
+.text:00455E6E                 imul    edx, 490h
+.text:00455E74                 add     edx, offset dword_6E3000
+.text:00455E7A                 sub     esp, 0Ch
+.text:00455E7D                 mov     eax, esp
+.text:00455E7F                 mov     ecx, [edx]
+.text:00455E81                 mov     [eax], ecx
+.text:00455E83                 mov     ecx, [edx+4]
+.text:00455E86                 mov     [eax+4], ecx
+.text:00455E89                 mov     edx, [edx+8]
+.text:00455E8C                 mov     [eax+8], edx
+.text:00455E8F                 mov     eax, [ebp+var_64]
+.text:00455E92                 imul    eax, 490h
+.text:00455E98                 mov     ecx, [ebp+var_64]
+.text:00455E9B                 imul    ecx, 490h
+.text:00455EA1                 mov     edx, dword_6E3038[eax]
+.text:00455EA7                 add     edx, dword_6E32D0[ecx]
+.text:00455EAD                 imul    edx, 0B2Ch
+.text:00455EB3                 mov     eax, [ebp+var_64]
+.text:00455EB6                 imul    eax, 490h
+.text:00455EBC                 mov     ecx, [ebp+var_64]
+.text:00455EBF                 imul    ecx, 490h
+.text:00455EC5                 mov     eax, dword_6E3038[eax]
+.text:00455ECB                 add     eax, dword_6E32D0[ecx]
+.text:00455ED1                 imul    eax, 0B2Ch
+.text:00455ED7                 mov     ecx, dword_673C28[eax]
+.text:00455EDD                 sub     ecx, 1
+.text:00455EE0                 imul    ecx, 1Ch
+.text:00455EE3                 lea     edx, dword_673C64[edx+ecx]
+.text:00455EEA                 sub     esp, 0Ch
+.text:00455EED                 mov     eax, esp
+.text:00455EEF                 mov     ecx, [edx]
+.text:00455EF1                 mov     [eax], ecx
+.text:00455EF3                 mov     ecx, [edx+4]
+.text:00455EF6                 mov     [eax+4], ecx
+.text:00455EF9                 mov     edx, [edx+8]
+.text:00455EFC                 mov     [eax+8], edx
+.text:00455EFF                 call    sub_4030E4
+.text:00455F04                 add     esp, 18h
+.text:00455F07                 mov     eax, [ebp+counter1]
+.text:00455F0A                 shl     eax, 4
+.text:00455F0D                 fstp    flt_6E0F6C[eax]
+.text:00455F13
+.text:00455F13 loc_455F13:                             ; CODE XREF: sub_455932:loc_455E66j
+.text:00455F13                 mov     ecx, [ebp+counter1]
+.text:00455F16                 add     ecx, 1
+.text:00455F19                 mov     [ebp+counter1], ecx
+.text:00455F1C                 mov     edx, [ebp+var_64]
+.text:00455F1F                 imul    edx, 490h
+.text:00455F25                 cmp     dword_6E313C[edx], 1
+.text:00455F2C                 jz      short loc_455F37
+.text:00455F2E                 mov     eax, [ebp+counter2]
+.text:00455F31                 add     eax, 1
+.text:00455F34                 mov     [ebp+counter2], eax
+.text:00455F37
+.text:00455F37 loc_455F37:                             ; CODE XREF: sub_455932+5FAj
+.text:00455F37                 mov     ecx, [ebp+var_64]
+.text:00455F3A                 imul    ecx, 490h
+.text:00455F40                 cmp     dword_6E312C[ecx], 3
+.text:00455F47                 jnz     short loc_455F4E
+.text:00455F49                 jmp     loc_455C77
+.text:00455F4E ; ---------------------------------------------------------------------------
+.text:00455F4E
+.text:00455F4E loc_455F4E:                             ; CODE XREF: sub_455932+615j
+.text:00455F4E                 mov     edx, [ebp+var_64]
+.text:00455F51                 imul    edx, 490h
+.text:00455F57                 cmp     dword_6E3144[edx], 1
+.text:00455F5E                 jnz     short loc_455F65
+.text:00455F60                 jmp     loc_455C77
+.text:00455F65 ; ---------------------------------------------------------------------------
+.text:00455F65
+.text:00455F65 loc_455F65:                             ; CODE XREF: sub_455932+62Cj
+.text:00455F65                 mov     eax, [ebp+var_64]
+.text:00455F68                 imul    eax, 490h
+.text:00455F6E                 cmp     dword_6E3144[eax], 2
+.text:00455F75                 jnz     short loc_455F7C
+.text:00455F77                 jmp     loc_455C77
+.text:00455F7C ; ---------------------------------------------------------------------------
+.text:00455F7C
+.text:00455F7C loc_455F7C:                             ; CODE XREF: sub_455932+643j
+.text:00455F7C                 mov     ecx, [ebp+var_64]
+.text:00455F7F                 imul    ecx, 490h
+.text:00455F85                 cmp     dword_6E3144[ecx], 4
+.text:00455F8C                 jnz     short loc_455F93
+.text:00455F8E                 jmp     loc_455C77
+.text:00455F93 ; ---------------------------------------------------------------------------
+.text:00455F93
+.text:00455F93 loc_455F93:                             ; CODE XREF: sub_455932+65Aj
+.text:00455F93                 mov     edx, [ebp+var_64]
+.text:00455F96                 imul    edx, 490h
+.text:00455F9C                 cmp     dword_6E3144[edx], 5
+.text:00455FA3                 jnz     short loc_455FAA
+.text:00455FA5                 jmp     loc_455C77
+.text:00455FAA ; ---------------------------------------------------------------------------
+.text:00455FAA
+.text:00455FAA loc_455FAA:                             ; CODE XREF: sub_455932+671j
+.text:00455FAA                 mov     eax, [ebp+var_64]
+.text:00455FAD                 imul    eax, 490h
+.text:00455FB3                 cmp     dword_6E3144[eax], 6
+.text:00455FBA                 jnz     short loc_455FC1
+.text:00455FBC                 jmp     loc_455C77
+.text:00455FC1 ; ---------------------------------------------------------------------------
+.text:00455FC1
+.text:00455FC1 loc_455FC1:                             ; CODE XREF: sub_455932+688j
+.text:00455FC1                 mov     ecx, [ebp+var_64]
+.text:00455FC4                 imul    ecx, 490h
+.text:00455FCA                 cmp     dword_6E3144[ecx], 7
+.text:00455FD1                 jnz     short loc_455FD8
+.text:00455FD3                 jmp     loc_455C77
+.text:00455FD8 ; ---------------------------------------------------------------------------
+.text:00455FD8
+.text:00455FD8 loc_455FD8:                             ; CODE XREF: sub_455932+69Fj
+.text:00455FD8                 cmp     dword_64A6C0, 0
+.text:00455FDF                 jnz     loc_45633E
+.text:00455FE5                 mov     edx, [ebp+var_64]
+.text:00455FE8                 imul    edx, 490h
+.text:00455FEE                 cmp     dword_6E3144[edx], 1
+.text:00455FF5                 jnz     loc_4560A8
+.text:00455FFB                 mov     eax, [ebp+var_64]
+.text:00455FFE                 imul    eax, 490h
+.text:00456004                 cmp     dword_6E32A8[eax], offset unk_989677
+.text:0045600E                 jz      loc_4560A8
+.text:00456014                 mov     ecx, [ebp+var_64]
+.text:00456017                 push    ecx
+.text:00456018                 call    sub_401BE0
+.text:0045601D                 add     esp, 4
+.text:00456020                 test    eax, eax
+.text:00456022                 jnz     short loc_4560A3
+.text:00456024                 mov     edx, [ebp+var_64]
+.text:00456027                 imul    edx, 490h
+.text:0045602D                 cmp     GpwRace_IsCarNumberPlayersCarFlag[edx], 1
+.text:00456034                 jnz     short loc_456090
+.text:00456036                 mov     eax, [ebp+var_64]
+.text:00456039                 push    eax
+.text:0045603A                 push    12Eh
+.text:0045603F                 push    0
+.text:00456041                 call    j_GpwRace_PlaySounds
+.text:00456046                 add     esp, 0Ch
+.text:00456049                 mov     ecx, [ebp+var_64]
+.text:0045604C                 imul    ecx, 490h
+.text:00456052                 mov     edx, dword_6E3050[ecx]
+.text:00456058                 add     edx, 1
+.text:0045605B                 push    edx
+.text:0045605C                 call    sub_4026B7
+.text:00456061                 add     esp, 4
+.text:00456064                 test    eax, eax
+.text:00456066                 jnz     short loc_45607D
+.text:00456068                 mov     eax, [ebp+var_64]
+.text:0045606B                 push    eax
+.text:0045606C                 push    13Ch
+.text:00456071                 push    0
+.text:00456073                 call    j_GpwRace_PlaySounds
+.text:00456078                 add     esp, 0Ch
+.text:0045607B                 jmp     short loc_456090
+.text:0045607D ; ---------------------------------------------------------------------------
+.text:0045607D
+.text:0045607D loc_45607D:                             ; CODE XREF: sub_455932+734j
+.text:0045607D                 mov     ecx, [ebp+var_64]
+.text:00456080                 push    ecx
+.text:00456081                 push    13Bh
+.text:00456086                 push    0
+.text:00456088                 call    j_GpwRace_PlaySounds
+.text:0045608D                 add     esp, 0Ch
+.text:00456090
+.text:00456090 loc_456090:                             ; CODE XREF: sub_455932+702j
+.text:00456090                                         ; sub_455932+749j
+.text:00456090                 mov     edx, [ebp+var_64]
+.text:00456093                 imul    edx, 490h
+.text:00456099                 mov     dword_6E32A8[edx], offset unk_989677
+.text:004560A3
+.text:004560A3 loc_4560A3:                             ; CODE XREF: sub_455932+6F0j
+.text:004560A3                 jmp     loc_45624A
+.text:004560A8 ; ---------------------------------------------------------------------------
+.text:004560A8
+.text:004560A8 loc_4560A8:                             ; CODE XREF: sub_455932+6C3j
+.text:004560A8                                         ; sub_455932+6DCj
+.text:004560A8                 mov     eax, [ebp+var_64]
+.text:004560AB                 imul    eax, 490h
+.text:004560B1                 cmp     dword_6E3144[eax], 5
+.text:004560B8                 jnz     loc_45624A
+.text:004560BE                 mov     ecx, [ebp+var_64]
+.text:004560C1                 imul    ecx, 490h
+.text:004560C7                 cmp     dword_6E32A8[ecx], offset unk_989677
+.text:004560D1                 jz      loc_45624A
+.text:004560D7                 mov     edx, [ebp+var_64]
+.text:004560DA                 imul    edx, 490h
+.text:004560E0                 cmp     GpwRace_IsCarNumberPlayersCarFlag[edx], 1
+.text:004560E7                 jnz     loc_456237
+.text:004560ED                 mov     eax, [ebp+var_64]
+.text:004560F0                 imul    eax, 490h
+.text:004560F6                 mov     ecx, dword_6E3050[eax]
+.text:004560FC                 add     ecx, 1
+.text:004560FF                 push    ecx
+.text:00456100                 call    sub_4025E0
+.text:00456105                 add     esp, 4
+.text:00456108                 test    eax, eax
+.text:0045610A                 jnz     short loc_456157
+.text:0045610C                 mov     edx, [ebp+var_64]
+.text:0045610F                 imul    edx, 490h
+.text:00456115                 mov     eax, dword_6E3050[edx]
+.text:0045611B                 add     eax, 1
+.text:0045611E                 push    eax
+.text:0045611F                 call    sub_4026B7
+.text:00456124                 add     esp, 4
+.text:00456127                 cmp     eax, 1
+.text:0045612A                 jnz     short loc_456157
+.text:0045612C                 mov     ecx, [ebp+var_64]
+.text:0045612F                 push    ecx
+.text:00456130                 push    12Fh
+.text:00456135                 push    0
+.text:00456137                 call    j_GpwRace_PlaySounds
+.text:0045613C                 add     esp, 0Ch
+.text:0045613F                 mov     edx, [ebp+var_64]
+.text:00456142                 push    edx
+.text:00456143                 push    13Dh
+.text:00456148                 push    0
+.text:0045614A                 call    j_GpwRace_PlaySounds
+.text:0045614F                 add     esp, 0Ch
+.text:00456152                 jmp     loc_456237
+.text:00456157 ; ---------------------------------------------------------------------------
+.text:00456157
+.text:00456157 loc_456157:                             ; CODE XREF: sub_455932+7D8j
+.text:00456157                                         ; sub_455932+7F8j
+.text:00456157                 mov     eax, [ebp+var_64]
+.text:0045615A                 imul    eax, 490h
+.text:00456160                 mov     ecx, dword_6E3050[eax]
+.text:00456166                 add     ecx, 1
+.text:00456169                 push    ecx
+.text:0045616A                 call    sub_4025E0
+.text:0045616F                 add     esp, 4
+.text:00456172                 cmp     eax, 1
+.text:00456175                 jnz     short loc_4561D1
+.text:00456177                 mov     edx, [ebp+var_64]
+.text:0045617A                 imul    edx, 490h
+.text:00456180                 mov     eax, dword_6E3050[edx]
+.text:00456186                 add     eax, 1
+.text:00456189                 push    eax
+.text:0045618A                 call    sub_4026B7
+.text:0045618F                 add     esp, 4
+.text:00456192                 test    eax, eax
+.text:00456194                 jnz     short loc_4561D1
+.text:00456196                 mov     ecx, [ebp+var_64]
+.text:00456199                 push    ecx
+.text:0045619A                 push    12Fh
+.text:0045619F                 push    0
+.text:004561A1                 call    j_GpwRace_PlaySounds
+.text:004561A6                 add     esp, 0Ch
+.text:004561A9                 mov     edx, [ebp+var_64]
+.text:004561AC                 push    edx
+.text:004561AD                 push    13Dh
+.text:004561B2                 push    0
+.text:004561B4                 call    j_GpwRace_PlaySounds
+.text:004561B9                 add     esp, 0Ch
+.text:004561BC                 mov     eax, [ebp+var_64]
+.text:004561BF                 push    eax
+.text:004561C0                 push    13Ch
+.text:004561C5                 push    0
+.text:004561C7                 call    j_GpwRace_PlaySounds
+.text:004561CC                 add     esp, 0Ch
+.text:004561CF                 jmp     short loc_456237
+.text:004561D1 ; ---------------------------------------------------------------------------
+.text:004561D1
+.text:004561D1 loc_4561D1:                             ; CODE XREF: sub_455932+843j
+.text:004561D1                                         ; sub_455932+862j
+.text:004561D1                 mov     ecx, [ebp+var_64]
+.text:004561D4                 imul    ecx, 490h
+.text:004561DA                 mov     edx, dword_6E3050[ecx]
+.text:004561E0                 add     edx, 1
+.text:004561E3                 push    edx
+.text:004561E4                 call    sub_4025E0
+.text:004561E9                 add     esp, 4
+.text:004561EC                 cmp     eax, 1
+.text:004561EF                 jnz     short loc_456237
+.text:004561F1                 mov     eax, [ebp+var_64]
+.text:004561F4                 imul    eax, 490h
+.text:004561FA                 mov     ecx, dword_6E3050[eax]
+.text:00456200                 add     ecx, 1
+.text:00456203                 push    ecx
+.text:00456204                 call    sub_4026B7
+.text:00456209                 add     esp, 4
+.text:0045620C                 cmp     eax, 1
+.text:0045620F                 jnz     short loc_456237
+.text:00456211                 mov     edx, [ebp+var_64]
+.text:00456214                 push    edx
+.text:00456215                 push    12Fh
+.text:0045621A                 push    0
+.text:0045621C                 call    j_GpwRace_PlaySounds
+.text:00456221                 add     esp, 0Ch
+.text:00456224                 mov     eax, [ebp+var_64]
+.text:00456227                 push    eax
+.text:00456228                 push    13Dh
+.text:0045622D                 push    0
+.text:0045622F                 call    j_GpwRace_PlaySounds
+.text:00456234                 add     esp, 0Ch
+.text:00456237
+.text:00456237 loc_456237:                             ; CODE XREF: sub_455932+7B5j
+.text:00456237                                         ; sub_455932+820j ...
+.text:00456237                 mov     ecx, [ebp+var_64]
+.text:0045623A                 imul    ecx, 490h
+.text:00456240                 mov     dword_6E32A8[ecx], offset unk_989677
+.text:0045624A
+.text:0045624A loc_45624A:                             ; CODE XREF: sub_455932:loc_4560A3j
+.text:0045624A                                         ; sub_455932+786j ...
+.text:0045624A                 mov     edx, [ebp+var_64]
+.text:0045624D                 imul    edx, 490h
+.text:00456253                 cmp     dword_6E3144[edx], 3
+.text:0045625A                 jnz     loc_45633E
+.text:00456260                 mov     eax, [ebp+var_64]
+.text:00456263                 imul    eax, 490h
+.text:00456269                 mov     ecx, dword_6E32A8[eax]
+.text:0045626F                 sub     ecx, 1
+.text:00456272                 mov     edx, [ebp+var_64]
+.text:00456275                 imul    edx, 490h
+.text:0045627B                 mov     dword_6E32A8[edx], ecx
+.text:00456281                 mov     eax, [ebp+var_64]
+.text:00456284                 imul    eax, 490h
+.text:0045628A                 cmp     dword_6E32A8[eax], 0
+.text:00456291                 jnz     loc_45633E
+.text:00456297                 mov     ecx, [ebp+var_64]
+.text:0045629A                 imul    ecx, 490h
+.text:004562A0                 mov     dword_6E3144[ecx], 0
+.text:004562AA                 mov     edx, [ebp+var_64]
+.text:004562AD                 imul    edx, 490h
+.text:004562B3                 mov     dword_6E313C[edx], 0
+.text:004562BD                 mov     eax, [ebp+var_64]
+.text:004562C0                 imul    eax, 490h
+.text:004562C6                 mov     dword_6E3130[eax], 0
+.text:004562D0                 mov     ecx, [ebp+var_64]
+.text:004562D3                 imul    ecx, 490h
+.text:004562D9                 mov     dword_6E305C[ecx], 0
+.text:004562E3                 mov     edx, [ebp+var_64]
+.text:004562E6                 imul    edx, 490h
+.text:004562EC                 mov     GpwQual_OutLapFlag[edx], 0
+.text:004562F6                 mov     eax, [ebp+var_64]
+.text:004562F9                 imul    eax, 490h
+.text:004562FF                 mov     ecx, dword_6E95B0
+.text:00456305                 mov     dword_6E3038[eax], ecx
+.text:0045630B                 mov     edx, [ebp+var_64]
+.text:0045630E                 imul    edx, 490h
+.text:00456314                 mov     GpwQual_HotLapFlag[edx], 0
+.text:0045631E                 push    0
+.text:00456320                 mov     eax, dword_6E95B0
+.text:00456325                 push    eax
+.text:00456326                 mov     ecx, [ebp+var_64]
+.text:00456329                 push    ecx
+.text:0045632A                 call    sub_402D65
+.text:0045632F                 add     esp, 0Ch
+.text:00456332                 mov     edx, [ebp+var_64]
+.text:00456335                 push    edx
+.text:00456336                 call    sub_403210
+.text:0045633B                 add     esp, 4
+.text:0045633E
+.text:0045633E loc_45633E:                             ; CODE XREF: sub_455932+6ADj
+.text:0045633E                                         ; sub_455932+928j ...
+.text:0045633E                 mov     eax, dword_64A418
+.text:00456343                 add     eax, 1
+.text:00456346                 mov     dword_64A418, eax
+.text:0045634B                 jmp     loc_455C77
+.text:00456350 ; ---------------------------------------------------------------------------
+.text:00456350
+.text:00456350 loc_456350:                             ; CODE XREF: sub_455932+357j
+.text:00456350                 cmp     [ebp+counter2], 0
+.text:00456354                 jnz     short loc_45635B
+.text:00456356                 call    sub_403F4E
+.text:0045635B
+.text:0045635B loc_45635B:                             ; CODE XREF: sub_455932+A22j
+.text:0045635B                 mov     [ebp+var_58], 0
+.text:00456362                 jmp     short loc_45636D
+.text:00456364 ; ---------------------------------------------------------------------------
+.text:00456364
+.text:00456364 loc_456364:                             ; CODE XREF: sub_455932:loc_456600j
+.text:00456364                 mov     ecx, [ebp+var_58]
+.text:00456367                 add     ecx, 1
+.text:0045636A                 mov     [ebp+var_58], ecx
+.text:0045636D
+.text:0045636D loc_45636D:                             ; CODE XREF: sub_455932+A30j
+.text:0045636D                 mov     edx, [ebp+counter1]
+.text:00456370                 sub     edx, 1
+.text:00456373                 cmp     [ebp+var_58], edx
+.text:00456376                 jge     loc_456605
+.text:0045637C                 mov     [ebp+var_68], 0
+.text:00456383                 jmp     short loc_45638E
+.text:00456385 ; ---------------------------------------------------------------------------
+.text:00456385
+.text:00456385 loc_456385:                             ; CODE XREF: sub_455932:loc_4565FBj
+.text:00456385                 mov     eax, [ebp+var_68]
+.text:00456388                 add     eax, 1
+.text:0045638B                 mov     [ebp+var_68], eax
+.text:0045638E
+.text:0045638E loc_45638E:                             ; CODE XREF: sub_455932+A51j
+.text:0045638E                 mov     ecx, [ebp+counter1]
+.text:00456391                 sub     ecx, 1
+.text:00456394                 cmp     [ebp+var_68], ecx
+.text:00456397                 jge     loc_456600
+.text:0045639D                 mov     edx, [ebp+var_68]
+.text:004563A0                 shl     edx, 4
+.text:004563A3                 mov     eax, [ebp+var_68]
+.text:004563A6                 add     eax, 1
+.text:004563A9                 shl     eax, 4
+.text:004563AC                 mov     ecx, dword_6E0F64[edx]
+.text:004563B2                 cmp     ecx, dword_6E0F64[eax]
+.text:004563B8                 jge     loc_456451
+.text:004563BE                 mov     edx, [ebp+var_68]
+.text:004563C1                 add     edx, 1
+.text:004563C4                 shl     edx, 4
+.text:004563C7                 add     edx, offset GpwRace_RaceEntryIndex_v2
+.text:004563CD                 mov     eax, [edx]
+.text:004563CF                 mov     GpwRace_RaceEntryIndex_v3, eax
+.text:004563D4                 mov     ecx, [edx+4]
+.text:004563D7                 mov     dword_66952C, ecx
+.text:004563DD                 mov     eax, [edx+8]
+.text:004563E0                 mov     dword_669530, eax
+.text:004563E5                 mov     ecx, [edx+0Ch]
+.text:004563E8                 mov     dword_669534, ecx
+.text:004563EE                 mov     edx, [ebp+var_68]
+.text:004563F1                 shl     edx, 4
+.text:004563F4                 add     edx, offset GpwRace_RaceEntryIndex_v2
+.text:004563FA                 mov     eax, [ebp+var_68]
+.text:004563FD                 add     eax, 1
+.text:00456400                 shl     eax, 4
+.text:00456403                 add     eax, offset GpwRace_RaceEntryIndex_v2
+.text:00456408                 mov     ecx, [edx]
+.text:0045640A                 mov     [eax], ecx
+.text:0045640C                 mov     ecx, [edx+4]
+.text:0045640F                 mov     [eax+4], ecx
+.text:00456412                 mov     ecx, [edx+8]
+.text:00456415                 mov     [eax+8], ecx
+.text:00456418                 mov     edx, [edx+0Ch]
+.text:0045641B                 mov     [eax+0Ch], edx
+.text:0045641E                 mov     eax, [ebp+var_68]
+.text:00456421                 shl     eax, 4
+.text:00456424                 add     eax, offset GpwRace_RaceEntryIndex_v2
+.text:00456429                 mov     ecx, GpwRace_RaceEntryIndex_v3
+.text:0045642F                 mov     [eax], ecx
+.text:00456431                 mov     edx, dword_66952C
+.text:00456437                 mov     [eax+4], edx
+.text:0045643A                 mov     ecx, dword_669530
+.text:00456440                 mov     [eax+8], ecx
+.text:00456443                 mov     edx, dword_669534
+.text:00456449                 mov     [eax+0Ch], edx
+.text:0045644C                 jmp     loc_4565FB
+.text:00456451 ; ---------------------------------------------------------------------------
+.text:00456451
+.text:00456451 loc_456451:                             ; CODE XREF: sub_455932+A86j
+.text:00456451                 mov     eax, [ebp+var_68]
+.text:00456454                 shl     eax, 4
+.text:00456457                 mov     ecx, [ebp+var_68]
+.text:0045645A                 add     ecx, 1
+.text:0045645D                 shl     ecx, 4
+.text:00456460                 mov     edx, dword_6E0F64[eax]
+.text:00456466                 cmp     edx, dword_6E0F64[ecx]
+.text:0045646C                 jnz     loc_4565FB
+.text:00456472                 mov     eax, [ebp+var_68]
+.text:00456475                 shl     eax, 4
+.text:00456478                 mov     ecx, [ebp+var_68]
+.text:0045647B                 add     ecx, 1
+.text:0045647E                 shl     ecx, 4
+.text:00456481                 mov     edx, dword_6E0F68[eax]
+.text:00456487                 cmp     edx, dword_6E0F68[ecx]
+.text:0045648D                 jge     loc_456526
+.text:00456493                 mov     eax, [ebp+var_68]
+.text:00456496                 add     eax, 1
+.text:00456499                 shl     eax, 4
+.text:0045649C                 add     eax, offset GpwRace_RaceEntryIndex_v2
+.text:004564A1                 mov     ecx, [eax]
+.text:004564A3                 mov     GpwRace_RaceEntryIndex_v3, ecx
+.text:004564A9                 mov     edx, [eax+4]
+.text:004564AC                 mov     dword_66952C, edx
+.text:004564B2                 mov     ecx, [eax+8]
+.text:004564B5                 mov     dword_669530, ecx
+.text:004564BB                 mov     edx, [eax+0Ch]
+.text:004564BE                 mov     dword_669534, edx
+.text:004564C4                 mov     eax, [ebp+var_68]
+.text:004564C7                 shl     eax, 4
+.text:004564CA                 add     eax, offset GpwRace_RaceEntryIndex_v2
+.text:004564CF                 mov     ecx, [ebp+var_68]
+.text:004564D2                 add     ecx, 1
+.text:004564D5                 shl     ecx, 4
+.text:004564D8                 add     ecx, offset GpwRace_RaceEntryIndex_v2
+.text:004564DE                 mov     edx, [eax]
+.text:004564E0                 mov     [ecx], edx
+.text:004564E2                 mov     edx, [eax+4]
+.text:004564E5                 mov     [ecx+4], edx
+.text:004564E8                 mov     edx, [eax+8]
+.text:004564EB                 mov     [ecx+8], edx
+.text:004564EE                 mov     eax, [eax+0Ch]
+.text:004564F1                 mov     [ecx+0Ch], eax
+.text:004564F4                 mov     ecx, [ebp+var_68]
+.text:004564F7                 shl     ecx, 4
+.text:004564FA                 add     ecx, offset GpwRace_RaceEntryIndex_v2
+.text:00456500                 mov     edx, GpwRace_RaceEntryIndex_v3
+.text:00456506                 mov     [ecx], edx
+.text:00456508                 mov     eax, dword_66952C
+.text:0045650D                 mov     [ecx+4], eax
+.text:00456510                 mov     edx, dword_669530
+.text:00456516                 mov     [ecx+8], edx
+.text:00456519                 mov     eax, dword_669534
+.text:0045651E                 mov     [ecx+0Ch], eax
+.text:00456521                 jmp     loc_4565FB
+.text:00456526 ; ---------------------------------------------------------------------------
+.text:00456526
+.text:00456526 loc_456526:                             ; CODE XREF: sub_455932+B5Bj
+.text:00456526                 mov     ecx, [ebp+var_68]
+.text:00456529                 shl     ecx, 4
+.text:0045652C                 mov     edx, [ebp+var_68]
+.text:0045652F                 add     edx, 1
+.text:00456532                 shl     edx, 4
+.text:00456535                 mov     eax, dword_6E0F68[ecx]
+.text:0045653B                 cmp     eax, dword_6E0F68[edx]
+.text:00456541                 jnz     loc_4565FB
+.text:00456547                 mov     ecx, [ebp+var_68]
+.text:0045654A                 shl     ecx, 4
+.text:0045654D                 mov     edx, [ebp+var_68]
+.text:00456550                 add     edx, 1
+.text:00456553                 shl     edx, 4
+.text:00456556                 fld     flt_6E0F6C[ecx]
+.text:0045655C                 fcomp   flt_6E0F6C[edx]
+.text:00456562                 fnstsw  ax
+.text:00456564                 test    ah, 41h
+.text:00456567                 jnz     loc_4565FB
+.text:0045656D                 mov     eax, [ebp+var_68]
+.text:00456570                 add     eax, 1
+.text:00456573                 shl     eax, 4
+.text:00456576                 add     eax, offset GpwRace_RaceEntryIndex_v2
+.text:0045657B                 mov     ecx, [eax]
+.text:0045657D                 mov     GpwRace_RaceEntryIndex_v3, ecx
+.text:00456583                 mov     edx, [eax+4]
+.text:00456586                 mov     dword_66952C, edx
+.text:0045658C                 mov     ecx, [eax+8]
+.text:0045658F                 mov     dword_669530, ecx
+.text:00456595                 mov     edx, [eax+0Ch]
+.text:00456598                 mov     dword_669534, edx
+.text:0045659E                 mov     eax, [ebp+var_68]
+.text:004565A1                 shl     eax, 4
+.text:004565A4                 add     eax, offset GpwRace_RaceEntryIndex_v2
+.text:004565A9                 mov     ecx, [ebp+var_68]
+.text:004565AC                 add     ecx, 1
+.text:004565AF                 shl     ecx, 4
+.text:004565B2                 add     ecx, offset GpwRace_RaceEntryIndex_v2
+.text:004565B8                 mov     edx, [eax]
+.text:004565BA                 mov     [ecx], edx
+.text:004565BC                 mov     edx, [eax+4]
+.text:004565BF                 mov     [ecx+4], edx
+.text:004565C2                 mov     edx, [eax+8]
+.text:004565C5                 mov     [ecx+8], edx
+.text:004565C8                 mov     eax, [eax+0Ch]
+.text:004565CB                 mov     [ecx+0Ch], eax
+.text:004565CE                 mov     ecx, [ebp+var_68]
+.text:004565D1                 shl     ecx, 4
+.text:004565D4                 add     ecx, offset GpwRace_RaceEntryIndex_v2
+.text:004565DA                 mov     edx, GpwRace_RaceEntryIndex_v3
+.text:004565E0                 mov     [ecx], edx
+.text:004565E2                 mov     eax, dword_66952C
+.text:004565E7                 mov     [ecx+4], eax
+.text:004565EA                 mov     edx, dword_669530
+.text:004565F0                 mov     [ecx+8], edx
+.text:004565F3                 mov     eax, dword_669534
+.text:004565F8                 mov     [ecx+0Ch], eax
+.text:004565FB
+.text:004565FB loc_4565FB:                             ; CODE XREF: sub_455932+B1Aj
+.text:004565FB                                         ; sub_455932+B3Aj ...
+.text:004565FB                 jmp     loc_456385
+.text:00456600 ; ---------------------------------------------------------------------------
+.text:00456600
+.text:00456600 loc_456600:                             ; CODE XREF: sub_455932+A65j
+.text:00456600                 jmp     loc_456364
+.text:00456605 ; ---------------------------------------------------------------------------
+.text:00456605
+.text:00456605 loc_456605:                             ; CODE XREF: sub_455932+A44j
+.text:00456605                 mov     [ebp+var_58], 0
+.text:0045660C                 jmp     short loc_456617
+.text:0045660E ; ---------------------------------------------------------------------------
+.text:0045660E
+.text:0045660E loc_45660E:                             ; CODE XREF: sub_455932+D9Ej
+.text:0045660E                 mov     ecx, [ebp+var_58]
+.text:00456611                 add     ecx, 1
+.text:00456614                 mov     [ebp+var_58], ecx
+.text:00456617
+.text:00456617 loc_456617:                             ; CODE XREF: sub_455932+CDAj
+.text:00456617                 cmp     [ebp+var_58], 16h
+.text:0045661B                 jge     loc_4566D5
+.text:00456621                 mov     edx, [ebp+var_58]
+.text:00456624                 shl     edx, 4
+.text:00456627                 mov     eax, GpwRace_RaceEntryIndex_v2[edx]
+.text:0045662D                 imul    eax, 490h
+.text:00456633                 mov     ecx, dword_6E3050[eax]
+.text:00456639                 add     ecx, 1
+.text:0045663C                 mov     edx, [ebp+var_58]
+.text:0045663F                 imul    edx, 1Ch
+.text:00456642                 mov     dword_78269C[edx], ecx
+.text:00456648                 mov     eax, [ebp+var_58]
+.text:0045664B                 shl     eax, 4
+.text:0045664E                 mov     ecx, GpwRace_RaceEntryIndex_v2[eax]
+.text:00456654                 imul    ecx, 490h
+.text:0045665A                 mov     edx, [ebp+var_58]
+.text:0045665D                 imul    edx, 1Ch
+.text:00456660                 mov     eax, dword_6E3054[ecx]
+.text:00456666                 mov     dword_782698[edx], eax
+.text:0045666C                 mov     ecx, [ebp+var_58]
+.text:0045666F                 shl     ecx, 4
+.text:00456672                 mov     edx, GpwRace_RaceEntryIndex_v2[ecx]
+.text:00456678                 imul    edx, 490h
+.text:0045667E                 mov     eax, [ebp+var_58]
+.text:00456681                 imul    eax, 1Ch
+.text:00456684                 mov     ecx, dword_6E3404[edx]
+.text:0045668A                 mov     dword_7826A0[eax], ecx
+.text:00456690                 mov     edx, [ebp+var_58]
+.text:00456693                 shl     edx, 4
+.text:00456696                 mov     eax, [ebp+var_58]
+.text:00456699                 imul    eax, 1Ch
+.text:0045669C                 mov     ecx, GpwRace_RaceEntryIndex_v2[edx]
+.text:004566A2                 mov     GpwRace_RaceEntryIndex_v1[eax], ecx
+.text:004566A8                 mov     edx, [ebp+var_58]
+.text:004566AB                 imul    edx, 1Ch
+.text:004566AE                 mov     eax, dword_7826A0[edx]
+.text:004566B4                 imul    eax, 0C8h
+.text:004566BA                 mov     ecx, 32h
+.text:004566BF                 sub     ecx, [ebp+var_58]
+.text:004566C2                 add     eax, ecx
+.text:004566C4                 mov     edx, [ebp+var_58]
+.text:004566C7                 imul    edx, 1Ch
+.text:004566CA                 mov     dword_7826B0[edx], eax
+.text:004566D0                 jmp     loc_45660E
+.text:004566D5 ; ---------------------------------------------------------------------------
+.text:004566D5
+.text:004566D5 loc_4566D5:                             ; CODE XREF: sub_455932+CE9j
+.text:004566D5                 mov     [ebp+var_58], 0
+.text:004566DC                 jmp     short loc_4566E7
+.text:004566DE ; ---------------------------------------------------------------------------
+.text:004566DE
+.text:004566DE loc_4566DE:                             ; CODE XREF: sub_455932:loc_45678Aj
+.text:004566DE                 mov     eax, [ebp+var_58]
+.text:004566E1                 add     eax, 1
+.text:004566E4                 mov     [ebp+var_58], eax
+.text:004566E7
+.text:004566E7 loc_4566E7:                             ; CODE XREF: sub_455932+DAAj
+.text:004566E7                 mov     ecx, [ebp+counter1]
+.text:004566EA                 sub     ecx, 1
+.text:004566ED                 cmp     [ebp+var_58], ecx
+.text:004566F0                 jge     loc_45678F
+.text:004566F6                 mov     [ebp+var_68], 0
+.text:004566FD                 jmp     short loc_456708
+.text:004566FF ; ---------------------------------------------------------------------------
+.text:004566FF
+.text:004566FF loc_4566FF:                             ; CODE XREF: sub_455932:loc_456785j
+.text:004566FF                 mov     edx, [ebp+var_68]
+.text:00456702                 add     edx, 1
+.text:00456705                 mov     [ebp+var_68], edx
+.text:00456708
+.text:00456708 loc_456708:                             ; CODE XREF: sub_455932+DCBj
+.text:00456708                 mov     eax, [ebp+counter1]
+.text:0045670B                 sub     eax, 1
+.text:0045670E                 cmp     [ebp+var_68], eax
+.text:00456711                 jge     short loc_45678A
+.text:00456713                 mov     ecx, [ebp+var_68]
+.text:00456716                 imul    ecx, 1Ch
+.text:00456719                 mov     edx, [ebp+var_68]
+.text:0045671C                 add     edx, 1
+.text:0045671F                 imul    edx, 1Ch
+.text:00456722                 mov     eax, dword_7826B0[ecx]
+.text:00456728                 cmp     eax, dword_7826B0[edx]
+.text:0045672E                 jge     short loc_456785
+.text:00456730                 mov     esi, [ebp+var_68]
+.text:00456733                 add     esi, 1
+.text:00456736                 imul    esi, 1Ch
+.text:00456739                 add     esi, offset dword_782698
+.text:0045673F                 mov     ecx, 7
+.text:00456744                 mov     edi, offset unk_782900
+.text:00456749                 rep movsd
+.text:0045674B                 mov     esi, [ebp+var_68]
+.text:0045674E                 imul    esi, 1Ch
+.text:00456751                 add     esi, offset dword_782698
+.text:00456757                 mov     edi, [ebp+var_68]
+.text:0045675A                 add     edi, 1
+.text:0045675D                 imul    edi, 1Ch
+.text:00456760                 add     edi, offset dword_782698
+.text:00456766                 mov     ecx, 7
+.text:0045676B                 rep movsd
+.text:0045676D                 mov     edi, [ebp+var_68]
+.text:00456770                 imul    edi, 1Ch
+.text:00456773                 add     edi, offset dword_782698
+.text:00456779                 mov     ecx, 7
+.text:0045677E                 mov     esi, offset unk_782900
+.text:00456783                 rep movsd
+.text:00456785
+.text:00456785 loc_456785:                             ; CODE XREF: sub_455932+DFCj
+.text:00456785                 jmp     loc_4566FF
+.text:0045678A ; ---------------------------------------------------------------------------
+.text:0045678A
+.text:0045678A loc_45678A:                             ; CODE XREF: sub_455932+DDFj
+.text:0045678A                 jmp     loc_4566DE
+.text:0045678F ; ---------------------------------------------------------------------------
+.text:0045678F
+.text:0045678F loc_45678F:                             ; CODE XREF: sub_455932+DBEj
+.text:0045678F                 cmp     dword_64A6C0, 1
+.text:00456796                 jnz     loc_456870
+.text:0045679C                 mov     [ebp+var_58], 0
+.text:004567A3                 jmp     short loc_4567AE
+.text:004567A5 ; ---------------------------------------------------------------------------
+.text:004567A5
+.text:004567A5 loc_4567A5:                             ; CODE XREF: sub_455932+F39j
+.text:004567A5                 mov     ecx, [ebp+var_58]
+.text:004567A8                 add     ecx, 1
+.text:004567AB                 mov     [ebp+var_58], ecx
+.text:004567AE
+.text:004567AE loc_4567AE:                             ; CODE XREF: sub_455932+E71j
+.text:004567AE                 cmp     [ebp+var_58], 16h
+.text:004567B2                 jge     loc_456870
+.text:004567B8                 mov     edx, [ebp+var_58]
+.text:004567BB                 add     edx, 1
+.text:004567BE                 mov     eax, [ebp+var_58]
+.text:004567C1                 imul    eax, 1Ch
+.text:004567C4                 mov     ecx, GpwRace_RaceEntryIndex_v1[eax]
+.text:004567CA                 imul    ecx, 490h
+.text:004567D0                 cmp     edx, GpwRace_CarRacePositionOnSectionEntry[ecx]
+.text:004567D6                 jz      short loc_45684D
+.text:004567D8                 mov     edx, [ebp+var_58]
+.text:004567DB                 imul    edx, 1Ch
+.text:004567DE                 mov     eax, GpwRace_RaceEntryIndex_v1[edx]
+.text:004567E4                 cmp     eax, GpwRace_CarNumberIndexForDriver1
+.text:004567EA                 jnz     short loc_4567F6
+.text:004567EC                 mov     dword_7844D0, 0
+.text:004567F6
+.text:004567F6 loc_4567F6:                             ; CODE XREF: sub_455932+EB8j
+.text:004567F6                 mov     ecx, [ebp+var_58]
+.text:004567F9                 imul    ecx, 1Ch
+.text:004567FC                 mov     edx, GpwRace_RaceEntryIndex_v1[ecx]
+.text:00456802                 cmp     edx, GpwRace_CarNumberIndexForDriver2
+.text:00456808                 jnz     short loc_456814
+.text:0045680A                 mov     dword_7844D4, 0
+.text:00456814
+.text:00456814 loc_456814:                             ; CODE XREF: sub_455932+ED6j
+.text:00456814                 mov     [ebp+var_68], 0
+.text:0045681B                 jmp     short loc_456826
+.text:0045681D ; ---------------------------------------------------------------------------
+.text:0045681D
+.text:0045681D loc_45681D:                             ; CODE XREF: sub_455932:loc_45684Bj
+.text:0045681D                 mov     eax, [ebp+var_68]
+.text:00456820                 add     eax, 1
+.text:00456823                 mov     [ebp+var_68], eax
+.text:00456826
+.text:00456826 loc_456826:                             ; CODE XREF: sub_455932+EE9j
+.text:00456826                 cmp     [ebp+var_68], 4
+.text:0045682A                 jge     short loc_45684D
+.text:0045682C                 mov     ecx, [ebp+var_68]
+.text:0045682F                 imul    ecx, 74h
+.text:00456832                 cmp     GpwRace_ChannelId[ecx], 4
+.text:00456839                 jnz     short loc_45684B
+.text:0045683B                 mov     edx, [ebp+var_68]
+.text:0045683E                 imul    edx, 74h
+.text:00456841                 mov     dword_709474[edx], 0
+.text:0045684B
+.text:0045684B loc_45684B:                             ; CODE XREF: sub_455932+F07j
+.text:0045684B                 jmp     short loc_45681D
+.text:0045684D ; ---------------------------------------------------------------------------
+.text:0045684D
+.text:0045684D loc_45684D:                             ; CODE XREF: sub_455932+EA4j
+.text:0045684D                                         ; sub_455932+EF8j
+.text:0045684D                 mov     eax, [ebp+var_58]
+.text:00456850                 add     eax, 1
+.text:00456853                 mov     ecx, [ebp+var_58]
+.text:00456856                 imul    ecx, 1Ch
+.text:00456859                 mov     edx, GpwRace_RaceEntryIndex_v1[ecx]
+.text:0045685F                 imul    edx, 490h
+.text:00456865                 mov     GpwRace_CarRacePositionOnSectionEntry[edx], eax
+.text:0045686B                 jmp     loc_4567A5
+.text:00456870 ; ---------------------------------------------------------------------------
+.text:00456870
+.text:00456870 loc_456870:                             ; CODE XREF: sub_455932+E64j
+.text:00456870                                         ; sub_455932+E80j
+.text:00456870                 call    sub_401DDE
+.text:00456875                 mov     dword_15B299C, 0
+.text:0045687F                 cmp     dword_64A6C0, 1
+.text:00456886                 jnz     short loc_45689A
+.text:00456888                 mov     eax, dword_6EAF98
+.text:0045688D                 add     eax, 1
+.text:00456890                 mov     dword_6EAF98, eax
+.text:00456895                 jmp     loc_456A46
+.text:0045689A ; ---------------------------------------------------------------------------
+.text:0045689A
+.text:0045689A loc_45689A:                             ; CODE XREF: sub_455932+F54j
+.text:0045689A                 cmp     dword_64A6C0, 0
+.text:004568A1                 jnz     loc_456A46
+.text:004568A7                 mov     [ebp+var_4], 1
+.text:004568AE                 cmp     dword_6EB014, 7
+.text:004568B5                 jnz     short loc_4568E7
+.text:004568B7                 cmp     dword_6EB018, 1
+.text:004568BE                 jnz     short loc_4568E7
+.text:004568C0                 mov     ecx, dword_6EAF94
+.text:004568C6                 sub     ecx, dword_6EAF98
+.text:004568CC                 mov     edx, GpwRace_DatFileTrackId
+.text:004568D2                 mov     eax, dword_64D828[edx*4]
+.text:004568D9                 imul    eax, 3
+.text:004568DC                 cmp     ecx, eax
+.text:004568DE                 jle     short loc_4568E7
+.text:004568E0                 mov     [ebp+var_4], 3
+.text:004568E7
+.text:004568E7 loc_4568E7:                             ; CODE XREF: sub_455932+F83j
+.text:004568E7                                         ; sub_455932+F8Cj ...
+.text:004568E7                 mov     [ebp+var_58], 0
+.text:004568EE                 jmp     short loc_4568F9
+.text:004568F0 ; ---------------------------------------------------------------------------
+.text:004568F0
+.text:004568F0 loc_4568F0:                             ; CODE XREF: sub_455932:loc_456A41j
+.text:004568F0                 mov     ecx, [ebp+var_58]
+.text:004568F3                 add     ecx, 1
+.text:004568F6                 mov     [ebp+var_58], ecx
+.text:004568F9
+.text:004568F9 loc_4568F9:                             ; CODE XREF: sub_455932+FBCj
+.text:004568F9                 mov     edx, [ebp+var_58]
+.text:004568FC                 cmp     edx, [ebp+var_4]
+.text:004568FF                 jge     loc_456A46
+.text:00456905                 mov     eax, dword_6EAF98
+.text:0045690A                 add     eax, 1
+.text:0045690D                 mov     dword_6EAF98, eax
+.text:00456912                 call    sub_401FE1
+.text:00456917                 mov     [ebp+var_B0], eax
+.text:0045691D                 mov     ecx, dword_6EAF98
+.text:00456923                 cmp     ecx, dword_6EAF94
+.text:00456929                 jg      short loc_456934
+.text:0045692B                 cmp     [ebp+var_B0], 1
+.text:00456932                 jge     short loc_45697A
+.text:00456934
+.text:00456934 loc_456934:                             ; CODE XREF: sub_455932+FF7j
+.text:00456934                 call    sub_402E23
+.text:00456939                 test    eax, eax
+.text:0045693B                 jnz     short loc_456978
+.text:0045693D                 push    0
+.text:0045693F                 push    13Fh
+.text:00456944                 push    1
+.text:00456946                 call    j_GpwRace_PlaySounds
+.text:0045694B                 add     esp, 0Ch
+.text:0045694E                 push    0
+.text:00456950                 call    j___initp_misc_winxfltr_6
+.text:00456955                 add     esp, 4
+.text:00456958                 call    sub_402ACC
+.text:0045695D                 call    sub_402E7D
+.text:00456962                 call    sub_4019F1
+.text:00456967                 call    sub_402C16
+.text:0045696C                 call    sub_40218A
+.text:00456971                 xor     eax, eax
+.text:00456973                 jmp     loc_458630
+.text:00456978 ; ---------------------------------------------------------------------------
+.text:00456978
+.text:00456978 loc_456978:                             ; CODE XREF: sub_455932+1009j
+.text:00456978                 jmp     short loc_4569E8
+.text:0045697A ; ---------------------------------------------------------------------------
+.text:0045697A
+.text:0045697A loc_45697A:                             ; CODE XREF: sub_455932+1000j
+.text:0045697A                 mov     edx, dword_6EAF94
+.text:00456980                 sub     edx, dword_6EAF98
+.text:00456986                 mov     eax, GpwRace_DatFileTrackId
+.text:0045698B                 mov     ecx, dword_64D828[eax*4]
+.text:00456992                 imul    ecx, 3
+.text:00456995                 cmp     edx, ecx
+.text:00456997                 jge     short loc_4569C2
+.text:00456999                 mov     edx, dword_6EAF98
+.text:0045699F                 sar     edx, 4
+.text:004569A2                 shl     edx, 4
+.text:004569A5                 cmp     edx, dword_6EAF98
+.text:004569AB                 jnz     short loc_4569C0
+.text:004569AD                 push    3
+.text:004569AF                 call    j_GpwMisc_GetRandomValue_v2
+.text:004569B4                 add     esp, 4
+.text:004569B7                 test    eax, eax
+.text:004569B9                 jnz     short loc_4569C0
+.text:004569BB                 call    sub_401BB8
+.text:004569C0
+.text:004569C0 loc_4569C0:                             ; CODE XREF: sub_455932+1079j
+.text:004569C0                                         ; sub_455932+1087j
+.text:004569C0                 jmp     short loc_4569E8
+.text:004569C2 ; ---------------------------------------------------------------------------
+.text:004569C2
+.text:004569C2 loc_4569C2:                             ; CODE XREF: sub_455932+1065j
+.text:004569C2                 mov     eax, dword_6EAF98
+.text:004569C7                 sar     eax, 5
+.text:004569CA                 shl     eax, 5
+.text:004569CD                 cmp     eax, dword_6EAF98
+.text:004569D3                 jnz     short loc_4569E8
+.text:004569D5                 push    6
+.text:004569D7                 call    j_GpwMisc_GetRandomValue_v2
+.text:004569DC                 add     esp, 4
+.text:004569DF                 test    eax, eax
+.text:004569E1                 jnz     short loc_4569E8
+.text:004569E3                 call    sub_401BB8
+.text:004569E8
+.text:004569E8 loc_4569E8:                             ; CODE XREF: sub_455932:loc_456978j
+.text:004569E8                                         ; sub_455932:loc_4569C0j ...
+.text:004569E8                 mov     eax, dword_6EAF98
+.text:004569ED                 imul    eax, 64h
+.text:004569F0                 cdq
+.text:004569F1                 idiv    dword_6EAF94
+.text:004569F7                 mov     [ebp+var_100], eax
+.text:004569FD                 mov     ecx, [ebp+var_100]
+.text:00456A03                 cmp     ecx, dword_6EAA88
+.text:00456A09                 jl      short loc_456A1F
+.text:00456A0B                 call    sub_402FE0
+.text:00456A10                 mov     edx, dword_64A6C0
+.text:00456A16                 push    edx
+.text:00456A17                 call    sub_401B63
+.text:00456A1C                 add     esp, 4
+.text:00456A1F
+.text:00456A1F loc_456A1F:                             ; CODE XREF: sub_455932+10D7j
+.text:00456A1F                 mov     eax, [ebp+var_100]
+.text:00456A25                 cmp     eax, dword_6E9680
+.text:00456A2B                 jl      short loc_456A41
+.text:00456A2D                 mov     ecx, dword_6E9680
+.text:00456A33                 add     ecx, 1
+.text:00456A36                 mov     dword_6E9680, ecx
+.text:00456A3C                 call    sub_401D43
+.text:00456A41
+.text:00456A41 loc_456A41:                             ; CODE XREF: sub_455932+10F9j
+.text:00456A41                 jmp     loc_4568F0
+.text:00456A46 ; ---------------------------------------------------------------------------
+.text:00456A46
+.text:00456A46 loc_456A46:                             ; CODE XREF: sub_455932+F63j
+.text:00456A46                                         ; sub_455932+F6Fj ...
+.text:00456A46                 cmp     dword_6EB014, 7
+.text:00456A4D                 jnz     short loc_456A58
+.text:00456A4F                 mov     [ebp+var_8], 3F8CCCCDh
+.text:00456A56                 jmp     short loc_456A61
+.text:00456A58 ; ---------------------------------------------------------------------------
+.text:00456A58
+.text:00456A58 loc_456A58:                             ; CODE XREF: sub_455932+111Bj
+.text:00456A58                 mov     edx, flt_64A6C8
+.text:00456A5E                 mov     [ebp+var_8], edx
+.text:00456A61
+.text:00456A61 loc_456A61:                             ; CODE XREF: sub_455932+1124j
+.text:00456A61                 mov     [ebp+var_58], 0
+.text:00456A68                 jmp     short loc_456A73
+.text:00456A6A ; ---------------------------------------------------------------------------
+.text:00456A6A
+.text:00456A6A loc_456A6A:                             ; CODE XREF: sub_455932:loc_456B16j
+.text:00456A6A                                         ; sub_455932+137Bj ...
+.text:00456A6A                 mov     eax, [ebp+var_58]
+.text:00456A6D                 add     eax, 1
+.text:00456A70                 mov     [ebp+var_58], eax
+.text:00456A73
+.text:00456A73 loc_456A73:                             ; CODE XREF: sub_455932+1136j
+.text:00456A73                 mov     ecx, [ebp+var_58]
+.text:00456A76                 cmp     ecx, [ebp+counter1]
+.text:00456A79                 jge     loc_458627
+.text:00456A7F                 mov     [ebp+var_104], 0
+.text:00456A89                 mov     edx, [ebp+var_58]
+.text:00456A8C                 shl     edx, 4
+.text:00456A8F                 mov     eax, GpwRace_RaceEntryIndex_v2[edx]
+.text:00456A95                 mov     [ebp+var_64], eax
+.text:00456A98                 mov     ecx, [ebp+var_64]
+.text:00456A9B                 imul    ecx, 490h
+.text:00456AA1                 mov     edx, [ebp+var_64]
+.text:00456AA4                 mov     dword_6E3040[ecx], edx
+.text:00456AAA                 mov     eax, [ebp+var_64]
+.text:00456AAD                 imul    eax, 490h
+.text:00456AB3                 mov     dword_6E303C[eax], 3E7h
+.text:00456ABD                 cmp     dword_64A6A4, 0
+.text:00456AC4                 jle     short loc_456ADB
+.text:00456AC6                 mov     ecx, [ebp+var_64]
+.text:00456AC9                 imul    ecx, 490h
+.text:00456ACF                 mov     edx, dword_6EAFC8
+.text:00456AD5                 mov     dword_6E3038[ecx], edx
+.text:00456ADB
+.text:00456ADB loc_456ADB:                             ; CODE XREF: sub_455932+1192j
+.text:00456ADB                 mov     eax, [ebp+var_64]
+.text:00456ADE                 imul    eax, 490h
+.text:00456AE4                 cmp     dword_6E313C[eax], 1
+.text:00456AEB                 jnz     short loc_456B1B
+.text:00456AED                 cmp     dword_64A6C0, 1
+.text:00456AF4                 jnz     short loc_456B16
+.text:00456AF6                 mov     esi, [ebp+var_64]
+.text:00456AF9                 imul    esi, 190h
+.text:00456AFF                 mov     ecx, [ebp+var_64]
+.text:00456B02                 push    ecx
+.text:00456B03                 call    sub_403B7F
+.text:00456B08                 add     esp, 4
+.text:00456B0B                 mov     dword_66CF38[esi+eax*4], 3
+.text:00456B16
+.text:00456B16 loc_456B16:                             ; CODE XREF: sub_455932+11C2j
+.text:00456B16                 jmp     loc_456A6A
+.text:00456B1B ; ---------------------------------------------------------------------------
+.text:00456B1B
+.text:00456B1B loc_456B1B:                             ; CODE XREF: sub_455932+11B9j
+.text:00456B1B                 mov     edx, [ebp+var_64]
+.text:00456B1E                 imul    edx, 490h
+.text:00456B24                 cmp     dword_6E312C[edx], 3
+.text:00456B2B                 jnz     loc_456C92
+.text:00456B31                 mov     eax, [ebp+var_64]
+.text:00456B34                 imul    eax, 490h
+.text:00456B3A                 cmp     dword_6E3144[eax], 0
+.text:00456B41                 jnz     short loc_456B56
+.text:00456B43                 mov     ecx, [ebp+var_64]
+.text:00456B46                 imul    ecx, 490h
+.text:00456B4C                 mov     dword_6E3144[ecx], 1
+.text:00456B56
+.text:00456B56 loc_456B56:                             ; CODE XREF: sub_455932+120Fj
+.text:00456B56                 mov     edx, [ebp+var_64]
+.text:00456B59                 imul    edx, 490h
+.text:00456B5F                 mov     eax, dword_6E3134[edx]
+.text:00456B65                 add     eax, 1
+.text:00456B68                 mov     ecx, [ebp+var_64]
+.text:00456B6B                 imul    ecx, 490h
+.text:00456B71                 mov     dword_6E3134[ecx], eax
+.text:00456B77                 mov     edx, [ebp+var_64]
+.text:00456B7A                 imul    edx, 490h
+.text:00456B80                 cmp     dword_6E3134[edx], 3E8h
+.text:00456B8A                 jle     loc_456C92
+.text:00456B90                 mov     eax, [ebp+var_64]
+.text:00456B93                 imul    eax, 490h
+.text:00456B99                 mov     dword_6E313C[eax], 1
+.text:00456BA3                 mov     ecx, [ebp+var_64]
+.text:00456BA6                 imul    ecx, 490h
+.text:00456BAC                 mov     edx, dword_6E3038[ecx]
+.text:00456BB2                 mov     dword_6E0DD0[edx*4], 0
+.text:00456BBD                 push    0
+.text:00456BBF                 mov     eax, [ebp+var_64]
+.text:00456BC2                 imul    eax, 490h
+.text:00456BC8                 mov     ecx, dword_6E3038[eax]
+.text:00456BCE                 push    ecx
+.text:00456BCF                 call    sub_4024CD
+.text:00456BD4                 add     esp, 8
+.text:00456BD7                 mov     edx, dword_64A800
+.text:00456BDD                 cmp     edx, [ebp+var_64]
+.text:00456BE0                 jnz     short loc_456BEC
+.text:00456BE2                 mov     dword_64A800, 3E7h
+.text:00456BEC
+.text:00456BEC loc_456BEC:                             ; CODE XREF: sub_455932+12AEj
+.text:00456BEC                 mov     eax, dword_64A804
+.text:00456BF1                 cmp     eax, [ebp+var_64]
+.text:00456BF4                 jnz     short loc_456C00
+.text:00456BF6                 mov     dword_64A804, 3E7h
+.text:00456C00
+.text:00456C00 loc_456C00:                             ; CODE XREF: sub_455932+12C2j
+.text:00456C00                 mov     ecx, [ebp+var_64]
+.text:00456C03                 imul    ecx, 490h
+.text:00456C09                 mov     edx, dword_6E3038[ecx]
+.text:00456C0F                 mov     eax, [ebp+var_64]
+.text:00456C12                 add     eax, 1
+.text:00456C15                 cmp     dword_6E0D08[edx*4], eax
+.text:00456C1C                 jnz     short loc_456C6C
+.text:00456C1E                 mov     ecx, [ebp+var_64]
+.text:00456C21                 imul    ecx, 490h
+.text:00456C27                 mov     edx, dword_6E3038[ecx]
+.text:00456C2D                 mov     dword_6E0D08[edx*4], 0
+.text:00456C38                 mov     eax, [ebp+var_64]
+.text:00456C3B                 imul    eax, 490h
+.text:00456C41                 mov     ecx, dword_6E3038[eax]
+.text:00456C47                 mov     dword_6E0DD0[ecx*4], 0
+.text:00456C52                 push    0
+.text:00456C54                 mov     edx, [ebp+var_64]
+.text:00456C57                 imul    edx, 490h
+.text:00456C5D                 mov     eax, dword_6E3038[edx]
+.text:00456C63                 push    eax
+.text:00456C64                 call    sub_4024CD
+.text:00456C69                 add     esp, 8
+.text:00456C6C
+.text:00456C6C loc_456C6C:                             ; CODE XREF: sub_455932+12EAj
+.text:00456C6C                 mov     ecx, [ebp+var_64]
+.text:00456C6F                 push    ecx
+.text:00456C70                 call    sub_40178A
+.text:00456C75                 add     esp, 4
+.text:00456C78                 mov     edx, [ebp+var_64]
+.text:00456C7B                 push    edx
+.text:00456C7C                 call    sub_403EB8
+.text:00456C81                 add     esp, 4
+.text:00456C84                 push    0
+.text:00456C86                 mov     eax, [ebp+var_64]
+.text:00456C89                 push    eax
+.text:00456C8A                 call    sub_4032A6
+.text:00456C8F                 add     esp, 8
+.text:00456C92
+.text:00456C92 loc_456C92:                             ; CODE XREF: sub_455932+11F9j
+.text:00456C92                                         ; sub_455932+1258j
+.text:00456C92                 cmp     dword_64A6C0, 0
+.text:00456C99                 jnz     short loc_456CB2
+.text:00456C9B                 mov     ecx, [ebp+var_64]
+.text:00456C9E                 imul    ecx, 490h
+.text:00456CA4                 cmp     GpwQual_OutLapFlag[ecx], 1
+.text:00456CAB                 jz      short loc_456CB2
+.text:00456CAD                 jmp     loc_456A6A
+.text:00456CB2 ; ---------------------------------------------------------------------------
+.text:00456CB2
+.text:00456CB2 loc_456CB2:                             ; CODE XREF: sub_455932+1367j
+.text:00456CB2                                         ; sub_455932+1379j
+.text:00456CB2                 mov     edx, [ebp+var_64]
+.text:00456CB5                 imul    edx, 490h
+.text:00456CBB                 mov     eax, dword_6E343C[edx]
+.text:00456CC1                 add     eax, 1
+.text:00456CC4                 mov     ecx, [ebp+var_64]
+.text:00456CC7                 imul    ecx, 490h
+.text:00456CCD                 mov     dword_6E343C[ecx], eax
+.text:00456CD3                 mov     edx, [ebp+var_64]
+.text:00456CD6                 imul    edx, 490h
+.text:00456CDC                 mov     eax, dword_6E3438[edx]
+.text:00456CE2                 add     eax, 1
+.text:00456CE5                 mov     ecx, [ebp+var_64]
+.text:00456CE8                 imul    ecx, 490h
+.text:00456CEE                 mov     dword_6E3438[ecx], eax
+.text:00456CF4                 mov     edx, [ebp+var_64]
+.text:00456CF7                 imul    edx, 490h
+.text:00456CFD                 mov     eax, [ebp+var_64]
+.text:00456D00                 imul    eax, 490h
+.text:00456D06                 fld     flt_6E307C[edx]
+.text:00456D0C                 fadd    flt_6E3074[eax]
+.text:00456D12                 mov     ecx, [ebp+var_64]
+.text:00456D15                 imul    ecx, 490h
+.text:00456D1B                 fstp    flt_6E307C[ecx]
+.text:00456D21                 mov     edx, [ebp+var_64]
+.text:00456D24                 imul    edx, 490h
+.text:00456D2A                 fld     flt_6E3448[edx]
+.text:00456D30                 fadd    [ebp+var_8]
+.text:00456D33                 mov     eax, [ebp+var_64]
+.text:00456D36                 imul    eax, 490h
+.text:00456D3C                 fstp    flt_6E3448[eax]
+.text:00456D42                 mov     ecx, [ebp+var_64]
+.text:00456D45                 imul    ecx, 490h
+.text:00456D4B                 cmp     GpwRace_IsCarInThePitsFlag[ecx], 1
+.text:00456D52                 jnz     loc_457010
+.text:00456D58                 mov     edx, [ebp+var_64]
+.text:00456D5B                 imul    edx, 490h
+.text:00456D61                 mov     eax, dword_6E33F0[edx]
+.text:00456D67                 sub     eax, 1
+.text:00456D6A                 mov     ecx, [ebp+var_64]
+.text:00456D6D                 imul    ecx, 490h
+.text:00456D73                 mov     dword_6E33F0[ecx], eax
+.text:00456D79                 mov     edx, [ebp+var_64]
+.text:00456D7C                 imul    edx, 490h
+.text:00456D82                 cmp     dword_6E33F0[edx], 1
+.text:00456D89                 jge     loc_456EA8
+.text:00456D8F                 mov     eax, [ebp+var_64]
+.text:00456D92                 imul    eax, 490h
+.text:00456D98                 mov     ecx, dword_6E33F4[eax]
+.text:00456D9E                 add     ecx, 1
+.text:00456DA1                 mov     edx, [ebp+var_64]
+.text:00456DA4                 imul    edx, 490h
+.text:00456DAA                 mov     dword_6E33F4[edx], ecx
+.text:00456DB0                 mov     eax, [ebp+var_64]
+.text:00456DB3                 imul    eax, 490h
+.text:00456DB9                 cmp     dword_6E33F4[eax], 3
+.text:00456DC0                 jge     loc_456E95
+.text:00456DC6                 mov     ecx, [ebp+var_64]
+.text:00456DC9                 imul    ecx, 490h
+.text:00456DCF                 mov     edx, [ebp+var_64]
+.text:00456DD2                 imul    edx, 490h
+.text:00456DD8                 mov     eax, dword_6E33F4[edx]
+.text:00456DDE                 cmp     dword_6E33F8[ecx+eax*4], 0
+.text:00456DE6                 jz      loc_456E80
+.text:00456DEC                 mov     ecx, [ebp+var_64]
+.text:00456DEF                 imul    ecx, 490h
+.text:00456DF5                 mov     edx, [ebp+var_64]
+.text:00456DF8                 imul    edx, 490h
+.text:00456DFE                 mov     eax, dword_6E33F4[edx]
+.text:00456E04                 mov     ecx, dword_6E33F8[ecx+eax*4]
+.text:00456E0B                 mov     [ebp+var_1B8], ecx
+.text:00456E11                 mov     edx, [ebp+var_1B8]
+.text:00456E17                 sub     edx, 1
+.text:00456E1A                 mov     [ebp+var_1B8], edx
+.text:00456E20                 cmp     [ebp+var_1B8], 4 ; switch 5 cases
+.text:00456E27                 ja      short loc_456E7E ; jumptable 00456E2F default case
+.text:00456E29                 mov     eax, [ebp+var_1B8]
+.text:00456E2F                 jmp     ds:off_458636[eax*4] ; switch jump
+.text:00456E36
+.text:00456E36 loc_456E36:                             ; DATA XREF: .text:off_458636o
+.text:00456E36                 mov     ecx, [ebp+var_64] ; jumptable 00456E2F case 0
+.text:00456E39                 imul    ecx, 490h
+.text:00456E3F                 mov     dword_6E33F0[ecx], 15h
+.text:00456E49                 jmp     short loc_456E7E ; jumptable 00456E2F default case
+.text:00456E4B ; ---------------------------------------------------------------------------
+.text:00456E4B
+.text:00456E4B loc_456E4B:                             ; CODE XREF: sub_455932+14FDj
+.text:00456E4B                                         ; DATA XREF: .text:off_458636o
+.text:00456E4B                 mov     edx, [ebp+var_64] ; jumptable 00456E2F case 1
+.text:00456E4E                 imul    edx, 490h
+.text:00456E54                 mov     dword_6E33F0[edx], 10h
+.text:00456E5E                 jmp     short loc_456E7E ; jumptable 00456E2F default case
+.text:00456E60 ; ---------------------------------------------------------------------------
+.text:00456E60
+.text:00456E60 loc_456E60:                             ; CODE XREF: sub_455932+14FDj
+.text:00456E60                                         ; DATA XREF: .text:off_458636o
+.text:00456E60                 mov     eax, [ebp+var_64] ; jumptable 00456E2F cases 2-4
+.text:00456E63                 imul    eax, 490h
+.text:00456E69                 mov     ecx, [ebp+var_64]
+.text:00456E6C                 imul    ecx, 490h
+.text:00456E72                 mov     edx, dword_6E3374[eax]
+.text:00456E78                 mov     dword_6E33F0[ecx], edx
+.text:00456E7E
+.text:00456E7E loc_456E7E:                             ; CODE XREF: sub_455932+14F5j
+.text:00456E7E                                         ; sub_455932+1517j ...
+.text:00456E7E                 jmp     short loc_456E93 ; jumptable 00456E2F default case
+.text:00456E80 ; ---------------------------------------------------------------------------
+.text:00456E80
+.text:00456E80 loc_456E80:                             ; CODE XREF: sub_455932+14B4j
+.text:00456E80                 mov     eax, [ebp+var_64]
+.text:00456E83                 imul    eax, 490h
+.text:00456E89                 mov     GpwRace_IsCarInThePitsFlag[eax], 0
+.text:00456E93
+.text:00456E93 loc_456E93:                             ; CODE XREF: sub_455932:loc_456E7Ej
+.text:00456E93                 jmp     short loc_456EA8
+.text:00456E95 ; ---------------------------------------------------------------------------
+.text:00456E95
+.text:00456E95 loc_456E95:                             ; CODE XREF: sub_455932+148Ej
+.text:00456E95                 mov     ecx, [ebp+var_64]
+.text:00456E98                 imul    ecx, 490h
+.text:00456E9E                 mov     GpwRace_IsCarInThePitsFlag[ecx], 0
+.text:00456EA8
+.text:00456EA8 loc_456EA8:                             ; CODE XREF: sub_455932+1457j
+.text:00456EA8                                         ; sub_455932:loc_456E93j
+.text:00456EA8                 mov     edx, [ebp+var_64]
+.text:00456EAB                 imul    edx, 490h
+.text:00456EB1                 cmp     GpwRace_IsCarInThePitsFlag[edx], 0
+.text:00456EB8                 jnz     loc_45700B
+.text:00456EBE                 mov     [ebp+var_68], 0
+.text:00456EC5                 jmp     short loc_456ED0
+.text:00456EC7 ; ---------------------------------------------------------------------------
+.text:00456EC7
+.text:00456EC7 loc_456EC7:                             ; CODE XREF: sub_455932+15B7j
+.text:00456EC7                                         ; sub_455932+15C8j ...
+.text:00456EC7                 mov     eax, [ebp+var_68]
+.text:00456ECA                 add     eax, 1
+.text:00456ECD                 mov     [ebp+var_68], eax
+.text:00456ED0
+.text:00456ED0 loc_456ED0:                             ; CODE XREF: sub_455932+1593j
+.text:00456ED0                 cmp     [ebp+var_68], 4
+.text:00456ED4                 jge     loc_456F97
+.text:00456EDA                 mov     ecx, [ebp+var_68]
+.text:00456EDD                 imul    ecx, 74h
+.text:00456EE0                 cmp     GpwRace_ChannelId[ecx], 3
+.text:00456EE7                 jnz     short loc_456EEB
+.text:00456EE9                 jmp     short loc_456EC7
+.text:00456EEB ; ---------------------------------------------------------------------------
+.text:00456EEB
+.text:00456EEB loc_456EEB:                             ; CODE XREF: sub_455932+15B5j
+.text:00456EEB                 mov     edx, [ebp+var_68]
+.text:00456EEE                 imul    edx, 74h
+.text:00456EF1                 cmp     GpwRace_ChannelId[edx], 4
+.text:00456EF8                 jnz     short loc_456EFC
+.text:00456EFA                 jmp     short loc_456EC7
+.text:00456EFC ; ---------------------------------------------------------------------------
+.text:00456EFC
+.text:00456EFC loc_456EFC:                             ; CODE XREF: sub_455932+15C6j
+.text:00456EFC                 mov     eax, [ebp+var_68]
+.text:00456EFF                 imul    eax, 74h
+.text:00456F02                 cmp     GpwRace_ChannelId[eax], 1
+.text:00456F09                 jnz     short loc_456F0D
+.text:00456F0B                 jmp     short loc_456EC7
+.text:00456F0D ; ---------------------------------------------------------------------------
+.text:00456F0D
+.text:00456F0D loc_456F0D:                             ; CODE XREF: sub_455932+15D7j
+.text:00456F0D                 mov     ecx, [ebp+var_68]
+.text:00456F10                 imul    ecx, 74h
+.text:00456F13                 cmp     GpwRace_ChannelId[ecx], 0
+.text:00456F1A                 jnz     short loc_456F27
+.text:00456F1C                 cmp     dword_6EAFEC, 1
+.text:00456F23                 jz      short loc_456F27
+.text:00456F25                 jmp     short loc_456EC7
+.text:00456F27 ; ---------------------------------------------------------------------------
+.text:00456F27
+.text:00456F27 loc_456F27:                             ; CODE XREF: sub_455932+15E8j
+.text:00456F27                                         ; sub_455932+15F1j
+.text:00456F27                 mov     edx, [ebp+var_68]
+.text:00456F2A                 imul    edx, 74h
+.text:00456F2D                 cmp     GpwRace_ChannelId[edx], 0
+.text:00456F34                 jnz     short loc_456F65
+.text:00456F36                 mov     eax, [ebp+var_68]
+.text:00456F39                 imul    eax, 74h
+.text:00456F3C                 mov     ecx, dword_709468[eax]
+.text:00456F42                 cmp     ecx, [ebp+var_64]
+.text:00456F45                 jnz     short loc_456F63
+.text:00456F47                 mov     edx, [ebp+var_64]
+.text:00456F4A                 push    edx
+.text:00456F4B                 mov     eax, [ebp+var_68]
+.text:00456F4E                 push    eax
+.text:00456F4F                 call    sub_4038AF
+.text:00456F54                 add     esp, 8
+.text:00456F57                 mov     ecx, [ebp+var_68]
+.text:00456F5A                 push    ecx
+.text:00456F5B                 call    sub_401FAA
+.text:00456F60                 add     esp, 4
+.text:00456F63
+.text:00456F63 loc_456F63:                             ; CODE XREF: sub_455932+1613j
+.text:00456F63                 jmp     short loc_456F92
+.text:00456F65 ; ---------------------------------------------------------------------------
+.text:00456F65
+.text:00456F65 loc_456F65:                             ; CODE XREF: sub_455932+1602j
+.text:00456F65                 mov     edx, [ebp+var_68]
+.text:00456F68                 imul    edx, 74h
+.text:00456F6B                 mov     eax, dword_709464[edx]
+.text:00456F71                 cmp     eax, [ebp+var_64]
+.text:00456F74                 jnz     short loc_456F92
+.text:00456F76                 mov     ecx, [ebp+var_64]
+.text:00456F79                 push    ecx
+.text:00456F7A                 mov     edx, [ebp+var_68]
+.text:00456F7D                 push    edx
+.text:00456F7E                 call    sub_4038AF
+.text:00456F83                 add     esp, 8
+.text:00456F86                 mov     eax, [ebp+var_68]
+.text:00456F89                 push    eax
+.text:00456F8A                 call    sub_401FAA
+.text:00456F8F                 add     esp, 4
+.text:00456F92
+.text:00456F92 loc_456F92:                             ; CODE XREF: sub_455932:loc_456F63j
+.text:00456F92                                         ; sub_455932+1642j
+.text:00456F92                 jmp     loc_456EC7
+.text:00456F97 ; ---------------------------------------------------------------------------
+.text:00456F97
+.text:00456F97 loc_456F97:                             ; CODE XREF: sub_455932+15A2j
+.text:00456F97                 cmp     dword_64A6C0, 1
+.text:00456F9E                 jnz     short loc_45700B
+.text:00456FA0                 mov     ecx, [ebp+var_64]
+.text:00456FA3                 imul    ecx, 490h
+.text:00456FA9                 cmp     GpwRace_IsCarNumberPlayersCarFlag[ecx], 1
+.text:00456FB0                 jnz     short loc_45700B
+.text:00456FB2                 mov     edx, [ebp+var_64]
+.text:00456FB5                 imul    edx, 490h
+.text:00456FBB                 cmp     dword_6E347C[edx], 1
+.text:00456FC2                 jnz     short loc_456FD9
+.text:00456FC4                 mov     eax, [ebp+var_64]
+.text:00456FC7                 imul    eax, 490h
+.text:00456FCD                 mov     dword_6E347C[eax], 0
+.text:00456FD7                 jmp     short loc_45700B
+.text:00456FD9 ; ---------------------------------------------------------------------------
+.text:00456FD9
+.text:00456FD9 loc_456FD9:                             ; CODE XREF: sub_455932+1690j
+.text:00456FD9                 mov     ecx, [ebp+var_64]
+.text:00456FDC                 imul    ecx, 490h
+.text:00456FE2                 cmp     dword_6E3378[ecx], 0
+.text:00456FE9                 jnz     short loc_45700B
+.text:00456FEB                 mov     edx, [ebp+var_64]
+.text:00456FEE                 cmp     GpwRace_PitStopProblemFlag[edx*4], 0
+.text:00456FF6                 jnz     short loc_45700B
+.text:00456FF8                 mov     eax, [ebp+var_64]
+.text:00456FFB                 push    eax
+.text:00456FFC                 push    15Bh
+.text:00457001                 push    0
+.text:00457003                 call    j_GpwRace_PlaySounds
+.text:00457008                 add     esp, 0Ch
+.text:0045700B
+.text:0045700B loc_45700B:                             ; CODE XREF: sub_455932+1586j
+.text:0045700B                                         ; sub_455932+166Cj ...
+.text:0045700B                 jmp     loc_456A6A
+.text:00457010 ; ---------------------------------------------------------------------------
+.text:00457010
+.text:00457010 loc_457010:                             ; CODE XREF: sub_455932+1420j
+.text:00457010                 mov     ecx, [ebp+var_64]
+.text:00457013                 imul    ecx, 490h
+.text:00457019                 mov     edx, dword_6E3038[ecx]
+.text:0045701F                 mov     [ebp+var_F8], edx
+.text:00457025                 mov     eax, [ebp+var_64]
+.text:00457028                 imul    eax, 490h
+.text:0045702E                 cmp     dword_6E32D0[eax], 32h
+.text:00457035                 jle     short loc_457059
+.text:00457037                 push    13D8h
+.text:0045703C                 call    j_GpwText_GetTextFromLanguageFile4
+.text:00457041                 add     esp, 4
+.text:00457044                 push    eax             ; lpOutputString
+.text:00457045                 push    0               ; int
+.text:00457047                 push    8B2h            ; int
+.text:0045704C                 push    offset aCGpwBoids_cpp ; "C:\\Gpw\\BOIDS.CPP"
+.text:00457051                 call    j_GpwGfx_OutputDebugInformation1
+.text:00457056                 add     esp, 10h
+.text:00457059
+.text:00457059 loc_457059:                             ; CODE XREF: sub_455932+1703j
+.text:00457059                 mov     ecx, [ebp+var_64]
+.text:0045705C                 imul    ecx, 490h
+.text:00457062                 mov     edx, [ebp+var_F8]
+.text:00457068                 add     edx, dword_6E32D0[ecx]
+.text:0045706E                 mov     [ebp+var_B4], edx
+.text:00457074                 mov     eax, [ebp+var_F8]
+.text:0045707A                 cmp     dword_673770[eax*4], 0
+.text:00457082                 jz      short loc_45708D
+.text:00457084                 cmp     dword_64A6A4, 0
+.text:0045708B                 jle     short loc_457099
+.text:0045708D
+.text:0045708D loc_45708D:                             ; CODE XREF: sub_455932+1750j
+.text:0045708D                 mov     ecx, [ebp+var_F8]
+.text:00457093                 mov     [ebp+var_B4], ecx
+.text:00457099
+.text:00457099 loc_457099:                             ; CODE XREF: sub_455932+1759j
+.text:00457099                 mov     edx, [ebp+var_64]
+.text:0045709C                 imul    edx, 490h
+.text:004570A2                 cmp     dword_6E312C[edx], 2
+.text:004570A9                 jl      loc_457172
+.text:004570AF                 mov     eax, [ebp+var_F8]
+.text:004570B5                 cmp     dword_6EAE70[eax*4], 1
+.text:004570BD                 jnz     loc_457172
+.text:004570C3                 mov     ecx, [ebp+var_64]
+.text:004570C6                 imul    ecx, 490h
+.text:004570CC                 mov     edx, dword_6E3038[ecx]
+.text:004570D2                 add     edx, 64h
+.text:004570D5                 mov     [ebp+var_B4], edx
+.text:004570DB                 mov     eax, [ebp+var_64]
+.text:004570DE                 imul    eax, 490h
+.text:004570E4                 cmp     dword_6E3138[eax], 0
+.text:004570EB                 jle     loc_457172
+.text:004570F1                 mov     ecx, [ebp+var_64]
+.text:004570F4                 imul    ecx, 490h
+.text:004570FA                 cmp     dword_6E3138[ecx], 1
+.text:00457101                 jnz     short loc_457151
+.text:00457103                 mov     edx, [ebp+var_64]
+.text:00457106                 imul    edx, 490h
+.text:0045710C                 mov     eax, dword_6E3130[edx]
+.text:00457112                 mov     [ebp+var_1BC], eax
+.text:00457118                 cmp     [ebp+var_1BC], 4
+.text:0045711F                 jz      short loc_45712C
+.text:00457121                 cmp     [ebp+var_1BC], 0Ah
+.text:00457128                 jz      short loc_457145
+.text:0045712A                 jmp     short loc_457151
+.text:0045712C ; ---------------------------------------------------------------------------
+.text:0045712C
+.text:0045712C loc_45712C:                             ; CODE XREF: sub_455932+17EDj
+.text:0045712C                 push    4
+.text:0045712E                 call    j_GpwMisc_GetRandomValue_v2
+.text:00457133                 add     esp, 4
+.text:00457136                 push    eax
+.text:00457137                 mov     ecx, [ebp+var_64]
+.text:0045713A                 push    ecx
+.text:0045713B                 call    sub_402798
+.text:00457140                 add     esp, 8
+.text:00457143                 jmp     short loc_457151
+.text:00457145 ; ---------------------------------------------------------------------------
+.text:00457145
+.text:00457145 loc_457145:                             ; CODE XREF: sub_455932+17F6j
+.text:00457145                 mov     edx, [ebp+var_64]
+.text:00457148                 push    edx
+.text:00457149                 call    sub_401460
+.text:0045714E                 add     esp, 4
+.text:00457151
+.text:00457151 loc_457151:                             ; CODE XREF: sub_455932+17CFj
+.text:00457151                                         ; sub_455932+17F8j ...
+.text:00457151                 mov     eax, [ebp+var_64]
+.text:00457154                 imul    eax, 490h
+.text:0045715A                 mov     ecx, dword_6E3138[eax]
+.text:00457160                 sub     ecx, 1
+.text:00457163                 mov     edx, [ebp+var_64]
+.text:00457166                 imul    edx, 490h
+.text:0045716C                 mov     dword_6E3138[edx], ecx
+.text:00457172
+.text:00457172 loc_457172:                             ; CODE XREF: sub_455932+1777j
+.text:00457172                                         ; sub_455932+178Bj ...
+.text:00457172                 cmp     dword_64A6A4, 0
+.text:00457179                 jnz     loc_45751E
+.text:0045717F                 cmp     dword_64A6BC, 1
+.text:00457186                 jnz     loc_45751E
+.text:0045718C                 cmp     dword_6EAFD0, 1
+.text:00457193                 jnz     loc_45751E
+.text:00457199                 mov     eax, [ebp+var_64]
+.text:0045719C                 imul    eax, 490h
+.text:004571A2                 cmp     dword_6E3404[eax], 0FFFFFFFFh
+.text:004571A9                 jnz     loc_4574E7
+.text:004571AF                 cmp     [ebp+var_F8], 0
+.text:004571B6                 jnz     loc_4574E7
+.text:004571BC                 mov     ecx, [ebp+var_64]
+.text:004571BF                 imul    ecx, 490h
+.text:004571C5                 mov     edx, dword_6E3430[ecx]
+.text:004571CB                 mov     [ebp+var_F8], edx
+.text:004571D1                 cmp     GpwRace_DatFileTrackId, 5
+.text:004571D8                 jz      short loc_4571EC
+.text:004571DA                 cmp     GpwRace_DatFileTrackId, 0Bh
+.text:004571E1                 jz      short loc_4571EC
+.text:004571E3                 cmp     GpwRace_DatFileTrackId, 0Ch
+.text:004571EA                 jnz     short loc_4571F1
+.text:004571EC
+.text:004571EC loc_4571EC:                             ; CODE XREF: sub_455932+18A6j
+.text:004571EC                                         ; sub_455932+18AFj
+.text:004571EC                 jmp     loc_45862B
+.text:004571F1 ; ---------------------------------------------------------------------------
+.text:004571F1
+.text:004571F1 loc_4571F1:                             ; CODE XREF: sub_455932+18B8j
+.text:004571F1                 push    3
+.text:004571F3                 call    j_GpwMisc_GetRandomValue_v2
+.text:004571F8                 add     esp, 4
+.text:004571FB                 test    eax, eax
+.text:004571FD                 jnz     short loc_457272
+.text:004571FF                 mov     eax, [ebp+var_64]
+.text:00457202                 imul    eax, 490h
+.text:00457208                 cmp     dword_6E343C[eax], 1
+.text:0045720F                 jnz     short loc_457272
+.text:00457211                 cmp     [ebp+var_F8], 30h
+.text:00457218                 jnz     short loc_457226
+.text:0045721A                 mov     [ebp+var_F8], 2Dh
+.text:00457224                 jmp     short loc_457239
+.text:00457226 ; ---------------------------------------------------------------------------
+.text:00457226
+.text:00457226 loc_457226:                             ; CODE XREF: sub_455932+18E6j
+.text:00457226                 cmp     [ebp+var_F8], 2Fh
+.text:0045722D                 jnz     short loc_457239
+.text:0045722F                 mov     [ebp+var_F8], 2Eh
+.text:00457239
+.text:00457239 loc_457239:                             ; CODE XREF: sub_455932+18F2j
+.text:00457239                                         ; sub_455932+18FBj
+.text:00457239                 mov     ecx, [ebp+var_64]
+.text:0045723C                 imul    ecx, 490h
+.text:00457242                 mov     edx, [ebp+var_F8]
+.text:00457248                 mov     dword_6E3430[ecx], edx
+.text:0045724E                 mov     eax, [ebp+var_F8]
+.text:00457254                 imul    eax, 0B2Ch
+.text:0045725A                 mov     ecx, dword_673C28[eax]
+.text:00457260                 sub     ecx, 1
+.text:00457263                 mov     edx, [ebp+var_64]
+.text:00457266                 imul    edx, 490h
+.text:0045726C                 mov     dword_6E301C[edx], ecx
+.text:00457272
+.text:00457272 loc_457272:                             ; CODE XREF: sub_455932+18CBj
+.text:00457272                                         ; sub_455932+18DDj ...
+.text:00457272                 mov     eax, [ebp+var_F8]
+.text:00457278                 mov     [ebp+var_B4], eax
+.text:0045727E                 mov     ecx, [ebp+var_64]
+.text:00457281                 imul    ecx, 490h
+.text:00457287                 mov     edx, [ebp+var_64]
+.text:0045728A                 imul    edx, 490h
+.text:00457290                 mov     eax, dword_6E3438[ecx]
+.text:00457296                 cmp     eax, dword_6E3434[edx]
+.text:0045729C                 jge     short loc_4572A3
+.text:0045729E                 jmp     loc_456A6A
+.text:004572A3 ; ---------------------------------------------------------------------------
+.text:004572A3
+.text:004572A3 loc_4572A3:                             ; CODE XREF: sub_455932+196Aj
+.text:004572A3                 cmp     [ebp+var_58], 0
+.text:004572A7                 jle     loc_4574E5
+.text:004572AD                 cmp     GpwRace_DatFileTrackId, 5
+.text:004572B4                 jz      loc_4574E5
+.text:004572BA                 cmp     GpwRace_DatFileTrackId, 0Bh
+.text:004572C1                 jz      loc_4574E5
+.text:004572C7                 cmp     GpwRace_DatFileTrackId, 0Ch
+.text:004572CE                 jz      loc_4574E5
+.text:004572D4                 mov     ecx, [ebp+var_58]
+.text:004572D7                 mov     [ebp+var_68], ecx
+.text:004572DA                 jmp     short loc_4572E5
+.text:004572DC ; ---------------------------------------------------------------------------
+.text:004572DC
+.text:004572DC loc_4572DC:                             ; CODE XREF: sub_455932+19D7j
+.text:004572DC                                         ; sub_455932:loc_4574E0j
+.text:004572DC                 mov     edx, [ebp+var_68]
+.text:004572DF                 sub     edx, 1
+.text:004572E2                 mov     [ebp+var_68], edx
+.text:004572E5
+.text:004572E5 loc_4572E5:                             ; CODE XREF: sub_455932+19A8j
+.text:004572E5                 cmp     [ebp+var_68], 0
+.text:004572E9                 jle     loc_4574E5
+.text:004572EF                 mov     eax, [ebp+var_68]
+.text:004572F2                 sub     eax, 1
+.text:004572F5                 shl     eax, 4
+.text:004572F8                 mov     ecx, GpwRace_RaceEntryIndex_v2[eax]
+.text:004572FE                 mov     [ebp+var_5C], ecx
+.text:00457301                 mov     edx, [ebp+var_5C]
+.text:00457304                 cmp     edx, [ebp+var_64]
+.text:00457307                 jnz     short loc_45730B
+.text:00457309                 jmp     short loc_4572DC
+.text:0045730B ; ---------------------------------------------------------------------------
+.text:0045730B
+.text:0045730B loc_45730B:                             ; CODE XREF: sub_455932+19D5j
+.text:0045730B                 mov     eax, [ebp+var_B4]
+.text:00457311                 imul    eax, 0B2Ch
+.text:00457317                 mov     ecx, dword_673C50[eax]
+.text:0045731D                 push    ecx
+.text:0045731E                 mov     edx, [ebp+var_5C]
+.text:00457321                 imul    edx, 490h
+.text:00457327                 add     edx, offset dword_6E3000
+.text:0045732D                 sub     esp, 0Ch
+.text:00457330                 mov     eax, esp
+.text:00457332                 mov     ecx, [edx]
+.text:00457334                 mov     [eax], ecx
+.text:00457336                 mov     ecx, [edx+4]
+.text:00457339                 mov     [eax+4], ecx
+.text:0045733C                 mov     edx, [edx+8]
+.text:0045733F                 mov     [eax+8], edx
+.text:00457342                 mov     eax, [ebp+var_64]
+.text:00457345                 imul    eax, 490h
+.text:0045734B                 add     eax, offset dword_6E3000
+.text:00457350                 sub     esp, 0Ch
+.text:00457353                 mov     ecx, esp
+.text:00457355                 mov     edx, [eax]
+.text:00457357                 mov     [ecx], edx
+.text:00457359                 mov     edx, [eax+4]
+.text:0045735C                 mov     [ecx+4], edx
+.text:0045735F                 mov     eax, [eax+8]
+.text:00457362                 mov     [ecx+8], eax
+.text:00457365                 call    sub_401839
+.text:0045736A                 add     esp, 1Ch
+.text:0045736D                 test    eax, eax
+.text:0045736F                 jz      loc_457449
+.text:00457375                 mov     ecx, [ebp+var_5C]
+.text:00457378                 imul    ecx, 490h
+.text:0045737E                 cmp     dword_6E313C[ecx], 1
+.text:00457385                 jz      loc_457449
+.text:0045738B                 mov     edx, [ebp+var_5C]
+.text:0045738E                 imul    edx, 490h
+.text:00457394                 cmp     dword_6E3130[edx], 11h
+.text:0045739B                 jz      loc_457449
+.text:004573A1                 cmp     [ebp+var_F8], 30h
+.text:004573A8                 jnz     short loc_4573B6
+.text:004573AA                 mov     [ebp+var_F8], 2Dh
+.text:004573B4                 jmp     short loc_4573F3
+.text:004573B6 ; ---------------------------------------------------------------------------
+.text:004573B6
+.text:004573B6 loc_4573B6:                             ; CODE XREF: sub_455932+1A76j
+.text:004573B6                 cmp     [ebp+var_F8], 2Fh
+.text:004573BD                 jnz     short loc_4573CB
+.text:004573BF                 mov     [ebp+var_F8], 2Eh
+.text:004573C9                 jmp     short loc_4573F3
+.text:004573CB ; ---------------------------------------------------------------------------
+.text:004573CB
+.text:004573CB loc_4573CB:                             ; CODE XREF: sub_455932+1A8Bj
+.text:004573CB                 cmp     [ebp+var_F8], 2Dh
+.text:004573D2                 jnz     short loc_4573E0
+.text:004573D4                 mov     [ebp+var_F8], 30h
+.text:004573DE                 jmp     short loc_4573F3
+.text:004573E0 ; ---------------------------------------------------------------------------
+.text:004573E0
+.text:004573E0 loc_4573E0:                             ; CODE XREF: sub_455932+1AA0j
+.text:004573E0                 cmp     [ebp+var_F8], 2Eh
+.text:004573E7                 jnz     short loc_4573F3
+.text:004573E9                 mov     [ebp+var_F8], 2Fh
+.text:004573F3
+.text:004573F3 loc_4573F3:                             ; CODE XREF: sub_455932+1A82j
+.text:004573F3                                         ; sub_455932+1A97j ...
+.text:004573F3                 mov     eax, [ebp+var_64]
+.text:004573F6                 imul    eax, 490h
+.text:004573FC                 mov     ecx, [ebp+var_F8]
+.text:00457402                 mov     dword_6E3430[eax], ecx
+.text:00457408                 mov     edx, [ebp+var_F8]
+.text:0045740E                 imul    edx, 0B2Ch
+.text:00457414                 mov     eax, dword_673C28[edx]
+.text:0045741A                 sub     eax, 1
+.text:0045741D                 mov     ecx, [ebp+var_64]
+.text:00457420                 imul    ecx, 490h
+.text:00457426                 mov     dword_6E301C[ecx], eax
+.text:0045742C                 push    1
+.text:0045742E                 mov     edx, [ebp+var_64]
+.text:00457431                 push    edx
+.text:00457432                 call    sub_401749
+.text:00457437                 add     esp, 8
+.text:0045743A                 mov     [ebp+var_104], 1
+.text:00457444                 jmp     loc_4574E0
+.text:00457449 ; ---------------------------------------------------------------------------
+.text:00457449
+.text:00457449 loc_457449:                             ; CODE XREF: sub_455932+1A3Dj
+.text:00457449                                         ; sub_455932+1A53j ...
+.text:00457449                 mov     eax, [ebp+var_5C]
+.text:0045744C                 imul    eax, 490h
+.text:00457452                 cmp     dword_6E3130[eax], 11h
+.text:00457459                 jnz     loc_4574E0
+.text:0045745F                 mov     ecx, [ebp+var_64]
+.text:00457462                 imul    ecx, 490h
+.text:00457468                 mov     edx, [ebp+var_5C]
+.text:0045746B                 imul    edx, 490h
+.text:00457471                 mov     eax, dword_6E3430[ecx]
+.text:00457477                 cmp     eax, dword_6E3430[edx]
+.text:0045747D                 jnz     short loc_4574E0
+.text:0045747F                 mov     ecx, [ebp+var_5C]
+.text:00457482                 imul    ecx, 490h
+.text:00457488                 cmp     dword_6E3430[ecx], 30h
+.text:0045748F                 jnz     short loc_45749D
+.text:00457491                 mov     [ebp+var_F8], 2Dh
+.text:0045749B                 jmp     short loc_4574A7
+.text:0045749D ; ---------------------------------------------------------------------------
+.text:0045749D
+.text:0045749D loc_45749D:                             ; CODE XREF: sub_455932+1B5Dj
+.text:0045749D                 mov     [ebp+var_F8], 2Eh
+.text:004574A7
+.text:004574A7 loc_4574A7:                             ; CODE XREF: sub_455932+1B69j
+.text:004574A7                 mov     edx, [ebp+var_64]
+.text:004574AA                 imul    edx, 490h
+.text:004574B0                 mov     eax, [ebp+var_F8]
+.text:004574B6                 mov     dword_6E3430[edx], eax
+.text:004574BC                 mov     ecx, [ebp+var_F8]
+.text:004574C2                 imul    ecx, 0B2Ch
+.text:004574C8                 mov     edx, dword_673C28[ecx]
+.text:004574CE                 sub     edx, 1
+.text:004574D1                 mov     eax, [ebp+var_64]
+.text:004574D4                 imul    eax, 490h
+.text:004574DA                 mov     dword_6E301C[eax], edx
+.text:004574E0
+.text:004574E0 loc_4574E0:                             ; CODE XREF: sub_455932+1B12j
+.text:004574E0                                         ; sub_455932+1B27j ...
+.text:004574E0                 jmp     loc_4572DC
+.text:004574E5 ; ---------------------------------------------------------------------------
+.text:004574E5
+.text:004574E5 loc_4574E5:                             ; CODE XREF: sub_455932+1975j
+.text:004574E5                                         ; sub_455932+1982j ...
+.text:004574E5                 jmp     short loc_45751E
+.text:004574E7 ; ---------------------------------------------------------------------------
+.text:004574E7
+.text:004574E7 loc_4574E7:                             ; CODE XREF: sub_455932+1877j
+.text:004574E7                                         ; sub_455932+1884j
+.text:004574E7                 mov     ecx, [ebp+var_64]
+.text:004574EA                 imul    ecx, 490h
+.text:004574F0                 cmp     dword_6E3404[ecx], 0
+.text:004574F7                 jnz     short loc_45751E
+.text:004574F9                 cmp     [ebp+var_F8], 1
+.text:00457500                 jnz     short loc_45751E
+.text:00457502                 mov     edx, [ebp+var_64]
+.text:00457505                 imul    edx, 490h
+.text:0045750B                 mov     eax, [ebp+var_58]
+.text:0045750E                 shl     eax, 2
+.text:00457511                 cmp     dword_6E3438[edx], eax
+.text:00457517                 jge     short loc_45751E
+.text:00457519                 jmp     loc_456A6A
+.text:0045751E ; ---------------------------------------------------------------------------
+.text:0045751E
+.text:0045751E loc_45751E:                             ; CODE XREF: sub_455932+1847j
+.text:0045751E                                         ; sub_455932+1854j ...
+.text:0045751E                 cmp     [ebp+var_104], 0
+.text:00457525                 jz      short loc_45752C
+.text:00457527                 jmp     loc_456A6A
+.text:0045752C ; ---------------------------------------------------------------------------
+.text:0045752C
+.text:0045752C loc_45752C:                             ; CODE XREF: sub_455932+1BF3j
+.text:0045752C                 cmp     dword_6EB034, 1
+.text:00457533                 jl      short loc_457567
+.text:00457535                 cmp     [ebp+var_64], 0
+.text:00457539                 jz      short loc_457553
+.text:0045753B                 mov     ecx, [ebp+var_64]
+.text:0045753E                 imul    ecx, 490h
+.text:00457544                 mov     dword_6E313C[ecx], 1
+.text:0045754E                 jmp     loc_456A6A
+.text:00457553 ; ---------------------------------------------------------------------------
+.text:00457553
+.text:00457553 loc_457553:                             ; CODE XREF: sub_455932+1C07j
+.text:00457553                 mov     edx, [ebp+var_64]
+.text:00457556                 imul    edx, 490h
+.text:0045755C                 mov     eax, dword_64A698
+.text:00457561                 mov     flt_6E3034[edx], eax
+.text:00457567
+.text:00457567 loc_457567:                             ; CODE XREF: sub_455932+1C01j
+.text:00457567                 mov     ecx, [ebp+var_F8]
+.text:0045756D                 cmp     dword_672498[ecx*4], 0
+.text:00457575                 jnz     loc_458377
+.text:0045757B                 mov     edx, [ebp+var_64]
+.text:0045757E                 imul    edx, 490h
+.text:00457584                 cmp     dword_6E312C[edx], 3
+.text:0045758B                 jnz     short loc_4575E0
+.text:0045758D                 mov     eax, [ebp+var_64]
+.text:00457590                 imul    eax, 490h
+.text:00457596                 cmp     dword_6E313C[eax], 1
+.text:0045759D                 jz      short loc_4575E0
+.text:0045759F                 mov     ecx, [ebp+var_64]
+.text:004575A2                 imul    ecx, 490h
+.text:004575A8                 mov     edx, dword_6E3050[ecx]
+.text:004575AE                 push    edx
+.text:004575AF                 push    0
+.text:004575B1                 call    sub_4039D6
+.text:004575B6                 add     esp, 8
+.text:004575B9                 mov     eax, [ebp+var_F8]
+.text:004575BF                 push    eax
+.text:004575C0                 push    4
+.text:004575C2                 call    sub_402F54
+.text:004575C7                 add     esp, 8
+.text:004575CA                 push    1
+.text:004575CC                 mov     ecx, [ebp+var_F8]
+.text:004575D2                 push    ecx
+.text:004575D3                 call    sub_4024CD
+.text:004575D8                 add     esp, 8
+.text:004575DB                 jmp     loc_456A6A
+.text:004575E0 ; ---------------------------------------------------------------------------
+.text:004575E0
+.text:004575E0 loc_4575E0:                             ; CODE XREF: sub_455932+1C59j
+.text:004575E0                                         ; sub_455932+1C6Bj
+.text:004575E0                 mov     esi, [ebp+var_64]
+.text:004575E3                 imul    esi, 490h
+.text:004575E9                 add     esi, offset dword_6E3000
+.text:004575EF                 mov     ecx, 124h
+.text:004575F4                 mov     edi, offset unk_66F260
+.text:004575F9                 rep movsd
+.text:004575FB                 mov     edx, [ebp+var_64]
+.text:004575FE                 imul    edx, 490h
+.text:00457604                 mov     eax, [ebp+var_B4]
+.text:0045760A                 imul    eax, 0B2Ch
+.text:00457610                 mov     ecx, [ebp+var_64]
+.text:00457613                 imul    ecx, 490h
+.text:00457619                 mov     ecx, dword_6E301C[ecx]
+.text:0045761F                 imul    ecx, 1Ch
+.text:00457622                 fld     flt_6E3034[edx]
+.text:00457628                 fmul    flt_673C7C[eax+ecx]
+.text:0045762F                 fstp    [ebp+var_10]
+.text:00457632                 mov     edx, [ebp+var_64]
+.text:00457635                 imul    edx, 490h
+.text:0045763B                 cmp     dword_6E32D8[edx], 1
+.text:00457642                 jnz     short loc_457659
+.text:00457644                 cmp     dword_64A6A4, 0
+.text:0045764B                 jnz     short loc_457659
+.text:0045764D                 fld     [ebp+var_10]
+.text:00457650                 fmul    ds:flt_6450F0
+.text:00457656                 fstp    [ebp+var_10]
+.text:00457659
+.text:00457659 loc_457659:                             ; CODE XREF: sub_455932+1D10j
+.text:00457659                                         ; sub_455932+1D19j
+.text:00457659                 fld     [ebp+var_10]
+.text:0045765C                 fmul    [ebp+var_8]
+.text:0045765F                 fstp    [ebp+var_10]
+.text:00457662                 mov     eax, [ebp+var_64]
+.text:00457665                 imul    eax, 490h
+.text:0045766B                 mov     ecx, [ebp+var_64]
+.text:0045766E                 imul    ecx, 490h
+.text:00457674                 mov     edx, dword_6E3014[eax]
+.text:0045767A                 mov     dword_6E32B0[ecx], edx
+.text:00457680                 mov     eax, [ebp+var_64]
+.text:00457683                 imul    eax, 490h
+.text:00457689                 mov     ecx, dword_6E3000[eax]
+.text:0045768F                 push    ecx
+.text:00457690                 mov     edx, [ebp+var_64]
+.text:00457693                 imul    edx, 490h
+.text:00457699                 mov     eax, dword_6E3008[edx]
+.text:0045769F                 push    eax
+.text:004576A0                 mov     ecx, [ebp+var_B4]
+.text:004576A6                 imul    ecx, 0B2Ch
+.text:004576AC                 mov     edx, [ebp+var_64]
+.text:004576AF                 imul    edx, 490h
+.text:004576B5                 mov     eax, dword_6E301C[edx]
+.text:004576BB                 imul    eax, 1Ch
+.text:004576BE                 mov     ecx, dword_673C64[ecx+eax]
+.text:004576C5                 push    ecx
+.text:004576C6                 mov     edx, [ebp+var_B4]
+.text:004576CC                 imul    edx, 0B2Ch
+.text:004576D2                 mov     eax, [ebp+var_64]
+.text:004576D5                 imul    eax, 490h
+.text:004576DB                 mov     ecx, dword_6E301C[eax]
+.text:004576E1                 imul    ecx, 1Ch
+.text:004576E4                 mov     edx, dword_673C6C[edx+ecx]
+.text:004576EB                 push    edx
+.text:004576EC                 call    sub_404223
+.text:004576F1                 add     esp, 10h
+.text:004576F4                 mov     eax, [ebp+var_64]
+.text:004576F7                 imul    eax, 490h
+.text:004576FD                 fstp    dword_6E3014[eax]
+.text:00457703                 mov     ecx, [ebp+var_64]
+.text:00457706                 imul    ecx, 490h
+.text:0045770C                 add     ecx, offset dword_6E3000
+.text:00457712                 push    ecx
+.text:00457713                 lea     edx, [ebp+var_50]
+.text:00457716                 push    edx
+.text:00457717                 call    sub_402A27
+.text:0045771C                 add     esp, 8
+.text:0045771F                 mov     eax, [ebp+var_64]
+.text:00457722                 imul    eax, 490h
+.text:00457728                 fld     dword_6E3014[eax]
+.text:0045772E                 fchs
+.text:00457730                 push    ecx
+.text:00457731                 fstp    [esp+1C8h+var_1C8]
+.text:00457734                 lea     ecx, [ebp+var_150]
+.text:0045773A                 push    ecx
+.text:0045773B                 call    sub_402C4D
+.text:00457740                 add     esp, 8
+.text:00457743                 lea     edx, [ebp+var_150]
+.text:00457749                 push    edx
+.text:0045774A                 lea     eax, [ebp+var_50]
+.text:0045774D                 push    eax
+.text:0045774E                 lea     ecx, [ebp+var_50]
+.text:00457751                 push    ecx
+.text:00457752                 call    sub_403166
+.text:00457757                 add     esp, 0Ch
+.text:0045775A                 lea     edx, [ebp+var_50]
+.text:0045775D                 push    edx
+.text:0045775E                 push    1
+.text:00457760                 mov     eax, [ebp+arg_0]
+.text:00457763                 mov     ecx, [eax]
+.text:00457765                 mov     edx, [ebp+arg_0]
+.text:00457768                 push    edx
+.text:00457769                 call    dword ptr [ecx+64h]
+.text:0045776C                 push    0
+.text:0045776E                 push    2
+.text:00457770                 lea     ecx, [ebp+var_50]
+.text:00457773                 call    sub_401B13
+.text:00457778                 mov     ecx, [ebp+var_64]
+.text:0045777B                 imul    ecx, 490h
+.text:00457781                 mov     edx, [eax]
+.text:00457783                 mov     dword_6E3024[ecx], edx
+.text:00457789                 push    1
+.text:0045778B                 push    2
+.text:0045778D                 lea     ecx, [ebp+var_50]
+.text:00457790                 call    sub_401B13
+.text:00457795                 mov     ecx, [ebp+var_64]
+.text:00457798                 imul    ecx, 490h
+.text:0045779E                 mov     edx, [eax]
+.text:004577A0                 mov     dword_6E3028[ecx], edx
+.text:004577A6                 push    2
+.text:004577A8                 push    2
+.text:004577AA                 lea     ecx, [ebp+var_50]
+.text:004577AD                 call    sub_401B13
+.text:004577B2                 mov     ecx, [ebp+var_64]
+.text:004577B5                 imul    ecx, 490h
+.text:004577BB                 mov     edx, [eax]
+.text:004577BD                 mov     dword_6E302C[ecx], edx
+.text:004577C3                 mov     eax, [ebp+var_10]
+.text:004577C6                 push    eax
+.text:004577C7                 mov     ecx, [ebp+var_64]
+.text:004577CA                 imul    ecx, 490h
+.text:004577D0                 add     ecx, offset dword_6E3024
+.text:004577D6                 push    ecx
+.text:004577D7                 lea     edx, [ebp+var_1A4]
+.text:004577DD                 push    edx
+.text:004577DE                 call    sub_402AF9
+.text:004577E3                 add     esp, 0Ch
+.text:004577E6                 push    eax
+.text:004577E7                 mov     ecx, [ebp+var_64]
+.text:004577EA                 imul    ecx, 490h
+.text:004577F0                 add     ecx, offset dword_6E3000
+.text:004577F6                 call    sub_4015D2
+.text:004577FB                 cmp     dword_64A6BC, 0
+.text:00457802                 jz      short loc_457816
+.text:00457804                 mov     eax, [ebp+var_64]
+.text:00457807                 imul    eax, 490h
+.text:0045780D                 cmp     dword_6E312C[eax], 3
+.text:00457814                 jnz     short loc_457832
+.text:00457816
+.text:00457816 loc_457816:                             ; CODE XREF: sub_455932+1ED0j
+.text:00457816                 mov     ecx, [ebp+var_64]
+.text:00457819                 imul    ecx, 490h
+.text:0045781F                 mov     edx, dword_6E3050[ecx]
+.text:00457825                 push    edx
+.text:00457826                 push    0
+.text:00457828                 call    sub_4039D6
+.text:0045782D                 add     esp, 8
+.text:00457830                 jmp     short loc_45784C
+.text:00457832 ; ---------------------------------------------------------------------------
+.text:00457832
+.text:00457832 loc_457832:                             ; CODE XREF: sub_455932+1EE2j
+.text:00457832                 mov     eax, [ebp+var_64]
+.text:00457835                 imul    eax, 490h
+.text:0045783B                 mov     ecx, dword_6E3050[eax]
+.text:00457841                 push    ecx
+.text:00457842                 push    1
+.text:00457844                 call    sub_4039D6
+.text:00457849                 add     esp, 8
+.text:0045784C
+.text:0045784C loc_45784C:                             ; CODE XREF: sub_455932+1EFEj
+.text:0045784C                 mov     edx, [ebp+var_64]
+.text:0045784F                 imul    edx, 490h
+.text:00457855                 cmp     dword_6E312C[edx], 2
+.text:0045785C                 jnz     loc_45792A
+.text:00457862                 mov     eax, [ebp+var_64]
+.text:00457865                 imul    eax, 490h
+.text:0045786B                 mov     ecx, dword_6E3038[eax]
+.text:00457871                 cmp     dword_6EAE70[ecx*4], 1
+.text:00457879                 jnz     loc_45792A
+.text:0045787F                 fld     [ebp+var_10]
+.text:00457882                 fcomp   ds:flt_6450F4
+.text:00457888                 fnstsw  ax
+.text:0045788A                 test    ah, 41h
+.text:0045788D                 jz      loc_457928
+.text:00457893                 mov     edx, [ebp+var_64]
+.text:00457896                 imul    edx, 490h
+.text:0045789C                 mov     dword_6E312C[edx], 3
+.text:004578A6                 mov     eax, [ebp+var_64]
+.text:004578A9                 imul    eax, 490h
+.text:004578AF                 cmp     dword_6E3130[eax], 3
+.text:004578B6                 jnz     short loc_4578CF
+.text:004578B8                 push    4
+.text:004578BA                 call    j_GpwMisc_GetRandomValue_v2
+.text:004578BF                 add     esp, 4
+.text:004578C2                 push    eax
+.text:004578C3                 mov     ecx, [ebp+var_64]
+.text:004578C6                 push    ecx
+.text:004578C7                 call    sub_4034F9
+.text:004578CC                 add     esp, 8
+.text:004578CF
+.text:004578CF loc_4578CF:                             ; CODE XREF: sub_455932+1F84j
+.text:004578CF                 mov     edx, [ebp+var_64]
+.text:004578D2                 imul    edx, 490h
+.text:004578D8                 cmp     GpwRace_IsCarNumberPlayersCarFlag[edx], 1
+.text:004578DF                 jnz     short loc_457909
+.text:004578E1                 mov     eax, [ebp+var_64]
+.text:004578E4                 push    eax
+.text:004578E5                 push    139h
+.text:004578EA                 push    0
+.text:004578EC                 call    j_GpwRace_PlaySounds
+.text:004578F1                 add     esp, 0Ch
+.text:004578F4                 mov     ecx, [ebp+var_64]
+.text:004578F7                 push    ecx
+.text:004578F8                 push    0BEh
+.text:004578FD                 push    1
+.text:004578FF                 call    j_GpwRace_PlaySounds
+.text:00457904                 add     esp, 0Ch
+.text:00457907                 jmp     short loc_45791C
+.text:00457909 ; ---------------------------------------------------------------------------
+.text:00457909
+.text:00457909 loc_457909:                             ; CODE XREF: sub_455932+1FADj
+.text:00457909                 mov     edx, [ebp+var_64]
+.text:0045790C                 push    edx
+.text:0045790D                 push    0BEh
+.text:00457912                 push    1
+.text:00457914                 call    j_GpwRace_PlaySounds
+.text:00457919                 add     esp, 0Ch
+.text:0045791C
+.text:0045791C loc_45791C:                             ; CODE XREF: sub_455932+1FD5j
+.text:0045791C                 mov     eax, [ebp+var_64]
+.text:0045791F                 push    eax
+.text:00457920                 call    sub_402AF4
+.text:00457925                 add     esp, 4
+.text:00457928
+.text:00457928 loc_457928:                             ; CODE XREF: sub_455932+1F5Bj
+.text:00457928                 jmp     short loc_45797B
+.text:0045792A ; ---------------------------------------------------------------------------
+.text:0045792A
+.text:0045792A loc_45792A:                             ; CODE XREF: sub_455932+1F2Aj
+.text:0045792A                                         ; sub_455932+1F47j
+.text:0045792A                 mov     ecx, [ebp+var_64]
+.text:0045792D                 imul    ecx, 490h
+.text:00457933                 cmp     dword_6E331C[ecx], 1
+.text:0045793A                 jnz     short loc_45797B
+.text:0045793C                 push    0
+.text:0045793E                 call    j_GpwMisc_GetRandomValue_v2
+.text:00457943                 add     esp, 4
+.text:00457946                 test    eax, eax
+.text:00457948                 jz      short loc_45797B
+.text:0045794A                 mov     edx, [ebp+var_64]
+.text:0045794D                 imul    edx, 490h
+.text:00457953                 mov     dword_6E331C[edx], 0
+.text:0045795D                 mov     eax, [ebp+var_64]
+.text:00457960                 imul    eax, 490h
+.text:00457966                 cmp     dword_6E312C[eax], 0
+.text:0045796D                 jnz     short loc_45797B
+.text:0045796F                 mov     ecx, [ebp+var_64]
+.text:00457972                 push    ecx
+.text:00457973                 call    sub_4018FC
+.text:00457978                 add     esp, 4
+.text:0045797B
+.text:0045797B loc_45797B:                             ; CODE XREF: sub_455932:loc_457928j
+.text:0045797B                                         ; sub_455932+2008j ...
+.text:0045797B                 cmp     [ebp+var_58], 0
+.text:0045797F                 jle     loc_458012
+.text:00457985                 mov     edx, [ebp+var_58]
+.text:00457988                 sub     edx, 1
+.text:0045798B                 shl     edx, 4
+.text:0045798E                 mov     eax, GpwRace_RaceEntryIndex_v2[edx]
+.text:00457994                 mov     [ebp+var_5C], eax
+.text:00457997                 mov     ecx, [ebp+var_64]
+.text:0045799A                 imul    ecx, 490h
+.text:004579A0                 mov     edx, [ebp+var_5C]
+.text:004579A3                 mov     dword_6E303C[ecx], edx
+.text:004579A9                 cmp     dword_64A6C0, 0
+.text:004579B0                 jnz     loc_457BCF
+.text:004579B6                 mov     eax, [ebp+var_5C]
+.text:004579B9                 imul    eax, 490h
+.text:004579BF                 mov     ecx, [ebp+var_5C]
+.text:004579C2                 imul    ecx, 490h
+.text:004579C8                 mov     edx, dword_6E3038[eax]
+.text:004579CE                 add     edx, dword_6E32D0[ecx]
+.text:004579D4                 cmp     [ebp+var_B4], edx
+.text:004579DA                 jnz     loc_457BCA
+.text:004579E0                 mov     eax, [ebp+var_5C]
+.text:004579E3                 imul    eax, 490h
+.text:004579E9                 cmp     GpwQual_OutLapFlag[eax], 1
+.text:004579F0                 jnz     loc_457BCA
+.text:004579F6                 mov     ecx, [ebp+var_B4]
+.text:004579FC                 imul    ecx, 0B2Ch
+.text:00457A02                 fld     dword_673C50[ecx]
+.text:00457A08                 fmul    ds:flt_6450F8
+.text:00457A0E                 fstp    [ebp+var_AC]
+.text:00457A14                 mov     edx, [ebp+var_AC]
+.text:00457A1A                 push    edx
+.text:00457A1B                 mov     eax, [ebp+var_5C]
+.text:00457A1E                 imul    eax, 490h
+.text:00457A24                 add     eax, offset dword_6E3000
+.text:00457A29                 sub     esp, 0Ch
+.text:00457A2C                 mov     ecx, esp
+.text:00457A2E                 mov     edx, [eax]
+.text:00457A30                 mov     [ecx], edx
+.text:00457A32                 mov     edx, [eax+4]
+.text:00457A35                 mov     [ecx+4], edx
+.text:00457A38                 mov     eax, [eax+8]
+.text:00457A3B                 mov     [ecx+8], eax
+.text:00457A3E                 mov     ecx, [ebp+var_64]
+.text:00457A41                 imul    ecx, 490h
+.text:00457A47                 add     ecx, offset dword_6E3000
+.text:00457A4D                 sub     esp, 0Ch
+.text:00457A50                 mov     edx, esp
+.text:00457A52                 mov     eax, [ecx]
+.text:00457A54                 mov     [edx], eax
+.text:00457A56                 mov     eax, [ecx+4]
+.text:00457A59                 mov     [edx+4], eax
+.text:00457A5C                 mov     ecx, [ecx+8]
+.text:00457A5F                 mov     [edx+8], ecx
+.text:00457A62                 call    sub_401839
+.text:00457A67                 add     esp, 1Ch
+.text:00457A6A                 test    eax, eax
+.text:00457A6C                 jz      loc_457BCA
+.text:00457A72                 mov     edx, [ebp+var_5C]
+.text:00457A75                 imul    edx, 490h
+.text:00457A7B                 cmp     dword_6E313C[edx], 1
+.text:00457A82                 jz      loc_457BCA
+.text:00457A88                 mov     eax, [ebp+var_5C]
+.text:00457A8B                 imul    eax, 490h
+.text:00457A91                 cmp     dword_6E3130[eax], 11h
+.text:00457A98                 jz      loc_457BCA
+.text:00457A9E                 mov     edi, [ebp+var_64]
+.text:00457AA1                 imul    edi, 490h
+.text:00457AA7                 add     edi, offset dword_6E3000
+.text:00457AAD                 mov     ecx, 124h
+.text:00457AB2                 mov     esi, offset unk_66F260
+.text:00457AB7                 rep movsd
+.text:00457AB9                 cmp     dword_6EB040, 10h
+.text:00457AC0                 jnz     loc_457B55
+.text:00457AC6                 cmp     dword_6EAF7C, 1
+.text:00457ACD                 jnz     loc_457B55
+.text:00457AD3                 mov     ecx, [ebp+var_64]
+.text:00457AD6                 imul    ecx, 490h
+.text:00457ADC                 cmp     dword_6E3038[ecx], 2
+.text:00457AE3                 jle     short loc_457B55
+.text:00457AE5                 mov     edx, [ebp+var_64]
+.text:00457AE8                 imul    edx, 490h
+.text:00457AEE                 cmp     dword_6E312C[edx], 0
+.text:00457AF5                 jnz     short loc_457B55
+.text:00457AF7                 mov     eax, [ebp+var_5C]
+.text:00457AFA                 imul    eax, 490h
+.text:00457B00                 cmp     dword_6E312C[eax], 0
+.text:00457B07                 jnz     short loc_457B55
+.text:00457B09                 mov     ecx, [ebp+var_64]
+.text:00457B0C                 push    ecx
+.text:00457B0D                 call    sub_402743
+.text:00457B12                 add     esp, 4
+.text:00457B15                 mov     edx, [ebp+var_5C]
+.text:00457B18                 push    edx
+.text:00457B19                 call    sub_402743
+.text:00457B1E                 add     esp, 4
+.text:00457B21                 push    5
+.text:00457B23                 mov     eax, [ebp+var_64]
+.text:00457B26                 push    eax
+.text:00457B27                 call    sub_401CBC
+.text:00457B2C                 add     esp, 8
+.text:00457B2F                 push    7
+.text:00457B31                 mov     ecx, [ebp+var_5C]
+.text:00457B34                 push    ecx
+.text:00457B35                 call    sub_401CBC
+.text:00457B3A                 add     esp, 8
+.text:00457B3D                 push    1
+.text:00457B3F                 mov     edx, [ebp+var_64]
+.text:00457B42                 push    edx
+.text:00457B43                 call    sub_401749
+.text:00457B48                 add     esp, 8
+.text:00457B4B                 mov     dword_6EAF7C, 0
+.text:00457B55
+.text:00457B55 loc_457B55:                             ; CODE XREF: sub_455932+218Ej
+.text:00457B55                                         ; sub_455932+219Bj ...
+.text:00457B55                 push    0Dh
+.text:00457B57                 call    j_GpwMisc_GetRandomValue_v2
+.text:00457B5C                 add     esp, 4
+.text:00457B5F                 test    eax, eax
+.text:00457B61                 jnz     short loc_457B71
+.text:00457B63                 push    1
+.text:00457B65                 mov     eax, [ebp+var_64]
+.text:00457B68                 push    eax
+.text:00457B69                 call    sub_401749
+.text:00457B6E                 add     esp, 8
+.text:00457B71
+.text:00457B71 loc_457B71:                             ; CODE XREF: sub_455932+222Fj
+.text:00457B71                 mov     ecx, [ebp+var_5C]
+.text:00457B74                 imul    ecx, 490h
+.text:00457B7A                 cmp     GpwQual_HotLapFlag[ecx], 1
+.text:00457B81                 jge     short loc_457B98
+.text:00457B83                 mov     edx, [ebp+var_64]
+.text:00457B86                 imul    edx, 490h
+.text:00457B8C                 mov     dword_6E32D4[edx], 3
+.text:00457B96                 jmp     short loc_457BBE
+.text:00457B98 ; ---------------------------------------------------------------------------
+.text:00457B98
+.text:00457B98 loc_457B98:                             ; CODE XREF: sub_455932+224Fj
+.text:00457B98                 mov     eax, [ebp+var_64]
+.text:00457B9B                 imul    eax, 490h
+.text:00457BA1                 mov     dword_6E32D4[eax], 0
+.text:00457BAB                 mov     ecx, [ebp+var_64]
+.text:00457BAE                 imul    ecx, 490h
+.text:00457BB4                 mov     dword_6E32D0[ecx], 0
+.text:00457BBE
+.text:00457BBE loc_457BBE:                             ; CODE XREF: sub_455932+2264j
+.text:00457BBE                 mov     edx, [ebp+var_64]
+.text:00457BC1                 push    edx
+.text:00457BC2                 call    sub_402CB1
+.text:00457BC7                 add     esp, 4
+.text:00457BCA
+.text:00457BCA loc_457BCA:                             ; CODE XREF: sub_455932+20A8j
+.text:00457BCA                                         ; sub_455932+20BEj ...
+.text:00457BCA                 jmp     loc_458012
+.text:00457BCF ; ---------------------------------------------------------------------------
+.text:00457BCF
+.text:00457BCF loc_457BCF:                             ; CODE XREF: sub_455932+207Ej
+.text:00457BCF                 mov     eax, [ebp+var_5C]
+.text:00457BD2                 imul    eax, 490h
+.text:00457BD8                 mov     ecx, [ebp+var_5C]
+.text:00457BDB                 imul    ecx, 490h
+.text:00457BE1                 mov     edx, dword_6E3038[eax]
+.text:00457BE7                 add     edx, dword_6E32D0[ecx]
+.text:00457BED                 cmp     [ebp+var_B4], edx
+.text:00457BF3                 jnz     loc_458012
+.text:00457BF9                 mov     eax, [ebp+var_5C]
+.text:00457BFC                 imul    eax, 490h
+.text:00457C02                 cmp     dword_6E313C[eax], 0
+.text:00457C09                 jnz     loc_458012
+.text:00457C0F                 mov     ecx, [ebp+var_B4]
+.text:00457C15                 imul    ecx, 0B2Ch
+.text:00457C1B                 mov     edx, dword_673C50[ecx]
+.text:00457C21                 mov     [ebp+var_AC], edx
+.text:00457C27                 mov     eax, [ebp+var_64]
+.text:00457C2A                 imul    eax, 490h
+.text:00457C30                 mov     ecx, dword_6E3038[eax]
+.text:00457C36                 cmp     dword_6E95B8[ecx*4], 0Ah
+.text:00457C3E                 jz      short loc_457C59
+.text:00457C40                 mov     edx, [ebp+var_64]
+.text:00457C43                 imul    edx, 490h
+.text:00457C49                 mov     eax, dword_6E3038[edx]
+.text:00457C4F                 cmp     dword_6E95B8[eax*4], 1Eh
+.text:00457C57                 jnz     short loc_457C6B
+.text:00457C59
+.text:00457C59 loc_457C59:                             ; CODE XREF: sub_455932+230Cj
+.text:00457C59                 fld     [ebp+var_AC]
+.text:00457C5F                 fmul    ds:flt_6450FC
+.text:00457C65                 fstp    [ebp+var_AC]
+.text:00457C6B
+.text:00457C6B loc_457C6B:                             ; CODE XREF: sub_455932+2325j
+.text:00457C6B                 mov     ecx, [ebp+var_AC]
+.text:00457C71                 push    ecx
+.text:00457C72                 mov     edx, [ebp+var_5C]
+.text:00457C75                 imul    edx, 490h
+.text:00457C7B                 add     edx, offset dword_6E3000
+.text:00457C81                 sub     esp, 0Ch
+.text:00457C84                 mov     eax, esp
+.text:00457C86                 mov     ecx, [edx]
+.text:00457C88                 mov     [eax], ecx
+.text:00457C8A                 mov     ecx, [edx+4]
+.text:00457C8D                 mov     [eax+4], ecx
+.text:00457C90                 mov     edx, [edx+8]
+.text:00457C93                 mov     [eax+8], edx
+.text:00457C96                 mov     eax, [ebp+var_64]
+.text:00457C99                 imul    eax, 490h
+.text:00457C9F                 add     eax, offset dword_6E3000
+.text:00457CA4                 sub     esp, 0Ch
+.text:00457CA7                 mov     ecx, esp
+.text:00457CA9                 mov     edx, [eax]
+.text:00457CAB                 mov     [ecx], edx
+.text:00457CAD                 mov     edx, [eax+4]
+.text:00457CB0                 mov     [ecx+4], edx
+.text:00457CB3                 mov     eax, [eax+8]
+.text:00457CB6                 mov     [ecx+8], eax
+.text:00457CB9                 call    sub_401839
+.text:00457CBE                 add     esp, 1Ch
+.text:00457CC1                 test    eax, eax
+.text:00457CC3                 jz      loc_458012
+.text:00457CC9                 mov     ecx, [ebp+var_5C]
+.text:00457CCC                 imul    ecx, 490h
+.text:00457CD2                 cmp     dword_6E313C[ecx], 1
+.text:00457CD9                 jz      loc_458012
+.text:00457CDF                 mov     edx, [ebp+var_5C]
+.text:00457CE2                 imul    edx, 490h
+.text:00457CE8                 cmp     dword_6E3130[edx], 11h
+.text:00457CEF                 jz      loc_458012
+.text:00457CF5                 mov     edi, [ebp+var_64]
+.text:00457CF8                 imul    edi, 490h
+.text:00457CFE                 add     edi, offset dword_6E3000
+.text:00457D04                 mov     ecx, 124h
+.text:00457D09                 mov     esi, offset unk_66F260
+.text:00457D0E                 rep movsd
+.text:00457D10                 cmp     dword_6EB040, 10h
+.text:00457D17                 jnz     loc_457DAC
+.text:00457D1D                 cmp     dword_6EAF7C, 1
+.text:00457D24                 jnz     loc_457DAC
+.text:00457D2A                 mov     eax, [ebp+var_64]
+.text:00457D2D                 imul    eax, 490h
+.text:00457D33                 cmp     dword_6E3038[eax], 2
+.text:00457D3A                 jle     short loc_457DAC
+.text:00457D3C                 mov     ecx, [ebp+var_64]
+.text:00457D3F                 imul    ecx, 490h
+.text:00457D45                 cmp     dword_6E312C[ecx], 0
+.text:00457D4C                 jnz     short loc_457DAC
+.text:00457D4E                 mov     edx, [ebp+var_5C]
+.text:00457D51                 imul    edx, 490h
+.text:00457D57                 cmp     dword_6E312C[edx], 0
+.text:00457D5E                 jnz     short loc_457DAC
+.text:00457D60                 mov     eax, [ebp+var_64]
+.text:00457D63                 push    eax
+.text:00457D64                 call    sub_402743
+.text:00457D69                 add     esp, 4
+.text:00457D6C                 mov     ecx, [ebp+var_5C]
+.text:00457D6F                 push    ecx
+.text:00457D70                 call    sub_402743
+.text:00457D75                 add     esp, 4
+.text:00457D78                 push    5
+.text:00457D7A                 mov     edx, [ebp+var_64]
+.text:00457D7D                 push    edx
+.text:00457D7E                 call    sub_401CBC
+.text:00457D83                 add     esp, 8
+.text:00457D86                 push    7
+.text:00457D88                 mov     eax, [ebp+var_5C]
+.text:00457D8B                 push    eax
+.text:00457D8C                 call    sub_401CBC
+.text:00457D91                 add     esp, 8
+.text:00457D94                 push    1
+.text:00457D96                 mov     ecx, [ebp+var_64]
+.text:00457D99                 push    ecx
+.text:00457D9A                 call    sub_401749
+.text:00457D9F                 add     esp, 8
+.text:00457DA2                 mov     dword_6EAF7C, 0
+.text:00457DAC
+.text:00457DAC loc_457DAC:                             ; CODE XREF: sub_455932+23E5j
+.text:00457DAC                                         ; sub_455932+23F2j ...
+.text:00457DAC                 push    0Ah
+.text:00457DAE                 call    j_GpwMisc_GetRandomValue_v2
+.text:00457DB3                 add     esp, 4
+.text:00457DB6                 test    eax, eax
+.text:00457DB8                 jnz     short loc_457DCA
+.text:00457DBA                 push    1
+.text:00457DBC                 mov     edx, [ebp+var_64]
+.text:00457DBF                 push    edx
+.text:00457DC0                 call    sub_401749
+.text:00457DC5                 add     esp, 8
+.text:00457DC8                 jmp     short loc_457DE4
+.text:00457DCA ; ---------------------------------------------------------------------------
+.text:00457DCA
+.text:00457DCA loc_457DCA:                             ; CODE XREF: sub_455932+2486j
+.text:00457DCA                 push    32h
+.text:00457DCC                 call    j_GpwMisc_GetRandomValue_v2
+.text:00457DD1                 add     esp, 4
+.text:00457DD4                 test    eax, eax
+.text:00457DD6                 jnz     short loc_457DE4
+.text:00457DD8                 mov     eax, [ebp+var_64]
+.text:00457DDB                 push    eax
+.text:00457DDC                 call    sub_401992
+.text:00457DE1                 add     esp, 4
+.text:00457DE4
+.text:00457DE4 loc_457DE4:                             ; CODE XREF: sub_455932+2496j
+.text:00457DE4                                         ; sub_455932+24A4j
+.text:00457DE4                 mov     ecx, [ebp+var_64]
+.text:00457DE7                 imul    ecx, 490h
+.text:00457DED                 cmp     dword_6E32D4[ecx], 0
+.text:00457DF4                 jg      loc_457E92
+.text:00457DFA                 mov     edx, [ebp+var_5C]
+.text:00457DFD                 push    edx
+.text:00457DFE                 mov     eax, [ebp+var_64]
+.text:00457E01                 push    eax
+.text:00457E02                 call    j_GpwRace_TriggerYellowFlagAndMore_Unknown
+.text:00457E07                 add     esp, 8
+.text:00457E0A                 cmp     eax, 1
+.text:00457E0D                 jnz     short loc_457E62
+.text:00457E0F                 mov     ecx, [ebp+var_64]
+.text:00457E12                 imul    ecx, 490h
+.text:00457E18                 mov     dword_6E32D4[ecx], 3
+.text:00457E22                 mov     edx, [ebp+var_5C]
+.text:00457E25                 imul    edx, 490h
+.text:00457E2B                 mov     eax, [ebp+var_64]
+.text:00457E2E                 imul    eax, 490h
+.text:00457E34                 mov     ecx, dword_6E3404[edx]
+.text:00457E3A                 cmp     ecx, dword_6E3404[eax]
+.text:00457E40                 jge     short loc_457E52
+.text:00457E42                 push    2
+.text:00457E44                 mov     edx, [ebp+var_64]
+.text:00457E47                 push    edx
+.text:00457E48                 call    sub_40382D
+.text:00457E4D                 add     esp, 8
+.text:00457E50                 jmp     short loc_457E60
+.text:00457E52 ; ---------------------------------------------------------------------------
+.text:00457E52
+.text:00457E52 loc_457E52:                             ; CODE XREF: sub_455932+250Ej
+.text:00457E52                 push    1
+.text:00457E54                 mov     eax, [ebp+var_64]
+.text:00457E57                 push    eax
+.text:00457E58                 call    sub_40382D
+.text:00457E5D                 add     esp, 8
+.text:00457E60
+.text:00457E60 loc_457E60:                             ; CODE XREF: sub_455932+251Ej
+.text:00457E60                 jmp     short loc_457E92
+.text:00457E62 ; ---------------------------------------------------------------------------
+.text:00457E62
+.text:00457E62 loc_457E62:                             ; CODE XREF: sub_455932+24DBj
+.text:00457E62                 mov     ecx, [ebp+var_64]
+.text:00457E65                 imul    ecx, 490h
+.text:00457E6B                 cmp     dword_6E32D0[ecx], 32h
+.text:00457E72                 jz      short loc_457E92
+.text:00457E74                 mov     edx, [ebp+var_5C]
+.text:00457E77                 imul    edx, 490h
+.text:00457E7D                 mov     eax, [ebp+var_64]
+.text:00457E80                 imul    eax, 490h
+.text:00457E86                 mov     ecx, flt_6E3034[edx]
+.text:00457E8C                 mov     flt_6E3034[eax], ecx
+.text:00457E92
+.text:00457E92 loc_457E92:                             ; CODE XREF: sub_455932+24C2j
+.text:00457E92                                         ; sub_455932:loc_457E60j ...
+.text:00457E92                 mov     edx, [ebp+var_5C]
+.text:00457E95                 imul    edx, 490h
+.text:00457E9B                 mov     eax, [ebp+var_64]
+.text:00457E9E                 imul    eax, 490h
+.text:00457EA4                 mov     ecx, dword_6E3404[edx]
+.text:00457EAA                 cmp     ecx, dword_6E3404[eax]
+.text:00457EB0                 jge     loc_457FEC
+.text:00457EB6                 mov     edx, [ebp+var_5C]
+.text:00457EB9                 imul    edx, 490h
+.text:00457EBF                 mov     eax, dword_6E3468[edx]
+.text:00457EC5                 add     eax, 1
+.text:00457EC8                 mov     ecx, [ebp+var_5C]
+.text:00457ECB                 imul    ecx, 490h
+.text:00457ED1                 mov     dword_6E3468[ecx], eax
+.text:00457ED7                 mov     edx, [ebp+var_5C]
+.text:00457EDA                 imul    edx, 490h
+.text:00457EE0                 cmp     dword_6E3468[edx], 0Ah
+.text:00457EE7                 jge     short loc_457F3F
+.text:00457EE9                 mov     eax, [ebp+var_64]
+.text:00457EEC                 imul    eax, 490h
+.text:00457EF2                 mov     ecx, dword_6E3038[eax]
+.text:00457EF8                 push    ecx
+.text:00457EF9                 push    0Ch
+.text:00457EFB                 call    sub_402F54
+.text:00457F00                 add     esp, 8
+.text:00457F03                 mov     edx, [ebp+var_5C]
+.text:00457F06                 imul    edx, 490h
+.text:00457F0C                 cmp     dword_6E3468[edx], 1
+.text:00457F13                 jnz     short loc_457F3A
+.text:00457F15                 mov     eax, [ebp+var_5C]
+.text:00457F18                 imul    eax, 490h
+.text:00457F1E                 cmp     GpwRace_IsCarNumberPlayersCarFlag[eax], 1
+.text:00457F25                 jnz     short loc_457F3A
+.text:00457F27                 mov     ecx, [ebp+var_5C]
+.text:00457F2A                 push    ecx
+.text:00457F2B                 push    142h
+.text:00457F30                 push    0
+.text:00457F32                 call    j_GpwRace_PlaySounds
+.text:00457F37                 add     esp, 0Ch
+.text:00457F3A
+.text:00457F3A loc_457F3A:                             ; CODE XREF: sub_455932+25E1j
+.text:00457F3A                                         ; sub_455932+25F3j
+.text:00457F3A                 jmp     loc_457FEA
+.text:00457F3F ; ---------------------------------------------------------------------------
+.text:00457F3F
+.text:00457F3F loc_457F3F:                             ; CODE XREF: sub_455932+25B5j
+.text:00457F3F                 mov     edx, [ebp+var_5C]
+.text:00457F42                 imul    edx, 490h
+.text:00457F48                 cmp     dword_6E3468[edx], 1Eh
+.text:00457F4F                 jge     short loc_457F6D
+.text:00457F51                 mov     eax, [ebp+var_64]
+.text:00457F54                 imul    eax, 490h
+.text:00457F5A                 mov     ecx, dword_6E3038[eax]
+.text:00457F60                 push    ecx
+.text:00457F61                 push    3
+.text:00457F63                 call    sub_402F54
+.text:00457F68                 add     esp, 8
+.text:00457F6B                 jmp     short loc_457FEA
+.text:00457F6D ; ---------------------------------------------------------------------------
+.text:00457F6D
+.text:00457F6D loc_457F6D:                             ; CODE XREF: sub_455932+261Dj
+.text:00457F6D                 mov     edx, [ebp+var_5C]
+.text:00457F70                 imul    edx, 490h
+.text:00457F76                 mov     dword_6E3468[edx], 0
+.text:00457F80                 mov     eax, [ebp+var_5C]
+.text:00457F83                 push    eax
+.text:00457F84                 call    sub_4019C4
+.text:00457F89                 add     esp, 4
+.text:00457F8C                 test    eax, eax
+.text:00457F8E                 jnz     short loc_457FEA
+.text:00457F90                 mov     ecx, [ebp+var_5C]
+.text:00457F93                 imul    ecx, 490h
+.text:00457F99                 cmp     GpwRace_RaceCarEventInformation[ecx], 0
+.text:00457FA0                 jnz     short loc_457FEA
+.text:00457FA2                 mov     edx, [ebp+var_5C]
+.text:00457FA5                 push    edx
+.text:00457FA6                 call    sub_401D3E
+.text:00457FAB                 add     esp, 4
+.text:00457FAE                 cmp     eax, 1
+.text:00457FB1                 jnz     short loc_457FEA
+.text:00457FB3                 mov     eax, [ebp+var_5C]
+.text:00457FB6                 cmp     eax, GpwRace_CarNumberIndexForDriver1
+.text:00457FBC                 jz      short loc_457FC9
+.text:00457FBE                 mov     ecx, [ebp+var_5C]
+.text:00457FC1                 cmp     ecx, GpwRace_CarNumberIndexForDriver2
+.text:00457FC7                 jnz     short loc_457FDC
+.text:00457FC9
+.text:00457FC9 loc_457FC9:                             ; CODE XREF: sub_455932+268Aj
+.text:00457FC9                 mov     edx, [ebp+var_5C]
+.text:00457FCC                 push    edx
+.text:00457FCD                 push    144h
+.text:00457FD2                 push    0
+.text:00457FD4                 call    j_GpwRace_PlaySounds
+.text:00457FD9                 add     esp, 0Ch
+.text:00457FDC
+.text:00457FDC loc_457FDC:                             ; CODE XREF: sub_455932+2695j
+.text:00457FDC                 push    7
+.text:00457FDE                 mov     eax, [ebp+var_5C]
+.text:00457FE1                 push    eax
+.text:00457FE2                 call    j_GpwRace_SetRaceCarEventInformationAndOthers_Unknown
+.text:00457FE7                 add     esp, 8
+.text:00457FEA
+.text:00457FEA loc_457FEA:                             ; CODE XREF: sub_455932:loc_457F3Aj
+.text:00457FEA                                         ; sub_455932+2639j ...
+.text:00457FEA                 jmp     short loc_458006
+.text:00457FEC ; ---------------------------------------------------------------------------
+.text:00457FEC
+.text:00457FEC loc_457FEC:                             ; CODE XREF: sub_455932+257Ej
+.text:00457FEC                 push    8
+.text:00457FEE                 mov     ecx, [ebp+var_64]
+.text:00457FF1                 imul    ecx, 490h
+.text:00457FF7                 mov     edx, dword_6E3050[ecx]
+.text:00457FFD                 push    edx
+.text:00457FFE                 call    sub_403841
+.text:00458003                 add     esp, 8
+.text:00458006
+.text:00458006 loc_458006:                             ; CODE XREF: sub_455932:loc_457FEAj
+.text:00458006                 mov     eax, [ebp+var_64]
+.text:00458009                 push    eax
+.text:0045800A                 call    sub_402CB1
+.text:0045800F                 add     esp, 4
+.text:00458012
+.text:00458012 loc_458012:                             ; CODE XREF: sub_455932+204Dj
+.text:00458012                                         ; sub_455932:loc_457BCAj ...
+.text:00458012                 mov     ecx, [ebp+var_B4]
+.text:00458018                 imul    ecx, 0B2Ch
+.text:0045801E                 mov     edx, [ebp+var_64]
+.text:00458021                 imul    edx, 490h
+.text:00458027                 mov     eax, dword_6E301C[edx]
+.text:0045802D                 imul    eax, 1Ch
+.text:00458030                 mov     edx, [ebp+var_64]
+.text:00458033                 imul    edx, 490h
+.text:00458039                 fld     dword_673C64[ecx+eax]
+.text:00458040                 fsub    dword_6E3000[edx]
+.text:00458046                 sub     esp, 8
+.text:00458049                 fstp    qword ptr [esp]
+.text:0045804C                 call    _fabs
+.text:00458051                 add     esp, 8
+.text:00458054                 fstp    [ebp+var_10C]
+.text:0045805A                 mov     eax, [ebp+var_B4]
+.text:00458060                 imul    eax, 0B2Ch
+.text:00458066                 mov     ecx, [ebp+var_64]
+.text:00458069                 imul    ecx, 490h
+.text:0045806F                 mov     edx, dword_6E301C[ecx]
+.text:00458075                 imul    edx, 1Ch
+.text:00458078                 mov     ecx, [ebp+var_64]
+.text:0045807B                 imul    ecx, 490h
+.text:00458081                 fld     dword_673C6C[eax+edx]
+.text:00458088                 fsub    dword_6E3008[ecx]
+.text:0045808E                 sub     esp, 8
+.text:00458091                 fstp    qword ptr [esp]
+.text:00458094                 call    _fabs
+.text:00458099                 add     esp, 8
+.text:0045809C                 fstp    [ebp+var_158]
+.text:004580A2                 fld     [ebp+var_10]
+.text:004580A5                 fcomp   [ebp+var_10C]
+.text:004580AB                 fnstsw  ax
+.text:004580AD                 test    ah, 1
+.text:004580B0                 jnz     loc_458355
+.text:004580B6                 fld     [ebp+var_10]
+.text:004580B9                 fcomp   [ebp+var_158]
+.text:004580BF                 fnstsw  ax
+.text:004580C1                 test    ah, 1
+.text:004580C4                 jnz     loc_458355
+.text:004580CA                 cmp     dword_64A6A4, 0
+.text:004580D1                 jle     short loc_458107
+.text:004580D3                 mov     edx, [ebp+var_64]
+.text:004580D6                 imul    edx, 490h
+.text:004580DC                 mov     eax, [ebp+var_F8]
+.text:004580E2                 imul    eax, 0B2Ch
+.text:004580E8                 mov     ecx, [ebp+var_64]
+.text:004580EB                 imul    ecx, 490h
+.text:004580F1                 mov     ecx, dword_6E301C[ecx]
+.text:004580F7                 imul    ecx, 1Ch
+.text:004580FA                 mov     edx, dword_6E3014[edx]
+.text:00458100                 mov     dword_673C74[eax+ecx], edx
+.text:00458107
+.text:00458107 loc_458107:                             ; CODE XREF: sub_455932+279Fj
+.text:00458107                 mov     eax, [ebp+var_64]
+.text:0045810A                 imul    eax, 490h
+.text:00458110                 mov     ecx, dword_6E301C[eax]
+.text:00458116                 add     ecx, 1
+.text:00458119                 mov     edx, [ebp+var_64]
+.text:0045811C                 imul    edx, 490h
+.text:00458122                 mov     dword_6E301C[edx], ecx
+.text:00458128                 mov     eax, [ebp+var_64]
+.text:0045812B                 imul    eax, 490h
+.text:00458131                 mov     ecx, [ebp+var_B4]
+.text:00458137                 imul    ecx, 0B2Ch
+.text:0045813D                 mov     edx, dword_6E301C[eax]
+.text:00458143                 cmp     edx, dword_673C28[ecx]
+.text:00458149                 jl      loc_458347
+.text:0045814F                 cmp     dword_64A6A4, 0
+.text:00458156                 jle     short loc_458170
+.text:00458158                 push    0
+.text:0045815A                 mov     eax, [ebp+var_B4]
+.text:00458160                 push    eax
+.text:00458161                 push    0
+.text:00458163                 call    sub_402D65
+.text:00458168                 add     esp, 0Ch
+.text:0045816B                 jmp     loc_458347
+.text:00458170 ; ---------------------------------------------------------------------------
+.text:00458170
+.text:00458170 loc_458170:                             ; CODE XREF: sub_455932+2824j
+.text:00458170                 mov     ecx, [ebp+var_64]
+.text:00458173                 push    ecx
+.text:00458174                 call    sub_401361
+.text:00458179                 add     esp, 4
+.text:0045817C                 mov     edx, [ebp+var_64]
+.text:0045817F                 push    edx
+.text:00458180                 call    sub_401D93
+.text:00458185                 add     esp, 4
+.text:00458188                 mov     eax, [ebp+var_64]
+.text:0045818B                 push    eax
+.text:0045818C                 call    sub_402EE6
+.text:00458191                 add     esp, 4
+.text:00458194                 mov     ecx, [ebp+var_64]
+.text:00458197                 cmp     ecx, GpwRace_CarNumberIndexForDriver1
+.text:0045819D                 jz      short loc_4581AE
+.text:0045819F                 mov     edx, [ebp+var_64]
+.text:004581A2                 cmp     edx, GpwRace_CarNumberIndexForDriver2
+.text:004581A8                 jnz     loc_458324
+.text:004581AE
+.text:004581AE loc_4581AE:                             ; CODE XREF: sub_455932+286Bj
+.text:004581AE                 mov     eax, [ebp+var_64]
+.text:004581B1                 imul    eax, 490h
+.text:004581B7                 cmp     dword_6E3404[eax], 0
+.text:004581BE                 jle     loc_458324
+.text:004581C4                 cmp     dword_64A6C0, 1
+.text:004581CB                 jnz     loc_458324
+.text:004581D1                 mov     ecx, [ebp+var_64]
+.text:004581D4                 push    ecx
+.text:004581D5                 call    sub_4019C4
+.text:004581DA                 add     esp, 4
+.text:004581DD                 test    eax, eax
+.text:004581DF                 jnz     loc_458324
+.text:004581E5                 mov     edx, [ebp+var_64]
+.text:004581E8                 imul    edx, 490h
+.text:004581EE                 mov     eax, [ebp+var_64]
+.text:004581F1                 imul    eax, 490h
+.text:004581F7                 mov     ecx, GpwRace_CarRacePositionOnSectionExit[edx]
+.text:004581FD                 cmp     ecx, GpwRace_CarRacePositionOnSectionEntry[eax]
+.text:00458203                 jle     loc_458289
+.text:00458209                 mov     edx, [ebp+var_64]
+.text:0045820C                 imul    edx, 490h
+.text:00458212                 mov     eax, dword_6E3478[edx]
+.text:00458218                 add     eax, 64h
+.text:0045821B                 mov     ecx, [ebp+var_64]
+.text:0045821E                 imul    ecx, 490h
+.text:00458224                 cmp     eax, dword_6E3444[ecx]
+.text:0045822A                 jge     short loc_458253
+.text:0045822C                 mov     edx, [ebp+var_64]
+.text:0045822F                 imul    edx, 490h
+.text:00458235                 cmp     dword_6E3478[edx], 0
+.text:0045823C                 jle     short loc_458253
+.text:0045823E                 mov     eax, [ebp+var_64]
+.text:00458241                 push    eax
+.text:00458242                 push    12Ch
+.text:00458247                 push    0
+.text:00458249                 call    j_GpwRace_PlaySounds
+.text:0045824E                 add     esp, 0Ch
+.text:00458251                 jmp     short loc_458266
+.text:00458253 ; ---------------------------------------------------------------------------
+.text:00458253
+.text:00458253 loc_458253:                             ; CODE XREF: sub_455932+28F8j
+.text:00458253                                         ; sub_455932+290Aj
+.text:00458253                 mov     ecx, [ebp+var_64]
+.text:00458256                 push    ecx
+.text:00458257                 push    12Bh
+.text:0045825C                 push    0
+.text:0045825E                 call    j_GpwRace_PlaySounds
+.text:00458263                 add     esp, 0Ch
+.text:00458266
+.text:00458266 loc_458266:                             ; CODE XREF: sub_455932+291Fj
+.text:00458266                 mov     edx, [ebp+var_64]
+.text:00458269                 imul    edx, 490h
+.text:0045826F                 mov     eax, [ebp+var_64]
+.text:00458272                 imul    eax, 490h
+.text:00458278                 mov     ecx, dword_6E3444[edx]
+.text:0045827E                 mov     dword_6E3478[eax], ecx
+.text:00458284                 jmp     loc_458324
+.text:00458289 ; ---------------------------------------------------------------------------
+.text:00458289
+.text:00458289 loc_458289:                             ; CODE XREF: sub_455932+28D1j
+.text:00458289                 mov     edx, [ebp+var_64]
+.text:0045828C                 imul    edx, 490h
+.text:00458292                 mov     eax, [ebp+var_64]
+.text:00458295                 imul    eax, 490h
+.text:0045829B                 mov     ecx, GpwRace_CarRacePositionOnSectionExit[edx]
+.text:004582A1                 cmp     ecx, GpwRace_CarRacePositionOnSectionEntry[eax]
+.text:004582A7                 jge     short loc_458324
+.text:004582A9                 mov     edx, [ebp+var_64]
+.text:004582AC                 imul    edx, 490h
+.text:004582B2                 mov     eax, dword_6E3478[edx]
+.text:004582B8                 add     eax, 64h
+.text:004582BB                 mov     ecx, [ebp+var_64]
+.text:004582BE                 imul    ecx, 490h
+.text:004582C4                 cmp     eax, dword_6E3444[ecx]
+.text:004582CA                 jge     short loc_4582F3
+.text:004582CC                 mov     edx, [ebp+var_64]
+.text:004582CF                 imul    edx, 490h
+.text:004582D5                 cmp     dword_6E3478[edx], 0
+.text:004582DC                 jle     short loc_4582F3
+.text:004582DE                 mov     eax, [ebp+var_64]
+.text:004582E1                 push    eax
+.text:004582E2                 push    12Ch
+.text:004582E7                 push    0
+.text:004582E9                 call    j_GpwRace_PlaySounds
+.text:004582EE                 add     esp, 0Ch
+.text:004582F1                 jmp     short loc_458306
+.text:004582F3 ; ---------------------------------------------------------------------------
+.text:004582F3
+.text:004582F3 loc_4582F3:                             ; CODE XREF: sub_455932+2998j
+.text:004582F3                                         ; sub_455932+29AAj
+.text:004582F3                 mov     ecx, [ebp+var_64]
+.text:004582F6                 push    ecx
+.text:004582F7                 push    12Ah
+.text:004582FC                 push    0
+.text:004582FE                 call    j_GpwRace_PlaySounds
+.text:00458303                 add     esp, 0Ch
+.text:00458306
+.text:00458306 loc_458306:                             ; CODE XREF: sub_455932+29BFj
+.text:00458306                 mov     edx, [ebp+var_64]
+.text:00458309                 imul    edx, 490h
+.text:0045830F                 mov     eax, [ebp+var_64]
+.text:00458312                 imul    eax, 490h
+.text:00458318                 mov     ecx, dword_6E3444[edx]
+.text:0045831E                 mov     dword_6E3478[eax], ecx
+.text:00458324
+.text:00458324 loc_458324:                             ; CODE XREF: sub_455932+2876j
+.text:00458324                                         ; sub_455932+288Cj ...
+.text:00458324                 mov     edx, [ebp+var_64]
+.text:00458327                 imul    edx, 490h
+.text:0045832D                 mov     eax, [ebp+var_64]
+.text:00458330                 imul    eax, 490h
+.text:00458336                 mov     ecx, GpwRace_CarRacePositionOnSectionEntry[edx]
+.text:0045833C                 mov     GpwRace_CarRacePositionOnSectionExit[eax], ecx
+.text:00458342                 jmp     loc_456A6A
+.text:00458347 ; ---------------------------------------------------------------------------
+.text:00458347
+.text:00458347 loc_458347:                             ; CODE XREF: sub_455932+2817j
+.text:00458347                                         ; sub_455932+2839j
+.text:00458347                 mov     edx, [ebp+var_64]
+.text:0045834A                 push    edx
+.text:0045834B                 call    sub_402EE6
+.text:00458350                 add     esp, 4
+.text:00458353                 jmp     short loc_458372
+.text:00458355 ; ---------------------------------------------------------------------------
+.text:00458355
+.text:00458355 loc_458355:                             ; CODE XREF: sub_455932+277Ej
+.text:00458355                                         ; sub_455932+2792j
+.text:00458355                 push    0BB8h
+.text:0045835A                 call    j_GpwMisc_GetRandomValue_v2
+.text:0045835F                 add     esp, 4
+.text:00458362                 test    eax, eax
+.text:00458364                 jnz     short loc_458372
+.text:00458366                 mov     eax, [ebp+var_64]
+.text:00458369                 push    eax
+.text:0045836A                 call    sub_402743
+.text:0045836F                 add     esp, 4
+.text:00458372
+.text:00458372 loc_458372:                             ; CODE XREF: sub_455932+2A21j
+.text:00458372                                         ; sub_455932+2A32j
+.text:00458372                 jmp     loc_458622
+.text:00458377 ; ---------------------------------------------------------------------------
+.text:00458377
+.text:00458377 loc_458377:                             ; CODE XREF: sub_455932+1C43j
+.text:00458377                 mov     ecx, [ebp+var_64]
+.text:0045837A                 imul    ecx, 490h
+.text:00458380                 mov     edx, dword_6E3020[ecx]
+.text:00458386                 mov     [ebp+var_FC], edx
+.text:0045838C                 mov     eax, [ebp+var_64]
+.text:0045838F                 imul    eax, 490h
+.text:00458395                 mov     ecx, dword_6E301C[eax]
+.text:0045839B                 mov     [ebp+var_110], ecx
+.text:004583A1                 mov     edx, [ebp+var_64]
+.text:004583A4                 imul    edx, 490h
+.text:004583AA                 mov     eax, [ebp+var_64]
+.text:004583AD                 imul    eax, 490h
+.text:004583B3                 fld     dword_6E3020[edx]
+.text:004583B9                 fadd    flt_6E3034[eax]
+.text:004583BF                 mov     ecx, [ebp+var_64]
+.text:004583C2                 imul    ecx, 490h
+.text:004583C8                 fstp    dword_6E3020[ecx]
+.text:004583CE                 mov     edx, [ebp+var_64]
+.text:004583D1                 imul    edx, 490h
+.text:004583D7                 fld     dword_6E3020[edx]
+.text:004583DD                 call    __ftol
+.text:004583E2                 mov     ecx, [ebp+var_64]
+.text:004583E5                 imul    ecx, 490h
+.text:004583EB                 mov     dword_6E301C[ecx], eax
+.text:004583F1                 cmp     [ebp+var_58], 0
+.text:004583F5                 jle     loc_458592
+.text:004583FB                 mov     edx, [ebp+var_58]
+.text:004583FE                 sub     edx, 1
+.text:00458401                 shl     edx, 4
+.text:00458404                 mov     eax, GpwRace_RaceEntryIndex_v2[edx]
+.text:0045840A                 mov     [ebp+var_5C], eax
+.text:0045840D                 mov     ecx, [ebp+var_64]
+.text:00458410                 imul    ecx, 490h
+.text:00458416                 mov     edx, [ebp+var_5C]
+.text:00458419                 mov     dword_6E303C[ecx], edx
+.text:0045841F                 mov     eax, [ebp+var_64]
+.text:00458422                 imul    eax, 490h
+.text:00458428                 mov     ecx, [ebp+var_110]
+.text:0045842E                 cmp     ecx, dword_6E301C[eax]
+.text:00458434                 jge     loc_458592
+.text:0045843A                 mov     edx, [ebp+var_64]
+.text:0045843D                 imul    edx, 490h
+.text:00458443                 mov     eax, [ebp+var_5C]
+.text:00458446                 imul    eax, 490h
+.text:0045844C                 mov     ecx, dword_6E3038[edx]
+.text:00458452                 cmp     ecx, dword_6E3038[eax]
+.text:00458458                 jnz     loc_458592
+.text:0045845E                 mov     edx, [ebp+var_110]
+.text:00458464                 mov     [ebp+var_54], edx
+.text:00458467
+.text:00458467 loc_458467:                             ; CODE XREF: sub_455932+2C5Aj
+.text:00458467                 mov     eax, [ebp+var_5C]
+.text:0045846A                 imul    eax, 490h
+.text:00458470                 mov     ecx, [ebp+var_54]
+.text:00458473                 cmp     ecx, dword_6E301C[eax]
+.text:00458479                 jnz     loc_458571
+.text:0045847F                 mov     edx, [ebp+var_5C]
+.text:00458482                 imul    edx, 490h
+.text:00458488                 mov     eax, GpwRace_DatFileTrackId
+.text:0045848D                 fld     flt_6E3034[edx]
+.text:00458493                 fcomp   dword_64D7E8[eax*4]
+.text:0045849A                 fnstsw  ax
+.text:0045849C                 test    ah, 1
+.text:0045849F                 jz      loc_458545
+.text:004584A5                 mov     ecx, [ebp+var_64]
+.text:004584A8                 imul    ecx, 490h
+.text:004584AE                 mov     edx, GpwRace_DatFileTrackId
+.text:004584B4                 fld     flt_6E3034[ecx]
+.text:004584BA                 fcomp   dword_64D7E8[edx*4]
+.text:004584C1                 fnstsw  ax
+.text:004584C3                 test    ah, 1
+.text:004584C6                 jnz     short loc_458545
+.text:004584C8                 mov     eax, [ebp+var_5C]
+.text:004584CB                 imul    eax, 490h
+.text:004584D1                 mov     ecx, [ebp+var_64]
+.text:004584D4                 imul    ecx, 490h
+.text:004584DA                 mov     edx, dword_6E301C[eax]
+.text:004584E0                 mov     dword_6E301C[ecx], edx
+.text:004584E6                 mov     eax, [ebp+var_5C]
+.text:004584E9                 imul    eax, 490h
+.text:004584EF                 mov     ecx, [ebp+var_64]
+.text:004584F2                 imul    ecx, 490h
+.text:004584F8                 mov     edx, dword_6E3020[eax]
+.text:004584FE                 mov     dword_6E3020[ecx], edx
+.text:00458504                 mov     eax, [ebp+var_5C]
+.text:00458507                 imul    eax, 490h
+.text:0045850D                 mov     ecx, dword_6E301C[eax]
+.text:00458513                 sub     ecx, 1
+.text:00458516                 mov     edx, [ebp+var_5C]
+.text:00458519                 imul    edx, 490h
+.text:0045851F                 mov     dword_6E301C[edx], ecx
+.text:00458525                 mov     eax, [ebp+var_5C]
+.text:00458528                 imul    eax, 490h
+.text:0045852E                 fild    dword_6E301C[eax]
+.text:00458534                 mov     ecx, [ebp+var_5C]
+.text:00458537                 imul    ecx, 490h
+.text:0045853D                 fstp    dword_6E3020[ecx]
+.text:00458543                 jmp     short loc_45856F
+.text:00458545 ; ---------------------------------------------------------------------------
+.text:00458545
+.text:00458545 loc_458545:                             ; CODE XREF: sub_455932+2B6Dj
+.text:00458545                                         ; sub_455932+2B94j
+.text:00458545                 mov     edx, [ebp+var_64]
+.text:00458548                 imul    edx, 490h
+.text:0045854E                 mov     eax, [ebp+var_110]
+.text:00458554                 mov     dword_6E301C[edx], eax
+.text:0045855A                 mov     ecx, [ebp+var_64]
+.text:0045855D                 imul    ecx, 490h
+.text:00458563                 mov     edx, [ebp+var_FC]
+.text:00458569                 mov     dword_6E3020[ecx], edx
+.text:0045856F
+.text:0045856F loc_45856F:                             ; CODE XREF: sub_455932+2C11j
+.text:0045856F                 jmp     short loc_458592
+.text:00458571 ; ---------------------------------------------------------------------------
+.text:00458571
+.text:00458571 loc_458571:                             ; CODE XREF: sub_455932+2B47j
+.text:00458571                 mov     eax, [ebp+var_54]
+.text:00458574                 add     eax, 1
+.text:00458577                 mov     [ebp+var_54], eax
+.text:0045857A                 mov     ecx, [ebp+var_64]
+.text:0045857D                 imul    ecx, 490h
+.text:00458583                 mov     edx, [ebp+var_54]
+.text:00458586                 cmp     edx, dword_6E301C[ecx]
+.text:0045858C                 jl      loc_458467
+.text:00458592
+.text:00458592 loc_458592:                             ; CODE XREF: sub_455932+2AC3j
+.text:00458592                                         ; sub_455932+2B02j ...
+.text:00458592                 mov     eax, [ebp+var_64]
+.text:00458595                 imul    eax, 490h
+.text:0045859B                 fld     flt_6E3448[eax]
+.text:004585A1                 fsub    [ebp+var_8]
+.text:004585A4                 mov     ecx, [ebp+var_64]
+.text:004585A7                 imul    ecx, 490h
+.text:004585AD                 fstp    flt_6E3448[ecx]
+.text:004585B3                 mov     edx, [ebp+var_64]
+.text:004585B6                 imul    edx, 490h
+.text:004585BC                 fld     flt_6E3448[edx]
+.text:004585C2                 fadd    ds:flt_645100
+.text:004585C8                 mov     eax, [ebp+var_64]
+.text:004585CB                 imul    eax, 490h
+.text:004585D1                 fstp    flt_6E3448[eax]
+.text:004585D7                 mov     ecx, [ebp+var_64]
+.text:004585DA                 imul    ecx, 490h
+.text:004585E0                 mov     edx, [ebp+var_64]
+.text:004585E3                 imul    edx, 490h
+.text:004585E9                 mov     eax, dword_6E3038[edx]
+.text:004585EF                 mov     ecx, dword_6E301C[ecx]
+.text:004585F5                 cmp     ecx, dword_672498[eax*4]
+.text:004585FC                 jl      short loc_458616
+.text:004585FE                 mov     edx, [ebp+var_64]
+.text:00458601                 push    edx
+.text:00458602                 call    sub_401361
+.text:00458607                 add     esp, 4
+.text:0045860A                 mov     eax, [ebp+var_64]
+.text:0045860D                 push    eax
+.text:0045860E                 call    sub_401D93
+.text:00458613                 add     esp, 4
+.text:00458616
+.text:00458616 loc_458616:                             ; CODE XREF: sub_455932+2CCAj
+.text:00458616                 mov     ecx, [ebp+var_64]
+.text:00458619                 push    ecx
+.text:0045861A                 call    sub_402EE6
+.text:0045861F                 add     esp, 4
+.text:00458622
+.text:00458622 loc_458622:                             ; CODE XREF: sub_455932:loc_458372j
+.text:00458622                 jmp     loc_456A6A
+.text:00458627 ; ---------------------------------------------------------------------------
+.text:00458627
+.text:00458627 loc_458627:                             ; CODE XREF: sub_455932+311j
+.text:00458627                                         ; sub_455932+31Ej ...
+.text:00458627                 xor     eax, eax
+.text:00458629                 jmp     short loc_458630
+.text:0045862B ; ---------------------------------------------------------------------------
+.text:0045862B
+.text:0045862B loc_45862B:                             ; CODE XREF: sub_455932:loc_4571ECj
+.text:0045862B                 jmp     loc_457272
+.text:00458630 ; ---------------------------------------------------------------------------
+.text:00458630
+.text:00458630 loc_458630:                             ; CODE XREF: sub_455932+195j
+.text:00458630                                         ; sub_455932+1FBj ...
+.text:00458630                 pop     edi
+.text:00458631                 pop     esi
+.text:00458632                 mov     esp, ebp
+.text:00458634                 pop     ebp
+.text:00458635                 retn
+.text:00458635 sub_455932      endp
+.text:00458635
+.text:00458635 ; ---------------------------------------------------------------------------
+.text:00458636 off_458636      dd offset loc_456E36    ; DATA XREF: sub_455932+14FDr
+.text:00458636                 dd offset loc_456E4B    ; jump table for switch statement
+.text:00458636                 dd offset loc_456E60
+.text:00458636                 dd offset loc_456E60
+.text:00458636                 dd offset loc_456E60
+.text:0045864A
