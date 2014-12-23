@@ -37,6 +37,17 @@ namespace Data.Database.Executable
 
         public IdentityCollection StringTable { get; set; }
 
+        public static byte[] GetCheckboxInstructions()
+        {
+            return new byte[] { 0x90, 0x90 };
+        }
+
+        public static bool DoesExeUseMyInstructions(ExecutableConnection executableConnection)
+        {
+            var exeValues = executableConnection.ReadByteArray(0, 2);
+            return exeValues.SequenceEqual(GetCheckboxInstructions());
+        }
+
         public bool ImportDataFromFile(string executableFilePath, string languageFilePath)
         {
             try
@@ -384,7 +395,7 @@ namespace Data.Database.Executable
         {
             var resource = StringTable.SingleOrDefault(x => x.ResourceId == resourceId);
             if (resource == null)
-                throw new Exception(string.Format("Unable to find an string table entry matching the resource id {0}.", resourceId));
+                throw new Exception(String.Format("Unable to find an string table entry matching the resource id {0}.", resourceId));
 
             return resource.ResourceText;
         }
@@ -394,7 +405,7 @@ namespace Data.Database.Executable
             var resource = StringTable.SingleOrDefault(x => x.ResourceId == resourceId);
             
             if (resource == null)
-                throw new Exception(string.Format("Unable to find an string table entry matching the resource id {0}.", resourceId));
+                throw new Exception(String.Format("Unable to find an string table entry matching the resource id {0}.", resourceId));
 
             resource.ResourceText = resourceText;
         }
