@@ -26,6 +26,9 @@ namespace Data.Patchers.Enhancements.Units
             {
                 0x90
             };
+
+            // 0x00099E5F
+            // 0x00049AA5F
         }
     }
 }

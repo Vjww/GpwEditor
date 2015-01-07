@@ -1,6 +1,10 @@
 ﻿
 namespace Data.Patchers.Enhancements.Units
 {
+    /// <summary>
+    /// Modify the code to perform an unconditional jump to protect
+    /// the player from receiving an ignored yellow flag penalty.
+    /// </summary>
     public class YellowFlagFix : IDataPatcherUnit
     {
         public long UnmodifiedVirtualFilePosition { get; private set; }
@@ -8,15 +12,16 @@ namespace Data.Patchers.Enhancements.Units
 
         public YellowFlagFix()
         {
-            UnmodifiedVirtualFilePosition = 0x0;
-            ModifiedVirtualFilePosition = 0x0;
+            UnmodifiedVirtualFilePosition = 0x00444E12;
+            ModifiedVirtualFilePosition = 0x00444E12;
         }
 
         public byte[] GetModifiedInstructions()
         {
             return new byte[]
             {
-                0x90
+                0xE9, 0x3E, 0x00, 0x00, 0x00,       // jmp loc_444E55
+                0x90                                // nop
             };
         }
 
@@ -24,7 +29,7 @@ namespace Data.Patchers.Enhancements.Units
         {
             return new byte[]
             {
-                0x90
+                0x0F, 0x85, 0x3D, 0x00, 0x00, 0x00  // jnz loc_444E55
             };
         }
     }
