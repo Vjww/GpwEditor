@@ -52,13 +52,16 @@
     <Compile Include="Patchers\CodeShifting\Units\PersonnelData.cs" />
     <Compile Include="Patchers\CodeShifting\Units\TeamData.cs" />
     <Compile Include="Patchers\CodeShifting\Units\TrackData.cs" />
+    <Compile Include="Patchers\DataPatcherUnitBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Patchers\Enhancements\Units\CarHandlingPerformanceFix.cs" />
     <Compile Include="Patchers\Enhancements\Units\CarDesignCalculationUpdate.cs" />
+    <Compile Include="Patchers\DataPatcherUnitTask.cs" />
     <Compile Include="Patchers\Enhancements\Units\DisplayModeFix.cs" />
     <Compile Include="Patchers\Enhancements\Units\GameCdFix.cs" />
     <Compile Include="Patchers\Enhancements\Units\RaceSoundsFix.cs" />
     <Compile Include="Patchers\Enhancements\Units\YellowFlagFix.cs" />
-    <Compile Include="Patchers\IDataPatcherUnit.cs" />
     <Compile Include="Patchers\Enhancements\Units\PointsScoringSystemUpdate.cs" />
     <Compile Include="Patchers\JumpBypassPatcher\JumpBypassPatcher.cs" />
     <Compile Include="Patchers\SwitchIdiomPatcher\SwitchIdiomPatcher.cs" />

@@ -1,34 +1,38 @@
-﻿
+﻿using System;
+
 namespace Data.Patchers.Enhancements.Units
 {
-    public class RaceSoundsFix : IDataPatcherUnit
+    /// <summary>
+    /// Modify the code to eliminate calls made to memset()
+    /// to prevent the game from crashing on Win XP/Vista/7
+    /// when preparing memory areas for loading race sounds.
+    /// </summary>
+    public class RaceSoundsFix : DataPatcherUnitBase
     {
-        public long UnmodifiedVirtualFilePosition { get; private set; }
-        public long ModifiedVirtualFilePosition { get; private set; }
-
         public RaceSoundsFix()
         {
-            UnmodifiedVirtualFilePosition = 0x0;
-            ModifiedVirtualFilePosition = 0x0;
-        }
+            throw new NotImplementedException();
 
-        public byte[] GetModifiedInstructions()
-        {
-            return new byte[]
+            UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
-                0x90
-            };
-        }
+                Location = 0x0,
+                InstructionSet = new byte[]
+                {
+                    0x90    // nop
+                }
+            });
 
-        public byte[] GetUnmodifiedInstructions()
-        {
-            return new byte[]
+            ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
-                0x90
-            };
+                // 0x00099E5F
+                // 0x00049AA5F
 
-            // 0x00099E5F
-            // 0x00049AA5F
+                Location = 0x0,
+                InstructionSet = new byte[]
+                {
+                    0x90    // nop
+                }
+            });
         }
     }
 }
