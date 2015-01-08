@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Core.Collections;
+﻿using Core.Collections;
 using Core.Collections.Executable.Supplier;
 using Core.Collections.Executable.Team;
 using Core.Collections.Executable.Track;
@@ -10,6 +8,10 @@ using Core.Entities.Executable.Track;
 using Core.Extensions;
 using Data.Enums;
 using Data.FileConnection;
+using Data.Patchers;
+using System;
+using System.Linq;
+using Data.Patchers.Enhancements.Units;
 
 namespace Data.Database.Executable
 {
@@ -27,6 +29,14 @@ namespace Data.Database.Executable
         private const int DriverBaseResourceId = 5795;
         private const int TrackBaseResourceId = 6043;
 
+        public bool IsCarDesignCalculationUpdateApplied { get; private set; }
+        public bool IsCarHandlingPerformanceFixApplied { get; private set; }
+        public bool IsDisplayModeFixApplied { get; private set; }
+        public bool IsGameCdFixApplied { get; private set; }
+        public bool IsPointsScoringSystemUpdatedApplied { get; private set; }
+        public bool IsRaceSoundsFixApplied { get; private set; }
+        public bool IsYellowFlagFixApplied { get; private set; }
+
         public TeamCollection Teams { get; set; }
         public DriverCollection Drivers { get; set; }
         public IdentityCollection DriverIdentities { get; set; }
@@ -36,17 +46,6 @@ namespace Data.Database.Executable
         public TrackCollection Tracks { get; set; }
 
         public IdentityCollection StringTable { get; set; }
-
-        public static byte[] GetCheckboxInstructions()
-        {
-            return new byte[] { 0x90, 0x90 };
-        }
-
-        public static bool DoesExeUseMyInstructions(ExecutableConnection executableConnection)
-        {
-            var exeValues = executableConnection.ReadByteArray(0, 2);
-            return exeValues.SequenceEqual(GetCheckboxInstructions());
-        }
 
         public bool ImportDataFromFile(string executableFilePath, string languageFilePath)
         {
@@ -59,6 +58,14 @@ namespace Data.Database.Executable
                 _languageConnection = new LanguageConnection();
                 _languageConnection.Open(languageFilePath, StreamDirectionType.Read);
                 StringTable = _languageConnection.Load();
+
+                IsCarDesignCalculationUpdateApplied = IsEnhancementUnitApplied(_executableConnection, new CarDesignCalculationUpdate());
+                IsCarHandlingPerformanceFixApplied = IsEnhancementUnitApplied(_executableConnection, new CarHandlingPerformanceFix());
+                IsDisplayModeFixApplied = IsEnhancementUnitApplied(_executableConnection, new DisplayModeFix());
+                IsGameCdFixApplied = IsEnhancementUnitApplied(_executableConnection, new GameCdFix());
+                IsPointsScoringSystemUpdatedApplied = IsEnhancementUnitApplied(_executableConnection, new PointsScoringSystemUpdate());
+                IsRaceSoundsFixApplied = IsEnhancementUnitApplied(_executableConnection, new RaceSoundsFix());
+                IsYellowFlagFixApplied = IsEnhancementUnitApplied(_executableConnection, new YellowFlagFix());
 
                 ImportTeams();
                 ImportDrivers();
@@ -408,6 +415,48 @@ namespace Data.Database.Executable
                 throw new Exception(String.Format("Unable to find an string table entry matching the resource id {0}.", resourceId));
 
             resource.ResourceText = resourceText;
+        }
+
+        private static bool IsEnhancementUnitApplied(ExecutableConnection executableConnection, IDataPatcherUnitBase enhancementUnit)
+        {
+            var result = DoesExeHaveEnhancementUnit(executableConnection, enhancementUnit);
+            if (!result)
+            {
+                if (!DoesExeHaveUnmodifiedInstructions(executableConnection, enhancementUnit))
+                    throw new Exception("Instructions in executable file do not match modified or unmodified instructions.");
+            }
+
+            return result;
+        }
+
+        private static bool DoesExeHaveUnmodifiedInstructions(ExecutableConnection executableConnection, IDataPatcherUnitBase enhancementUnit)
+        {
+            var unitInstructions = enhancementUnit.GetUnmodifiedInstructions();
+            foreach (var item in unitInstructions)
+            {
+                var executableValues = executableConnection.ReadByteArray(item.Location, item.InstructionSet.Length);
+                if (!executableValues.SequenceEqual(item.InstructionSet))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private static bool DoesExeHaveEnhancementUnit(ExecutableConnection executableConnection, IDataPatcherUnitBase enhancementUnit)
+        {
+            var unitInstructions = enhancementUnit.GetModifiedInstructions();
+            foreach (var item in unitInstructions)
+            {
+                var executableValues = executableConnection.ReadByteArray(item.Location, item.InstructionSet.Length);
+                if (!executableValues.SequenceEqual(item.InstructionSet))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

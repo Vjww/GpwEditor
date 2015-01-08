@@ -1,9 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Data.Patchers
 {
-    public class DataPatcherUnitBase
+    public interface IDataPatcherUnitBase
+    {
+        List<DataPatcherUnitTask> GetUnmodifiedInstructions();
+        List<DataPatcherUnitTask> GetModifiedInstructions();
+    }
+
+    public class DataPatcherUnitBase : IDataPatcherUnitBase
     {
         protected readonly List<DataPatcherUnitTask> UnmodifiedInstructions;
         protected readonly List<DataPatcherUnitTask> ModifiedInstructions;
@@ -14,12 +19,12 @@ namespace Data.Patchers
             ModifiedInstructions = new List<DataPatcherUnitTask>();
         }
 
-        public IEnumerable GetUnmodifiedInstructions()
+        public List<DataPatcherUnitTask> GetUnmodifiedInstructions()
         {
             return UnmodifiedInstructions;
         }
 
-        public IEnumerable GetModifiedInstructions()
+        public List<DataPatcherUnitTask> GetModifiedInstructions()
         {
             return ModifiedInstructions;
         }
