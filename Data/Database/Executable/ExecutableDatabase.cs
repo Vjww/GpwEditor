@@ -9,9 +9,9 @@ using Core.Extensions;
 using Data.Enums;
 using Data.FileConnection;
 using Data.Patchers;
+using Data.Patchers.Enhancements.Units;
 using System;
 using System.Linq;
-using Data.Patchers.Enhancements.Units;
 
 namespace Data.Database.Executable
 {
@@ -37,6 +37,14 @@ namespace Data.Database.Executable
         public bool IsRaceSoundsFixApplied { get; private set; }
         public bool IsYellowFlagFixApplied { get; private set; }
 
+        public bool IsCarDesignCalculationUpdateRequired { get; set; }
+        public bool IsCarHandlingPerformanceFixRequired { get; set; }
+        public bool IsDisplayModeFixRequired { get; set; }
+        public bool IsGameCdFixRequired { get; set; }
+        public bool IsPointsScoringSystemUpdatedRequired { get; set; }
+        public bool IsRaceSoundsFixRequired { get; set; }
+        public bool IsYellowFlagFixRequired { get; set; }
+
         public TeamCollection Teams { get; set; }
         public DriverCollection Drivers { get; set; }
         public IdentityCollection DriverIdentities { get; set; }
@@ -59,6 +67,7 @@ namespace Data.Database.Executable
                 _languageConnection.Open(languageFilePath, StreamDirectionType.Read);
                 StringTable = _languageConnection.Load();
 
+                // Determine whether enhancement units are applied or original code is unmodified
                 IsCarDesignCalculationUpdateApplied = IsEnhancementUnitApplied(_executableConnection, new CarDesignCalculationUpdate());
                 IsCarHandlingPerformanceFixApplied = IsEnhancementUnitApplied(_executableConnection, new CarHandlingPerformanceFix());
                 IsDisplayModeFixApplied = IsEnhancementUnitApplied(_executableConnection, new DisplayModeFix());
@@ -94,6 +103,24 @@ namespace Data.Database.Executable
                 // Open file and write
                 _executableConnection = new ExecutableConnection();
                 _executableConnection.Open(executableFilePath, StreamDirectionType.Write);
+
+                // Determine whether enhancement units are applied or original code is unmodified
+                IsCarDesignCalculationUpdateApplied = IsEnhancementUnitApplied(_executableConnection, new CarDesignCalculationUpdate());
+                IsCarHandlingPerformanceFixApplied = IsEnhancementUnitApplied(_executableConnection, new CarHandlingPerformanceFix());
+                IsDisplayModeFixApplied = IsEnhancementUnitApplied(_executableConnection, new DisplayModeFix());
+                IsGameCdFixApplied = IsEnhancementUnitApplied(_executableConnection, new GameCdFix());
+                IsPointsScoringSystemUpdatedApplied = IsEnhancementUnitApplied(_executableConnection, new PointsScoringSystemUpdate());
+                IsRaceSoundsFixApplied = IsEnhancementUnitApplied(_executableConnection, new RaceSoundsFix());
+                IsYellowFlagFixApplied = IsEnhancementUnitApplied(_executableConnection, new YellowFlagFix());
+
+                // Apply enhancement units if not already applied and is requested to be applied
+                if (!IsCarDesignCalculationUpdateApplied && IsCarDesignCalculationUpdateRequired) ApplyEnhancementUnit(_executableConnection, new CarDesignCalculationUpdate());
+                if (!IsCarHandlingPerformanceFixApplied && IsCarHandlingPerformanceFixRequired) ApplyEnhancementUnit(_executableConnection, new CarHandlingPerformanceFix());
+                if (!IsDisplayModeFixApplied && IsDisplayModeFixRequired) ApplyEnhancementUnit(_executableConnection, new DisplayModeFix());
+                if (!IsGameCdFixApplied && IsGameCdFixRequired) ApplyEnhancementUnit(_executableConnection, new GameCdFix());
+                if (!IsPointsScoringSystemUpdatedApplied && IsPointsScoringSystemUpdatedRequired) ApplyEnhancementUnit(_executableConnection, new PointsScoringSystemUpdate());
+                if (!IsRaceSoundsFixApplied && IsRaceSoundsFixRequired) ApplyEnhancementUnit(_executableConnection, new RaceSoundsFix());
+                if (!IsYellowFlagFixApplied && IsYellowFlagFixRequired) ApplyEnhancementUnit(_executableConnection, new YellowFlagFix());
 
                 ExportTeams();
                 ExportDrivers();
@@ -457,6 +484,15 @@ namespace Data.Database.Executable
             }
 
             return true;
+        }
+
+        public static void ApplyEnhancementUnit(ExecutableConnection executableConnection, IDataPatcherUnitBase enhancementUnit)
+        {
+            var unitInstructions = enhancementUnit.GetModifiedInstructions();
+            foreach (var item in unitInstructions)
+            {
+                executableConnection.WriteByteArray(item.Location, item.InstructionSet);
+            }
         }
     }
 }
