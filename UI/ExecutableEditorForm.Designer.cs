@@ -125,9 +125,6 @@
             this.fuelCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TracksTabPage = new System.Windows.Forms.TabPage();
             this.TracksDataGridView = new System.Windows.Forms.DataGridView();
-            this.trackCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.ProgramOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localResourceIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resourceIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -153,6 +150,9 @@
             this.rainDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.windDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trackCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.ProgramOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.MainTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
             this.GameConfigurationGroupBox.SuspendLayout();
@@ -226,7 +226,6 @@
             this.GameConfigurationGroupBox.TabIndex = 17;
             this.GameConfigurationGroupBox.TabStop = false;
             this.GameConfigurationGroupBox.Text = "Game Configuration";
-            this.GameConfigurationGroupBox.Visible = false;
             // 
             // DisablePitExitPriorityCheckBox
             // 
@@ -1032,14 +1031,6 @@
             this.TracksDataGridView.TabIndex = 0;
             this.TracksDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TracksDataGridView_CellClick);
             // 
-            // trackCollectionBindingSource
-            // 
-            this.trackCollectionBindingSource.DataSource = typeof(Core.Entities.Executable.Track.Track);
-            // 
-            // FolderBrowserDialog
-            // 
-            this.FolderBrowserDialog.ShowNewFolderButton = false;
-            // 
             // idDataGridViewTextBoxColumn2
             // 
             this.idDataGridViewTextBoxColumn2.DataPropertyName = "Id";
@@ -1200,6 +1191,14 @@
             this.windDataGridViewTextBoxColumn.DataPropertyName = "Wind";
             this.windDataGridViewTextBoxColumn.HeaderText = "Wind";
             this.windDataGridViewTextBoxColumn.Name = "windDataGridViewTextBoxColumn";
+            // 
+            // trackCollectionBindingSource
+            // 
+            this.trackCollectionBindingSource.DataSource = typeof(Core.Entities.Executable.Track.Track);
+            // 
+            // FolderBrowserDialog
+            // 
+            this.FolderBrowserDialog.ShowNewFolderButton = false;
             // 
             // ExecutableEditorForm
             // 

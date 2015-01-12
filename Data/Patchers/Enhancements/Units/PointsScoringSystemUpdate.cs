@@ -15,7 +15,7 @@ namespace Data.Patchers.Enhancements.Units
 
             UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
-                Location = 0x0,
+                Position = 0x0,
                 InstructionSet = new byte[]
                 {
                     0x90    // nop
@@ -24,7 +24,7 @@ namespace Data.Patchers.Enhancements.Units
 
             ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
-                Location = 0x0,
+                Position = 0x0,
                 InstructionSet = new byte[]
                 {
                     0x90    // nop

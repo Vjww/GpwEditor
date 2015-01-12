@@ -3,7 +3,7 @@ namespace Data.Patchers
 {
     public class DataPatcherUnitTask
     {
-        public long Location;
+        public int Position;
         public byte[] InstructionSet;
     }
 }

@@ -331,9 +331,7 @@ namespace UI
         {
             // Update controls to reflect applied enhancement units
             DisableColourModeCheckBox.Checked = data.IsDisplayModeFixApplied;
-            DisableGameCdCheckBox.Checked = data.IsGameCdFixApplied;
             DisableYellowFlagPenaltiesCheckBox.Checked = data.IsYellowFlagFixApplied;
-            PointsScoringSystemDefaultRadioButton.Checked = data.IsPointsScoringSystemUpdatedApplied;
 
             // Move data from collections into grids
             StringTableGridView.DataSource = data.StringTable;
@@ -377,8 +375,9 @@ namespace UI
         private void PopulateRecords(ExecutableDatabase data)
         {
             // Indicate whether enhancement unit is to be applied
+            data.IsDisplayModeFixRequired = DisableColourModeCheckBox.Checked;
+            data.IsYellowFlagFixRequired = DisableYellowFlagPenaltiesCheckBox.Checked;
 
-            
             // Move data from grids into collections
             data.StringTable = StringTableGridView.DataSource as IdentityCollection;
             data.Teams = TeamsDataGridView.DataSource as TeamCollection;

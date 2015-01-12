@@ -79,7 +79,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="IntegrationTasks\GpwExe\Text\gpwmod_carperformancecalc.txt" />
+    <Content Include="IntegrationTasks\GpwExe\Text\x_gpwmod_carperformancecalc.txt" />
     <Content Include="IntegrationTasks\GpwExe\Text\gpwmod_handlingpercentagecalc_ai.txt" />
     <Content Include="IntegrationTasks\GpwExe\Text\gpwmod_handlingpercentagecalc_player.txt" />
     <Content Include="IntegrationTasks\GpwExe\Text\gpwmod_racepoints.txt" />
@@ -89,8 +89,6 @@
     <Content Include="IntegrationTasks\GpwExe\Text\PitStopBug\pitbox.txt" />
     <Content Include="IntegrationTasks\GpwExe\Text\PitStopBug\pitstop.asm.txt" />
     <Content Include="IntegrationTasks\GpwExe\Text\PitStopBug\pitstop.c.txt" />
-    <Content Include="IntegrationTasks\GpwExe\Text\SoundFix\sound_errors.txt" />
-    <Content Include="IntegrationTasks\GpwExe\Text\SoundFix\waveformat_specs.txt" />
     <Content Include="IntegrationTasks\GpwXpExe\Text\asm_handling_ai.txt" />
     <Content Include="IntegrationTasks\GpwXpExe\Text\asm_handling_ai_new.txt" />
     <Content Include="IntegrationTasks\GpwXpExe\Text\asm_handling_player.txt" />
@@ -108,24 +106,22 @@
   <ItemGroup>
     <None Include="IntegrationTasks\BackupIdb\BackupIdb.zip" />
     <None Include="IntegrationTasks\GpwExe\Binary\gpwidb.zip" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpwfix_designbyengineer.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpwfix_displaymodecheck.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpwmod_carperformancecalc.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\x_gpwfix_designbyengineer.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\a_gpwfix_displaymodecheck.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\a_gpwmod_carperformancecalc.hbk" />
     <None Include="IntegrationTasks\GpwExe\Text\gpwmod_handlingpercentagecalc.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpw_factory.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpw_fastestlaps.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpw_hof.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpw_misc.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpw_soundfix.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpw_sponsors.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpw_staffcostandeffort.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpw_suppliers.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpw_teammisc.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpw_teamsdrivers.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpw_viewportdefaults.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpw_yellowflagfix.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\SoundFix\DSBUFFERDESC Structure.website" />
-    <None Include="IntegrationTasks\GpwExe\Text\SoundFix\WAVEFORMATEX Structure.website" />
+    <None Include="IntegrationTasks\GpwExe\Text\b_gpw_factory.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\x_gpw_fastestlaps.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\b_gpw_hof.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\b_gpw_misc.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\a_gpw_soundfix.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\b_gpw_sponsors.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\b_gpw_staffcostandeffort.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\b_gpw_suppliers.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\b_gpw_teammisc.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\a_gpw_teamsdrivers.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\b_gpw_viewportdefaults.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\a_gpw_yellowflagfix.hbk" />
     <None Include="IntegrationTasks\GpwXpExe\Binary\gpwxpidb.zip" />
     <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_gameplay.hbk" />
     <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_misc.hbk" />
@@ -137,6 +133,7 @@
     <None Include="IntegrationTasks\Release103\gpwv103idb.zip" />
     <None Include="IntegrationTasks\Release103\gpw_103testing.zip" />
     <None Include="Notes\Executable\LoadEffectiveAddressCalc.xlsx" />
+    <None Include="Notes\Grand Prix World Technical Document.docx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="IntegrationTasks\Release102\" />

@@ -11,7 +11,7 @@ namespace Data.Patchers.Enhancements.Units
         {
             UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
-                Location = 0x00444E12,
+                Position = 0x00444E12,
                 InstructionSet = new byte[]
                 {
                     0x0F, 0x85, 0x3D, 0x00, 0x00, 0x00  // jnz loc_444E55
@@ -20,7 +20,7 @@ namespace Data.Patchers.Enhancements.Units
 
             ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
-                Location = 0x00444E12,
+                Position = 0x00444E12,
                 InstructionSet = new byte[]
                 {
                     0xE9, 0x3E, 0x00, 0x00, 0x00,   // jmp loc_444E55
