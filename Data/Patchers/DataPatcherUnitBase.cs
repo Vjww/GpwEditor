@@ -4,8 +4,8 @@ namespace Data.Patchers
 {
     public interface IDataPatcherUnitBase
     {
-        List<DataPatcherUnitTask> GetUnmodifiedInstructions();
-        List<DataPatcherUnitTask> GetModifiedInstructions();
+        IEnumerable<DataPatcherUnitTask> GetUnmodifiedInstructions();
+        IEnumerable<DataPatcherUnitTask> GetModifiedInstructions();
     }
 
     public class DataPatcherUnitBase : IDataPatcherUnitBase
@@ -19,12 +19,12 @@ namespace Data.Patchers
             ModifiedInstructions = new List<DataPatcherUnitTask>();
         }
 
-        public List<DataPatcherUnitTask> GetUnmodifiedInstructions()
+        public IEnumerable<DataPatcherUnitTask> GetUnmodifiedInstructions()
         {
             return UnmodifiedInstructions;
         }
 
-        public List<DataPatcherUnitTask> GetModifiedInstructions()
+        public IEnumerable<DataPatcherUnitTask> GetModifiedInstructions()
         {
             return ModifiedInstructions;
         }
