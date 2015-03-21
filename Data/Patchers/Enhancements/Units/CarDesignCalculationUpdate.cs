@@ -7,18 +7,20 @@
     /// (25%) and the Technical Director (75%) and multiplies this value by a
     /// percentage weighting (shown in the brackets).
     /// 
-    /// For player teams a random aspect is introduced into the calculation to
-    /// reduce the final percentage by anywhere between 0% and 10%.
+    /// Task A: For player teams a random aspect is introduced into the
+    /// calculation to reduce the final percentage by anywhere between 
+    /// 0% and 10%.
     /// 
-    /// For AI teams a random aspect is introduced into the calculation to
-    /// adjust the final percentage by +/- 10%.
+    /// Task B: For AI teams a random aspect is introduced into the calculation
+    /// to adjust the final percentage by +/- 10%.
     /// 
     /// </summary>
     public class CarDesignCalculationUpdate : DataPatcherUnitBase
     {
         public CarDesignCalculationUpdate()
         {
-            // Task A
+            // Task A (player team)
+            #region Task A Unmodified
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
                 Position = 0x0050C449,
@@ -335,7 +337,9 @@
                     0xC3                                        // .text:0050C7A0                 retn
                 }
             });
+            #endregion
 
+            #region Task A Modified
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
                 Position = 0x0050C449,
@@ -781,9 +785,11 @@
                     0x90                                        // .text:0050C7A0                 db  90h ; É
                 }
             });
+            #endregion
             // End
 
-            // Task B
+            // Task B (AI teams)
+            #region Task B Unmodified
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
                 Position = 0x0050D41E,
@@ -1154,7 +1160,9 @@
                     0xC3                                                        // .text:0050D9F1                 retn
                 }
             });
+            #endregion
 
+            #region Task B Modified
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
                 Position = 0x0050D41E,
@@ -2512,6 +2520,7 @@
                     0x90                                        // .text:0050D9F1                 db  90h ; É
                 }
             });
+            #endregion
             // End
         }
     }

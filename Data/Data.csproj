@@ -52,6 +52,7 @@
     <Compile Include="Patchers\CodeShifting\Units\PersonnelData.cs" />
     <Compile Include="Patchers\CodeShifting\Units\TeamData.cs" />
     <Compile Include="Patchers\CodeShifting\Units\TrackData.cs" />
+    <Compile Include="Patchers\CompareTo103Patcher\CompareTo103Patcher.cs" />
     <Compile Include="Patchers\DataPatcherUnitBase.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -60,9 +61,13 @@
     <Compile Include="Patchers\DataPatcherUnitTask.cs" />
     <Compile Include="Patchers\Enhancements\Units\DisplayModeFix.cs" />
     <Compile Include="Patchers\Enhancements\Units\GameCdFix.cs" />
+    <Compile Include="Patchers\Enhancements\Units\PointsSystemUnmodified.cs" />
+    <Compile Include="Patchers\Enhancements\Units\PointsSystemF1201020xxUpdate.cs" />
+    <Compile Include="Patchers\Enhancements\Units\PointsSystemF119811990Update.cs" />
+    <Compile Include="Patchers\Enhancements\Units\PointsSystemF120032009Update.cs" />
     <Compile Include="Patchers\Enhancements\Units\RaceSoundsFix.cs" />
     <Compile Include="Patchers\Enhancements\Units\YellowFlagFix.cs" />
-    <Compile Include="Patchers\Enhancements\Units\PointsScoringSystemUpdate.cs" />
+    <Compile Include="Patchers\Enhancements\Units\PointsSystemF119912002Update.cs" />
     <Compile Include="Patchers\JumpBypassPatcher\JumpBypassPatcher.cs" />
     <Compile Include="Patchers\SwitchIdiomPatcher\SwitchIdiomPatcher.cs" />
     <Compile Include="ValueMapping\Executable\Team\Driver.cs" />
@@ -80,9 +85,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IntegrationTasks\GpwExe\Text\x_gpwmod_carperformancecalc.txt" />
-    <Content Include="IntegrationTasks\GpwExe\Text\gpwmod_handlingpercentagecalc_ai.txt" />
-    <Content Include="IntegrationTasks\GpwExe\Text\gpwmod_handlingpercentagecalc_player.txt" />
-    <Content Include="IntegrationTasks\GpwExe\Text\gpwmod_racepoints.txt" />
+    <Content Include="IntegrationTasks\GpwExe\Text\x_gpwmod_handlingpercentagecalc_ai.txt" />
+    <Content Include="IntegrationTasks\GpwExe\Text\x_gpwmod_handlingpercentagecalc_player.txt" />
+    <Content Include="IntegrationTasks\GpwExe\Text\x_gpwmod_racepoints.txt" />
     <Content Include="IntegrationTasks\GpwExe\Text\PerformanceCurve\gpwhandling.png" />
     <Content Include="IntegrationTasks\GpwExe\Text\PerformanceCurve\performance_curve.txt" />
     <Content Include="IntegrationTasks\GpwExe\Text\PitStopBug\pit.txt" />
@@ -109,7 +114,7 @@
     <None Include="IntegrationTasks\GpwExe\Text\x_gpwfix_designbyengineer.hbk" />
     <None Include="IntegrationTasks\GpwExe\Text\a_gpwfix_displaymodecheck.hbk" />
     <None Include="IntegrationTasks\GpwExe\Text\a_gpwmod_carperformancecalc.hbk" />
-    <None Include="IntegrationTasks\GpwExe\Text\gpwmod_handlingpercentagecalc.hbk" />
+    <None Include="IntegrationTasks\GpwExe\Text\a_gpwmod_handlingpercentagecalc.hbk" />
     <None Include="IntegrationTasks\GpwExe\Text\b_gpw_factory.hbk" />
     <None Include="IntegrationTasks\GpwExe\Text\x_gpw_fastestlaps.hbk" />
     <None Include="IntegrationTasks\GpwExe\Text\b_gpw_hof.hbk" />
