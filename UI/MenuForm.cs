@@ -56,6 +56,24 @@ namespace UI
             Settings.Default.Save();
         }
 
+
+        private void UpgradeGameButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Hide parent form and show child form
+                var parentForm = this;
+                var childForm = new UpgradeGameForm();
+                childForm.Show(parentForm);
+                parentForm.Hide();
+                childForm.FormClosing += delegate { parentForm.Show(); };
+            }
+            catch (Exception)
+            {
+                Close();
+            }
+        }
+
         private void GameEditorButton_Click(object sender, EventArgs e)
         {
             try

@@ -38,12 +38,13 @@
             this.SettingsButton = new System.Windows.Forms.Button();
             this.MenuToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.GpwFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.UpgradeGameButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // GameEditorButton
             // 
-            this.GameEditorButton.Location = new System.Drawing.Point(8, 104);
+            this.GameEditorButton.Location = new System.Drawing.Point(8, 136);
             this.GameEditorButton.Name = "GameEditorButton";
             this.GameEditorButton.Size = new System.Drawing.Size(176, 23);
             this.GameEditorButton.TabIndex = 0;
@@ -55,7 +56,7 @@
             // SaveGameEditorButton
             // 
             this.SaveGameEditorButton.Enabled = false;
-            this.SaveGameEditorButton.Location = new System.Drawing.Point(8, 136);
+            this.SaveGameEditorButton.Location = new System.Drawing.Point(8, 168);
             this.SaveGameEditorButton.Name = "SaveGameEditorButton";
             this.SaveGameEditorButton.Size = new System.Drawing.Size(176, 23);
             this.SaveGameEditorButton.TabIndex = 1;
@@ -79,7 +80,7 @@
             // LanguageFileEditorButton
             // 
             this.LanguageFileEditorButton.Enabled = false;
-            this.LanguageFileEditorButton.Location = new System.Drawing.Point(8, 168);
+            this.LanguageFileEditorButton.Location = new System.Drawing.Point(8, 200);
             this.LanguageFileEditorButton.Name = "LanguageFileEditorButton";
             this.LanguageFileEditorButton.Size = new System.Drawing.Size(176, 23);
             this.LanguageFileEditorButton.TabIndex = 2;
@@ -124,16 +125,27 @@
             // 
             this.GpwFolderBrowserDialog.ShowNewFolderButton = false;
             // 
+            // UpgradeGameButton
+            // 
+            this.UpgradeGameButton.Location = new System.Drawing.Point(8, 104);
+            this.UpgradeGameButton.Name = "UpgradeGameButton";
+            this.UpgradeGameButton.Size = new System.Drawing.Size(176, 23);
+            this.UpgradeGameButton.TabIndex = 0;
+            this.UpgradeGameButton.Text = "Upgrade Game";
+            this.UpgradeGameButton.UseVisualStyleBackColor = true;
+            this.UpgradeGameButton.Click += new System.EventHandler(this.UpgradeGameButton_Click);
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 200);
+            this.ClientSize = new System.Drawing.Size(384, 236);
             this.Controls.Add(this.LaunchGameButton);
             this.Controls.Add(this.LanguageFileEditorButton);
             this.Controls.Add(this.RegistryKeysButton);
             this.Controls.Add(this.SaveGameEditorButton);
             this.Controls.Add(this.SettingsButton);
+            this.Controls.Add(this.UpgradeGameButton);
             this.Controls.Add(this.GameEditorButton);
             this.Controls.Add(this.LogoPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -158,6 +170,7 @@
         private System.Windows.Forms.Button SettingsButton;
         private System.Windows.Forms.ToolTip MenuToolTip;
         private System.Windows.Forms.FolderBrowserDialog GpwFolderBrowserDialog;
+        private System.Windows.Forms.Button UpgradeGameButton;
     }
 }
 
