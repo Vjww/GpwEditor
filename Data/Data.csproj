@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Data</RootNamespace>
     <AssemblyName>Data</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,12 +42,8 @@
   <ItemGroup>
     <Compile Include="Database\Executable\ExecutableData_OutofDate.cs" />
     <Compile Include="Database\Executable\ExecutableDatabase.cs" />
-    <Compile Include="Enums\StreamDirectionType.cs" />
-    <Compile Include="FileConnection\BinaryFileConnectionBase.cs" />
     <Compile Include="FileConnection\ExecutableConnection.cs" />
-    <Compile Include="FileConnection\IFileConnection.cs" />
     <Compile Include="FileConnection\LanguageConnection.cs" />
-    <Compile Include="FileConnection\TextFileConnectionBase.cs" />
     <Compile Include="Patchers\CodeShifting\CodeShiftingPatcher.cs" />
     <Compile Include="Patchers\CodeShifting\Units\DriverData.cs" />
     <Compile Include="Patchers\CodeShifting\Units\PersonnelData.cs" />
@@ -78,6 +75,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common\Common.csproj">
+      <Project>{7595e9e1-d326-472b-ac4a-94e87e37c594}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{3bb7682f-efaa-42a9-8151-db10b7a96822}</Project>
       <Name>Core</Name>
@@ -142,6 +143,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="IntegrationTasks\Release102\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

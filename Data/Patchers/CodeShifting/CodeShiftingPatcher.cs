@@ -2,8 +2,9 @@
 // var functionInstructions = new byte[5] { 0xE8, 0x00, 0x00, 0x00, 0x00 };
 // Array.Copy(BitConverter.GetBytes(positionOfNewFunction - (nopPositions[0] + 5)), 0, functionInstructions, 1, 4);
 // executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(nopPositions[0]), functionInstructions);
+
+using Common.Enums;
 using Core.Helpers;
-using Data.Enums;
 using Data.FileConnection;
 using Data.Patchers.CodeShifting.Units;
 

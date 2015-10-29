@@ -1,9 +1,9 @@
-﻿using Core.Helpers;
-using Data.Enums;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Common.Enums;
+using Core.Helpers;
 using Data.FileConnection;
 using Data.Patchers.Enhancements.Units;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Data.Patchers.CompareTo103Patcher
 {

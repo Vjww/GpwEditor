@@ -1,9 +1,9 @@
-﻿using Core.Helpers;
-using Data.Enums;
-using Data.FileConnection;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using Common.Enums;
+using Core.Helpers;
+using Data.FileConnection;
 
 namespace Data.Patchers.JumpBypassPatcher
 {

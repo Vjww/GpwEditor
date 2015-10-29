@@ -1,5 +1,5 @@
 ﻿using System;
-using Data.Enums;
+using Common.Enums;
 using Data.FileConnection;
 
 namespace Data.Patchers.SwitchIdiomPatcher

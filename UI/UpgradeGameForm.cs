@@ -1,16 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Core.Helpers;
 using Core.Properties;
 using System;
 using System.Windows.Forms;
-using Data.Enums;
+using Common.Enums;
 using Data.FileConnection;
-using Data.Patchers;
 using Data.Patchers.CodeShifting;
 using Data.Patchers.Enhancements.Units;
 using Data.Patchers.JumpBypassPatcher;
-using Data.Patchers.SwitchIdiomPatcher;
 using UI.Properties;
 
 namespace UI
@@ -134,25 +131,26 @@ namespace UI
                 {
                 }
 
-                // File connection
-                ExecutableConnection executableConnection = null;
+                // Commented below due to unknown error - investigation and use to be identified
+                //// File connection
+                //ExecutableConnection executableConnection = null;
 
 
-                foreach (var item in enhancementUnits)
-                {
-                    var modifiedInstructions = item.GetModifiedInstructions();
-                    foreach (var task in modifiedInstructions)
-                    {
-                        var currentInstructions =
-                            executableConnection.ReadByteArray(
-                                InstructionHelper.CalculateRealPositionFromVirtualPosition(task.Position),
-                                task.InstructionSet.Length);
-                        if (!currentInstructions.SequenceEqual(task.InstructionSet))
-                        {
-                            //return false;
-                        }
-                    }
-                }
+                //foreach (var item in enhancementUnits)
+                //{
+                //    var modifiedInstructions = item.GetModifiedInstructions();
+                //    foreach (var task in modifiedInstructions)
+                //    {
+                //        var currentInstructions =
+                //            executableConnection.ReadByteArray(
+                //                InstructionHelper.CalculateRealPositionFromVirtualPosition(task.Position),
+                //                task.InstructionSet.Length);
+                //        if (!currentInstructions.SequenceEqual(task.InstructionSet))
+                //        {
+                //            //return false;
+                //        }
+                //    }
+                //}
             }
             finally
             {
@@ -184,6 +182,9 @@ namespace UI
                         isDisableGameCdCheckBoxApplied = false;
                     }
                 }
+
+                // TODO verify below return is correct - added to fix build
+                return true;
             }
             finally
             {

@@ -1,7 +1,8 @@
-﻿using Core.Collections;
+﻿using Common.Enums;
+using Common.FileConnection;
+using Core.Collections;
 using Core.Entities;
 using Core.Extensions;
-using Data.Enums;
 using System;
 using System.Collections.Generic;
 
@@ -57,7 +58,7 @@ namespace Data.FileConnection
                     if (line.ToUpper().Contains(key))
                     {
                         // Extract string from between quotes
-                        var value = (line.Split(new Char[] { '"' }, 3))[1];
+                        var value = (line.Split(new char[] { '"' }, 3))[1];
 
                         var identity = new Identity
                         {

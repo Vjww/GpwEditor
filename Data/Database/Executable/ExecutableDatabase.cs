@@ -7,12 +7,12 @@ using Core.Entities.Executable.Team;
 using Core.Entities.Executable.Track;
 using Core.Extensions;
 using Core.Helpers;
-using Data.Enums;
 using Data.FileConnection;
 using Data.Patchers;
 using Data.Patchers.Enhancements.Units;
 using System;
 using System.Linq;
+using Common.Enums;
 
 namespace Data.Database.Executable
 {
@@ -447,7 +447,7 @@ namespace Data.Database.Executable
         {
             var resource = StringTable.SingleOrDefault(x => x.ResourceId == resourceId);
             if (resource == null)
-                throw new Exception(String.Format("Unable to find an string table entry matching the resource id {0}.", resourceId));
+                throw new Exception(string.Format("Unable to find an string table entry matching the resource id {0}.", resourceId));
 
             return resource.ResourceText;
         }
@@ -457,7 +457,7 @@ namespace Data.Database.Executable
             var resource = StringTable.SingleOrDefault(x => x.ResourceId == resourceId);
             
             if (resource == null)
-                throw new Exception(String.Format("Unable to find an string table entry matching the resource id {0}.", resourceId));
+                throw new Exception(string.Format("Unable to find an string table entry matching the resource id {0}.", resourceId));
 
             resource.ResourceText = resourceText;
         }
