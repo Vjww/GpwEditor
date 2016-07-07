@@ -1,26 +1,18 @@
-﻿using System.Linq;
-using Core.Helpers;
-using Core.Properties;
-using System;
+﻿using System;
 using System.Windows.Forms;
-using Common.Enums;
-using Data.FileConnection;
+using Core.Properties;
+using Data.Patchers;
 using Data.Patchers.CodeShifting;
 using Data.Patchers.Enhancements.Units;
+using Data.Patchers.GlobalUnlockPatcher;
 using Data.Patchers.JumpBypassPatcher;
+using Data.Patchers.SwitchIdiomPatcher;
 using UI.Properties;
 
 namespace UI
 {
     public partial class UpgradeGameForm : Form
     {
-        private bool isDisableGameCdCheckBoxApplied;
-        private bool isDisableColourModeApplied;
-        private bool isDisableYellowFlagPenaltiesApplied;
-        private bool isDisableMemoryResetForRaceSoundsApplied;
-        private bool isEnableCarHandlingDesignCalculationApplied;
-        private bool isEnableCarPerformanceRaceCalcuationApplied;
-
         public UpgradeGameForm()
         {
             InitializeComponent();
@@ -56,141 +48,145 @@ namespace UI
 
         private void UpgradeButton_Click(object sender, EventArgs e)
         {
-            var filePath = String.Empty;
-
-            // File connection
-            ExecutableConnection executableConnection = null;
+            const string executableFilePath = @"C:\Gpw\gpw.exe";
 
             try
             {
-                executableConnection = new ExecutableConnection();
-                executableConnection.Open(filePath, StreamDirectionType.Read);
+                var gameCdFix = new GameCdFix(executableFilePath);
+                var displayModeFix = new DisplayModeFix(executableFilePath);
+                var sampleAppFix = new SampleAppFix(executableFilePath);
+                var globalUnlockFix = new GlobalUnlockFix(executableFilePath);
+                var yellowFlagFix = new YellowFlagFix(executableFilePath);
+                var raceSoundsFix = new RaceSoundsFix(executableFilePath);
+                var pitExitPriorityFix = new PitExitPriorityFix(executableFilePath);
+                //var carDesignCalculationUpdate = new CarDesignCalculationUpdate(executableFilePath);
+                //var carHandlingPerformanceFix = new CarHandlingPerformanceFix(executableFilePath);
 
-                // Switch idiom patcher is only intended for use when disassembling.
-                // Code is included here if you wish to patch all users executables
-                // during an upgrade but this may introduce defects into the game.
+                var isDisableGameCdApplied = IsModifiedCodeApplied(gameCdFix);
+                var isDisableColourModeApplied = IsModifiedCodeApplied(displayModeFix);
+                var isDisableSampleAppApplied = IsModifiedCodeApplied(sampleAppFix);
+                var isDisableGlobalUnlockApplied = IsModifiedCodeApplied(globalUnlockFix);
+                var isDisableYellowFlagPenaltiesApplied = IsModifiedCodeApplied(yellowFlagFix);
+                var isDisableMemoryResetForRaceSoundsApplied = IsModifiedCodeApplied(raceSoundsFix);
+                var isDisablePitExitPriorityApplied = IsModifiedCodeApplied(pitExitPriorityFix);
+                //var isEnableCarHandlingDesignCalculationApplied = IsModifiedCodeApplied(carDesignCalculationUpdate);
+                //var isEnableCarPerformanceRaceCalcuationApplied = IsModifiedCodeApplied(carHandlingPerformanceFix);
+
+                //// Switch idiom patcher is only intended for use when disassembling.
+                //// Code is included here if you wish to patch all users executables
+                //// during an upgrade but this may introduce defects into the game.
                 //var switchIdiomPatcher = new SwitchIdiomPatcher();
-                //switchIdiomPatcher.Apply(filePath);
+                //switchIdiomPatcher.Apply(executableFilePath);
+                //
+                //// Free up space in executable by removing redundant jumping functions
+                //// Required for upgrade to be successful and cannot be reversed
+                //var jumpBypassPatcher = new JumpBypassPatcher();
+                //jumpBypassPatcher.Apply(executableFilePath);
+                //
+                //// Shift code around to consolidate and organise instructions and utilise free space
+                //// May add additional functionality to the game that cannot be reversed
+                //// Required for upgrade to be successful and cannot be reversed
+                //var codeShiftingPatcher = new CodeShiftingPatcher();
+                //codeShiftingPatcher.Apply(executableFilePath);
 
-                // Free up space in executable by removing redundant jumping functions
-                // Required for upgrade to be successful and cannot be reversed
-                var jumpBypassPatcher = new JumpBypassPatcher();
-                jumpBypassPatcher.Apply(filePath);
-
-                // Shift code around to consolidate and organise instructions and utilise free space
-                // May add additional functionality to the game that cannot be reversed
-                // Required for upgrade to be successful and cannot be reversed
-                var codeShiftingPatcher = new CodeShiftingPatcher();
-                codeShiftingPatcher.Apply(filePath);
-
-                // Optional and can be reversed
-                if (DisableGameCdCheckBox.Enabled)
+                if (isDisableGameCdApplied != DisableGameCdCheckBox.Checked)
                 {
-                    // Apply upgrade/downgrade
-                    var enhancementUnit = new GameCdFix();
-                    var enhancementUnitInstructions = DisableGameCdCheckBox.Checked ? enhancementUnit.GetModifiedInstructions() : enhancementUnit.GetUnmodifiedInstructions();
-                    foreach (var instructionsTask in enhancementUnitInstructions)
-                    {
-                        var currentInstructions = executableConnection.ReadByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(instructionsTask.Position),instructionsTask.InstructionSet.Length);
-
-                        // If current instructions do not equal upgrade/downgrade instructions
-                        if (!currentInstructions.SequenceEqual(instructionsTask.InstructionSet))
-                        {
-                            // Apply new instructions
-                        }
-                    }
+                    ApplyCode(new GameCdFix(executableFilePath), DisableGameCdCheckBox.Checked);
                 }
 
-                // Optional and can be reversed
-                if (DisableColourModeCheckBox.Checked)
+                if (isDisableColourModeApplied != DisableColourModeCheckBox.Checked)
                 {
+                    ApplyCode(new DisplayModeFix(executableFilePath), DisableColourModeCheckBox.Checked);
                 }
 
-                // Optional and can be reversed
-                if (DisableYellowFlagPenaltiesCheckBox.Checked)
+                if (isDisableSampleAppApplied != DisableSampleAppCheckBox.Checked)
                 {
+                    ApplyCode(new SampleAppFix(executableFilePath), DisableSampleAppCheckBox.Checked);
                 }
 
-                // Optional and can be reversed
-                if (DisableMemoryResetForRaceSoundsCheckbox.Checked)
+                if (isDisableGlobalUnlockApplied != DisableGlobalUnlockCheckBox.Checked)
                 {
+                    ApplyCode(new GlobalUnlockFix(executableFilePath), DisableGlobalUnlockCheckBox.Checked);
                 }
 
-                // Optional and can be reversed
-                if (DisablePitExitPriorityCheckBox.Checked)
+                if (isDisableYellowFlagPenaltiesApplied != DisableYellowFlagPenaltiesCheckBox.Checked)
                 {
+                    ApplyCode(new YellowFlagFix(executableFilePath), DisableYellowFlagPenaltiesCheckBox.Checked);
                 }
 
-                // Optional and can be reversed
-                if (EnableCarHandlingDesignCalculationCheckbox.Checked)
+                if (isDisableMemoryResetForRaceSoundsApplied != DisableMemoryResetForRaceSoundsCheckbox.Checked)
                 {
+                    ApplyCode(new RaceSoundsFix(executableFilePath), DisableMemoryResetForRaceSoundsCheckbox.Checked);
                 }
 
-                // Optional and can be reversed
-                if (EnableCarPerformanceRaceCalcuationCheckbox.Checked)
+                if (isDisablePitExitPriorityApplied != DisablePitExitPriorityCheckBox.Checked)
                 {
+                    ApplyCode(new PitExitPriorityFix(executableFilePath), DisablePitExitPriorityCheckBox.Checked);
                 }
 
-                // Commented below due to unknown error - investigation and use to be identified
-                //// File connection
-                //ExecutableConnection executableConnection = null;
-
-
-                //foreach (var item in enhancementUnits)
+                //if (isEnableCarHandlingDesignCalculationApplied != EnableCarHandlingDesignCalculationCheckbox.Checked)
                 //{
-                //    var modifiedInstructions = item.GetModifiedInstructions();
-                //    foreach (var task in modifiedInstructions)
-                //    {
-                //        var currentInstructions =
-                //            executableConnection.ReadByteArray(
-                //                InstructionHelper.CalculateRealPositionFromVirtualPosition(task.Position),
-                //                task.InstructionSet.Length);
-                //        if (!currentInstructions.SequenceEqual(task.InstructionSet))
-                //        {
-                //            //return false;
-                //        }
-                //    }
+                //    ApplyCode(new CarDesignCalculationUpdate(executableFilePath), EnableCarHandlingDesignCalculationCheckbox.Checked);
+                //}
+                //
+                //if (isEnableCarPerformanceRaceCalcuationApplied != EnableCarPerformanceRaceCalcuationCheckbox.Checked)
+                //{
+                //    ApplyCode(new CarHandlingPerformanceFix(executableFilePath), EnableCarPerformanceRaceCalcuationCheckbox.Checked);
                 //}
             }
-            finally
+            catch (Exception ex)
             {
-                if (executableConnection != null)
-                {
-                    executableConnection.Close();
-                }
+                MessageBox.Show("An error has occured:" + Environment.NewLine + Environment.NewLine + ex.Message);
             }
+            MessageBox.Show("Complete");
         }
 
-        private bool IsEnhancementUnitCurrentlyApplied(string filePath)
+        private static bool IsModifiedCodeApplied(IDataPatcherUnitBase dataPatcherUnitBase)
         {
-            // File connection
-            ExecutableConnection executableConnection = null;
-
-            try
+            if (dataPatcherUnitBase.IsCodeUnmodified())
             {
-                executableConnection = new ExecutableConnection();
-                executableConnection.Open(filePath, StreamDirectionType.Read);
-
-                var enhancementUnit = new GameCdFix();
-                var modifiedInstructions = enhancementUnit.GetModifiedInstructions();
-                foreach (var task in modifiedInstructions)
-                {
-                    // TODO
-                    var currentInstructions = executableConnection.ReadByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(task.Position), task.InstructionSet.Length);
-                    if (!currentInstructions.SequenceEqual(task.InstructionSet))
-                    {
-                        isDisableGameCdCheckBoxApplied = false;
-                    }
-                }
-
-                // TODO verify below return is correct - added to fix build
-                return true;
+                return false;
             }
-            finally
+
+            if (!dataPatcherUnitBase.IsCodeModified())
             {
-                if (executableConnection != null)
+                throw new Exception("Unknown code detected. Upgrade cancelled.");
+            }
+
+            // Therefore modified code is applied
+            return true;
+        }
+
+        private static void ApplyCode(IDataPatcherUnitBase dataPatcherUnitBase, bool applyModified)
+        {
+            if (applyModified)
+            {
+                if (dataPatcherUnitBase.IsCodeUnmodified())
                 {
-                    executableConnection.Close();
+                    dataPatcherUnitBase.ApplyModifiedCode();
+                }
+                else
+                {
+                    if (!dataPatcherUnitBase.IsCodeModified())
+                    {
+                        throw new Exception("Unknown code detected. Unable to apply modified code.");
+                    }
+                    throw new Exception("Modified code already applied.");
+                }
+            }
+            else
+            {
+                if (dataPatcherUnitBase.IsCodeModified())
+                {
+                    dataPatcherUnitBase.ApplyUnmodifiedCode();
+                }
+                else
+                {
+                    if (!dataPatcherUnitBase.IsCodeUnmodified())
+                    {
+                        throw new Exception("Unknown code detected. Unable to apply unmodified code.");
+                    }
+                    throw new Exception("Unmodified code already applied.");
                 }
             }
         }

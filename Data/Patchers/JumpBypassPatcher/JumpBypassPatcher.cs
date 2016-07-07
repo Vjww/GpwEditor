@@ -22,13 +22,12 @@ namespace Data.Patchers.JumpBypassPatcher
     /// function is detected. Calls to the jump functions will now immediately
     /// forward to the function called inside the jump function.
     /// 
-    /// Paste text file here...
-    /// 
     /// Code logic
     /// - Identifies all jump functions at the start of the file and the forwarding functions within
     /// - Scans the .text section for opcodes that reference the jump functions
     /// - Scans the .rdata and .data section for references to the jump functions
-    /// - Applies bypasses by overwritting references to jump functions with the forwarding function within
+    /// - Applies bypasses by overwriting references to jump functions with the forwarding function within
+    /// - Removes all jump functions at the start of the file by overwriting with nop codes
     /// 
     /// Notes
     /// - OpCode E8 uses a relative offset to locate the function, rather than a absolute value
@@ -328,6 +327,14 @@ namespace Data.Patchers.JumpBypassPatcher
                     executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(item.Position), BitConverter.GetBytes(item.Function));
                     totalBypassesStatsCounter++;
                 }
+
+                // Remove redundant jump functions
+                var nopByteArray = new byte[0x352F];
+                for (var i = 0; i < nopByteArray.Length; i++)
+                {
+                    nopByteArray[i] = 0x90; // Fill array with nop opcode
+                }
+                executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(jumpFunctionFirstReference), nopByteArray);
             }
             finally
             {

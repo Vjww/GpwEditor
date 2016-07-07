@@ -1,5 +1,4 @@
-﻿
-namespace Data.Patchers.Enhancements.Units
+﻿namespace Data.Patchers.Enhancements.Units
 {
     /// <summary>
     /// Modify the code to remove rounding on the car handling value to
@@ -21,12 +20,12 @@ namespace Data.Patchers.Enhancements.Units
     /// </summary>
     public class CarHandlingPerformanceFix : DataPatcherUnitBase
     {
-        public CarHandlingPerformanceFix()
+        public CarHandlingPerformanceFix(string executableFilePath) : base(executableFilePath)
         {
             UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
-                Position = 0x0053656B,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x0053656B,
+                Instructions = new byte[]
                 {
                                                                 //                                ; divide value by 10
                     0xB9, 0x0A, 0x00, 0x00, 0x00,               // .text:0053656B                 mov     ecx, 0Ah
@@ -60,8 +59,8 @@ namespace Data.Patchers.Enhancements.Units
 
             ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
-                Position = 0x0053656B,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x0053656B,
+                Instructions = new byte[]
                 {
                                                                 //                                ; move car handling value
                     0x90, 0x90, 0x90, 0x90, 0x90,               // .text:0053656B                 {nop}

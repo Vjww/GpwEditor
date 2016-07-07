@@ -1,29 +1,29 @@
 ﻿namespace Data.Patchers.Enhancements.Units
 {
     /// <summary>
-    /// Modify the code to perform an unconditional jump to protect
-    /// the player from receiving an ignored yellow flag penalty.
+    /// Modify the code to perform an unconditional jump to ignore
+    /// a failed graphics check on Windows XP or higher.
     /// </summary>
-    public class YellowFlagFix : DataPatcherUnitBase
+    public class SampleAppFix : DataPatcherUnitBase
     {
-        public YellowFlagFix(string executableFilePath) : base(executableFilePath)
+        public SampleAppFix(string executableFilePath) : base(executableFilePath)
         {
             UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
-                VirtualPosition = 0x00444E12,
+                VirtualPosition = 0x0043A10C,
                 Instructions = new byte[]
                 {
-                    0x0F, 0x85, 0x3D, 0x00, 0x00, 0x00  // jnz loc_444E55
+                    0x0F, 0x8D, 0x66, 0x00, 0x00, 0x00  // jnz loc_43A178
                 }
             });
 
             ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
-                VirtualPosition = 0x00444E12,
+                VirtualPosition = 0x0043A10C,
                 Instructions = new byte[]
                 {
                     0x90,                           // nop
-                    0xE9, 0x3D, 0x00, 0x00, 0x00    // jmp loc_444E55
+                    0xE9, 0x66, 0x00, 0x00, 0x00    // jmp loc_43A178
                 }
             });
         }

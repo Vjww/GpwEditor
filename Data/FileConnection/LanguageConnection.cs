@@ -33,8 +33,7 @@ namespace Data.FileConnection
                 throw new Exception("Stream direction must be write.");
 
             // Generate string list from identity collection
-            var stringList = new List<string>();
-            stringList = ConvertIdentityCollectionToStringList(stringTable);
+            var stringList = ConvertIdentityCollectionToStringList(stringTable);
 
             // Write strings to file
             foreach (var line in stringList)
@@ -58,7 +57,7 @@ namespace Data.FileConnection
                     if (line.ToUpper().Contains(key))
                     {
                         // Extract string from between quotes
-                        var value = (line.Split(new char[] { '"' }, 3))[1];
+                        var value = (line.Split(new[] { '"' }, 3))[1];
 
                         var identity = new Identity
                         {
@@ -88,7 +87,7 @@ namespace Data.FileConnection
             return result;
         }
 
-        private static List<string> ConvertIdentityCollectionToStringList(IdentityCollection stringTable)
+        private static IEnumerable<string> ConvertIdentityCollectionToStringList(IdentityCollection stringTable)
         {
             var result = new List<string>();
 

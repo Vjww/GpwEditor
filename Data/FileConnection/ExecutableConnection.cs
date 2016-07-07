@@ -1,5 +1,4 @@
-﻿
-using Common.FileConnection;
+﻿using Common.FileConnection;
 
 namespace Data.FileConnection
 {

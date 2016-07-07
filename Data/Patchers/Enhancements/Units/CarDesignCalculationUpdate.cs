@@ -17,14 +17,14 @@
     /// </summary>
     public class CarDesignCalculationUpdate : DataPatcherUnitBase
     {
-        public CarDesignCalculationUpdate()
+        public CarDesignCalculationUpdate(string executableFilePath) : base(executableFilePath)
         {
             // Task A (player team)
             #region Task A Unmodified
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
-                Position = 0x0050C449,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x0050C449,
+                Instructions = new byte[]
                 {
                                                                 // .text:0050C449 var_8           = dword ptr -8
                                                                 // .text:0050C449 var_4           = dword ptr -4
@@ -342,8 +342,8 @@
             #region Task A Modified
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
-                Position = 0x0050C449,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x0050C449,
+                Instructions = new byte[]
                 {
                                                                 // .text:0050C449 var_8           = dword ptr -8
                                                                 // .text:0050C449 var_4           = dword ptr -4
@@ -792,8 +792,8 @@
             #region Task B Unmodified
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
-                Position = 0x0050D41E,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x0050D41E,
+                Instructions = new byte[]
                 {
                                                                                 // .text:0050D41E var_1F0         = dword ptr -1F0h
                                                                                 // .text:0050D41E var_1EC         = dword ptr -1ECh
@@ -1165,8 +1165,8 @@
             #region Task B Modified
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
-                Position = 0x0050D41E,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x0050D41E,
+                Instructions = new byte[]
                 {
                                                                 // .text:0050D41E var_10          = dword ptr -10h
                                                                 // .text:0050D41E var_C           = dword ptr -0Ch

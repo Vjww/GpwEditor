@@ -7,13 +7,13 @@
     /// </summary>
     public class GameCdFix : DataPatcherUnitBase
     {
-        public GameCdFix()
+        public GameCdFix(string executableFilePath) : base(executableFilePath)
         {
             // Task A
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
-                Position = 0x0043989D,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x0043989D,
+                Instructions = new byte[]
                 {
                     0x0F, 0x85  // jnz
                 }
@@ -21,8 +21,8 @@
 
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
-                Position = 0x0043989D,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x0043989D,
+                Instructions = new byte[]
                 {
                     0x90,       // nop
                     0xE9        // jmp
@@ -33,8 +33,8 @@
             // Task B
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
-                Position = 0x004398E3,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x004398E3,
+                Instructions = new byte[]
                 {
                     0x0F, 0x85  // jnz
                 }
@@ -42,8 +42,8 @@
 
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
-                Position = 0x004398E3,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x004398E3,
+                Instructions = new byte[]
                 {
                     0x90,       // nop
                     0xE9        // jmp
@@ -54,8 +54,8 @@
             // Task C
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
-                Position = 0x0043997A,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x0043997A,
+                Instructions = new byte[]
                 {
                     0x0F, 0x84  // jz
                 }
@@ -63,8 +63,8 @@
 
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
-                Position = 0x0043997A,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x0043997A,
+                Instructions = new byte[]
                 {
                     0x90,       // nop
                     0xE9        // jmp

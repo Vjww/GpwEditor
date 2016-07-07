@@ -331,6 +331,7 @@ namespace UI
         {
             // Update controls to reflect applied enhancement units
             DisableColourModeCheckBox.Checked = data.IsDisplayModeFixApplied;
+            // TODO DisableSampleAppTestCheckBox.Checked = data.IsSampleAppFixApplied;
             DisableYellowFlagPenaltiesCheckBox.Checked = data.IsYellowFlagFixApplied;
 
             // Move data from collections into grids

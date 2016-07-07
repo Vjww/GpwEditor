@@ -1,16 +1,23 @@
-﻿namespace Data.Patchers.Enhancements.Units
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
+namespace Data.Patchers.Enhancements.Units
 {
     /// <summary>
     /// The unmodified code that awards race points to finishers.
     /// </summary>
-    public class PointsSystemUnmodified : DataPatcherUnitBase
+    public class PointsSystemUnmodified
     {
+        public readonly ICollection<DataPatcherUnitTask> UnmodifiedInstructions;
+
         public PointsSystemUnmodified()
         {
+            UnmodifiedInstructions = new Collection<DataPatcherUnitTask>();
+
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
-                Position = 0x005B8C5D,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x005B8C5D,
+                Instructions = new byte[]
                 {
                                                                 // .text:005B8C5D var_28          = dword ptr -28h
                                                                 // .text:005B8C5D var_24          = dword ptr -24h

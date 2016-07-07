@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace Data.Patchers.Enhancements.Units
+﻿namespace Data.Patchers.Enhancements.Units
 {
     /// <summary>
     /// Modify the code to change the race points awarded to one or all
@@ -23,19 +21,23 @@ namespace Data.Patchers.Enhancements.Units
     /// </summary>
     public class PointsSystemF1201020xxUpdate : DataPatcherUnitBase
     {
-        public PointsSystemF1201020xxUpdate()
+        public PointsSystemF1201020xxUpdate(string executableFilePath) : base(executableFilePath)
         {
-            var dataPatcherUnitTask = new PointsSystemUnmodified().GetUnmodifiedInstructions().Single();
-            UnmodifiedInstructions.Add(new DataPatcherUnitTask
+            // Copy unmodified instructions from parent source
+            var pointsSystemUnmodified = new PointsSystemUnmodified();
+            foreach (var dataPatcherUnitTask in pointsSystemUnmodified.UnmodifiedInstructions)
             {
-                Position = dataPatcherUnitTask.Position,
-                InstructionSet = dataPatcherUnitTask.InstructionSet
-            });
+                UnmodifiedInstructions.Add(new DataPatcherUnitTask
+                {
+                    VirtualPosition = dataPatcherUnitTask.VirtualPosition,
+                    Instructions = dataPatcherUnitTask.Instructions
+                });
+            }
 
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
-                Position = 0x005B8C5D,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x005B8C5D,
+                Instructions = new byte[]
                 {
                                                                                         // .text:005B8C5D var_68          = dword ptr -68h      ; v1 (Points base offset)
                                                                                         // .text:005B8C5D var_64          = dword ptr -64h      ; Points for  1st position

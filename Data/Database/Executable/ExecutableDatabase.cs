@@ -36,6 +36,7 @@ namespace Data.Database.Executable
         public bool IsGameCdFixApplied { get; private set; }
         public bool IsPointsScoringSystemUpdatedApplied { get; private set; }
         public bool IsRaceSoundsFixApplied { get; private set; }
+        public bool IsSampleAppFixApplied { get; private set; }
         public bool IsYellowFlagFixApplied { get; private set; }
 
         public bool IsCarDesignCalculationUpdateRequired { get; set; }
@@ -44,6 +45,7 @@ namespace Data.Database.Executable
         public bool IsGameCdFixRequired { get; set; }
         public bool IsPointsScoringSystemUpdatedRequired { get; set; }
         public bool IsRaceSoundsFixRequired { get; set; }
+        public bool IsSampleAppFixRequired { get; set; }
         public bool IsYellowFlagFixRequired { get; set; }
 
         public TeamCollection Teams { get; set; }
@@ -69,13 +71,14 @@ namespace Data.Database.Executable
                 StringTable = _languageConnection.Load();
 
                 // Determine whether enhancement units are applied or original code is unmodified
-                //IsCarDesignCalculationUpdateApplied = IsEnhancementUnitApplied(_executableConnection, new CarDesignCalculationUpdate());
-                //IsCarHandlingPerformanceFixApplied = IsEnhancementUnitApplied(_executableConnection, new CarHandlingPerformanceFix());
-                IsDisplayModeFixApplied = IsEnhancementUnitApplied(_executableConnection, new DisplayModeFix());
-                //IsGameCdFixApplied = IsEnhancementUnitApplied(_executableConnection, new GameCdFix());
-                //IsPointsScoringSystemUpdatedApplied = IsEnhancementUnitApplied(_executableConnection, new PointsScoringSystemUpdate());
-                //IsRaceSoundsFixApplied = IsEnhancementUnitApplied(_executableConnection, new RaceSoundsFix());
-                IsYellowFlagFixApplied = IsEnhancementUnitApplied(_executableConnection, new YellowFlagFix());
+                //IsCarDesignCalculationUpdateApplied = IsEnhancementUnitApplied(_executableConnection, new CarDesignCalculationUpdate(executableFilePath));
+                //IsCarHandlingPerformanceFixApplied = IsEnhancementUnitApplied(_executableConnection, new CarHandlingPerformanceFix(executableFilePath));
+                IsDisplayModeFixApplied = IsEnhancementUnitApplied(_executableConnection, new DisplayModeFix(executableFilePath));
+                //IsGameCdFixApplied = IsEnhancementUnitApplied(_executableConnection, new GameCdFix(executableFilePath));
+                //IsPointsScoringSystemUpdatedApplied = IsEnhancementUnitApplied(_executableConnection, new PointsScoringSystemUpdate(executableFilePath));
+                //IsRaceSoundsFixApplied = IsEnhancementUnitApplied(_executableConnection, new RaceSoundsFix(executableFilePath));
+                IsSampleAppFixApplied = IsEnhancementUnitApplied(_executableConnection, new SampleAppFix(executableFilePath));
+                IsYellowFlagFixApplied = IsEnhancementUnitApplied(_executableConnection, new YellowFlagFix(executableFilePath));
 
                 ImportTeams();
                 ImportDrivers();
@@ -100,6 +103,7 @@ namespace Data.Database.Executable
         public bool ExportDataToFile(string executableFilePath, string languageFilePath)
         {
             bool isDisplayModeFixApplied;
+            bool isSampleAppFixApplied;
             bool isYellowFlagFixApplied;
 
             try
@@ -111,11 +115,12 @@ namespace Data.Database.Executable
                 // Determine whether enhancement units are applied or original code is unmodified
                 //var isCarDesignCalculationUpdateApplied = IsEnhancementUnitApplied(_executableConnection, new CarDesignCalculationUpdate());
                 //var isCarHandlingPerformanceFixApplied = IsEnhancementUnitApplied(_executableConnection, new CarHandlingPerformanceFix());
-                isDisplayModeFixApplied = IsEnhancementUnitApplied(_executableConnection, new DisplayModeFix());
+                isDisplayModeFixApplied = IsEnhancementUnitApplied(_executableConnection, new DisplayModeFix(executableFilePath));
                 //var isGameCdFixApplied = IsEnhancementUnitApplied(_executableConnection, new GameCdFix());
                 //var isPointsScoringSystemUpdatedApplied = IsEnhancementUnitApplied(_executableConnection, new PointsScoringSystemUpdate());
                 //var isRaceSoundsFixApplied = IsEnhancementUnitApplied(_executableConnection, new RaceSoundsFix());
-                isYellowFlagFixApplied = IsEnhancementUnitApplied(_executableConnection, new YellowFlagFix());
+                isSampleAppFixApplied = IsEnhancementUnitApplied(_executableConnection, new SampleAppFix(executableFilePath));
+                isYellowFlagFixApplied = IsEnhancementUnitApplied(_executableConnection, new YellowFlagFix(executableFilePath));
             }
             finally
             {
@@ -132,13 +137,14 @@ namespace Data.Database.Executable
                 _executableConnection.Open(executableFilePath, StreamDirectionType.Write);
 
                 // Apply enhancement units if not already applied and is requested to be applied
-                //if (!isCarDesignCalculationUpdateApplied && IsCarDesignCalculationUpdateRequired) ApplyEnhancementUnit(_executableConnection, new CarDesignCalculationUpdate());
-                //if (!isCarHandlingPerformanceFixApplied && IsCarHandlingPerformanceFixRequired) ApplyEnhancementUnit(_executableConnection, new CarHandlingPerformanceFix());
-                if (!isDisplayModeFixApplied && IsDisplayModeFixRequired) ApplyEnhancementUnit(_executableConnection, new DisplayModeFix());
-                //if (!isGameCdFixApplied && IsGameCdFixRequired) ApplyEnhancementUnit(_executableConnection, new GameCdFix());
-                //if (!isPointsScoringSystemUpdatedApplied && IsPointsScoringSystemUpdatedRequired) ApplyEnhancementUnit(_executableConnection, new PointsScoringSystemUpdate());
-                //if (!isRaceSoundsFixApplied && IsRaceSoundsFixRequired) ApplyEnhancementUnit(_executableConnection, new RaceSoundsFix());
-                if (!isYellowFlagFixApplied && IsYellowFlagFixRequired) ApplyEnhancementUnit(_executableConnection, new YellowFlagFix());
+                //if (!isCarDesignCalculationUpdateApplied && IsCarDesignCalculationUpdateRequired) ApplyEnhancementUnit(_executableConnection, new CarDesignCalculationUpdate(executableFilePath));
+                //if (!isCarHandlingPerformanceFixApplied && IsCarHandlingPerformanceFixRequired) ApplyEnhancementUnit(_executableConnection, new CarHandlingPerformanceFix(executableFilePath));
+                if (!isDisplayModeFixApplied && IsDisplayModeFixRequired) ApplyEnhancementUnit(_executableConnection, new DisplayModeFix(executableFilePath));
+                //if (!isGameCdFixApplied && IsGameCdFixRequired) ApplyEnhancementUnit(_executableConnection, new GameCdFix(executableFilePath));
+                //if (!isPointsScoringSystemUpdatedApplied && IsPointsScoringSystemUpdatedRequired) ApplyEnhancementUnit(_executableConnection, new PointsScoringSystemUpdate(executableFilePath));
+                //if (!isRaceSoundsFixApplied && IsRaceSoundsFixRequired) ApplyEnhancementUnit(_executableConnection, new RaceSoundsFix(executableFilePath));
+                if (!isSampleAppFixApplied && IsSampleAppFixRequired) ApplyEnhancementUnit(_executableConnection, new SampleAppFix(executableFilePath));
+                if (!isYellowFlagFixApplied && IsYellowFlagFixRequired) ApplyEnhancementUnit(_executableConnection, new YellowFlagFix(executableFilePath));
 
                 ExportTeams();
                 ExportDrivers();
@@ -476,41 +482,47 @@ namespace Data.Database.Executable
 
         private static bool DoesExeHaveUnmodifiedInstructions(ExecutableConnection executableConnection, IDataPatcherUnitBase enhancementUnit)
         {
-            var unitInstructions = enhancementUnit.GetUnmodifiedInstructions();
-            foreach (var item in unitInstructions)
-            {
-                var executableValues = executableConnection.ReadByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(item.Position), item.InstructionSet.Length);
-                if (!executableValues.SequenceEqual(item.InstructionSet))
-                {
-                    return false;
-                }
-            }
+            return enhancementUnit.IsCodeUnmodified();
 
-            return true;
+            //var unitInstructions = enhancementUnit.GetUnmodifiedInstructions();
+            //foreach (var item in unitInstructions)
+            //{
+            //    var executableValues = executableConnection.ReadByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(item.VirtualPosition), item.Instructions.Length);
+            //    if (!executableValues.SequenceEqual(item.Instructions))
+            //    {
+            //        return false;
+            //    }
+            //}
+            //
+            //return true;
         }
 
         private static bool DoesExeHaveEnhancementUnit(ExecutableConnection executableConnection, IDataPatcherUnitBase enhancementUnit)
         {
-            var unitInstructions = enhancementUnit.GetModifiedInstructions();
-            foreach (var item in unitInstructions)
-            {
-                var executableValues = executableConnection.ReadByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(item.Position), item.InstructionSet.Length);
-                if (!executableValues.SequenceEqual(item.InstructionSet))
-                {
-                    return false;
-                }
-            }
+            return enhancementUnit.IsCodeModified();
 
-            return true;
+            //var unitInstructions = enhancementUnit.GetModifiedInstructions();
+            //foreach (var item in unitInstructions)
+            //{
+            //    var executableValues = executableConnection.ReadByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(item.VirtualPosition), item.Instructions.Length);
+            //    if (!executableValues.SequenceEqual(item.Instructions))
+            //    {
+            //        return false;
+            //    }
+            //}
+            //
+            //return true;
         }
 
         public static void ApplyEnhancementUnit(ExecutableConnection executableConnection, IDataPatcherUnitBase enhancementUnit)
         {
-            var unitInstructions = enhancementUnit.GetModifiedInstructions();
-            foreach (var item in unitInstructions)
-            {
-                executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(item.Position), item.InstructionSet);
-            }
+            enhancementUnit.ApplyModifiedCode();
+
+            //var unitInstructions = enhancementUnit.GetModifiedInstructions();
+            //foreach (var item in unitInstructions)
+            //{
+            //    executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(item.VirtualPosition), item.Instructions);
+            //}
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using Data.Patchers.CodeShifting;
+using Data.Patchers.GlobalUnlockPatcher;
 using Data.Patchers.JumpBypassPatcher;
 using Data.Patchers.SwitchIdiomPatcher;
 using System;
 using System.Windows.Forms;
+using Data.Patchers.Enhancements.Units;
 using UI.Properties;
 
 namespace UI
@@ -110,6 +112,12 @@ namespace UI
             patcher.Apply(_filePath);
         }
 
+        private void ApplyGlobalUnlockPatcher()
+        {
+            var patcher = new GlobalUnlockPatcher();
+            patcher.Apply(_filePath);
+        }
+
         private void ApplyCodeShiftPatcher()
         {
             var patcher = new CodeShiftingPatcher();
@@ -120,6 +128,7 @@ namespace UI
         {
             ApplySwitchIdiomPatcher();
             ApplyJumpBypassPatcher();
+            ApplyGlobalUnlockPatcher();
             ApplyCodeShiftPatcher();
         }
 

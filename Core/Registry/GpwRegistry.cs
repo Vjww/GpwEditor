@@ -24,7 +24,9 @@ namespace Core.Registry
             var key = Settings.Default.RegistryKey;
             var subKey = Microsoft.Win32.Registry.LocalMachine.CreateSubKey(key);
             if (subKey == null)
-                throw new Exception(string.Format(@"Unable to create registry key HKEY_LOCAL_MACHINE\{0}", key));
+            {
+                throw new Exception($@"Unable to create registry key HKEY_LOCAL_MACHINE\{key}");
+            }
             return subKey;
         }
 
@@ -33,7 +35,9 @@ namespace Core.Registry
             var key = Settings.Default.RegistryKey;
             var subKey = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(key);
             if (subKey == null)
-                throw new Exception(string.Format(@"Unable to open registry key HKEY_LOCAL_MACHINE\{0}", key));
+            {
+                throw new Exception($@"Unable to open registry key HKEY_LOCAL_MACHINE\{key}");
+            }
             return subKey;
         }
 

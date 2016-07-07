@@ -1,8 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using Common.Enums;
-using Core.Helpers;
-using Data.FileConnection;
 using Data.Patchers.Enhancements.Units;
 
 namespace Data.Patchers.CompareTo103Patcher
@@ -11,45 +7,53 @@ namespace Data.Patchers.CompareTo103Patcher
     {
         public bool Compare(string filePath)
         {
+            var executableFilePath = string.Empty;
+
             var checkList = new List<DataPatcherUnitBase>
             {
-                new CarDesignCalculationUpdate(),
-                new CarHandlingPerformanceFix(),
-                new DisplayModeFix(),
-                new GameCdFix(),
-                new PointsSystemF1201020xxUpdate(),
-                new RaceSoundsFix(),
-                new YellowFlagFix()
+                new CarDesignCalculationUpdate(executableFilePath),
+                new CarHandlingPerformanceFix(executableFilePath),
+                new DisplayModeFix(executableFilePath),
+                new GameCdFix(executableFilePath),
+                new PointsSystemF1201020xxUpdate(executableFilePath),
+                new RaceSoundsFix(executableFilePath),
+                new SampleAppFix(executableFilePath),
+                new YellowFlagFix(executableFilePath)
             };
 
             // File connection
-            ExecutableConnection executableConnection = null;
-
-            try
-            {
-                executableConnection = new ExecutableConnection();
-                executableConnection.Open(filePath, StreamDirectionType.Read);
+            //ExecutableConnection executableConnection = null;
+            //
+            //try
+            //{
+                //executableConnection = new ExecutableConnection();
+                //executableConnection.Open(filePath, StreamDirectionType.Read);
 
                 foreach (var item in checkList)
                 {
-                    var modifiedInstructions = item.GetModifiedInstructions();
-                    foreach (var task in modifiedInstructions)
+                    if (!item.IsCodeModified())
                     {
-                        var currentInstructions = executableConnection.ReadByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(task.Position), task.InstructionSet.Length);
-                        if (!currentInstructions.SequenceEqual(task.InstructionSet))
-                        {
-                            return false;
-                        }
+                        return false;
                     }
+
+                    //var modifiedInstructions = item.GetModifiedInstructions();
+                    //foreach (var task in modifiedInstructions)
+                    //{
+                    //    var currentInstructions = executableConnection.ReadByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(task.VirtualPosition), task.Instructions.Length);
+                    //    if (!currentInstructions.SequenceEqual(task.Instructions))
+                    //    {
+                    //        return false;
+                    //    }
+                    //}
                 }
-            }
-            finally
-            {
-                if (executableConnection != null)
-                {
-                    executableConnection.Close();
-                }
-            }
+            //}
+            //finally
+            //{
+            //    if (executableConnection != null)
+            //    {
+            //        executableConnection.Close();
+            //    }
+            //}
 
             return true;
         }

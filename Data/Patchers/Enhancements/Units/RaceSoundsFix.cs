@@ -1,5 +1,4 @@
-﻿
-namespace Data.Patchers.Enhancements.Units
+﻿namespace Data.Patchers.Enhancements.Units
 {
     /// <summary>
     /// Modify the code to eliminate calls made to memset() to prevent the game
@@ -17,14 +16,14 @@ namespace Data.Patchers.Enhancements.Units
     /// </summary>
     public class RaceSoundsFix : DataPatcherUnitBase
     {
-        public RaceSoundsFix()
+        public RaceSoundsFix(string executableFilePath) : base(executableFilePath)
         {
             // Task A
             // Resolve unhandled exception at 0x0049aa6b in gpw.exe: 0xC0000005: Access violation reading location 0x0771e202.
             UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
-                Position = 0x0049AA5F,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x0049AA5F,
+                Instructions = new byte[]
                 {
                     0x8B, 0x45, 0xE8,               // .text:0049AA5F                 mov     eax, [ebp+var_18]
                     0x2B, 0x45, 0xEC,               // .text:0049AA62                 sub     eax, [ebp+var_14]
@@ -47,8 +46,8 @@ namespace Data.Patchers.Enhancements.Units
 
             ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
-                Position = 0x0049AA5F,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x0049AA5F,
+                Instructions = new byte[]
                 {
                     0x90, 0x90, 0x90,               // .text:0049AA5F                 {nop}
                     0x90, 0x90, 0x90,               // .text:0049AA62                 {nop}
@@ -74,8 +73,8 @@ namespace Data.Patchers.Enhancements.Units
             // Resolve unhandled exception at 0x0049b41e in gpw.exe: 0xC0000005: Access violation reading location 0x01c4b04e.
             UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
-                Position = 0x0049B40A,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x0049B40A,
+                Instructions = new byte[]
                 {
                     0x8B, 0x45, 0xE8,                           // .text:0049B40A                 mov     eax, [ebp+var_18]
                     0x2B, 0x45, 0xEC,                           // .text:0049B40D                 sub     eax, [ebp+var_14]
@@ -100,8 +99,8 @@ namespace Data.Patchers.Enhancements.Units
 
             ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
-                Position = 0x0049B40A,
-                InstructionSet = new byte[]
+                VirtualPosition = 0x0049B40A,
+                Instructions = new byte[]
                 {
                     0x90, 0x90, 0x90,                           // .text:0049B40A                 {nop}
                     0x90, 0x90, 0x90,                           // .text:0049B40D                 {nop}
