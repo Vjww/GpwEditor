@@ -32,16 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExecutableEditorForm));
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.HomeTabPage = new System.Windows.Forms.TabPage();
-            this.GameConfigurationGroupBox = new System.Windows.Forms.GroupBox();
-            this.DisablePitExitPriorityCheckBox = new System.Windows.Forms.CheckBox();
-            this.DisableYellowFlagPenaltiesCheckBox = new System.Windows.Forms.CheckBox();
-            this.DisableGameCdCheckBox = new System.Windows.Forms.CheckBox();
-            this.DisableColourModeCheckBox = new System.Windows.Forms.CheckBox();
-            this.PointsScoringSystemGroupBox = new System.Windows.Forms.GroupBox();
-            this.PointsScoringSystemOption3RadioButton = new System.Windows.Forms.RadioButton();
-            this.PointsScoringSystemOption2RadioButton = new System.Windows.Forms.RadioButton();
-            this.PointsScoringSystemOption1RadioButton = new System.Windows.Forms.RadioButton();
-            this.PointsScoringSystemDefaultRadioButton = new System.Windows.Forms.RadioButton();
             this.ExportGroupBox = new System.Windows.Forms.GroupBox();
             this.ExportExecutableFileButton = new System.Windows.Forms.Button();
             this.ExportExecutableFileTextBox = new System.Windows.Forms.TextBox();
@@ -153,10 +143,25 @@
             this.trackCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.ProgramOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.EnhancementsTabPage = new System.Windows.Forms.TabPage();
+            this.GameConfigurationGroupBox = new System.Windows.Forms.GroupBox();
+            this.DisablePitExitPriorityCheckBox = new System.Windows.Forms.CheckBox();
+            this.DisableMemoryResetForRaceSoundsCheckbox = new System.Windows.Forms.CheckBox();
+            this.DisableGameCdCheckBox = new System.Windows.Forms.CheckBox();
+            this.DisableGlobalUnlockCheckBox = new System.Windows.Forms.CheckBox();
+            this.DisableSampleAppCheckBox = new System.Windows.Forms.CheckBox();
+            this.DisableColourModeCheckBox = new System.Windows.Forms.CheckBox();
+            this.PointsScoringSystemGroupBox = new System.Windows.Forms.GroupBox();
+            this.PointsScoringSystemOption3RadioButton = new System.Windows.Forms.RadioButton();
+            this.PointsScoringSystemOption2RadioButton = new System.Windows.Forms.RadioButton();
+            this.PointsScoringSystemOption1RadioButton = new System.Windows.Forms.RadioButton();
+            this.PointsScoringSystemDefaultRadioButton = new System.Windows.Forms.RadioButton();
+            this.GameEnhancementsGroupBox = new System.Windows.Forms.GroupBox();
+            this.DisableYellowFlagPenaltiesCheckBox = new System.Windows.Forms.CheckBox();
+            this.EnableCarPerformanceRaceCalcuationCheckbox = new System.Windows.Forms.CheckBox();
+            this.EnableCarHandlingDesignCalculationCheckbox = new System.Windows.Forms.CheckBox();
             this.MainTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
-            this.GameConfigurationGroupBox.SuspendLayout();
-            this.PointsScoringSystemGroupBox.SuspendLayout();
             this.ExportGroupBox.SuspendLayout();
             this.ImportGroupBox.SuspendLayout();
             this.InstructionsGroupBox.SuspendLayout();
@@ -180,11 +185,16 @@
             this.TracksTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TracksDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackCollectionBindingSource)).BeginInit();
+            this.EnhancementsTabPage.SuspendLayout();
+            this.GameConfigurationGroupBox.SuspendLayout();
+            this.PointsScoringSystemGroupBox.SuspendLayout();
+            this.GameEnhancementsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainTabControl
             // 
             this.MainTabControl.Controls.Add(this.HomeTabPage);
+            this.MainTabControl.Controls.Add(this.EnhancementsTabPage);
             this.MainTabControl.Controls.Add(this.TeamsTabPage);
             this.MainTabControl.Controls.Add(this.DriversTabPage);
             this.MainTabControl.Controls.Add(this.EnginesTabPage);
@@ -200,8 +210,6 @@
             // 
             // HomeTabPage
             // 
-            this.HomeTabPage.Controls.Add(this.GameConfigurationGroupBox);
-            this.HomeTabPage.Controls.Add(this.PointsScoringSystemGroupBox);
             this.HomeTabPage.Controls.Add(this.ExportGroupBox);
             this.HomeTabPage.Controls.Add(this.ImportGroupBox);
             this.HomeTabPage.Controls.Add(this.InstructionsGroupBox);
@@ -213,116 +221,6 @@
             this.HomeTabPage.TabIndex = 0;
             this.HomeTabPage.Text = "Home";
             this.HomeTabPage.UseVisualStyleBackColor = true;
-            // 
-            // GameConfigurationGroupBox
-            // 
-            this.GameConfigurationGroupBox.Controls.Add(this.DisablePitExitPriorityCheckBox);
-            this.GameConfigurationGroupBox.Controls.Add(this.DisableYellowFlagPenaltiesCheckBox);
-            this.GameConfigurationGroupBox.Controls.Add(this.DisableGameCdCheckBox);
-            this.GameConfigurationGroupBox.Controls.Add(this.DisableColourModeCheckBox);
-            this.GameConfigurationGroupBox.Location = new System.Drawing.Point(8, 282);
-            this.GameConfigurationGroupBox.Name = "GameConfigurationGroupBox";
-            this.GameConfigurationGroupBox.Size = new System.Drawing.Size(344, 128);
-            this.GameConfigurationGroupBox.TabIndex = 17;
-            this.GameConfigurationGroupBox.TabStop = false;
-            this.GameConfigurationGroupBox.Text = "Game Configuration";
-            // 
-            // DisablePitExitPriorityCheckBox
-            // 
-            this.DisablePitExitPriorityCheckBox.AutoSize = true;
-            this.DisablePitExitPriorityCheckBox.Location = new System.Drawing.Point(8, 96);
-            this.DisablePitExitPriorityCheckBox.Name = "DisablePitExitPriorityCheckBox";
-            this.DisablePitExitPriorityCheckBox.Size = new System.Drawing.Size(326, 17);
-            this.DisablePitExitPriorityCheckBox.TabIndex = 3;
-            this.DisablePitExitPriorityCheckBox.Text = "Disable pit-exit priority for lower numbered teams (enable bug fix)";
-            this.DisablePitExitPriorityCheckBox.UseVisualStyleBackColor = true;
-            this.DisablePitExitPriorityCheckBox.Visible = false;
-            // 
-            // DisableYellowFlagPenaltiesCheckBox
-            // 
-            this.DisableYellowFlagPenaltiesCheckBox.AutoSize = true;
-            this.DisableYellowFlagPenaltiesCheckBox.Location = new System.Drawing.Point(8, 72);
-            this.DisableYellowFlagPenaltiesCheckBox.Name = "DisableYellowFlagPenaltiesCheckBox";
-            this.DisableYellowFlagPenaltiesCheckBox.Size = new System.Drawing.Size(233, 17);
-            this.DisableYellowFlagPenaltiesCheckBox.TabIndex = 2;
-            this.DisableYellowFlagPenaltiesCheckBox.Text = "Disable yellow flag penalties (enable bug fix)";
-            this.DisableYellowFlagPenaltiesCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // DisableGameCdCheckBox
-            // 
-            this.DisableGameCdCheckBox.AutoSize = true;
-            this.DisableGameCdCheckBox.Location = new System.Drawing.Point(8, 48);
-            this.DisableGameCdCheckBox.Name = "DisableGameCdCheckBox";
-            this.DisableGameCdCheckBox.Size = new System.Drawing.Size(232, 17);
-            this.DisableGameCdCheckBox.TabIndex = 1;
-            this.DisableGameCdCheckBox.Text = "Disable check for game CD (enable No-CD)";
-            this.DisableGameCdCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // DisableColourModeCheckBox
-            // 
-            this.DisableColourModeCheckBox.AutoSize = true;
-            this.DisableColourModeCheckBox.Location = new System.Drawing.Point(8, 24);
-            this.DisableColourModeCheckBox.Name = "DisableColourModeCheckBox";
-            this.DisableColourModeCheckBox.Size = new System.Drawing.Size(199, 17);
-            this.DisableColourModeCheckBox.TabIndex = 0;
-            this.DisableColourModeCheckBox.Text = "Disable check for 16-bit colour mode";
-            this.DisableColourModeCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // PointsScoringSystemGroupBox
-            // 
-            this.PointsScoringSystemGroupBox.Controls.Add(this.PointsScoringSystemOption3RadioButton);
-            this.PointsScoringSystemGroupBox.Controls.Add(this.PointsScoringSystemOption2RadioButton);
-            this.PointsScoringSystemGroupBox.Controls.Add(this.PointsScoringSystemOption1RadioButton);
-            this.PointsScoringSystemGroupBox.Controls.Add(this.PointsScoringSystemDefaultRadioButton);
-            this.PointsScoringSystemGroupBox.Location = new System.Drawing.Point(360, 282);
-            this.PointsScoringSystemGroupBox.Name = "PointsScoringSystemGroupBox";
-            this.PointsScoringSystemGroupBox.Size = new System.Drawing.Size(320, 128);
-            this.PointsScoringSystemGroupBox.TabIndex = 18;
-            this.PointsScoringSystemGroupBox.TabStop = false;
-            this.PointsScoringSystemGroupBox.Text = "Points Scoring System";
-            this.PointsScoringSystemGroupBox.Visible = false;
-            // 
-            // PointsScoringSystemOption3RadioButton
-            // 
-            this.PointsScoringSystemOption3RadioButton.AutoSize = true;
-            this.PointsScoringSystemOption3RadioButton.Location = new System.Drawing.Point(8, 96);
-            this.PointsScoringSystemOption3RadioButton.Name = "PointsScoringSystemOption3RadioButton";
-            this.PointsScoringSystemOption3RadioButton.Size = new System.Drawing.Size(301, 17);
-            this.PointsScoringSystemOption3RadioButton.TabIndex = 3;
-            this.PointsScoringSystemOption3RadioButton.Text = "Option3 - 25-18-15-12-10-8-6-4-2-1 (top 10 finishers, 2010-)";
-            this.PointsScoringSystemOption3RadioButton.UseVisualStyleBackColor = true;
-            // 
-            // PointsScoringSystemOption2RadioButton
-            // 
-            this.PointsScoringSystemOption2RadioButton.AutoSize = true;
-            this.PointsScoringSystemOption2RadioButton.Location = new System.Drawing.Point(8, 72);
-            this.PointsScoringSystemOption2RadioButton.Name = "PointsScoringSystemOption2RadioButton";
-            this.PointsScoringSystemOption2RadioButton.Size = new System.Drawing.Size(277, 17);
-            this.PointsScoringSystemOption2RadioButton.TabIndex = 2;
-            this.PointsScoringSystemOption2RadioButton.Text = "Option2 - 10-8-6-5-4-3-2-1 (top 8 finishers, 2003-2009)";
-            this.PointsScoringSystemOption2RadioButton.UseVisualStyleBackColor = true;
-            // 
-            // PointsScoringSystemOption1RadioButton
-            // 
-            this.PointsScoringSystemOption1RadioButton.AutoSize = true;
-            this.PointsScoringSystemOption1RadioButton.Location = new System.Drawing.Point(8, 48);
-            this.PointsScoringSystemOption1RadioButton.Name = "PointsScoringSystemOption1RadioButton";
-            this.PointsScoringSystemOption1RadioButton.Size = new System.Drawing.Size(253, 17);
-            this.PointsScoringSystemOption1RadioButton.TabIndex = 1;
-            this.PointsScoringSystemOption1RadioButton.Text = "Option1 - 9-6-4-3-2-1 (top 6 finishers, 1981-1990)";
-            this.PointsScoringSystemOption1RadioButton.UseVisualStyleBackColor = true;
-            // 
-            // PointsScoringSystemDefaultRadioButton
-            // 
-            this.PointsScoringSystemDefaultRadioButton.AutoSize = true;
-            this.PointsScoringSystemDefaultRadioButton.Checked = true;
-            this.PointsScoringSystemDefaultRadioButton.Location = new System.Drawing.Point(8, 24);
-            this.PointsScoringSystemDefaultRadioButton.Name = "PointsScoringSystemDefaultRadioButton";
-            this.PointsScoringSystemDefaultRadioButton.Size = new System.Drawing.Size(256, 17);
-            this.PointsScoringSystemDefaultRadioButton.TabIndex = 0;
-            this.PointsScoringSystemDefaultRadioButton.TabStop = true;
-            this.PointsScoringSystemDefaultRadioButton.Text = "Default - 10-6-4-3-2-1 (top 6 finishers, 1991-2002)";
-            this.PointsScoringSystemDefaultRadioButton.UseVisualStyleBackColor = true;
             // 
             // ExportGroupBox
             // 
@@ -1200,6 +1098,196 @@
             // 
             this.FolderBrowserDialog.ShowNewFolderButton = false;
             // 
+            // EnhancementsTabPage
+            // 
+            this.EnhancementsTabPage.Controls.Add(this.GameEnhancementsGroupBox);
+            this.EnhancementsTabPage.Controls.Add(this.GameConfigurationGroupBox);
+            this.EnhancementsTabPage.Controls.Add(this.PointsScoringSystemGroupBox);
+            this.EnhancementsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.EnhancementsTabPage.Name = "EnhancementsTabPage";
+            this.EnhancementsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.EnhancementsTabPage.Size = new System.Drawing.Size(688, 470);
+            this.EnhancementsTabPage.TabIndex = 7;
+            this.EnhancementsTabPage.Text = "Enhancements";
+            this.EnhancementsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // GameConfigurationGroupBox
+            // 
+            this.GameConfigurationGroupBox.Controls.Add(this.DisablePitExitPriorityCheckBox);
+            this.GameConfigurationGroupBox.Controls.Add(this.DisableMemoryResetForRaceSoundsCheckbox);
+            this.GameConfigurationGroupBox.Controls.Add(this.DisableGameCdCheckBox);
+            this.GameConfigurationGroupBox.Controls.Add(this.DisableGlobalUnlockCheckBox);
+            this.GameConfigurationGroupBox.Controls.Add(this.DisableSampleAppCheckBox);
+            this.GameConfigurationGroupBox.Controls.Add(this.DisableColourModeCheckBox);
+            this.GameConfigurationGroupBox.Location = new System.Drawing.Point(8, 8);
+            this.GameConfigurationGroupBox.Name = "GameConfigurationGroupBox";
+            this.GameConfigurationGroupBox.Size = new System.Drawing.Size(332, 232);
+            this.GameConfigurationGroupBox.TabIndex = 0;
+            this.GameConfigurationGroupBox.TabStop = false;
+            this.GameConfigurationGroupBox.Text = "Game Configuration";
+            // 
+            // DisablePitExitPriorityCheckBox
+            // 
+            this.DisablePitExitPriorityCheckBox.AutoSize = true;
+            this.DisablePitExitPriorityCheckBox.Location = new System.Drawing.Point(8, 144);
+            this.DisablePitExitPriorityCheckBox.Name = "DisablePitExitPriorityCheckBox";
+            this.DisablePitExitPriorityCheckBox.Size = new System.Drawing.Size(310, 17);
+            this.DisablePitExitPriorityCheckBox.TabIndex = 5;
+            this.DisablePitExitPriorityCheckBox.Text = "Prevent lower numbered teams from being held in the pitlane";
+            this.DisablePitExitPriorityCheckBox.UseVisualStyleBackColor = true;
+            this.DisablePitExitPriorityCheckBox.Visible = false;
+            // 
+            // DisableMemoryResetForRaceSoundsCheckbox
+            // 
+            this.DisableMemoryResetForRaceSoundsCheckbox.AutoSize = true;
+            this.DisableMemoryResetForRaceSoundsCheckbox.Location = new System.Drawing.Point(8, 120);
+            this.DisableMemoryResetForRaceSoundsCheckbox.Name = "DisableMemoryResetForRaceSoundsCheckbox";
+            this.DisableMemoryResetForRaceSoundsCheckbox.Size = new System.Drawing.Size(294, 17);
+            this.DisableMemoryResetForRaceSoundsCheckbox.TabIndex = 4;
+            this.DisableMemoryResetForRaceSoundsCheckbox.Text = "Prevent crash to desktop when race sounds are enabled";
+            this.DisableMemoryResetForRaceSoundsCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // DisableGameCdCheckBox
+            // 
+            this.DisableGameCdCheckBox.AutoSize = true;
+            this.DisableGameCdCheckBox.Location = new System.Drawing.Point(8, 24);
+            this.DisableGameCdCheckBox.Name = "DisableGameCdCheckBox";
+            this.DisableGameCdCheckBox.Size = new System.Drawing.Size(194, 17);
+            this.DisableGameCdCheckBox.TabIndex = 0;
+            this.DisableGameCdCheckBox.Text = "Prevent check for original game CD";
+            this.DisableGameCdCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // DisableGlobalUnlockCheckBox
+            // 
+            this.DisableGlobalUnlockCheckBox.AutoSize = true;
+            this.DisableGlobalUnlockCheckBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.DisableGlobalUnlockCheckBox.Location = new System.Drawing.Point(8, 96);
+            this.DisableGlobalUnlockCheckBox.Name = "DisableGlobalUnlockCheckBox";
+            this.DisableGlobalUnlockCheckBox.Size = new System.Drawing.Size(230, 17);
+            this.DisableGlobalUnlockCheckBox.TabIndex = 3;
+            this.DisableGlobalUnlockCheckBox.Text = "Prevent freezing on startup at gold FIA logo";
+            this.DisableGlobalUnlockCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // DisableSampleAppCheckBox
+            // 
+            this.DisableSampleAppCheckBox.AutoSize = true;
+            this.DisableSampleAppCheckBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.DisableSampleAppCheckBox.Location = new System.Drawing.Point(8, 72);
+            this.DisableSampleAppCheckBox.Name = "DisableSampleAppCheckBox";
+            this.DisableSampleAppCheckBox.Size = new System.Drawing.Size(241, 17);
+            this.DisableSampleAppCheckBox.TabIndex = 2;
+            this.DisableSampleAppCheckBox.Text = "Prevent check for sample app object cleanup";
+            this.DisableSampleAppCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // DisableColourModeCheckBox
+            // 
+            this.DisableColourModeCheckBox.AutoSize = true;
+            this.DisableColourModeCheckBox.Location = new System.Drawing.Point(8, 48);
+            this.DisableColourModeCheckBox.Name = "DisableColourModeCheckBox";
+            this.DisableColourModeCheckBox.Size = new System.Drawing.Size(201, 17);
+            this.DisableColourModeCheckBox.TabIndex = 1;
+            this.DisableColourModeCheckBox.Text = "Prevent check for 16-bit colour mode";
+            this.DisableColourModeCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // PointsScoringSystemGroupBox
+            // 
+            this.PointsScoringSystemGroupBox.Controls.Add(this.PointsScoringSystemOption3RadioButton);
+            this.PointsScoringSystemGroupBox.Controls.Add(this.PointsScoringSystemOption2RadioButton);
+            this.PointsScoringSystemGroupBox.Controls.Add(this.PointsScoringSystemOption1RadioButton);
+            this.PointsScoringSystemGroupBox.Controls.Add(this.PointsScoringSystemDefaultRadioButton);
+            this.PointsScoringSystemGroupBox.Location = new System.Drawing.Point(350, 112);
+            this.PointsScoringSystemGroupBox.Name = "PointsScoringSystemGroupBox";
+            this.PointsScoringSystemGroupBox.Size = new System.Drawing.Size(332, 128);
+            this.PointsScoringSystemGroupBox.TabIndex = 3;
+            this.PointsScoringSystemGroupBox.TabStop = false;
+            this.PointsScoringSystemGroupBox.Text = "Points Scoring System";
+            // 
+            // PointsScoringSystemOption3RadioButton
+            // 
+            this.PointsScoringSystemOption3RadioButton.AutoSize = true;
+            this.PointsScoringSystemOption3RadioButton.Location = new System.Drawing.Point(8, 96);
+            this.PointsScoringSystemOption3RadioButton.Name = "PointsScoringSystemOption3RadioButton";
+            this.PointsScoringSystemOption3RadioButton.Size = new System.Drawing.Size(301, 17);
+            this.PointsScoringSystemOption3RadioButton.TabIndex = 3;
+            this.PointsScoringSystemOption3RadioButton.Text = "Option3 - 25-18-15-12-10-8-6-4-2-1 (top 10 finishers, 2010-)";
+            this.PointsScoringSystemOption3RadioButton.UseVisualStyleBackColor = true;
+            // 
+            // PointsScoringSystemOption2RadioButton
+            // 
+            this.PointsScoringSystemOption2RadioButton.AutoSize = true;
+            this.PointsScoringSystemOption2RadioButton.Location = new System.Drawing.Point(8, 72);
+            this.PointsScoringSystemOption2RadioButton.Name = "PointsScoringSystemOption2RadioButton";
+            this.PointsScoringSystemOption2RadioButton.Size = new System.Drawing.Size(277, 17);
+            this.PointsScoringSystemOption2RadioButton.TabIndex = 2;
+            this.PointsScoringSystemOption2RadioButton.Text = "Option2 - 10-8-6-5-4-3-2-1 (top 8 finishers, 2003-2009)";
+            this.PointsScoringSystemOption2RadioButton.UseVisualStyleBackColor = true;
+            // 
+            // PointsScoringSystemOption1RadioButton
+            // 
+            this.PointsScoringSystemOption1RadioButton.AutoSize = true;
+            this.PointsScoringSystemOption1RadioButton.Location = new System.Drawing.Point(8, 48);
+            this.PointsScoringSystemOption1RadioButton.Name = "PointsScoringSystemOption1RadioButton";
+            this.PointsScoringSystemOption1RadioButton.Size = new System.Drawing.Size(253, 17);
+            this.PointsScoringSystemOption1RadioButton.TabIndex = 1;
+            this.PointsScoringSystemOption1RadioButton.Text = "Option1 - 9-6-4-3-2-1 (top 6 finishers, 1981-1990)";
+            this.PointsScoringSystemOption1RadioButton.UseVisualStyleBackColor = true;
+            // 
+            // PointsScoringSystemDefaultRadioButton
+            // 
+            this.PointsScoringSystemDefaultRadioButton.AutoSize = true;
+            this.PointsScoringSystemDefaultRadioButton.Checked = true;
+            this.PointsScoringSystemDefaultRadioButton.Location = new System.Drawing.Point(8, 24);
+            this.PointsScoringSystemDefaultRadioButton.Name = "PointsScoringSystemDefaultRadioButton";
+            this.PointsScoringSystemDefaultRadioButton.Size = new System.Drawing.Size(256, 17);
+            this.PointsScoringSystemDefaultRadioButton.TabIndex = 0;
+            this.PointsScoringSystemDefaultRadioButton.TabStop = true;
+            this.PointsScoringSystemDefaultRadioButton.Text = "Default - 10-6-4-3-2-1 (top 6 finishers, 1991-2002)";
+            this.PointsScoringSystemDefaultRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // GameEnhancementsGroupBox
+            // 
+            this.GameEnhancementsGroupBox.Controls.Add(this.DisableYellowFlagPenaltiesCheckBox);
+            this.GameEnhancementsGroupBox.Controls.Add(this.EnableCarPerformanceRaceCalcuationCheckbox);
+            this.GameEnhancementsGroupBox.Controls.Add(this.EnableCarHandlingDesignCalculationCheckbox);
+            this.GameEnhancementsGroupBox.Location = new System.Drawing.Point(350, 8);
+            this.GameEnhancementsGroupBox.Name = "GameEnhancementsGroupBox";
+            this.GameEnhancementsGroupBox.Size = new System.Drawing.Size(332, 96);
+            this.GameEnhancementsGroupBox.TabIndex = 1;
+            this.GameEnhancementsGroupBox.TabStop = false;
+            this.GameEnhancementsGroupBox.Text = "Game Enhancements";
+            // 
+            // DisableYellowFlagPenaltiesCheckBox
+            // 
+            this.DisableYellowFlagPenaltiesCheckBox.AutoSize = true;
+            this.DisableYellowFlagPenaltiesCheckBox.Location = new System.Drawing.Point(8, 24);
+            this.DisableYellowFlagPenaltiesCheckBox.Name = "DisableYellowFlagPenaltiesCheckBox";
+            this.DisableYellowFlagPenaltiesCheckBox.Size = new System.Drawing.Size(218, 17);
+            this.DisableYellowFlagPenaltiesCheckBox.TabIndex = 0;
+            this.DisableYellowFlagPenaltiesCheckBox.Text = "Disable penalties for ignoring yellow flags";
+            this.DisableYellowFlagPenaltiesCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // EnableCarPerformanceRaceCalcuationCheckbox
+            // 
+            this.EnableCarPerformanceRaceCalcuationCheckbox.AutoSize = true;
+            this.EnableCarPerformanceRaceCalcuationCheckbox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.EnableCarPerformanceRaceCalcuationCheckbox.Location = new System.Drawing.Point(8, 72);
+            this.EnableCarPerformanceRaceCalcuationCheckbox.Name = "EnableCarPerformanceRaceCalcuationCheckbox";
+            this.EnableCarPerformanceRaceCalcuationCheckbox.Size = new System.Drawing.Size(255, 17);
+            this.EnableCarPerformanceRaceCalcuationCheckbox.TabIndex = 2;
+            this.EnableCarPerformanceRaceCalcuationCheckbox.Text = "Use alternative car performance race calculation";
+            this.EnableCarPerformanceRaceCalcuationCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // EnableCarHandlingDesignCalculationCheckbox
+            // 
+            this.EnableCarHandlingDesignCalculationCheckbox.AutoSize = true;
+            this.EnableCarHandlingDesignCalculationCheckbox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.EnableCarHandlingDesignCalculationCheckbox.Location = new System.Drawing.Point(8, 48);
+            this.EnableCarHandlingDesignCalculationCheckbox.Name = "EnableCarHandlingDesignCalculationCheckbox";
+            this.EnableCarHandlingDesignCalculationCheckbox.Size = new System.Drawing.Size(249, 17);
+            this.EnableCarHandlingDesignCalculationCheckbox.TabIndex = 1;
+            this.EnableCarHandlingDesignCalculationCheckbox.Text = "Use alternative car handling design calculation ";
+            this.EnableCarHandlingDesignCalculationCheckbox.UseVisualStyleBackColor = true;
+            // 
             // ExecutableEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1215,10 +1303,6 @@
             this.Resize += new System.EventHandler(this.ExecutableEditorForm_Resize);
             this.MainTabControl.ResumeLayout(false);
             this.HomeTabPage.ResumeLayout(false);
-            this.GameConfigurationGroupBox.ResumeLayout(false);
-            this.GameConfigurationGroupBox.PerformLayout();
-            this.PointsScoringSystemGroupBox.ResumeLayout(false);
-            this.PointsScoringSystemGroupBox.PerformLayout();
             this.ExportGroupBox.ResumeLayout(false);
             this.ExportGroupBox.PerformLayout();
             this.ImportGroupBox.ResumeLayout(false);
@@ -1244,6 +1328,13 @@
             this.TracksTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TracksDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackCollectionBindingSource)).EndInit();
+            this.EnhancementsTabPage.ResumeLayout(false);
+            this.GameConfigurationGroupBox.ResumeLayout(false);
+            this.GameConfigurationGroupBox.PerformLayout();
+            this.PointsScoringSystemGroupBox.ResumeLayout(false);
+            this.PointsScoringSystemGroupBox.PerformLayout();
+            this.GameEnhancementsGroupBox.ResumeLayout(false);
+            this.GameEnhancementsGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1332,16 +1423,6 @@
         private System.Windows.Forms.TextBox ExportLanguageFileTextBox;
         private System.Windows.Forms.Label ExportLanguageFileLabel;
         private System.Windows.Forms.RichTextBox InstructionsRichTextBox;
-        private System.Windows.Forms.GroupBox GameConfigurationGroupBox;
-        private System.Windows.Forms.CheckBox DisablePitExitPriorityCheckBox;
-        private System.Windows.Forms.CheckBox DisableYellowFlagPenaltiesCheckBox;
-        private System.Windows.Forms.CheckBox DisableGameCdCheckBox;
-        private System.Windows.Forms.CheckBox DisableColourModeCheckBox;
-        private System.Windows.Forms.GroupBox PointsScoringSystemGroupBox;
-        private System.Windows.Forms.RadioButton PointsScoringSystemOption3RadioButton;
-        private System.Windows.Forms.RadioButton PointsScoringSystemOption2RadioButton;
-        private System.Windows.Forms.RadioButton PointsScoringSystemOption1RadioButton;
-        private System.Windows.Forms.RadioButton PointsScoringSystemDefaultRadioButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn localResourceIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn resourceIdDataGridViewTextBoxColumn;
@@ -1409,5 +1490,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rainDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn windDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabPage EnhancementsTabPage;
+        private System.Windows.Forms.GroupBox GameEnhancementsGroupBox;
+        private System.Windows.Forms.CheckBox DisableYellowFlagPenaltiesCheckBox;
+        private System.Windows.Forms.CheckBox EnableCarPerformanceRaceCalcuationCheckbox;
+        private System.Windows.Forms.CheckBox EnableCarHandlingDesignCalculationCheckbox;
+        private System.Windows.Forms.GroupBox GameConfigurationGroupBox;
+        private System.Windows.Forms.CheckBox DisablePitExitPriorityCheckBox;
+        private System.Windows.Forms.CheckBox DisableMemoryResetForRaceSoundsCheckbox;
+        private System.Windows.Forms.CheckBox DisableGameCdCheckBox;
+        private System.Windows.Forms.CheckBox DisableGlobalUnlockCheckBox;
+        private System.Windows.Forms.CheckBox DisableSampleAppCheckBox;
+        private System.Windows.Forms.CheckBox DisableColourModeCheckBox;
+        private System.Windows.Forms.GroupBox PointsScoringSystemGroupBox;
+        private System.Windows.Forms.RadioButton PointsScoringSystemOption3RadioButton;
+        private System.Windows.Forms.RadioButton PointsScoringSystemOption2RadioButton;
+        private System.Windows.Forms.RadioButton PointsScoringSystemOption1RadioButton;
+        private System.Windows.Forms.RadioButton PointsScoringSystemDefaultRadioButton;
     }
 }

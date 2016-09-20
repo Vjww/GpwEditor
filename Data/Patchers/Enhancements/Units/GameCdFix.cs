@@ -9,9 +9,13 @@
     {
         public GameCdFix(string executableFilePath) : base(executableFilePath)
         {
+            var taskId = 0;
+
             // Task A
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
+                TaskId = taskId,
+                Description = $"{typeof(GameCdFix).Name} Unmodified; TaskId {taskId:D2};",
                 VirtualPosition = 0x0043989D,
                 Instructions = new byte[]
                 {
@@ -21,6 +25,8 @@
 
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
+                TaskId = taskId,
+                Description = $"{typeof(GameCdFix).Name} Modified; TaskId {taskId:D2};",
                 VirtualPosition = 0x0043989D,
                 Instructions = new byte[]
                 {
@@ -29,10 +35,14 @@
                 }
             });
             // End
+
+            taskId++;
 
             // Task B
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
+                TaskId = taskId,
+                Description = $"{typeof(GameCdFix).Name} Unmodified; TaskId {taskId:D2};",
                 VirtualPosition = 0x004398E3,
                 Instructions = new byte[]
                 {
@@ -42,6 +52,8 @@
 
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
+                TaskId = taskId,
+                Description = $"{typeof(GameCdFix).Name} Modified; TaskId {taskId:D2};",
                 VirtualPosition = 0x004398E3,
                 Instructions = new byte[]
                 {
@@ -51,9 +63,13 @@
             });
             // End
 
+            taskId++;
+
             // Task C
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
+                TaskId = taskId,
+                Description = $"{typeof(GameCdFix).Name} Unmodified; TaskId {taskId:D2};",
                 VirtualPosition = 0x0043997A,
                 Instructions = new byte[]
                 {
@@ -63,6 +79,8 @@
 
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
+                TaskId = taskId,
+                Description = $"{typeof(GameCdFix).Name} Modified; TaskId {taskId:D2};",
                 VirtualPosition = 0x0043997A,
                 Instructions = new byte[]
                 {

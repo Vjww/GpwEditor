@@ -1,4 +1,6 @@
-﻿namespace Data.Patchers.Enhancements.Units
+﻿using System.Collections.Generic;
+
+namespace Data.Patchers.Enhancements.Units
 {
     /// <summary>
     /// Modify the code to change the race points awarded to one or all
@@ -17,21 +19,19 @@
     /// </summary>
     public class PointsSystemF119912002Update : DataPatcherUnitBase
     {
+        public ICollection<DataPatcherUnitTask> GetUnmodifiedInstructions()
+        {
+            return UnmodifiedInstructions;
+        }
+
         public PointsSystemF119912002Update(string executableFilePath) : base(executableFilePath)
         {
-            // Copy unmodified instructions from parent source
-            var pointsSystemUnmodified = new PointsSystemUnmodified();
-            foreach (var dataPatcherUnitTask in pointsSystemUnmodified.UnmodifiedInstructions)
-            {
-                UnmodifiedInstructions.Add(new DataPatcherUnitTask
-                {
-                    VirtualPosition = dataPatcherUnitTask.VirtualPosition,
-                    Instructions = dataPatcherUnitTask.Instructions
-                });
-            }
+            var taskId = 0;
 
-            ModifiedInstructions.Add(new DataPatcherUnitTask
+            UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
+                TaskId = taskId,
+                Description = $"{typeof(PointsSystemF119912002Update).Name} Unmodified; TaskId {taskId:D2};",
                 VirtualPosition = 0x005B8C5D,
                 Instructions = new byte[]
                 {
@@ -325,6 +325,18 @@
                     0x90                                                                // .text:005B8FF3                 db  90h ; É
                 }
             });
+
+            // Use unmodified instructions as modified instructions
+            foreach (var dataPatcherUnitTask in UnmodifiedInstructions)
+            {
+                ModifiedInstructions.Add(new DataPatcherUnitTask
+                {
+                    TaskId = dataPatcherUnitTask.TaskId,
+                    Description = $"{typeof(PointsSystemF119912002Update).Name} Modified; TaskId {dataPatcherUnitTask.TaskId:D2};",
+                    VirtualPosition = dataPatcherUnitTask.VirtualPosition,
+                    Instructions = dataPatcherUnitTask.Instructions
+                });
+            }
         }
     }
 }

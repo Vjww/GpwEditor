@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="identityCollectionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>228, 95</value>
-  </metadata>
   <data name="InstructionsRichTextBox.Text" xml:space="preserve">
     <value>1) In the Import section below, select the files you wish to use to import game data from and click the Import button.
 
@@ -127,6 +124,9 @@
 
 3) In the Export section below, select the files you wish to export your changes to and click the Export button.</value>
   </data>
+  <metadata name="identityCollectionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>228, 95</value>
+  </metadata>
   <metadata name="identityCollectionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>228, 95</value>
   </metadata>

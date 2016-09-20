@@ -18,10 +18,14 @@
     {
         public RaceSoundsFix(string executableFilePath) : base(executableFilePath)
         {
+            var taskId = 0;
+
             // Task A
             // Resolve unhandled exception at 0x0049aa6b in gpw.exe: 0xC0000005: Access violation reading location 0x0771e202.
             UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
+                TaskId = taskId,
+                Description = $"{typeof(RaceSoundsFix).Name} Unmodified; TaskId {taskId:D2};",
                 VirtualPosition = 0x0049AA5F,
                 Instructions = new byte[]
                 {
@@ -46,6 +50,8 @@
 
             ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
+                TaskId = taskId,
+                Description = $"{typeof(RaceSoundsFix).Name} Modified; TaskId {taskId:D2};",
                 VirtualPosition = 0x0049AA5F,
                 Instructions = new byte[]
                 {
@@ -69,10 +75,14 @@
             });
             // End
 
+            taskId++;
+
             // Task B
             // Resolve unhandled exception at 0x0049b41e in gpw.exe: 0xC0000005: Access violation reading location 0x01c4b04e.
             UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
+                TaskId = taskId,
+                Description = $"{typeof(RaceSoundsFix).Name} Unmodified; TaskId {taskId:D2};",
                 VirtualPosition = 0x0049B40A,
                 Instructions = new byte[]
                 {
@@ -99,6 +109,8 @@
 
             ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
+                TaskId = taskId,
+                Description = $"{typeof(RaceSoundsFix).Name} Modified; TaskId {taskId:D2};",
                 VirtualPosition = 0x0049B40A,
                 Instructions = new byte[]
                 {

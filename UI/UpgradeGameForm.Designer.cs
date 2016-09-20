@@ -33,6 +33,7 @@
             this.DisableYellowFlagPenaltiesCheckBox = new System.Windows.Forms.CheckBox();
             this.DisableMemoryResetForRaceSoundsCheckbox = new System.Windows.Forms.CheckBox();
             this.DisableGameCdCheckBox = new System.Windows.Forms.CheckBox();
+            this.DisableGlobalUnlockCheckBox = new System.Windows.Forms.CheckBox();
             this.DisableSampleAppCheckBox = new System.Windows.Forms.CheckBox();
             this.EnableCarPerformanceRaceCalcuationCheckbox = new System.Windows.Forms.CheckBox();
             this.EnableCarHandlingDesignCalculationCheckbox = new System.Windows.Forms.CheckBox();
@@ -50,7 +51,6 @@
             this.ExportLanguageFileButton = new System.Windows.Forms.Button();
             this.ExportLanguageFileTextBox = new System.Windows.Forms.TextBox();
             this.ExportLanguageFileLabel = new System.Windows.Forms.Label();
-            this.DisableGlobalUnlockCheckBox = new System.Windows.Forms.CheckBox();
             this.GameConfigurationGroupBox.SuspendLayout();
             this.PointsScoringSystemGroupBox.SuspendLayout();
             this.UpgradeGroupBox.SuspendLayout();
@@ -77,13 +77,13 @@
             // DisablePitExitPriorityCheckBox
             // 
             this.DisablePitExitPriorityCheckBox.AutoSize = true;
+            this.DisablePitExitPriorityCheckBox.Enabled = false;
             this.DisablePitExitPriorityCheckBox.Location = new System.Drawing.Point(8, 168);
             this.DisablePitExitPriorityCheckBox.Name = "DisablePitExitPriorityCheckBox";
             this.DisablePitExitPriorityCheckBox.Size = new System.Drawing.Size(291, 17);
             this.DisablePitExitPriorityCheckBox.TabIndex = 3;
             this.DisablePitExitPriorityCheckBox.Text = "Disable pit-exit priority for lower numbered teams (bug fix)";
             this.DisablePitExitPriorityCheckBox.UseVisualStyleBackColor = true;
-            this.DisablePitExitPriorityCheckBox.Visible = false;
             // 
             // DisableYellowFlagPenaltiesCheckBox
             // 
@@ -115,6 +115,17 @@
             this.DisableGameCdCheckBox.Text = "Disable check for original game CD";
             this.DisableGameCdCheckBox.UseVisualStyleBackColor = true;
             // 
+            // DisableGlobalUnlockCheckBox
+            // 
+            this.DisableGlobalUnlockCheckBox.AutoSize = true;
+            this.DisableGlobalUnlockCheckBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.DisableGlobalUnlockCheckBox.Location = new System.Drawing.Point(8, 96);
+            this.DisableGlobalUnlockCheckBox.Name = "DisableGlobalUnlockCheckBox";
+            this.DisableGlobalUnlockCheckBox.Size = new System.Drawing.Size(233, 17);
+            this.DisableGlobalUnlockCheckBox.TabIndex = 0;
+            this.DisableGlobalUnlockCheckBox.Text = "Disable check for global unlock return result";
+            this.DisableGlobalUnlockCheckBox.UseVisualStyleBackColor = true;
+            // 
             // DisableSampleAppCheckBox
             // 
             this.DisableSampleAppCheckBox.AutoSize = true;
@@ -129,7 +140,6 @@
             // EnableCarPerformanceRaceCalcuationCheckbox
             // 
             this.EnableCarPerformanceRaceCalcuationCheckbox.AutoSize = true;
-            this.EnableCarPerformanceRaceCalcuationCheckbox.Enabled = false;
             this.EnableCarPerformanceRaceCalcuationCheckbox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.EnableCarPerformanceRaceCalcuationCheckbox.Location = new System.Drawing.Point(8, 216);
             this.EnableCarPerformanceRaceCalcuationCheckbox.Name = "EnableCarPerformanceRaceCalcuationCheckbox";
@@ -141,7 +151,6 @@
             // EnableCarHandlingDesignCalculationCheckbox
             // 
             this.EnableCarHandlingDesignCalculationCheckbox.AutoSize = true;
-            this.EnableCarHandlingDesignCalculationCheckbox.Enabled = false;
             this.EnableCarHandlingDesignCalculationCheckbox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.EnableCarHandlingDesignCalculationCheckbox.Location = new System.Drawing.Point(8, 192);
             this.EnableCarHandlingDesignCalculationCheckbox.Name = "EnableCarHandlingDesignCalculationCheckbox";
@@ -172,7 +181,6 @@
             this.PointsScoringSystemGroupBox.TabIndex = 20;
             this.PointsScoringSystemGroupBox.TabStop = false;
             this.PointsScoringSystemGroupBox.Text = "Points Scoring System";
-            this.PointsScoringSystemGroupBox.Visible = false;
             // 
             // PointsScoringSystemOption3RadioButton
             // 
@@ -291,17 +299,6 @@
             this.ExportLanguageFileLabel.Size = new System.Drawing.Size(74, 13);
             this.ExportLanguageFileLabel.TabIndex = 2;
             this.ExportLanguageFileLabel.Text = "Language File";
-            // 
-            // DisableGlobalUnlockCheckBox
-            // 
-            this.DisableGlobalUnlockCheckBox.AutoSize = true;
-            this.DisableGlobalUnlockCheckBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.DisableGlobalUnlockCheckBox.Location = new System.Drawing.Point(8, 96);
-            this.DisableGlobalUnlockCheckBox.Name = "DisableGlobalUnlockCheckBox";
-            this.DisableGlobalUnlockCheckBox.Size = new System.Drawing.Size(233, 17);
-            this.DisableGlobalUnlockCheckBox.TabIndex = 0;
-            this.DisableGlobalUnlockCheckBox.Text = "Disable check for global unlock return result";
-            this.DisableGlobalUnlockCheckBox.UseVisualStyleBackColor = true;
             // 
             // UpgradeGameForm
             // 

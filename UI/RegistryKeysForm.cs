@@ -45,7 +45,7 @@ namespace UI
 
         private void UpdateControlsWithRegistryKeyValues(GpwRegistryKeys registryKeys)
         {
-            RegistryKeyLocationTextBox.Text = string.Format(@"HKEY_LOCAL_MACHINE\{0}", Settings.Default.RegistryKey);
+            RegistryKeyLocationTextBox.Text = $@"HKEY_LOCAL_MACHINE\{Settings.Default.RegistryKey}";
             InstallTextBox.Text = registryKeys.InstallValue;
             LanguageTextBox.Text = registryKeys.LanguageValue.ToString();
             PathTextBox.Text = registryKeys.PathValue;

@@ -21,12 +21,16 @@
     {
         public PointsSystemF120032009Update(string executableFilePath) : base(executableFilePath)
         {
-            // Copy unmodified instructions from parent source
-            var pointsSystemUnmodified = new PointsSystemUnmodified();
-            foreach (var dataPatcherUnitTask in pointsSystemUnmodified.UnmodifiedInstructions)
+            var taskId = 0;
+
+            // Use unmodified instructions from default point scoring system as unmodified instructions
+            var pointsSystemDefault = new PointsSystemF119912002Update(executableFilePath);
+            foreach (var dataPatcherUnitTask in pointsSystemDefault.GetUnmodifiedInstructions())
             {
                 UnmodifiedInstructions.Add(new DataPatcherUnitTask
                 {
+                    TaskId = dataPatcherUnitTask.TaskId,
+                    Description = $"{typeof(PointsSystemF120032009Update).Name} Unmodified; TaskId {dataPatcherUnitTask.TaskId:D2};",
                     VirtualPosition = dataPatcherUnitTask.VirtualPosition,
                     Instructions = dataPatcherUnitTask.Instructions
                 });
@@ -34,6 +38,8 @@
 
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
+                TaskId = taskId,
+                Description = $"{typeof(PointsSystemF120032009Update).Name} Modified; TaskId {taskId:D2};",
                 VirtualPosition = 0x005B8C5D,
                 Instructions = new byte[]
                 {

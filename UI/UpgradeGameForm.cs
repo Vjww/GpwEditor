@@ -1,12 +1,9 @@
-﻿using System;
-using System.Windows.Forms;
-using Core.Properties;
+﻿using Core.Properties;
 using Data.Patchers;
-using Data.Patchers.CodeShifting;
 using Data.Patchers.Enhancements.Units;
-using Data.Patchers.GlobalUnlockPatcher;
-using Data.Patchers.JumpBypassPatcher;
-using Data.Patchers.SwitchIdiomPatcher;
+using System;
+using System.Diagnostics;
+using System.Windows.Forms;
 using UI.Properties;
 
 namespace UI
@@ -52,117 +49,162 @@ namespace UI
 
             try
             {
-                var gameCdFix = new GameCdFix(executableFilePath);
-                var displayModeFix = new DisplayModeFix(executableFilePath);
-                var sampleAppFix = new SampleAppFix(executableFilePath);
-                var globalUnlockFix = new GlobalUnlockFix(executableFilePath);
-                var yellowFlagFix = new YellowFlagFix(executableFilePath);
-                var raceSoundsFix = new RaceSoundsFix(executableFilePath);
-                var pitExitPriorityFix = new PitExitPriorityFix(executableFilePath);
-                //var carDesignCalculationUpdate = new CarDesignCalculationUpdate(executableFilePath);
-                //var carHandlingPerformanceFix = new CarHandlingPerformanceFix(executableFilePath);
-
-                var isDisableGameCdApplied = IsModifiedCodeApplied(gameCdFix);
-                var isDisableColourModeApplied = IsModifiedCodeApplied(displayModeFix);
-                var isDisableSampleAppApplied = IsModifiedCodeApplied(sampleAppFix);
-                var isDisableGlobalUnlockApplied = IsModifiedCodeApplied(globalUnlockFix);
-                var isDisableYellowFlagPenaltiesApplied = IsModifiedCodeApplied(yellowFlagFix);
-                var isDisableMemoryResetForRaceSoundsApplied = IsModifiedCodeApplied(raceSoundsFix);
-                var isDisablePitExitPriorityApplied = IsModifiedCodeApplied(pitExitPriorityFix);
-                //var isEnableCarHandlingDesignCalculationApplied = IsModifiedCodeApplied(carDesignCalculationUpdate);
-                //var isEnableCarPerformanceRaceCalcuationApplied = IsModifiedCodeApplied(carHandlingPerformanceFix);
-
-                //// Switch idiom patcher is only intended for use when disassembling.
-                //// Code is included here if you wish to patch all users executables
-                //// during an upgrade but this may introduce defects into the game.
-                //var switchIdiomPatcher = new SwitchIdiomPatcher();
-                //switchIdiomPatcher.Apply(executableFilePath);
-                //
-                //// Free up space in executable by removing redundant jumping functions
-                //// Required for upgrade to be successful and cannot be reversed
-                //var jumpBypassPatcher = new JumpBypassPatcher();
-                //jumpBypassPatcher.Apply(executableFilePath);
-                //
-                //// Shift code around to consolidate and organise instructions and utilise free space
-                //// May add additional functionality to the game that cannot be reversed
-                //// Required for upgrade to be successful and cannot be reversed
-                //var codeShiftingPatcher = new CodeShiftingPatcher();
-                //codeShiftingPatcher.Apply(executableFilePath);
-
-                if (isDisableGameCdApplied != DisableGameCdCheckBox.Checked)
-                {
-                    ApplyCode(new GameCdFix(executableFilePath), DisableGameCdCheckBox.Checked);
-                }
-
-                if (isDisableColourModeApplied != DisableColourModeCheckBox.Checked)
-                {
-                    ApplyCode(new DisplayModeFix(executableFilePath), DisableColourModeCheckBox.Checked);
-                }
-
-                if (isDisableSampleAppApplied != DisableSampleAppCheckBox.Checked)
-                {
-                    ApplyCode(new SampleAppFix(executableFilePath), DisableSampleAppCheckBox.Checked);
-                }
-
-                if (isDisableGlobalUnlockApplied != DisableGlobalUnlockCheckBox.Checked)
-                {
-                    ApplyCode(new GlobalUnlockFix(executableFilePath), DisableGlobalUnlockCheckBox.Checked);
-                }
-
-                if (isDisableYellowFlagPenaltiesApplied != DisableYellowFlagPenaltiesCheckBox.Checked)
-                {
-                    ApplyCode(new YellowFlagFix(executableFilePath), DisableYellowFlagPenaltiesCheckBox.Checked);
-                }
-
-                if (isDisableMemoryResetForRaceSoundsApplied != DisableMemoryResetForRaceSoundsCheckbox.Checked)
-                {
-                    ApplyCode(new RaceSoundsFix(executableFilePath), DisableMemoryResetForRaceSoundsCheckbox.Checked);
-                }
-
-                if (isDisablePitExitPriorityApplied != DisablePitExitPriorityCheckBox.Checked)
-                {
-                    ApplyCode(new PitExitPriorityFix(executableFilePath), DisablePitExitPriorityCheckBox.Checked);
-                }
-
-                //if (isEnableCarHandlingDesignCalculationApplied != EnableCarHandlingDesignCalculationCheckbox.Checked)
-                //{
-                //    ApplyCode(new CarDesignCalculationUpdate(executableFilePath), EnableCarHandlingDesignCalculationCheckbox.Checked);
-                //}
-                //
-                //if (isEnableCarPerformanceRaceCalcuationApplied != EnableCarPerformanceRaceCalcuationCheckbox.Checked)
-                //{
-                //    ApplyCode(new CarHandlingPerformanceFix(executableFilePath), EnableCarPerformanceRaceCalcuationCheckbox.Checked);
-                //}
+                ApplyUpgrades(executableFilePath);
+                ApplyOptions(executableFilePath);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occured:" + Environment.NewLine + Environment.NewLine + ex.Message);
+                MessageBox.Show("An error has occured. Process aborted." + Environment.NewLine + Environment.NewLine + ex.Message);
             }
-            MessageBox.Show("Complete");
+            MessageBox.Show("Complete!");
         }
 
-        private static bool IsModifiedCodeApplied(IDataPatcherUnitBase dataPatcherUnitBase)
+        private void ApplyUpgrades(string executableFilePath)
         {
-            if (dataPatcherUnitBase.IsCodeUnmodified())
-            {
-                return false;
-            }
+            //// Switch idiom patcher is only intended for use when disassembling.
+            //// Code is included here if you wish to patch all users executables
+            //// during an upgrade but this may introduce defects into the game.
+            //var switchIdiomPatcher = new SwitchIdiomPatcher();
+            //switchIdiomPatcher.Apply(executableFilePath);
 
-            if (!dataPatcherUnitBase.IsCodeModified())
-            {
-                throw new Exception("Unknown code detected. Upgrade cancelled.");
-            }
+            //// Free up space in executable by removing redundant jumping functions
+            //// Required for upgrade to be successful and cannot be reversed
+            //var jumpBypassPatcher = new JumpBypassPatcher();
+            //jumpBypassPatcher.Apply(executableFilePath);
 
-            // Therefore modified code is applied
-            return true;
+            //// Shift code around to consolidate and organise instructions and utilise free space
+            //// May add additional functionality to the game that cannot be reversed
+            //// Required for upgrade to be successful and cannot be reversed
+            //var codeShiftingPatcher = new CodeShiftingPatcher();
+            //codeShiftingPatcher.Apply(executableFilePath);
+
+            // Upgrade unmodified points scoring system with reworked code
+            // to allow alternative point scoring systems to be used.
+            var pointsScoringSystemUnmodified = new PointsSystemUnmodified(executableFilePath);
+            var isUnmodifiedPointsScoringSystemInPlace = pointsScoringSystemUnmodified.IsCodeUnmodified();
+
+            // If unmodified scoring system is still in place
+            if (isUnmodifiedPointsScoringSystemInPlace)
+            {
+                // Apply default modified scoring system
+                var pointsScoringSystemDefault = new PointsSystemF119912002Update(executableFilePath);
+                ApplyIrreversableCode(pointsScoringSystemDefault);
+            }
         }
 
-        private static void ApplyCode(IDataPatcherUnitBase dataPatcherUnitBase, bool applyModified)
+        private void ApplyOptions(string executableFilePath)
+        {
+            // Scenarios for each reversable code module
+            // Scenario 1: If currently applied and should not be applied, apply unmodified code
+            // Scenario 2: If currently not applied and should be applied, apply modified code
+            // Scenario 3: If currently applied and should be applied, do nothing
+            // Scenario 4: If currently not applied and should not be applied, do nothing
+
+            var gameCdFix = new GameCdFix(executableFilePath);
+            var isDisableGameCdApplied = gameCdFix.IsCodeModified();
+            if (isDisableGameCdApplied != DisableGameCdCheckBox.Checked)
+            {
+                ApplyReversableCode(gameCdFix, DisableGameCdCheckBox.Checked);
+            }
+
+            var displayModeFix = new DisplayModeFix(executableFilePath);
+            var isDisableColourModeApplied = displayModeFix.IsCodeModified();
+            if (isDisableColourModeApplied != DisableColourModeCheckBox.Checked)
+            {
+                ApplyReversableCode(displayModeFix, DisableColourModeCheckBox.Checked);
+            }
+
+            var sampleAppFix = new SampleAppFix(executableFilePath);
+            var isDisableSampleAppApplied = sampleAppFix.IsCodeModified();
+            if (isDisableSampleAppApplied != DisableSampleAppCheckBox.Checked)
+            {
+                ApplyReversableCode(sampleAppFix, DisableSampleAppCheckBox.Checked);
+            }
+
+            var globalUnlockFix = new GlobalUnlockFix(executableFilePath);
+            var isDisableGlobalUnlockApplied = globalUnlockFix.IsCodeModified();
+            if (isDisableGlobalUnlockApplied != DisableGlobalUnlockCheckBox.Checked)
+            {
+                ApplyReversableCode(globalUnlockFix, DisableGlobalUnlockCheckBox.Checked);
+            }
+
+            var yellowFlagFix = new YellowFlagFix(executableFilePath);
+            var isDisableYellowFlagPenaltiesApplied = yellowFlagFix.IsCodeModified();
+            if (isDisableYellowFlagPenaltiesApplied != DisableYellowFlagPenaltiesCheckBox.Checked)
+            {
+                ApplyReversableCode(yellowFlagFix, DisableYellowFlagPenaltiesCheckBox.Checked);
+            }
+
+            var raceSoundsFix = new RaceSoundsFix(executableFilePath);
+            var isDisableMemoryResetForRaceSoundsApplied = raceSoundsFix.IsCodeModified();
+            if (isDisableMemoryResetForRaceSoundsApplied != DisableMemoryResetForRaceSoundsCheckbox.Checked)
+            {
+                ApplyReversableCode(raceSoundsFix, DisableMemoryResetForRaceSoundsCheckbox.Checked);
+            }
+
+            //var pitExitPriorityFix = new PitExitPriorityFix(executableFilePath);
+            //var isDisablePitExitPriorityApplied = pitExitPriorityFix.IsCodeModified();
+            //if (isDisablePitExitPriorityApplied != DisablePitExitPriorityCheckBox.Checked)
+            //{
+            //    ApplyReversableCode(pitExitPriorityFix, DisablePitExitPriorityCheckBox.Checked);
+            //}
+
+            var carDesignCalculationUpdate = new CarDesignCalculationUpdate(executableFilePath);
+            var isEnableCarHandlingDesignCalculationApplied = carDesignCalculationUpdate.IsCodeModified();
+            if (isEnableCarHandlingDesignCalculationApplied != EnableCarHandlingDesignCalculationCheckbox.Checked)
+            {
+                ApplyReversableCode(carDesignCalculationUpdate, EnableCarHandlingDesignCalculationCheckbox.Checked);
+            }
+
+            var carHandlingPerformanceFix = new CarHandlingPerformanceFix(executableFilePath);
+            var isEnableCarPerformanceRaceCalcuationApplied = carHandlingPerformanceFix.IsCodeModified();
+            if (isEnableCarPerformanceRaceCalcuationApplied != EnableCarPerformanceRaceCalcuationCheckbox.Checked)
+            {
+                ApplyReversableCode(carHandlingPerformanceFix, EnableCarPerformanceRaceCalcuationCheckbox.Checked);
+            }
+
+            // Scenarios for each irreversable code module
+            // Scenario 1: If currently not applied and should be applied, apply modified code
+            // Scenario 2: If currently not applied and should not be applied, do nothing
+            // Scenario 3: If currently applied, do nothing
+
+            var pointsScoringSystemDefault = new PointsSystemF119912002Update(executableFilePath);
+            var isPointsScoringSystemDefaultApplied = pointsScoringSystemDefault.IsCodeModified();
+            if (!isPointsScoringSystemDefaultApplied && PointsScoringSystemDefaultRadioButton.Checked)
+            {
+                ApplyIrreversableCode(pointsScoringSystemDefault);
+            }
+
+            var pointsScoringSystemOption1 = new PointsSystemF119811990Update(executableFilePath);
+            var isPointsScoringSystemOption1Applied = pointsScoringSystemOption1.IsCodeModified();
+            if (!isPointsScoringSystemOption1Applied && PointsScoringSystemOption1RadioButton.Checked)
+            {
+                ApplyIrreversableCode(pointsScoringSystemOption1);
+            }
+
+            var pointsScoringSystemOption2 = new PointsSystemF120032009Update(executableFilePath);
+            var isPointsScoringSystemOption2Applied = pointsScoringSystemOption2.IsCodeModified();
+            if (!isPointsScoringSystemOption2Applied && PointsScoringSystemOption2RadioButton.Checked)
+            {
+                ApplyIrreversableCode(pointsScoringSystemOption2);
+            }
+
+            var pointsScoringSystemOption3 = new PointsSystemF1201020xxUpdate(executableFilePath);
+            var isPointsScoringSystemOption3Applied = pointsScoringSystemOption3.IsCodeModified();
+            if (!isPointsScoringSystemOption3Applied && PointsScoringSystemOption3RadioButton.Checked)
+            {
+                ApplyIrreversableCode(pointsScoringSystemOption3);
+            }
+        }
+
+        private static void ApplyReversableCode(IDataPatcherUnitBase dataPatcherUnitBase, bool applyModified)
         {
             if (applyModified)
             {
+                // If unmodified code is applied, apply modified code
                 if (dataPatcherUnitBase.IsCodeUnmodified())
                 {
+                    Debug.WriteLine("Applying reversable modified code.");
                     dataPatcherUnitBase.ApplyModifiedCode();
                 }
                 else
@@ -176,8 +218,10 @@ namespace UI
             }
             else
             {
+                // If modified code is applied, apply unmodified code
                 if (dataPatcherUnitBase.IsCodeModified())
                 {
+                    Debug.WriteLine("Applying reversable unmodified code.");
                     dataPatcherUnitBase.ApplyUnmodifiedCode();
                 }
                 else
@@ -189,6 +233,12 @@ namespace UI
                     throw new Exception("Unmodified code already applied.");
                 }
             }
+        }
+
+        private static void ApplyIrreversableCode(IDataPatcherUnitBase dataPatcherUnitBase)
+        {
+            Debug.WriteLine("Applying irreversable modified code.");
+            dataPatcherUnitBase.ApplyModifiedCode();
         }
     }
 }

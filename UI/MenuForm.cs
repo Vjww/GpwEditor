@@ -33,8 +33,8 @@ namespace UI
 #else
             {
                 // Set form title text
-                Text = string.Format("{0} v{1}", Settings.Default.ApplicationName,
-                    FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion);
+                Text =
+                    $"{Settings.Default.ApplicationName} v{FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion}";
             }
 #endif
 

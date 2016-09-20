@@ -22,8 +22,13 @@
     {
         public CarHandlingPerformanceFix(string executableFilePath) : base(executableFilePath)
         {
+            var taskId = 0;
+
+            // Task A
             UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
+                TaskId = taskId,
+                Description = $"{typeof(CarHandlingPerformanceFix).Name} Unmodified; TaskId {taskId:D2};",
                 VirtualPosition = 0x0053656B,
                 Instructions = new byte[]
                 {
@@ -59,6 +64,8 @@
 
             ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
+                TaskId = taskId,
+                Description = $"{typeof(CarHandlingPerformanceFix).Name} Modified; TaskId {taskId:D2};",
                 VirtualPosition = 0x0053656B,
                 Instructions = new byte[]
                 {
@@ -84,6 +91,7 @@
                     0x90, 0x90, 0x90                            // .text:005365A8                 {nop}
                 }
             });
+            // End
         }
     }
 }

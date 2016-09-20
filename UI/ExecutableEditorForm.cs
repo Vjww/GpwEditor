@@ -148,7 +148,7 @@ namespace UI
                 if (string.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
                 {
                     var headerText = EnginesDataGridView.Columns[e.ColumnIndex].HeaderText;
-                    MessageBox.Show(string.Format("Please enter a value in the {0} column.", headerText));
+                    MessageBox.Show($"Please enter a value in the {headerText} column.");
                     e.Cancel = true;
                 }
             }
@@ -160,7 +160,7 @@ namespace UI
                     (!Convert.ToInt32(e.FormattedValue).ValidateAsOneToTenStepOne()))
                 {
                     var headerText = EnginesDataGridView.Columns[e.ColumnIndex].HeaderText;
-                    MessageBox.Show(string.Format("Please enter a value for {0} of {1}-{2}.", headerText, 1, 10));
+                    MessageBox.Show($"Please enter a value for {headerText} of {1}-{10}.");
                     e.Cancel = true;
                 }
             }
@@ -175,7 +175,7 @@ namespace UI
                 if (string.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
                 {
                     var headerText = TyresDataGridView.Columns[e.ColumnIndex].HeaderText;
-                    MessageBox.Show(string.Format("Please enter a value in the {0} column.", headerText));
+                    MessageBox.Show($"Please enter a value in the {headerText} column.");
                     e.Cancel = true;
                 }
             }
@@ -187,7 +187,7 @@ namespace UI
                     (!Convert.ToInt32(e.FormattedValue).ValidateAsOneToTenStepOne()))
                 {
                     var headerText = TyresDataGridView.Columns[e.ColumnIndex].HeaderText;
-                    MessageBox.Show(string.Format("Please enter a value for {0} of {1}-{2}.", headerText, 1, 10));
+                    MessageBox.Show($"Please enter a value for {headerText} of {1}-{10}.");
                     e.Cancel = true;
                 }
             }
@@ -202,7 +202,7 @@ namespace UI
                 if (string.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
                 {
                     var headerText = FuelsDataGridView.Columns[e.ColumnIndex].HeaderText;
-                    MessageBox.Show(string.Format("Please enter a value in the {0} column.", headerText));
+                    MessageBox.Show($"Please enter a value in the {headerText} column.");
                     e.Cancel = true;
                 }
             }
@@ -214,7 +214,7 @@ namespace UI
                     (!Convert.ToInt32(e.FormattedValue).ValidateAsOneToTenStepOne()))
                 {
                     var headerText = FuelsDataGridView.Columns[e.ColumnIndex].HeaderText;
-                    MessageBox.Show(string.Format("Please enter a value for {0} of {1}-{2}.", headerText, 1, 10));
+                    MessageBox.Show($"Please enter a value for {headerText} of {1}-{10}.");
                     e.Cancel = true;
                 }
             }

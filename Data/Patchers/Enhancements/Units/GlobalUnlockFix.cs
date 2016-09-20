@@ -31,13 +31,14 @@
                 0x005C552D
             };
 
-            var index = 0;
+            var taskId = 0;
             foreach (var position in jumpPositions)
             {
+                // Task X
                 UnmodifiedInstructions.Add(new DataPatcherUnitTask()
                 {
-                    Index = index,
-                    Description = $"Unmodified instructions at 0x{position:X8}.",
+                    TaskId = taskId,
+                    Description = $"{typeof(GlobalUnlockFix).Name} Unmodified; TaskId {taskId:D2};",
                     VirtualPosition = position,
                     Instructions = new byte[]
                     {
@@ -47,8 +48,8 @@
 
                 ModifiedInstructions.Add(new DataPatcherUnitTask()
                 {
-                    Index = index,
-                    Description = $"Modified instructions at 0x{position:X8}.",
+                    TaskId = taskId,
+                    Description = $"{typeof(GlobalUnlockFix).Name} Modified; TaskId {taskId:D2};",
                     VirtualPosition = position,
                     Instructions = new byte[]
                     {
@@ -56,7 +57,9 @@
                         0xE9, 0x05, 0x00, 0x00, 0x00       // jmp loc_XXXXXX
                     }
                 });
-                index++;
+                // End
+
+                taskId++;
             }
         }
     }

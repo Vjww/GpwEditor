@@ -19,10 +19,14 @@
     {
         public CarDesignCalculationUpdate(string executableFilePath) : base(executableFilePath)
         {
+            var taskId = 0;
+
             // Task A (player team)
             #region Task A Unmodified
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
+                TaskId = taskId,
+                Description = $"{typeof(CarDesignCalculationUpdate).Name} Unmodified; TaskId {taskId:D2};",
                 VirtualPosition = 0x0050C449,
                 Instructions = new byte[]
                 {
@@ -342,6 +346,8 @@
             #region Task A Modified
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
+                TaskId = taskId,
+                Description = $"{typeof(CarDesignCalculationUpdate).Name} Modified; TaskId {taskId:D2};",
                 VirtualPosition = 0x0050C449,
                 Instructions = new byte[]
                 {
@@ -788,10 +794,14 @@
             #endregion
             // End
 
+            taskId++;
+
             // Task B (AI teams)
             #region Task B Unmodified
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
+                TaskId = taskId,
+                Description = $"{typeof(CarDesignCalculationUpdate).Name} Unmodified; TaskId {taskId:D2};",
                 VirtualPosition = 0x0050D41E,
                 Instructions = new byte[]
                 {
@@ -1165,6 +1175,8 @@
             #region Task B Modified
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
+                TaskId = taskId,
+                Description = $"{typeof(CarDesignCalculationUpdate).Name} Modified; TaskId {taskId:D2};",
                 VirtualPosition = 0x0050D41E,
                 Instructions = new byte[]
                 {

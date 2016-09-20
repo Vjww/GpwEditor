@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using Common.Enums;
+﻿using Common.Enums;
 using Core.Helpers;
 using Data.FileConnection;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Linq;
 
 namespace Data.Patchers
 {
@@ -63,9 +63,7 @@ namespace Data.Patchers
                 {
                     var realPosition = InstructionHelper.CalculateRealPositionFromVirtualPosition(instructionTask.VirtualPosition);
                     executableConnection.WriteByteArray(realPosition, instructionTask.Instructions);
-#if DEBUG
-                    Debug.WriteLine($"Instruction index {instructionTask.Index}: {instructionTask.Description}. Offset: {realPosition}");
-#endif
+                    Debug.WriteLine($"Applied code for {instructionTask.Description} Virtual: {instructionTask.VirtualPosition:X8}; Real: {realPosition:X8};");
                 }
             }
             finally
@@ -85,16 +83,40 @@ namespace Data.Patchers
 
                 foreach (var instructionTask in instructionTasks)
                 {
-                    var currentInstructions =
-                        executableConnection.ReadByteArray(
-                            InstructionHelper.CalculateRealPositionFromVirtualPosition(instructionTask.VirtualPosition),
-                            instructionTask.Instructions.Length);
+                    var virtualPosition = instructionTask.VirtualPosition;
+                    var realPosition = InstructionHelper.CalculateRealPositionFromVirtualPosition(instructionTask.VirtualPosition);
+                    var currentInstructions = executableConnection.ReadByteArray(realPosition, instructionTask.Instructions.Length);
 
                     // If current instructions do not equal unmodified instructions
+#if DEBUG
+                    var debugStringCollection = new StringCollection();
+                    for (var i = 0; i < currentInstructions.Count(); i++)
+                    {
+                        if (currentInstructions[i].Equals(instructionTask.Instructions[i]))
+                        {
+                            continue;
+                        }
+
+                        var debugVirtualPosition = virtualPosition + i;
+                        var debugRealPosition = realPosition + i;
+
+                        debugStringCollection.Add($"Byte mismatch; - File: {currentInstructions[i]:X2}; Code: {instructionTask.Instructions[i]:X2}; Index: {i:X8}; Virtual: {debugVirtualPosition:X8}; Real: {debugRealPosition:X8};");
+                    }
+                    if (debugStringCollection.Count > 0)
+                    {
+                        //Debug.WriteLine($"{instructionTask.Description} - Instructions in code are not equal to instructions in file.");
+                        //foreach (var line in debugStringCollection)
+                        //{
+                        //    Debug.WriteLine(line);
+                        //}
+                        return false;
+                    }
+#else
                     if (!currentInstructions.SequenceEqual(instructionTask.Instructions))
                     {
                         return false;
                     }
+#endif
                 }
 
                 return true;
