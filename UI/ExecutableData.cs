@@ -2,7 +2,7 @@
 using Core.Collections.Executable.Team;
 using Core.Collections.Executable.Track;
 
-namespace UI
+namespace GpwEditor
 {
     class ExecutableData
     {

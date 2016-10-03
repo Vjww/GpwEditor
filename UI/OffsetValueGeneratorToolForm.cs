@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Windows.Forms;
-using UI.Properties;
+using GpwEditor.Properties;
 
-namespace UI
+namespace GpwEditor
 {
     public partial class OffsetValueGeneratorToolForm : Form
     {

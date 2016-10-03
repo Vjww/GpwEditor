@@ -1,4 +1,4 @@
-﻿namespace UI
+﻿namespace GpwEditor
 {
     partial class UpgradeGameForm
     {

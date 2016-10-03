@@ -1,13 +1,12 @@
-﻿using Data.Patchers.CodeShifting;
+﻿using System;
+using System.Windows.Forms;
+using Data.Patchers.CodeShifting;
 using Data.Patchers.GlobalUnlockPatcher;
 using Data.Patchers.JumpBypassPatcher;
 using Data.Patchers.SwitchIdiomPatcher;
-using System;
-using System.Windows.Forms;
-using Data.Patchers.Enhancements.Units;
-using UI.Properties;
+using GpwEditor.Properties;
 
-namespace UI
+namespace GpwEditor
 {
     public partial class SettingsForm : Form
     {

@@ -1,11 +1,11 @@
-﻿using Core.Properties;
-using Core.Registry;
-using System;
+﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using UI.Properties;
+using GpwEditor.Properties;
+using GpwRegistry = GpwEditor.Registry.GpwRegistry;
+using GpwRegistryKeys = GpwEditor.Registry.GpwRegistryKeys;
 
-namespace UI
+namespace GpwEditor
 {
     public partial class RegistryKeysForm : Form
     {

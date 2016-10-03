@@ -1,8 +1,8 @@
 ﻿using System;
-using Core.Properties;
+using GpwEditor.Properties;
 using Microsoft.Win32;
 
-namespace Core.Registry
+namespace GpwEditor.Registry
 {
     public class GpwRegistryKeys
     {

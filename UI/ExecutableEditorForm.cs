@@ -1,16 +1,15 @@
-﻿using Core.Collections;
+﻿using System;
+using System.IO;
+using System.Windows.Forms;
+using Core.Collections;
 using Core.Collections.Executable.Supplier;
 using Core.Collections.Executable.Team;
 using Core.Collections.Executable.Track;
 using Core.Extensions;
-using Core.Properties;
 using Data.Database.Executable;
-using System;
-using System.IO;
-using System.Windows.Forms;
-using UI.Properties;
+using GpwEditor.Properties;
 
-namespace UI
+namespace GpwEditor
 {
     /// <summary>
     /// Enables the user to modify data and logic in the game executable.

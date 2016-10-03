@@ -12,13 +12,15 @@ namespace Data.FileConnection
     {
         public IdentityCollection Load()
         {
-            if (StreamDirection != StreamDirectionType.Read)
+            if (GetStreamDirection() != StreamDirectionType.Read)
+            {
                 throw new Exception("Stream direction must be read.");
+            }
 
             // Read strings from file
             string line;
             var stringList = new List<string>();
-            while ((line = StreamReader.ReadLine()) != null)
+            while ((line = ReadLine()) != null)
             {
                 stringList.Add(line);
             }
@@ -29,8 +31,10 @@ namespace Data.FileConnection
 
         public void Save(IdentityCollection stringTable)
         {
-            if (StreamDirection != StreamDirectionType.Write)
+            if (GetStreamDirection() != StreamDirectionType.Write)
+            {
                 throw new Exception("Stream direction must be write.");
+            }
 
             // Generate string list from identity collection
             var stringList = ConvertIdentityCollectionToStringList(stringTable);
@@ -38,11 +42,11 @@ namespace Data.FileConnection
             // Write strings to file
             foreach (var line in stringList)
             {
-                StreamWriter.WriteLine(line);
+                WriteLine(line);
             }
         }
 
-        private static IdentityCollection ConvertStringListToStringTable(List<string> stringList)
+        private static IdentityCollection ConvertStringListToStringTable(IEnumerable<string> stringList)
         {
             var i = 0;
             var result = new IdentityCollection();

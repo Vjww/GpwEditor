@@ -1,4 +1,4 @@
-﻿namespace UI
+﻿namespace GpwEditor
 {
     sealed partial class MenuForm
     {
@@ -37,7 +37,7 @@
             this.LogoPictureBox = new System.Windows.Forms.PictureBox();
             this.SettingsButton = new System.Windows.Forms.Button();
             this.MenuToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.GpwFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.GameFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.UpgradeGameButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -102,7 +102,7 @@
             // 
             // LogoPictureBox
             // 
-            this.LogoPictureBox.Image = global::UI.Properties.Resources.logo3;
+            this.LogoPictureBox.Image = global::GpwEditor.Properties.Resources.logo3;
             this.LogoPictureBox.InitialImage = null;
             this.LogoPictureBox.Location = new System.Drawing.Point(0, 0);
             this.LogoPictureBox.Name = "LogoPictureBox";
@@ -121,9 +121,9 @@
             this.SettingsButton.UseVisualStyleBackColor = true;
             this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
             // 
-            // GpwFolderBrowserDialog
+            // GameFolderBrowserDialog
             // 
-            this.GpwFolderBrowserDialog.ShowNewFolderButton = false;
+            this.GameFolderBrowserDialog.ShowNewFolderButton = false;
             // 
             // UpgradeGameButton
             // 
@@ -169,7 +169,7 @@
         private System.Windows.Forms.Button LaunchGameButton;
         private System.Windows.Forms.Button SettingsButton;
         private System.Windows.Forms.ToolTip MenuToolTip;
-        private System.Windows.Forms.FolderBrowserDialog GpwFolderBrowserDialog;
+        private System.Windows.Forms.FolderBrowserDialog GameFolderBrowserDialog;
         private System.Windows.Forms.Button UpgradeGameButton;
     }
 }

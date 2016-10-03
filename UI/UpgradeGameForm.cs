@@ -1,12 +1,11 @@
-﻿using Core.Properties;
-using Data.Patchers;
-using Data.Patchers.Enhancements.Units;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
-using UI.Properties;
+using Data.Patchers;
+using Data.Patchers.Enhancements.Units;
+using GpwEditor.Properties;
 
-namespace UI
+namespace GpwEditor
 {
     public partial class UpgradeGameForm : Form
     {
