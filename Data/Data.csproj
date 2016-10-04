@@ -60,8 +60,6 @@
     <Compile Include="Entities\Executable\Track\TrackLapRecord.cs" />
     <Compile Include="Entities\Language\Identity.cs" />
     <Compile Include="Enums\PointsScoringSystemType.cs" />
-    <Compile Include="Extensions\IntExt.cs" />
-    <Compile Include="Extensions\StringExt.cs" />
     <Compile Include="FileConnection\ExecutableConnection.cs" />
     <Compile Include="FileConnection\LanguageConnection.cs" />
     <Compile Include="Helpers\InstructionHelper.cs" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Security.Principal;
 using System.Windows.Forms;
 using GpwEditor.Properties;
 using GpwRegistry = GpwEditor.Registry.GpwRegistry;
@@ -54,22 +55,63 @@ namespace GpwEditor
 
         private void CreateRegistryKeysButton_Click(object sender, EventArgs e)
         {
-            // Create keys
-            var registry = new GpwRegistry();
-            registry.CreateKeys();
+            var isRunningAsAdministrator = new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
 
-            // Update path with current user game folder path value
-            var registryKeys = registry.ReadKeys();
-            registryKeys.PathValue = Settings.Default.UserGameFolderPath;
-            registry.WriteKeys(registryKeys);
+            // If application not running as an administrator, display message and abort
+            if (!isRunningAsAdministrator)
+            {
+                // Display message advising to restart as an administrator
+                var dialogResult = MessageBox.Show(
+                    string.Format(
+                        "{0} must be run with administrative rights to be able to create the registry keys for {1}.{2}{2}" +
+                        "Please restart {0} as an administrator and try again.",
+                        Settings.Default.ApplicationName, "Grand Prix World", Environment.NewLine),
+                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
-            UpdateControlsWithRegistryKeyValues(registryKeys);
-            CreateRegistryKeysButton.Enabled = false;
-            ChangeGameFolderButton.Enabled = true;
+            try
+            {
+                // Create keys
+                var registry = new GpwRegistry();
+                registry.CreateKeys();
+
+                // Update path with current user game folder path value
+                var registryKeys = registry.ReadKeys();
+                registryKeys.PathValue = Settings.Default.UserGameFolderPath;
+                registry.WriteKeys(registryKeys);
+
+                UpdateControlsWithRegistryKeyValues(registryKeys);
+                CreateRegistryKeysButton.Enabled = false;
+                ChangeGameFolderButton.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    string.Format(
+                        "{0} has encountered an error while attempting to update the registry.{1}{1}" +
+                        "Error: " + ex.Message, Settings.Default.ApplicationName, Environment.NewLine),
+                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ChangeGameFolderButton_Click(object sender, EventArgs e)
         {
+            var isRunningAsAdministrator = new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
+
+            // If application not running as an administrator, display message and abort
+            if (!isRunningAsAdministrator)
+            {
+                // Display message advising to restart as an administrator
+                var dialogResult = MessageBox.Show(
+                    string.Format(
+                        "{0} must be run with administrative rights to be able to change the registry keys for {1}.{2}{2}" +
+                        "Please restart {0} as an administrator and try again.",
+                        Settings.Default.ApplicationName, "Grand Prix World", Environment.NewLine),
+                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             try
             {
                 var registry = new GpwRegistry();

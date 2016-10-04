@@ -57,10 +57,10 @@
             // 
             // RegistryKeyLocationTextBox
             // 
-            this.RegistryKeyLocationTextBox.Location = new System.Drawing.Point(15, 25);
+            this.RegistryKeyLocationTextBox.Location = new System.Drawing.Point(12, 25);
             this.RegistryKeyLocationTextBox.Name = "RegistryKeyLocationTextBox";
             this.RegistryKeyLocationTextBox.ReadOnly = true;
-            this.RegistryKeyLocationTextBox.Size = new System.Drawing.Size(448, 20);
+            this.RegistryKeyLocationTextBox.Size = new System.Drawing.Size(400, 20);
             this.RegistryKeyLocationTextBox.TabIndex = 1;
             this.RegistryKeyLocationTextBox.TabStop = false;
             // 
@@ -74,9 +74,9 @@
             this.CurrentRegistryKeyValuesGroupBox.Controls.Add(this.LanguageLabel);
             this.CurrentRegistryKeyValuesGroupBox.Controls.Add(this.InstallTextBox);
             this.CurrentRegistryKeyValuesGroupBox.Controls.Add(this.InstallLabel);
-            this.CurrentRegistryKeyValuesGroupBox.Location = new System.Drawing.Point(15, 51);
+            this.CurrentRegistryKeyValuesGroupBox.Location = new System.Drawing.Point(12, 51);
             this.CurrentRegistryKeyValuesGroupBox.Name = "CurrentRegistryKeyValuesGroupBox";
-            this.CurrentRegistryKeyValuesGroupBox.Size = new System.Drawing.Size(448, 130);
+            this.CurrentRegistryKeyValuesGroupBox.Size = new System.Drawing.Size(400, 123);
             this.CurrentRegistryKeyValuesGroupBox.TabIndex = 2;
             this.CurrentRegistryKeyValuesGroupBox.TabStop = false;
             this.CurrentRegistryKeyValuesGroupBox.Text = "Current registry key values";
@@ -86,7 +86,7 @@
             this.ValidTextBox.Location = new System.Drawing.Point(67, 97);
             this.ValidTextBox.Name = "ValidTextBox";
             this.ValidTextBox.ReadOnly = true;
-            this.ValidTextBox.Size = new System.Drawing.Size(375, 20);
+            this.ValidTextBox.Size = new System.Drawing.Size(327, 20);
             this.ValidTextBox.TabIndex = 10;
             this.ValidTextBox.TabStop = false;
             // 
@@ -104,7 +104,7 @@
             this.PathTextBox.Location = new System.Drawing.Point(67, 71);
             this.PathTextBox.Name = "PathTextBox";
             this.PathTextBox.ReadOnly = true;
-            this.PathTextBox.Size = new System.Drawing.Size(375, 20);
+            this.PathTextBox.Size = new System.Drawing.Size(327, 20);
             this.PathTextBox.TabIndex = 8;
             this.PathTextBox.TabStop = false;
             // 
@@ -122,7 +122,7 @@
             this.LanguageTextBox.Location = new System.Drawing.Point(67, 45);
             this.LanguageTextBox.Name = "LanguageTextBox";
             this.LanguageTextBox.ReadOnly = true;
-            this.LanguageTextBox.Size = new System.Drawing.Size(375, 20);
+            this.LanguageTextBox.Size = new System.Drawing.Size(327, 20);
             this.LanguageTextBox.TabIndex = 6;
             this.LanguageTextBox.TabStop = false;
             // 
@@ -140,7 +140,7 @@
             this.InstallTextBox.Location = new System.Drawing.Point(67, 19);
             this.InstallTextBox.Name = "InstallTextBox";
             this.InstallTextBox.ReadOnly = true;
-            this.InstallTextBox.Size = new System.Drawing.Size(375, 20);
+            this.InstallTextBox.Size = new System.Drawing.Size(327, 20);
             this.InstallTextBox.TabIndex = 4;
             this.InstallTextBox.TabStop = false;
             // 
@@ -155,9 +155,9 @@
             // 
             // ChangeGameFolderButton
             // 
-            this.ChangeGameFolderButton.Location = new System.Drawing.Point(171, 187);
+            this.ChangeGameFolderButton.Location = new System.Drawing.Point(168, 180);
             this.ChangeGameFolderButton.Name = "ChangeGameFolderButton";
-            this.ChangeGameFolderButton.Size = new System.Drawing.Size(210, 23);
+            this.ChangeGameFolderButton.Size = new System.Drawing.Size(163, 23);
             this.ChangeGameFolderButton.TabIndex = 12;
             this.ChangeGameFolderButton.Text = "Change path to game folder...";
             this.ChangeGameFolderButton.UseVisualStyleBackColor = true;
@@ -165,7 +165,7 @@
             // 
             // CloseButton
             // 
-            this.CloseButton.Location = new System.Drawing.Point(387, 187);
+            this.CloseButton.Location = new System.Drawing.Point(337, 180);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(75, 23);
             this.CloseButton.TabIndex = 13;
@@ -179,7 +179,7 @@
             // 
             // CreateRegistryKeysButton
             // 
-            this.CreateRegistryKeysButton.Location = new System.Drawing.Point(15, 187);
+            this.CreateRegistryKeysButton.Location = new System.Drawing.Point(12, 180);
             this.CreateRegistryKeysButton.Name = "CreateRegistryKeysButton";
             this.CreateRegistryKeysButton.Size = new System.Drawing.Size(150, 23);
             this.CreateRegistryKeysButton.TabIndex = 11;
@@ -191,7 +191,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 218);
+            this.ClientSize = new System.Drawing.Size(424, 215);
             this.Controls.Add(this.ChangeGameFolderButton);
             this.Controls.Add(this.CreateRegistryKeysButton);
             this.Controls.Add(this.CloseButton);
