@@ -1,10 +1,10 @@
 ﻿using Common.Enums;
 using Common.FileConnection;
-using Core.Collections;
-using Core.Entities;
 using Core.Extensions;
 using System;
 using System.Collections.Generic;
+using Core.Collections.Language;
+using Core.Entities.Language;
 
 namespace Data.FileConnection
 {

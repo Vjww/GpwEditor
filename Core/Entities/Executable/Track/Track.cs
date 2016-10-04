@@ -1,4 +1,5 @@
-﻿
+﻿using Core.Entities.Language;
+
 namespace Core.Entities.Executable.Track
 {
     public interface ITrack

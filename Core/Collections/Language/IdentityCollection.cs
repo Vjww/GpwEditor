@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
-using Core.Entities;
+using Core.Entities.Language;
 
-namespace Core.Collections
+namespace Core.Collections.Language
 {
     public class IdentityCollection : Collection<Identity>
     {

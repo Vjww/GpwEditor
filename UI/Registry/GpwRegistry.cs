@@ -4,43 +4,8 @@ using Microsoft.Win32;
 
 namespace GpwEditor.Registry
 {
-    public class GpwRegistryKeys
-    {
-        public const string InstallKey = "INSTALL";
-        public const string LanguageKey = "LANGUAGE";
-        public const string PathKey = "PATH";
-        public const string ValidKey = "VALID";
-
-        public string InstallValue { get; set; }
-        public int LanguageValue { get; set; }
-        public string PathValue { get; set; }
-        public int ValidValue { get; set; }
-    }
-
     public class GpwRegistry
     {
-        private static RegistryKey CreateGpwSubKey()
-        {
-            var key = Settings.Default.RegistryKey;
-            var subKey = Microsoft.Win32.Registry.LocalMachine.CreateSubKey(key);
-            if (subKey == null)
-            {
-                throw new Exception($@"Unable to create registry key HKEY_LOCAL_MACHINE\{key}");
-            }
-            return subKey;
-        }
-
-        private static RegistryKey OpenGpwSubKey()
-        {
-            var key = Settings.Default.RegistryKey;
-            var subKey = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(key);
-            if (subKey == null)
-            {
-                throw new Exception($@"Unable to open registry key HKEY_LOCAL_MACHINE\{key}");
-            }
-            return subKey;
-        }
-
         public void CreateKeys()
         {
             var subKey = CreateGpwSubKey();
@@ -91,6 +56,28 @@ namespace GpwEditor.Registry
             subKey.SetValue(GpwRegistryKeys.LanguageKey, keys.LanguageValue);
             subKey.SetValue(GpwRegistryKeys.PathKey, keys.PathValue);
             subKey.SetValue(GpwRegistryKeys.ValidKey, keys.ValidValue);
+        }
+
+        private static RegistryKey CreateGpwSubKey()
+        {
+            var key = Settings.Default.RegistryKey;
+            var subKey = Microsoft.Win32.Registry.LocalMachine.CreateSubKey(key);
+            if (subKey == null)
+            {
+                throw new Exception($@"Unable to create registry key HKEY_LOCAL_MACHINE\{key}");
+            }
+            return subKey;
+        }
+
+        private static RegistryKey OpenGpwSubKey()
+        {
+            var key = Settings.Default.RegistryKey;
+            var subKey = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(key);
+            if (subKey == null)
+            {
+                throw new Exception($@"Unable to open registry key HKEY_LOCAL_MACHINE\{key}");
+            }
+            return subKey;
         }
     }
 }

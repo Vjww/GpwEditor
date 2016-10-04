@@ -86,6 +86,7 @@
       <DependentUpon>RegistryKeysForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Registry\GpwRegistry.cs" />
+    <Compile Include="Registry\GpwRegistryKeys.cs" />
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>

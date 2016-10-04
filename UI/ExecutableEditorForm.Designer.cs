@@ -1,4 +1,6 @@
-﻿namespace GpwEditor
+﻿using Core.Collections.Language;
+
+namespace GpwEditor
 {
     partial class ExecutableEditorForm
     {
@@ -443,7 +445,7 @@
             // 
             // identityCollectionBindingSource
             // 
-            this.identityCollectionBindingSource.DataSource = typeof(Core.Collections.IdentityCollection);
+            this.identityCollectionBindingSource.DataSource = typeof(IdentityCollection);
             // 
             // TeamsTabPage
             // 

@@ -1,5 +1,4 @@
-﻿
-namespace Core.Entities.Executable.Supplier
+﻿namespace Core.Entities.Executable.Supplier
 {
     public class Fuel
     {

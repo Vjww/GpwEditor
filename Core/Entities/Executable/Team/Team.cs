@@ -1,4 +1,5 @@
-﻿
+﻿using Core.Entities.Language;
+
 namespace Core.Entities.Executable.Team
 {
     public interface ITeam

@@ -44,7 +44,7 @@
     <Compile Include="Collections\Executable\Supplier\FuelCollection.cs" />
     <Compile Include="Collections\Executable\Supplier\TyreCollection.cs" />
     <Compile Include="Collections\Executable\Team\DriverCollection.cs" />
-    <Compile Include="Collections\IdentityCollection.cs" />
+    <Compile Include="Collections\Language\IdentityCollection.cs" />
     <Compile Include="Collections\Executable\Team\PersonnelCollection.cs" />
     <Compile Include="Collections\Executable\Team\TeamCollection.cs" />
     <Compile Include="Collections\Executable\Track\TrackCollection.cs" />
@@ -52,7 +52,7 @@
     <Compile Include="Entities\Executable\Supplier\Fuel.cs" />
     <Compile Include="Entities\Executable\Supplier\Tyre.cs" />
     <Compile Include="Entities\Executable\Team\Driver.cs" />
-    <Compile Include="Entities\Identity.cs" />
+    <Compile Include="Entities\Language\Identity.cs" />
     <Compile Include="Entities\Executable\Team\Personnel.cs" />
     <Compile Include="Entities\Executable\Team\Team.cs" />
     <Compile Include="Entities\Executable\Track\Track.cs" />
@@ -63,6 +63,7 @@
     <Compile Include="Helpers\InstructionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

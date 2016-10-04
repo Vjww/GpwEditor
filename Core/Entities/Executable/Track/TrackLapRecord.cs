@@ -1,5 +1,4 @@
-﻿
-namespace Core.Entities.Executable.Track
+﻿namespace Core.Entities.Executable.Track
 {
     public interface ITrackLapRecord
     {
