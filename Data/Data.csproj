@@ -40,10 +40,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\Executable\Supplier\EngineCollection.cs" />
+    <Compile Include="Collections\Executable\Supplier\FuelCollection.cs" />
+    <Compile Include="Collections\Executable\Supplier\TyreCollection.cs" />
+    <Compile Include="Collections\Executable\Team\DriverCollection.cs" />
+    <Compile Include="Collections\Executable\Team\PersonnelCollection.cs" />
+    <Compile Include="Collections\Executable\Team\TeamCollection.cs" />
+    <Compile Include="Collections\Executable\Track\TrackCollection.cs" />
+    <Compile Include="Collections\Language\IdentityCollection.cs" />
     <Compile Include="Database\Executable\ExecutableData_OutofDate.cs" />
     <Compile Include="Database\Executable\ExecutableDatabase.cs" />
+    <Compile Include="Entities\Executable\Supplier\Engine.cs" />
+    <Compile Include="Entities\Executable\Supplier\Fuel.cs" />
+    <Compile Include="Entities\Executable\Supplier\Tyre.cs" />
+    <Compile Include="Entities\Executable\Team\Driver.cs" />
+    <Compile Include="Entities\Executable\Team\Personnel.cs" />
+    <Compile Include="Entities\Executable\Team\Team.cs" />
+    <Compile Include="Entities\Executable\Track\Track.cs" />
+    <Compile Include="Entities\Executable\Track\TrackLapRecord.cs" />
+    <Compile Include="Entities\Language\Identity.cs" />
+    <Compile Include="Enums\PointsScoringSystemType.cs" />
+    <Compile Include="Extensions\IntExt.cs" />
+    <Compile Include="Extensions\StringExt.cs" />
     <Compile Include="FileConnection\ExecutableConnection.cs" />
     <Compile Include="FileConnection\LanguageConnection.cs" />
+    <Compile Include="Helpers\InstructionHelper.cs" />
     <Compile Include="Patchers\CodeShifting\CodeShiftingPatcher.cs" />
     <Compile Include="Patchers\CodeShifting\Units\DriverData.cs" />
     <Compile Include="Patchers\CodeShifting\Units\PersonnelData.cs" />
@@ -71,7 +92,11 @@
     <Compile Include="Patchers\GlobalUnlockPatcher\GlobalUnlockPatcher.cs" />
     <Compile Include="Patchers\JumpBypassPatcher\JumpBypassPatcher.cs" />
     <Compile Include="Patchers\SwitchIdiomPatcher\SwitchIdiomPatcher.cs" />
+    <Compile Include="ValueMapping\Executable\Supplier\Engine.cs" />
+    <Compile Include="ValueMapping\Executable\Supplier\Fuel.cs" />
+    <Compile Include="ValueMapping\Executable\Supplier\Tyre.cs" />
     <Compile Include="ValueMapping\Executable\Team\Driver.cs" />
+    <Compile Include="ValueMapping\Executable\Team\Personnel.cs" />
     <Compile Include="ValueMapping\Executable\Team\Team.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -82,10 +107,6 @@
     <ProjectReference Include="..\..\Common\Common\Common.csproj">
       <Project>{7595e9e1-d326-472b-ac4a-94e87e37c594}</Project>
       <Name>Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{3bb7682f-efaa-42a9-8151-db10b7a96822}</Project>
-      <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

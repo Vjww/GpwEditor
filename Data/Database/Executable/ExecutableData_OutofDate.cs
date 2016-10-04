@@ -1,9 +1,6 @@
-﻿using Core.Collections.Executable.Supplier;
-using Core.Collections.Executable.Team;
-using Core.Collections.Executable.Track;
-using Core.Entities.Executable.Supplier;
-using Core.Entities.Executable.Team;
-using Core.Entities.Executable.Track;
+﻿using Data.Collections.Executable.Supplier;
+using Data.Collections.Executable.Team;
+using Data.Collections.Executable.Track;
 
 namespace Data.Database.Executable
 {

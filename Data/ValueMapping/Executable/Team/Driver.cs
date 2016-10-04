@@ -1,4 +1,4 @@
-﻿using Core.Entities.Executable.Team;
+﻿using Data.Entities.Executable.Team;
 
 namespace Data.ValueMapping.Executable.Team
 {

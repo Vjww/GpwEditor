@@ -1,4 +1,7 @@
-﻿using Core.Collections.Language;
+﻿using Data.Collections.Executable.Supplier;
+using Data.Collections.Executable.Team;
+using Data.Collections.Language;
+using Data.Entities.Executable.Track;
 
 namespace GpwEditor
 {
@@ -566,7 +569,7 @@ namespace GpwEditor
             // 
             // teamCollectionBindingSource
             // 
-            this.teamCollectionBindingSource.DataSource = typeof(Core.Collections.Executable.Team.TeamCollection);
+            this.teamCollectionBindingSource.DataSource = typeof(TeamCollection);
             // 
             // DriversTabPage
             // 
@@ -799,7 +802,7 @@ namespace GpwEditor
             // 
             // driverCollectionBindingSource
             // 
-            this.driverCollectionBindingSource.DataSource = typeof(Core.Collections.Executable.Team.DriverCollection);
+            this.driverCollectionBindingSource.DataSource = typeof(DriverCollection);
             // 
             // EnginesTabPage
             // 
@@ -826,7 +829,7 @@ namespace GpwEditor
             // 
             // engineCollectionBindingSource
             // 
-            this.engineCollectionBindingSource.DataSource = typeof(Core.Collections.Executable.Supplier.EngineCollection);
+            this.engineCollectionBindingSource.DataSource = typeof(EngineCollection);
             // 
             // TyresTabPage
             // 
@@ -853,7 +856,7 @@ namespace GpwEditor
             // 
             // tyreCollectionBindingSource
             // 
-            this.tyreCollectionBindingSource.DataSource = typeof(Core.Collections.Executable.Supplier.TyreCollection);
+            this.tyreCollectionBindingSource.DataSource = typeof(TyreCollection);
             // 
             // FuelsTabPage
             // 
@@ -880,7 +883,7 @@ namespace GpwEditor
             // 
             // fuelCollectionBindingSource
             // 
-            this.fuelCollectionBindingSource.DataSource = typeof(Core.Collections.Executable.Supplier.FuelCollection);
+            this.fuelCollectionBindingSource.DataSource = typeof(FuelCollection);
             // 
             // TracksTabPage
             // 
@@ -1094,7 +1097,7 @@ namespace GpwEditor
             // 
             // trackCollectionBindingSource
             // 
-            this.trackCollectionBindingSource.DataSource = typeof(Core.Entities.Executable.Track.Track);
+            this.trackCollectionBindingSource.DataSource = typeof(Track);
             // 
             // FolderBrowserDialog
             // 

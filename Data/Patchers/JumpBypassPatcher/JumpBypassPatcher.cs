@@ -2,8 +2,8 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using Common.Enums;
-using Core.Helpers;
 using Data.FileConnection;
+using Data.Helpers;
 
 namespace Data.Patchers.JumpBypassPatcher
 {

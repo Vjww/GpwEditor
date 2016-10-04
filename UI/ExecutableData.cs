@@ -1,6 +1,6 @@
-﻿using Core.Collections.Executable.Supplier;
-using Core.Collections.Executable.Team;
-using Core.Collections.Executable.Track;
+﻿using Data.Collections.Executable.Supplier;
+using Data.Collections.Executable.Team;
+using Data.Collections.Executable.Track;
 
 namespace GpwEditor
 {

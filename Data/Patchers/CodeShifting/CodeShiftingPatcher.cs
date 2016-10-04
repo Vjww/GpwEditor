@@ -4,8 +4,8 @@
 // executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(nopPositions[0]), functionInstructions);
 
 using Common.Enums;
-using Core.Helpers;
 using Data.FileConnection;
+using Data.Helpers;
 using Data.Patchers.CodeShifting.Units;
 
 namespace Data.Patchers.CodeShifting

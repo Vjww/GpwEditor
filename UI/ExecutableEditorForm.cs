@@ -1,12 +1,12 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using Core.Collections.Executable.Supplier;
-using Core.Collections.Executable.Team;
-using Core.Collections.Executable.Track;
-using Core.Collections.Language;
-using Core.Extensions;
+using Data.Collections.Executable.Supplier;
+using Data.Collections.Executable.Team;
+using Data.Collections.Executable.Track;
+using Data.Collections.Language;
 using Data.Database.Executable;
+using Data.Extensions;
 using GpwEditor.Properties;
 
 namespace GpwEditor

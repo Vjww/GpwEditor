@@ -1,10 +1,10 @@
 ﻿using Common.Enums;
 using Common.FileConnection;
-using Core.Extensions;
 using System;
 using System.Collections.Generic;
-using Core.Collections.Language;
-using Core.Entities.Language;
+using Data.Collections.Language;
+using Data.Entities.Language;
+using Data.Extensions;
 
 namespace Data.FileConnection
 {
@@ -44,6 +44,26 @@ namespace Data.FileConnection
             {
                 WriteLine(line);
             }
+        }
+
+        private static IEnumerable<string> ConvertIdentityCollectionToStringList(IdentityCollection stringTable)
+        {
+            var result = new List<string>();
+
+            try
+            {
+                // Build and add string to string table
+                foreach (var item in stringTable)
+                {
+                    result.Add(item.ResourceId + " \"" + item.ResourceText + "\"");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unable to export all values to string table.", ex);
+            }
+
+            return result;
         }
 
         private static IdentityCollection ConvertStringListToStringTable(IEnumerable<string> stringList)
@@ -86,26 +106,6 @@ namespace Data.FileConnection
             catch (Exception ex)
             {
                 throw new Exception("Unable to import all values from string table.", ex);
-            }
-
-            return result;
-        }
-
-        private static IEnumerable<string> ConvertIdentityCollectionToStringList(IdentityCollection stringTable)
-        {
-            var result = new List<string>();
-
-            try
-            {
-                // Build and add string to string table
-                foreach (var item in stringTable)
-                {
-                    result.Add(item.ResourceId + " \"" + item.ResourceText + "\"");
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Unable to export all values to string table.", ex);
             }
 
             return result;
