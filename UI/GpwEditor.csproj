@@ -68,11 +68,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExecutableData.cs" />
-    <Compile Include="ExecutableEditorForm.cs">
+    <Compile Include="GameExecutableEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ExecutableEditorForm.Designer.cs">
-      <DependentUpon>ExecutableEditorForm.cs</DependentUpon>
+    <Compile Include="GameExecutableEditorForm.Designer.cs">
+      <DependentUpon>GameExecutableEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LanguageFileEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LanguageFileEditorForm.Designer.cs">
+      <DependentUpon>LanguageFileEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -113,8 +119,11 @@
     <Compile Include="UpgradeGameForm.Designer.cs">
       <DependentUpon>UpgradeGameForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ExecutableEditorForm.resx">
-      <DependentUpon>ExecutableEditorForm.cs</DependentUpon>
+    <EmbeddedResource Include="GameExecutableEditorForm.resx">
+      <DependentUpon>GameExecutableEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LanguageFileEditorForm.resx">
+      <DependentUpon>LanguageFileEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistryKeysForm.resx">
       <DependentUpon>RegistryKeysForm.cs</DependentUpon>
@@ -151,6 +160,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Base\ss1.png" />
+    <Content Include="Resources\Base\ss2.png" />
+    <Content Include="Resources\Base\ss3.png" />
+    <Content Include="Resources\Base\ss4.png" />
+    <Content Include="Resources\Base\ss5.png" />
+    <Content Include="snippets.txt" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

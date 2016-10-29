@@ -10,6 +10,9 @@ namespace Data.FileConnection
 {
     public class LanguageConnection : TextFileConnectionBase
     {
+        public const int FirstLineId = 0;
+        public const int LastLineId = 7172;
+
         public IdentityCollection Load()
         {
             if (GetStreamDirection() != StreamDirectionType.Read)

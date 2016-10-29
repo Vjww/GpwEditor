@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.GameEditorButton = new System.Windows.Forms.Button();
+            this.GameExecutableEditorButton = new System.Windows.Forms.Button();
             this.SaveGameEditorButton = new System.Windows.Forms.Button();
             this.RegistryKeysButton = new System.Windows.Forms.Button();
             this.LanguageFileEditorButton = new System.Windows.Forms.Button();
@@ -42,16 +42,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // GameEditorButton
+            // GameExecutableEditorButton
             // 
-            this.GameEditorButton.Location = new System.Drawing.Point(8, 136);
-            this.GameEditorButton.Name = "GameEditorButton";
-            this.GameEditorButton.Size = new System.Drawing.Size(176, 23);
-            this.GameEditorButton.TabIndex = 0;
-            this.GameEditorButton.Text = "Game Editor";
-            this.MenuToolTip.SetToolTip(this.GameEditorButton, "Use the game editor to make changes to the game executable file.");
-            this.GameEditorButton.UseVisualStyleBackColor = true;
-            this.GameEditorButton.Click += new System.EventHandler(this.GameEditorButton_Click);
+            this.GameExecutableEditorButton.Location = new System.Drawing.Point(8, 136);
+            this.GameExecutableEditorButton.Name = "GameExecutableEditorButton";
+            this.GameExecutableEditorButton.Size = new System.Drawing.Size(176, 23);
+            this.GameExecutableEditorButton.TabIndex = 0;
+            this.GameExecutableEditorButton.Text = "Game Executable Editor";
+            this.MenuToolTip.SetToolTip(this.GameExecutableEditorButton, "Use the game executable editor to make changes to the game executable file.");
+            this.GameExecutableEditorButton.UseVisualStyleBackColor = true;
+            this.GameExecutableEditorButton.Click += new System.EventHandler(this.GameEditorButton_Click);
             // 
             // SaveGameEditorButton
             // 
@@ -79,7 +79,6 @@
             // 
             // LanguageFileEditorButton
             // 
-            this.LanguageFileEditorButton.Enabled = false;
             this.LanguageFileEditorButton.Location = new System.Drawing.Point(8, 200);
             this.LanguageFileEditorButton.Name = "LanguageFileEditorButton";
             this.LanguageFileEditorButton.Size = new System.Drawing.Size(176, 23);
@@ -146,7 +145,7 @@
             this.Controls.Add(this.SaveGameEditorButton);
             this.Controls.Add(this.SettingsButton);
             this.Controls.Add(this.UpgradeGameButton);
-            this.Controls.Add(this.GameEditorButton);
+            this.Controls.Add(this.GameExecutableEditorButton);
             this.Controls.Add(this.LogoPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -161,7 +160,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button GameEditorButton;
+        private System.Windows.Forms.Button GameExecutableEditorButton;
         private System.Windows.Forms.Button SaveGameEditorButton;
         private System.Windows.Forms.Button RegistryKeysButton;
         private System.Windows.Forms.PictureBox LogoPictureBox;

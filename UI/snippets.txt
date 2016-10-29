@@ -1,0 +1,289 @@
+﻿/* GPW Enums
+namespace Common.Enums
+{
+    public enum ExecutableType
+    {
+        Undefined,
+        GpwV100,
+        GpwV100NoCd,
+        GpwV101,
+        GpwV101NoCd,
+        GpwXp,
+        GpwXpNoCd
+    }
+}
+*/
+
+/* GPW Exe size check
+            FileInfo fi = new FileInfo(Properties.Settings.Default.GpwExecutableFilePath);
+
+            switch (fi.Length)
+            {
+                case 249107:
+                    version = ExecutableType.GpwV100;
+                    break;
+                case 3004928:
+                    version = ExecutableType.GpwV101;
+                    break;
+                case 2739712:
+                    version = ExecutableType.GpwXp;
+                    break;
+                default:
+                    throw new Exception("File not recognised as a valid Grand Prix World executable file.");
+            }
+*/
+
+/* GPW Language file read/write
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Text;
+using Common.Enums;
+using Common.GameObjects;
+using Common.GameObjects.Collections;
+
+namespace Common.FileConnection
+{
+    public class GpwLanguageFileConnection : IFileConnection
+    {
+        private List<string> lines;
+        private StreamReader sr;
+        private StreamWriter sw;
+        private OpenModeType mode;
+
+        public const int FirstLineId = 0;
+        public const int LastLineId = 7172;
+
+        public GpwLanguageFileConnection()
+        {
+            mode = OpenModeType.Undefined;
+        }
+
+        public void OpenConnection(OpenModeType mode)
+        {
+            this.mode = mode;
+
+            Debug.Assert(this.mode != OpenModeType.Undefined, "Open mode must be defined.");
+
+            FileStream fs = null;
+
+            try
+            {
+                fs = File.Open(Properties.Settings.Default.GpwLanguageFilePath, FileMode.Open);
+                sr = new StreamReader(fs, Encoding.Default, false);
+
+                // copy text file to string list
+                string line;
+                lines = new List<string>();
+                while ((line = sr.ReadLine()) != null)
+                {
+                    lines.Add(line);
+                }
+            }
+            finally
+            {
+                // close streams
+                if (sr != null)
+                {
+                    sr.Close();
+                    sr = null;
+                }
+
+                // ensure underlying stream is closed
+                if (fs != null)
+                {
+                    fs.Close();
+                    fs = null;
+                }
+            }
+        }
+
+        public void CloseConnection()
+        {
+            // write changes to file
+            if (mode == OpenModeType.Write)
+            {
+                FileStream fs = null;
+
+                try
+                {
+                    // create new text file for writing changes
+                    fs = File.Open(Properties.Settings.Default.GpwLanguageFilePath, FileMode.Truncate);
+                    sw = new StreamWriter(fs, Encoding.Default);
+
+                    // copy string list to text file
+                    foreach (var line in lines)
+                    {
+                        sw.WriteLine(line);
+                    }
+                }
+                finally
+                {
+                    // close streams
+                    if (sw != null)
+                    {
+                        sw.Close();
+                        sw = null;
+                    }
+
+                    // ensure underlying stream is closed
+                    if (fs != null)
+                    {
+                        fs.Close();
+                        fs = null;
+                    }
+                }
+            }
+        }
+
+        public LanguageStringCollection GetValues()
+        {
+            Debug.Assert(this.mode != OpenModeType.Undefined, "Open() method must be called first.");
+            Debug.Assert(mode == OpenModeType.Read, "File is open for reading only.");
+
+            LanguageStringCollection records = new LanguageStringCollection();
+
+            int i = FirstLineId;
+
+            try
+            {
+                foreach (var line in lines)
+                {
+                    if (i > LastLineId)
+                    {
+                        Debug.WriteLine("Line index has exceeded expected end of file.");
+                    }
+
+                    string stringIndex = BuildStringId(i);
+
+                    if (line.Contains(stringIndex))
+                    {
+                        LanguageString record = new LanguageString();
+
+                        // populate id data and extract the value from the line that sits inside quotes
+                        record.Id = i;
+                        record.StringId = stringIndex;
+                        record.Text = (line.Split(new Char[] { '"' }, 3))[1];
+
+                        records.Add(record);
+                    }
+
+                    else
+                    {
+                        Debug.WriteLine("Line index not found. This may be due to a missing line index or a blank line.");
+                    }
+
+                    i++;
+                }
+
+                return records;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unable to retreive all values from language file.", ex);
+            }
+        }
+
+        public void SetValues(LanguageStringCollection records)
+        {
+            Debug.Assert(this.mode != OpenModeType.Undefined, "Open() method must be called first.");
+            Debug.Assert(mode == OpenModeType.Write, "File is open for writing only.");
+
+            int i = FirstLineId;
+            string stringIndex = null;
+
+            try
+            {
+                foreach (var record in records)
+                {
+                    if (i > LastLineId)
+                    {
+                        Debug.WriteLine("Line index has exceeded expected end of file.");
+                    }
+
+                    stringIndex = BuildStringId(i);
+
+                    if (lines[i].Contains(stringIndex))
+                    {
+                        lines[i] = stringIndex + " \"" + record.Text + "\"";
+
+                        //LanguageString record = new LanguageString();
+
+                        //// populate id data and extract the value from the line that sits inside quotes
+                        //record.Id = i;
+                        //record.StringId = stringIndex;
+                        //record.Text = (line.Split(new Char[] { '"' }, 3))[1];
+
+                        //records.Add(record);
+
+                        //// replace value between quotes
+                        //string oldValue = (lines[i].Split(new Char[] { '"' }, 3))[1];
+                        //lines[i] = lines[i].Replace(oldValue, value);
+                        //break;
+                    }
+
+                    else
+                    {
+                        Debug.WriteLine("Line index not found. This may be due to a missing line index or a blank line.");
+                    }
+
+                    i++;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unable to retreive all values from language file.", ex);
+            }
+        }
+
+        public string GetValue(int id)
+        {
+            Debug.Assert(this.mode != OpenModeType.Undefined, "Open() method must be called first.");
+            Debug.Assert(mode == OpenModeType.Read, "File is open for reading only.");
+
+            string result = null;
+            string stringIndex = BuildStringId(id);
+
+            foreach (var line in lines)
+            {
+                if (line.Contains(stringIndex))
+                {
+                    // extract value between quotes
+                    result = (line.Split(new Char[] { '"' }, 3))[1];
+                    break;
+                }
+            }
+
+            return result;
+        }
+
+        public void SetValue(int id, string value)
+        {
+            Debug.Assert(this.mode != OpenModeType.Undefined, "Open() method must be called first.");
+            Debug.Assert(mode == OpenModeType.Write, "File is open for writing only.");
+
+            string stringIndex = BuildStringId(id);
+
+            // using for vs foreach to prevent following error
+            // cannot assign to 'line' because it is a 'foreach iteration variable'
+            for (int i = 0; i < lines.Count; i++)
+            {
+                if (lines[i].Contains(stringIndex))
+                {
+                    // replace value between quotes
+                    string oldValue = (lines[i].Split(new Char[] { '"' }, 3))[1];
+                    lines[i] = lines[i].Replace(oldValue, value);
+                    break;
+                }
+            }
+        }
+
+        private string BuildStringId(int id)
+        {
+            // return "SIDxxxxxx"
+            return "SID" + id.ToString("D6");
+        }
+    }
+}
+*/

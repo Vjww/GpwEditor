@@ -1,14 +1,18 @@
 ﻿using System;
-using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
-using Data.Patchers;
-using Data.Patchers.Enhancements.Units;
+using Data.Database;
 using GpwEditor.Properties;
 
 namespace GpwEditor
 {
+    /// <summary>
+    /// Enables the user to modify logic in the game executable.
+    /// </summary>
     public partial class UpgradeGameForm : Form
     {
+        private bool _isModified;
+
         public UpgradeGameForm()
         {
             InitializeComponent();
@@ -20,224 +24,187 @@ namespace GpwEditor
             Icon = Resources.icon1;
 
             // Set form title text
-            Text = string.Format(Text, Settings.Default.ApplicationName) + " - Upgrade Game";
+            Text = $"{Settings.Default.ApplicationName} - Upgrade Game";
 
-            //// Retreive default paths
-            //var defaultExecutableFilePath = Path.Combine(Settings.Default.UserGameFolderPath,
-            //    Settings.Default.DefaultExecutableFileName);
-            //var defaultLanguageFilePath = Path.Combine(Settings.Default.UserGameFolderPath,
-            //    Settings.Default.DefaultLanguageFileName);
+            // Populate file paths with most recently used (MRU) or default
+            var defaultLanguageFileFilePath = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultLanguageFileName);
+            LanguageFilePathTextBox.Text =
+                string.IsNullOrWhiteSpace(Settings.Default.UpgradeGameMruLanguageFileFilePath)
+                    ? defaultLanguageFileFilePath
+                    : Settings.Default.UpgradeGameMruLanguageFileFilePath;
+
+            var defaultGameExecutableFilePath = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultExecutableFileName);
+            GameExecutablePathTextBox.Text =
+                string.IsNullOrWhiteSpace(Settings.Default.UpgradeGameMruGameExecutableFilePath)
+                    ? defaultGameExecutableFilePath
+                    : Settings.Default.UpgradeGameMruGameExecutableFilePath;
+
+            // Set modified as default
+            _isModified = true;
         }
 
         private void UpgradeGameForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //if (!ConfirmCloseFormWithUnsavedChanges())
-            //{
-            //    // Abort event
-            //    e.Cancel = true;
-            //    return;
-            //}
+            if (!ConfirmCloseFormWithUnsavedChanges())
+            {
+                // Abort event
+                e.Cancel = true;
+                return;
+            }
 
             // Save and close form
             Settings.Default.Save();
         }
 
-        private void UpgradeButton_Click(object sender, EventArgs e)
+        private void BrowseLanguageFileButton_Click(object sender, EventArgs e)
         {
-            const string executableFilePath = @"C:\Gpw\gpw.exe";
+            // Prompt user to select file
+            ProgramOpenFileDialog.InitialDirectory = Settings.Default.UserGameFolderPath;
+            ProgramOpenFileDialog.FileName = null;
+            var result = ProgramOpenFileDialog.ShowDialog();
+
+            // Cancel if file was not selected
+            if (result != DialogResult.OK)
+                return;
+
+            LanguageFilePathTextBox.Text = ProgramOpenFileDialog.FileName;
+        }
+
+        private void BrowseGameExecutableButton_Click(object sender, EventArgs e)
+        {
+            // Prompt user to select file
+            ProgramOpenFileDialog.InitialDirectory = Settings.Default.UserGameFolderPath;
+            ProgramOpenFileDialog.FileName = null;
+            var result = ProgramOpenFileDialog.ShowDialog();
+
+            // Cancel if file was not selected
+            if (result != DialogResult.OK)
+                return;
+
+            GameExecutablePathTextBox.Text = ProgramOpenFileDialog.FileName;
+        }
+
+        private void ImportButton_Click(object sender, EventArgs e)
+        {
+            Import(LanguageFilePathTextBox.Text, GameExecutablePathTextBox.Text);
+        }
+
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
+            Export(LanguageFilePathTextBox.Text, GameExecutablePathTextBox.Text);
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private bool ConfirmCloseFormWithUnsavedChanges()
+        {
+            // Return true if there are no unsaved changes 
+            if (!_isModified)
+            {
+                return true;
+            }
+
+            // Prompt user whether to close form with unsaved changes
+            var result = MessageBox.Show(
+                    $"Are you sure you wish to close the game upgrader?{Environment.NewLine}{Environment.NewLine}Any upgrades not applied will be lost.",
+                    Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            return result == DialogResult.Yes;
+        }
+
+        private void Export(string languageFileFilePath, string gameExecutableFilePath)
+        {
+            Cursor.Current = Cursors.WaitCursor;
 
             try
             {
-                ApplyUpgrades(executableFilePath);
-                ApplyOptions(executableFilePath);
+                // Fill database with data from controls and export to file
+                var upgradeDatabase = new UpgradeDatabase();
+                PopulateRecords(upgradeDatabase);
+                upgradeDatabase.ExportDataToFile(gameExecutableFilePath, languageFileFilePath);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occured. Process aborted." + Environment.NewLine + Environment.NewLine + ex.Message);
+                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}");
+                return;
             }
-            MessageBox.Show("Complete!");
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
+
+            MessageBox.Show("Export complete!");
         }
 
-        private void ApplyUpgrades(string executableFilePath)
+        private void Import(string languageFileFilePath, string gameExecutableFilePath)
         {
-            //// Switch idiom patcher is only intended for use when disassembling.
-            //// Code is included here if you wish to patch all users executables
-            //// during an upgrade but this may introduce defects into the game.
-            //var switchIdiomPatcher = new SwitchIdiomPatcher();
-            //switchIdiomPatcher.Apply(executableFilePath);
+            Cursor.Current = Cursors.WaitCursor;
 
-            //// Free up space in executable by removing redundant jumping functions
-            //// Required for upgrade to be successful and cannot be reversed
-            //var jumpBypassPatcher = new JumpBypassPatcher();
-            //jumpBypassPatcher.Apply(executableFilePath);
-
-            //// Shift code around to consolidate and organise instructions and utilise free space
-            //// May add additional functionality to the game that cannot be reversed
-            //// Required for upgrade to be successful and cannot be reversed
-            //var codeShiftingPatcher = new CodeShiftingPatcher();
-            //codeShiftingPatcher.Apply(executableFilePath);
-
-            // Upgrade unmodified points scoring system with reworked code
-            // to allow alternative point scoring systems to be used.
-            var pointsScoringSystemUnmodified = new PointsSystemUnmodified(executableFilePath);
-            var isUnmodifiedPointsScoringSystemInPlace = pointsScoringSystemUnmodified.IsCodeUnmodified();
-
-            // If unmodified scoring system is still in place
-            if (isUnmodifiedPointsScoringSystemInPlace)
+            try
             {
-                // Apply default modified scoring system
-                var pointsScoringSystemDefault = new PointsSystemF119912002Update(executableFilePath);
-                ApplyIrreversableCode(pointsScoringSystemDefault);
+                // Import from file to database and fill controls with data
+                var upgradeDatabase = new UpgradeDatabase();
+                upgradeDatabase.ImportDataFromFile(gameExecutableFilePath, languageFileFilePath);
+                PopulateControls(upgradeDatabase);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}");
+                return;
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
+
+            // Store most recently used (MRU) file paths on successful import
+            Settings.Default.UpgradeGameMruLanguageFileFilePath = LanguageFilePathTextBox.Text;
+            Settings.Default.UpgradeGameMruGameExecutableFilePath = GameExecutablePathTextBox.Text;
+
+            MessageBox.Show("Import complete!");
         }
 
-        private void ApplyOptions(string executableFilePath)
+        private void PopulateControls(UpgradeDatabase upgradeDatabase)
         {
-            // Scenarios for each reversable code module
-            // Scenario 1: If currently applied and should not be applied, apply unmodified code
-            // Scenario 2: If currently not applied and should be applied, apply modified code
-            // Scenario 3: If currently applied and should be applied, do nothing
-            // Scenario 4: If currently not applied and should not be applied, do nothing
+            // Move data from database into controls
+            DisableGameCdCheckBox.Checked = upgradeDatabase.IsGameCdFixApplied;
+            DisableColourModeCheckBox.Checked = upgradeDatabase.IsDisplayModeFixApplied;
+            DisableSampleAppCheckBox.Checked = upgradeDatabase.IsSampleAppFixApplied;
+            DisableGlobalUnlockCheckBox.Checked = upgradeDatabase.IsGlobalUnlockFixApplied;
+            DisableYellowFlagPenaltiesCheckBox.Checked = upgradeDatabase.IsYellowFlagFixApplied;
+            DisableMemoryResetForRaceSoundsCheckbox.Checked = upgradeDatabase.IsRaceSoundsFixApplied;
+            //DisablePitExitPriorityCheckBox.Checked = upgradeDatabase.IsPitExitPriorityFixApplied;
+            EnableCarHandlingDesignCalculationCheckbox.Checked = upgradeDatabase.IsCarDesignCalculationUpdateApplied;
+            EnableCarPerformanceRaceCalcuationCheckbox.Checked = upgradeDatabase.IsCarHandlingPerformanceFixApplied;
 
-            var gameCdFix = new GameCdFix(executableFilePath);
-            var isDisableGameCdApplied = gameCdFix.IsCodeModified();
-            if (isDisableGameCdApplied != DisableGameCdCheckBox.Checked)
-            {
-                ApplyReversableCode(gameCdFix, DisableGameCdCheckBox.Checked);
-            }
+            // TODO what happens when importing from unmodified exe, how to check the Default Radio button below?
 
-            var displayModeFix = new DisplayModeFix(executableFilePath);
-            var isDisableColourModeApplied = displayModeFix.IsCodeModified();
-            if (isDisableColourModeApplied != DisableColourModeCheckBox.Checked)
-            {
-                ApplyReversableCode(displayModeFix, DisableColourModeCheckBox.Checked);
-            }
-
-            var sampleAppFix = new SampleAppFix(executableFilePath);
-            var isDisableSampleAppApplied = sampleAppFix.IsCodeModified();
-            if (isDisableSampleAppApplied != DisableSampleAppCheckBox.Checked)
-            {
-                ApplyReversableCode(sampleAppFix, DisableSampleAppCheckBox.Checked);
-            }
-
-            var globalUnlockFix = new GlobalUnlockFix(executableFilePath);
-            var isDisableGlobalUnlockApplied = globalUnlockFix.IsCodeModified();
-            if (isDisableGlobalUnlockApplied != DisableGlobalUnlockCheckBox.Checked)
-            {
-                ApplyReversableCode(globalUnlockFix, DisableGlobalUnlockCheckBox.Checked);
-            }
-
-            var yellowFlagFix = new YellowFlagFix(executableFilePath);
-            var isDisableYellowFlagPenaltiesApplied = yellowFlagFix.IsCodeModified();
-            if (isDisableYellowFlagPenaltiesApplied != DisableYellowFlagPenaltiesCheckBox.Checked)
-            {
-                ApplyReversableCode(yellowFlagFix, DisableYellowFlagPenaltiesCheckBox.Checked);
-            }
-
-            var raceSoundsFix = new RaceSoundsFix(executableFilePath);
-            var isDisableMemoryResetForRaceSoundsApplied = raceSoundsFix.IsCodeModified();
-            if (isDisableMemoryResetForRaceSoundsApplied != DisableMemoryResetForRaceSoundsCheckbox.Checked)
-            {
-                ApplyReversableCode(raceSoundsFix, DisableMemoryResetForRaceSoundsCheckbox.Checked);
-            }
-
-            //var pitExitPriorityFix = new PitExitPriorityFix(executableFilePath);
-            //var isDisablePitExitPriorityApplied = pitExitPriorityFix.IsCodeModified();
-            //if (isDisablePitExitPriorityApplied != DisablePitExitPriorityCheckBox.Checked)
-            //{
-            //    ApplyReversableCode(pitExitPriorityFix, DisablePitExitPriorityCheckBox.Checked);
-            //}
-
-            var carDesignCalculationUpdate = new CarDesignCalculationUpdate(executableFilePath);
-            var isEnableCarHandlingDesignCalculationApplied = carDesignCalculationUpdate.IsCodeModified();
-            if (isEnableCarHandlingDesignCalculationApplied != EnableCarHandlingDesignCalculationCheckbox.Checked)
-            {
-                ApplyReversableCode(carDesignCalculationUpdate, EnableCarHandlingDesignCalculationCheckbox.Checked);
-            }
-
-            var carHandlingPerformanceFix = new CarHandlingPerformanceFix(executableFilePath);
-            var isEnableCarPerformanceRaceCalcuationApplied = carHandlingPerformanceFix.IsCodeModified();
-            if (isEnableCarPerformanceRaceCalcuationApplied != EnableCarPerformanceRaceCalcuationCheckbox.Checked)
-            {
-                ApplyReversableCode(carHandlingPerformanceFix, EnableCarPerformanceRaceCalcuationCheckbox.Checked);
-            }
-
-            // Scenarios for each irreversable code module
-            // Scenario 1: If currently not applied and should be applied, apply modified code
-            // Scenario 2: If currently not applied and should not be applied, do nothing
-            // Scenario 3: If currently applied, do nothing
-
-            var pointsScoringSystemDefault = new PointsSystemF119912002Update(executableFilePath);
-            var isPointsScoringSystemDefaultApplied = pointsScoringSystemDefault.IsCodeModified();
-            if (!isPointsScoringSystemDefaultApplied && PointsScoringSystemDefaultRadioButton.Checked)
-            {
-                ApplyIrreversableCode(pointsScoringSystemDefault);
-            }
-
-            var pointsScoringSystemOption1 = new PointsSystemF119811990Update(executableFilePath);
-            var isPointsScoringSystemOption1Applied = pointsScoringSystemOption1.IsCodeModified();
-            if (!isPointsScoringSystemOption1Applied && PointsScoringSystemOption1RadioButton.Checked)
-            {
-                ApplyIrreversableCode(pointsScoringSystemOption1);
-            }
-
-            var pointsScoringSystemOption2 = new PointsSystemF120032009Update(executableFilePath);
-            var isPointsScoringSystemOption2Applied = pointsScoringSystemOption2.IsCodeModified();
-            if (!isPointsScoringSystemOption2Applied && PointsScoringSystemOption2RadioButton.Checked)
-            {
-                ApplyIrreversableCode(pointsScoringSystemOption2);
-            }
-
-            var pointsScoringSystemOption3 = new PointsSystemF1201020xxUpdate(executableFilePath);
-            var isPointsScoringSystemOption3Applied = pointsScoringSystemOption3.IsCodeModified();
-            if (!isPointsScoringSystemOption3Applied && PointsScoringSystemOption3RadioButton.Checked)
-            {
-                ApplyIrreversableCode(pointsScoringSystemOption3);
-            }
+            PointsScoringSystemDefaultRadioButton.Checked = upgradeDatabase.IsPointsScoringSystemDefaultApplied;
+            PointsScoringSystemOption1RadioButton.Checked = upgradeDatabase.IsPointsScoringSystemOption1Applied;
+            PointsScoringSystemOption2RadioButton.Checked = upgradeDatabase.IsPointsScoringSystemOption2Applied;
+            PointsScoringSystemOption3RadioButton.Checked = upgradeDatabase.IsPointsScoringSystemOption3Applied;
         }
 
-        private static void ApplyReversableCode(IDataPatcherUnitBase dataPatcherUnitBase, bool applyModified)
+        private void PopulateRecords(UpgradeDatabase upgradeDatabase)
         {
-            if (applyModified)
-            {
-                // If unmodified code is applied, apply modified code
-                if (dataPatcherUnitBase.IsCodeUnmodified())
-                {
-                    Debug.WriteLine("Applying reversable modified code.");
-                    dataPatcherUnitBase.ApplyModifiedCode();
-                }
-                else
-                {
-                    if (!dataPatcherUnitBase.IsCodeModified())
-                    {
-                        throw new Exception("Unknown code detected. Unable to apply modified code.");
-                    }
-                    throw new Exception("Modified code already applied.");
-                }
-            }
-            else
-            {
-                // If modified code is applied, apply unmodified code
-                if (dataPatcherUnitBase.IsCodeModified())
-                {
-                    Debug.WriteLine("Applying reversable unmodified code.");
-                    dataPatcherUnitBase.ApplyUnmodifiedCode();
-                }
-                else
-                {
-                    if (!dataPatcherUnitBase.IsCodeUnmodified())
-                    {
-                        throw new Exception("Unknown code detected. Unable to apply unmodified code.");
-                    }
-                    throw new Exception("Unmodified code already applied.");
-                }
-            }
-        }
+            // Move data from controls into database
+            upgradeDatabase.IsGameCdFixRequired = DisableGameCdCheckBox.Checked;
+            upgradeDatabase.IsDisplayModeFixRequired = DisableColourModeCheckBox.Checked;
+            upgradeDatabase.IsSampleAppFixRequired = DisableSampleAppCheckBox.Checked;
+            upgradeDatabase.IsGlobalUnlockFixRequired = DisableGlobalUnlockCheckBox.Checked;
+            upgradeDatabase.IsYellowFlagFixRequired = DisableYellowFlagPenaltiesCheckBox.Checked;
+            upgradeDatabase.IsRaceSoundsFixRequired = DisableMemoryResetForRaceSoundsCheckbox.Checked;
+            //upgradeDatabase.IsPitExitPriorityFixRequired = DisablePitExitPriorityCheckBox.Checked;
+            upgradeDatabase.IsCarDesignCalculationUpdateRequired = EnableCarHandlingDesignCalculationCheckbox.Checked;
+            upgradeDatabase.IsCarHandlingPerformanceFixRequired = EnableCarPerformanceRaceCalcuationCheckbox.Checked;
 
-        private static void ApplyIrreversableCode(IDataPatcherUnitBase dataPatcherUnitBase)
-        {
-            Debug.WriteLine("Applying irreversable modified code.");
-            dataPatcherUnitBase.ApplyModifiedCode();
+            upgradeDatabase.IsPointsScoringSystemDefaultRequired = PointsScoringSystemDefaultRadioButton.Checked;
+            upgradeDatabase.IsPointsScoringSystemOption1Required = PointsScoringSystemOption1RadioButton.Checked;
+            upgradeDatabase.IsPointsScoringSystemOption2Required = PointsScoringSystemOption2RadioButton.Checked;
+            upgradeDatabase.IsPointsScoringSystemOption3Required = PointsScoringSystemOption3RadioButton.Checked;
         }
     }
 }

@@ -6,9 +6,9 @@ namespace Data.Entities.Executable.Track
     {
         int Laps { get; set; }
         int Design { get; set; }
-        int Unknown1 { get; set; }
-        int Unknown2 { get; set; }
-        int Unknown3 { get; set; }
+        int LapRecordMph { get; set; }
+        int LastRaceDriver { get; set; }
+        int LastRaceTeam { get; set; }
         int LastRaceYear { get; set; }
         int LastRaceTime { get; set; }
         int LapRecordDriver { get; set; }
@@ -36,9 +36,9 @@ namespace Data.Entities.Executable.Track
 
         public int Laps { get; set; }
         public int Design { get; set; }
-        public int Unknown1 { get; set; }
-        public int Unknown2 { get; set; }
-        public int Unknown3 { get; set; }
+        public int LapRecordMph { get; set; }
+        public int LastRaceDriver { get; set; }
+        public int LastRaceTeam { get; set; }
         public int LastRaceYear { get; set; }
         public int LastRaceTime { get; set; }
         public int LapRecordDriver { get; set; }

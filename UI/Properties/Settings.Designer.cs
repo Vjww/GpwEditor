@@ -31,18 +31,16 @@ namespace GpwEditor.Properties {
                 return ((string)(this["ApplicationName"]));
             }
         }
-
+        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Grand Prix World")]
-        public string GameName
-        {
-            get
-            {
+        public string GameName {
+            get {
                 return ((string)(this["GameName"]));
             }
         }
-
+        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("SOFTWARE\\MicroProse\\Grand Prix World\\1.00.000")]
@@ -82,72 +80,24 @@ namespace GpwEditor.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ImportExecutableFilePath {
+        public string ExecutableEditorMruGameExecutableFilePath {
             get {
-                return ((string)(this["ImportExecutableFilePath"]));
+                return ((string)(this["ExecutableEditorMruGameExecutableFilePath"]));
             }
             set {
-                this["ImportExecutableFilePath"] = value;
+                this["ExecutableEditorMruGameExecutableFilePath"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ImportLanguageFilePath {
+        public string ExecutableEditorMruLanguageFileFilePath {
             get {
-                return ((string)(this["ImportLanguageFilePath"]));
+                return ((string)(this["ExecutableEditorMruLanguageFileFilePath"]));
             }
             set {
-                this["ImportLanguageFilePath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ImportSaveGameFilePath {
-            get {
-                return ((string)(this["ImportSaveGameFilePath"]));
-            }
-            set {
-                this["ImportSaveGameFilePath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ExportExecutableFilePath {
-            get {
-                return ((string)(this["ExportExecutableFilePath"]));
-            }
-            set {
-                this["ExportExecutableFilePath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ExportLanguageFilePath {
-            get {
-                return ((string)(this["ExportLanguageFilePath"]));
-            }
-            set {
-                this["ExportLanguageFilePath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ExportSaveGameFilePath {
-            get {
-                return ((string)(this["ExportSaveGameFilePath"]));
-            }
-            set {
-                this["ExportSaveGameFilePath"] = value;
+                this["ExecutableEditorMruLanguageFileFilePath"] = value;
             }
         }
         
@@ -184,6 +134,54 @@ namespace GpwEditor.Properties {
             }
             set {
                 this["InitialRun"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LanguageEditorMruLanguageFileFilePath {
+            get {
+                return ((string)(this["LanguageEditorMruLanguageFileFilePath"]));
+            }
+            set {
+                this["LanguageEditorMruLanguageFileFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LanguageEditorMruGameExecutableFilePath {
+            get {
+                return ((string)(this["LanguageEditorMruGameExecutableFilePath"]));
+            }
+            set {
+                this["LanguageEditorMruGameExecutableFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UpgradeGameMruLanguageFileFilePath {
+            get {
+                return ((string)(this["UpgradeGameMruLanguageFileFilePath"]));
+            }
+            set {
+                this["UpgradeGameMruLanguageFileFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UpgradeGameMruGameExecutableFilePath {
+            get {
+                return ((string)(this["UpgradeGameMruGameExecutableFilePath"]));
+            }
+            set {
+                this["UpgradeGameMruGameExecutableFilePath"] = value;
             }
         }
     }

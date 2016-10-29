@@ -1,19 +1,18 @@
-﻿using Common.Enums;
-using Data.FileConnection;
-using Data.Patchers;
-using Data.Patchers.Enhancements.Units;
-using System;
+﻿using System;
 using System.Linq;
+using Common.Enums;
 using Common.Extensions;
 using Data.Collections.Executable.Supplier;
 using Data.Collections.Executable.Team;
 using Data.Collections.Executable.Track;
 using Data.Collections.Language;
+using Data.Entities.Executable.Supplier;
 using Data.Entities.Executable.Team;
 using Data.Entities.Executable.Track;
 using Data.Entities.Language;
+using Data.FileConnection;
 
-namespace Data.Database.Executable
+namespace Data.Database
 {
     public class ExecutableDatabase
     {
@@ -23,39 +22,17 @@ namespace Data.Database.Executable
         private const int TeamCount = 11;
         private const int DriverCount = 33;
         private const int DriverIdentityCount = 48;
+        private const int EngineCount = 8;
+        private const int TyreCount = 3;
+        private const int FuelCount = 9;
         private const int TrackCount = 16;
 
         private const int TeamBaseResourceId = 5696;
         private const int DriverBaseResourceId = 5795;
+        private const int EngineBaseResourceId = 4886;
+        private const int TyreBaseResourceId = 4883;
+        private const int FuelBaseResourceId = 4894;
         private const int TrackBaseResourceId = 6043;
-
-        public bool IsGameCdFixApplied { get; private set; }
-        public bool IsDisplayModeFixApplied { get; private set; }
-        public bool IsSampleAppFixApplied { get; private set; }
-        public bool IsGlobalUnlockFixApplied { get; private set; }
-        public bool IsRaceSoundsFixApplied { get; private set; }
-        //public bool IsPitExitPriorityFixApplied { get; private set; }
-        public bool IsYellowFlagFixApplied { get; private set; }
-        public bool IsCarDesignCalculationUpdateApplied { get; private set; }
-        public bool IsCarHandlingPerformanceFixApplied { get; private set; }
-        public bool IsPointsScoringSystemDefaultApplied { get; private set; }
-        public bool IsPointsScoringSystemOption1Applied { get; private set; }
-        public bool IsPointsScoringSystemOption2Applied { get; private set; }
-        public bool IsPointsScoringSystemOption3Applied { get; private set; }
-
-        public bool IsGameCdFixRequired { get; set; }
-        public bool IsDisplayModeFixRequired { get; set; }
-        public bool IsSampleAppFixRequired { get; set; }
-        public bool IsGlobalUnlockFixRequired { get; set; }
-        public bool IsRaceSoundsFixRequired { get; set; }
-        //public bool IsPitExitPriorityFixRequired { get; set; }
-        public bool IsYellowFlagFixRequired { get; set; }
-        public bool IsCarDesignCalculationUpdateRequired { get; set; }
-        public bool IsCarHandlingPerformanceFixRequired { get; set; }
-        public bool IsPointsScoringSystemDefaultRequired { get; set; }
-        public bool IsPointsScoringSystemOption1Required { get; set; }
-        public bool IsPointsScoringSystemOption2Required { get; set; }
-        public bool IsPointsScoringSystemOption3Required { get; set; }
 
         public TeamCollection Teams { get; set; }
         public DriverCollection Drivers { get; set; }
@@ -65,24 +42,25 @@ namespace Data.Database.Executable
         public FuelCollection Fuels { get; set; }
         public TrackCollection Tracks { get; set; }
 
-        public IdentityCollection StringTable { get; set; }
+        public IdentityCollection LanguageStrings { get; set; }
 
-        public bool ImportDataFromFile(string executableFilePath, string languageFilePath)
+        public void ImportDataFromFile(string gameExecutableFilePath, string languageFileFilePath)
         {
-            ImportGameConfigurations(executableFilePath);
-            ImportGameEnhancements(executableFilePath);
-
             try
             {
                 _executableConnection = new ExecutableConnection();
-                _executableConnection.Open(executableFilePath, StreamDirectionType.Read);
+                _executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Read);
 
                 _languageConnection = new LanguageConnection();
-                _languageConnection.Open(languageFilePath, StreamDirectionType.Read);
-                StringTable = _languageConnection.Load();
+                _languageConnection.Open(languageFileFilePath, StreamDirectionType.Read);
+                LanguageStrings = _languageConnection.Load();
 
                 ImportTeams();
                 ImportDrivers();
+
+                ImportEngines();
+                ImportTyres();
+                ImportFuels();
                 ImportTracks();
             }
             finally
@@ -90,35 +68,32 @@ namespace Data.Database.Executable
                 _executableConnection?.Close();
                 _languageConnection?.Close();
             }
-
-            return true;
         }
 
-        public bool ExportDataToFile(string executableFilePath, string languageFilePath)
+        public void ExportDataToFile(string gameExecutableFilePath, string languageFileFilePath)
         {
-            ExportGameConfigurations(executableFilePath);
-            ExportGameEnhancements(executableFilePath);
-
             try
             {
                 _executableConnection = new ExecutableConnection();
-                _executableConnection.Open(executableFilePath, StreamDirectionType.Write);
+                _executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Write);
 
                 ExportTeams();
                 ExportDrivers();
+
+                ExportEngines();
+                ExportTyres();
+                ExportFuels();
                 ExportTracks();
 
                 _languageConnection = new LanguageConnection();
-                _languageConnection.Open(languageFilePath, StreamDirectionType.Write);
-                _languageConnection.Save(StringTable);
+                _languageConnection.Open(languageFileFilePath, StreamDirectionType.Write);
+                _languageConnection.Save(LanguageStrings);
             }
             finally
             {
                 _executableConnection?.Close();
                 _languageConnection?.Close();
             }
-
-            return true;
         }
 
         private void ImportTeams()
@@ -171,7 +146,7 @@ namespace Data.Database.Executable
 
         private static int GetTeamResourceId(int id)
         {
-            var idToResourceIdMap = new int[]
+            var idToResourceIdMap = new[]
                 {
                     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
                 };
@@ -288,10 +263,139 @@ namespace Data.Database.Executable
 
         private static int GetDriverResourceId(int id)
         {
-            var idToResourceIdMap = new int[]
+            var idToResourceIdMap = new[]
                 {
                     6, 7, 8, 14, 15, 16, 22, 23, 24, 30, 31, 32, 38, 39, 40, 46, 47, 48, 54, 55, 56, 62, 63, 64, 70, 71, 72,
                     78, 79, 80, 86, 87, 88, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 200, 201, 202, 203
+                };
+
+            return idToResourceIdMap[id];
+        }
+
+        private void ImportEngines()
+        {
+            // Import from file
+            Engines = new EngineCollection();
+            for (var id = 0; id < EngineCount; id++)
+            {
+                var valueMapping = new ValueMapping.Executable.Supplier.Engine(id);
+                var engine = new Engine
+                {
+                    Id = id,
+                    LocalResourceId = GetEngineResourceId(id),
+                    ResourceId = GetResourceId(EngineBaseResourceId, GetEngineResourceId(id)),
+                    ResourceText = GetResourceText(GetResourceId(EngineBaseResourceId, GetEngineResourceId(id)))
+
+                    // TODO
+                };
+                Engines.Add(engine);
+            }
+        }
+
+        private void ExportEngines()
+        {
+            // Export to file
+            foreach (var engine in Engines)
+            {
+                SetResourceText(engine.ResourceId, engine.ResourceText);
+
+                var valueMapping = new ValueMapping.Executable.Supplier.Engine(engine.Id);
+
+                // TODO
+            }
+        }
+
+        private static int GetEngineResourceId(int id)
+        {
+            var idToResourceIdMap = new[]
+                {
+                    0, 1, 2, 3, 4, 5, 6, 7 // TODO check that 0 based index is correct
+                };
+
+            return idToResourceIdMap[id];
+        }
+
+        private void ImportTyres()
+        {
+            // Import from file
+            Tyres = new TyreCollection();
+            for (var id = 0; id < TyreCount; id++)
+            {
+                var valueMapping = new ValueMapping.Executable.Supplier.Tyre(id);
+                var tyre = new Tyre
+                {
+                    Id = id,
+                    LocalResourceId = GetTyreResourceId(id),
+                    ResourceId = GetResourceId(TyreBaseResourceId, GetTyreResourceId(id)),
+                    ResourceText = GetResourceText(GetResourceId(TyreBaseResourceId, GetTyreResourceId(id)))
+
+                    // TODO
+                };
+                Tyres.Add(tyre);
+            }
+        }
+
+        private void ExportTyres()
+        {
+            // Export to file
+            foreach (var tyre in Tyres)
+            {
+                SetResourceText(tyre.ResourceId, tyre.ResourceText);
+
+                var valueMapping = new ValueMapping.Executable.Supplier.Tyre(tyre.Id);
+
+                // TODO
+            }
+        }
+
+        private static int GetTyreResourceId(int id)
+        {
+            var idToResourceIdMap = new[]
+                {
+                    0, 1, 2 // TODO check that 0 based index is correct
+                };
+
+            return idToResourceIdMap[id];
+        }
+
+        private void ImportFuels()
+        {
+            // Import from file
+            Fuels = new FuelCollection();
+            for (var id = 0; id < FuelCount; id++)
+            {
+                var valueMapping = new ValueMapping.Executable.Supplier.Fuel(id);
+                var fuel = new Fuel
+                {
+                    Id = id,
+                    LocalResourceId = GetFuelResourceId(id),
+                    ResourceId = GetResourceId(FuelBaseResourceId, GetFuelResourceId(id)),
+                    ResourceText = GetResourceText(GetResourceId(FuelBaseResourceId, GetFuelResourceId(id)))
+
+                    // TODO
+                };
+                Fuels.Add(fuel);
+            }
+        }
+
+        private void ExportFuels()
+        {
+            // Export to file
+            foreach (var fuel in Fuels)
+            {
+                SetResourceText(fuel.ResourceId, fuel.ResourceText);
+
+                var valueMapping = new ValueMapping.Executable.Supplier.Fuel(fuel.Id);
+
+                // TODO
+            }
+        }
+
+        private static int GetFuelResourceId(int id)
+        {
+            var idToResourceIdMap = new[]
+                {
+                    0, 1, 2, 3, 4, 5, 6, 7, 8 // TODO check that 0 based index is correct
                 };
 
             return idToResourceIdMap[id];
@@ -313,9 +417,9 @@ namespace Data.Database.Executable
 
                     Laps = _executableConnection.ReadInteger(valueMapping.Laps),
                     Design = _executableConnection.ReadInteger(valueMapping.Design),
-                    Unknown1 = _executableConnection.ReadInteger(valueMapping.Unknown1),
-                    Unknown2 = _executableConnection.ReadInteger(valueMapping.Unknown2),
-                    Unknown3 = _executableConnection.ReadInteger(valueMapping.Unknown3),
+                    LapRecordMph = _executableConnection.ReadInteger(valueMapping.LapRecordMph),
+                    LastRaceDriver = _executableConnection.ReadInteger(valueMapping.LastRaceDriver),
+                    LastRaceTeam = _executableConnection.ReadInteger(valueMapping.LastRaceTeam),
                     LastRaceYear = _executableConnection.ReadInteger(valueMapping.LastRaceYear),
                     LastRaceTime = _executableConnection.ReadInteger(valueMapping.LastRaceTime),
                     LapRecordDriver = _executableConnection.ReadInteger(valueMapping.LapRecordDriver),
@@ -347,9 +451,9 @@ namespace Data.Database.Executable
                 var valueMapping = new ValueMapping.Executable.Track.Track(track.Id);
                 _executableConnection.WriteInteger(valueMapping.Laps, track.Laps);
                 _executableConnection.WriteInteger(valueMapping.Design, track.Design);
-                _executableConnection.WriteInteger(valueMapping.Unknown1, track.Unknown1);
-                _executableConnection.WriteInteger(valueMapping.Unknown2, track.Unknown2);
-                _executableConnection.WriteInteger(valueMapping.Unknown3, track.Unknown3);
+                _executableConnection.WriteInteger(valueMapping.LapRecordMph, track.LapRecordMph);
+                _executableConnection.WriteInteger(valueMapping.LastRaceDriver, track.LastRaceDriver);
+                _executableConnection.WriteInteger(valueMapping.LastRaceTeam, track.LastRaceTeam);
                 _executableConnection.WriteInteger(valueMapping.LastRaceYear, track.LastRaceYear);
                 _executableConnection.WriteInteger(valueMapping.LastRaceTime, track.LastRaceTime);
                 _executableConnection.WriteInteger(valueMapping.LapRecordDriver, track.LapRecordDriver);
@@ -371,7 +475,7 @@ namespace Data.Database.Executable
 
         private static int GetTrackResourceId(int id)
         {
-            var idToResourceIdMap = new int[]
+            var idToResourceIdMap = new[]
                 {
                     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
                 };
@@ -379,10 +483,12 @@ namespace Data.Database.Executable
             return idToResourceIdMap[id];
         }
 
-        private string GetResourceId(int baseResourceId, int localResourceId, bool isDriver = false)
+        private static string GetResourceId(int baseResourceId, int localResourceId, bool isDriver = false)
         {
             if (!isDriver)
+            {
                 return (baseResourceId + localResourceId).BuildStringTableId();
+            }
 
             // Special consideration for driver names that are not actually drivers in the game
             // e.g. Used for displaying historic fastest lap records in the game
@@ -402,221 +508,26 @@ namespace Data.Database.Executable
 
         private string GetResourceText(string resourceId)
         {
-            var resource = StringTable.SingleOrDefault(x => x.ResourceId == resourceId);
+            var resource = LanguageStrings.SingleOrDefault(x => x.ResourceId == resourceId);
+
             if (resource == null)
-                throw new Exception($"Unable to find an string table entry matching the resource id {resourceId}.");
+            {
+                throw new Exception($"Unable to find a language string matching the resource id {resourceId}.");
+            }
 
             return resource.ResourceText;
         }
 
         private void SetResourceText(string resourceId, string resourceText)
         {
-            var resource = StringTable.SingleOrDefault(x => x.ResourceId == resourceId);
-            
+            var resource = LanguageStrings.SingleOrDefault(x => x.ResourceId == resourceId);
+
             if (resource == null)
-                throw new Exception($"Unable to find an string table entry matching the resource id {resourceId}.");
+            {
+                throw new Exception($"Unable to find a language string matching the resource id {resourceId}.");
+            }
 
             resource.ResourceText = resourceText;
-        }
-
-        //public static void ApplyEnhancementUnit(ExecutableConnection executableConnection, IDataPatcherUnitBase enhancementUnit)
-        //{
-        //    enhancementUnit.ApplyModifiedCode();
-        //
-        //    //var unitInstructions = enhancementUnit.GetModifiedInstructions();
-        //    //foreach (var item in unitInstructions)
-        //    //{
-        //    //    executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(item.VirtualPosition), item.Instructions);
-        //    //}
-        //}
-
-        private void ImportGameConfigurations(string executableFilePath)
-        {
-            var gameCdFix = new GameCdFix(executableFilePath);
-            IsGameCdFixApplied = gameCdFix.IsCodeModified();
-            var displayModeFix = new DisplayModeFix(executableFilePath);
-            IsDisplayModeFixApplied = displayModeFix.IsCodeModified();
-            var sampleAppFix = new SampleAppFix(executableFilePath);
-            IsSampleAppFixApplied = sampleAppFix.IsCodeModified();
-            var globalUnlockFix = new GlobalUnlockFix(executableFilePath);
-            IsGlobalUnlockFixApplied = globalUnlockFix.IsCodeModified();
-            var raceSoundsFix = new RaceSoundsFix(executableFilePath);
-            IsRaceSoundsFixApplied = raceSoundsFix.IsCodeModified();
-            //var pitExitPriorityFix = new PitExitPriorityFix(executableFilePath);
-            //IsPitExitPriorityFixApplied = pitExitPriorityFix.IsCodeModified();
-        }
-
-        private void ExportGameConfigurations(string executableFilePath)
-        {
-            // Scenarios for each reversable code module
-            // Scenario 1: If currently applied and should not be applied, apply unmodified code
-            // Scenario 2: If currently not applied and should be applied, apply modified code
-            // Scenario 3: If currently applied and should be applied, do nothing
-            // Scenario 4: If currently not applied and should not be applied, do nothing
-
-            var gameCdFix = new GameCdFix(executableFilePath);
-            var isDisableGameCdApplied = gameCdFix.IsCodeModified();
-            if (isDisableGameCdApplied != IsGameCdFixRequired)
-            {
-                ApplyReversableCode(gameCdFix, IsGameCdFixRequired);
-            }
-
-            var displayModeFix = new DisplayModeFix(executableFilePath);
-            var isDisableColourModeApplied = displayModeFix.IsCodeModified();
-            if (isDisableColourModeApplied != IsDisplayModeFixRequired)
-            {
-                ApplyReversableCode(displayModeFix, IsDisplayModeFixRequired);
-            }
-
-            var sampleAppFix = new SampleAppFix(executableFilePath);
-            var isDisableSampleAppApplied = sampleAppFix.IsCodeModified();
-            if (isDisableSampleAppApplied != IsSampleAppFixRequired)
-            {
-                ApplyReversableCode(sampleAppFix, IsSampleAppFixRequired);
-            }
-
-            var globalUnlockFix = new GlobalUnlockFix(executableFilePath);
-            var isDisableGlobalUnlockApplied = globalUnlockFix.IsCodeModified();
-            if (isDisableGlobalUnlockApplied != IsGlobalUnlockFixRequired)
-            {
-                ApplyReversableCode(globalUnlockFix, IsGlobalUnlockFixRequired);
-            }
-
-            var raceSoundsFix = new RaceSoundsFix(executableFilePath);
-            var isDisableMemoryResetForRaceSoundsApplied = raceSoundsFix.IsCodeModified();
-            if (isDisableMemoryResetForRaceSoundsApplied != IsRaceSoundsFixRequired)
-            {
-                ApplyReversableCode(raceSoundsFix, IsRaceSoundsFixRequired);
-            }
-
-            //var pitExitPriorityFix = new PitExitPriorityFix(executableFilePath);
-            //var isDisablePitExitPriorityApplied = pitExitPriorityFix.IsCodeModified();
-            //if (isDisablePitExitPriorityApplied != IsPitExitPriorityFixRequired)
-            //{
-            //    ApplyReversableCode(pitExitPriorityFix, IsPitExitPriorityFixRequired);
-            //}
-        }
-
-        private void ImportGameEnhancements(string executableFilePath)
-        {
-            var yellowFlagFix = new YellowFlagFix(executableFilePath);
-            IsYellowFlagFixApplied = yellowFlagFix.IsCodeModified();
-            var carDesignCalculationUpdate = new CarDesignCalculationUpdate(executableFilePath);
-            IsCarDesignCalculationUpdateApplied = carDesignCalculationUpdate.IsCodeModified();
-            var carHandlingPerformanceFix = new CarHandlingPerformanceFix(executableFilePath);
-            IsCarHandlingPerformanceFixApplied = carHandlingPerformanceFix.IsCodeModified();
-            var pointsScoringSystemDefault = new PointsSystemF119912002Update(executableFilePath);
-            IsPointsScoringSystemDefaultApplied = pointsScoringSystemDefault.IsCodeModified();
-            var pointsScoringSystemOption1 = new PointsSystemF119811990Update(executableFilePath);
-            IsPointsScoringSystemOption1Applied = pointsScoringSystemOption1.IsCodeModified();
-            var pointsScoringSystemOption2 = new PointsSystemF120032009Update(executableFilePath);
-            IsPointsScoringSystemOption2Applied = pointsScoringSystemOption2.IsCodeModified();
-            var pointsScoringSystemOption3 = new PointsSystemF1201020xxUpdate(executableFilePath);
-            IsPointsScoringSystemOption3Applied = pointsScoringSystemOption3.IsCodeModified();
-        }
-
-        private void ExportGameEnhancements(string executableFilePath)
-        {
-            // Scenarios for each reversable code module
-            // Scenario 1: If currently applied and should not be applied, apply unmodified code
-            // Scenario 2: If currently not applied and should be applied, apply modified code
-            // Scenario 3: If currently applied and should be applied, do nothing
-            // Scenario 4: If currently not applied and should not be applied, do nothing
-
-            var yellowFlagFix = new YellowFlagFix(executableFilePath);
-            var isDisableYellowFlagPenaltiesApplied = yellowFlagFix.IsCodeModified();
-            if (isDisableYellowFlagPenaltiesApplied != IsYellowFlagFixRequired)
-            {
-                ApplyReversableCode(yellowFlagFix, IsYellowFlagFixRequired);
-            }
-
-            var carDesignCalculationUpdate = new CarDesignCalculationUpdate(executableFilePath);
-            var isEnableCarHandlingDesignCalculationApplied = carDesignCalculationUpdate.IsCodeModified();
-            if (isEnableCarHandlingDesignCalculationApplied != IsCarDesignCalculationUpdateRequired)
-            {
-                ApplyReversableCode(carDesignCalculationUpdate, IsCarDesignCalculationUpdateRequired);
-            }
-
-            var carHandlingPerformanceFix = new CarHandlingPerformanceFix(executableFilePath);
-            var isEnableCarPerformanceRaceCalcuationApplied = carHandlingPerformanceFix.IsCodeModified();
-            if (isEnableCarPerformanceRaceCalcuationApplied != IsCarHandlingPerformanceFixRequired)
-            {
-                ApplyReversableCode(carHandlingPerformanceFix, IsCarHandlingPerformanceFixRequired);
-            }
-
-            // Scenarios for each irreversable code module
-            // Scenario 1: If currently not applied and should be applied, apply modified code
-            // Scenario 2: If currently not applied and should not be applied, do nothing
-            // Scenario 3: If currently applied, do nothing
-
-            var pointsScoringSystemDefault = new PointsSystemF119912002Update(executableFilePath);
-            var isPointsScoringSystemDefaultApplied = pointsScoringSystemDefault.IsCodeModified();
-            if (!isPointsScoringSystemDefaultApplied && IsPointsScoringSystemDefaultRequired)
-            {
-                ApplyIrreversableCode(pointsScoringSystemDefault);
-            }
-
-            var pointsScoringSystemOption1 = new PointsSystemF119811990Update(executableFilePath);
-            var isPointsScoringSystemOption1Applied = pointsScoringSystemOption1.IsCodeModified();
-            if (!isPointsScoringSystemOption1Applied && IsPointsScoringSystemOption1Required)
-            {
-                ApplyIrreversableCode(pointsScoringSystemOption1);
-            }
-
-            var pointsScoringSystemOption2 = new PointsSystemF120032009Update(executableFilePath);
-            var isPointsScoringSystemOption2Applied = pointsScoringSystemOption2.IsCodeModified();
-            if (!isPointsScoringSystemOption2Applied && IsPointsScoringSystemOption2Required)
-            {
-                ApplyIrreversableCode(pointsScoringSystemOption2);
-            }
-
-            var pointsScoringSystemOption3 = new PointsSystemF1201020xxUpdate(executableFilePath);
-            var isPointsScoringSystemOption3Applied = pointsScoringSystemOption3.IsCodeModified();
-            if (!isPointsScoringSystemOption3Applied && IsPointsScoringSystemOption3Required)
-            {
-                ApplyIrreversableCode(pointsScoringSystemOption3);
-            }
-        }
-
-        private static void ApplyReversableCode(IDataPatcherUnitBase dataPatcherUnitBase, bool applyModified)
-        {
-            if (applyModified)
-            {
-                // If unmodified code is applied, apply modified code
-                if (dataPatcherUnitBase.IsCodeUnmodified())
-                {
-                    dataPatcherUnitBase.ApplyModifiedCode();
-                }
-                else
-                {
-                    if (!dataPatcherUnitBase.IsCodeModified())
-                    {
-                        throw new Exception("Unknown code detected. Unable to apply modified code.");
-                    }
-                    throw new Exception("Modified code already applied.");
-                }
-            }
-            else
-            {
-                // If modified code is applied, apply unmodified code
-                if (dataPatcherUnitBase.IsCodeModified())
-                {
-                    dataPatcherUnitBase.ApplyUnmodifiedCode();
-                }
-                else
-                {
-                    if (!dataPatcherUnitBase.IsCodeUnmodified())
-                    {
-                        throw new Exception("Unknown code detected. Unable to apply unmodified code.");
-                    }
-                    throw new Exception("Unmodified code already applied.");
-                }
-            }
-        }
-
-        private static void ApplyIrreversableCode(IDataPatcherUnitBase dataPatcherUnitBase)
-        {
-            dataPatcherUnitBase.ApplyModifiedCode();
         }
     }
 }

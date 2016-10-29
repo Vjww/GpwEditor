@@ -48,8 +48,9 @@
     <Compile Include="Collections\Executable\Team\TeamCollection.cs" />
     <Compile Include="Collections\Executable\Track\TrackCollection.cs" />
     <Compile Include="Collections\Language\IdentityCollection.cs" />
-    <Compile Include="Database\Executable\ExecutableData_OutofDate.cs" />
-    <Compile Include="Database\Executable\ExecutableDatabase.cs" />
+    <Compile Include="Database\ExecutableDatabase.cs" />
+    <Compile Include="Database\LanguageDatabase.cs" />
+    <Compile Include="Database\UpgradeDatabase.cs" />
     <Compile Include="Entities\Executable\Supplier\Engine.cs" />
     <Compile Include="Entities\Executable\Supplier\Fuel.cs" />
     <Compile Include="Entities\Executable\Supplier\Tyre.cs" />
@@ -57,7 +58,6 @@
     <Compile Include="Entities\Executable\Team\Personnel.cs" />
     <Compile Include="Entities\Executable\Team\Team.cs" />
     <Compile Include="Entities\Executable\Track\Track.cs" />
-    <Compile Include="Entities\Executable\Track\TrackLapRecord.cs" />
     <Compile Include="Entities\Language\Identity.cs" />
     <Compile Include="Enums\PointsScoringSystemType.cs" />
     <Compile Include="FileConnection\ExecutableConnection.cs" />
@@ -100,6 +100,26 @@
     </Compile>
     <Compile Include="ValueMapping\Executable\Track\Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_OldEditor\ExecutableForm\ExecutableData.cs" />
+    <Compile Include="_OldEditor\ExecutableForm\MainForm.cs" />
+    <Compile Include="_OldEditor\ExecutableForm\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_OldEditor\FileIo\DriverFileIo.cs" />
+    <Compile Include="_OldEditor\FileIo\EngineFileIo.cs" />
+    <Compile Include="_OldEditor\FileIo\ExecutableOffsets\EngineGpwxpOffsets.cs" />
+    <Compile Include="_OldEditor\FileIo\ExecutableOffsets\FuelGpwxpOffsets.cs" />
+    <Compile Include="_OldEditor\FileIo\ExecutableOffsets\TeamGpwxpOffsets.cs" />
+    <Compile Include="_OldEditor\FileIo\ExecutableOffsets\TrackGpwxpOffsets.cs" />
+    <Compile Include="_OldEditor\FileIo\ExecutableOffsets\TyreGpwxpOffsets.cs" />
+    <Compile Include="_OldEditor\FileIo\FuelFileIo.cs" />
+    <Compile Include="_OldEditor\FileIo\IFileIo.cs" />
+    <Compile Include="_OldEditor\FileIo\SaveGameOffsets\PersonOffsets.cs" />
+    <Compile Include="_OldEditor\FileIo\TeamFileIo.cs" />
+    <Compile Include="_OldEditor\FileIo\TrackFileIo.cs" />
+    <Compile Include="_OldEditor\FileIo\TyreFileIo.cs" />
+    <Compile Include="_OldEditor\SaveGameForm\MainForm.cs" />
+    <Compile Include="_OldEditor\SaveGameForm\SaveGameData.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common\Common.csproj">
@@ -131,6 +151,7 @@
     <Content Include="IntegrationTasks\GpwXpExe\Text\c_racepoints_new.txt" />
     <Content Include="IntegrationTasks\GpwXpExe\Text\ViewportDefaults\viewport_default.txt" />
     <Content Include="Notes\Executable\Drivers.txt" />
+    <Content Include="_OldEditor\readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IntegrationTasks\BackupIdb\BackupIdb.zip" />
@@ -163,9 +184,15 @@
     <None Include="IntegrationTasks\Release103\gpw_103testing.zip" />
     <None Include="Notes\Executable\LoadEffectiveAddressCalc.xlsx" />
     <None Include="Notes\Grand Prix World Technical Document.docx" />
+    <None Include="_OldEditor\SwitchIdiomPatcher.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="IntegrationTasks\Release102\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="_OldEditor\ExecutableForm\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

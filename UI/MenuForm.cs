@@ -48,7 +48,9 @@ namespace GpwEditor
             // If game folder has not been set
             if (string.IsNullOrWhiteSpace(Settings.Default.UserGameFolderPath))
             {
-                ConfigureGameFolder();
+                // http://stackoverflow.com/a/218740
+                Invoke((MethodInvoker) ConfigureGameFolder); // TODO test, intent to show form before dialog
+                //ConfigureGameFolder(); // TODO remove
             }
 
             Settings.Default.InitialRun = false;
@@ -64,7 +66,7 @@ namespace GpwEditor
         private void GameEditorButton_Click(object sender, EventArgs e)
         {
             // Hide parent form and show child form
-            SwitchToForm(this, new ExecutableEditorForm());
+            SwitchToForm(this, new GameExecutableEditorForm());
         }
 
         private void SaveGameEditorButton_Click(object sender, EventArgs e)
@@ -76,7 +78,7 @@ namespace GpwEditor
         private void LanguageFileEditorButton_Click(object sender, EventArgs e)
         {
             // Hide parent form and show child form
-            //SwitchToForm(this, new LanguageFileEditorForm());
+            SwitchToForm(this, new LanguageFileEditorForm());
         }
 
         private void RegistryKeysButton_Click(object sender, EventArgs e)
@@ -190,7 +192,7 @@ namespace GpwEditor
             parentForm.Hide();
             childForm.FormClosing += delegate { parentForm.Show(); };
 
-            // Old logic below, possibly required to swallow exception to close parentForm?
+            // TODO Old logic below for the above, possibly required to swallow exception to close parentForm?
             //try
             //{
             //    childForm.Show(parentForm);

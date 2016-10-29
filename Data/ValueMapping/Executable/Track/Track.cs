@@ -12,10 +12,10 @@ namespace Data.ValueMapping.Executable.Track
         private const int LapRecordDriverOffset = 20;
         private const int LapRecordTeamOffset = 30;
         private const int LapRecordTimeOffset = 40;
-        private const int Unknown1Offset = 50;
+        private const int LapRecordMphOffset = 50;
         private const int LapRecordYearOffset = 60;
-        private const int Unknown2Offset = 70;
-        private const int Unknown3Offset = 80;
+        private const int LastRaceDriverOffset = 70;
+        private const int LastRaceTeamOffset = 80;
         private const int LastRaceYearOffset = 90;
         private const int LastRaceTimeOffset = 100;
         private const int SpeedOffset = 110;
@@ -31,9 +31,9 @@ namespace Data.ValueMapping.Executable.Track
 
         public int Laps { get; set; }
         public int Design { get; set; }
-        public int Unknown1 { get; set; }
-        public int Unknown2 { get; set; }
-        public int Unknown3 { get; set; }
+        public int LapRecordMph { get; set; }
+        public int LastRaceDriver { get; set; }
+        public int LastRaceTeam { get; set; }
         public int LastRaceYear { get; set; }
         public int LastRaceTime { get; set; }
         public int LapRecordDriver { get; set; }
@@ -58,9 +58,9 @@ namespace Data.ValueMapping.Executable.Track
 
             Laps = BaseOffset + stepOffset + LapsOffset;
             Design = BaseOffset + stepOffset + DesignOffset;
-            Unknown1 = BaseOffset + stepOffset + Unknown1Offset;
-            Unknown2 = BaseOffset + stepOffset + Unknown2Offset;
-            Unknown3 = BaseOffset + stepOffset + Unknown3Offset;
+            LapRecordMph = BaseOffset + stepOffset + LapRecordMphOffset;
+            LastRaceDriver = BaseOffset + stepOffset + LastRaceDriverOffset;
+            LastRaceTeam = BaseOffset + stepOffset + LastRaceTeamOffset;
             LastRaceYear = BaseOffset + stepOffset + LastRaceYearOffset;
             LastRaceTime = BaseOffset + stepOffset + LastRaceTimeOffset;
             LapRecordDriver = BaseOffset + stepOffset + LapRecordDriverOffset;
