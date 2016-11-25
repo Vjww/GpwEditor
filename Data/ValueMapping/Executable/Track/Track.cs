@@ -31,15 +31,15 @@ namespace Data.ValueMapping.Executable.Track
 
         public int Laps { get; set; }
         public int Design { get; set; }
+        public int LapRecordDriver { get; set; }
+        public int LapRecordTeam { get; set; }
+        public int LapRecordTime { get; set; }
         public int LapRecordMph { get; set; }
+        public int LapRecordYear { get; set; }
         public int LastRaceDriver { get; set; }
         public int LastRaceTeam { get; set; }
         public int LastRaceYear { get; set; }
         public int LastRaceTime { get; set; }
-        public int LapRecordDriver { get; set; }
-        public int LapRecordTeam { get; set; }
-        public int LapRecordTime { get; set; }
-        public int LapRecordYear { get; set; }
         public int Speed { get; set; }
         public int Grip { get; set; }
         public int Surface { get; set; }
@@ -58,15 +58,15 @@ namespace Data.ValueMapping.Executable.Track
 
             Laps = BaseOffset + stepOffset + LapsOffset;
             Design = BaseOffset + stepOffset + DesignOffset;
+            LapRecordDriver = BaseOffset + stepOffset + LapRecordDriverOffset;
+            LapRecordTeam = BaseOffset + stepOffset + LapRecordTeamOffset;
+            LapRecordTime = BaseOffset + stepOffset + LapRecordTimeOffset;
             LapRecordMph = BaseOffset + stepOffset + LapRecordMphOffset;
+            LapRecordYear = BaseOffset + stepOffset + LapRecordYearOffset;
             LastRaceDriver = BaseOffset + stepOffset + LastRaceDriverOffset;
             LastRaceTeam = BaseOffset + stepOffset + LastRaceTeamOffset;
             LastRaceYear = BaseOffset + stepOffset + LastRaceYearOffset;
             LastRaceTime = BaseOffset + stepOffset + LastRaceTimeOffset;
-            LapRecordDriver = BaseOffset + stepOffset + LapRecordDriverOffset;
-            LapRecordTeam = BaseOffset + stepOffset + LapRecordTeamOffset;
-            LapRecordTime = BaseOffset + stepOffset + LapRecordTimeOffset;
-            LapRecordYear = BaseOffset + stepOffset + LapRecordYearOffset;
             Speed = BaseOffset + stepOffset + SpeedOffset;
             Grip = BaseOffset + stepOffset + GripOffset;
             Surface = BaseOffset + stepOffset + SurfaceOffset;

@@ -45,11 +45,15 @@ namespace GpwEditor
                 //
             }
 
+#if DEBUG
+            Settings.Default.UserGameFolderPath = @"C:\Gpw";
+#endif
+
             // If game folder has not been set
             if (string.IsNullOrWhiteSpace(Settings.Default.UserGameFolderPath))
             {
                 // http://stackoverflow.com/a/218740
-                Invoke((MethodInvoker) ConfigureGameFolder); // TODO test, intent to show form before dialog
+                Invoke((MethodInvoker)ConfigureGameFolder); // TODO test, intent to show form before dialog
                 //ConfigureGameFolder(); // TODO remove
             }
 
@@ -73,6 +77,15 @@ namespace GpwEditor
         {
             // Hide parent form and show child form
             //SwitchToForm(this, new SaveGameEditorForm());
+
+            MessageBox.Show(
+                $"The save game editor is not available in this version of {Settings.Default.ApplicationName}.{Environment.NewLine}{Environment.NewLine}" +
+                $"Please try upgrading to the latest version of {Settings.Default.ApplicationName} " +
+                $"or search the Internet for the following editors to modify your save games.{Environment.NewLine}{Environment.NewLine}" +
+                $"Grand Prix World Editor 3.2 (GPWedit32.zip){Environment.NewLine}" +
+                $"GPW Patch v1.0 (gpwpatch.zip){Environment.NewLine}" +
+                "GPW Editor Beta (Lexxgpweditor.zip)",
+                Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void LanguageFileEditorButton_Click(object sender, EventArgs e)
@@ -104,11 +117,10 @@ namespace GpwEditor
             if (!File.Exists(filePath))
             {
                 MessageBox.Show(
-                    string.Format(
-                        "{0} was unable to launch the game. The following game file was not found.{1}{1}" + filePath +
-                        "{1}{1}" + "You can change the path to the game file through the {0} settings menu.",
-                        Settings.Default.ApplicationName, Environment.NewLine), Settings.Default.ApplicationName,
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    $"{Settings.Default.ApplicationName} was unable to launch the game. The following game executable file was not found.{Environment.NewLine}{Environment.NewLine}" +
+                    $"{filePath}{Environment.NewLine}{Environment.NewLine}" +
+                    $"You can change the path to the game executable file through the {Settings.Default.ApplicationName} Settings menu.",
+                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             else
@@ -123,22 +135,22 @@ namespace GpwEditor
             {
                 // Prompt the user to select the game folder
                 MessageBox.Show(
-                    string.Format("{0} requires you to select the {1} installation folder.{2}{2}Click OK to browse for the {1} installation folder.",
-                        Settings.Default.ApplicationName, Settings.Default.GameName, Environment.NewLine),
-                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    $"{Settings.Default.ApplicationName} requires you to select the {Settings.Default.GameName} installation folder.{Environment.NewLine}{Environment.NewLine}" +
+                    $"Click OK to browse for the {Settings.Default.GameName} installation folder.",
+                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Get game folder from user
-                var folderDialogResult = GameFolderBrowserDialog.ShowDialog();
+                var dialogResult = GameFolderBrowserDialog.ShowDialog();
 
                 // If user does not select an installation folder
-                if (folderDialogResult != DialogResult.OK)
+                if (dialogResult != DialogResult.OK)
                 {
                     // Set installation folder to default and show message to advise
                     Settings.Default.UserGameFolderPath = Settings.Default.DefaultGameFolderPath;
                     MessageBox.Show(
-                        string.Format("As you did not select an installation folder for {1}, {0} will assume that the game is installed at the following location.{2}{2}{3}",
-                            Settings.Default.ApplicationName, Settings.Default.GameName, Environment.NewLine, Settings.Default.DefaultGameFolderPath),
-                        Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        $"As you did not select an installation folder for {Settings.Default.GameName}, {Settings.Default.ApplicationName} will assume that the game is installed at the following location.{Environment.NewLine}{Environment.NewLine}" +
+                        $"{Settings.Default.DefaultGameFolderPath}",
+                        Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 else
@@ -152,9 +164,9 @@ namespace GpwEditor
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    string.Format(
-                        "{0} has encountered an error while attempting to configure the game folder.{1}{1}" + "Error: {2}{1}{1}To resolve this error, try running {0} as an administrator.",
-                        Settings.Default.ApplicationName, Environment.NewLine, ex.Message),
+                    $"{Settings.Default.ApplicationName} has encountered an error while attempting to configure the game folder.{Environment.NewLine}{Environment.NewLine}" +
+                    $"Error: {ex.Message}{Environment.NewLine}{Environment.NewLine}" +
+                    $"To resolve this error, try running {Settings.Default.ApplicationName} as an administrator.",
                     Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

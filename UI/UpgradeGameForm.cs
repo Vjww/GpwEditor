@@ -110,7 +110,7 @@ namespace GpwEditor
             // Prompt user whether to close form with unsaved changes
             var result = MessageBox.Show(
                     $"Are you sure you wish to close the game upgrader?{Environment.NewLine}{Environment.NewLine}Any upgrades not applied will be lost.",
-                    Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
             return result == DialogResult.Yes;
         }
@@ -128,7 +128,8 @@ namespace GpwEditor
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}");
+                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
+                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             finally
@@ -136,7 +137,7 @@ namespace GpwEditor
                 Cursor.Current = Cursors.Default;
             }
 
-            MessageBox.Show("Export complete!");
+            MessageBox.Show("Export complete!", Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Import(string languageFileFilePath, string gameExecutableFilePath)
@@ -152,7 +153,8 @@ namespace GpwEditor
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}");
+                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
+                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             finally
@@ -164,7 +166,7 @@ namespace GpwEditor
             Settings.Default.UpgradeGameMruLanguageFileFilePath = LanguageFilePathTextBox.Text;
             Settings.Default.UpgradeGameMruGameExecutableFilePath = GameExecutablePathTextBox.Text;
 
-            MessageBox.Show("Import complete!");
+            MessageBox.Show("Import complete!", Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void PopulateControls(UpgradeDatabase upgradeDatabase)

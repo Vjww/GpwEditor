@@ -1,5 +1,10 @@
 gpwxp.exe channel default
 
+Viewports? (indices)
+1: TV Feed (0) 2: Stats (4)
+4: DriverCam (2) 3: Map (3)
+TrackCam (1)
+
 0046418B  C7 05 60 94 70 00 00 00  00 00
 004641D1  C7 05 D4 94 70 00 04 00  00 00
 00464217  C7 05 48 95 70 00 03 00  00 00

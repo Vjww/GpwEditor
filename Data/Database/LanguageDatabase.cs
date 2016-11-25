@@ -6,45 +6,44 @@ namespace Data.Database
 {
     public class LanguageDatabase
     {
+        // Collections
         public IdentityCollection LanguageStrings { get; set; }
-
-        public void ExportDataToFile(string languageFileFilePath)
-        {
-            ExportLanguageStrings(languageFileFilePath);
-        }
 
         public void ImportDataFromFile(string languageFileFilePath)
         {
             ImportLanguageStrings(languageFileFilePath);
         }
 
-        private void ExportLanguageStrings(string languageFileFilePath)
+        public void ExportDataToFile(string languageFileFilePath)
         {
-            LanguageConnection languageConnection = null;
-            try
-            {
-                languageConnection = new LanguageConnection();
-                languageConnection.Open(languageFileFilePath, StreamDirectionType.Write);
-                languageConnection.Save(LanguageStrings);
-            }
-            finally
-            {
-                languageConnection?.Close();
-            }
+            ExportLanguageStrings(languageFileFilePath);
         }
 
         private void ImportLanguageStrings(string languageFileFilePath)
         {
-            LanguageConnection languageConnection = null;
+            var languageConnection = new LanguageConnection();
             try
             {
-                languageConnection = new LanguageConnection();
                 languageConnection.Open(languageFileFilePath, StreamDirectionType.Read);
                 LanguageStrings = languageConnection.Load();
             }
             finally
             {
-                languageConnection?.Close();
+                languageConnection.Close();
+            }
+        }
+
+        private void ExportLanguageStrings(string languageFileFilePath)
+        {
+            var languageConnection = new LanguageConnection();
+            try
+            {
+                languageConnection.Open(languageFileFilePath, StreamDirectionType.Write);
+                languageConnection.Save(LanguageStrings);
+            }
+            finally
+            {
+                languageConnection.Close();
             }
         }
     }

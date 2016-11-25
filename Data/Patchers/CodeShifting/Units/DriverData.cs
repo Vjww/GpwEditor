@@ -1,5 +1,4 @@
-﻿
-namespace Data.Patchers.CodeShifting.Units
+﻿namespace Data.Patchers.CodeShifting.Units
 {
     /// <summary>
     /// Driver initialisation data has been manually extracted from the
@@ -9,7 +8,7 @@ namespace Data.Patchers.CodeShifting.Units
     /// Changes have been made to the original code to restore the three
     /// missing test drivers for teams 3, 5 and 9 (Benetton, Jordan and
     /// Stewart). There are no commentary indices available for these three
-    /// drivers so this may cause an exception without a workaround.
+    /// drivers so this may cause an exception, without a workaround.
     ///
     /// Helpful offsets
     /// 0116C408 + (894 * [0-139]) = team[1-11]

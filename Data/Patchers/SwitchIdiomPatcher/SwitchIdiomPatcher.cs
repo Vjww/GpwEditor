@@ -36,12 +36,19 @@ namespace Data.Patchers.SwitchIdiomPatcher
     /// </summary>
     public class SwitchIdiomPatcher
     {
+        private readonly string _executableFilePath;
+
+        public SwitchIdiomPatcher(string executableFilePath)
+        {
+            _executableFilePath = executableFilePath;
+        }
+
         /// <summary>
         /// Applys the new switch idiom to all predefined target addresses within.
         /// This method is only intended for use with gpw.exe v1.01b.
         /// Do not invoke this method more than once on the same file.
         /// </summary>
-        public void Apply(string filePath)
+        public void Apply()
         {
             // New instruction template, 0x00 will be overwritten by jump/indirect table locations
             var newInstructions = new byte[] {
@@ -80,7 +87,7 @@ namespace Data.Patchers.SwitchIdiomPatcher
                 try
                 {
                     executableConnection = new ExecutableConnection();
-                    executableConnection.Open(filePath, StreamDirectionType.Read);
+                    executableConnection.Open(_executableFilePath, StreamDirectionType.Read);
 
                     instructions = executableConnection.ReadByteArray(switchIdiomLocation[i], instructions.Length);
                 }
@@ -128,7 +135,7 @@ namespace Data.Patchers.SwitchIdiomPatcher
                 try
                 {
                     executableConnection = new ExecutableConnection();
-                    executableConnection.Open(filePath, StreamDirectionType.Write);
+                    executableConnection.Open(_executableFilePath, StreamDirectionType.Write);
 
                     // Write new instructions to target address
                     executableConnection.WriteByteArray(switchIdiomLocation[i], instructions);

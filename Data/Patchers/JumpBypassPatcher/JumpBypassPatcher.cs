@@ -81,12 +81,19 @@ namespace Data.Patchers.JumpBypassPatcher
             public int Function;
         }
 
+        private readonly string _executableFilePath;
+
+        public JumpBypassPatcher(string executableFilePath)
+        {
+            _executableFilePath = executableFilePath;
+        }
+
         /// <summary>
         /// Applys the bypass on all detected references to jump functions.
         /// This method is only intended for use with gpw.exe v1.01b.
         /// Do not invoke this method more than once on the same file.
         /// </summary>
-        public void Apply(string filePath)
+        public void Apply()
         {
             // Stats counters
             var textBypassStatsCounter = 0;
@@ -136,7 +143,7 @@ namespace Data.Patchers.JumpBypassPatcher
             try
             {
                 executableConnection = new ExecutableConnection();
-                executableConnection.Open(filePath, StreamDirectionType.Read);
+                executableConnection.Open(_executableFilePath, StreamDirectionType.Read);
 
                 // Populate collection with the referenced function inside each jump function
                 foreach (var item in jumpFunctions)
@@ -318,7 +325,7 @@ namespace Data.Patchers.JumpBypassPatcher
             try
             {
                 executableConnection = new ExecutableConnection();
-                executableConnection.Open(filePath, StreamDirectionType.Write);
+                executableConnection.Open(_executableFilePath, StreamDirectionType.Write);
 
                 // Apply bypasses
                 foreach (var item in jumpBypasses)

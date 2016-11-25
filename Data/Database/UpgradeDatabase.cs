@@ -11,6 +11,7 @@ namespace Data.Database
 {
     public class UpgradeDatabase
     {
+        // Current state flags
         public bool IsGameCdFixApplied { get; private set; }
         public bool IsDisplayModeFixApplied { get; private set; }
         public bool IsSampleAppFixApplied { get; private set; }
@@ -25,6 +26,7 @@ namespace Data.Database
         public bool IsPointsScoringSystemOption2Applied { get; private set; }
         public bool IsPointsScoringSystemOption3Applied { get; private set; }
 
+        // Future state flags
         public bool IsGameCdFixRequired { get; set; }
         public bool IsDisplayModeFixRequired { get; set; }
         public bool IsSampleAppFixRequired { get; set; }
@@ -39,58 +41,8 @@ namespace Data.Database
         public bool IsPointsScoringSystemOption2Required { get; set; }
         public bool IsPointsScoringSystemOption3Required { get; set; }
 
+        // Collections
         public IdentityCollection LanguageStrings { get; set; }
-
-        public void ImportDataFromFile(string gameExecutableFilePath, string languageFileFilePath)
-        {
-            // TODO validate language file
-            // TODO ImportLanguageStrings(languageFileFilePath);
-
-            // TODO validate exe
-            // TODO ValidateGameExecutableAsValidExecutable();
-            // TODO ValidateGameExecutableAsUpgradedExecutable();
-
-            ImportUpgrades(gameExecutableFilePath);
-            ImportOptions(gameExecutableFilePath);
-        }
-
-        private void ImportLanguageStrings(string languageFileFilePath)
-        {
-            LanguageConnection languageConnection = null;
-            try
-            {
-                languageConnection = new LanguageConnection();
-                languageConnection.Open(languageFileFilePath, StreamDirectionType.Read);
-                LanguageStrings = languageConnection.Load();
-            }
-            finally
-            {
-                languageConnection?.Close();
-            }
-        }
-
-        private void ImportUpgrades(string gameExecutableFilePath)
-        {
-            // TODO Implement
-        }
-
-        private void ImportOptions(string gameExecutableFilePath)
-        {
-            IsGameCdFixApplied = new GameCdFix(gameExecutableFilePath).IsCodeModified();
-            IsDisplayModeFixApplied = new DisplayModeFix(gameExecutableFilePath).IsCodeModified();
-            IsSampleAppFixApplied = new SampleAppFix(gameExecutableFilePath).IsCodeModified();
-            IsGlobalUnlockFixApplied = new GlobalUnlockFix(gameExecutableFilePath).IsCodeModified();
-            IsYellowFlagFixApplied = new YellowFlagFix(gameExecutableFilePath).IsCodeModified();
-            IsRaceSoundsFixApplied = new RaceSoundsFix(gameExecutableFilePath).IsCodeModified();
-            //IsPitExitPriorityFixApplied = new PitExitPriorityFix(gameExecutableFilePath).IsCodeModified();
-            IsCarDesignCalculationUpdateApplied = new CarDesignCalculationUpdate(gameExecutableFilePath).IsCodeModified();
-            IsCarHandlingPerformanceFixApplied = new CarHandlingPerformanceFix(gameExecutableFilePath).IsCodeModified();
-
-            IsPointsScoringSystemDefaultApplied = new PointsSystemF119912002Update(gameExecutableFilePath).IsCodeModified();
-            IsPointsScoringSystemOption1Applied = new PointsSystemF119811990Update(gameExecutableFilePath).IsCodeModified();
-            IsPointsScoringSystemOption2Applied = new PointsSystemF120032009Update(gameExecutableFilePath).IsCodeModified();
-            IsPointsScoringSystemOption3Applied = new PointsSystemF1201020xxUpdate(gameExecutableFilePath).IsCodeModified();
-        }
 
         public void ExportDataToFile(string gameExecutableFilePath, string languageFileFilePath)
         {
@@ -105,18 +57,44 @@ namespace Data.Database
             ExportOptions(gameExecutableFilePath);
         }
 
+        public void ImportDataFromFile(string gameExecutableFilePath, string languageFileFilePath)
+        {
+            // TODO validate language file
+            // TODO ImportLanguageStrings(languageFileFilePath);
+
+            // TODO validate exe
+            // TODO ValidateGameExecutableAsValidExecutable();
+            // TODO ValidateGameExecutableAsUpgradedExecutable();
+
+            ImportUpgrades(gameExecutableFilePath);
+            ImportOptions(gameExecutableFilePath);
+        }
+
         private void ExportLanguageStrings(string languageFileFilePath)
         {
-            LanguageConnection languageConnection = null;
+            var languageConnection = new LanguageConnection();
             try
             {
-                languageConnection = new LanguageConnection();
                 languageConnection.Open(languageFileFilePath, StreamDirectionType.Write);
                 languageConnection.Save(LanguageStrings);
             }
             finally
             {
-                languageConnection?.Close();
+                languageConnection.Close();
+            }
+        }
+
+        private void ImportLanguageStrings(string languageFileFilePath)
+        {
+            var languageConnection = new LanguageConnection();
+            try
+            {
+                languageConnection.Open(languageFileFilePath, StreamDirectionType.Read);
+                LanguageStrings = languageConnection.Load();
+            }
+            finally
+            {
+                languageConnection.Close();
             }
         }
 
@@ -125,19 +103,19 @@ namespace Data.Database
             //// Switch idiom patcher is only intended for use when disassembling.
             //// Code is included here if you wish to patch all users executables
             //// during an upgrade but this may introduce defects into the game.
-            //var switchIdiomPatcher = new SwitchIdiomPatcher();
-            //switchIdiomPatcher.Apply(gameExecutableFilePath);
+            //var switchIdiomPatcher = new SwitchIdiomPatcher(gameExecutableFilePath);
+            //switchIdiomPatcher.Apply();
 
             //// Free up space in executable by removing redundant jumping functions
             //// Required for upgrade to be successful and cannot be reversed
-            //var jumpBypassPatcher = new JumpBypassPatcher();
-            //jumpBypassPatcher.Apply(gameExecutableFilePath);
+            //var jumpBypassPatcher = new JumpBypassPatcher(gameExecutableFilePath);
+            //jumpBypassPatcher.Apply();
 
             //// Shift code around to consolidate and organise instructions and utilise free space
             //// May add additional functionality to the game that cannot be reversed
             // Required for upgrade to be successful and cannot be reversed
-            var codeShiftingPatcher = new CodeShiftingPatcher();
-            codeShiftingPatcher.Apply(gameExecutableFilePath);
+            var codeShiftingPatcher = new CodeShiftingPatcher(gameExecutableFilePath);
+            codeShiftingPatcher.Apply();
 
             // Upgrade unmodified points scoring system with reworked code
             // to allow alternative point scoring systems to be used.
@@ -151,6 +129,11 @@ namespace Data.Database
                 var pointsScoringSystemDefault = new PointsSystemF119912002Update(gameExecutableFilePath);
                 ApplyIrreversibleCode(pointsScoringSystemDefault);
             }
+        }
+
+        private void ImportUpgrades(string gameExecutableFilePath)
+        {
+            // TODO Implement
         }
 
         private void ExportOptions(string gameExecutableFilePath)
@@ -258,6 +241,24 @@ namespace Data.Database
             }
         }
 
+        private void ImportOptions(string gameExecutableFilePath)
+        {
+            IsGameCdFixApplied = new GameCdFix(gameExecutableFilePath).IsCodeModified();
+            IsDisplayModeFixApplied = new DisplayModeFix(gameExecutableFilePath).IsCodeModified();
+            IsSampleAppFixApplied = new SampleAppFix(gameExecutableFilePath).IsCodeModified();
+            IsGlobalUnlockFixApplied = new GlobalUnlockFix(gameExecutableFilePath).IsCodeModified();
+            IsYellowFlagFixApplied = new YellowFlagFix(gameExecutableFilePath).IsCodeModified();
+            IsRaceSoundsFixApplied = new RaceSoundsFix(gameExecutableFilePath).IsCodeModified();
+            //IsPitExitPriorityFixApplied = new PitExitPriorityFix(gameExecutableFilePath).IsCodeModified();
+            IsCarDesignCalculationUpdateApplied = new CarDesignCalculationUpdate(gameExecutableFilePath).IsCodeModified();
+            IsCarHandlingPerformanceFixApplied = new CarHandlingPerformanceFix(gameExecutableFilePath).IsCodeModified();
+
+            IsPointsScoringSystemDefaultApplied = new PointsSystemF119912002Update(gameExecutableFilePath).IsCodeModified();
+            IsPointsScoringSystemOption1Applied = new PointsSystemF119811990Update(gameExecutableFilePath).IsCodeModified();
+            IsPointsScoringSystemOption2Applied = new PointsSystemF120032009Update(gameExecutableFilePath).IsCodeModified();
+            IsPointsScoringSystemOption3Applied = new PointsSystemF1201020xxUpdate(gameExecutableFilePath).IsCodeModified();
+        }
+
         private static void ApplyReversibleCode(IDataPatcherUnitBase dataPatcherUnitBase, bool applyModified)
         {
             if (applyModified)
@@ -298,6 +299,8 @@ namespace Data.Database
 
         private static void ApplyIrreversibleCode(IDataPatcherUnitBase dataPatcherUnitBase)
         {
+            // TODO should we confirm unmodified code exists? but would that affect differing versions?
+
             Debug.WriteLine("Applying irreversible modified code.");
             dataPatcherUnitBase.ApplyModifiedCode();
         }

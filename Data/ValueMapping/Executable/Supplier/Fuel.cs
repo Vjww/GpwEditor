@@ -5,9 +5,10 @@ namespace Data.ValueMapping.Executable.Supplier
     public class Fuel : IFuel
     {
         // Offset values
-        private const int BaseOffset = 0; // TODO
-        private const int LocalOffset = 0; // TODO
-        private const int ExampleOffset = 0; // TODO
+        private const int BaseOffset = 2756384;
+        private const int LocalOffset = 8;
+        private const int PerformanceOffset = 0;
+        private const int ToleranceOffset = 4;
 
         public int Performance { get; set; }
         public int Tolerance { get; set; }
@@ -17,7 +18,8 @@ namespace Data.ValueMapping.Executable.Supplier
             // Calculate step offset from zero based index
             var stepOffset = LocalOffset * id;
 
-            //Example = BaseOffset + stepOffset + ExampleOffset; // TODO
+            Performance = BaseOffset + stepOffset + PerformanceOffset;
+            Tolerance = BaseOffset + stepOffset + ToleranceOffset;
         }
     }
 }

@@ -1,9 +1,4 @@
-﻿// How to write call to new function
-// var functionInstructions = new byte[5] { 0xE8, 0x00, 0x00, 0x00, 0x00 };
-// Array.Copy(BitConverter.GetBytes(positionOfNewFunction - (nopPositions[0] + 5)), 0, functionInstructions, 1, 4);
-// executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(nopPositions[0]), functionInstructions);
-
-using Common.Enums;
+﻿using Common.Enums;
 using Data.FileConnection;
 using Data.Helpers;
 using Data.Patchers.CodeShifting.Units;
@@ -12,19 +7,23 @@ namespace Data.Patchers.CodeShifting
 {
     public class CodeShiftingPatcher
     {
-        public void Apply(string filePath)
-        {
-            // File connection
-            ExecutableConnection executableConnection = null;
+        private readonly string _executableFilePath;
 
+        public CodeShiftingPatcher(string executableFilePath)
+        {
+            _executableFilePath = executableFilePath;
+        }
+
+        public void Apply()
+        {
             var firstByte = 0x0047141F;
             var lastByte = 0x00478F18;
 
             // Open file and write
+            var executableConnection = new ExecutableConnection();
             try
             {
-                executableConnection = new ExecutableConnection();
-                executableConnection.Open(filePath, StreamDirectionType.Write);
+                executableConnection.Open(_executableFilePath, StreamDirectionType.Write);
 
                 // Create byte array of NOPs
                 var nopInstructions = new byte[lastByte + 1 - firstByte];
@@ -70,10 +69,7 @@ namespace Data.Patchers.CodeShifting
             }
             finally
             {
-                if (executableConnection != null)
-                {
-                    executableConnection.Close();
-                }
+                executableConnection.Close();
             }
         }
     }

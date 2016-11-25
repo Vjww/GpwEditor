@@ -75,8 +75,8 @@ namespace GpwEditor
         {
             return MessageBox.Show(string.Format(
                 "{0} This operation should only be carried out once on the unmodified original file.{1}{1}Are you sure you wish to proceed?",
-                contextMessage, Environment.NewLine), @"Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning,
-                MessageBoxDefaultButton.Button2);
+                contextMessage, Environment.NewLine),
+                Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
         }
 
         private static void ShowCompleteMessageBox(string contextMessage, string purposeMessage)
@@ -101,26 +101,26 @@ namespace GpwEditor
 
         private void ApplySwitchIdiomPatcher()
         {
-            var patcher = new SwitchIdiomPatcher();
-            patcher.Apply(_filePath);
+            var patcher = new SwitchIdiomPatcher(_filePath);
+            patcher.Apply();
         }
 
         private void ApplyJumpBypassPatcher()
         {
-            var patcher = new JumpBypassPatcher();
-            patcher.Apply(_filePath);
+            var patcher = new JumpBypassPatcher(_filePath);
+            patcher.Apply();
         }
 
         private void ApplyGlobalUnlockPatcher()
         {
-            var patcher = new GlobalUnlockPatcher();
-            patcher.Apply(_filePath);
+            var patcher = new GlobalUnlockPatcher(_filePath);
+            patcher.Apply();
         }
 
         private void ApplyCodeShiftPatcher()
         {
-            var patcher = new CodeShiftingPatcher();
-            patcher.Apply(_filePath);
+            var patcher = new CodeShiftingPatcher(_filePath);
+            patcher.Apply();
         }
 
         private void ApplyAllPatchers()

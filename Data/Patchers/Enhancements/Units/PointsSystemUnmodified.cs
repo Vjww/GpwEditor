@@ -321,7 +321,7 @@
                     0x5E,                                                               // .text:005B8FF0                 pop     esi
                     0x5B,                                                               // .text:005B8FF1                 pop     ebx
                     0xC9,                                                               // .text:005B8FF2                 leave
-                    0xC3,                                                               // .text:005B8FF3                 retn
+                    0xC3                                                                // .text:005B8FF3                 retn
                 }
             });
         }

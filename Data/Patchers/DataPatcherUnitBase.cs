@@ -52,11 +52,9 @@ namespace Data.Patchers
 
         private void ApplyCode(IEnumerable<DataPatcherUnitTask> instructionTasks)
         {
-            ExecutableConnection executableConnection = null;
-
+            var executableConnection = new ExecutableConnection();
             try
             {
-                executableConnection = new ExecutableConnection();
                 executableConnection.Open(_executableFilePath, StreamDirectionType.Write);
 
                 foreach (var instructionTask in instructionTasks)
@@ -68,17 +66,15 @@ namespace Data.Patchers
             }
             finally
             {
-                executableConnection?.Close();
+                executableConnection.Close();
             }
         }
 
         private bool IsInstructionTasksEqual(IEnumerable<DataPatcherUnitTask> instructionTasks)
         {
-            ExecutableConnection executableConnection = null;
-
+            var executableConnection = new ExecutableConnection();
             try
             {
-                executableConnection = new ExecutableConnection();
                 executableConnection.Open(_executableFilePath, StreamDirectionType.Read);
 
                 foreach (var instructionTask in instructionTasks)

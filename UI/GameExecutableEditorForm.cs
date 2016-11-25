@@ -1,12 +1,21 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Data.Collections.Executable.Supplier;
 using Data.Collections.Executable.Team;
 using Data.Collections.Executable.Track;
 using Data.Collections.Language;
 using Data.Database;
+using Data.Entities.Executable.Race;
+using Data.Entities.Executable.Supplier;
+using Data.Entities.Executable.Team;
+using Data.Entities.Executable.Track;
+using GpwEditor.Enums;
 using GpwEditor.Properties;
+using Cursor = System.Windows.Forms.Cursor;
 
 namespace GpwEditor
 {
@@ -16,6 +25,8 @@ namespace GpwEditor
     public partial class GameExecutableEditorForm : Form
     {
         private bool _isModified;
+
+        private RacePerformanceCurveChart _racePerformanceCurveChart;
 
         public GameExecutableEditorForm()
         {
@@ -31,6 +42,10 @@ namespace GpwEditor
             Text = $"{Settings.Default.ApplicationName} - Game Executable Editor";
 
             ConfigureControls();
+            GenerateTooltips();
+
+            // Create and map to chart
+            _racePerformanceCurveChart = new RacePerformanceCurveChart(RacePerformanceChart);
 
             // Populate file paths with most recently used (MRU) or default
             var defaultLanguageFileFilePath = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultLanguageFileName);
@@ -44,6 +59,7 @@ namespace GpwEditor
                 string.IsNullOrWhiteSpace(Settings.Default.ExecutableEditorMruGameExecutableFilePath)
                     ? defaultGameExecutableFilePath
                     : Settings.Default.ExecutableEditorMruGameExecutableFilePath;
+
         }
 
         private void GameExecutableEditorForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -104,6 +120,16 @@ namespace GpwEditor
         private void ExportButton_Click(object sender, EventArgs e)
         {
             Export(LanguageFilePathTextBox.Text, GameExecutablePathTextBox.Text);
+        }
+
+        private void TeamsDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            // TODO
+        }
+
+        private void DriversDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            // TODO
         }
 
         private void EnginesDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
@@ -193,7 +219,12 @@ namespace GpwEditor
             */
         }
 
-        private void TracksDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void TracksDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            // TODO
+        }
+
+        private void GenericDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // If column header
             if (e.RowIndex < 0)
@@ -202,11 +233,21 @@ namespace GpwEditor
             }
 
             // If combobox column
-            if (TracksDataGridView.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn)
+            if (((DataGridView)sender).Columns[e.ColumnIndex] is DataGridViewComboBoxColumn)
             {
                 // Drop down
-                TracksDataGridView.BeginEdit(true);
-                ((ComboBox)TracksDataGridView.EditingControl).DroppedDown = true;
+                ((DataGridView)sender).BeginEdit(true);
+                ((ComboBox)((DataGridView)sender).EditingControl).DroppedDown = true;
+            }
+        }
+
+        private void GenericDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            // Handle error that occurs after viewing the datagridview with imported data, having previously viewed the datagridview with no data
+            // https://refactoringself.com/2012/09/26/datagridview-formattingexception-dataerror-and-preferredsize-auto-sizing-issue/
+            if (e.Context == (DataGridViewDataErrorContexts.Formatting | DataGridViewDataErrorContexts.PreferredSize))
+            {
+                e.Cancel = true;
             }
         }
 
@@ -215,26 +256,159 @@ namespace GpwEditor
             Close();
         }
 
-        private void ConfigureControls()
+        private void RacePerformanceNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            ConfigureDataGridViewControl(TeamsDataGridView, "Team", 1);
-            ConfigureDataGridViewControl(DriversDataGridView, "Driver", 2);
-            ConfigureDataGridViewControl(EnginesDataGridView, "Supplier", 3);
-            ConfigureDataGridViewControl(TyresDataGridView, "Supplier", 4);
-            ConfigureDataGridViewControl(FuelsDataGridView, "Supplier", 5);
-            ConfigureDataGridViewControl(TracksDataGridView, "Track", 6);
+            var numericUpDownControl = (NumericUpDown)sender;
+
+            // Get position in curve to change
+            var position = int.Parse(numericUpDownControl.Tag.ToString());
+
+            // Determine change in direction
+            if (numericUpDownControl.Value > 0)
+            {
+                _racePerformanceCurveChart.AdjustCurve(position, NumericUpDownDirectionType.Up);
+            }
+            else if (numericUpDownControl.Value < 0)
+            {
+                _racePerformanceCurveChart.AdjustCurve(position, NumericUpDownDirectionType.Down);
+            }
+
+            // Reset control
+            numericUpDownControl.ValueChanged -= RacePerformanceNumericUpDown_ValueChanged;
+            numericUpDownControl.Value = 0;
+            numericUpDownControl.ValueChanged += RacePerformanceNumericUpDown_ValueChanged;
         }
 
-        private static void ConfigureDataGridViewControl(DataGridView dataGridView, string headerText, int columnId)
+        private void RacePerformanceEditButton_Click(object sender, EventArgs e)
+        {
+            // Hide parent form and show child form
+            SwitchToForm(this, new RacePerformanceCurveForm(_racePerformanceCurveChart));
+        }
+
+        private void RacePerformanceSoftenCurveButton_Click(object sender, EventArgs e)
+        {
+            _racePerformanceCurveChart.SoftenCurve();
+        }
+
+        private void RacePerformanceCopyDefaultButton_Click(object sender, EventArgs e)
+        {
+            _racePerformanceCurveChart.ResetCurveToDefault();
+        }
+
+        private void RacePerformanceCopyCurrentButton_Click(object sender, EventArgs e)
+        {
+            _racePerformanceCurveChart.ResetCurveToCurrent();
+        }
+
+        private void RacePerformanceCopyRecommendedButton_Click(object sender, EventArgs e)
+        {
+            _racePerformanceCurveChart.ResetCurveToRecommended();
+        }
+
+        private void RacePerformanceDefaultCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            // If has been unchecked
+            if (!RacePerformanceDefaultCheckBox.Checked)
+            {
+                // And at least one other is checked
+                if (RacePerformanceCurrentCheckBox.Checked || RacePerformanceProposedCheckBox.Checked)
+                {
+                    _racePerformanceCurveChart.ToggleDefaultSeries();
+                    return;
+                }
+
+                // Else prevent uncheck by checking (and prevent event from firing)
+                RacePerformanceDefaultCheckBox.CheckedChanged -= RacePerformanceDefaultCheckBox_CheckedChanged;
+                RacePerformanceDefaultCheckBox.Checked = true;
+                RacePerformanceDefaultCheckBox.CheckedChanged += RacePerformanceDefaultCheckBox_CheckedChanged;
+                return;
+            }
+
+            _racePerformanceCurveChart.ToggleDefaultSeries();
+        }
+
+        private void RacePerformanceCurrentCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            // If has been unchecked
+            if (!RacePerformanceCurrentCheckBox.Checked)
+            {
+                // And at least one other is checked
+                if (RacePerformanceDefaultCheckBox.Checked || RacePerformanceProposedCheckBox.Checked)
+                {
+                    _racePerformanceCurveChart.ToggleCurrentSeries();
+                    return;
+                }
+
+                // Else prevent uncheck by checking (and prevent event from firing)
+                RacePerformanceCurrentCheckBox.CheckedChanged -= RacePerformanceCurrentCheckBox_CheckedChanged;
+                RacePerformanceCurrentCheckBox.Checked = true;
+                RacePerformanceCurrentCheckBox.CheckedChanged += RacePerformanceCurrentCheckBox_CheckedChanged;
+                return;
+            }
+
+            _racePerformanceCurveChart.ToggleCurrentSeries();
+        }
+
+        private void RacePerformanceProposedCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            // If has been unchecked
+            if (!RacePerformanceProposedCheckBox.Checked)
+            {
+                // And at least one other is checked
+                if (RacePerformanceDefaultCheckBox.Checked || RacePerformanceCurrentCheckBox.Checked)
+                {
+                    _racePerformanceCurveChart.ToggleProposedSeries();
+                    return;
+                }
+
+                // Else prevent uncheck by checking (and prevent event from firing)
+                RacePerformanceProposedCheckBox.CheckedChanged -= RacePerformanceProposedCheckBox_CheckedChanged;
+                RacePerformanceProposedCheckBox.Checked = true;
+                RacePerformanceProposedCheckBox.CheckedChanged += RacePerformanceProposedCheckBox_CheckedChanged;
+                return;
+            }
+
+            _racePerformanceCurveChart.ToggleProposedSeries();
+        }
+
+        private static void BindDataGridViewComboBoxColumn(DataGridView dataGridView, string dataGridViewComboBoxColumnName, object dataSource)
+        {
+            var dataGridViewComboBoxColumn = (DataGridViewComboBoxColumn)dataGridView.Columns[dataGridViewComboBoxColumnName];
+            dataGridViewComboBoxColumn.DataSource = dataSource;
+            dataGridViewComboBoxColumn.DisplayMember = "ResourceText";
+            dataGridViewComboBoxColumn.ValueMember = "LocalResourceId";
+            dataGridViewComboBoxColumn.ValueType = typeof(int);
+        }
+
+        private void ConfigureControls()
+        {
+            // Configure initial display of content on RacePerformanceTabPage
+            RacePerformanceChart.Titles.Clear();
+            var chartTitle = RacePerformanceChart.Titles.Add("Race Performance Curve");
+            chartTitle.Font = new Font(chartTitle.Font.FontFamily, chartTitle.Font.SizeInPoints + 10);
+            RacePerformanceGroupBox.Visible = false;
+
+            // Configure data grid view controls
+            ConfigureDataGridViewControl<Team>(TeamsDataGridView, 1);
+            ConfigureDataGridViewControl<Driver>(DriversDataGridView, 2);
+            ConfigureDataGridViewControl<Engine>(EnginesDataGridView, 3);
+            ConfigureDataGridViewControl<Tyre>(TyresDataGridView, 4);
+            ConfigureDataGridViewControl<Fuel>(FuelsDataGridView, 5);
+            ConfigureDataGridViewControl<Track>(TracksDataGridView, 6);
+        }
+
+        private static void ConfigureDataGridViewControl<T>(DataGridView dataGridView, int columnId)
         {
             // Hide columns
             dataGridView.Columns[$"idDataGridViewTextBoxColumn{columnId}"].Visible = false;
             dataGridView.Columns[$"localResourceIdDataGridViewTextBoxColumn{columnId}"].Visible = false;
             dataGridView.Columns[$"resourceIdDataGridViewTextBoxColumn{columnId}"].Visible = false;
 
-            // Rename primary column and configure to always show when scrolling horizontally
-            dataGridView.Columns[$"resourceTextDataGridViewTextBoxColumn{columnId}"].HeaderText = headerText;
+            // Freeze primary column (to always show when scrolling horizontally)
             dataGridView.Columns[$"resourceTextDataGridViewTextBoxColumn{columnId}"].Frozen = true;
+
+            // Rename column headers and populate column tooltips using model attributes
+            UpdateDataGridViewColumnHeaders<T>(dataGridView);
 
             // Configure grid
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -254,20 +428,11 @@ namespace GpwEditor
             }
 
             // Prompt user whether to close form with unsaved changes
-            var result = MessageBox.Show(
+            var dialogResult = MessageBox.Show(
                     $"Are you sure you wish to close the game executable editor?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost.",
-                    Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
-            return result == DialogResult.Yes;
-        }
-
-        private void BindDataGridViewComboBoxColumn(string dataGridViewComboBoxColumnName, object dataSource)
-        {
-            var dataGridViewComboBoxColumn = (DataGridViewComboBoxColumn)TracksDataGridView.Columns[dataGridViewComboBoxColumnName];
-            dataGridViewComboBoxColumn.DataSource = dataSource;
-            dataGridViewComboBoxColumn.DisplayMember = "ResourceText";
-            dataGridViewComboBoxColumn.ValueMember = "LocalResourceId";
-            dataGridViewComboBoxColumn.ValueType = typeof(string);
+            return dialogResult == DialogResult.Yes;
         }
 
         private void Export(string languageFileFilePath, string gameExecutableFilePath)
@@ -283,7 +448,8 @@ namespace GpwEditor
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}");
+                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
+                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             finally
@@ -291,7 +457,25 @@ namespace GpwEditor
                 Cursor.Current = Cursors.Default;
             }
 
-            MessageBox.Show("Export complete!");
+            // Update chart
+            _racePerformanceCurveChart.SetCurrentSeriesToProposedSeries();
+
+            MessageBox.Show("Export complete!", Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void GenerateTooltips()
+        {
+            var toolTip = new ToolTip();
+
+            // Race Peformance Controls
+            toolTip.SetToolTip(RacePerformanceDefaultCheckBox, $"Show/Hide the curve that represents the performance levels defined in v1.01b of {Settings.Default.GameName}.");
+            toolTip.SetToolTip(RacePerformanceCurrentCheckBox, $"Show/Hide the curve that is currently applied in the imported {Settings.Default.DefaultExecutableFileName} game executable file.");
+            toolTip.SetToolTip(RacePerformanceProposedCheckBox, $"Show/Hide the curve that is proposed for export to a {Settings.Default.DefaultExecutableFileName} game executable file.");
+            toolTip.SetToolTip(RacePerformanceEditButton, "Opens a window to access and edit the raw data that makes up the Proposed curve.");
+            toolTip.SetToolTip(RacePerformanceSoftenCurveButton, "Softens the peaks and troughs of the Proposed curve using a simple moving average formula.");
+            toolTip.SetToolTip(RacePerformanceCopyDefaultButton, $"Copies the curve that represents the performance levels defined in v1.01b of {Settings.Default.GameName}.");
+            toolTip.SetToolTip(RacePerformanceCopyCurrentButton, $"Copies the curve that is currently applied in the imported {Settings.Default.DefaultExecutableFileName} game executable file.");
+            toolTip.SetToolTip(RacePerformanceCopyRecommendedButton, $"Copies the curve that is recommended for use by the {Settings.Default.GameName} gaming community.");
         }
 
         private void Import(string languageFileFilePath, string gameExecutableFilePath)
@@ -307,7 +491,8 @@ namespace GpwEditor
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}");
+                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
+                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             finally
@@ -319,7 +504,7 @@ namespace GpwEditor
             Settings.Default.ExecutableEditorMruLanguageFileFilePath = LanguageFilePathTextBox.Text;
             Settings.Default.ExecutableEditorMruGameExecutableFilePath = GameExecutablePathTextBox.Text;
 
-            MessageBox.Show("Import complete!");
+            MessageBox.Show("Import complete!", Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void PopulateControls(ExecutableDatabase executableDatabase)
@@ -336,22 +521,64 @@ namespace GpwEditor
             // Bind comboboxes to data
             // Hint: Requires the column type to be set at design time to ComboBoxColumn via DataGridView Tasks Wizard > Edit Columns... > ColumnType
             //       Requires a rename at design time of the column's Name property. Change the suffix TextBoxColumn to ComboBoxColumn to reflect the ColumnType.
-            BindDataGridViewComboBoxColumn("lapRecordDriverDataGridViewComboBoxColumn", executableDatabase.DriverIdentities);
-            BindDataGridViewComboBoxColumn("lapRecordTeamDataGridViewComboBoxColumn", executableDatabase.Teams);
-            BindDataGridViewComboBoxColumn("lastRaceDriverDataGridViewComboBoxColumn", executableDatabase.DriverIdentities);
-            BindDataGridViewComboBoxColumn("lastRaceTeamDataGridViewComboBoxColumn", executableDatabase.Teams);
+            BindDataGridViewComboBoxColumn(TeamsDataGridView, "firstGpTrackDataGridViewComboBoxColumn", executableDatabase.TeamFirstGpTrackIdentities);
+            BindDataGridViewComboBoxColumn(TeamsDataGridView, "tyreSupplierIdDataGridViewComboBoxColumn", executableDatabase.TeamTyreSupplierIdIdentities);
+            BindDataGridViewComboBoxColumn(DriversDataGridView, "nationalityDataGridViewComboBoxColumn", executableDatabase.DriverNationalityIdIdentities);
+            BindDataGridViewComboBoxColumn(TracksDataGridView, "designDataGridViewComboBoxColumn", executableDatabase.TrackDesignIdentities);
+            BindDataGridViewComboBoxColumn(TracksDataGridView, "lapRecordDriverDataGridViewComboBoxColumn", executableDatabase.DriverIdentities);
+            BindDataGridViewComboBoxColumn(TracksDataGridView, "lapRecordTeamDataGridViewComboBoxColumn", executableDatabase.Teams);
+            BindDataGridViewComboBoxColumn(TracksDataGridView, "lastRaceDriverDataGridViewComboBoxColumn", executableDatabase.DriverIdentities);
+            BindDataGridViewComboBoxColumn(TracksDataGridView, "lastRaceTeamDataGridViewComboBoxColumn", executableDatabase.Teams);
+
+            // Generate chart
+            _racePerformanceCurveChart.GenerateChart();
+            _racePerformanceCurveChart.SetCurrentSeries(executableDatabase.RacePerformance.Values);
+            _racePerformanceCurveChart.SetProposedSeriesToCurrentSeries();
+            RacePerformanceGroupBox.Visible = true;
         }
 
         private void PopulateRecords(ExecutableDatabase executableDatabase)
         {
             // Move data from controls into database
-            executableDatabase.LanguageStrings = LanguageDataGridView.DataSource as IdentityCollection;
-            executableDatabase.Teams = TeamsDataGridView.DataSource as TeamCollection;
-            executableDatabase.Drivers = DriversDataGridView.DataSource as DriverCollection;
-            executableDatabase.Engines = EnginesDataGridView.DataSource as EngineCollection;
-            executableDatabase.Tyres = TyresDataGridView.DataSource as TyreCollection;
-            executableDatabase.Fuels = FuelsDataGridView.DataSource as FuelCollection;
-            executableDatabase.Tracks = TracksDataGridView.DataSource as TrackCollection;
+            executableDatabase.LanguageStrings = (IdentityCollection)LanguageDataGridView.DataSource;
+            executableDatabase.Teams = (TeamCollection)TeamsDataGridView.DataSource;
+            executableDatabase.Drivers = (DriverCollection)DriversDataGridView.DataSource;
+            executableDatabase.Engines = (EngineCollection)EnginesDataGridView.DataSource;
+            executableDatabase.Tyres = (TyreCollection)TyresDataGridView.DataSource;
+            executableDatabase.Fuels = (FuelCollection)FuelsDataGridView.DataSource;
+            executableDatabase.Tracks = (TrackCollection)TracksDataGridView.DataSource;
+
+            executableDatabase.RacePerformance = new RacePerformance
+            {
+                Values = _racePerformanceCurveChart.GetProposedSeries()
+            };
+        }
+
+        private static void SwitchToForm(Form parentForm, Form childForm)
+        {
+            childForm.Show(parentForm);
+            parentForm.Hide();
+            childForm.FormClosing += delegate { parentForm.Show(); };
+        }
+
+        private static void UpdateDataGridViewColumnHeaders<T>(DataGridView dataGridView)
+        {
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                var properties = typeof(T).GetProperties();
+                var property = properties.Single(x => x.Name == column.DataPropertyName);
+                var attributes = property.GetCustomAttributes(true);
+                foreach (var attribute in attributes)
+                {
+                    var displayAttribute = (DisplayAttribute)attribute;
+                    if (displayAttribute != null)
+                    {
+                        // Update header text and tooltip text with attribute text
+                        column.HeaderText = displayAttribute.GetName();
+                        column.ToolTipText = displayAttribute.GetDescription();
+                    }
+                }
+            }
         }
     }
 }

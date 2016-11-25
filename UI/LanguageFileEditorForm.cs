@@ -170,13 +170,13 @@ namespace GpwEditor
                 return;
             }
 
-            var result = MessageBox.Show(
+            var dialogResult = MessageBox.Show(
                 "Text for short team names and team codes will be generated from the current team names entered in the language file." +
                 $"{Environment.NewLine}{Environment.NewLine}However you will still need to manually update the text for the team chassis and end-of-year results." +
-                $"{Environment.NewLine}{Environment.NewLine}Do you wish to proceed?", "Update team text",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                $"{Environment.NewLine}{Environment.NewLine}Do you wish to proceed?",
+                Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
-            if (result == DialogResult.Yes)
+            if (dialogResult == DialogResult.Yes)
             {
                 // Parse RadioButton.Tag properties
                 int teamsFullId;
@@ -259,11 +259,11 @@ namespace GpwEditor
             }
 
             // Prompt user whether to close form with unsaved changes
-            var result = MessageBox.Show(
+            var dialogResult = MessageBox.Show(
                     $"Are you sure you wish to close the language file editor?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost.",
-                    Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
-            return result == DialogResult.Yes;
+            return dialogResult == DialogResult.Yes;
         }
 
         private void Export(string languageFileFilePath)
@@ -279,7 +279,8 @@ namespace GpwEditor
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}");
+                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
+                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             finally
@@ -287,7 +288,7 @@ namespace GpwEditor
                 Cursor.Current = Cursors.Default;
             }
 
-            MessageBox.Show("Export complete!");
+            MessageBox.Show("Export complete!", Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Find()
@@ -374,7 +375,8 @@ namespace GpwEditor
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}");
+                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
+                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             finally
@@ -386,7 +388,7 @@ namespace GpwEditor
             Settings.Default.LanguageEditorMruLanguageFileFilePath = LanguageFilePathTextBox.Text;
             Settings.Default.LanguageEditorMruGameExecutableFilePath = GameExecutablePathTextBox.Text;
 
-            MessageBox.Show("Import complete!");
+            MessageBox.Show("Import complete!", Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void NavigateToRow(int index)

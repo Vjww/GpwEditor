@@ -20,12 +20,6 @@
     <Setting Name="DefaultGameFolderPath" Type="System.String" Scope="Application">
       <Value Profile="(Default)">C:\Program Files\MicroProse\Grand Prix World</Value>
     </Setting>
-    <Setting Name="ExecutableEditorMruGameExecutableFilePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="ExecutableEditorMruLanguageFileFilePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="UserGameFolderPath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
@@ -34,6 +28,12 @@
     </Setting>
     <Setting Name="InitialRun" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ExecutableEditorMruLanguageFileFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ExecutableEditorMruGameExecutableFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="LanguageEditorMruLanguageFileFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

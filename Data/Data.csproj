@@ -32,14 +32,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CamLevelType.cs" />
+    <Compile Include="LevelTypeBase.cs" />
+    <Compile Include="CadLevelType.cs" />
     <Compile Include="Collections\Executable\Supplier\EngineCollection.cs" />
     <Compile Include="Collections\Executable\Supplier\FuelCollection.cs" />
     <Compile Include="Collections\Executable\Supplier\TyreCollection.cs" />
@@ -51,6 +50,8 @@
     <Compile Include="Database\ExecutableDatabase.cs" />
     <Compile Include="Database\LanguageDatabase.cs" />
     <Compile Include="Database\UpgradeDatabase.cs" />
+    <Compile Include="Entities\Executable\Config\Factory.cs" />
+    <Compile Include="Entities\Executable\Race\RacePerformance.cs" />
     <Compile Include="Entities\Executable\Supplier\Engine.cs" />
     <Compile Include="Entities\Executable\Supplier\Fuel.cs" />
     <Compile Include="Entities\Executable\Supplier\Tyre.cs" />
@@ -63,6 +64,8 @@
     <Compile Include="FileConnection\ExecutableConnection.cs" />
     <Compile Include="FileConnection\LanguageConnection.cs" />
     <Compile Include="Helpers\InstructionHelper.cs" />
+    <Compile Include="ILevelType.cs" />
+    <Compile Include="LevelTypeCollection.cs" />
     <Compile Include="Patchers\CodeShifting\CodeShiftingPatcher.cs" />
     <Compile Include="Patchers\CodeShifting\Units\DriverData.cs" />
     <Compile Include="Patchers\CodeShifting\Units\PersonnelData.cs" />
@@ -90,6 +93,9 @@
     <Compile Include="Patchers\GlobalUnlockPatcher\GlobalUnlockPatcher.cs" />
     <Compile Include="Patchers\JumpBypassPatcher\JumpBypassPatcher.cs" />
     <Compile Include="Patchers\SwitchIdiomPatcher\SwitchIdiomPatcher.cs" />
+    <Compile Include="ValueMapping\Executable\Config\Factory.cs" />
+    <Compile Include="ValueMapping\Executable\Config\Viewport.cs" />
+    <Compile Include="ValueMapping\Executable\Race\RacePerformance.cs" />
     <Compile Include="ValueMapping\Executable\Supplier\Engine.cs" />
     <Compile Include="ValueMapping\Executable\Supplier\Fuel.cs" />
     <Compile Include="ValueMapping\Executable\Supplier\Tyre.cs" />
@@ -150,8 +156,9 @@
     <Content Include="IntegrationTasks\GpwXpExe\Text\c_racepoints.txt" />
     <Content Include="IntegrationTasks\GpwXpExe\Text\c_racepoints_new.txt" />
     <Content Include="IntegrationTasks\GpwXpExe\Text\ViewportDefaults\viewport_default.txt" />
+    <Content Include="Notes\CreateFunction.txt" />
     <Content Include="Notes\Executable\Drivers.txt" />
-    <Content Include="_OldEditor\readme.txt" />
+    <Content Include="Notes\readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IntegrationTasks\BackupIdb\BackupIdb.zip" />
@@ -184,9 +191,10 @@
     <None Include="IntegrationTasks\Release103\gpw_103testing.zip" />
     <None Include="Notes\Executable\LoadEffectiveAddressCalc.xlsx" />
     <None Include="Notes\Grand Prix World Technical Document.docx" />
-    <None Include="_OldEditor\SwitchIdiomPatcher.xlsx" />
+    <None Include="Notes\SwitchIdiomPatcher.xlsx" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Collections\Executable\Race\" />
     <Folder Include="IntegrationTasks\Release102\" />
   </ItemGroup>
   <ItemGroup>

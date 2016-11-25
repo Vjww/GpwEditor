@@ -48,13 +48,20 @@ namespace Data.Patchers.GlobalUnlockPatcher
     {
         // TODO THIS CLASS IS NOW REDUNDANT
 
+        private readonly string _executableFilePath;
+
+        public GlobalUnlockPatcher(string executableFilePath)
+        {
+            _executableFilePath = executableFilePath;
+        }
+
         /// <summary>
         /// Applys the redirect on all calls to GlobalUnlock.
         /// This method is only intended for use with gpw.exe v1.01b.
         /// This method requires the Jump Bypass Patcher to be applied beforehand.
         /// Do not invoke this method more than once on the same file.
         /// </summary>
-        public void Apply(string filePath)
+        public void Apply()
         {
             // New function to call GlobalUnlock on behalf of original calls
             var newGlobalUnlockInstructions = new byte[] {
@@ -116,14 +123,11 @@ namespace Data.Patchers.GlobalUnlockPatcher
                 0x005D2DD3, 0x005D2E0E, 0x005D2E26, 0x0062AC9E, 0x0062B0B4, 0x0062B204
             };
 
-            // File connection
-            ExecutableConnection executableConnection = null;
-
             // Open file and write
+            var executableConnection = new ExecutableConnection();
             try
             {
-                executableConnection = new ExecutableConnection();
-                executableConnection.Open(filePath, StreamDirectionType.Write);
+                executableConnection.Open(_executableFilePath, StreamDirectionType.Write);
 
                 // Apply new function to call GlobalUnlock on behalf of original calls
                 executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(newGlobalUnlockLocation), newGlobalUnlockInstructions);
@@ -150,10 +154,7 @@ namespace Data.Patchers.GlobalUnlockPatcher
             }
             finally
             {
-                if (executableConnection != null)
-                {
-                    executableConnection.Close();
-                }
+                executableConnection.Close();
             }
         }
     }

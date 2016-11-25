@@ -37,8 +37,8 @@
             this.LogoPictureBox = new System.Windows.Forms.PictureBox();
             this.SettingsButton = new System.Windows.Forms.Button();
             this.MenuToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.GameFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.UpgradeGameButton = new System.Windows.Forms.Button();
+            this.GameFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,19 +47,18 @@
             this.GameExecutableEditorButton.Location = new System.Drawing.Point(8, 136);
             this.GameExecutableEditorButton.Name = "GameExecutableEditorButton";
             this.GameExecutableEditorButton.Size = new System.Drawing.Size(176, 23);
-            this.GameExecutableEditorButton.TabIndex = 0;
+            this.GameExecutableEditorButton.TabIndex = 1;
             this.GameExecutableEditorButton.Text = "Game Executable Editor";
-            this.MenuToolTip.SetToolTip(this.GameExecutableEditorButton, "Use the game executable editor to make changes to the game executable file.");
+            this.MenuToolTip.SetToolTip(this.GameExecutableEditorButton, "Use the game executable editor to make changes to a game executable file.");
             this.GameExecutableEditorButton.UseVisualStyleBackColor = true;
             this.GameExecutableEditorButton.Click += new System.EventHandler(this.GameEditorButton_Click);
             // 
             // SaveGameEditorButton
             // 
-            this.SaveGameEditorButton.Enabled = false;
             this.SaveGameEditorButton.Location = new System.Drawing.Point(8, 168);
             this.SaveGameEditorButton.Name = "SaveGameEditorButton";
             this.SaveGameEditorButton.Size = new System.Drawing.Size(176, 23);
-            this.SaveGameEditorButton.TabIndex = 1;
+            this.SaveGameEditorButton.TabIndex = 2;
             this.SaveGameEditorButton.Text = "Save Game Editor";
             this.MenuToolTip.SetToolTip(this.SaveGameEditorButton, "Use the save game editor to make changes to a save game file.");
             this.SaveGameEditorButton.UseVisualStyleBackColor = true;
@@ -70,10 +69,10 @@
             this.RegistryKeysButton.Location = new System.Drawing.Point(200, 104);
             this.RegistryKeysButton.Name = "RegistryKeysButton";
             this.RegistryKeysButton.Size = new System.Drawing.Size(176, 23);
-            this.RegistryKeysButton.TabIndex = 3;
+            this.RegistryKeysButton.TabIndex = 4;
             this.RegistryKeysButton.Text = "Registry Keys";
             this.MenuToolTip.SetToolTip(this.RegistryKeysButton, "Use the registry keys tool to create the registry keys for the game and change th" +
-        "e location of the game folder.");
+        "e registered location of the game folder.");
             this.RegistryKeysButton.UseVisualStyleBackColor = true;
             this.RegistryKeysButton.Click += new System.EventHandler(this.RegistryKeysButton_Click);
             // 
@@ -82,7 +81,7 @@
             this.LanguageFileEditorButton.Location = new System.Drawing.Point(8, 200);
             this.LanguageFileEditorButton.Name = "LanguageFileEditorButton";
             this.LanguageFileEditorButton.Size = new System.Drawing.Size(176, 23);
-            this.LanguageFileEditorButton.TabIndex = 2;
+            this.LanguageFileEditorButton.TabIndex = 3;
             this.LanguageFileEditorButton.Text = "Language File Editor";
             this.MenuToolTip.SetToolTip(this.LanguageFileEditorButton, "Use the language file editor to make changes to a language file.");
             this.LanguageFileEditorButton.UseVisualStyleBackColor = true;
@@ -93,7 +92,7 @@
             this.LaunchGameButton.Location = new System.Drawing.Point(200, 168);
             this.LaunchGameButton.Name = "LaunchGameButton";
             this.LaunchGameButton.Size = new System.Drawing.Size(176, 23);
-            this.LaunchGameButton.TabIndex = 5;
+            this.LaunchGameButton.TabIndex = 6;
             this.LaunchGameButton.Text = "Launch Game";
             this.MenuToolTip.SetToolTip(this.LaunchGameButton, "Launch the game!");
             this.LaunchGameButton.UseVisualStyleBackColor = true;
@@ -114,15 +113,11 @@
             this.SettingsButton.Location = new System.Drawing.Point(200, 136);
             this.SettingsButton.Name = "SettingsButton";
             this.SettingsButton.Size = new System.Drawing.Size(176, 23);
-            this.SettingsButton.TabIndex = 4;
+            this.SettingsButton.TabIndex = 5;
             this.SettingsButton.Text = "Settings";
-            this.MenuToolTip.SetToolTip(this.SettingsButton, "Use the hacking tools to alter code inside the game executable.");
+            this.MenuToolTip.SetToolTip(this.SettingsButton, "Change the settings for this application.");
             this.SettingsButton.UseVisualStyleBackColor = true;
             this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
-            // 
-            // GameFolderBrowserDialog
-            // 
-            this.GameFolderBrowserDialog.ShowNewFolderButton = false;
             // 
             // UpgradeGameButton
             // 
@@ -131,8 +126,13 @@
             this.UpgradeGameButton.Size = new System.Drawing.Size(176, 23);
             this.UpgradeGameButton.TabIndex = 0;
             this.UpgradeGameButton.Text = "Upgrade Game";
+            this.MenuToolTip.SetToolTip(this.UpgradeGameButton, "Use the game upgrader to make changes to a game executable file.");
             this.UpgradeGameButton.UseVisualStyleBackColor = true;
             this.UpgradeGameButton.Click += new System.EventHandler(this.UpgradeGameButton_Click);
+            // 
+            // GameFolderBrowserDialog
+            // 
+            this.GameFolderBrowserDialog.ShowNewFolderButton = false;
             // 
             // MenuForm
             // 
@@ -151,7 +151,6 @@
             this.MaximizeBox = false;
             this.Name = "MenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "{0}";
             this.Load += new System.EventHandler(this.MenuForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
             this.ResumeLayout(false);
