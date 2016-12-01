@@ -13,13 +13,13 @@ namespace Data.FileConnection
         public const int FirstLineId = 0;
         public const int LastLineId = 7172;
 
+        public LanguageConnection(string filePath) : base(filePath)
+        {
+            //
+        }
+
         public IdentityCollection Load()
         {
-            if (GetStreamDirection() != StreamDirectionType.Read)
-            {
-                throw new Exception("Stream direction must be read.");
-            }
-
             // Read strings from file
             string line;
             var stringList = new List<string>();
@@ -34,11 +34,6 @@ namespace Data.FileConnection
 
         public void Save(IdentityCollection stringTable)
         {
-            if (GetStreamDirection() != StreamDirectionType.Write)
-            {
-                throw new Exception("Stream direction must be write.");
-            }
-
             // Generate string list from identity collection
             var stringList = ConvertIdentityCollectionToStringList(stringTable);
 
@@ -47,6 +42,26 @@ namespace Data.FileConnection
             {
                 WriteLine(line);
             }
+        }
+
+        public override string ReadLine()
+        {
+            if (!IsRead())
+            {
+                SwitchStreamDirection();
+            }
+
+            return base.ReadLine();
+        }
+
+        public override void WriteLine(string line)
+        {
+            if (!IsWrite())
+            {
+                SwitchStreamDirection();
+            }
+
+            base.WriteLine(line);
         }
 
         private static IEnumerable<string> ConvertIdentityCollectionToStringList(IdentityCollection stringTable)
@@ -112,6 +127,37 @@ namespace Data.FileConnection
             }
 
             return result;
+        }
+
+        private bool IsRead()
+        {
+            return StreamDirection == StreamDirectionType.Read;
+        }
+
+        private bool IsWrite()
+        {
+            return StreamDirection == StreamDirectionType.Write;
+        }
+
+        private void SwitchStreamDirection()
+        {
+            // Switch read to write
+            if (IsRead())
+            {
+                Close();
+                Open(StreamDirectionType.Write);
+                return;
+            }
+
+            // Switch write to read
+            if (IsWrite())
+            {
+                Close();
+                Open(StreamDirectionType.Read);
+                return;
+            }
+
+            throw new Exception("Unable to switch stream direction, as stream direction not defined.");
         }
     }
 }

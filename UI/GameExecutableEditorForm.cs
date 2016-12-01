@@ -9,6 +9,7 @@ using Data.Collections.Executable.Team;
 using Data.Collections.Executable.Track;
 using Data.Collections.Language;
 using Data.Database;
+using Data.Entities.EntityTypes;
 using Data.Entities.Executable.Race;
 using Data.Entities.Executable.Supplier;
 using Data.Entities.Executable.Team;
@@ -59,7 +60,6 @@ namespace GpwEditor
                 string.IsNullOrWhiteSpace(Settings.Default.ExecutableEditorMruGameExecutableFilePath)
                     ? defaultGameExecutableFilePath
                     : Settings.Default.ExecutableEditorMruGameExecutableFilePath;
-
         }
 
         private void GameExecutableEditorForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -150,7 +150,7 @@ namespace GpwEditor
             else
             {
                 // Show message if validation determines that cell is not a valid integer rating value
-                if ((!e.FormattedValue.ToString().ValidateAsInteger()) &&
+                if ((!e.FormattedValue.ToString().IsInteger()) &&
                     (!Convert.ToInt32(e.FormattedValue).ValidateAsOneToTenStepOne()))
                 {
                     var headerText = EnginesDataGridView.Columns[e.ColumnIndex].HeaderText;
@@ -179,7 +179,7 @@ namespace GpwEditor
             else
             {
                 // Show message if validation determines that cell is not a valid integer rating value
-                if ((!e.FormattedValue.ToString().ValidateAsInteger()) &&
+                if ((!e.FormattedValue.ToString().IsInteger()) &&
                     (!Convert.ToInt32(e.FormattedValue).ValidateAsOneToTenStepOne()))
                 {
                     var headerText = TyresDataGridView.Columns[e.ColumnIndex].HeaderText;
@@ -208,7 +208,7 @@ namespace GpwEditor
             else
             {
                 // Show message if validation determines that cell is not a valid integer rating value
-                if ((!e.FormattedValue.ToString().ValidateAsInteger()) &&
+                if ((!e.FormattedValue.ToString().IsInteger()) &&
                     (!Convert.ToInt32(e.FormattedValue).ValidateAsOneToTenStepOne()))
                 {
                     var headerText = FuelsDataGridView.Columns[e.ColumnIndex].HeaderText;
@@ -395,6 +395,9 @@ namespace GpwEditor
             ConfigureDataGridViewControl<Tyre>(TyresDataGridView, 4);
             ConfigureDataGridViewControl<Fuel>(FuelsDataGridView, 5);
             ConfigureDataGridViewControl<Track>(TracksDataGridView, 6);
+
+            // TODO
+            UpdateDataGridViewColumnHeaders<FiveLevelValueTypeBase>(StaffSalariesDataGridView);
         }
 
         private static void ConfigureDataGridViewControl<T>(DataGridView dataGridView, int columnId)
@@ -518,6 +521,31 @@ namespace GpwEditor
             FuelsDataGridView.DataSource = executableDatabase.Fuels;
             TracksDataGridView.DataSource = executableDatabase.Tracks;
 
+            StaffSalariesDataGridView.DataSource = executableDatabase.StaffSalaries;
+            FactoryRunningCostsDataGridView.DataSource = executableDatabase.FactoryRunningCosts;
+            FactoryExpansionCostsDataGridView.DataSource = executableDatabase.FactoryExpansionCosts;
+
+            // TODO
+            // Format data grid
+            StaffSalariesDataGridView.TopLeftHeaderCell.Value = "Index";
+            StaffSalariesDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            StaffSalariesDataGridView.RowHeadersWidth = 100;
+            StaffSalariesDataGridView.AllowUserToAddRows = false;
+            StaffSalariesDataGridView.AllowUserToDeleteRows = false;
+            StaffSalariesDataGridView.AllowUserToResizeColumns = false;
+            StaffSalariesDataGridView.AllowUserToResizeRows = false;
+            StaffSalariesDataGridView.MultiSelect = false;
+
+            // TODO and fix refresh to display row headers first time visiting tab
+            var records = (FiveLevelTypeCollection)StaffSalariesDataGridView.DataSource;
+            for (var i = 0; i < StaffSalariesDataGridView.RowCount; i++)
+            {
+                // Populate row header cell with data value, in place of default numbering
+                StaffSalariesDataGridView.Rows[i].HeaderCell.Value = records[i].Name;
+            }
+            StaffSalariesDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            StaffSalariesDataGridView.Refresh();
+
             // Bind comboboxes to data
             // Hint: Requires the column type to be set at design time to ComboBoxColumn via DataGridView Tasks Wizard > Edit Columns... > ColumnType
             //       Requires a rename at design time of the column's Name property. Change the suffix TextBoxColumn to ComboBoxColumn to reflect the ColumnType.
@@ -547,6 +575,10 @@ namespace GpwEditor
             executableDatabase.Tyres = (TyreCollection)TyresDataGridView.DataSource;
             executableDatabase.Fuels = (FuelCollection)FuelsDataGridView.DataSource;
             executableDatabase.Tracks = (TrackCollection)TracksDataGridView.DataSource;
+
+            executableDatabase.StaffSalaries = (FiveLevelTypeCollection)StaffSalariesDataGridView.DataSource;
+            executableDatabase.FactoryRunningCosts = (FiveLevelTypeCollection)FactoryRunningCostsDataGridView.DataSource;
+            executableDatabase.FactoryExpansionCosts = (FiveLevelTypeCollection)FactoryExpansionCostsDataGridView.DataSource;
 
             executableDatabase.RacePerformance = new RacePerformance
             {

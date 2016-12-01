@@ -1,5 +1,4 @@
-﻿using Common.Enums;
-using Data.FileConnection;
+﻿using Data.FileConnection;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -52,11 +51,8 @@ namespace Data.Patchers
 
         private void ApplyCode(IEnumerable<DataPatcherUnitTask> instructionTasks)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(_executableFilePath))
             {
-                executableConnection.Open(_executableFilePath, StreamDirectionType.Write);
-
                 foreach (var instructionTask in instructionTasks)
                 {
                     var realPosition = InstructionHelper.CalculateRealPositionFromVirtualPosition(instructionTask.VirtualPosition);
@@ -64,19 +60,12 @@ namespace Data.Patchers
                     Debug.WriteLine($"Applied code for {instructionTask.Description} Virtual: {instructionTask.VirtualPosition:X8}; Real: {realPosition:X8};");
                 }
             }
-            finally
-            {
-                executableConnection.Close();
-            }
         }
 
         private bool IsInstructionTasksEqual(IEnumerable<DataPatcherUnitTask> instructionTasks)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(_executableFilePath))
             {
-                executableConnection.Open(_executableFilePath, StreamDirectionType.Read);
-
                 foreach (var instructionTask in instructionTasks)
                 {
                     var virtualPosition = instructionTask.VirtualPosition;
@@ -116,10 +105,6 @@ namespace Data.Patchers
                 }
 
                 return true;
-            }
-            finally
-            {
-                executableConnection?.Close();
             }
         }
     }

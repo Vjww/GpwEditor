@@ -1,18 +1,23 @@
 ﻿using System;
 using System.Linq;
-using Common.Enums;
 using Common.Extensions;
 using Data.Collections.Executable.Supplier;
 using Data.Collections.Executable.Team;
 using Data.Collections.Executable.Track;
 using Data.Collections.Language;
-using Data.Entities.Executable.Config;
+using Data.Entities.EntityTypes;
 using Data.Entities.Executable.Race;
 using Data.Entities.Executable.Supplier;
 using Data.Entities.Executable.Team;
 using Data.Entities.Executable.Track;
 using Data.Entities.Language;
 using Data.FileConnection;
+using StaffSalaries = Data.Entities.Executable.Environment.StaffSalaries;
+using StaffSalariesMapping = Data.ValueMapping.Executable.Environment.StaffSalaries;
+using RunningCosts = Data.Entities.Executable.Environment.RunningCosts;
+using RunningCostsMapping = Data.ValueMapping.Executable.Environment.RunningCosts;
+using ExpansionCosts = Data.Entities.Executable.Environment.ExpansionCosts;
+using ExpansionCostsMapping = Data.ValueMapping.Executable.Environment.ExpansionCosts;
 
 namespace Data.Database
 {
@@ -57,7 +62,9 @@ namespace Data.Database
         public TrackCollection Tracks { get; set; }
         public IdentityCollection TrackDesignIdentities { get; set; }
         public RacePerformance RacePerformance { get; set; }
-        public Factory Factory { get; set; }
+        public FiveLevelTypeCollection StaffSalaries { get; set; }
+        public FiveLevelTypeCollection FactoryRunningCosts { get; set; }
+        public FiveLevelTypeCollection FactoryExpansionCosts { get; set; }
 
         public void ImportDataFromFile(string gameExecutableFilePath, string languageFileFilePath)
         {
@@ -78,7 +85,10 @@ namespace Data.Database
             ImportTrackDesignIdentities();
 
             ImportRacePerformance(gameExecutableFilePath);
-            //ImportFactory(gameExecutableFilePath);
+
+            ImportStaffSalaries(gameExecutableFilePath);
+            ImportFactoryRunningCosts(gameExecutableFilePath);
+            ImportFactoryExpansionCosts(gameExecutableFilePath);
         }
 
         public void ExportDataToFile(string gameExecutableFilePath, string languageFileFilePath)
@@ -92,46 +102,34 @@ namespace Data.Database
             ExportTracks(gameExecutableFilePath);
 
             ExportRacePerformance(gameExecutableFilePath);
-            //ExportFactory(gameExecutableFilePath);
+
+            ExportStaffSalaries(gameExecutableFilePath);
+            ExportFactoryRunningCosts(gameExecutableFilePath);
+            ExportFactoryExpansionCosts(gameExecutableFilePath);
 
             ExportLanguageStrings(languageFileFilePath);
         }
 
         private void ImportLanguageStrings(string languageFileFilePath)
         {
-            var languageConnection = new LanguageConnection();
-            try
+            using (var languageConnection = new LanguageConnection(languageFileFilePath))
             {
-                languageConnection.Open(languageFileFilePath, StreamDirectionType.Read);
                 LanguageStrings = languageConnection.Load();
-            }
-            finally
-            {
-                languageConnection.Close();
             }
         }
 
         private void ExportLanguageStrings(string languageFileFilePath)
         {
-            var languageConnection = new LanguageConnection();
-            try
+            using (var languageConnection = new LanguageConnection(languageFileFilePath))
             {
-                languageConnection.Open(languageFileFilePath, StreamDirectionType.Write);
                 languageConnection.Save(LanguageStrings);
-            }
-            finally
-            {
-                languageConnection.Close();
             }
         }
 
         private void ImportTeams(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Read);
-
                 // Import from file
                 Teams = new TeamCollection();
                 for (var id = 0; id < TeamCount; id++)
@@ -157,19 +155,12 @@ namespace Data.Database
                     Teams.Add(team);
                 }
             }
-            finally
-            {
-                executableConnection.Close();
-            }
         }
 
         private void ExportTeams(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Write);
-
                 // Export to file
                 foreach (var team in Teams)
                 {
@@ -186,10 +177,6 @@ namespace Data.Database
                     executableConnection.WriteInteger(valueMapping.CountryMapId, team.CountryMapId);
                     executableConnection.WriteInteger(valueMapping.TyreSupplierId, team.TyreSupplierId);
                 }
-            }
-            finally
-            {
-                executableConnection.Close();
             }
         }
 
@@ -259,11 +246,8 @@ namespace Data.Database
 
         private void ImportDrivers(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Read);
-
                 // Import from file
                 Drivers = new DriverCollection();
                 for (var id = 0; id < DriverCount; id++)
@@ -305,10 +289,6 @@ namespace Data.Database
                     Drivers.Add(driver);
                 }
             }
-            finally
-            {
-                executableConnection.Close();
-            }
         }
 
         private void ImportDriverIdentities()
@@ -343,11 +323,8 @@ namespace Data.Database
 
         private void ExportDrivers(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Write);
-
                 // Export to file
                 foreach (var driver in Drivers)
                 {
@@ -380,10 +357,6 @@ namespace Data.Database
                     executableConnection.WriteInteger(valueMapping.Stamina, driver.Stamina);
                     executableConnection.WriteInteger(valueMapping.Morale, driver.Morale.ConvertToTwentyToHundredStepTwenty());
                 }
-            }
-            finally
-            {
-                executableConnection.Close();
             }
         }
 
@@ -427,11 +400,8 @@ namespace Data.Database
 
         private void ImportEngines(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Read);
-
                 // Import from file
                 Engines = new EngineCollection();
                 for (var id = 0; id < EngineCount; id++)
@@ -455,19 +425,12 @@ namespace Data.Database
                     Engines.Add(engine);
                 }
             }
-            finally
-            {
-                executableConnection.Close();
-            }
         }
 
         private void ExportEngines(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Write);
-
                 // Export to file
                 foreach (var engine in Engines)
                 {
@@ -483,10 +446,6 @@ namespace Data.Database
                     executableConnection.WriteInteger(valueMapping.Weight, engine.Weight);
                 }
             }
-            finally
-            {
-                executableConnection.Close();
-            }
         }
 
         private static int GetEngineResourceId(int id)
@@ -501,11 +460,8 @@ namespace Data.Database
 
         private void ImportTyres(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Read);
-
                 // Import from file
                 Tyres = new TyreCollection();
                 for (var id = 0; id < TyreCount; id++)
@@ -523,19 +479,12 @@ namespace Data.Database
                     Tyres.Add(tyre);
                 }
             }
-            finally
-            {
-                executableConnection.Close();
-            }
         }
 
         private void ExportTyres(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Write);
-
                 // Export to file
                 foreach (var tyre in Tyres)
                 {
@@ -545,10 +494,6 @@ namespace Data.Database
 
                     // TODO
                 }
-            }
-            finally
-            {
-                executableConnection.Close();
             }
         }
 
@@ -564,11 +509,8 @@ namespace Data.Database
 
         private void ImportFuels(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Read);
-
                 // Import from file
                 Fuels = new FuelCollection();
                 for (var id = 0; id < FuelCount; id++)
@@ -587,19 +529,12 @@ namespace Data.Database
                     Fuels.Add(fuel);
                 }
             }
-            finally
-            {
-                executableConnection.Close();
-            }
         }
 
         private void ExportFuels(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Write);
-
                 // Export to file
                 foreach (var fuel in Fuels)
                 {
@@ -609,10 +544,6 @@ namespace Data.Database
                     executableConnection.WriteInteger(valueMapping.Performance, fuel.Performance);
                     executableConnection.WriteInteger(valueMapping.Tolerance, fuel.Tolerance);
                 }
-            }
-            finally
-            {
-                executableConnection.Close();
             }
         }
 
@@ -628,11 +559,8 @@ namespace Data.Database
 
         private void ImportTracks(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Read);
-
                 // Import from file
                 Tracks = new TrackCollection();
                 for (var id = 0; id < TrackCount; id++)
@@ -670,19 +598,12 @@ namespace Data.Database
                     Tracks.Add(track);
                 }
             }
-            finally
-            {
-                executableConnection.Close();
-            }
         }
 
         private void ExportTracks(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Write);
-
                 // Export to file
                 foreach (var track in Tracks)
                 {
@@ -711,10 +632,6 @@ namespace Data.Database
                     executableConnection.WriteInteger(valueMapping.Heat, track.Heat);
                     executableConnection.WriteInteger(valueMapping.Wind, track.Wind);
                 }
-            }
-            finally
-            {
-                executableConnection.Close();
             }
         }
 
@@ -757,11 +674,8 @@ namespace Data.Database
 
         private void ImportRacePerformance(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Read);
-
                 // Import from file
                 var valueMapping = new ValueMapping.Executable.Race.RacePerformance();
                 RacePerformance = new RacePerformance();
@@ -771,19 +685,12 @@ namespace Data.Database
                     RacePerformance.Values[i] = executableConnection.ReadInteger(valueMapping.Values[i]);
                 }
             }
-            finally
-            {
-                executableConnection.Close();
-            }
         }
 
         private void ExportRacePerformance(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Write);
-
                 // Export to file
                 var valueMapping = new ValueMapping.Executable.Race.RacePerformance();
 
@@ -792,150 +699,93 @@ namespace Data.Database
                     executableConnection.WriteInteger(valueMapping.Values[i], RacePerformance.Values[i]);
                 }
             }
-            finally
+        }
+
+        private void ImportStaffSalaries(string gameExecutableFilePath)
+        {
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Close();
+                StaffSalaries = new FiveLevelTypeCollection
+                {
+                    new StaffSalaries.Commercial("Commercial", new StaffSalariesMapping.Commercial()),
+                    new StaffSalaries.Design("Design", new StaffSalariesMapping.Design()),
+                    new StaffSalaries.Engineering("Engineering", new StaffSalariesMapping.Engineering()),
+                    new StaffSalaries.Mechanics("Mechanics", new StaffSalariesMapping.Mechanics()),
+                };
+                foreach (var item in StaffSalaries)
+                {
+                    item.ImportData(executableConnection, null);
+                }
             }
         }
 
-        private void ImportFactory(string gameExecutableFilePath)
+        private void ExportStaffSalaries(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Read);
-
-                // Import from file
-                var valueMapping = new ValueMapping.Executable.Config.Factory();
-                Factory = new Factory();
-
-                Factory.HeadquartersConstructionCost01 = executableConnection.ReadInteger(valueMapping.HeadquartersConstructionCost01);
-                Factory.HeadquartersConstructionCost02 = executableConnection.ReadInteger(valueMapping.HeadquartersConstructionCost02);
-                Factory.HeadquartersConstructionCost03 = executableConnection.ReadInteger(valueMapping.HeadquartersConstructionCost03);
-                Factory.HeadquartersConstructionCost04 = executableConnection.ReadInteger(valueMapping.HeadquartersConstructionCost04);
-                Factory.HeadquartersConstructionCost05 = executableConnection.ReadInteger(valueMapping.HeadquartersConstructionCost05);
-
-                Factory.HeadquartersOverhead01 = executableConnection.ReadInteger(valueMapping.HeadquartersOverhead01);
-                Factory.HeadquartersOverhead02 = executableConnection.ReadInteger(valueMapping.HeadquartersOverhead02);
-                Factory.HeadquartersOverhead03 = executableConnection.ReadInteger(valueMapping.HeadquartersOverhead03);
-                Factory.HeadquartersOverhead04 = executableConnection.ReadInteger(valueMapping.HeadquartersOverhead04);
-                Factory.HeadquartersOverhead05 = executableConnection.ReadInteger(valueMapping.HeadquartersOverhead05);
-
-                Factory.WindTunnelHirageCost01 = executableConnection.ReadInteger(valueMapping.WindTunnelHirageCost01);
-                Factory.WindTunnelHirageCost02 = executableConnection.ReadInteger(valueMapping.WindTunnelHirageCost02);
-                Factory.WindTunnelHirageCost03 = executableConnection.ReadInteger(valueMapping.WindTunnelHirageCost03);
-                Factory.WindTunnelHirageCost04 = executableConnection.ReadInteger(valueMapping.WindTunnelHirageCost04);
-                Factory.WindTunnelHirageCost05 = executableConnection.ReadInteger(valueMapping.WindTunnelHirageCost05);
-
-                Factory.WindTunnelConstructionCost01 = executableConnection.ReadInteger(valueMapping.WindTunnelConstructionCost01);
-                Factory.WindTunnelConstructionCost02 = executableConnection.ReadInteger(valueMapping.WindTunnelConstructionCost02);
-                Factory.WindTunnelConstructionCost03 = executableConnection.ReadInteger(valueMapping.WindTunnelConstructionCost03);
-                Factory.WindTunnelConstructionCost04 = executableConnection.ReadInteger(valueMapping.WindTunnelConstructionCost04);
-                Factory.WindTunnelConstructionCost05 = executableConnection.ReadInteger(valueMapping.WindTunnelConstructionCost05);
-
-                Factory.SupercomputerConstructionCost01 = executableConnection.ReadInteger(valueMapping.SupercomputerConstructionCost01);
-                Factory.SupercomputerConstructionCost02 = executableConnection.ReadInteger(valueMapping.SupercomputerConstructionCost02);
-                Factory.SupercomputerConstructionCost03 = executableConnection.ReadInteger(valueMapping.SupercomputerConstructionCost03);
-                Factory.SupercomputerConstructionCost04 = executableConnection.ReadInteger(valueMapping.SupercomputerConstructionCost04);
-                Factory.SupercomputerConstructionCost05 = executableConnection.ReadInteger(valueMapping.SupercomputerConstructionCost05);
-
-                Factory.CamConstructionCost01 = executableConnection.ReadInteger(valueMapping.CamConstructionCost01);
-                Factory.CamConstructionCost02 = executableConnection.ReadInteger(valueMapping.CamConstructionCost02);
-                Factory.CamConstructionCost03 = executableConnection.ReadInteger(valueMapping.CamConstructionCost03);
-                Factory.CamConstructionCost04 = executableConnection.ReadInteger(valueMapping.CamConstructionCost04);
-                Factory.CamConstructionCost05 = executableConnection.ReadInteger(valueMapping.CamConstructionCost05);
-
-                Factory.CadConstructionCost01 = executableConnection.ReadInteger(valueMapping.CadConstructionCost01);
-                Factory.CadConstructionCost02 = executableConnection.ReadInteger(valueMapping.CadConstructionCost02);
-                Factory.CadConstructionCost03 = executableConnection.ReadInteger(valueMapping.CadConstructionCost03);
-                Factory.CadConstructionCost04 = executableConnection.ReadInteger(valueMapping.CadConstructionCost04);
-                Factory.CadConstructionCost05 = executableConnection.ReadInteger(valueMapping.CadConstructionCost05);
-
-                Factory.WorkshopConstructionCost01 = executableConnection.ReadInteger(valueMapping.WorkshopConstructionCost01);
-                Factory.WorkshopConstructionCost02 = executableConnection.ReadInteger(valueMapping.WorkshopConstructionCost02);
-                Factory.WorkshopConstructionCost03 = executableConnection.ReadInteger(valueMapping.WorkshopConstructionCost03);
-                Factory.WorkshopConstructionCost04 = executableConnection.ReadInteger(valueMapping.WorkshopConstructionCost04);
-                Factory.WorkshopConstructionCost05 = executableConnection.ReadInteger(valueMapping.WorkshopConstructionCost05);
-
-                Factory.TestRigConstructionCost01 = executableConnection.ReadInteger(valueMapping.TestRigConstructionCost01);
-                Factory.TestRigConstructionCost02 = executableConnection.ReadInteger(valueMapping.TestRigConstructionCost02);
-                Factory.TestRigConstructionCost03 = executableConnection.ReadInteger(valueMapping.TestRigConstructionCost03);
-                Factory.TestRigConstructionCost04 = executableConnection.ReadInteger(valueMapping.TestRigConstructionCost04);
-                Factory.TestRigConstructionCost05 = executableConnection.ReadInteger(valueMapping.TestRigConstructionCost05);
-            }
-            finally
-            {
-                executableConnection.Close();
+                foreach (var item in StaffSalaries)
+                {
+                    item.ExportData(executableConnection, null);
+                }
             }
         }
 
-        private void ExportFactory(string gameExecutableFilePath)
+        private void ImportFactoryRunningCosts(string gameExecutableFilePath)
         {
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Open(gameExecutableFilePath, StreamDirectionType.Write);
-
-                // Export to file
-                var valueMapping = new ValueMapping.Executable.Config.Factory();
-
-                executableConnection.WriteInteger(valueMapping.HeadquartersConstructionCost01, Factory.HeadquartersConstructionCost01);
-                executableConnection.WriteInteger(valueMapping.HeadquartersConstructionCost02, Factory.HeadquartersConstructionCost02);
-                executableConnection.WriteInteger(valueMapping.HeadquartersConstructionCost03, Factory.HeadquartersConstructionCost03);
-                executableConnection.WriteInteger(valueMapping.HeadquartersConstructionCost04, Factory.HeadquartersConstructionCost04);
-                executableConnection.WriteInteger(valueMapping.HeadquartersConstructionCost05, Factory.HeadquartersConstructionCost05);
-
-                executableConnection.WriteInteger(valueMapping.HeadquartersOverhead01, Factory.HeadquartersOverhead01);
-                executableConnection.WriteInteger(valueMapping.HeadquartersOverhead02, Factory.HeadquartersOverhead02);
-                executableConnection.WriteInteger(valueMapping.HeadquartersOverhead03, Factory.HeadquartersOverhead03);
-                executableConnection.WriteInteger(valueMapping.HeadquartersOverhead04, Factory.HeadquartersOverhead04);
-                executableConnection.WriteInteger(valueMapping.HeadquartersOverhead05, Factory.HeadquartersOverhead05);
-
-                executableConnection.WriteInteger(valueMapping.WindTunnelHirageCost01, Factory.WindTunnelHirageCost01);
-                executableConnection.WriteInteger(valueMapping.WindTunnelHirageCost02, Factory.WindTunnelHirageCost02);
-                executableConnection.WriteInteger(valueMapping.WindTunnelHirageCost03, Factory.WindTunnelHirageCost03);
-                executableConnection.WriteInteger(valueMapping.WindTunnelHirageCost04, Factory.WindTunnelHirageCost04);
-                executableConnection.WriteInteger(valueMapping.WindTunnelHirageCost05, Factory.WindTunnelHirageCost05);
-
-                executableConnection.WriteInteger(valueMapping.WindTunnelConstructionCost01, Factory.WindTunnelConstructionCost01);
-                executableConnection.WriteInteger(valueMapping.WindTunnelConstructionCost02, Factory.WindTunnelConstructionCost02);
-                executableConnection.WriteInteger(valueMapping.WindTunnelConstructionCost03, Factory.WindTunnelConstructionCost03);
-                executableConnection.WriteInteger(valueMapping.WindTunnelConstructionCost04, Factory.WindTunnelConstructionCost04);
-                executableConnection.WriteInteger(valueMapping.WindTunnelConstructionCost05, Factory.WindTunnelConstructionCost05);
-
-                executableConnection.WriteInteger(valueMapping.SupercomputerConstructionCost01, Factory.SupercomputerConstructionCost01);
-                executableConnection.WriteInteger(valueMapping.SupercomputerConstructionCost02, Factory.SupercomputerConstructionCost02);
-                executableConnection.WriteInteger(valueMapping.SupercomputerConstructionCost03, Factory.SupercomputerConstructionCost03);
-                executableConnection.WriteInteger(valueMapping.SupercomputerConstructionCost04, Factory.SupercomputerConstructionCost04);
-                executableConnection.WriteInteger(valueMapping.SupercomputerConstructionCost05, Factory.SupercomputerConstructionCost05);
-
-                executableConnection.WriteInteger(valueMapping.CamConstructionCost01, Factory.CamConstructionCost01);
-                executableConnection.WriteInteger(valueMapping.CamConstructionCost02, Factory.CamConstructionCost02);
-                executableConnection.WriteInteger(valueMapping.CamConstructionCost03, Factory.CamConstructionCost03);
-                executableConnection.WriteInteger(valueMapping.CamConstructionCost04, Factory.CamConstructionCost04);
-                executableConnection.WriteInteger(valueMapping.CamConstructionCost05, Factory.CamConstructionCost05);
-
-                executableConnection.WriteInteger(valueMapping.CadConstructionCost01, Factory.CadConstructionCost01);
-                executableConnection.WriteInteger(valueMapping.CadConstructionCost02, Factory.CadConstructionCost02);
-                executableConnection.WriteInteger(valueMapping.CadConstructionCost03, Factory.CadConstructionCost03);
-                executableConnection.WriteInteger(valueMapping.CadConstructionCost04, Factory.CadConstructionCost04);
-                executableConnection.WriteInteger(valueMapping.CadConstructionCost05, Factory.CadConstructionCost05);
-
-                executableConnection.WriteInteger(valueMapping.WorkshopConstructionCost01, Factory.WorkshopConstructionCost01);
-                executableConnection.WriteInteger(valueMapping.WorkshopConstructionCost02, Factory.WorkshopConstructionCost02);
-                executableConnection.WriteInteger(valueMapping.WorkshopConstructionCost03, Factory.WorkshopConstructionCost03);
-                executableConnection.WriteInteger(valueMapping.WorkshopConstructionCost04, Factory.WorkshopConstructionCost04);
-                executableConnection.WriteInteger(valueMapping.WorkshopConstructionCost05, Factory.WorkshopConstructionCost05);
-
-                executableConnection.WriteInteger(valueMapping.TestRigConstructionCost01, Factory.TestRigConstructionCost01);
-                executableConnection.WriteInteger(valueMapping.TestRigConstructionCost02, Factory.TestRigConstructionCost02);
-                executableConnection.WriteInteger(valueMapping.TestRigConstructionCost03, Factory.TestRigConstructionCost03);
-                executableConnection.WriteInteger(valueMapping.TestRigConstructionCost04, Factory.TestRigConstructionCost04);
-                executableConnection.WriteInteger(valueMapping.TestRigConstructionCost05, Factory.TestRigConstructionCost05);
+                FactoryRunningCosts = new FiveLevelTypeCollection
+                {
+                    new RunningCosts.Factory("Factory", new RunningCostsMapping.Factory()),
+                    new RunningCosts.WindTunnel("Wind Tunnel", new RunningCostsMapping.WindTunnel())
+                };
+                foreach (var item in FactoryRunningCosts)
+                {
+                    item.ImportData(executableConnection, null);
+                }
             }
-            finally
+        }
+
+        private void ExportFactoryRunningCosts(string gameExecutableFilePath)
+        {
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.Close();
+                foreach (var item in FactoryRunningCosts)
+                {
+                    item.ExportData(executableConnection, null);
+                }
+            }
+        }
+
+        private void ImportFactoryExpansionCosts(string gameExecutableFilePath)
+        {
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
+            {
+                FactoryExpansionCosts = new FiveLevelTypeCollection
+                {
+                    new ExpansionCosts.Factory("Factory", new ExpansionCostsMapping.Factory()),
+                    new ExpansionCosts.WindTunnel("Wind Tunnel", new ExpansionCostsMapping.WindTunnel()),
+                    new ExpansionCosts.Supercomputer("Supercomputer", new ExpansionCostsMapping.Supercomputer()),
+                    new ExpansionCosts.Cam("CAM", new ExpansionCostsMapping.Cam()),
+                    new ExpansionCosts.Cad("CAD", new ExpansionCostsMapping.Cad()),
+                    new ExpansionCosts.Workshop("Workshop", new ExpansionCostsMapping.Workshop()),
+                    new ExpansionCosts.TestRig("Test Rig", new ExpansionCostsMapping.TestRig())
+                };
+                foreach (var item in FactoryExpansionCosts)
+                {
+                    item.ImportData(executableConnection, null);
+                }
+            }
+        }
+
+        private void ExportFactoryExpansionCosts(string gameExecutableFilePath)
+        {
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
+            {
+                foreach (var item in FactoryExpansionCosts)
+                {
+                    item.ExportData(executableConnection, null);
+                }
             }
         }
 

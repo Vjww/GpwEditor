@@ -1,5 +1,4 @@
-﻿using Common.Enums;
-using Data.FileConnection;
+﻿using Data.FileConnection;
 using Data.Helpers;
 using Data.Patchers.CodeShifting.Units;
 
@@ -20,11 +19,8 @@ namespace Data.Patchers.CodeShifting
             var lastByte = 0x00478F18;
 
             // Open file and write
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(_executableFilePath))
             {
-                executableConnection.Open(_executableFilePath, StreamDirectionType.Write);
-
                 // Create byte array of NOPs
                 var nopInstructions = new byte[lastByte + 1 - firstByte];
                 for (var i = 0; i < nopInstructions.Length; i++)
@@ -66,10 +62,6 @@ namespace Data.Patchers.CodeShifting
                 var trackInstructions = TrackData.GetInstructions();
                 writePosition = InstructionHelper.CalculateRealPositionFromVirtualPosition(firstByte);
                 executableConnection.WriteByteArray(writePosition, trackInstructions);
-            }
-            finally
-            {
-                executableConnection.Close();
             }
         }
     }

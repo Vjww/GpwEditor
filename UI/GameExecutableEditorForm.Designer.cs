@@ -34,9 +34,9 @@ namespace GpwEditor
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.HomeTabPage = new System.Windows.Forms.TabPage();
             this.CloseButton = new System.Windows.Forms.Button();
@@ -50,13 +50,53 @@ namespace GpwEditor
             this.GameExecutablePathTextBox = new System.Windows.Forms.TextBox();
             this.LanguageFilePathTextBox = new System.Windows.Forms.TextBox();
             this.LanguageDataGridView = new System.Windows.Forms.DataGridView();
+            this.TeamsTabPage = new System.Windows.Forms.TabPage();
+            this.TeamsDataGridView = new System.Windows.Forms.DataGridView();
+            this.DriversTabPage = new System.Windows.Forms.TabPage();
+            this.DriversDataGridView = new System.Windows.Forms.DataGridView();
+            this.EnginesTabPage = new System.Windows.Forms.TabPage();
+            this.EnginesDataGridView = new System.Windows.Forms.DataGridView();
+            this.TyresTabPage = new System.Windows.Forms.TabPage();
+            this.TyresDataGridView = new System.Windows.Forms.DataGridView();
+            this.FuelsTabPage = new System.Windows.Forms.TabPage();
+            this.FuelsDataGridView = new System.Windows.Forms.DataGridView();
+            this.TracksTabPage = new System.Windows.Forms.TabPage();
+            this.TracksDataGridView = new System.Windows.Forms.DataGridView();
+            this.RacePerformanceTabPage = new System.Windows.Forms.TabPage();
+            this.RacePerformanceGroupBox = new System.Windows.Forms.GroupBox();
+            this.RacePerformanceCopyRecommendedButton = new System.Windows.Forms.Button();
+            this.RacePerformanceProposedCheckBox = new System.Windows.Forms.CheckBox();
+            this.RacePerformanceChartBox000NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.RacePerformanceCurrentCheckBox = new System.Windows.Forms.CheckBox();
+            this.RacePerformanceDefaultCheckBox = new System.Windows.Forms.CheckBox();
+            this.RacePerformanceEditButton = new System.Windows.Forms.Button();
+            this.RacePerformanceCopyCurrentButton = new System.Windows.Forms.Button();
+            this.RacePerformanceCopyDefaultButton = new System.Windows.Forms.Button();
+            this.RacePerformanceChartBox120NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.RacePerformanceSoftenCurveButton = new System.Windows.Forms.Button();
+            this.RacePerformanceChartBox070NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.RacePerformanceChartBox060NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.RacePerformanceChartBox020NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.RacePerformanceChartBox040NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.RacePerformanceChartBox080NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.RacePerformanceChartBox030NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.RacePerformanceChartBox090NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.RacePerformanceChartBox050NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.RacePerformanceChartBox100NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.RacePerformanceChartBox010NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.RacePerformanceChartBox110NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.RacePerformanceChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.ProgramOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.FactoryRunningCostsDataGridView = new System.Windows.Forms.DataGridView();
+            this.FactoryExpansionCostsDataGridView = new System.Windows.Forms.DataGridView();
+            this.StaffSalariesDataGridView = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localResourceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resourceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resourceTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.identityCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TeamsTabPage = new System.Windows.Forms.TabPage();
-            this.TeamsDataGridView = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localResourceIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resourceIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,8 +111,6 @@ namespace GpwEditor
             this.countryMapIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tyreSupplierIdDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.teamCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DriversTabPage = new System.Windows.Forms.TabPage();
-            this.DriversDataGridView = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localResourceIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resourceIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -103,8 +141,6 @@ namespace GpwEditor
             this.staminaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moraleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.driverCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.EnginesTabPage = new System.Windows.Forms.TabPage();
-            this.EnginesDataGridView = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localResourceIdDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resourceIdDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -117,8 +153,6 @@ namespace GpwEditor
             this.rigidityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.engineCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TyresTabPage = new System.Windows.Forms.TabPage();
-            this.TyresDataGridView = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localResourceIdDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resourceIdDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -140,8 +174,6 @@ namespace GpwEditor
             this.wetWeatherStiffnessDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wetWeatherTemperatureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tyreCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.FuelsTabPage = new System.Windows.Forms.TabPage();
-            this.FuelsDataGridView = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localResourceIdDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resourceIdDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -149,8 +181,6 @@ namespace GpwEditor
             this.performanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toleranceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fuelCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TracksTabPage = new System.Windows.Forms.TabPage();
-            this.TracksDataGridView = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localResourceIdDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resourceIdDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -177,55 +207,41 @@ namespace GpwEditor
             this.heatDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.windDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trackCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.RacePerformanceTabPage = new System.Windows.Forms.TabPage();
-            this.RacePerformanceGroupBox = new System.Windows.Forms.GroupBox();
-            this.RacePerformanceCopyRecommendedButton = new System.Windows.Forms.Button();
-            this.RacePerformanceProposedCheckBox = new System.Windows.Forms.CheckBox();
-            this.RacePerformanceChartBox000NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceCurrentCheckBox = new System.Windows.Forms.CheckBox();
-            this.RacePerformanceDefaultCheckBox = new System.Windows.Forms.CheckBox();
-            this.RacePerformanceEditButton = new System.Windows.Forms.Button();
-            this.RacePerformanceCopyCurrentButton = new System.Windows.Forms.Button();
-            this.RacePerformanceCopyDefaultButton = new System.Windows.Forms.Button();
-            this.RacePerformanceChartBox120NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceSoftenCurveButton = new System.Windows.Forms.Button();
-            this.RacePerformanceChartBox070NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox060NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox020NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox040NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox080NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox030NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox090NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox050NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox100NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox010NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox110NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.ProgramOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level4DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level5DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fiveLevelTypeCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level1DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level2DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level3DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level4DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level5DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level1DataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level2DataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level3DataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level4DataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level5DataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MainTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
             this.FilesGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.identityCollectionBindingSource)).BeginInit();
             this.TeamsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TeamsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teamCollectionBindingSource)).BeginInit();
             this.DriversTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DriversDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.driverCollectionBindingSource)).BeginInit();
             this.EnginesTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EnginesDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.engineCollectionBindingSource)).BeginInit();
             this.TyresTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TyresDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tyreCollectionBindingSource)).BeginInit();
             this.FuelsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FuelsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fuelCollectionBindingSource)).BeginInit();
             this.TracksTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TracksDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackCollectionBindingSource)).BeginInit();
             this.RacePerformanceTabPage.SuspendLayout();
             this.RacePerformanceGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox000NumericUpDown)).BeginInit();
@@ -242,6 +258,18 @@ namespace GpwEditor
             ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox010NumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox110NumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChart)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FactoryRunningCostsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FactoryExpansionCostsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StaffSalariesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.identityCollectionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamCollectionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.driverCollectionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.engineCollectionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tyreCollectionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fuelCollectionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackCollectionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fiveLevelTypeCollectionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // MainTabControl
@@ -254,6 +282,7 @@ namespace GpwEditor
             this.MainTabControl.Controls.Add(this.FuelsTabPage);
             this.MainTabControl.Controls.Add(this.TracksTabPage);
             this.MainTabControl.Controls.Add(this.RacePerformanceTabPage);
+            this.MainTabControl.Controls.Add(this.tabPage1);
             this.MainTabControl.Location = new System.Drawing.Point(8, 8);
             this.MainTabControl.Name = "MainTabControl";
             this.MainTabControl.SelectedIndex = 0;
@@ -391,34 +420,6 @@ namespace GpwEditor
             this.LanguageDataGridView.TabStop = false;
             this.LanguageDataGridView.Visible = false;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // localResourceIdDataGridViewTextBoxColumn
-            // 
-            this.localResourceIdDataGridViewTextBoxColumn.DataPropertyName = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn.HeaderText = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn.Name = "localResourceIdDataGridViewTextBoxColumn";
-            // 
-            // resourceIdDataGridViewTextBoxColumn
-            // 
-            this.resourceIdDataGridViewTextBoxColumn.DataPropertyName = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn.HeaderText = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn.Name = "resourceIdDataGridViewTextBoxColumn";
-            // 
-            // resourceTextDataGridViewTextBoxColumn
-            // 
-            this.resourceTextDataGridViewTextBoxColumn.DataPropertyName = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn.HeaderText = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn.Name = "resourceTextDataGridViewTextBoxColumn";
-            // 
-            // identityCollectionBindingSource
-            // 
-            this.identityCollectionBindingSource.DataSource = typeof(Data.Collections.Language.IdentityCollection);
-            // 
             // TeamsTabPage
             // 
             this.TeamsTabPage.Controls.Add(this.TeamsDataGridView);
@@ -457,92 +458,6 @@ namespace GpwEditor
             this.TeamsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GenericDataGridView_CellClick);
             this.TeamsDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.TeamsDataGridView_CellValidating);
             this.TeamsDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.GenericDataGridView_DataError);
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            // 
-            // localResourceIdDataGridViewTextBoxColumn1
-            // 
-            this.localResourceIdDataGridViewTextBoxColumn1.DataPropertyName = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn1.HeaderText = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn1.Name = "localResourceIdDataGridViewTextBoxColumn1";
-            // 
-            // resourceIdDataGridViewTextBoxColumn1
-            // 
-            this.resourceIdDataGridViewTextBoxColumn1.DataPropertyName = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn1.HeaderText = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn1.Name = "resourceIdDataGridViewTextBoxColumn1";
-            // 
-            // resourceTextDataGridViewTextBoxColumn1
-            // 
-            this.resourceTextDataGridViewTextBoxColumn1.DataPropertyName = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn1.HeaderText = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn1.Name = "resourceTextDataGridViewTextBoxColumn1";
-            // 
-            // lastPositionDataGridViewTextBoxColumn
-            // 
-            this.lastPositionDataGridViewTextBoxColumn.DataPropertyName = "LastPosition";
-            this.lastPositionDataGridViewTextBoxColumn.HeaderText = "LastPosition";
-            this.lastPositionDataGridViewTextBoxColumn.Name = "lastPositionDataGridViewTextBoxColumn";
-            // 
-            // lastPointsDataGridViewTextBoxColumn
-            // 
-            this.lastPointsDataGridViewTextBoxColumn.DataPropertyName = "LastPoints";
-            this.lastPointsDataGridViewTextBoxColumn.HeaderText = "LastPoints";
-            this.lastPointsDataGridViewTextBoxColumn.Name = "lastPointsDataGridViewTextBoxColumn";
-            // 
-            // firstGpTrackDataGridViewComboBoxColumn
-            // 
-            this.firstGpTrackDataGridViewComboBoxColumn.DataPropertyName = "FirstGpTrack";
-            this.firstGpTrackDataGridViewComboBoxColumn.HeaderText = "FirstGpTrack";
-            this.firstGpTrackDataGridViewComboBoxColumn.Name = "firstGpTrackDataGridViewComboBoxColumn";
-            this.firstGpTrackDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.firstGpTrackDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // firstGpYearDataGridViewTextBoxColumn
-            // 
-            this.firstGpYearDataGridViewTextBoxColumn.DataPropertyName = "FirstGpYear";
-            this.firstGpYearDataGridViewTextBoxColumn.HeaderText = "FirstGpYear";
-            this.firstGpYearDataGridViewTextBoxColumn.Name = "firstGpYearDataGridViewTextBoxColumn";
-            // 
-            // winsDataGridViewTextBoxColumn
-            // 
-            this.winsDataGridViewTextBoxColumn.DataPropertyName = "Wins";
-            this.winsDataGridViewTextBoxColumn.HeaderText = "Wins";
-            this.winsDataGridViewTextBoxColumn.Name = "winsDataGridViewTextBoxColumn";
-            // 
-            // yearlyBudgetDataGridViewTextBoxColumn
-            // 
-            this.yearlyBudgetDataGridViewTextBoxColumn.DataPropertyName = "YearlyBudget";
-            this.yearlyBudgetDataGridViewTextBoxColumn.HeaderText = "YearlyBudget";
-            this.yearlyBudgetDataGridViewTextBoxColumn.Name = "yearlyBudgetDataGridViewTextBoxColumn";
-            // 
-            // unknownDataGridViewTextBoxColumn
-            // 
-            this.unknownDataGridViewTextBoxColumn.DataPropertyName = "Unknown";
-            this.unknownDataGridViewTextBoxColumn.HeaderText = "Unknown";
-            this.unknownDataGridViewTextBoxColumn.Name = "unknownDataGridViewTextBoxColumn";
-            // 
-            // countryMapIdDataGridViewTextBoxColumn
-            // 
-            this.countryMapIdDataGridViewTextBoxColumn.DataPropertyName = "CountryMapId";
-            this.countryMapIdDataGridViewTextBoxColumn.HeaderText = "CountryMapId";
-            this.countryMapIdDataGridViewTextBoxColumn.Name = "countryMapIdDataGridViewTextBoxColumn";
-            // 
-            // tyreSupplierIdDataGridViewComboBoxColumn
-            // 
-            this.tyreSupplierIdDataGridViewComboBoxColumn.DataPropertyName = "TyreSupplierId";
-            this.tyreSupplierIdDataGridViewComboBoxColumn.HeaderText = "TyreSupplierId";
-            this.tyreSupplierIdDataGridViewComboBoxColumn.Name = "tyreSupplierIdDataGridViewComboBoxColumn";
-            this.tyreSupplierIdDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tyreSupplierIdDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // teamCollectionBindingSource
-            // 
-            this.teamCollectionBindingSource.DataSource = typeof(Data.Collections.Executable.Team.TeamCollection);
             // 
             // DriversTabPage
             // 
@@ -599,186 +514,6 @@ namespace GpwEditor
             this.DriversDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.DriversDataGridView_CellValidating);
             this.DriversDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.GenericDataGridView_DataError);
             // 
-            // idDataGridViewTextBoxColumn2
-            // 
-            this.idDataGridViewTextBoxColumn2.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn2.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
-            // 
-            // localResourceIdDataGridViewTextBoxColumn2
-            // 
-            this.localResourceIdDataGridViewTextBoxColumn2.DataPropertyName = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn2.HeaderText = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn2.Name = "localResourceIdDataGridViewTextBoxColumn2";
-            // 
-            // resourceIdDataGridViewTextBoxColumn2
-            // 
-            this.resourceIdDataGridViewTextBoxColumn2.DataPropertyName = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn2.HeaderText = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn2.Name = "resourceIdDataGridViewTextBoxColumn2";
-            // 
-            // resourceTextDataGridViewTextBoxColumn2
-            // 
-            this.resourceTextDataGridViewTextBoxColumn2.DataPropertyName = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn2.HeaderText = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn2.Name = "resourceTextDataGridViewTextBoxColumn2";
-            // 
-            // salaryDataGridViewTextBoxColumn
-            // 
-            this.salaryDataGridViewTextBoxColumn.DataPropertyName = "Salary";
-            this.salaryDataGridViewTextBoxColumn.HeaderText = "Salary";
-            this.salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
-            // 
-            // raceBonusDataGridViewTextBoxColumn
-            // 
-            this.raceBonusDataGridViewTextBoxColumn.DataPropertyName = "RaceBonus";
-            this.raceBonusDataGridViewTextBoxColumn.HeaderText = "RaceBonus";
-            this.raceBonusDataGridViewTextBoxColumn.Name = "raceBonusDataGridViewTextBoxColumn";
-            // 
-            // championshipBonusDataGridViewTextBoxColumn
-            // 
-            this.championshipBonusDataGridViewTextBoxColumn.DataPropertyName = "ChampionshipBonus";
-            this.championshipBonusDataGridViewTextBoxColumn.HeaderText = "ChampionshipBonus";
-            this.championshipBonusDataGridViewTextBoxColumn.Name = "championshipBonusDataGridViewTextBoxColumn";
-            // 
-            // payRatingDataGridViewTextBoxColumn
-            // 
-            this.payRatingDataGridViewTextBoxColumn.DataPropertyName = "PayRating";
-            this.payRatingDataGridViewTextBoxColumn.HeaderText = "PayRating";
-            this.payRatingDataGridViewTextBoxColumn.Name = "payRatingDataGridViewTextBoxColumn";
-            // 
-            // positiveSalaryDataGridViewTextBoxColumn
-            // 
-            this.positiveSalaryDataGridViewTextBoxColumn.DataPropertyName = "PositiveSalary";
-            this.positiveSalaryDataGridViewTextBoxColumn.HeaderText = "PositiveSalary";
-            this.positiveSalaryDataGridViewTextBoxColumn.Name = "positiveSalaryDataGridViewTextBoxColumn";
-            // 
-            // lastChampionshipPositionDataGridViewTextBoxColumn
-            // 
-            this.lastChampionshipPositionDataGridViewTextBoxColumn.DataPropertyName = "LastChampionshipPosition";
-            this.lastChampionshipPositionDataGridViewTextBoxColumn.HeaderText = "LastChampionshipPosition";
-            this.lastChampionshipPositionDataGridViewTextBoxColumn.Name = "lastChampionshipPositionDataGridViewTextBoxColumn";
-            // 
-            // driverRoleDataGridViewTextBoxColumn
-            // 
-            this.driverRoleDataGridViewTextBoxColumn.DataPropertyName = "DriverRole";
-            this.driverRoleDataGridViewTextBoxColumn.HeaderText = "DriverRole";
-            this.driverRoleDataGridViewTextBoxColumn.Name = "driverRoleDataGridViewTextBoxColumn";
-            // 
-            // carNumberDataGridViewTextBoxColumn
-            // 
-            this.carNumberDataGridViewTextBoxColumn.DataPropertyName = "CarNumber";
-            this.carNumberDataGridViewTextBoxColumn.HeaderText = "CarNumber";
-            this.carNumberDataGridViewTextBoxColumn.Name = "carNumberDataGridViewTextBoxColumn";
-            // 
-            // ageDataGridViewTextBoxColumn
-            // 
-            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
-            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
-            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
-            // 
-            // nationalityDataGridViewComboBoxColumn
-            // 
-            this.nationalityDataGridViewComboBoxColumn.DataPropertyName = "Nationality";
-            this.nationalityDataGridViewComboBoxColumn.HeaderText = "Nationality";
-            this.nationalityDataGridViewComboBoxColumn.Name = "nationalityDataGridViewComboBoxColumn";
-            this.nationalityDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.nationalityDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // careerChampionshipsDataGridViewTextBoxColumn
-            // 
-            this.careerChampionshipsDataGridViewTextBoxColumn.DataPropertyName = "CareerChampionships";
-            this.careerChampionshipsDataGridViewTextBoxColumn.HeaderText = "CareerChampionships";
-            this.careerChampionshipsDataGridViewTextBoxColumn.Name = "careerChampionshipsDataGridViewTextBoxColumn";
-            // 
-            // careerRacesDataGridViewTextBoxColumn
-            // 
-            this.careerRacesDataGridViewTextBoxColumn.DataPropertyName = "CareerRaces";
-            this.careerRacesDataGridViewTextBoxColumn.HeaderText = "CareerRaces";
-            this.careerRacesDataGridViewTextBoxColumn.Name = "careerRacesDataGridViewTextBoxColumn";
-            // 
-            // careerWinsDataGridViewTextBoxColumn
-            // 
-            this.careerWinsDataGridViewTextBoxColumn.DataPropertyName = "CareerWins";
-            this.careerWinsDataGridViewTextBoxColumn.HeaderText = "CareerWins";
-            this.careerWinsDataGridViewTextBoxColumn.Name = "careerWinsDataGridViewTextBoxColumn";
-            // 
-            // careerPointsDataGridViewTextBoxColumn
-            // 
-            this.careerPointsDataGridViewTextBoxColumn.DataPropertyName = "CareerPoints";
-            this.careerPointsDataGridViewTextBoxColumn.HeaderText = "CareerPoints";
-            this.careerPointsDataGridViewTextBoxColumn.Name = "careerPointsDataGridViewTextBoxColumn";
-            // 
-            // careerFastestLapsDataGridViewTextBoxColumn
-            // 
-            this.careerFastestLapsDataGridViewTextBoxColumn.DataPropertyName = "CareerFastestLaps";
-            this.careerFastestLapsDataGridViewTextBoxColumn.HeaderText = "CareerFastestLaps";
-            this.careerFastestLapsDataGridViewTextBoxColumn.Name = "careerFastestLapsDataGridViewTextBoxColumn";
-            // 
-            // careerPointsFinishesDataGridViewTextBoxColumn
-            // 
-            this.careerPointsFinishesDataGridViewTextBoxColumn.DataPropertyName = "CareerPointsFinishes";
-            this.careerPointsFinishesDataGridViewTextBoxColumn.HeaderText = "CareerPointsFinishes";
-            this.careerPointsFinishesDataGridViewTextBoxColumn.Name = "careerPointsFinishesDataGridViewTextBoxColumn";
-            // 
-            // careerPolePositionsDataGridViewTextBoxColumn
-            // 
-            this.careerPolePositionsDataGridViewTextBoxColumn.DataPropertyName = "CareerPolePositions";
-            this.careerPolePositionsDataGridViewTextBoxColumn.HeaderText = "CareerPolePositions";
-            this.careerPolePositionsDataGridViewTextBoxColumn.Name = "careerPolePositionsDataGridViewTextBoxColumn";
-            // 
-            // speedDataGridViewTextBoxColumn
-            // 
-            this.speedDataGridViewTextBoxColumn.DataPropertyName = "Speed";
-            this.speedDataGridViewTextBoxColumn.HeaderText = "Speed";
-            this.speedDataGridViewTextBoxColumn.Name = "speedDataGridViewTextBoxColumn";
-            // 
-            // skillDataGridViewTextBoxColumn
-            // 
-            this.skillDataGridViewTextBoxColumn.DataPropertyName = "Skill";
-            this.skillDataGridViewTextBoxColumn.HeaderText = "Skill";
-            this.skillDataGridViewTextBoxColumn.Name = "skillDataGridViewTextBoxColumn";
-            // 
-            // overtakingDataGridViewTextBoxColumn
-            // 
-            this.overtakingDataGridViewTextBoxColumn.DataPropertyName = "Overtaking";
-            this.overtakingDataGridViewTextBoxColumn.HeaderText = "Overtaking";
-            this.overtakingDataGridViewTextBoxColumn.Name = "overtakingDataGridViewTextBoxColumn";
-            // 
-            // wetWeatherDataGridViewTextBoxColumn
-            // 
-            this.wetWeatherDataGridViewTextBoxColumn.DataPropertyName = "WetWeather";
-            this.wetWeatherDataGridViewTextBoxColumn.HeaderText = "WetWeather";
-            this.wetWeatherDataGridViewTextBoxColumn.Name = "wetWeatherDataGridViewTextBoxColumn";
-            // 
-            // concentrationDataGridViewTextBoxColumn
-            // 
-            this.concentrationDataGridViewTextBoxColumn.DataPropertyName = "Concentration";
-            this.concentrationDataGridViewTextBoxColumn.HeaderText = "Concentration";
-            this.concentrationDataGridViewTextBoxColumn.Name = "concentrationDataGridViewTextBoxColumn";
-            // 
-            // experienceDataGridViewTextBoxColumn
-            // 
-            this.experienceDataGridViewTextBoxColumn.DataPropertyName = "Experience";
-            this.experienceDataGridViewTextBoxColumn.HeaderText = "Experience";
-            this.experienceDataGridViewTextBoxColumn.Name = "experienceDataGridViewTextBoxColumn";
-            // 
-            // staminaDataGridViewTextBoxColumn
-            // 
-            this.staminaDataGridViewTextBoxColumn.DataPropertyName = "Stamina";
-            this.staminaDataGridViewTextBoxColumn.HeaderText = "Stamina";
-            this.staminaDataGridViewTextBoxColumn.Name = "staminaDataGridViewTextBoxColumn";
-            // 
-            // moraleDataGridViewTextBoxColumn
-            // 
-            this.moraleDataGridViewTextBoxColumn.DataPropertyName = "Morale";
-            this.moraleDataGridViewTextBoxColumn.HeaderText = "Morale";
-            this.moraleDataGridViewTextBoxColumn.Name = "moraleDataGridViewTextBoxColumn";
-            // 
-            // driverCollectionBindingSource
-            // 
-            this.driverCollectionBindingSource.DataSource = typeof(Data.Collections.Executable.Team.DriverCollection);
-            // 
             // EnginesTabPage
             // 
             this.EnginesTabPage.Controls.Add(this.EnginesDataGridView);
@@ -815,76 +550,6 @@ namespace GpwEditor
             this.EnginesDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GenericDataGridView_CellClick);
             this.EnginesDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.EnginesDataGridView_CellValidating);
             this.EnginesDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.GenericDataGridView_DataError);
-            // 
-            // idDataGridViewTextBoxColumn3
-            // 
-            this.idDataGridViewTextBoxColumn3.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn3.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn3.Name = "idDataGridViewTextBoxColumn3";
-            // 
-            // localResourceIdDataGridViewTextBoxColumn3
-            // 
-            this.localResourceIdDataGridViewTextBoxColumn3.DataPropertyName = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn3.HeaderText = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn3.Name = "localResourceIdDataGridViewTextBoxColumn3";
-            // 
-            // resourceIdDataGridViewTextBoxColumn3
-            // 
-            this.resourceIdDataGridViewTextBoxColumn3.DataPropertyName = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn3.HeaderText = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn3.Name = "resourceIdDataGridViewTextBoxColumn3";
-            // 
-            // resourceTextDataGridViewTextBoxColumn3
-            // 
-            this.resourceTextDataGridViewTextBoxColumn3.DataPropertyName = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn3.HeaderText = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn3.Name = "resourceTextDataGridViewTextBoxColumn3";
-            // 
-            // fuelDataGridViewTextBoxColumn
-            // 
-            this.fuelDataGridViewTextBoxColumn.DataPropertyName = "Fuel";
-            this.fuelDataGridViewTextBoxColumn.HeaderText = "Fuel";
-            this.fuelDataGridViewTextBoxColumn.Name = "fuelDataGridViewTextBoxColumn";
-            // 
-            // heatDataGridViewTextBoxColumn
-            // 
-            this.heatDataGridViewTextBoxColumn.DataPropertyName = "Heat";
-            this.heatDataGridViewTextBoxColumn.HeaderText = "Heat";
-            this.heatDataGridViewTextBoxColumn.Name = "heatDataGridViewTextBoxColumn";
-            // 
-            // powerDataGridViewTextBoxColumn
-            // 
-            this.powerDataGridViewTextBoxColumn.DataPropertyName = "Power";
-            this.powerDataGridViewTextBoxColumn.HeaderText = "Power";
-            this.powerDataGridViewTextBoxColumn.Name = "powerDataGridViewTextBoxColumn";
-            // 
-            // reliabilityDataGridViewTextBoxColumn
-            // 
-            this.reliabilityDataGridViewTextBoxColumn.DataPropertyName = "Reliability";
-            this.reliabilityDataGridViewTextBoxColumn.HeaderText = "Reliability";
-            this.reliabilityDataGridViewTextBoxColumn.Name = "reliabilityDataGridViewTextBoxColumn";
-            // 
-            // responseDataGridViewTextBoxColumn
-            // 
-            this.responseDataGridViewTextBoxColumn.DataPropertyName = "Response";
-            this.responseDataGridViewTextBoxColumn.HeaderText = "Response";
-            this.responseDataGridViewTextBoxColumn.Name = "responseDataGridViewTextBoxColumn";
-            // 
-            // rigidityDataGridViewTextBoxColumn
-            // 
-            this.rigidityDataGridViewTextBoxColumn.DataPropertyName = "Rigidity";
-            this.rigidityDataGridViewTextBoxColumn.HeaderText = "Rigidity";
-            this.rigidityDataGridViewTextBoxColumn.Name = "rigidityDataGridViewTextBoxColumn";
-            // 
-            // weightDataGridViewTextBoxColumn
-            // 
-            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-            this.weightDataGridViewTextBoxColumn.HeaderText = "Weight";
-            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
-            // 
-            // engineCollectionBindingSource
-            // 
-            this.engineCollectionBindingSource.DataSource = typeof(Data.Collections.Executable.Supplier.EngineCollection);
             // 
             // TyresTabPage
             // 
@@ -932,130 +597,6 @@ namespace GpwEditor
             this.TyresDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.TyresDataGridView_CellValidating);
             this.TyresDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.GenericDataGridView_DataError);
             // 
-            // idDataGridViewTextBoxColumn4
-            // 
-            this.idDataGridViewTextBoxColumn4.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn4.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn4.Name = "idDataGridViewTextBoxColumn4";
-            // 
-            // localResourceIdDataGridViewTextBoxColumn4
-            // 
-            this.localResourceIdDataGridViewTextBoxColumn4.DataPropertyName = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn4.HeaderText = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn4.Name = "localResourceIdDataGridViewTextBoxColumn4";
-            // 
-            // resourceIdDataGridViewTextBoxColumn4
-            // 
-            this.resourceIdDataGridViewTextBoxColumn4.DataPropertyName = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn4.HeaderText = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn4.Name = "resourceIdDataGridViewTextBoxColumn4";
-            // 
-            // resourceTextDataGridViewTextBoxColumn4
-            // 
-            this.resourceTextDataGridViewTextBoxColumn4.DataPropertyName = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn4.HeaderText = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn4.Name = "resourceTextDataGridViewTextBoxColumn4";
-            // 
-            // dryHardGripDataGridViewTextBoxColumn
-            // 
-            this.dryHardGripDataGridViewTextBoxColumn.DataPropertyName = "DryHardGrip";
-            this.dryHardGripDataGridViewTextBoxColumn.HeaderText = "DryHardGrip";
-            this.dryHardGripDataGridViewTextBoxColumn.Name = "dryHardGripDataGridViewTextBoxColumn";
-            // 
-            // dryHardResilienceDataGridViewTextBoxColumn
-            // 
-            this.dryHardResilienceDataGridViewTextBoxColumn.DataPropertyName = "DryHardResilience";
-            this.dryHardResilienceDataGridViewTextBoxColumn.HeaderText = "DryHardResilience";
-            this.dryHardResilienceDataGridViewTextBoxColumn.Name = "dryHardResilienceDataGridViewTextBoxColumn";
-            // 
-            // dryHardStiffnessDataGridViewTextBoxColumn
-            // 
-            this.dryHardStiffnessDataGridViewTextBoxColumn.DataPropertyName = "DryHardStiffness";
-            this.dryHardStiffnessDataGridViewTextBoxColumn.HeaderText = "DryHardStiffness";
-            this.dryHardStiffnessDataGridViewTextBoxColumn.Name = "dryHardStiffnessDataGridViewTextBoxColumn";
-            // 
-            // dryHardTemperatureDataGridViewTextBoxColumn
-            // 
-            this.dryHardTemperatureDataGridViewTextBoxColumn.DataPropertyName = "DryHardTemperature";
-            this.dryHardTemperatureDataGridViewTextBoxColumn.HeaderText = "DryHardTemperature";
-            this.dryHardTemperatureDataGridViewTextBoxColumn.Name = "dryHardTemperatureDataGridViewTextBoxColumn";
-            // 
-            // drySoftGripDataGridViewTextBoxColumn
-            // 
-            this.drySoftGripDataGridViewTextBoxColumn.DataPropertyName = "DrySoftGrip";
-            this.drySoftGripDataGridViewTextBoxColumn.HeaderText = "DrySoftGrip";
-            this.drySoftGripDataGridViewTextBoxColumn.Name = "drySoftGripDataGridViewTextBoxColumn";
-            // 
-            // drySoftResilienceDataGridViewTextBoxColumn
-            // 
-            this.drySoftResilienceDataGridViewTextBoxColumn.DataPropertyName = "DrySoftResilience";
-            this.drySoftResilienceDataGridViewTextBoxColumn.HeaderText = "DrySoftResilience";
-            this.drySoftResilienceDataGridViewTextBoxColumn.Name = "drySoftResilienceDataGridViewTextBoxColumn";
-            // 
-            // drySoftStiffnessDataGridViewTextBoxColumn
-            // 
-            this.drySoftStiffnessDataGridViewTextBoxColumn.DataPropertyName = "DrySoftStiffness";
-            this.drySoftStiffnessDataGridViewTextBoxColumn.HeaderText = "DrySoftStiffness";
-            this.drySoftStiffnessDataGridViewTextBoxColumn.Name = "drySoftStiffnessDataGridViewTextBoxColumn";
-            // 
-            // drySoftTemperatureDataGridViewTextBoxColumn
-            // 
-            this.drySoftTemperatureDataGridViewTextBoxColumn.DataPropertyName = "DrySoftTemperature";
-            this.drySoftTemperatureDataGridViewTextBoxColumn.HeaderText = "DrySoftTemperature";
-            this.drySoftTemperatureDataGridViewTextBoxColumn.Name = "drySoftTemperatureDataGridViewTextBoxColumn";
-            // 
-            // intermediateGripDataGridViewTextBoxColumn
-            // 
-            this.intermediateGripDataGridViewTextBoxColumn.DataPropertyName = "IntermediateGrip";
-            this.intermediateGripDataGridViewTextBoxColumn.HeaderText = "IntermediateGrip";
-            this.intermediateGripDataGridViewTextBoxColumn.Name = "intermediateGripDataGridViewTextBoxColumn";
-            // 
-            // intermediateResilienceDataGridViewTextBoxColumn
-            // 
-            this.intermediateResilienceDataGridViewTextBoxColumn.DataPropertyName = "IntermediateResilience";
-            this.intermediateResilienceDataGridViewTextBoxColumn.HeaderText = "IntermediateResilience";
-            this.intermediateResilienceDataGridViewTextBoxColumn.Name = "intermediateResilienceDataGridViewTextBoxColumn";
-            // 
-            // intermediateStiffnessDataGridViewTextBoxColumn
-            // 
-            this.intermediateStiffnessDataGridViewTextBoxColumn.DataPropertyName = "IntermediateStiffness";
-            this.intermediateStiffnessDataGridViewTextBoxColumn.HeaderText = "IntermediateStiffness";
-            this.intermediateStiffnessDataGridViewTextBoxColumn.Name = "intermediateStiffnessDataGridViewTextBoxColumn";
-            // 
-            // intermediateTemperatureDataGridViewTextBoxColumn
-            // 
-            this.intermediateTemperatureDataGridViewTextBoxColumn.DataPropertyName = "IntermediateTemperature";
-            this.intermediateTemperatureDataGridViewTextBoxColumn.HeaderText = "IntermediateTemperature";
-            this.intermediateTemperatureDataGridViewTextBoxColumn.Name = "intermediateTemperatureDataGridViewTextBoxColumn";
-            // 
-            // wetWeatherGripDataGridViewTextBoxColumn
-            // 
-            this.wetWeatherGripDataGridViewTextBoxColumn.DataPropertyName = "WetWeatherGrip";
-            this.wetWeatherGripDataGridViewTextBoxColumn.HeaderText = "WetWeatherGrip";
-            this.wetWeatherGripDataGridViewTextBoxColumn.Name = "wetWeatherGripDataGridViewTextBoxColumn";
-            // 
-            // wetWeatherResilienceDataGridViewTextBoxColumn
-            // 
-            this.wetWeatherResilienceDataGridViewTextBoxColumn.DataPropertyName = "WetWeatherResilience";
-            this.wetWeatherResilienceDataGridViewTextBoxColumn.HeaderText = "WetWeatherResilience";
-            this.wetWeatherResilienceDataGridViewTextBoxColumn.Name = "wetWeatherResilienceDataGridViewTextBoxColumn";
-            // 
-            // wetWeatherStiffnessDataGridViewTextBoxColumn
-            // 
-            this.wetWeatherStiffnessDataGridViewTextBoxColumn.DataPropertyName = "WetWeatherStiffness";
-            this.wetWeatherStiffnessDataGridViewTextBoxColumn.HeaderText = "WetWeatherStiffness";
-            this.wetWeatherStiffnessDataGridViewTextBoxColumn.Name = "wetWeatherStiffnessDataGridViewTextBoxColumn";
-            // 
-            // wetWeatherTemperatureDataGridViewTextBoxColumn
-            // 
-            this.wetWeatherTemperatureDataGridViewTextBoxColumn.DataPropertyName = "WetWeatherTemperature";
-            this.wetWeatherTemperatureDataGridViewTextBoxColumn.HeaderText = "WetWeatherTemperature";
-            this.wetWeatherTemperatureDataGridViewTextBoxColumn.Name = "wetWeatherTemperatureDataGridViewTextBoxColumn";
-            // 
-            // tyreCollectionBindingSource
-            // 
-            this.tyreCollectionBindingSource.DataSource = typeof(Data.Collections.Executable.Supplier.TyreCollection);
-            // 
             // FuelsTabPage
             // 
             this.FuelsTabPage.Controls.Add(this.FuelsDataGridView);
@@ -1087,46 +628,6 @@ namespace GpwEditor
             this.FuelsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GenericDataGridView_CellClick);
             this.FuelsDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.FuelsDataGridView_CellValidating);
             this.FuelsDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.GenericDataGridView_DataError);
-            // 
-            // idDataGridViewTextBoxColumn5
-            // 
-            this.idDataGridViewTextBoxColumn5.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn5.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn5.Name = "idDataGridViewTextBoxColumn5";
-            // 
-            // localResourceIdDataGridViewTextBoxColumn5
-            // 
-            this.localResourceIdDataGridViewTextBoxColumn5.DataPropertyName = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn5.HeaderText = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn5.Name = "localResourceIdDataGridViewTextBoxColumn5";
-            // 
-            // resourceIdDataGridViewTextBoxColumn5
-            // 
-            this.resourceIdDataGridViewTextBoxColumn5.DataPropertyName = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn5.HeaderText = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn5.Name = "resourceIdDataGridViewTextBoxColumn5";
-            // 
-            // resourceTextDataGridViewTextBoxColumn5
-            // 
-            this.resourceTextDataGridViewTextBoxColumn5.DataPropertyName = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn5.HeaderText = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn5.Name = "resourceTextDataGridViewTextBoxColumn5";
-            // 
-            // performanceDataGridViewTextBoxColumn
-            // 
-            this.performanceDataGridViewTextBoxColumn.DataPropertyName = "Performance";
-            this.performanceDataGridViewTextBoxColumn.HeaderText = "Performance";
-            this.performanceDataGridViewTextBoxColumn.Name = "performanceDataGridViewTextBoxColumn";
-            // 
-            // toleranceDataGridViewTextBoxColumn
-            // 
-            this.toleranceDataGridViewTextBoxColumn.DataPropertyName = "Tolerance";
-            this.toleranceDataGridViewTextBoxColumn.HeaderText = "Tolerance";
-            this.toleranceDataGridViewTextBoxColumn.Name = "toleranceDataGridViewTextBoxColumn";
-            // 
-            // fuelCollectionBindingSource
-            // 
-            this.fuelCollectionBindingSource.DataSource = typeof(Data.Collections.Executable.Supplier.FuelCollection);
             // 
             // TracksTabPage
             // 
@@ -1178,170 +679,6 @@ namespace GpwEditor
             this.TracksDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GenericDataGridView_CellClick);
             this.TracksDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.TracksDataGridView_CellValidating);
             this.TracksDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.GenericDataGridView_DataError);
-            // 
-            // idDataGridViewTextBoxColumn6
-            // 
-            this.idDataGridViewTextBoxColumn6.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn6.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn6.Name = "idDataGridViewTextBoxColumn6";
-            // 
-            // localResourceIdDataGridViewTextBoxColumn6
-            // 
-            this.localResourceIdDataGridViewTextBoxColumn6.DataPropertyName = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn6.HeaderText = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn6.Name = "localResourceIdDataGridViewTextBoxColumn6";
-            // 
-            // resourceIdDataGridViewTextBoxColumn6
-            // 
-            this.resourceIdDataGridViewTextBoxColumn6.DataPropertyName = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn6.HeaderText = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn6.Name = "resourceIdDataGridViewTextBoxColumn6";
-            // 
-            // resourceTextDataGridViewTextBoxColumn6
-            // 
-            this.resourceTextDataGridViewTextBoxColumn6.DataPropertyName = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn6.HeaderText = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn6.Name = "resourceTextDataGridViewTextBoxColumn6";
-            // 
-            // lapsDataGridViewTextBoxColumn
-            // 
-            this.lapsDataGridViewTextBoxColumn.DataPropertyName = "Laps";
-            this.lapsDataGridViewTextBoxColumn.HeaderText = "Laps";
-            this.lapsDataGridViewTextBoxColumn.Name = "lapsDataGridViewTextBoxColumn";
-            // 
-            // designDataGridViewComboBoxColumn
-            // 
-            this.designDataGridViewComboBoxColumn.DataPropertyName = "Design";
-            this.designDataGridViewComboBoxColumn.HeaderText = "Design";
-            this.designDataGridViewComboBoxColumn.Name = "designDataGridViewComboBoxColumn";
-            this.designDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.designDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // lapRecordDriverDataGridViewComboBoxColumn
-            // 
-            this.lapRecordDriverDataGridViewComboBoxColumn.DataPropertyName = "LapRecordDriver";
-            this.lapRecordDriverDataGridViewComboBoxColumn.HeaderText = "LapRecordDriver";
-            this.lapRecordDriverDataGridViewComboBoxColumn.Name = "lapRecordDriverDataGridViewComboBoxColumn";
-            this.lapRecordDriverDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.lapRecordDriverDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // lapRecordTeamDataGridViewComboBoxColumn
-            // 
-            this.lapRecordTeamDataGridViewComboBoxColumn.DataPropertyName = "LapRecordTeam";
-            this.lapRecordTeamDataGridViewComboBoxColumn.HeaderText = "LapRecordTeam";
-            this.lapRecordTeamDataGridViewComboBoxColumn.Name = "lapRecordTeamDataGridViewComboBoxColumn";
-            this.lapRecordTeamDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.lapRecordTeamDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // lapRecordTimeDataGridViewTextBoxColumn
-            // 
-            this.lapRecordTimeDataGridViewTextBoxColumn.DataPropertyName = "LapRecordTime";
-            this.lapRecordTimeDataGridViewTextBoxColumn.HeaderText = "LapRecordTime";
-            this.lapRecordTimeDataGridViewTextBoxColumn.Name = "lapRecordTimeDataGridViewTextBoxColumn";
-            // 
-            // lapRecordMphDataGridViewTextBoxColumn
-            // 
-            this.lapRecordMphDataGridViewTextBoxColumn.DataPropertyName = "LapRecordMph";
-            this.lapRecordMphDataGridViewTextBoxColumn.HeaderText = "LapRecordMph";
-            this.lapRecordMphDataGridViewTextBoxColumn.Name = "lapRecordMphDataGridViewTextBoxColumn";
-            // 
-            // lapRecordYearDataGridViewTextBoxColumn
-            // 
-            this.lapRecordYearDataGridViewTextBoxColumn.DataPropertyName = "LapRecordYear";
-            this.lapRecordYearDataGridViewTextBoxColumn.HeaderText = "LapRecordYear";
-            this.lapRecordYearDataGridViewTextBoxColumn.Name = "lapRecordYearDataGridViewTextBoxColumn";
-            // 
-            // lastRaceDriverDataGridViewComboBoxColumn
-            // 
-            this.lastRaceDriverDataGridViewComboBoxColumn.DataPropertyName = "LastRaceDriver";
-            this.lastRaceDriverDataGridViewComboBoxColumn.HeaderText = "LastRaceDriver";
-            this.lastRaceDriverDataGridViewComboBoxColumn.Name = "lastRaceDriverDataGridViewComboBoxColumn";
-            this.lastRaceDriverDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.lastRaceDriverDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // lastRaceTeamDataGridViewComboBoxColumn
-            // 
-            this.lastRaceTeamDataGridViewComboBoxColumn.DataPropertyName = "LastRaceTeam";
-            this.lastRaceTeamDataGridViewComboBoxColumn.HeaderText = "LastRaceTeam";
-            this.lastRaceTeamDataGridViewComboBoxColumn.Name = "lastRaceTeamDataGridViewComboBoxColumn";
-            this.lastRaceTeamDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.lastRaceTeamDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // lastRaceYearDataGridViewTextBoxColumn
-            // 
-            this.lastRaceYearDataGridViewTextBoxColumn.DataPropertyName = "LastRaceYear";
-            this.lastRaceYearDataGridViewTextBoxColumn.HeaderText = "LastRaceYear";
-            this.lastRaceYearDataGridViewTextBoxColumn.Name = "lastRaceYearDataGridViewTextBoxColumn";
-            // 
-            // lastRaceTimeDataGridViewTextBoxColumn
-            // 
-            this.lastRaceTimeDataGridViewTextBoxColumn.DataPropertyName = "LastRaceTime";
-            this.lastRaceTimeDataGridViewTextBoxColumn.HeaderText = "LastRaceTime";
-            this.lastRaceTimeDataGridViewTextBoxColumn.Name = "lastRaceTimeDataGridViewTextBoxColumn";
-            // 
-            // speedDataGridViewTextBoxColumn1
-            // 
-            this.speedDataGridViewTextBoxColumn1.DataPropertyName = "Speed";
-            this.speedDataGridViewTextBoxColumn1.HeaderText = "Speed";
-            this.speedDataGridViewTextBoxColumn1.Name = "speedDataGridViewTextBoxColumn1";
-            // 
-            // gripDataGridViewTextBoxColumn
-            // 
-            this.gripDataGridViewTextBoxColumn.DataPropertyName = "Grip";
-            this.gripDataGridViewTextBoxColumn.HeaderText = "Grip";
-            this.gripDataGridViewTextBoxColumn.Name = "gripDataGridViewTextBoxColumn";
-            // 
-            // surfaceDataGridViewTextBoxColumn
-            // 
-            this.surfaceDataGridViewTextBoxColumn.DataPropertyName = "Surface";
-            this.surfaceDataGridViewTextBoxColumn.HeaderText = "Surface";
-            this.surfaceDataGridViewTextBoxColumn.Name = "surfaceDataGridViewTextBoxColumn";
-            // 
-            // tarmacDataGridViewTextBoxColumn
-            // 
-            this.tarmacDataGridViewTextBoxColumn.DataPropertyName = "Tarmac";
-            this.tarmacDataGridViewTextBoxColumn.HeaderText = "Tarmac";
-            this.tarmacDataGridViewTextBoxColumn.Name = "tarmacDataGridViewTextBoxColumn";
-            // 
-            // dustDataGridViewTextBoxColumn
-            // 
-            this.dustDataGridViewTextBoxColumn.DataPropertyName = "Dust";
-            this.dustDataGridViewTextBoxColumn.HeaderText = "Dust";
-            this.dustDataGridViewTextBoxColumn.Name = "dustDataGridViewTextBoxColumn";
-            // 
-            // overtakingDataGridViewTextBoxColumn1
-            // 
-            this.overtakingDataGridViewTextBoxColumn1.DataPropertyName = "Overtaking";
-            this.overtakingDataGridViewTextBoxColumn1.HeaderText = "Overtaking";
-            this.overtakingDataGridViewTextBoxColumn1.Name = "overtakingDataGridViewTextBoxColumn1";
-            // 
-            // brakingDataGridViewTextBoxColumn
-            // 
-            this.brakingDataGridViewTextBoxColumn.DataPropertyName = "Braking";
-            this.brakingDataGridViewTextBoxColumn.HeaderText = "Braking";
-            this.brakingDataGridViewTextBoxColumn.Name = "brakingDataGridViewTextBoxColumn";
-            // 
-            // rainDataGridViewTextBoxColumn
-            // 
-            this.rainDataGridViewTextBoxColumn.DataPropertyName = "Rain";
-            this.rainDataGridViewTextBoxColumn.HeaderText = "Rain";
-            this.rainDataGridViewTextBoxColumn.Name = "rainDataGridViewTextBoxColumn";
-            // 
-            // heatDataGridViewTextBoxColumn1
-            // 
-            this.heatDataGridViewTextBoxColumn1.DataPropertyName = "Heat";
-            this.heatDataGridViewTextBoxColumn1.HeaderText = "Heat";
-            this.heatDataGridViewTextBoxColumn1.Name = "heatDataGridViewTextBoxColumn1";
-            // 
-            // windDataGridViewTextBoxColumn
-            // 
-            this.windDataGridViewTextBoxColumn.DataPropertyName = "Wind";
-            this.windDataGridViewTextBoxColumn.HeaderText = "Wind";
-            this.windDataGridViewTextBoxColumn.Name = "windDataGridViewTextBoxColumn";
-            // 
-            // trackCollectionBindingSource
-            // 
-            this.trackCollectionBindingSource.DataSource = typeof(Data.Collections.Executable.Track.TrackCollection);
             // 
             // RacePerformanceTabPage
             // 
@@ -1748,24 +1085,892 @@ namespace GpwEditor
             // 
             // RacePerformanceChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.RacePerformanceChart.ChartAreas.Add(chartArea3);
+            chartArea1.Name = "ChartArea1";
+            this.RacePerformanceChart.ChartAreas.Add(chartArea1);
             this.RacePerformanceChart.Location = new System.Drawing.Point(6, 6);
             this.RacePerformanceChart.Name = "RacePerformanceChart";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Name = "Series1";
-            this.RacePerformanceChart.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Name = "Series1";
+            this.RacePerformanceChart.Series.Add(series1);
             this.RacePerformanceChart.Size = new System.Drawing.Size(676, 372);
             this.RacePerformanceChart.TabIndex = 0;
             this.RacePerformanceChart.TabStop = false;
-            title3.Name = "Title1";
-            title3.Text = "Race Performance Curve";
-            this.RacePerformanceChart.Titles.Add(title3);
+            title1.Name = "Title1";
+            title1.Text = "Race Performance Curve";
+            this.RacePerformanceChart.Titles.Add(title1);
             // 
             // FolderBrowserDialog
             // 
             this.FolderBrowserDialog.ShowNewFolderButton = false;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.StaffSalariesDataGridView);
+            this.tabPage1.Controls.Add(this.FactoryExpansionCostsDataGridView);
+            this.tabPage1.Controls.Add(this.FactoryRunningCostsDataGridView);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(688, 470);
+            this.tabPage1.TabIndex = 8;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // FactoryRunningCostsDataGridView
+            // 
+            this.FactoryRunningCostsDataGridView.AutoGenerateColumns = false;
+            this.FactoryRunningCostsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.FactoryRunningCostsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn1,
+            this.level1DataGridViewTextBoxColumn1,
+            this.level2DataGridViewTextBoxColumn1,
+            this.level3DataGridViewTextBoxColumn1,
+            this.level4DataGridViewTextBoxColumn1,
+            this.level5DataGridViewTextBoxColumn1});
+            this.FactoryRunningCostsDataGridView.DataSource = this.fiveLevelTypeCollectionBindingSource;
+            this.FactoryRunningCostsDataGridView.Location = new System.Drawing.Point(6, 6);
+            this.FactoryRunningCostsDataGridView.Name = "FactoryRunningCostsDataGridView";
+            this.FactoryRunningCostsDataGridView.Size = new System.Drawing.Size(676, 89);
+            this.FactoryRunningCostsDataGridView.TabIndex = 0;
+            // 
+            // FactoryExpansionCostsDataGridView
+            // 
+            this.FactoryExpansionCostsDataGridView.AutoGenerateColumns = false;
+            this.FactoryExpansionCostsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.FactoryExpansionCostsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn2,
+            this.level1DataGridViewTextBoxColumn2,
+            this.level2DataGridViewTextBoxColumn2,
+            this.level3DataGridViewTextBoxColumn2,
+            this.level4DataGridViewTextBoxColumn2,
+            this.level5DataGridViewTextBoxColumn2});
+            this.FactoryExpansionCostsDataGridView.DataSource = this.fiveLevelTypeCollectionBindingSource;
+            this.FactoryExpansionCostsDataGridView.Location = new System.Drawing.Point(6, 101);
+            this.FactoryExpansionCostsDataGridView.Name = "FactoryExpansionCostsDataGridView";
+            this.FactoryExpansionCostsDataGridView.Size = new System.Drawing.Size(676, 91);
+            this.FactoryExpansionCostsDataGridView.TabIndex = 0;
+            // 
+            // StaffSalariesDataGridView
+            // 
+            this.StaffSalariesDataGridView.AutoGenerateColumns = false;
+            this.StaffSalariesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StaffSalariesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.level1DataGridViewTextBoxColumn,
+            this.level2DataGridViewTextBoxColumn,
+            this.level3DataGridViewTextBoxColumn,
+            this.level4DataGridViewTextBoxColumn,
+            this.level5DataGridViewTextBoxColumn});
+            this.StaffSalariesDataGridView.DataSource = this.fiveLevelTypeCollectionBindingSource;
+            this.StaffSalariesDataGridView.Location = new System.Drawing.Point(6, 198);
+            this.StaffSalariesDataGridView.Name = "StaffSalariesDataGridView";
+            this.StaffSalariesDataGridView.Size = new System.Drawing.Size(676, 92);
+            this.StaffSalariesDataGridView.TabIndex = 1;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // localResourceIdDataGridViewTextBoxColumn
+            // 
+            this.localResourceIdDataGridViewTextBoxColumn.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn.Name = "localResourceIdDataGridViewTextBoxColumn";
+            // 
+            // resourceIdDataGridViewTextBoxColumn
+            // 
+            this.resourceIdDataGridViewTextBoxColumn.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn.Name = "resourceIdDataGridViewTextBoxColumn";
+            // 
+            // resourceTextDataGridViewTextBoxColumn
+            // 
+            this.resourceTextDataGridViewTextBoxColumn.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn.Name = "resourceTextDataGridViewTextBoxColumn";
+            // 
+            // identityCollectionBindingSource
+            // 
+            this.identityCollectionBindingSource.DataSource = typeof(Data.Collections.Language.IdentityCollection);
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            // 
+            // localResourceIdDataGridViewTextBoxColumn1
+            // 
+            this.localResourceIdDataGridViewTextBoxColumn1.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn1.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn1.Name = "localResourceIdDataGridViewTextBoxColumn1";
+            // 
+            // resourceIdDataGridViewTextBoxColumn1
+            // 
+            this.resourceIdDataGridViewTextBoxColumn1.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn1.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn1.Name = "resourceIdDataGridViewTextBoxColumn1";
+            // 
+            // resourceTextDataGridViewTextBoxColumn1
+            // 
+            this.resourceTextDataGridViewTextBoxColumn1.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn1.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn1.Name = "resourceTextDataGridViewTextBoxColumn1";
+            // 
+            // lastPositionDataGridViewTextBoxColumn
+            // 
+            this.lastPositionDataGridViewTextBoxColumn.DataPropertyName = "LastPosition";
+            this.lastPositionDataGridViewTextBoxColumn.HeaderText = "LastPosition";
+            this.lastPositionDataGridViewTextBoxColumn.Name = "lastPositionDataGridViewTextBoxColumn";
+            // 
+            // lastPointsDataGridViewTextBoxColumn
+            // 
+            this.lastPointsDataGridViewTextBoxColumn.DataPropertyName = "LastPoints";
+            this.lastPointsDataGridViewTextBoxColumn.HeaderText = "LastPoints";
+            this.lastPointsDataGridViewTextBoxColumn.Name = "lastPointsDataGridViewTextBoxColumn";
+            // 
+            // firstGpTrackDataGridViewComboBoxColumn
+            // 
+            this.firstGpTrackDataGridViewComboBoxColumn.DataPropertyName = "FirstGpTrack";
+            this.firstGpTrackDataGridViewComboBoxColumn.HeaderText = "FirstGpTrack";
+            this.firstGpTrackDataGridViewComboBoxColumn.Name = "firstGpTrackDataGridViewComboBoxColumn";
+            this.firstGpTrackDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.firstGpTrackDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // firstGpYearDataGridViewTextBoxColumn
+            // 
+            this.firstGpYearDataGridViewTextBoxColumn.DataPropertyName = "FirstGpYear";
+            this.firstGpYearDataGridViewTextBoxColumn.HeaderText = "FirstGpYear";
+            this.firstGpYearDataGridViewTextBoxColumn.Name = "firstGpYearDataGridViewTextBoxColumn";
+            // 
+            // winsDataGridViewTextBoxColumn
+            // 
+            this.winsDataGridViewTextBoxColumn.DataPropertyName = "Wins";
+            this.winsDataGridViewTextBoxColumn.HeaderText = "Wins";
+            this.winsDataGridViewTextBoxColumn.Name = "winsDataGridViewTextBoxColumn";
+            // 
+            // yearlyBudgetDataGridViewTextBoxColumn
+            // 
+            this.yearlyBudgetDataGridViewTextBoxColumn.DataPropertyName = "YearlyBudget";
+            this.yearlyBudgetDataGridViewTextBoxColumn.HeaderText = "YearlyBudget";
+            this.yearlyBudgetDataGridViewTextBoxColumn.Name = "yearlyBudgetDataGridViewTextBoxColumn";
+            // 
+            // unknownDataGridViewTextBoxColumn
+            // 
+            this.unknownDataGridViewTextBoxColumn.DataPropertyName = "Unknown";
+            this.unknownDataGridViewTextBoxColumn.HeaderText = "Unknown";
+            this.unknownDataGridViewTextBoxColumn.Name = "unknownDataGridViewTextBoxColumn";
+            // 
+            // countryMapIdDataGridViewTextBoxColumn
+            // 
+            this.countryMapIdDataGridViewTextBoxColumn.DataPropertyName = "CountryMapId";
+            this.countryMapIdDataGridViewTextBoxColumn.HeaderText = "CountryMapId";
+            this.countryMapIdDataGridViewTextBoxColumn.Name = "countryMapIdDataGridViewTextBoxColumn";
+            // 
+            // tyreSupplierIdDataGridViewComboBoxColumn
+            // 
+            this.tyreSupplierIdDataGridViewComboBoxColumn.DataPropertyName = "TyreSupplierId";
+            this.tyreSupplierIdDataGridViewComboBoxColumn.HeaderText = "TyreSupplierId";
+            this.tyreSupplierIdDataGridViewComboBoxColumn.Name = "tyreSupplierIdDataGridViewComboBoxColumn";
+            this.tyreSupplierIdDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.tyreSupplierIdDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // teamCollectionBindingSource
+            // 
+            this.teamCollectionBindingSource.DataSource = typeof(Data.Collections.Executable.Team.TeamCollection);
+            // 
+            // idDataGridViewTextBoxColumn2
+            // 
+            this.idDataGridViewTextBoxColumn2.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn2.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
+            // 
+            // localResourceIdDataGridViewTextBoxColumn2
+            // 
+            this.localResourceIdDataGridViewTextBoxColumn2.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn2.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn2.Name = "localResourceIdDataGridViewTextBoxColumn2";
+            // 
+            // resourceIdDataGridViewTextBoxColumn2
+            // 
+            this.resourceIdDataGridViewTextBoxColumn2.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn2.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn2.Name = "resourceIdDataGridViewTextBoxColumn2";
+            // 
+            // resourceTextDataGridViewTextBoxColumn2
+            // 
+            this.resourceTextDataGridViewTextBoxColumn2.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn2.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn2.Name = "resourceTextDataGridViewTextBoxColumn2";
+            // 
+            // salaryDataGridViewTextBoxColumn
+            // 
+            this.salaryDataGridViewTextBoxColumn.DataPropertyName = "Salary";
+            this.salaryDataGridViewTextBoxColumn.HeaderText = "Salary";
+            this.salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
+            // 
+            // raceBonusDataGridViewTextBoxColumn
+            // 
+            this.raceBonusDataGridViewTextBoxColumn.DataPropertyName = "RaceBonus";
+            this.raceBonusDataGridViewTextBoxColumn.HeaderText = "RaceBonus";
+            this.raceBonusDataGridViewTextBoxColumn.Name = "raceBonusDataGridViewTextBoxColumn";
+            // 
+            // championshipBonusDataGridViewTextBoxColumn
+            // 
+            this.championshipBonusDataGridViewTextBoxColumn.DataPropertyName = "ChampionshipBonus";
+            this.championshipBonusDataGridViewTextBoxColumn.HeaderText = "ChampionshipBonus";
+            this.championshipBonusDataGridViewTextBoxColumn.Name = "championshipBonusDataGridViewTextBoxColumn";
+            // 
+            // payRatingDataGridViewTextBoxColumn
+            // 
+            this.payRatingDataGridViewTextBoxColumn.DataPropertyName = "PayRating";
+            this.payRatingDataGridViewTextBoxColumn.HeaderText = "PayRating";
+            this.payRatingDataGridViewTextBoxColumn.Name = "payRatingDataGridViewTextBoxColumn";
+            // 
+            // positiveSalaryDataGridViewTextBoxColumn
+            // 
+            this.positiveSalaryDataGridViewTextBoxColumn.DataPropertyName = "PositiveSalary";
+            this.positiveSalaryDataGridViewTextBoxColumn.HeaderText = "PositiveSalary";
+            this.positiveSalaryDataGridViewTextBoxColumn.Name = "positiveSalaryDataGridViewTextBoxColumn";
+            // 
+            // lastChampionshipPositionDataGridViewTextBoxColumn
+            // 
+            this.lastChampionshipPositionDataGridViewTextBoxColumn.DataPropertyName = "LastChampionshipPosition";
+            this.lastChampionshipPositionDataGridViewTextBoxColumn.HeaderText = "LastChampionshipPosition";
+            this.lastChampionshipPositionDataGridViewTextBoxColumn.Name = "lastChampionshipPositionDataGridViewTextBoxColumn";
+            // 
+            // driverRoleDataGridViewTextBoxColumn
+            // 
+            this.driverRoleDataGridViewTextBoxColumn.DataPropertyName = "DriverRole";
+            this.driverRoleDataGridViewTextBoxColumn.HeaderText = "DriverRole";
+            this.driverRoleDataGridViewTextBoxColumn.Name = "driverRoleDataGridViewTextBoxColumn";
+            // 
+            // carNumberDataGridViewTextBoxColumn
+            // 
+            this.carNumberDataGridViewTextBoxColumn.DataPropertyName = "CarNumber";
+            this.carNumberDataGridViewTextBoxColumn.HeaderText = "CarNumber";
+            this.carNumberDataGridViewTextBoxColumn.Name = "carNumberDataGridViewTextBoxColumn";
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            // 
+            // nationalityDataGridViewComboBoxColumn
+            // 
+            this.nationalityDataGridViewComboBoxColumn.DataPropertyName = "Nationality";
+            this.nationalityDataGridViewComboBoxColumn.HeaderText = "Nationality";
+            this.nationalityDataGridViewComboBoxColumn.Name = "nationalityDataGridViewComboBoxColumn";
+            this.nationalityDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.nationalityDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // careerChampionshipsDataGridViewTextBoxColumn
+            // 
+            this.careerChampionshipsDataGridViewTextBoxColumn.DataPropertyName = "CareerChampionships";
+            this.careerChampionshipsDataGridViewTextBoxColumn.HeaderText = "CareerChampionships";
+            this.careerChampionshipsDataGridViewTextBoxColumn.Name = "careerChampionshipsDataGridViewTextBoxColumn";
+            // 
+            // careerRacesDataGridViewTextBoxColumn
+            // 
+            this.careerRacesDataGridViewTextBoxColumn.DataPropertyName = "CareerRaces";
+            this.careerRacesDataGridViewTextBoxColumn.HeaderText = "CareerRaces";
+            this.careerRacesDataGridViewTextBoxColumn.Name = "careerRacesDataGridViewTextBoxColumn";
+            // 
+            // careerWinsDataGridViewTextBoxColumn
+            // 
+            this.careerWinsDataGridViewTextBoxColumn.DataPropertyName = "CareerWins";
+            this.careerWinsDataGridViewTextBoxColumn.HeaderText = "CareerWins";
+            this.careerWinsDataGridViewTextBoxColumn.Name = "careerWinsDataGridViewTextBoxColumn";
+            // 
+            // careerPointsDataGridViewTextBoxColumn
+            // 
+            this.careerPointsDataGridViewTextBoxColumn.DataPropertyName = "CareerPoints";
+            this.careerPointsDataGridViewTextBoxColumn.HeaderText = "CareerPoints";
+            this.careerPointsDataGridViewTextBoxColumn.Name = "careerPointsDataGridViewTextBoxColumn";
+            // 
+            // careerFastestLapsDataGridViewTextBoxColumn
+            // 
+            this.careerFastestLapsDataGridViewTextBoxColumn.DataPropertyName = "CareerFastestLaps";
+            this.careerFastestLapsDataGridViewTextBoxColumn.HeaderText = "CareerFastestLaps";
+            this.careerFastestLapsDataGridViewTextBoxColumn.Name = "careerFastestLapsDataGridViewTextBoxColumn";
+            // 
+            // careerPointsFinishesDataGridViewTextBoxColumn
+            // 
+            this.careerPointsFinishesDataGridViewTextBoxColumn.DataPropertyName = "CareerPointsFinishes";
+            this.careerPointsFinishesDataGridViewTextBoxColumn.HeaderText = "CareerPointsFinishes";
+            this.careerPointsFinishesDataGridViewTextBoxColumn.Name = "careerPointsFinishesDataGridViewTextBoxColumn";
+            // 
+            // careerPolePositionsDataGridViewTextBoxColumn
+            // 
+            this.careerPolePositionsDataGridViewTextBoxColumn.DataPropertyName = "CareerPolePositions";
+            this.careerPolePositionsDataGridViewTextBoxColumn.HeaderText = "CareerPolePositions";
+            this.careerPolePositionsDataGridViewTextBoxColumn.Name = "careerPolePositionsDataGridViewTextBoxColumn";
+            // 
+            // speedDataGridViewTextBoxColumn
+            // 
+            this.speedDataGridViewTextBoxColumn.DataPropertyName = "Speed";
+            this.speedDataGridViewTextBoxColumn.HeaderText = "Speed";
+            this.speedDataGridViewTextBoxColumn.Name = "speedDataGridViewTextBoxColumn";
+            // 
+            // skillDataGridViewTextBoxColumn
+            // 
+            this.skillDataGridViewTextBoxColumn.DataPropertyName = "Skill";
+            this.skillDataGridViewTextBoxColumn.HeaderText = "Skill";
+            this.skillDataGridViewTextBoxColumn.Name = "skillDataGridViewTextBoxColumn";
+            // 
+            // overtakingDataGridViewTextBoxColumn
+            // 
+            this.overtakingDataGridViewTextBoxColumn.DataPropertyName = "Overtaking";
+            this.overtakingDataGridViewTextBoxColumn.HeaderText = "Overtaking";
+            this.overtakingDataGridViewTextBoxColumn.Name = "overtakingDataGridViewTextBoxColumn";
+            // 
+            // wetWeatherDataGridViewTextBoxColumn
+            // 
+            this.wetWeatherDataGridViewTextBoxColumn.DataPropertyName = "WetWeather";
+            this.wetWeatherDataGridViewTextBoxColumn.HeaderText = "WetWeather";
+            this.wetWeatherDataGridViewTextBoxColumn.Name = "wetWeatherDataGridViewTextBoxColumn";
+            // 
+            // concentrationDataGridViewTextBoxColumn
+            // 
+            this.concentrationDataGridViewTextBoxColumn.DataPropertyName = "Concentration";
+            this.concentrationDataGridViewTextBoxColumn.HeaderText = "Concentration";
+            this.concentrationDataGridViewTextBoxColumn.Name = "concentrationDataGridViewTextBoxColumn";
+            // 
+            // experienceDataGridViewTextBoxColumn
+            // 
+            this.experienceDataGridViewTextBoxColumn.DataPropertyName = "Experience";
+            this.experienceDataGridViewTextBoxColumn.HeaderText = "Experience";
+            this.experienceDataGridViewTextBoxColumn.Name = "experienceDataGridViewTextBoxColumn";
+            // 
+            // staminaDataGridViewTextBoxColumn
+            // 
+            this.staminaDataGridViewTextBoxColumn.DataPropertyName = "Stamina";
+            this.staminaDataGridViewTextBoxColumn.HeaderText = "Stamina";
+            this.staminaDataGridViewTextBoxColumn.Name = "staminaDataGridViewTextBoxColumn";
+            // 
+            // moraleDataGridViewTextBoxColumn
+            // 
+            this.moraleDataGridViewTextBoxColumn.DataPropertyName = "Morale";
+            this.moraleDataGridViewTextBoxColumn.HeaderText = "Morale";
+            this.moraleDataGridViewTextBoxColumn.Name = "moraleDataGridViewTextBoxColumn";
+            // 
+            // driverCollectionBindingSource
+            // 
+            this.driverCollectionBindingSource.DataSource = typeof(Data.Collections.Executable.Team.DriverCollection);
+            // 
+            // idDataGridViewTextBoxColumn3
+            // 
+            this.idDataGridViewTextBoxColumn3.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn3.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn3.Name = "idDataGridViewTextBoxColumn3";
+            // 
+            // localResourceIdDataGridViewTextBoxColumn3
+            // 
+            this.localResourceIdDataGridViewTextBoxColumn3.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn3.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn3.Name = "localResourceIdDataGridViewTextBoxColumn3";
+            // 
+            // resourceIdDataGridViewTextBoxColumn3
+            // 
+            this.resourceIdDataGridViewTextBoxColumn3.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn3.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn3.Name = "resourceIdDataGridViewTextBoxColumn3";
+            // 
+            // resourceTextDataGridViewTextBoxColumn3
+            // 
+            this.resourceTextDataGridViewTextBoxColumn3.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn3.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn3.Name = "resourceTextDataGridViewTextBoxColumn3";
+            // 
+            // fuelDataGridViewTextBoxColumn
+            // 
+            this.fuelDataGridViewTextBoxColumn.DataPropertyName = "Fuel";
+            this.fuelDataGridViewTextBoxColumn.HeaderText = "Fuel";
+            this.fuelDataGridViewTextBoxColumn.Name = "fuelDataGridViewTextBoxColumn";
+            // 
+            // heatDataGridViewTextBoxColumn
+            // 
+            this.heatDataGridViewTextBoxColumn.DataPropertyName = "Heat";
+            this.heatDataGridViewTextBoxColumn.HeaderText = "Heat";
+            this.heatDataGridViewTextBoxColumn.Name = "heatDataGridViewTextBoxColumn";
+            // 
+            // powerDataGridViewTextBoxColumn
+            // 
+            this.powerDataGridViewTextBoxColumn.DataPropertyName = "Power";
+            this.powerDataGridViewTextBoxColumn.HeaderText = "Power";
+            this.powerDataGridViewTextBoxColumn.Name = "powerDataGridViewTextBoxColumn";
+            // 
+            // reliabilityDataGridViewTextBoxColumn
+            // 
+            this.reliabilityDataGridViewTextBoxColumn.DataPropertyName = "Reliability";
+            this.reliabilityDataGridViewTextBoxColumn.HeaderText = "Reliability";
+            this.reliabilityDataGridViewTextBoxColumn.Name = "reliabilityDataGridViewTextBoxColumn";
+            // 
+            // responseDataGridViewTextBoxColumn
+            // 
+            this.responseDataGridViewTextBoxColumn.DataPropertyName = "Response";
+            this.responseDataGridViewTextBoxColumn.HeaderText = "Response";
+            this.responseDataGridViewTextBoxColumn.Name = "responseDataGridViewTextBoxColumn";
+            // 
+            // rigidityDataGridViewTextBoxColumn
+            // 
+            this.rigidityDataGridViewTextBoxColumn.DataPropertyName = "Rigidity";
+            this.rigidityDataGridViewTextBoxColumn.HeaderText = "Rigidity";
+            this.rigidityDataGridViewTextBoxColumn.Name = "rigidityDataGridViewTextBoxColumn";
+            // 
+            // weightDataGridViewTextBoxColumn
+            // 
+            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
+            this.weightDataGridViewTextBoxColumn.HeaderText = "Weight";
+            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
+            // 
+            // engineCollectionBindingSource
+            // 
+            this.engineCollectionBindingSource.DataSource = typeof(Data.Collections.Executable.Supplier.EngineCollection);
+            // 
+            // idDataGridViewTextBoxColumn4
+            // 
+            this.idDataGridViewTextBoxColumn4.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn4.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn4.Name = "idDataGridViewTextBoxColumn4";
+            // 
+            // localResourceIdDataGridViewTextBoxColumn4
+            // 
+            this.localResourceIdDataGridViewTextBoxColumn4.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn4.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn4.Name = "localResourceIdDataGridViewTextBoxColumn4";
+            // 
+            // resourceIdDataGridViewTextBoxColumn4
+            // 
+            this.resourceIdDataGridViewTextBoxColumn4.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn4.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn4.Name = "resourceIdDataGridViewTextBoxColumn4";
+            // 
+            // resourceTextDataGridViewTextBoxColumn4
+            // 
+            this.resourceTextDataGridViewTextBoxColumn4.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn4.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn4.Name = "resourceTextDataGridViewTextBoxColumn4";
+            // 
+            // dryHardGripDataGridViewTextBoxColumn
+            // 
+            this.dryHardGripDataGridViewTextBoxColumn.DataPropertyName = "DryHardGrip";
+            this.dryHardGripDataGridViewTextBoxColumn.HeaderText = "DryHardGrip";
+            this.dryHardGripDataGridViewTextBoxColumn.Name = "dryHardGripDataGridViewTextBoxColumn";
+            // 
+            // dryHardResilienceDataGridViewTextBoxColumn
+            // 
+            this.dryHardResilienceDataGridViewTextBoxColumn.DataPropertyName = "DryHardResilience";
+            this.dryHardResilienceDataGridViewTextBoxColumn.HeaderText = "DryHardResilience";
+            this.dryHardResilienceDataGridViewTextBoxColumn.Name = "dryHardResilienceDataGridViewTextBoxColumn";
+            // 
+            // dryHardStiffnessDataGridViewTextBoxColumn
+            // 
+            this.dryHardStiffnessDataGridViewTextBoxColumn.DataPropertyName = "DryHardStiffness";
+            this.dryHardStiffnessDataGridViewTextBoxColumn.HeaderText = "DryHardStiffness";
+            this.dryHardStiffnessDataGridViewTextBoxColumn.Name = "dryHardStiffnessDataGridViewTextBoxColumn";
+            // 
+            // dryHardTemperatureDataGridViewTextBoxColumn
+            // 
+            this.dryHardTemperatureDataGridViewTextBoxColumn.DataPropertyName = "DryHardTemperature";
+            this.dryHardTemperatureDataGridViewTextBoxColumn.HeaderText = "DryHardTemperature";
+            this.dryHardTemperatureDataGridViewTextBoxColumn.Name = "dryHardTemperatureDataGridViewTextBoxColumn";
+            // 
+            // drySoftGripDataGridViewTextBoxColumn
+            // 
+            this.drySoftGripDataGridViewTextBoxColumn.DataPropertyName = "DrySoftGrip";
+            this.drySoftGripDataGridViewTextBoxColumn.HeaderText = "DrySoftGrip";
+            this.drySoftGripDataGridViewTextBoxColumn.Name = "drySoftGripDataGridViewTextBoxColumn";
+            // 
+            // drySoftResilienceDataGridViewTextBoxColumn
+            // 
+            this.drySoftResilienceDataGridViewTextBoxColumn.DataPropertyName = "DrySoftResilience";
+            this.drySoftResilienceDataGridViewTextBoxColumn.HeaderText = "DrySoftResilience";
+            this.drySoftResilienceDataGridViewTextBoxColumn.Name = "drySoftResilienceDataGridViewTextBoxColumn";
+            // 
+            // drySoftStiffnessDataGridViewTextBoxColumn
+            // 
+            this.drySoftStiffnessDataGridViewTextBoxColumn.DataPropertyName = "DrySoftStiffness";
+            this.drySoftStiffnessDataGridViewTextBoxColumn.HeaderText = "DrySoftStiffness";
+            this.drySoftStiffnessDataGridViewTextBoxColumn.Name = "drySoftStiffnessDataGridViewTextBoxColumn";
+            // 
+            // drySoftTemperatureDataGridViewTextBoxColumn
+            // 
+            this.drySoftTemperatureDataGridViewTextBoxColumn.DataPropertyName = "DrySoftTemperature";
+            this.drySoftTemperatureDataGridViewTextBoxColumn.HeaderText = "DrySoftTemperature";
+            this.drySoftTemperatureDataGridViewTextBoxColumn.Name = "drySoftTemperatureDataGridViewTextBoxColumn";
+            // 
+            // intermediateGripDataGridViewTextBoxColumn
+            // 
+            this.intermediateGripDataGridViewTextBoxColumn.DataPropertyName = "IntermediateGrip";
+            this.intermediateGripDataGridViewTextBoxColumn.HeaderText = "IntermediateGrip";
+            this.intermediateGripDataGridViewTextBoxColumn.Name = "intermediateGripDataGridViewTextBoxColumn";
+            // 
+            // intermediateResilienceDataGridViewTextBoxColumn
+            // 
+            this.intermediateResilienceDataGridViewTextBoxColumn.DataPropertyName = "IntermediateResilience";
+            this.intermediateResilienceDataGridViewTextBoxColumn.HeaderText = "IntermediateResilience";
+            this.intermediateResilienceDataGridViewTextBoxColumn.Name = "intermediateResilienceDataGridViewTextBoxColumn";
+            // 
+            // intermediateStiffnessDataGridViewTextBoxColumn
+            // 
+            this.intermediateStiffnessDataGridViewTextBoxColumn.DataPropertyName = "IntermediateStiffness";
+            this.intermediateStiffnessDataGridViewTextBoxColumn.HeaderText = "IntermediateStiffness";
+            this.intermediateStiffnessDataGridViewTextBoxColumn.Name = "intermediateStiffnessDataGridViewTextBoxColumn";
+            // 
+            // intermediateTemperatureDataGridViewTextBoxColumn
+            // 
+            this.intermediateTemperatureDataGridViewTextBoxColumn.DataPropertyName = "IntermediateTemperature";
+            this.intermediateTemperatureDataGridViewTextBoxColumn.HeaderText = "IntermediateTemperature";
+            this.intermediateTemperatureDataGridViewTextBoxColumn.Name = "intermediateTemperatureDataGridViewTextBoxColumn";
+            // 
+            // wetWeatherGripDataGridViewTextBoxColumn
+            // 
+            this.wetWeatherGripDataGridViewTextBoxColumn.DataPropertyName = "WetWeatherGrip";
+            this.wetWeatherGripDataGridViewTextBoxColumn.HeaderText = "WetWeatherGrip";
+            this.wetWeatherGripDataGridViewTextBoxColumn.Name = "wetWeatherGripDataGridViewTextBoxColumn";
+            // 
+            // wetWeatherResilienceDataGridViewTextBoxColumn
+            // 
+            this.wetWeatherResilienceDataGridViewTextBoxColumn.DataPropertyName = "WetWeatherResilience";
+            this.wetWeatherResilienceDataGridViewTextBoxColumn.HeaderText = "WetWeatherResilience";
+            this.wetWeatherResilienceDataGridViewTextBoxColumn.Name = "wetWeatherResilienceDataGridViewTextBoxColumn";
+            // 
+            // wetWeatherStiffnessDataGridViewTextBoxColumn
+            // 
+            this.wetWeatherStiffnessDataGridViewTextBoxColumn.DataPropertyName = "WetWeatherStiffness";
+            this.wetWeatherStiffnessDataGridViewTextBoxColumn.HeaderText = "WetWeatherStiffness";
+            this.wetWeatherStiffnessDataGridViewTextBoxColumn.Name = "wetWeatherStiffnessDataGridViewTextBoxColumn";
+            // 
+            // wetWeatherTemperatureDataGridViewTextBoxColumn
+            // 
+            this.wetWeatherTemperatureDataGridViewTextBoxColumn.DataPropertyName = "WetWeatherTemperature";
+            this.wetWeatherTemperatureDataGridViewTextBoxColumn.HeaderText = "WetWeatherTemperature";
+            this.wetWeatherTemperatureDataGridViewTextBoxColumn.Name = "wetWeatherTemperatureDataGridViewTextBoxColumn";
+            // 
+            // tyreCollectionBindingSource
+            // 
+            this.tyreCollectionBindingSource.DataSource = typeof(Data.Collections.Executable.Supplier.TyreCollection);
+            // 
+            // idDataGridViewTextBoxColumn5
+            // 
+            this.idDataGridViewTextBoxColumn5.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn5.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn5.Name = "idDataGridViewTextBoxColumn5";
+            // 
+            // localResourceIdDataGridViewTextBoxColumn5
+            // 
+            this.localResourceIdDataGridViewTextBoxColumn5.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn5.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn5.Name = "localResourceIdDataGridViewTextBoxColumn5";
+            // 
+            // resourceIdDataGridViewTextBoxColumn5
+            // 
+            this.resourceIdDataGridViewTextBoxColumn5.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn5.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn5.Name = "resourceIdDataGridViewTextBoxColumn5";
+            // 
+            // resourceTextDataGridViewTextBoxColumn5
+            // 
+            this.resourceTextDataGridViewTextBoxColumn5.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn5.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn5.Name = "resourceTextDataGridViewTextBoxColumn5";
+            // 
+            // performanceDataGridViewTextBoxColumn
+            // 
+            this.performanceDataGridViewTextBoxColumn.DataPropertyName = "Performance";
+            this.performanceDataGridViewTextBoxColumn.HeaderText = "Performance";
+            this.performanceDataGridViewTextBoxColumn.Name = "performanceDataGridViewTextBoxColumn";
+            // 
+            // toleranceDataGridViewTextBoxColumn
+            // 
+            this.toleranceDataGridViewTextBoxColumn.DataPropertyName = "Tolerance";
+            this.toleranceDataGridViewTextBoxColumn.HeaderText = "Tolerance";
+            this.toleranceDataGridViewTextBoxColumn.Name = "toleranceDataGridViewTextBoxColumn";
+            // 
+            // fuelCollectionBindingSource
+            // 
+            this.fuelCollectionBindingSource.DataSource = typeof(Data.Collections.Executable.Supplier.FuelCollection);
+            // 
+            // idDataGridViewTextBoxColumn6
+            // 
+            this.idDataGridViewTextBoxColumn6.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn6.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn6.Name = "idDataGridViewTextBoxColumn6";
+            // 
+            // localResourceIdDataGridViewTextBoxColumn6
+            // 
+            this.localResourceIdDataGridViewTextBoxColumn6.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn6.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn6.Name = "localResourceIdDataGridViewTextBoxColumn6";
+            // 
+            // resourceIdDataGridViewTextBoxColumn6
+            // 
+            this.resourceIdDataGridViewTextBoxColumn6.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn6.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn6.Name = "resourceIdDataGridViewTextBoxColumn6";
+            // 
+            // resourceTextDataGridViewTextBoxColumn6
+            // 
+            this.resourceTextDataGridViewTextBoxColumn6.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn6.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn6.Name = "resourceTextDataGridViewTextBoxColumn6";
+            // 
+            // lapsDataGridViewTextBoxColumn
+            // 
+            this.lapsDataGridViewTextBoxColumn.DataPropertyName = "Laps";
+            this.lapsDataGridViewTextBoxColumn.HeaderText = "Laps";
+            this.lapsDataGridViewTextBoxColumn.Name = "lapsDataGridViewTextBoxColumn";
+            // 
+            // designDataGridViewComboBoxColumn
+            // 
+            this.designDataGridViewComboBoxColumn.DataPropertyName = "Design";
+            this.designDataGridViewComboBoxColumn.HeaderText = "Design";
+            this.designDataGridViewComboBoxColumn.Name = "designDataGridViewComboBoxColumn";
+            this.designDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.designDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // lapRecordDriverDataGridViewComboBoxColumn
+            // 
+            this.lapRecordDriverDataGridViewComboBoxColumn.DataPropertyName = "LapRecordDriver";
+            this.lapRecordDriverDataGridViewComboBoxColumn.HeaderText = "LapRecordDriver";
+            this.lapRecordDriverDataGridViewComboBoxColumn.Name = "lapRecordDriverDataGridViewComboBoxColumn";
+            this.lapRecordDriverDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.lapRecordDriverDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // lapRecordTeamDataGridViewComboBoxColumn
+            // 
+            this.lapRecordTeamDataGridViewComboBoxColumn.DataPropertyName = "LapRecordTeam";
+            this.lapRecordTeamDataGridViewComboBoxColumn.HeaderText = "LapRecordTeam";
+            this.lapRecordTeamDataGridViewComboBoxColumn.Name = "lapRecordTeamDataGridViewComboBoxColumn";
+            this.lapRecordTeamDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.lapRecordTeamDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // lapRecordTimeDataGridViewTextBoxColumn
+            // 
+            this.lapRecordTimeDataGridViewTextBoxColumn.DataPropertyName = "LapRecordTime";
+            this.lapRecordTimeDataGridViewTextBoxColumn.HeaderText = "LapRecordTime";
+            this.lapRecordTimeDataGridViewTextBoxColumn.Name = "lapRecordTimeDataGridViewTextBoxColumn";
+            // 
+            // lapRecordMphDataGridViewTextBoxColumn
+            // 
+            this.lapRecordMphDataGridViewTextBoxColumn.DataPropertyName = "LapRecordMph";
+            this.lapRecordMphDataGridViewTextBoxColumn.HeaderText = "LapRecordMph";
+            this.lapRecordMphDataGridViewTextBoxColumn.Name = "lapRecordMphDataGridViewTextBoxColumn";
+            // 
+            // lapRecordYearDataGridViewTextBoxColumn
+            // 
+            this.lapRecordYearDataGridViewTextBoxColumn.DataPropertyName = "LapRecordYear";
+            this.lapRecordYearDataGridViewTextBoxColumn.HeaderText = "LapRecordYear";
+            this.lapRecordYearDataGridViewTextBoxColumn.Name = "lapRecordYearDataGridViewTextBoxColumn";
+            // 
+            // lastRaceDriverDataGridViewComboBoxColumn
+            // 
+            this.lastRaceDriverDataGridViewComboBoxColumn.DataPropertyName = "LastRaceDriver";
+            this.lastRaceDriverDataGridViewComboBoxColumn.HeaderText = "LastRaceDriver";
+            this.lastRaceDriverDataGridViewComboBoxColumn.Name = "lastRaceDriverDataGridViewComboBoxColumn";
+            this.lastRaceDriverDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.lastRaceDriverDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // lastRaceTeamDataGridViewComboBoxColumn
+            // 
+            this.lastRaceTeamDataGridViewComboBoxColumn.DataPropertyName = "LastRaceTeam";
+            this.lastRaceTeamDataGridViewComboBoxColumn.HeaderText = "LastRaceTeam";
+            this.lastRaceTeamDataGridViewComboBoxColumn.Name = "lastRaceTeamDataGridViewComboBoxColumn";
+            this.lastRaceTeamDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.lastRaceTeamDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // lastRaceYearDataGridViewTextBoxColumn
+            // 
+            this.lastRaceYearDataGridViewTextBoxColumn.DataPropertyName = "LastRaceYear";
+            this.lastRaceYearDataGridViewTextBoxColumn.HeaderText = "LastRaceYear";
+            this.lastRaceYearDataGridViewTextBoxColumn.Name = "lastRaceYearDataGridViewTextBoxColumn";
+            // 
+            // lastRaceTimeDataGridViewTextBoxColumn
+            // 
+            this.lastRaceTimeDataGridViewTextBoxColumn.DataPropertyName = "LastRaceTime";
+            this.lastRaceTimeDataGridViewTextBoxColumn.HeaderText = "LastRaceTime";
+            this.lastRaceTimeDataGridViewTextBoxColumn.Name = "lastRaceTimeDataGridViewTextBoxColumn";
+            // 
+            // speedDataGridViewTextBoxColumn1
+            // 
+            this.speedDataGridViewTextBoxColumn1.DataPropertyName = "Speed";
+            this.speedDataGridViewTextBoxColumn1.HeaderText = "Speed";
+            this.speedDataGridViewTextBoxColumn1.Name = "speedDataGridViewTextBoxColumn1";
+            // 
+            // gripDataGridViewTextBoxColumn
+            // 
+            this.gripDataGridViewTextBoxColumn.DataPropertyName = "Grip";
+            this.gripDataGridViewTextBoxColumn.HeaderText = "Grip";
+            this.gripDataGridViewTextBoxColumn.Name = "gripDataGridViewTextBoxColumn";
+            // 
+            // surfaceDataGridViewTextBoxColumn
+            // 
+            this.surfaceDataGridViewTextBoxColumn.DataPropertyName = "Surface";
+            this.surfaceDataGridViewTextBoxColumn.HeaderText = "Surface";
+            this.surfaceDataGridViewTextBoxColumn.Name = "surfaceDataGridViewTextBoxColumn";
+            // 
+            // tarmacDataGridViewTextBoxColumn
+            // 
+            this.tarmacDataGridViewTextBoxColumn.DataPropertyName = "Tarmac";
+            this.tarmacDataGridViewTextBoxColumn.HeaderText = "Tarmac";
+            this.tarmacDataGridViewTextBoxColumn.Name = "tarmacDataGridViewTextBoxColumn";
+            // 
+            // dustDataGridViewTextBoxColumn
+            // 
+            this.dustDataGridViewTextBoxColumn.DataPropertyName = "Dust";
+            this.dustDataGridViewTextBoxColumn.HeaderText = "Dust";
+            this.dustDataGridViewTextBoxColumn.Name = "dustDataGridViewTextBoxColumn";
+            // 
+            // overtakingDataGridViewTextBoxColumn1
+            // 
+            this.overtakingDataGridViewTextBoxColumn1.DataPropertyName = "Overtaking";
+            this.overtakingDataGridViewTextBoxColumn1.HeaderText = "Overtaking";
+            this.overtakingDataGridViewTextBoxColumn1.Name = "overtakingDataGridViewTextBoxColumn1";
+            // 
+            // brakingDataGridViewTextBoxColumn
+            // 
+            this.brakingDataGridViewTextBoxColumn.DataPropertyName = "Braking";
+            this.brakingDataGridViewTextBoxColumn.HeaderText = "Braking";
+            this.brakingDataGridViewTextBoxColumn.Name = "brakingDataGridViewTextBoxColumn";
+            // 
+            // rainDataGridViewTextBoxColumn
+            // 
+            this.rainDataGridViewTextBoxColumn.DataPropertyName = "Rain";
+            this.rainDataGridViewTextBoxColumn.HeaderText = "Rain";
+            this.rainDataGridViewTextBoxColumn.Name = "rainDataGridViewTextBoxColumn";
+            // 
+            // heatDataGridViewTextBoxColumn1
+            // 
+            this.heatDataGridViewTextBoxColumn1.DataPropertyName = "Heat";
+            this.heatDataGridViewTextBoxColumn1.HeaderText = "Heat";
+            this.heatDataGridViewTextBoxColumn1.Name = "heatDataGridViewTextBoxColumn1";
+            // 
+            // windDataGridViewTextBoxColumn
+            // 
+            this.windDataGridViewTextBoxColumn.DataPropertyName = "Wind";
+            this.windDataGridViewTextBoxColumn.HeaderText = "Wind";
+            this.windDataGridViewTextBoxColumn.Name = "windDataGridViewTextBoxColumn";
+            // 
+            // trackCollectionBindingSource
+            // 
+            this.trackCollectionBindingSource.DataSource = typeof(Data.Collections.Executable.Track.TrackCollection);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // level1DataGridViewTextBoxColumn
+            // 
+            this.level1DataGridViewTextBoxColumn.DataPropertyName = "Level1";
+            this.level1DataGridViewTextBoxColumn.HeaderText = "Level1";
+            this.level1DataGridViewTextBoxColumn.Name = "level1DataGridViewTextBoxColumn";
+            // 
+            // level2DataGridViewTextBoxColumn
+            // 
+            this.level2DataGridViewTextBoxColumn.DataPropertyName = "Level2";
+            this.level2DataGridViewTextBoxColumn.HeaderText = "Level2";
+            this.level2DataGridViewTextBoxColumn.Name = "level2DataGridViewTextBoxColumn";
+            // 
+            // level3DataGridViewTextBoxColumn
+            // 
+            this.level3DataGridViewTextBoxColumn.DataPropertyName = "Level3";
+            this.level3DataGridViewTextBoxColumn.HeaderText = "Level3";
+            this.level3DataGridViewTextBoxColumn.Name = "level3DataGridViewTextBoxColumn";
+            // 
+            // level4DataGridViewTextBoxColumn
+            // 
+            this.level4DataGridViewTextBoxColumn.DataPropertyName = "Level4";
+            this.level4DataGridViewTextBoxColumn.HeaderText = "Level4";
+            this.level4DataGridViewTextBoxColumn.Name = "level4DataGridViewTextBoxColumn";
+            // 
+            // level5DataGridViewTextBoxColumn
+            // 
+            this.level5DataGridViewTextBoxColumn.DataPropertyName = "Level5";
+            this.level5DataGridViewTextBoxColumn.HeaderText = "Level5";
+            this.level5DataGridViewTextBoxColumn.Name = "level5DataGridViewTextBoxColumn";
+            // 
+            // fiveLevelTypeCollectionBindingSource
+            // 
+            this.fiveLevelTypeCollectionBindingSource.DataSource = typeof(Data.Entities.EntityTypes.FiveLevelTypeCollection);
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            // 
+            // level1DataGridViewTextBoxColumn1
+            // 
+            this.level1DataGridViewTextBoxColumn1.DataPropertyName = "Level1";
+            this.level1DataGridViewTextBoxColumn1.HeaderText = "Level1";
+            this.level1DataGridViewTextBoxColumn1.Name = "level1DataGridViewTextBoxColumn1";
+            // 
+            // level2DataGridViewTextBoxColumn1
+            // 
+            this.level2DataGridViewTextBoxColumn1.DataPropertyName = "Level2";
+            this.level2DataGridViewTextBoxColumn1.HeaderText = "Level2";
+            this.level2DataGridViewTextBoxColumn1.Name = "level2DataGridViewTextBoxColumn1";
+            // 
+            // level3DataGridViewTextBoxColumn1
+            // 
+            this.level3DataGridViewTextBoxColumn1.DataPropertyName = "Level3";
+            this.level3DataGridViewTextBoxColumn1.HeaderText = "Level3";
+            this.level3DataGridViewTextBoxColumn1.Name = "level3DataGridViewTextBoxColumn1";
+            // 
+            // level4DataGridViewTextBoxColumn1
+            // 
+            this.level4DataGridViewTextBoxColumn1.DataPropertyName = "Level4";
+            this.level4DataGridViewTextBoxColumn1.HeaderText = "Level4";
+            this.level4DataGridViewTextBoxColumn1.Name = "level4DataGridViewTextBoxColumn1";
+            // 
+            // level5DataGridViewTextBoxColumn1
+            // 
+            this.level5DataGridViewTextBoxColumn1.DataPropertyName = "Level5";
+            this.level5DataGridViewTextBoxColumn1.HeaderText = "Level5";
+            this.level5DataGridViewTextBoxColumn1.Name = "level5DataGridViewTextBoxColumn1";
+            // 
+            // nameDataGridViewTextBoxColumn2
+            // 
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            // 
+            // level1DataGridViewTextBoxColumn2
+            // 
+            this.level1DataGridViewTextBoxColumn2.DataPropertyName = "Level1";
+            this.level1DataGridViewTextBoxColumn2.HeaderText = "Level1";
+            this.level1DataGridViewTextBoxColumn2.Name = "level1DataGridViewTextBoxColumn2";
+            // 
+            // level2DataGridViewTextBoxColumn2
+            // 
+            this.level2DataGridViewTextBoxColumn2.DataPropertyName = "Level2";
+            this.level2DataGridViewTextBoxColumn2.HeaderText = "Level2";
+            this.level2DataGridViewTextBoxColumn2.Name = "level2DataGridViewTextBoxColumn2";
+            // 
+            // level3DataGridViewTextBoxColumn2
+            // 
+            this.level3DataGridViewTextBoxColumn2.DataPropertyName = "Level3";
+            this.level3DataGridViewTextBoxColumn2.HeaderText = "Level3";
+            this.level3DataGridViewTextBoxColumn2.Name = "level3DataGridViewTextBoxColumn2";
+            // 
+            // level4DataGridViewTextBoxColumn2
+            // 
+            this.level4DataGridViewTextBoxColumn2.DataPropertyName = "Level4";
+            this.level4DataGridViewTextBoxColumn2.HeaderText = "Level4";
+            this.level4DataGridViewTextBoxColumn2.Name = "level4DataGridViewTextBoxColumn2";
+            // 
+            // level5DataGridViewTextBoxColumn2
+            // 
+            this.level5DataGridViewTextBoxColumn2.DataPropertyName = "Level5";
+            this.level5DataGridViewTextBoxColumn2.HeaderText = "Level5";
+            this.level5DataGridViewTextBoxColumn2.Name = "level5DataGridViewTextBoxColumn2";
             // 
             // GameExecutableEditorForm
             // 
@@ -1785,25 +1990,18 @@ namespace GpwEditor
             this.FilesGroupBox.ResumeLayout(false);
             this.FilesGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.identityCollectionBindingSource)).EndInit();
             this.TeamsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TeamsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teamCollectionBindingSource)).EndInit();
             this.DriversTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DriversDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.driverCollectionBindingSource)).EndInit();
             this.EnginesTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.EnginesDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.engineCollectionBindingSource)).EndInit();
             this.TyresTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TyresDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tyreCollectionBindingSource)).EndInit();
             this.FuelsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FuelsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fuelCollectionBindingSource)).EndInit();
             this.TracksTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TracksDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackCollectionBindingSource)).EndInit();
             this.RacePerformanceTabPage.ResumeLayout(false);
             this.RacePerformanceGroupBox.ResumeLayout(false);
             this.RacePerformanceGroupBox.PerformLayout();
@@ -1821,6 +2019,18 @@ namespace GpwEditor
             ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox010NumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox110NumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChart)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.FactoryRunningCostsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FactoryExpansionCostsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StaffSalariesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.identityCollectionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamCollectionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.driverCollectionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.engineCollectionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tyreCollectionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fuelCollectionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackCollectionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fiveLevelTypeCollectionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1993,5 +2203,28 @@ namespace GpwEditor
         private System.Windows.Forms.CheckBox RacePerformanceDefaultCheckBox;
         private System.Windows.Forms.CheckBox RacePerformanceProposedCheckBox;
         private System.Windows.Forms.Button RacePerformanceCopyRecommendedButton;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView FactoryRunningCostsDataGridView;
+        private System.Windows.Forms.DataGridView FactoryExpansionCostsDataGridView;
+        private System.Windows.Forms.DataGridView StaffSalariesDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level3DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level4DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level5DataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource fiveLevelTypeCollectionBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level1DataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level2DataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level3DataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level4DataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level5DataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level1DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level2DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level3DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level4DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level5DataGridViewTextBoxColumn1;
     }
 }

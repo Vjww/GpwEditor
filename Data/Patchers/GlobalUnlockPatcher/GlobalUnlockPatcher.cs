@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using Common.Enums;
 using Data.FileConnection;
 using Data.Helpers;
 
@@ -124,11 +120,8 @@ namespace Data.Patchers.GlobalUnlockPatcher
             };
 
             // Open file and write
-            var executableConnection = new ExecutableConnection();
-            try
+            using (var executableConnection = new ExecutableConnection(_executableFilePath))
             {
-                executableConnection.Open(_executableFilePath, StreamDirectionType.Write);
-
                 // Apply new function to call GlobalUnlock on behalf of original calls
                 executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(newGlobalUnlockLocation), newGlobalUnlockInstructions);
 
@@ -151,10 +144,6 @@ namespace Data.Patchers.GlobalUnlockPatcher
                     // Write six bytes
                     executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(item), redirectInstructions);
                 }
-            }
-            finally
-            {
-                executableConnection.Close();
             }
         }
     }

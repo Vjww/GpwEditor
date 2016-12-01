@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using Common.Enums;
 using Data.FileConnection;
 using Data.Helpers;
 
@@ -136,15 +135,9 @@ namespace Data.Patchers.JumpBypassPatcher
             // Collection of changes to make after read
             var jumpBypasses = new Collection<JumpFunction>();
 
-            // File connection
-            ExecutableConnection executableConnection = null;
-
             // Open file and read
-            try
+            using (var executableConnection = new ExecutableConnection(_executableFilePath))
             {
-                executableConnection = new ExecutableConnection();
-                executableConnection.Open(_executableFilePath, StreamDirectionType.Read);
-
                 // Populate collection with the referenced function inside each jump function
                 foreach (var item in jumpFunctions)
                 {
@@ -313,20 +306,10 @@ namespace Data.Patchers.JumpBypassPatcher
                     }
                 }
             }
-            finally
-            {
-                if (executableConnection != null)
-                {
-                    executableConnection.Close();
-                }
-            }
 
             // Open file and write
-            try
+            using (var executableConnection = new ExecutableConnection(_executableFilePath))
             {
-                executableConnection = new ExecutableConnection();
-                executableConnection.Open(_executableFilePath, StreamDirectionType.Write);
-
                 // Apply bypasses
                 foreach (var item in jumpBypasses)
                 {
@@ -342,13 +325,6 @@ namespace Data.Patchers.JumpBypassPatcher
                     nopByteArray[i] = 0x90; // Fill array with nop opcode
                 }
                 executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(jumpFunctionFirstReference), nopByteArray);
-            }
-            finally
-            {
-                if (executableConnection != null)
-                {
-                    executableConnection.Close();
-                }
             }
 
             Debug.WriteLine(" .text section bypass count: " + textBypassStatsCounter);

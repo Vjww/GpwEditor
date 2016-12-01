@@ -1,8 +1,8 @@
-﻿namespace Data
+﻿namespace Data.ValueMapping.MappingTypes
 {
-    public interface ILevelType
+    public interface IFiveLevelMappingType
     {
-        string Name { get; set; }
+        int Name { get; set; }
         int Level1 { get; set; }
         int Level2 { get; set; }
         int Level3 { get; set; }

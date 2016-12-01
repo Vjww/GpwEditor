@@ -172,6 +172,7 @@
     <Content Include="Resources\Base\ss4.png" />
     <Content Include="Resources\Base\ss5.png" />
     <Content Include="snippets.txt" />
+    <None Include="Properties\DataSources\Data.Entities.EntityTypes.FiveLevelTypeCollection.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

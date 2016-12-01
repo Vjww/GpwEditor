@@ -1,5 +1,4 @@
 ﻿using System;
-using Common.Enums;
 using Data.FileConnection;
 
 namespace Data.Patchers.SwitchIdiomPatcher
@@ -58,25 +57,22 @@ namespace Data.Patchers.SwitchIdiomPatcher
 
             // File location of each switch idiom to modify
             var switchIdiomLocation = new long[] {
-                0x00021A9C, 0x0002EFE2, 0x00034FC5, 0x000387AE, 0x0003AD71, 0x00044C99, 
-                0x0004EFD4, 0x0004FEDF, 0x0005F0EB, 0x00078996, 0x0008E2F7, 0x0008E850, 
-                0x0008EE9E, 0x00093B02, 0x0009507E, 0x0009ED62, 0x000A5F9E, 0x001130A4, 
-                0x001131B2, 0x00116871, 0x001170FA, 0x00117198, 0x001180EF, 0x0011C88A, 
-                0x00120DB0, 0x00120E1E, 0x0012DE99, 0x00130D87, 0x00138A8E, 0x00139B64, 
-                0x0013F6D1, 0x0013FE4B, 0x0013FF79, 0x001499BF, 0x00149A59, 0x0014A727, 
-                0x0014A7F6, 0x0014B09F, 0x0014B5EF, 0x0014BC5D, 0x0014BCEE, 0x00154C42, 
-                0x00154F47, 0x00155176, 0x0015533B, 0x001556C7, 0x0015BC0B, 0x0015DC59, 
-                0x0015DE57, 0x0015DF24, 0x0015DFA2, 0x0015E1C0, 0x001675AA, 0x0017344E, 
-                0x0018BF05, 0x0019012B, 0x001A1AEE, 0x001A1D23, 0x001A1DCC, 0x001A2F62, 
-                0x001AE631, 0x001B4CAE, 0x001B50EC, 0x001D4F47, 0x001DCC1B, 0x001DE2A5, 
-                0x001E30E6, 0x001F4FE5, 0x001F51EF, 0x001F74D8, 0x00203BFE, 0x0021862C, 
-                0x00218788, 0x00218977, 0x0021BFB7, 0x0021C26A, 0x0025FF17, 0x0026028F, 
-                0x0026082B, 0x002622D7, 0x002638F9, 0x002739E7, 0x00276F01, 0x00276FE8, 
+                0x00021A9C, 0x0002EFE2, 0x00034FC5, 0x000387AE, 0x0003AD71, 0x00044C99,
+                0x0004EFD4, 0x0004FEDF, 0x0005F0EB, 0x00078996, 0x0008E2F7, 0x0008E850,
+                0x0008EE9E, 0x00093B02, 0x0009507E, 0x0009ED62, 0x000A5F9E, 0x001130A4,
+                0x001131B2, 0x00116871, 0x001170FA, 0x00117198, 0x001180EF, 0x0011C88A,
+                0x00120DB0, 0x00120E1E, 0x0012DE99, 0x00130D87, 0x00138A8E, 0x00139B64,
+                0x0013F6D1, 0x0013FE4B, 0x0013FF79, 0x001499BF, 0x00149A59, 0x0014A727,
+                0x0014A7F6, 0x0014B09F, 0x0014B5EF, 0x0014BC5D, 0x0014BCEE, 0x00154C42,
+                0x00154F47, 0x00155176, 0x0015533B, 0x001556C7, 0x0015BC0B, 0x0015DC59,
+                0x0015DE57, 0x0015DF24, 0x0015DFA2, 0x0015E1C0, 0x001675AA, 0x0017344E,
+                0x0018BF05, 0x0019012B, 0x001A1AEE, 0x001A1D23, 0x001A1DCC, 0x001A2F62,
+                0x001AE631, 0x001B4CAE, 0x001B50EC, 0x001D4F47, 0x001DCC1B, 0x001DE2A5,
+                0x001E30E6, 0x001F4FE5, 0x001F51EF, 0x001F74D8, 0x00203BFE, 0x0021862C,
+                0x00218788, 0x00218977, 0x0021BFB7, 0x0021C26A, 0x0025FF17, 0x0026028F,
+                0x0026082B, 0x002622D7, 0x002638F9, 0x002739E7, 0x00276F01, 0x00276FE8,
                 0x00278CB2, 0x00278D53, 0x00278FDD, 0x002790F0
             };
-
-            // File connection
-            ExecutableConnection executableConnection = null;
 
             // For every switch idiom (represented by the target address)
             for (var i = 0; i < switchIdiomLocation.Length; i++)
@@ -84,19 +80,9 @@ namespace Data.Patchers.SwitchIdiomPatcher
                 var instructions = new byte[18];
 
                 // Get current instructions at target address
-                try
+                using (var executableConnection = new ExecutableConnection(_executableFilePath))
                 {
-                    executableConnection = new ExecutableConnection();
-                    executableConnection.Open(_executableFilePath, StreamDirectionType.Read);
-
                     instructions = executableConnection.ReadByteArray(switchIdiomLocation[i], instructions.Length);
-                }
-                finally
-                {
-                    if (executableConnection != null)
-                    {
-                        executableConnection.Close();
-                    }
                 }
 
                 // Extract table location values
@@ -132,20 +118,10 @@ namespace Data.Patchers.SwitchIdiomPatcher
                     instructions[j] = jumpTableLocation[j - 11];
                 }
 
-                try
+                using (var executableConnection = new ExecutableConnection(_executableFilePath))
                 {
-                    executableConnection = new ExecutableConnection();
-                    executableConnection.Open(_executableFilePath, StreamDirectionType.Write);
-
                     // Write new instructions to target address
                     executableConnection.WriteByteArray(switchIdiomLocation[i], instructions);
-                }
-                finally
-                {
-                    if (executableConnection != null)
-                    {
-                        executableConnection.Close();
-                    }
                 }
             }
         }

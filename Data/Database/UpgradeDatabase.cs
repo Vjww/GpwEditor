@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using Common.Enums;
 using Data.Collections.Language;
 using Data.FileConnection;
 using Data.Patchers;
@@ -72,29 +71,17 @@ namespace Data.Database
 
         private void ExportLanguageStrings(string languageFileFilePath)
         {
-            var languageConnection = new LanguageConnection();
-            try
+            using (var languageConnection = new LanguageConnection(languageFileFilePath))
             {
-                languageConnection.Open(languageFileFilePath, StreamDirectionType.Write);
                 languageConnection.Save(LanguageStrings);
-            }
-            finally
-            {
-                languageConnection.Close();
             }
         }
 
         private void ImportLanguageStrings(string languageFileFilePath)
         {
-            var languageConnection = new LanguageConnection();
-            try
+            using (var languageConnection = new LanguageConnection(languageFileFilePath))
             {
-                languageConnection.Open(languageFileFilePath, StreamDirectionType.Read);
                 LanguageStrings = languageConnection.Load();
-            }
-            finally
-            {
-                languageConnection.Close();
             }
         }
 

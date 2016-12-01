@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Data.Patchers.Enhancements.Units
+﻿namespace Data.Patchers.Enhancements.Units
 {
     /// <summary>
     /// Modify the code to...

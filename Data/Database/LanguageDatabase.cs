@@ -1,5 +1,4 @@
-﻿using Common.Enums;
-using Data.Collections.Language;
+﻿using Data.Collections.Language;
 using Data.FileConnection;
 
 namespace Data.Database
@@ -21,29 +20,17 @@ namespace Data.Database
 
         private void ImportLanguageStrings(string languageFileFilePath)
         {
-            var languageConnection = new LanguageConnection();
-            try
+            using (var languageConnection = new LanguageConnection(languageFileFilePath))
             {
-                languageConnection.Open(languageFileFilePath, StreamDirectionType.Read);
                 LanguageStrings = languageConnection.Load();
-            }
-            finally
-            {
-                languageConnection.Close();
             }
         }
 
         private void ExportLanguageStrings(string languageFileFilePath)
         {
-            var languageConnection = new LanguageConnection();
-            try
+            using (var languageConnection = new LanguageConnection(languageFileFilePath))
             {
-                languageConnection.Open(languageFileFilePath, StreamDirectionType.Write);
                 languageConnection.Save(LanguageStrings);
-            }
-            finally
-            {
-                languageConnection.Close();
             }
         }
     }

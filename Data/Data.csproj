@@ -36,27 +36,45 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CamLevelType.cs" />
-    <Compile Include="LevelTypeBase.cs" />
-    <Compile Include="CadLevelType.cs" />
+    <Compile Include="Entities\Executable\Environment\ExpansionCosts\Supercomputer.cs" />
+    <Compile Include="Entities\Executable\Environment\ExpansionCosts\TestRig.cs" />
+    <Compile Include="Entities\Executable\Environment\RunningCosts\Factory.cs" />
+    <Compile Include="Entities\Executable\Environment\RunningCosts\WindTunnel.cs" />
+    <Compile Include="Entities\Executable\Environment\StaffSalaries\Mechanics.cs" />
+    <Compile Include="Entities\Executable\Environment\StaffSalaries\Engineering.cs" />
+    <Compile Include="Entities\Executable\Environment\StaffSalaries\Design.cs" />
+    <Compile Include="Entities\Executable\Environment\StaffSalaries\Commercial.cs" />
+    <Compile Include="ValueMapping\Executable\Environment\ExpansionCosts\Factory.cs" />
+    <Compile Include="Entities\Executable\Environment\ExpansionCosts\Factory.cs" />
+    <Compile Include="ValueMapping\Executable\Environment\RunningCosts\Factory.cs" />
+    <Compile Include="ValueMapping\Executable\Environment\RunningCosts\WindTunnel.cs" />
+    <Compile Include="Entities\Executable\Environment\ExpansionCosts\WindTunnel.cs" />
+    <Compile Include="ValueMapping\Executable\Environment\ExpansionCosts\WindTunnel.cs" />
+    <Compile Include="ValueMapping\Executable\Environment\ExpansionCosts\Supercomputer.cs" />
+    <Compile Include="ValueMapping\Executable\Environment\ExpansionCosts\TestRig.cs" />
+    <Compile Include="ValueMapping\Executable\Environment\ExpansionCosts\Workshop.cs" />
+    <Compile Include="Entities\Executable\Environment\ExpansionCosts\Workshop.cs" />
+    <Compile Include="ValueMapping\Executable\Environment\ExpansionCosts\Cad.cs" />
+    <Compile Include="Entities\Executable\Environment\ExpansionCosts\Cam.cs" />
+    <Compile Include="ValueMapping\Executable\Environment\ExpansionCosts\Cam.cs" />
+    <Compile Include="FileType.cs" />
+    <Compile Include="Entities\EntityTypes\FiveLevelValueTypeBase.cs" />
+    <Compile Include="Entities\Executable\Environment\ExpansionCosts\Cad.cs" />
     <Compile Include="Collections\Executable\Supplier\EngineCollection.cs" />
     <Compile Include="Collections\Executable\Supplier\FuelCollection.cs" />
     <Compile Include="Collections\Executable\Supplier\TyreCollection.cs" />
     <Compile Include="Collections\Executable\Team\DriverCollection.cs" />
-    <Compile Include="Collections\Executable\Team\PersonnelCollection.cs" />
     <Compile Include="Collections\Executable\Team\TeamCollection.cs" />
     <Compile Include="Collections\Executable\Track\TrackCollection.cs" />
     <Compile Include="Collections\Language\IdentityCollection.cs" />
     <Compile Include="Database\ExecutableDatabase.cs" />
     <Compile Include="Database\LanguageDatabase.cs" />
     <Compile Include="Database\UpgradeDatabase.cs" />
-    <Compile Include="Entities\Executable\Config\Factory.cs" />
     <Compile Include="Entities\Executable\Race\RacePerformance.cs" />
     <Compile Include="Entities\Executable\Supplier\Engine.cs" />
     <Compile Include="Entities\Executable\Supplier\Fuel.cs" />
     <Compile Include="Entities\Executable\Supplier\Tyre.cs" />
     <Compile Include="Entities\Executable\Team\Driver.cs" />
-    <Compile Include="Entities\Executable\Team\Personnel.cs" />
     <Compile Include="Entities\Executable\Team\Team.cs" />
     <Compile Include="Entities\Executable\Track\Track.cs" />
     <Compile Include="Entities\Language\Identity.cs" />
@@ -64,8 +82,14 @@
     <Compile Include="FileConnection\ExecutableConnection.cs" />
     <Compile Include="FileConnection\LanguageConnection.cs" />
     <Compile Include="Helpers\InstructionHelper.cs" />
-    <Compile Include="ILevelType.cs" />
-    <Compile Include="LevelTypeCollection.cs" />
+    <Compile Include="IDataConnection.cs" />
+    <Compile Include="ValueMapping\Executable\Environment\StaffSalaries\Mechanics.cs" />
+    <Compile Include="ValueMapping\Executable\Environment\StaffSalaries\Design.cs" />
+    <Compile Include="ValueMapping\Executable\Environment\StaffSalaries\Engineering.cs" />
+    <Compile Include="ValueMapping\Executable\Environment\StaffSalaries\Commercial.cs" />
+    <Compile Include="ValueMapping\MappingTypes\IFiveLevelMappingType.cs" />
+    <Compile Include="Entities\EntityTypes\IFiveLevelValueType.cs" />
+    <Compile Include="Entities\EntityTypes\FiveLevelTypeCollection.cs" />
     <Compile Include="Patchers\CodeShifting\CodeShiftingPatcher.cs" />
     <Compile Include="Patchers\CodeShifting\Units\DriverData.cs" />
     <Compile Include="Patchers\CodeShifting\Units\PersonnelData.cs" />
@@ -93,14 +117,12 @@
     <Compile Include="Patchers\GlobalUnlockPatcher\GlobalUnlockPatcher.cs" />
     <Compile Include="Patchers\JumpBypassPatcher\JumpBypassPatcher.cs" />
     <Compile Include="Patchers\SwitchIdiomPatcher\SwitchIdiomPatcher.cs" />
-    <Compile Include="ValueMapping\Executable\Config\Factory.cs" />
     <Compile Include="ValueMapping\Executable\Config\Viewport.cs" />
     <Compile Include="ValueMapping\Executable\Race\RacePerformance.cs" />
     <Compile Include="ValueMapping\Executable\Supplier\Engine.cs" />
     <Compile Include="ValueMapping\Executable\Supplier\Fuel.cs" />
     <Compile Include="ValueMapping\Executable\Supplier\Tyre.cs" />
     <Compile Include="ValueMapping\Executable\Team\Driver.cs" />
-    <Compile Include="ValueMapping\Executable\Team\Personnel.cs" />
     <Compile Include="ValueMapping\Executable\Team\Team.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -195,6 +217,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Collections\Executable\Race\" />
+    <Folder Include="Entities\Executable\Config\" />
     <Folder Include="IntegrationTasks\Release102\" />
   </ItemGroup>
   <ItemGroup>
