@@ -2,7 +2,7 @@
 
 namespace Data.Entities.EntityTypes
 {
-    public class FiveLevelTypeCollection : Collection<FiveLevelValueTypeBase>
+    public class TenValueCollection : Collection<TenValueBase>
     {
     }
 }

@@ -3,9 +3,9 @@ using Data.ValueMapping.MappingTypes;
 
 namespace Data.Entities.Executable.Environment.ExpansionCosts
 {
-    public class Cam : FiveLevelValueTypeBase
+    public class Cam : FiveRatingBase
     {
-        public Cam(string name, IFiveLevelMappingType valueMapping) : base(name, valueMapping)
+        public Cam(IFiveValueMapping valueMapping) : base(valueMapping)
         {
             //
         }

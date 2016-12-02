@@ -44,7 +44,7 @@ namespace Data.FileConnection
             }
         }
 
-        public override string ReadLine()
+        protected override string ReadLine()
         {
             if (!IsRead())
             {
@@ -54,7 +54,7 @@ namespace Data.FileConnection
             return base.ReadLine();
         }
 
-        public override void WriteLine(string line)
+        protected override void WriteLine(string line)
         {
             if (!IsWrite())
             {
@@ -93,7 +93,7 @@ namespace Data.FileConnection
             {
                 foreach (var line in stringList)
                 {
-                    var key = i.BuildStringTableId();
+                    var key = i.BuildResourceId();
 
                     // If line contains "SID000000"
                     if (line.ToUpper().Contains(key))

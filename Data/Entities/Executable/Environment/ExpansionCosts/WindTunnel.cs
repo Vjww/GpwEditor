@@ -3,9 +3,9 @@ using Data.ValueMapping.MappingTypes;
 
 namespace Data.Entities.Executable.Environment.ExpansionCosts
 {
-    public class WindTunnel : FiveLevelValueTypeBase
+    public class WindTunnel : FiveRatingBase
     {
-        public WindTunnel(string name, IFiveLevelMappingType valueMapping) : base(name, valueMapping)
+        public WindTunnel(IFiveValueMapping valueMapping) : base(valueMapping)
         {
             //
         }

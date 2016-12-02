@@ -395,12 +395,19 @@ namespace GpwEditor
             ConfigureDataGridViewControl<Tyre>(TyresDataGridView, 4);
             ConfigureDataGridViewControl<Fuel>(FuelsDataGridView, 5);
             ConfigureDataGridViewControl<Track>(TracksDataGridView, 6);
-
-            // TODO
-            UpdateDataGridViewColumnHeaders<FiveLevelValueTypeBase>(StaffSalariesDataGridView);
+            ConfigureDataGridViewControl<FiveValueBase>(FactoryRunningCostsDataGridView, 7, "Running Costs", true);
+            ConfigureDataGridViewControl<FiveRatingBase>(FactoryExpansionCostsDataGridView, 8, "Expansion Costs", true);
+            ConfigureDataGridViewControl<FiveValueBase>(StaffSalariesDataGridView, 9, "Staff Salaries", true);
+            ConfigureDataGridViewControl<TenValueBase>(TestingMilesDataGridView, 10, "Testing Miles", true);
         }
 
-        private static void ConfigureDataGridViewControl<T>(DataGridView dataGridView, int columnId)
+        private static void ConfigureDataGridViewControl<T>(DataGridView dataGridView, int columnId, string resourceTextHeaderText, bool fillColumns = false)
+        {
+            ConfigureDataGridViewControl<T>(dataGridView, columnId, fillColumns);
+            dataGridView.Columns[3].HeaderText = resourceTextHeaderText;
+        }
+
+        private static void ConfigureDataGridViewControl<T>(DataGridView dataGridView, int columnId, bool fillColumns = false)
         {
             // Hide columns
             dataGridView.Columns[$"idDataGridViewTextBoxColumn{columnId}"].Visible = false;
@@ -408,13 +415,13 @@ namespace GpwEditor
             dataGridView.Columns[$"resourceIdDataGridViewTextBoxColumn{columnId}"].Visible = false;
 
             // Freeze primary column (to always show when scrolling horizontally)
-            dataGridView.Columns[$"resourceTextDataGridViewTextBoxColumn{columnId}"].Frozen = true;
+            dataGridView.Columns[$"resourceTextDataGridViewTextBoxColumn{columnId}"].Frozen = !fillColumns;
 
             // Rename column headers and populate column tooltips using model attributes
             UpdateDataGridViewColumnHeaders<T>(dataGridView);
 
             // Configure grid
-            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView.AutoSizeColumnsMode = fillColumns ? DataGridViewAutoSizeColumnsMode.Fill : DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView.AllowUserToAddRows = false;
             dataGridView.AllowUserToDeleteRows = false;
             dataGridView.AllowUserToResizeRows = false;
@@ -520,31 +527,10 @@ namespace GpwEditor
             TyresDataGridView.DataSource = executableDatabase.Tyres;
             FuelsDataGridView.DataSource = executableDatabase.Fuels;
             TracksDataGridView.DataSource = executableDatabase.Tracks;
-
-            StaffSalariesDataGridView.DataSource = executableDatabase.StaffSalaries;
             FactoryRunningCostsDataGridView.DataSource = executableDatabase.FactoryRunningCosts;
             FactoryExpansionCostsDataGridView.DataSource = executableDatabase.FactoryExpansionCosts;
-
-            // TODO
-            // Format data grid
-            StaffSalariesDataGridView.TopLeftHeaderCell.Value = "Index";
-            StaffSalariesDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            StaffSalariesDataGridView.RowHeadersWidth = 100;
-            StaffSalariesDataGridView.AllowUserToAddRows = false;
-            StaffSalariesDataGridView.AllowUserToDeleteRows = false;
-            StaffSalariesDataGridView.AllowUserToResizeColumns = false;
-            StaffSalariesDataGridView.AllowUserToResizeRows = false;
-            StaffSalariesDataGridView.MultiSelect = false;
-
-            // TODO and fix refresh to display row headers first time visiting tab
-            var records = (FiveLevelTypeCollection)StaffSalariesDataGridView.DataSource;
-            for (var i = 0; i < StaffSalariesDataGridView.RowCount; i++)
-            {
-                // Populate row header cell with data value, in place of default numbering
-                StaffSalariesDataGridView.Rows[i].HeaderCell.Value = records[i].Name;
-            }
-            StaffSalariesDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            StaffSalariesDataGridView.Refresh();
+            StaffSalariesDataGridView.DataSource = executableDatabase.StaffSalaries;
+            TestingMilesDataGridView.DataSource = executableDatabase.TestingMiles;
 
             // Bind comboboxes to data
             // Hint: Requires the column type to be set at design time to ComboBoxColumn via DataGridView Tasks Wizard > Edit Columns... > ColumnType
@@ -576,9 +562,10 @@ namespace GpwEditor
             executableDatabase.Fuels = (FuelCollection)FuelsDataGridView.DataSource;
             executableDatabase.Tracks = (TrackCollection)TracksDataGridView.DataSource;
 
-            executableDatabase.StaffSalaries = (FiveLevelTypeCollection)StaffSalariesDataGridView.DataSource;
-            executableDatabase.FactoryRunningCosts = (FiveLevelTypeCollection)FactoryRunningCostsDataGridView.DataSource;
-            executableDatabase.FactoryExpansionCosts = (FiveLevelTypeCollection)FactoryExpansionCostsDataGridView.DataSource;
+            executableDatabase.StaffSalaries = (FiveValueCollection)StaffSalariesDataGridView.DataSource;
+            executableDatabase.FactoryRunningCosts = (FiveValueCollection)FactoryRunningCostsDataGridView.DataSource;
+            executableDatabase.FactoryExpansionCosts = (FiveRatingCollection)FactoryExpansionCostsDataGridView.DataSource;
+            executableDatabase.TestingMiles = (TenValueCollection)TestingMilesDataGridView.DataSource;
 
             executableDatabase.RacePerformance = new RacePerformance
             {

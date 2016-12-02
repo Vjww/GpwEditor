@@ -3,9 +3,9 @@ using Data.ValueMapping.MappingTypes;
 
 namespace Data.Entities.Executable.Environment.StaffSalaries
 {
-    public class Design : FiveLevelValueTypeBase
+    public class Design : FiveValueBase
     {
-        public Design(string name, IFiveLevelMappingType valueMapping) : base(name, valueMapping)
+        public Design(IFiveValueMapping valueMapping) : base(valueMapping)
         {
             //
         }

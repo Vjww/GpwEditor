@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Common.Extensions;
+﻿using Common.Extensions;
 using Data.Collections.Executable.Supplier;
 using Data.Collections.Executable.Team;
 using Data.Collections.Executable.Track;
@@ -12,12 +10,15 @@ using Data.Entities.Executable.Team;
 using Data.Entities.Executable.Track;
 using Data.Entities.Language;
 using Data.FileConnection;
+using Data.Helpers;
 using StaffSalaries = Data.Entities.Executable.Environment.StaffSalaries;
 using StaffSalariesMapping = Data.ValueMapping.Executable.Environment.StaffSalaries;
 using RunningCosts = Data.Entities.Executable.Environment.RunningCosts;
 using RunningCostsMapping = Data.ValueMapping.Executable.Environment.RunningCosts;
 using ExpansionCosts = Data.Entities.Executable.Environment.ExpansionCosts;
 using ExpansionCostsMapping = Data.ValueMapping.Executable.Environment.ExpansionCosts;
+using TestingMiles = Data.Entities.Executable.Environment.TestingMiles;
+using TestingMilesMapping = Data.ValueMapping.Executable.Environment.TestingMiles;
 
 namespace Data.Database
 {
@@ -62,9 +63,10 @@ namespace Data.Database
         public TrackCollection Tracks { get; set; }
         public IdentityCollection TrackDesignIdentities { get; set; }
         public RacePerformance RacePerformance { get; set; }
-        public FiveLevelTypeCollection StaffSalaries { get; set; }
-        public FiveLevelTypeCollection FactoryRunningCosts { get; set; }
-        public FiveLevelTypeCollection FactoryExpansionCosts { get; set; }
+        public FiveValueCollection StaffSalaries { get; set; }
+        public FiveValueCollection FactoryRunningCosts { get; set; }
+        public FiveRatingCollection FactoryExpansionCosts { get; set; }
+        public TenValueCollection TestingMiles { get; set; }
 
         public void ImportDataFromFile(string gameExecutableFilePath, string languageFileFilePath)
         {
@@ -89,6 +91,7 @@ namespace Data.Database
             ImportStaffSalaries(gameExecutableFilePath);
             ImportFactoryRunningCosts(gameExecutableFilePath);
             ImportFactoryExpansionCosts(gameExecutableFilePath);
+            ImportTestingMiles(gameExecutableFilePath);
         }
 
         public void ExportDataToFile(string gameExecutableFilePath, string languageFileFilePath)
@@ -106,6 +109,7 @@ namespace Data.Database
             ExportStaffSalaries(gameExecutableFilePath);
             ExportFactoryRunningCosts(gameExecutableFilePath);
             ExportFactoryExpansionCosts(gameExecutableFilePath);
+            ExportTestingMiles(gameExecutableFilePath);
 
             ExportLanguageStrings(languageFileFilePath);
         }
@@ -584,6 +588,7 @@ namespace Data.Database
                         LastRaceTeam = executableConnection.ReadInteger(valueMapping.LastRaceTeam),
                         LastRaceYear = executableConnection.ReadInteger(valueMapping.LastRaceYear),
                         LastRaceTime = executableConnection.ReadInteger(valueMapping.LastRaceTime),
+                        Hospitality = executableConnection.ReadInteger(valueMapping.Hospitality),
                         Speed = executableConnection.ReadInteger(valueMapping.Speed),
                         Grip = executableConnection.ReadInteger(valueMapping.Grip),
                         Surface = executableConnection.ReadInteger(valueMapping.Surface),
@@ -621,6 +626,7 @@ namespace Data.Database
                     executableConnection.WriteInteger(valueMapping.LastRaceTeam, track.LastRaceTeam);
                     executableConnection.WriteInteger(valueMapping.LastRaceYear, track.LastRaceYear);
                     executableConnection.WriteInteger(valueMapping.LastRaceTime, track.LastRaceTime);
+                    executableConnection.WriteInteger(valueMapping.Hospitality, track.Hospitality);
                     executableConnection.WriteInteger(valueMapping.Speed, track.Speed);
                     executableConnection.WriteInteger(valueMapping.Grip, track.Grip);
                     executableConnection.WriteInteger(valueMapping.Surface, track.Surface);
@@ -705,16 +711,16 @@ namespace Data.Database
         {
             using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                StaffSalaries = new FiveLevelTypeCollection
+                StaffSalaries = new FiveValueCollection
                 {
-                    new StaffSalaries.Commercial("Commercial", new StaffSalariesMapping.Commercial()),
-                    new StaffSalaries.Design("Design", new StaffSalariesMapping.Design()),
-                    new StaffSalaries.Engineering("Engineering", new StaffSalariesMapping.Engineering()),
-                    new StaffSalaries.Mechanics("Mechanics", new StaffSalariesMapping.Mechanics()),
+                    new StaffSalaries.Commercial(new StaffSalariesMapping.Commercial()),
+                    new StaffSalaries.Design(new StaffSalariesMapping.Design()),
+                    new StaffSalaries.Engineering(new StaffSalariesMapping.Engineering()),
+                    new StaffSalaries.Mechanics(new StaffSalariesMapping.Mechanics()),
                 };
                 foreach (var item in StaffSalaries)
                 {
-                    item.ImportData(executableConnection, null);
+                    item.ImportData(executableConnection, LanguageStrings);
                 }
             }
         }
@@ -725,7 +731,7 @@ namespace Data.Database
             {
                 foreach (var item in StaffSalaries)
                 {
-                    item.ExportData(executableConnection, null);
+                    item.ExportData(executableConnection, LanguageStrings);
                 }
             }
         }
@@ -734,14 +740,14 @@ namespace Data.Database
         {
             using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                FactoryRunningCosts = new FiveLevelTypeCollection
+                FactoryRunningCosts = new FiveValueCollection
                 {
-                    new RunningCosts.Factory("Factory", new RunningCostsMapping.Factory()),
-                    new RunningCosts.WindTunnel("Wind Tunnel", new RunningCostsMapping.WindTunnel())
+                    new RunningCosts.Factory(new RunningCostsMapping.Factory()),
+                    new RunningCosts.WindTunnel(new RunningCostsMapping.WindTunnel())
                 };
                 foreach (var item in FactoryRunningCosts)
                 {
-                    item.ImportData(executableConnection, null);
+                    item.ImportData(executableConnection, LanguageStrings);
                 }
             }
         }
@@ -752,7 +758,7 @@ namespace Data.Database
             {
                 foreach (var item in FactoryRunningCosts)
                 {
-                    item.ExportData(executableConnection, null);
+                    item.ExportData(executableConnection, LanguageStrings);
                 }
             }
         }
@@ -761,19 +767,19 @@ namespace Data.Database
         {
             using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                FactoryExpansionCosts = new FiveLevelTypeCollection
+                FactoryExpansionCosts = new FiveRatingCollection
                 {
-                    new ExpansionCosts.Factory("Factory", new ExpansionCostsMapping.Factory()),
-                    new ExpansionCosts.WindTunnel("Wind Tunnel", new ExpansionCostsMapping.WindTunnel()),
-                    new ExpansionCosts.Supercomputer("Supercomputer", new ExpansionCostsMapping.Supercomputer()),
-                    new ExpansionCosts.Cam("CAM", new ExpansionCostsMapping.Cam()),
-                    new ExpansionCosts.Cad("CAD", new ExpansionCostsMapping.Cad()),
-                    new ExpansionCosts.Workshop("Workshop", new ExpansionCostsMapping.Workshop()),
-                    new ExpansionCosts.TestRig("Test Rig", new ExpansionCostsMapping.TestRig())
+                    new ExpansionCosts.Factory(new ExpansionCostsMapping.Factory()),
+                    new ExpansionCosts.WindTunnel(new ExpansionCostsMapping.WindTunnel()),
+                    new ExpansionCosts.Supercomputer(new ExpansionCostsMapping.Supercomputer()),
+                    new ExpansionCosts.Cam(new ExpansionCostsMapping.Cam()),
+                    new ExpansionCosts.Cad(new ExpansionCostsMapping.Cad()),
+                    new ExpansionCosts.Workshop(new ExpansionCostsMapping.Workshop()),
+                    new ExpansionCosts.TestRig(new ExpansionCostsMapping.TestRig())
                 };
                 foreach (var item in FactoryExpansionCosts)
                 {
-                    item.ImportData(executableConnection, null);
+                    item.ImportData(executableConnection, LanguageStrings);
                 }
             }
         }
@@ -784,7 +790,33 @@ namespace Data.Database
             {
                 foreach (var item in FactoryExpansionCosts)
                 {
-                    item.ExportData(executableConnection, null);
+                    item.ExportData(executableConnection, LanguageStrings);
+                }
+            }
+        }
+
+        private void ImportTestingMiles(string gameExecutableFilePath)
+        {
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
+            {
+                TestingMiles = new TenValueCollection
+                {
+                    new TestingMiles.TestingMiles(new TestingMilesMapping.TestingMiles())
+                };
+                foreach (var item in TestingMiles)
+                {
+                    item.ImportData(executableConnection, LanguageStrings);
+                }
+            }
+        }
+
+        private void ExportTestingMiles(string gameExecutableFilePath)
+        {
+            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
+            {
+                foreach (var item in TestingMiles)
+                {
+                    item.ExportData(executableConnection, LanguageStrings);
                 }
             }
         }
@@ -793,7 +825,7 @@ namespace Data.Database
         {
             if (!isDriver)
             {
-                return (baseResourceId + localResourceId).BuildStringTableId();
+                return (baseResourceId + localResourceId).BuildResourceId();
             }
 
             // Special consideration for driver names that are not actually drivers in the game
@@ -809,31 +841,37 @@ namespace Data.Database
                 recalculatedLocalResourceId = localResourceId;
             }
 
-            return (baseResourceId + recalculatedLocalResourceId).BuildStringTableId();
+            return (baseResourceId + recalculatedLocalResourceId).BuildResourceId();
         }
 
         private string GetResourceText(string resourceId)
         {
-            var resource = LanguageStrings.SingleOrDefault(x => x.ResourceId == resourceId);
+            return ResourceHelper.GetResourceText(LanguageStrings, resourceId);
 
-            if (resource == null)
-            {
-                throw new Exception($"Unable to find a language string matching the resource id {resourceId}.");
-            }
-
-            return resource.ResourceText;
+            // TODO remove and simplify above into single direct call
+            //var resource = LanguageStrings.SingleOrDefault(x => x.ResourceId == resourceId);
+            //
+            //if (resource == null)
+            //{
+            //    throw new Exception($"Unable to find a resource string in the language file matching the resource id {resourceId}.");
+            //}
+            //
+            //return resource.ResourceText;
         }
 
         private void SetResourceText(string resourceId, string resourceText)
         {
-            var resource = LanguageStrings.SingleOrDefault(x => x.ResourceId == resourceId);
+            ResourceHelper.SetResourceText(LanguageStrings, resourceId, resourceText);
 
-            if (resource == null)
-            {
-                throw new Exception($"Unable to find a language string matching the resource id {resourceId}.");
-            }
-
-            resource.ResourceText = resourceText;
+            // TODO remove and simplify above into single direct call
+            //var resource = LanguageStrings.SingleOrDefault(x => x.ResourceId == resourceId);
+            //
+            //if (resource == null)
+            //{
+            //    throw new Exception($"Unable to find a resource string in the language file matching the resource id {resourceId}.");
+            //}
+            //
+            //resource.ResourceText = resourceText;
         }
     }
 }

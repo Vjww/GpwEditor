@@ -29,6 +29,9 @@ namespace Data.ValueMapping.Executable.Track
         private const int HeatOffset = 190;
         private const int WindOffset = 200;
 
+        private const int HospitalityBaseOffset = 2772636;
+        private const int HospitalityLocalOffset = 4;
+
         public int Laps { get; set; }
         public int Design { get; set; }
         public int LapRecordDriver { get; set; }
@@ -40,6 +43,7 @@ namespace Data.ValueMapping.Executable.Track
         public int LastRaceTeam { get; set; }
         public int LastRaceYear { get; set; }
         public int LastRaceTime { get; set; }
+        public int Hospitality { get; set; }
         public int Speed { get; set; }
         public int Grip { get; set; }
         public int Surface { get; set; }
@@ -67,6 +71,7 @@ namespace Data.ValueMapping.Executable.Track
             LastRaceTeam = BaseOffset + stepOffset + LastRaceTeamOffset;
             LastRaceYear = BaseOffset + stepOffset + LastRaceYearOffset;
             LastRaceTime = BaseOffset + stepOffset + LastRaceTimeOffset;
+            Hospitality = HospitalityBaseOffset + HospitalityLocalOffset * id;
             Speed = BaseOffset + stepOffset + SpeedOffset;
             Grip = BaseOffset + stepOffset + GripOffset;
             Surface = BaseOffset + stepOffset + SurfaceOffset;

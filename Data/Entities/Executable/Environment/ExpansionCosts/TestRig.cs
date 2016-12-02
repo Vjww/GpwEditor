@@ -3,9 +3,9 @@ using Data.ValueMapping.MappingTypes;
 
 namespace Data.Entities.Executable.Environment.ExpansionCosts
 {
-    public class TestRig : FiveLevelValueTypeBase
+    public class TestRig : FiveRatingBase
     {
-        public TestRig(string name, IFiveLevelMappingType valueMapping) : base(name, valueMapping)
+        public TestRig(IFiveValueMapping valueMapping) : base(valueMapping)
         {
             //
         }

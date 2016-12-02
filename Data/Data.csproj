@@ -36,6 +36,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\EntityTypes\FiveRatingBase.cs" />
+    <Compile Include="Entities\EntityTypes\FiveRatingCollection.cs" />
+    <Compile Include="Entities\EntityTypes\TenValueBase.cs" />
+    <Compile Include="Entities\EntityTypes\TenValueCollection.cs" />
+    <Compile Include="Entities\EntityTypes\ITenValue.cs" />
     <Compile Include="Entities\Executable\Environment\ExpansionCosts\Supercomputer.cs" />
     <Compile Include="Entities\Executable\Environment\ExpansionCosts\TestRig.cs" />
     <Compile Include="Entities\Executable\Environment\RunningCosts\Factory.cs" />
@@ -44,6 +49,8 @@
     <Compile Include="Entities\Executable\Environment\StaffSalaries\Engineering.cs" />
     <Compile Include="Entities\Executable\Environment\StaffSalaries\Design.cs" />
     <Compile Include="Entities\Executable\Environment\StaffSalaries\Commercial.cs" />
+    <Compile Include="Entities\Executable\Environment\TestingMiles\TestingMiles.cs" />
+    <Compile Include="Helpers\ResourceHelper.cs" />
     <Compile Include="ValueMapping\Executable\Environment\ExpansionCosts\Factory.cs" />
     <Compile Include="Entities\Executable\Environment\ExpansionCosts\Factory.cs" />
     <Compile Include="ValueMapping\Executable\Environment\RunningCosts\Factory.cs" />
@@ -58,7 +65,7 @@
     <Compile Include="Entities\Executable\Environment\ExpansionCosts\Cam.cs" />
     <Compile Include="ValueMapping\Executable\Environment\ExpansionCosts\Cam.cs" />
     <Compile Include="FileType.cs" />
-    <Compile Include="Entities\EntityTypes\FiveLevelValueTypeBase.cs" />
+    <Compile Include="Entities\EntityTypes\FiveValueBase.cs" />
     <Compile Include="Entities\Executable\Environment\ExpansionCosts\Cad.cs" />
     <Compile Include="Collections\Executable\Supplier\EngineCollection.cs" />
     <Compile Include="Collections\Executable\Supplier\FuelCollection.cs" />
@@ -70,7 +77,7 @@
     <Compile Include="Database\ExecutableDatabase.cs" />
     <Compile Include="Database\LanguageDatabase.cs" />
     <Compile Include="Database\UpgradeDatabase.cs" />
-    <Compile Include="Entities\Executable\Race\RacePerformance.cs" />
+    <Compile Include="Entities\Executable\Environment\Race\RacePerformance.cs" />
     <Compile Include="Entities\Executable\Supplier\Engine.cs" />
     <Compile Include="Entities\Executable\Supplier\Fuel.cs" />
     <Compile Include="Entities\Executable\Supplier\Tyre.cs" />
@@ -87,9 +94,11 @@
     <Compile Include="ValueMapping\Executable\Environment\StaffSalaries\Design.cs" />
     <Compile Include="ValueMapping\Executable\Environment\StaffSalaries\Engineering.cs" />
     <Compile Include="ValueMapping\Executable\Environment\StaffSalaries\Commercial.cs" />
-    <Compile Include="ValueMapping\MappingTypes\IFiveLevelMappingType.cs" />
-    <Compile Include="Entities\EntityTypes\IFiveLevelValueType.cs" />
-    <Compile Include="Entities\EntityTypes\FiveLevelTypeCollection.cs" />
+    <Compile Include="ValueMapping\Executable\Environment\TestingMiles\TestingMiles.cs" />
+    <Compile Include="ValueMapping\MappingTypes\ITenValueMapping.cs" />
+    <Compile Include="ValueMapping\MappingTypes\IFiveValueMapping.cs" />
+    <Compile Include="Entities\EntityTypes\IFiveValue.cs" />
+    <Compile Include="Entities\EntityTypes\FiveValueCollection.cs" />
     <Compile Include="Patchers\CodeShifting\CodeShiftingPatcher.cs" />
     <Compile Include="Patchers\CodeShifting\Units\DriverData.cs" />
     <Compile Include="Patchers\CodeShifting\Units\PersonnelData.cs" />

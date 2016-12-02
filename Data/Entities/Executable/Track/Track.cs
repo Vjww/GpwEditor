@@ -16,6 +16,7 @@ namespace Data.Entities.Executable.Track
         int LastRaceTeam { get; set; }
         int LastRaceYear { get; set; }
         int LastRaceTime { get; set; }
+        int Hospitality { get; set; }
         int Speed { get; set; }
         int Grip { get; set; }
         int Surface { get; set; }
@@ -61,6 +62,8 @@ namespace Data.Entities.Executable.Track
         [Display(Name = "Last Race Duration", Description = "The duration of the race when the last Grand Prix was held at this track.")]
         public int LastRaceTime { get; set; }
 
+        [Display(Name = "Hospitality", Description = "The track's Hospitality attribute rating.")]
+        public int Hospitality { get; set; }
         [Display(Name = "Speed", Description = "The track's Speed attribute rating.")]
         public int Speed { get; set; }
         [Display(Name = "Grip", Description = "The track's Grip attribute rating.")]

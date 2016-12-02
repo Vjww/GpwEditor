@@ -3,9 +3,9 @@ using Data.ValueMapping.MappingTypes;
 
 namespace Data.Entities.Executable.Environment.ExpansionCosts
 {
-    public class Supercomputer : FiveLevelValueTypeBase
+    public class Supercomputer : FiveRatingBase
     {
-        public Supercomputer(string name, IFiveLevelMappingType valueMapping) : base(name, valueMapping)
+        public Supercomputer(IFiveValueMapping valueMapping) : base(valueMapping)
         {
             //
         }
