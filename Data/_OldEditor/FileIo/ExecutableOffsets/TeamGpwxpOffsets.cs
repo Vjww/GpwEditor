@@ -1,4 +1,4 @@
-﻿namespace Common.DataAccess.ExecutableOffsets
+﻿namespace Data._OldEditor.FileIo.ExecutableOffsets
 {
     class TeamGpwxpOffsets
     {

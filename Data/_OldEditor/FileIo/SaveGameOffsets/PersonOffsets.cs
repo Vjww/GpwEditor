@@ -1,4 +1,4 @@
-﻿namespace Common.DataAccess.SaveGameOffsets
+﻿namespace Data._OldEditor.FileIo.SaveGameOffsets
 {
     class PersonOffsets
     {

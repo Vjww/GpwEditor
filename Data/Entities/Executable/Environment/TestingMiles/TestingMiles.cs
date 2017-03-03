@@ -1,5 +1,5 @@
-﻿using Data.Entities.EntityTypes;
-using Data.ValueMapping.MappingTypes;
+﻿using Data.Entities.Generic;
+using Data.ValueMapping.Generic;
 
 namespace Data.Entities.Executable.Environment.TestingMiles
 {

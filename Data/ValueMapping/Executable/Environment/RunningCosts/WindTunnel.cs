@@ -1,4 +1,4 @@
-﻿using Data.ValueMapping.MappingTypes;
+﻿using Data.ValueMapping.Generic;
 
 namespace Data.ValueMapping.Executable.Environment.RunningCosts
 {

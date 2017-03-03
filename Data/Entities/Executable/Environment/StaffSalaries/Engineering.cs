@@ -1,9 +1,9 @@
-﻿using Data.Entities.EntityTypes;
-using Data.ValueMapping.MappingTypes;
+﻿using Data.Entities.Generic;
+using Data.ValueMapping.Generic;
 
 namespace Data.Entities.Executable.Environment.StaffSalaries
 {
-    public class Engineering : FiveValueBase
+    public class Engineering : FiveRatingBase
     {
         public Engineering(IFiveValueMapping valueMapping) : base(valueMapping)
         {

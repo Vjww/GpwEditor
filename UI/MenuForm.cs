@@ -202,7 +202,8 @@ namespace GpwEditor
         {
             childForm.Show(parentForm);
             parentForm.Hide();
-            childForm.FormClosing += delegate { parentForm.Show(); };
+            //childForm.FormClosing += delegate { parentForm.Show(); };
+            childForm.FormClosed += delegate { parentForm.Show(); };
 
             // TODO Old logic below for the above, possibly required to swallow exception to close parentForm?
             //try

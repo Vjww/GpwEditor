@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using Data.Database;
+using Data.Databases;
 using GpwEditor.Properties;
 
 namespace GpwEditor
@@ -41,6 +41,9 @@ namespace GpwEditor
 
             // Set modified as default
             _isModified = true;
+
+            // Hide unused control
+            DisablePitExitPriorityCheckBox.Visible = false;
         }
 
         private void UpgradeGameForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -122,9 +125,9 @@ namespace GpwEditor
             try
             {
                 // Fill database with data from controls and export to file
-                var upgradeDatabase = new UpgradeDatabase();
+                var upgradeDatabase = new UpgradeDatabase(gameExecutableFilePath, languageFileFilePath);
                 PopulateRecords(upgradeDatabase);
-                upgradeDatabase.ExportDataToFile(gameExecutableFilePath, languageFileFilePath);
+                upgradeDatabase.ExportDataToFile();
             }
             catch (Exception ex)
             {
@@ -147,8 +150,8 @@ namespace GpwEditor
             try
             {
                 // Import from file to database and fill controls with data
-                var upgradeDatabase = new UpgradeDatabase();
-                upgradeDatabase.ImportDataFromFile(gameExecutableFilePath, languageFileFilePath);
+                var upgradeDatabase = new UpgradeDatabase(gameExecutableFilePath, languageFileFilePath);
+                upgradeDatabase.ImportDataFromFile();
                 PopulateControls(upgradeDatabase);
             }
             catch (Exception ex)
@@ -178,11 +181,9 @@ namespace GpwEditor
             DisableGlobalUnlockCheckBox.Checked = upgradeDatabase.IsGlobalUnlockFixApplied;
             DisableYellowFlagPenaltiesCheckBox.Checked = upgradeDatabase.IsYellowFlagFixApplied;
             DisableMemoryResetForRaceSoundsCheckbox.Checked = upgradeDatabase.IsRaceSoundsFixApplied;
-            //DisablePitExitPriorityCheckBox.Checked = upgradeDatabase.IsPitExitPriorityFixApplied;
+            //DisablePitExitPriorityCheckBox.Checked = upgradeDatabase.IsPitExitPriorityFixApplied; // TODO
             EnableCarHandlingDesignCalculationCheckbox.Checked = upgradeDatabase.IsCarDesignCalculationUpdateApplied;
             EnableCarPerformanceRaceCalcuationCheckbox.Checked = upgradeDatabase.IsCarHandlingPerformanceFixApplied;
-
-            // TODO what happens when importing from unmodified exe, how to check the Default Radio button below?
 
             PointsScoringSystemDefaultRadioButton.Checked = upgradeDatabase.IsPointsScoringSystemDefaultApplied;
             PointsScoringSystemOption1RadioButton.Checked = upgradeDatabase.IsPointsScoringSystemOption1Applied;

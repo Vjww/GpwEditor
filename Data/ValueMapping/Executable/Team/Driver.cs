@@ -1,10 +1,9 @@
-﻿using Data.Entities.Executable.Team;
-
-namespace Data.ValueMapping.Executable.Team
+﻿namespace Data.ValueMapping.Executable.Team
 {
     public class Driver : IDriver
     {
-        // Offset values
+        private const int NameIndex = 5795; // "None"
+
         private const int BaseOffset = 464687;
         private const int LocalOffset = 260;
         private const int SalaryOffset = 0;
@@ -33,7 +32,7 @@ namespace Data.ValueMapping.Executable.Team
         private const int StaminaOffset = 210;
         private const int MoraleOffset = 220;
 
-        // Properties
+        public int Name { get; set; }
         public int Salary { get; set; }
         public int RaceBonus { get; set; }
         public int ChampionshipBonus { get; set; }
@@ -62,7 +61,8 @@ namespace Data.ValueMapping.Executable.Team
 
         public Driver(int id)
         {
-            // Calculate step offset from zero based index
+            Name = NameIndex + GetLocalResourceId(id);
+
             var stepOffset = LocalOffset * id;
 
             Salary = BaseOffset + stepOffset + SalaryOffset;
@@ -90,6 +90,17 @@ namespace Data.ValueMapping.Executable.Team
             Experience = BaseOffset + stepOffset + ExperienceOffset;
             Stamina = BaseOffset + stepOffset + StaminaOffset;
             Morale = BaseOffset + stepOffset + MoraleOffset;
+        }
+
+        public static int GetLocalResourceId(int id)
+        {
+            var idToResourceIdMap = new[]
+            {
+                6, 7, 8, 14, 15, 16, 22, 23, 24, 30, 31, 32, 38, 39, 40, 46, 47, 48, 54, 55, 56, 62, 63, 64, 70, 71, 72,
+                78, 79, 80, 86, 87, 88, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 200, 201, 202, 203
+            };
+
+            return idToResourceIdMap[id];
         }
     }
 }

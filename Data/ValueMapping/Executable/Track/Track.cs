@@ -1,10 +1,9 @@
-﻿using Data.Entities.Executable.Track;
-
-namespace Data.ValueMapping.Executable.Track
+﻿namespace Data.ValueMapping.Executable.Track
 {
     public class Track : ITrack
     {
-        // Offset values
+        private const int NameIndex = 6043; // "No Circuit"
+
         private const int BaseOffset = 1058252;
         private const int LocalOffset = 210;
         private const int LapsOffset = 0;
@@ -32,6 +31,7 @@ namespace Data.ValueMapping.Executable.Track
         private const int HospitalityBaseOffset = 2772636;
         private const int HospitalityLocalOffset = 4;
 
+        public int Name { get; set; }
         public int Laps { get; set; }
         public int Design { get; set; }
         public int LapRecordDriver { get; set; }
@@ -57,7 +57,8 @@ namespace Data.ValueMapping.Executable.Track
 
         public Track(int id)
         {
-            // Calculate step offset from zero based index
+            Name = NameIndex + GetLocalResourceId(id);
+
             var stepOffset = LocalOffset * id;
 
             Laps = BaseOffset + stepOffset + LapsOffset;
@@ -82,6 +83,16 @@ namespace Data.ValueMapping.Executable.Track
             Rain = BaseOffset + stepOffset + RainOffset;
             Heat = BaseOffset + stepOffset + HeatOffset;
             Wind = BaseOffset + stepOffset + WindOffset;
+        }
+
+        public static int GetLocalResourceId(int id)
+        {
+            var idToResourceIdMap = new[]
+                {
+                    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+                };
+
+            return idToResourceIdMap[id];
         }
     }
 }

@@ -1,10 +1,7 @@
-﻿using Data.Entities.Executable.Race;
-
-namespace Data.ValueMapping.Executable.Race
+﻿namespace Data.ValueMapping.Executable.Race
 {
     public class RacePerformance : IRacePerformance
     {
-        // Offset values
         private const int BaseOffset = 2723224;
         private const int LocalOffset = 4;
         private const int ValueOffset = 0;

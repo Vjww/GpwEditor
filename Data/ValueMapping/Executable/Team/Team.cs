@@ -1,10 +1,9 @@
-﻿using Data.Entities.Executable.Team;
-
-namespace Data.ValueMapping.Executable.Team
+﻿namespace Data.ValueMapping.Executable.Team
 {
     public class Team : ITeam
     {
-        // Offset values
+        private const int NameIndex = 5696; // "No Team"
+
         private const int BaseOffset = 460837;
         private const int LocalOffset = 90;
         private const int LastPositionOffset = 0;
@@ -17,7 +16,7 @@ namespace Data.ValueMapping.Executable.Team
         private const int CountryMapIdOffset = 70;
         private const int TyreSupplierIdOffset = 80;
 
-        // Properties
+        public int Name { get; set; }
         public int LastPosition { get; set; }
         public int LastPoints { get; set; }
         public int FirstGpTrack { get; set; }
@@ -30,7 +29,8 @@ namespace Data.ValueMapping.Executable.Team
 
         public Team(int id)
         {
-            // Calculate step offset from zero based index
+            Name = NameIndex + GetLocalResourceId(id);
+
             var stepOffset = LocalOffset * id;
 
             LastPosition = BaseOffset + stepOffset + LastPositionOffset;
@@ -42,7 +42,16 @@ namespace Data.ValueMapping.Executable.Team
             Unknown = BaseOffset + stepOffset + UnknownOffset;
             CountryMapId = BaseOffset + stepOffset + CountryMapIdOffset;
             TyreSupplierId = BaseOffset + stepOffset + TyreSupplierIdOffset;
+        }
 
+        public static int GetLocalResourceId(int id)
+        {
+            var idToResourceIdMap = new[]
+                {
+                    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
+                };
+
+            return idToResourceIdMap[id];
         }
     }
 }

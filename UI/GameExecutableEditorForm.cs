@@ -3,17 +3,22 @@ using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
+using Common.Extensions;
 using Data.Collections.Executable.Supplier;
 using Data.Collections.Executable.Team;
 using Data.Collections.Executable.Track;
+using Data.Collections.Generic;
 using Data.Collections.Language;
-using Data.Database;
-using Data.Entities.EntityTypes;
+using Data.Databases;
 using Data.Entities.Executable.Race;
 using Data.Entities.Executable.Supplier;
 using Data.Entities.Executable.Team;
 using Data.Entities.Executable.Track;
+using Data.Entities.Generic;
+using Data.Entities.Language;
+using Data.FileConnection;
 using GpwEditor.Enums;
 using GpwEditor.Properties;
 using Cursor = System.Windows.Forms.Cursor;
@@ -25,9 +30,9 @@ namespace GpwEditor
     /// </summary>
     public partial class GameExecutableEditorForm : Form
     {
-        private bool _isModified;
-
         private RacePerformanceCurveChart _racePerformanceCurveChart;
+        private bool _isFailedValidationForSwitchingContext;
+        private bool _isImportOccured;
 
         public GameExecutableEditorForm()
         {
@@ -44,6 +49,7 @@ namespace GpwEditor
 
             ConfigureControls();
             GenerateTooltips();
+            SubscribeDataGridViewControlsToGenericEvents();
 
             // Create and map to chart
             _racePerformanceCurveChart = new RacePerformanceCurveChart(RacePerformanceChart);
@@ -64,6 +70,33 @@ namespace GpwEditor
 
         private void GameExecutableEditorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // TODO remove
+            // If any data grids are in edit mode, prevent closure
+            //if (IsDataGridViewControlsInEditMode())
+            //{
+            //    // Abort event
+            //    ShowValidationError("Please confirm or reject your change to the selected cell, prior to closing the form.");
+            //    e.Cancel = true;
+            //    return;
+            //}
+
+            // TODO remove
+            // If any data grid view controls on the form are in edit mode
+            //if (CancelAndEndEditOnDataGridViewControls())
+            //{
+            //    // Abort event
+            //    e.Cancel = true;
+            //    return;
+            //}
+
+            if (_isFailedValidationForSwitchingContext)
+            {
+                // Abort event
+                e.Cancel = true;
+                _isFailedValidationForSwitchingContext = false; // Reset
+                return;
+            }
+
             if (!ConfirmCloseFormWithUnsavedChanges())
             {
                 // Abort event
@@ -75,10 +108,21 @@ namespace GpwEditor
             Settings.Default.Save();
         }
 
-        private void GameExecutableEditorForm_Resize(object sender, EventArgs e)
+        private void MainTabControl_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            MainTabControl.Width = ClientSize.Width - (MainTabControl.Location.X * 2);
-            MainTabControl.Height = ClientSize.Height - (MainTabControl.Location.Y * 2);
+            if (!_isImportOccured)
+            {
+                // Abort event
+                e.Cancel = true;
+                ShowErrorMessageBox("Unable to switch tabs until a successful import has occurred.");
+            }
+
+            if (_isFailedValidationForSwitchingContext)
+            {
+                // Abort event
+                e.Cancel = true;
+                _isFailedValidationForSwitchingContext = false; // Reset
+            }
         }
 
         private void BrowseLanguageFileButton_Click(object sender, EventArgs e)
@@ -90,7 +134,9 @@ namespace GpwEditor
 
             // Cancel if file was not selected
             if (result != DialogResult.OK)
+            {
                 return;
+            }
 
             LanguageFilePathTextBox.Text = ProgramOpenFileDialog.FileName;
         }
@@ -104,7 +150,9 @@ namespace GpwEditor
 
             // Cancel if file was not selected
             if (result != DialogResult.OK)
+            {
                 return;
+            }
 
             GameExecutablePathTextBox.Text = ProgramOpenFileDialog.FileName;
         }
@@ -112,120 +160,23 @@ namespace GpwEditor
         private void ImportButton_Click(object sender, EventArgs e)
         {
             Import(LanguageFilePathTextBox.Text, GameExecutablePathTextBox.Text);
-
-            // On import, assume user has made modifications to the data
-            _isModified = true;
         }
 
         private void ExportButton_Click(object sender, EventArgs e)
         {
+            if (!_isImportOccured)
+            {
+                ShowErrorMessageBox("Unable to export until a successful import has occurred.");
+                return;
+            }
+
             Export(LanguageFilePathTextBox.Text, GameExecutablePathTextBox.Text);
         }
 
-        private void TeamsDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        private static void GenericDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            // TODO
-        }
+            var dataGridView = (DataGridView)sender;
 
-        private void DriversDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-            // TODO
-        }
-
-        private void EnginesDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-            /* TODO Uncomment once unknown defect has been resolved - suspect because values are currently 0 it throws exception.
-            // If the cell is in the following column indices
-            if (e.ColumnIndex == 0)
-            {
-                // Show message if validation determines that cell is empty
-                if (string.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
-                {
-                    var headerText = EnginesDataGridView.Columns[e.ColumnIndex].HeaderText;
-                    MessageBox.Show($"Please enter a value in the {headerText} column.");
-                    e.Cancel = true;
-                }
-            }
-
-            else
-            {
-                // Show message if validation determines that cell is not a valid integer rating value
-                if ((!e.FormattedValue.ToString().IsInteger()) &&
-                    (!Convert.ToInt32(e.FormattedValue).ValidateAsOneToTenStepOne()))
-                {
-                    var headerText = EnginesDataGridView.Columns[e.ColumnIndex].HeaderText;
-                    MessageBox.Show($"Please enter a value for {headerText} of {1}-{10}.");
-                    e.Cancel = true;
-                }
-            }
-            */
-        }
-
-        private void TyresDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-            /* TODO Uncomment once unknown defect has been resolved - suspect because values are currently 0 it throws exception.
-            // If the cell is in the following column indices
-            if (e.ColumnIndex == 0)
-            {
-                // Show message if validation determines that cell is empty
-                if (string.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
-                {
-                    var headerText = TyresDataGridView.Columns[e.ColumnIndex].HeaderText;
-                    MessageBox.Show($"Please enter a value in the {headerText} column.");
-                    e.Cancel = true;
-                }
-            }
-
-            else
-            {
-                // Show message if validation determines that cell is not a valid integer rating value
-                if ((!e.FormattedValue.ToString().IsInteger()) &&
-                    (!Convert.ToInt32(e.FormattedValue).ValidateAsOneToTenStepOne()))
-                {
-                    var headerText = TyresDataGridView.Columns[e.ColumnIndex].HeaderText;
-                    MessageBox.Show($"Please enter a value for {headerText} of {1}-{10}.");
-                    e.Cancel = true;
-                }
-            }
-            */
-        }
-
-        private void FuelsDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-            /* TODO Uncomment once unknown defect has been resolved - suspect because values are currently 0 it throws exception.
-            // If the cell is in the following column indices
-            if (e.ColumnIndex == 0)
-            {
-                // Show message if validation determines that cell is empty
-                if (string.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
-                {
-                    var headerText = FuelsDataGridView.Columns[e.ColumnIndex].HeaderText;
-                    MessageBox.Show($"Please enter a value in the {headerText} column.");
-                    e.Cancel = true;
-                }
-            }
-
-            else
-            {
-                // Show message if validation determines that cell is not a valid integer rating value
-                if ((!e.FormattedValue.ToString().IsInteger()) &&
-                    (!Convert.ToInt32(e.FormattedValue).ValidateAsOneToTenStepOne()))
-                {
-                    var headerText = FuelsDataGridView.Columns[e.ColumnIndex].HeaderText;
-                    MessageBox.Show($"Please enter a value for {headerText} of {1}-{10}.");
-                    e.Cancel = true;
-                }
-            }
-            */
-        }
-
-        private void TracksDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-            // TODO
-        }
-
-        private void GenericDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
             // If column header
             if (e.RowIndex < 0)
             {
@@ -233,18 +184,38 @@ namespace GpwEditor
             }
 
             // If combobox column
-            if (((DataGridView)sender).Columns[e.ColumnIndex] is DataGridViewComboBoxColumn)
+            if (dataGridView.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn)
             {
-                // Drop down
-                ((DataGridView)sender).BeginEdit(true);
-                ((ComboBox)((DataGridView)sender).EditingControl).DroppedDown = true;
+                // Drop down the drop down
+                dataGridView.BeginEdit(true);
+                ((ComboBox)dataGridView.EditingControl).DroppedDown = true;
             }
         }
 
-        private void GenericDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private static void GenericDataGridView_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            //
+        }
+
+        private void GenericDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            _isFailedValidationForSwitchingContext = false; // Reset
+
+            // Get the type used in the collection that is assigned to the datasource of the datagridview
+            // And invoke the named generic method, passing the required parameters to the generic method
+            // http://stackoverflow.com/a/325161
+            var dataGridView = (DataGridView)sender;
+            var listItemType = ListBindingHelper.GetListItemType(dataGridView.DataSource);
+            var methodInfo = typeof(GameExecutableEditorForm).GetMethod("ValidateDataGridViewCell", BindingFlags.NonPublic | BindingFlags.Instance);
+            var genericMethod = methodInfo.MakeGenericMethod(listItemType);
+            genericMethod.Invoke(this, new[] { sender, e });
+        }
+
+        private static void GenericDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             // Handle error that occurs after viewing the datagridview with imported data, having previously viewed the datagridview with no data
             // https://refactoringself.com/2012/09/26/datagridview-formattingexception-dataerror-and-preferredsize-auto-sizing-issue/
+
             if (e.Context == (DataGridViewDataErrorContexts.Formatting | DataGridViewDataErrorContexts.PreferredSize))
             {
                 e.Cancel = true;
@@ -397,8 +368,12 @@ namespace GpwEditor
             ConfigureDataGridViewControl<Track>(TracksDataGridView, 6);
             ConfigureDataGridViewControl<FiveValueBase>(FactoryRunningCostsDataGridView, 7, "Running Costs", true);
             ConfigureDataGridViewControl<FiveRatingBase>(FactoryExpansionCostsDataGridView, 8, "Expansion Costs", true);
-            ConfigureDataGridViewControl<FiveValueBase>(StaffSalariesDataGridView, 9, "Staff Salaries", true);
+            ConfigureDataGridViewControl<FiveRatingBase>(StaffEffortsDataGridView, 11, "Staff Efforts", true);
+            ConfigureDataGridViewControl<FiveRatingBase>(StaffSalariesDataGridView, 9, "Staff Salaries", true);
             ConfigureDataGridViewControl<TenValueBase>(TestingMilesDataGridView, 10, "Testing Miles", true);
+            ConfigureDataGridViewControl<TenValueBase>(EngineeringCostsDataGridView, 12, "Engineering Costs", true);
+            ConfigureDataGridViewControl<SingleValueBase>(UnknownADataGridView, 13, "UnknownA", true);
+            ConfigureDataGridViewControl<SingleValueBase>(UnknownBDataGridView, 14, "UnknownB", true);
         }
 
         private static void ConfigureDataGridViewControl<T>(DataGridView dataGridView, int columnId, string resourceTextHeaderText, bool fillColumns = false)
@@ -417,6 +392,9 @@ namespace GpwEditor
             // Freeze primary column (to always show when scrolling horizontally)
             dataGridView.Columns[$"resourceTextDataGridViewTextBoxColumn{columnId}"].Frozen = !fillColumns;
 
+            // Make primary column readonly
+            dataGridView.Columns[$"resourceTextDataGridViewTextBoxColumn{columnId}"].ReadOnly = true;
+
             // Rename column headers and populate column tooltips using model attributes
             UpdateDataGridViewColumnHeaders<T>(dataGridView);
 
@@ -429,15 +407,9 @@ namespace GpwEditor
             dataGridView.RowHeadersVisible = false;
         }
 
-        private bool ConfirmCloseFormWithUnsavedChanges()
+        private static bool ConfirmCloseFormWithUnsavedChanges()
         {
-            // Return true if there are no unsaved changes 
-            if (!_isModified)
-            {
-                return true;
-            }
-
-            // Prompt user whether to close form with unsaved changes
+            // Prompt user whether to close form
             var dialogResult = MessageBox.Show(
                     $"Are you sure you wish to close the game executable editor?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost.",
                     Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
@@ -498,6 +470,7 @@ namespace GpwEditor
                 var executableDatabase = new ExecutableDatabase();
                 executableDatabase.ImportDataFromFile(gameExecutableFilePath, languageFileFilePath);
                 PopulateControls(executableDatabase);
+                _isImportOccured = true;
             }
             catch (Exception ex)
             {
@@ -530,21 +503,28 @@ namespace GpwEditor
             FactoryRunningCostsDataGridView.DataSource = executableDatabase.FactoryRunningCosts;
             FactoryExpansionCostsDataGridView.DataSource = executableDatabase.FactoryExpansionCosts;
             StaffSalariesDataGridView.DataSource = executableDatabase.StaffSalaries;
+            StaffEffortsDataGridView.DataSource = executableDatabase.StaffEfforts;
             TestingMilesDataGridView.DataSource = executableDatabase.TestingMiles;
+            EngineeringCostsDataGridView.DataSource = executableDatabase.EngineeringCosts;
+            UnknownADataGridView.DataSource = executableDatabase.UnknownAEfforts;
+            UnknownBDataGridView.DataSource = executableDatabase.UnknownBEfforts;
 
             // Bind comboboxes to data
             // Hint: Requires the column type to be set at design time to ComboBoxColumn via DataGridView Tasks Wizard > Edit Columns... > ColumnType
             //       Requires a rename at design time of the column's Name property. Change the suffix TextBoxColumn to ComboBoxColumn to reflect the ColumnType.
-            BindDataGridViewComboBoxColumn(TeamsDataGridView, "firstGpTrackDataGridViewComboBoxColumn", executableDatabase.TeamFirstGpTrackIdentities);
-            BindDataGridViewComboBoxColumn(TeamsDataGridView, "tyreSupplierIdDataGridViewComboBoxColumn", executableDatabase.TeamTyreSupplierIdIdentities);
-            BindDataGridViewComboBoxColumn(DriversDataGridView, "nationalityDataGridViewComboBoxColumn", executableDatabase.DriverNationalityIdIdentities);
-            BindDataGridViewComboBoxColumn(TracksDataGridView, "designDataGridViewComboBoxColumn", executableDatabase.TrackDesignIdentities);
-            BindDataGridViewComboBoxColumn(TracksDataGridView, "lapRecordDriverDataGridViewComboBoxColumn", executableDatabase.DriverIdentities);
+            BindDataGridViewComboBoxColumn(TeamsDataGridView, "firstGpTrackDataGridViewComboBoxColumn", executableDatabase.FirstGpTrackLookups);
+            BindDataGridViewComboBoxColumn(TeamsDataGridView, "tyreSupplierIdDataGridViewComboBoxColumn", executableDatabase.TyreSupplierAsSupplierIdLookups);
+            BindDataGridViewComboBoxColumn(DriversDataGridView, "nationalityDataGridViewComboBoxColumn", executableDatabase.DriverNationalityLookups);
+            BindDataGridViewComboBoxColumn(TracksDataGridView, "designDataGridViewComboBoxColumn", executableDatabase.TrackDesignLookups);
+            BindDataGridViewComboBoxColumn(TracksDataGridView, "lapRecordDriverDataGridViewComboBoxColumn", executableDatabase.FastestLapDriverIdAsStaffIdLookups);
             BindDataGridViewComboBoxColumn(TracksDataGridView, "lapRecordTeamDataGridViewComboBoxColumn", executableDatabase.Teams);
-            BindDataGridViewComboBoxColumn(TracksDataGridView, "lastRaceDriverDataGridViewComboBoxColumn", executableDatabase.DriverIdentities);
+            BindDataGridViewComboBoxColumn(TracksDataGridView, "lastRaceDriverDataGridViewComboBoxColumn", executableDatabase.FastestLapDriverIdAsStaffIdLookups);
             BindDataGridViewComboBoxColumn(TracksDataGridView, "lastRaceTeamDataGridViewComboBoxColumn", executableDatabase.Teams);
 
             // Generate chart
+            RacePerformanceDefaultCheckBox.Checked = true; // Reset
+            RacePerformanceCurrentCheckBox.Checked = true; // Reset
+            RacePerformanceProposedCheckBox.Checked = true; // Reset
             _racePerformanceCurveChart.GenerateChart();
             _racePerformanceCurveChart.SetCurrentSeries(executableDatabase.RacePerformance.Values);
             _racePerformanceCurveChart.SetProposedSeriesToCurrentSeries();
@@ -562,10 +542,14 @@ namespace GpwEditor
             executableDatabase.Fuels = (FuelCollection)FuelsDataGridView.DataSource;
             executableDatabase.Tracks = (TrackCollection)TracksDataGridView.DataSource;
 
-            executableDatabase.StaffSalaries = (FiveValueCollection)StaffSalariesDataGridView.DataSource;
+            executableDatabase.StaffEfforts = (FiveRatingCollection)StaffEffortsDataGridView.DataSource;
+            executableDatabase.StaffSalaries = (FiveRatingCollection)StaffSalariesDataGridView.DataSource;
             executableDatabase.FactoryRunningCosts = (FiveValueCollection)FactoryRunningCostsDataGridView.DataSource;
             executableDatabase.FactoryExpansionCosts = (FiveRatingCollection)FactoryExpansionCostsDataGridView.DataSource;
             executableDatabase.TestingMiles = (TenValueCollection)TestingMilesDataGridView.DataSource;
+            executableDatabase.EngineeringCosts = (TenValueCollection)EngineeringCostsDataGridView.DataSource;
+            executableDatabase.UnknownAEfforts = (SingleValueCollection)UnknownADataGridView.DataSource;
+            executableDatabase.UnknownBEfforts = (SingleValueCollection)UnknownBDataGridView.DataSource;
 
             executableDatabase.RacePerformance = new RacePerformance
             {
@@ -580,6 +564,23 @@ namespace GpwEditor
             childForm.FormClosing += delegate { parentForm.Show(); };
         }
 
+        private static void ShowErrorMessageBox(string message)
+        {
+            MessageBox.Show(message, Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void SubscribeDataGridViewControlsToGenericEvents()
+        {
+            // Find all datagridview controls on form and subscribe them to their generic events
+            foreach (var control in this.GetAllControlsOfType(typeof(DataGridView)))
+            {
+                ((DataGridView)control).DataError += GenericDataGridView_DataError;
+                ((DataGridView)control).CellEnter += GenericDataGridView_CellEnter;
+                ((DataGridView)control).CellLeave += GenericDataGridView_CellLeave;
+                ((DataGridView)control).CellValidating += GenericDataGridView_CellValidating;
+            }
+        }
+
         private static void UpdateDataGridViewColumnHeaders<T>(DataGridView dataGridView)
         {
             foreach (DataGridViewColumn column in dataGridView.Columns)
@@ -589,13 +590,89 @@ namespace GpwEditor
                 var attributes = property.GetCustomAttributes(true);
                 foreach (var attribute in attributes)
                 {
-                    var displayAttribute = (DisplayAttribute)attribute;
+                    var displayAttribute = attribute as DisplayAttribute;
                     if (displayAttribute != null)
                     {
                         // Update header text and tooltip text with attribute text
                         column.HeaderText = displayAttribute.GetName();
                         column.ToolTipText = displayAttribute.GetDescription();
                     }
+                }
+            }
+        }
+
+        // ReSharper disable once UnusedMember.Local
+        private void ValidateDataGridViewCell<T>(DataGridView dataGridView, DataGridViewCellValidatingEventArgs e) where T : IIdentity
+        {
+            // Ignore validation on hidden columns
+            if (e.ColumnIndex < 4)
+            {
+                return;
+            }
+
+            // Validate user editable columns
+            var row = dataGridView.Rows[e.RowIndex];
+            var column = dataGridView.Columns[e.ColumnIndex];
+            var cell = row.Cells[e.ColumnIndex];
+            var newValue = e.FormattedValue;
+            var oldValue = cell.FormattedValue.ToString();
+
+            var properties = typeof(T).GetProperties();
+            var property = properties.Single(x => x.Name == column.DataPropertyName);
+            var attributes = property.GetCustomAttributes(true);
+
+            // If validating an integer field
+            if (property.PropertyType == typeof(int))
+            {
+                // If combobox column, get value of selected item
+                if (column is DataGridViewComboBoxColumn)
+                {
+                    foreach (var item in (column as DataGridViewComboBoxColumn).Items)
+                    {
+                        if (((IIdentity)item).ResourceText == newValue.ToString())
+                        {
+                            newValue = ((IIdentity)item).LocalResourceId;
+                            break;
+                        }
+                    }
+                }
+
+                // Validate type
+                int intValue;
+                if (!int.TryParse(newValue.ToString(), out intValue))
+                {
+                    e.Cancel = true;
+                    dataGridView.CancelEdit();
+                    dataGridView.EndEdit();
+                    _isFailedValidationForSwitchingContext = true;
+                    ShowErrorMessageBox($"Value for {column.HeaderText} must be a whole number.");
+                    return;
+                }
+
+                // Process attributes
+                foreach (var attribute in attributes)
+                {
+                    // Validate range
+                    var rangeAttribute = attribute as RangeAttribute;
+                    if (rangeAttribute != null)
+                    {
+                        if ((intValue < (int)rangeAttribute.Minimum) || (intValue > (int)rangeAttribute.Maximum))
+                        {
+                            e.Cancel = true;
+                            dataGridView.CancelEdit();
+                            dataGridView.EndEdit();
+                            _isFailedValidationForSwitchingContext = true;
+                            ShowErrorMessageBox(rangeAttribute.FormatErrorMessage(column.HeaderText));
+                            return;
+                        }
+                    }
+                }
+
+                // If combobox column, commit and end edit now that validation has been cleared
+                if (column is DataGridViewComboBoxColumn)
+                {
+                    dataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                    dataGridView.EndEdit();
                 }
             }
         }

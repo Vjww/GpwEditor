@@ -1,10 +1,9 @@
-﻿using Data.Entities.Executable.Supplier;
-
-namespace Data.ValueMapping.Executable.Supplier
+﻿namespace Data.ValueMapping.Executable.Supplier
 {
     public class Engine : IEngine
     {
-        // Offset values
+        private const int NameIndex = 4886; // "EngineA"
+
         private const int BaseOffset = 2756160;
         private const int LocalOffset = 28;
         private const int FuelOffset = 0;
@@ -15,6 +14,7 @@ namespace Data.ValueMapping.Executable.Supplier
         private const int RigidityOffset = 20;
         private const int WeightOffset = 24;
 
+        public int Name { get; set; }
         public int Fuel { get; set; }
         public int Heat { get; set; }
         public int Power { get; set; }
@@ -25,7 +25,8 @@ namespace Data.ValueMapping.Executable.Supplier
 
         public Engine(int id)
         {
-            // Calculate step offset from zero based index
+            Name = NameIndex + GetLocalResourceId(id) - 1;
+
             var stepOffset = LocalOffset * id;
 
             Fuel = BaseOffset + stepOffset + FuelOffset;
@@ -35,6 +36,16 @@ namespace Data.ValueMapping.Executable.Supplier
             Response = BaseOffset + stepOffset + ResponseOffset;
             Rigidity = BaseOffset + stepOffset + RigidityOffset;
             Weight = BaseOffset + stepOffset + WeightOffset;
+        }
+
+        public static int GetLocalResourceId(int id)
+        {
+            var idToResourceIdMap = new[]
+                {
+                    1, 2, 3, 4, 5, 6, 7, 8
+                };
+
+            return idToResourceIdMap[id];
         }
     }
 }
