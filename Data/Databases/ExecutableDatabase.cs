@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq.Expressions;
-using Common.Extensions;
-using Data.Collections.Executable.Lookup;
 using Data.Collections.Executable.Supplier;
 using Data.Collections.Executable.Team;
 using Data.Collections.Executable.Track;
@@ -12,8 +9,6 @@ using Data.Collections.Language;
 using Data.Entities.Executable.Race;
 using Data.Entities.Language;
 using Data.FileConnection;
-using Data.Helpers;
-using Data.Patchers.Enhancements.Units;
 using EnvironmentEntities = Data.Entities.Executable.Environment;
 using EnvironmentMapping = Data.ValueMapping.Executable.Environment;
 using LookupEntities = Data.Entities.Executable.Lookup;
@@ -29,30 +24,6 @@ namespace Data.Databases
 {
     public class ExecutableDatabase
     {
-        // TODO Remove comments
-        //private const int TeamCount = 11;
-        //private const int TeamFirstGpTrackCount = 19;
-        //private const int TeamTyreSupplierIdCount = 3;
-        //private const int DriverCount = 33;
-        //private const int DriverIdentityCount = 48;
-        //private const int DriverNationalityIdCount = 14;
-        //private const int EngineCount = 8;
-        //private const int TyreCount = 3;
-        //private const int FuelCount = 9;
-        //private const int TrackCount = 16;
-        //private const int TrackDesignCount = 3;
-
-        //private const int TeamBaseResourceId = 5696;                // "No Team" - Zero based index
-        //private const int TeamFirstGpTrackBaseResourceId = 6006;    // "No race" - Zero based index
-        //private const int TeamTyreSupplierIdBaseResourceId = 4875;  // TyreA -8  - Offset based index
-        //private const int DriverBaseResourceId = 5795;              // "None" - Zero based index
-        //private const int DriverNationalityIdBaseResourceId = 5952; // "None" - Zero based index
-        //private const int EngineBaseResourceId = 4886;              // EngineA - One based index
-        //private const int TyreBaseResourceId = 4883;                // TyreA - One based index
-        //private const int FuelBaseResourceId = 4894;                // FuelA - One based index
-        //private const int TrackBaseResourceId = 6043;               // "No Circuit" - Zero based index
-        //private const int TrackDesignBaseResourceId = 6525;         // "" - Zero based index
-
         public IdentityCollection LanguageStrings { get; set; }
         public TeamCollection Teams { get; set; }
         public DriverCollection Drivers { get; set; }
@@ -70,11 +41,11 @@ namespace Data.Databases
         public SingleValueCollection UnknownAEfforts { get; set; }
         public SingleValueCollection UnknownBEfforts { get; set; }
 
-        public DriverNationalityCollection DriverNationalityLookups { get; set; }
-        public FastestLapDriverIdAsStaffIdCollection FastestLapDriverIdAsStaffIdLookups { get; set; }
-        public FirstGpTrackCollection FirstGpTrackLookups { get; set; }
-        public TrackDesignCollection TrackDesignLookups { get; set; }
-        public TyreSupplierAsSupplierIdCollection TyreSupplierAsSupplierIdLookups { get; set; }
+        public IEnumerable<LookupEntities.DriverNationality> DriverNationalityLookups { get; set; }
+        public IEnumerable<LookupEntities.FastestLapDriverIdAsStaffId> FastestLapDriverIdAsStaffIdLookups { get; set; }
+        public IEnumerable<LookupEntities.FirstGpTrack> FirstGpTrackLookups { get; set; }
+        public IEnumerable<LookupEntities.TrackDesign> TrackDesignLookups { get; set; }
+        public IEnumerable<LookupEntities.TyreSupplierIdAsSupplierId> TyreSupplierIdAsSupplierIdLookups { get; set; }
 
         public void ImportDataFromFile(string gameExecutableFilePath, string languageFileFilePath)
         {
@@ -82,7 +53,7 @@ namespace Data.Databases
 
             ImportTeams(gameExecutableFilePath);
             ImportFirstGpTrackLookups();
-            ImportTyreSupplierAsSupplierIdLookups();
+            ImportTyreSupplierIdAsSupplierIdLookups();
 
             ImportDrivers(gameExecutableFilePath);
             ImportDriverNationalityLookups();
@@ -219,78 +190,6 @@ namespace Data.Databases
             ExportData(gameExecutableFilePath, Drivers);
         }
 
-        // TODO Remove
-        //private void ImportDriverIdentities()
-        //{
-        //    // Generate driver identity records
-        //    DriverIdAsTeamIdLookups = new IdentityCollection();
-        //    foreach (var driver in Drivers)
-        //    {
-        //        var driverIdentity = new Identity()
-        //        {
-        //            Id = driver.Id,
-        //            LocalResourceId = driver.LocalResourceId,
-        //            ResourceId = driver.ResourceId,
-        //            ResourceText = driver.ResourceText
-        //        };
-        //        DriverIdAsTeamIdLookups.Add(driverIdentity);
-        //    }
-        //
-        //    // Add additional driver identity records
-        //    for (var id = DriverCount; id < DriverIdentityCount; id++)
-        //    {
-        //        var driverIdentity = new Identity()
-        //        {
-        //            Id = id,
-        //            LocalResourceId = GetDriverResourceId(id),
-        //            ResourceId = GetResourceId(DriverBaseResourceId, GetDriverResourceId(id), true),
-        //            ResourceText = GetResourceText(GetResourceId(DriverBaseResourceId, GetDriverResourceId(id), true))
-        //        };
-        //        DriverIdAsTeamIdLookups.Add(driverIdentity);
-        //    }
-        //}
-
-        // TODO Remove
-        //private static int GetDriverResourceId(int id)
-        //{
-        //    var idToResourceIdMap = new[]
-        //        {
-        //            6, 7, 8, 14, 15, 16, 22, 23, 24, 30, 31, 32, 38, 39, 40, 46, 47, 48, 54, 55, 56, 62, 63, 64, 70, 71, 72,
-        //            78, 79, 80, 86, 87, 88, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 200, 201, 202, 203
-        //        };
-        //
-        //    return idToResourceIdMap[id];
-        //}
-
-        // TODO Remove
-        //private void ImportDriverNationalityIdIdentities()
-        //{
-        //    // Import from file
-        //    DriverNationalityLookups = new IdentityCollection();
-        //    for (var id = 0; id < DriverNationalityIdCount; id++)
-        //    {
-        //        var driverNationalityIdIdentity = new Identity
-        //        {
-        //            Id = id,
-        //            LocalResourceId = GetDriverNationalityIdResourceId(id),
-        //            ResourceId = GetResourceId(DriverNationalityIdBaseResourceId, GetDriverNationalityIdResourceId(id)),
-        //            ResourceText = GetResourceText(GetResourceId(DriverNationalityIdBaseResourceId, GetDriverNationalityIdResourceId(id)))
-        //        };
-        //        DriverNationalityLookups.Add(driverNationalityIdIdentity);
-        //    }
-        //}
-
-        // TODO Remove
-        //private static int GetDriverNationalityIdResourceId(int id)
-        //{
-        //    var idToResourceIdMap = new[]
-        //        {
-        //            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
-        //        };
-        //
-        //    return idToResourceIdMap[id];
-        //}
-
         private void ImportEngines(string gameExecutableFilePath)
         {
             Engines = new EngineCollection
@@ -379,34 +278,20 @@ namespace Data.Databases
             ExportData(gameExecutableFilePath, Tracks);
         }
 
-        // TODO Refactor
         private void ImportRacePerformance(string gameExecutableFilePath)
         {
+            RacePerformance = new RacePerformance();
             using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                // Import from file
-                var valueMapping = new ValueMapping.Executable.Race.RacePerformance();
-                RacePerformance = new RacePerformance();
-
-                for (var i = 0; i < RacePerformance.Values.Length; i++)
-                {
-                    RacePerformance.Values[i] = executableConnection.ReadInteger(valueMapping.Values[i]);
-                }
+                RacePerformance.ImportData(executableConnection, LanguageStrings);
             }
         }
 
-        // TODO Refactor
         private void ExportRacePerformance(string gameExecutableFilePath)
         {
             using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                // Export to file
-                var valueMapping = new ValueMapping.Executable.Race.RacePerformance();
-
-                for (var i = 0; i < RacePerformance.Values.Length; i++)
-                {
-                    executableConnection.WriteInteger(valueMapping.Values[i], RacePerformance.Values[i]);
-                }
+                RacePerformance.ExportData(executableConnection, LanguageStrings);
             }
         }
 
@@ -548,168 +433,29 @@ namespace Data.Databases
             ExportData(gameExecutableFilePath, UnknownBEfforts);
         }
 
-        // TODO Remove
-        private static string GetResourceId(int baseResourceId, int localResourceId, bool isDriver = false)
-        {
-            if (!isDriver)
-            {
-                return (baseResourceId + localResourceId).BuildResourceId();
-            }
-
-            // Special consideration for driver names that are not actually drivers in the game
-            // e.g. Used for displaying historic fastest lap records in the game
-            int recalculatedLocalResourceId;
-            if ((localResourceId >= 200) && (localResourceId <= 203))
-            {
-                // Recalculate virtual position in game to real position in language file
-                recalculatedLocalResourceId = 535 + localResourceId;
-            }
-            else
-            {
-                recalculatedLocalResourceId = localResourceId;
-            }
-
-            return (baseResourceId + recalculatedLocalResourceId).BuildResourceId();
-        }
-
-        // TODO Remove
-        private string GetResourceText(string resourceId)
-        {
-            return ResourceHelper.GetResourceText(LanguageStrings, resourceId);
-
-            //var resource = LanguageStrings.SingleOrDefault(x => x.ResourceId == resourceId);
-            //
-            //if (resource == null)
-            //{
-            //    throw new Exception($"Unable to find a resource string in the language file matching the resource id {resourceId}.");
-            //}
-            //
-            //return resource.ResourceText;
-        }
-
-        // TODO Remove
-        private void SetResourceText(string resourceId, string resourceText)
-        {
-            ResourceHelper.SetResourceText(LanguageStrings, resourceId, resourceText);
-
-            //var resource = LanguageStrings.SingleOrDefault(x => x.ResourceId == resourceId);
-            //
-            //if (resource == null)
-            //{
-            //    throw new Exception($"Unable to find a resource string in the language file matching the resource id {resourceId}.");
-            //}
-            //
-            //resource.ResourceText = resourceText;
-        }
-
-        /// <summary>
-        /// Generic method that imports a collection of lookup entities.
-        /// </summary>
-        /// <typeparam name="T">The type of the collection of lookup entities.</typeparam>
-        /// <typeparam name="TU">The type of the lookup entity.</typeparam>
-        /// <typeparam name="TY">The tytpe of the lookup mapping.</typeparam>
-        /// <param name="count">The number of lookup records to import.</param>
-        /// <returns></returns>
-        private IEnumerable<TU> ImportLookups<T, TU, TY>(int count)
-            where T : Collection<TU>, new()
-            where TU : class, IDataConnection
-        {
-            var lookups = new T();
-            for (var id = 0; id < count; id++)
-            {
-                // Using Activator.CreateInstance to instantiate classes that have constructors with parameters
-                // In effect, the three lines below are the same as: lookups.Add(new TU(new TY(id), id));
-                var tyInstance = Activator.CreateInstance(typeof(TY), new object[] { id }) as LookupMapping.ILookup;
-                var tuInstance = Activator.CreateInstance(typeof(TU), new object[] { tyInstance, id }) as TU;
-                lookups.Add(tuInstance);
-            }
-            ImportData(lookups);
-            return lookups;
-        }
-
         private void ImportDriverNationalityLookups()
         {
-            DriverNationalityLookups =
-                (DriverNationalityCollection)
-                    ImportLookups
-                        <DriverNationalityCollection, LookupEntities.DriverNationality, LookupMapping.DriverNationality>(14);
-
-            // TODO remove
-            //const int count = 14;
-            //DriverNationalityLookups = new DriverNationalityCollection();
-            //for (var id = 0; id < count; id++)
-            //{
-            //    DriverNationalityLookups.Add(new LookupEntities.DriverNationality(new LookupMapping.DriverNationality(id), id));
-            //}
-            //ImportData(DriverNationalityLookups);
+            DriverNationalityLookups = ImportLookups<LookupEntities.DriverNationality, LookupMapping.DriverNationality>(14);
         }
 
         private void ImportFastestLapDriverIdAsStaffIdLookups()
         {
-            FastestLapDriverIdAsStaffIdLookups =
-                (FastestLapDriverIdAsStaffIdCollection)
-                    ImportLookups
-                        <FastestLapDriverIdAsStaffIdCollection, LookupEntities.FastestLapDriverIdAsStaffId, LookupMapping.FastestLapDriverIdAsStaffId>(48);
-
-            // TODO remove
-            //const int count = 48;
-            //FastestLapDriverIdAsStaffIdLookups = new FastestLapDriverIdAsStaffIdCollection();
-            //for (var id = 0; id < count; id++)
-            //{
-            //    FastestLapDriverIdAsStaffIdLookups.Add(new LookupEntities.FastestLapDriverIdAsStaffId(new LookupMapping.FastestLapDriverIdAsStaffId(id), id));
-            //}
-            //ImportData(FastestLapDriverIdAsStaffIdLookups);
+            FastestLapDriverIdAsStaffIdLookups = ImportLookups<LookupEntities.FastestLapDriverIdAsStaffId, LookupMapping.FastestLapDriverIdAsStaffId>(48);
         }
 
         private void ImportFirstGpTrackLookups()
         {
-            FirstGpTrackLookups =
-                (FirstGpTrackCollection)
-                    ImportLookups
-                        <FirstGpTrackCollection, LookupEntities.FirstGpTrack, LookupMapping.FirstGpTrack>(19);
-
-            // TODO remove
-            //const int count = 19;
-            //FirstGpTrackLookups = new FirstGpTrackCollection();
-            //for (var id = 0; id < count; id++)
-            //{
-            //    FirstGpTrackLookups.Add(new LookupEntities.FirstGpTrack(new LookupMapping.FirstGpTrack(id), id));
-            //}
-            //ImportData(FirstGpTrackLookups);
+            FirstGpTrackLookups = ImportLookups<LookupEntities.FirstGpTrack, LookupMapping.FirstGpTrack>(19);
         }
 
         private void ImportTrackDesignLookups()
         {
-            TrackDesignLookups =
-                (TrackDesignCollection)
-                    ImportLookups
-                        <TrackDesignCollection, LookupEntities.TrackDesign, LookupMapping.TrackDesign>(3);
-
-            // TODO remove
-            //const int count = 3;
-            //TrackDesignLookups = new TrackDesignCollection();
-            //for (var id = 0; id < count; id++)
-            //{
-            //    TrackDesignLookups.Add(new LookupEntities.TrackDesign(new LookupMapping.TrackDesign(id), id));
-            //}
-            //ImportData(TrackDesignLookups);
+            TrackDesignLookups = ImportLookups<LookupEntities.TrackDesign, LookupMapping.TrackDesign>(3);
         }
 
-        private void ImportTyreSupplierAsSupplierIdLookups()
+        private void ImportTyreSupplierIdAsSupplierIdLookups()
         {
-            TyreSupplierAsSupplierIdLookups =
-                (TyreSupplierAsSupplierIdCollection)
-                    ImportLookups
-                        <TyreSupplierAsSupplierIdCollection, LookupEntities.TyreSupplierAsSupplierId, LookupMapping.TyreSupplierAsSupplierId>(3);
-
-            // TODO remove
-            //const int count = 3;
-            //TyreSupplierAsSupplierIdLookups = new TyreSupplierAsSupplierIdCollection();
-            //for (var id = 0; id < count; id++)
-            //{
-            //    TyreSupplierAsSupplierIdLookups.Add(new LookupEntities.TyreSupplierAsSupplierId(new LookupMapping.TyreSupplierAsSupplierId(id), id));
-            //}
-            //ImportData(TyreSupplierAsSupplierIdLookups);
+            TyreSupplierIdAsSupplierIdLookups = ImportLookups<LookupEntities.TyreSupplierIdAsSupplierId, LookupMapping.TyreSupplierIdAsSupplierId>(3);
         }
 
         private void ImportData<T>(IEnumerable<T> collection) where T : IDataConnection
@@ -729,6 +475,30 @@ namespace Data.Databases
                     item.ImportData(executableConnection, LanguageStrings);
                 }
             }
+        }
+
+        /// <summary>
+        /// Generic method that imports a collection of lookup entities.
+        /// </summary>
+        /// <typeparam name="T">The type of the lookup entity.</typeparam>
+        /// <typeparam name="TU">The tytpe of the lookup mapping.</typeparam>
+        /// <param name="count">The number of lookup records to import.</param>
+        /// <returns></returns>
+        private IEnumerable<T> ImportLookups<T, TU>(int count)
+            where T : class, IIdentity, IDataConnection
+            where TU : class, LookupMapping.ILookup
+        {
+            var lookups = new Collection<T>();
+            for (var id = 0; id < count; id++)
+            {
+                // Using Activator.CreateInstance to instantiate classes that have constructors with parameters
+                // In effect, the three lines below are the same as: lookups.Add(new T(new TU(id), id));
+                var tyInstance = Activator.CreateInstance(typeof(TU), new object[] { id }) as LookupMapping.ILookup;
+                var tuInstance = Activator.CreateInstance(typeof(T), new object[] { tyInstance, id }) as T;
+                lookups.Add(tuInstance);
+            }
+            ImportData(lookups);
+            return lookups;
         }
 
         private void ExportData<T>(string gameExecutableFilePath, IEnumerable<T> collection) where T : IDataConnection

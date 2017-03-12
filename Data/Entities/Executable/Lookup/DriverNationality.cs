@@ -8,7 +8,7 @@ using Mapping = Data.ValueMapping.Executable.Lookup;
 
 namespace Data.Entities.Executable.Lookup
 {
-    public class DriverNationality : IDriverNationality, IIdentity, IDataConnection
+    public class DriverNationality : IIdentity, IDataConnection
     {
         [Display(Name = "Id", Description = "The id of the record.")]
         public int Id { get; set; }

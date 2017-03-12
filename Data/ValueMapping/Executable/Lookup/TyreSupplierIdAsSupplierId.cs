@@ -1,12 +1,12 @@
 ﻿namespace Data.ValueMapping.Executable.Lookup
 {
-    public class TyreSupplierAsSupplierId : ILookup
+    public class TyreSupplierIdAsSupplierId : ILookup
     {
         private const int NameIndex = 4883; // "TyreA"
 
         public int Name { get; set; }
 
-        public TyreSupplierAsSupplierId(int id)
+        public TyreSupplierIdAsSupplierId(int id)
         {
             Name = NameIndex + GetLocalResourceId(id) - 8;
         }

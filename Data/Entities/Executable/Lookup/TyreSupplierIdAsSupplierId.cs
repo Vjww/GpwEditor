@@ -8,7 +8,7 @@ using Mapping = Data.ValueMapping.Executable.Lookup;
 
 namespace Data.Entities.Executable.Lookup
 {
-    public class TyreSupplierAsSupplierId : ITyreSupplierAsSupplierId, IIdentity, IDataConnection
+    public class TyreSupplierIdAsSupplierId : IIdentity, IDataConnection
     {
         [Display(Name = "Id", Description = "The id of the record.")]
         public int Id { get; set; }
@@ -19,10 +19,10 @@ namespace Data.Entities.Executable.Lookup
         [Display(Name = "Supplier Name", Description = "The name of the tyre supplier, as specified in the language file.")]
         public string ResourceText { get; set; }
 
-        public TyreSupplierAsSupplierId(Mapping.ILookup valueMapping, int id)
+        public TyreSupplierIdAsSupplierId(Mapping.ILookup valueMapping, int id)
         {
             Id = id;
-            LocalResourceId = Mapping.TyreSupplierAsSupplierId.GetLocalResourceId(Id);
+            LocalResourceId = Mapping.TyreSupplierIdAsSupplierId.GetLocalResourceId(Id);
             ResourceId = valueMapping.Name.BuildResourceId();
         }
 

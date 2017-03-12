@@ -8,7 +8,7 @@ using Mapping = Data.ValueMapping.Executable.Lookup;
 
 namespace Data.Entities.Executable.Lookup
 {
-    public class FirstGpTrack : IFirstGpTrack, IIdentity, IDataConnection
+    public class FirstGpTrack : IIdentity, IDataConnection
     {
         [Display(Name = "Id", Description = "The id of the record.")]
         public int Id { get; set; }

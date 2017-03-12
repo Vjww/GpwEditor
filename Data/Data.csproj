@@ -36,11 +36,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Collections\Executable\Lookup\DriverNationalityCollection.cs" />
-    <Compile Include="Collections\Executable\Lookup\FastestLapDriverIdAsStaffIdCollection.cs" />
-    <Compile Include="Collections\Executable\Lookup\TrackDesignCollection.cs" />
-    <Compile Include="Collections\Executable\Lookup\TyreSupplierAsSupplierIdCollection.cs" />
-    <Compile Include="Collections\Executable\Lookup\FirstGpTrackCollection.cs" />
     <Compile Include="Collections\Generic\SingleValueCollection.cs" />
     <Compile Include="Entities\Executable\Environment\EngineeringCosts\BuildSpare.cs" />
     <Compile Include="Entities\Executable\Environment\EngineeringCosts\UpgradeDrivingAid.cs" />
@@ -64,19 +59,14 @@
     <Compile Include="Entities\Executable\Environment\UnknownAEfforts\Unknown1.cs" />
     <Compile Include="Entities\Executable\Lookup\DriverNationality.cs" />
     <Compile Include="Entities\Executable\Lookup\FastestLapDriverIdAsStaffId.cs" />
-    <Compile Include="Entities\Executable\Lookup\IDriverNationality.cs" />
-    <Compile Include="Entities\Executable\Lookup\IFastestLapDriverIdAsStaffId.cs" />
     <Compile Include="Entities\Executable\Lookup\TrackDesign.cs" />
-    <Compile Include="Entities\Executable\Lookup\ITrackDesign.cs" />
     <Compile Include="Entities\Executable\Race\IRacePerformance.cs" />
     <Compile Include="Entities\Executable\Supplier\IEngine.cs" />
     <Compile Include="Entities\Executable\Supplier\IFuel.cs" />
     <Compile Include="Entities\Executable\Supplier\ITyre.cs" />
     <Compile Include="Entities\Executable\Team\IDriver.cs" />
-    <Compile Include="Entities\Executable\Lookup\ITyreSupplierAsSupplierId.cs" />
     <Compile Include="Entities\Executable\Team\ITeam.cs" />
-    <Compile Include="Entities\Executable\Lookup\TyreSupplierAsSupplierId.cs" />
-    <Compile Include="Entities\Executable\Lookup\IFirstGpTrack.cs" />
+    <Compile Include="Entities\Executable\Lookup\TyreSupplierIdAsSupplierId.cs" />
     <Compile Include="Entities\Executable\Track\ITrack.cs" />
     <Compile Include="Entities\Executable\Lookup\FirstGpTrack.cs" />
     <Compile Include="Entities\Generic\FiveRatingBase.cs" />
@@ -169,7 +159,7 @@
     <Compile Include="ValueMapping\Executable\Supplier\IEngine.cs" />
     <Compile Include="ValueMapping\Executable\Supplier\IFuel.cs" />
     <Compile Include="ValueMapping\Executable\Supplier\ITyre.cs" />
-    <Compile Include="ValueMapping\Executable\Lookup\TyreSupplierAsSupplierId.cs" />
+    <Compile Include="ValueMapping\Executable\Lookup\TyreSupplierIdAsSupplierId.cs" />
     <Compile Include="ValueMapping\Executable\Team\IDriver.cs" />
     <Compile Include="ValueMapping\Executable\Team\ITeam.cs" />
     <Compile Include="ValueMapping\Executable\Track\ITrack.cs" />
@@ -270,6 +260,7 @@
     <Content Include="Notes\CreateFunction.txt" />
     <Content Include="Notes\Executable\Drivers.txt" />
     <Content Include="Notes\readme.txt" />
+    <Content Include="Notes\snippets.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IntegrationTasks\BackupIdb\BackupIdb.zip" />
