@@ -189,7 +189,6 @@
     <Compile Include="Patchers\Enhancements\Units\PointsSystemF120032009Update.cs" />
     <Compile Include="Patchers\Enhancements\Units\RaceSoundsFix.cs" />
     <Compile Include="Patchers\Enhancements\Units\PitExitPriorityFix.cs" />
-    <Compile Include="Patchers\Enhancements\Units\GlobalUnlockFix.cs" />
     <Compile Include="Patchers\Enhancements\Units\SampleAppFix.cs" />
     <Compile Include="Patchers\Enhancements\Units\YellowFlagFix.cs" />
     <Compile Include="Patchers\Enhancements\Units\PointsSystemF119912002Update.cs" />
@@ -259,8 +258,10 @@
     <Content Include="IntegrationTasks\GpwXpExe\Text\ViewportDefaults\viewport_default.txt" />
     <Content Include="Notes\CreateFunction.txt" />
     <Content Include="Notes\Executable\Drivers.txt" />
+    <Content Include="Notes\GlobalUnlockResearch.txt" />
     <Content Include="Notes\readme.txt" />
     <Content Include="Notes\snippets.txt" />
+    <Content Include="Notes\Opcode_E8_CALL.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IntegrationTasks\BackupIdb\BackupIdb.zip" />

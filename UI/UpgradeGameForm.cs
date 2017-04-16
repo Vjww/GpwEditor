@@ -178,7 +178,6 @@ namespace GpwEditor
             DisableGameCdCheckBox.Checked = upgradeDatabase.IsGameCdFixApplied;
             DisableColourModeCheckBox.Checked = upgradeDatabase.IsDisplayModeFixApplied;
             DisableSampleAppCheckBox.Checked = upgradeDatabase.IsSampleAppFixApplied;
-            DisableGlobalUnlockCheckBox.Checked = upgradeDatabase.IsGlobalUnlockFixApplied;
             DisableYellowFlagPenaltiesCheckBox.Checked = upgradeDatabase.IsYellowFlagFixApplied;
             DisableMemoryResetForRaceSoundsCheckbox.Checked = upgradeDatabase.IsRaceSoundsFixApplied;
             //DisablePitExitPriorityCheckBox.Checked = upgradeDatabase.IsPitExitPriorityFixApplied; // TODO
@@ -197,10 +196,9 @@ namespace GpwEditor
             upgradeDatabase.IsGameCdFixRequired = DisableGameCdCheckBox.Checked;
             upgradeDatabase.IsDisplayModeFixRequired = DisableColourModeCheckBox.Checked;
             upgradeDatabase.IsSampleAppFixRequired = DisableSampleAppCheckBox.Checked;
-            upgradeDatabase.IsGlobalUnlockFixRequired = DisableGlobalUnlockCheckBox.Checked;
             upgradeDatabase.IsYellowFlagFixRequired = DisableYellowFlagPenaltiesCheckBox.Checked;
             upgradeDatabase.IsRaceSoundsFixRequired = DisableMemoryResetForRaceSoundsCheckbox.Checked;
-            //upgradeDatabase.IsPitExitPriorityFixRequired = DisablePitExitPriorityCheckBox.Checked;
+            //upgradeDatabase.IsPitExitPriorityFixRequired = DisablePitExitPriorityCheckBox.Checked; // TODO
             upgradeDatabase.IsCarDesignCalculationUpdateRequired = EnableCarHandlingDesignCalculationCheckbox.Checked;
             upgradeDatabase.IsCarHandlingPerformanceFixRequired = EnableCarPerformanceRaceCalcuationCheckbox.Checked;
 

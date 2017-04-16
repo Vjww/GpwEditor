@@ -14,7 +14,7 @@
             UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
                 TaskId = taskId,
-                Description = $"{typeof(DisplayModeFix).Name} Unmodified; TaskId {taskId:D2};",
+                Description = typeof(DisplayModeFix).Name,
                 VirtualPosition = 0x00439E0A,
                 Instructions = new byte[]
                 {
@@ -25,7 +25,7 @@
             ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
                 TaskId = taskId,
-                Description = $"{typeof(DisplayModeFix).Name} Modified; TaskId {taskId:D2};",
+                Description = typeof(DisplayModeFix).Name,
                 VirtualPosition = 0x00439E0A,
                 Instructions = new byte[]
                 {

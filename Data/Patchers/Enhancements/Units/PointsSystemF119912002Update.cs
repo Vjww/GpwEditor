@@ -31,7 +31,7 @@ namespace Data.Patchers.Enhancements.Units
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
                 TaskId = taskId,
-                Description = $"{typeof(PointsSystemF119912002Update).Name} Unmodified; TaskId {taskId:D2};",
+                Description = typeof(PointsSystemF119912002Update).Name,
                 VirtualPosition = 0x005B8C5D,
                 Instructions = new byte[]
                 {
@@ -332,7 +332,7 @@ namespace Data.Patchers.Enhancements.Units
                 ModifiedInstructions.Add(new DataPatcherUnitTask
                 {
                     TaskId = dataPatcherUnitTask.TaskId,
-                    Description = $"{typeof(PointsSystemF119912002Update).Name} Modified; TaskId {dataPatcherUnitTask.TaskId:D2};",
+                    Description = typeof(PointsSystemF119912002Update).Name,
                     VirtualPosition = dataPatcherUnitTask.VirtualPosition,
                     Instructions = dataPatcherUnitTask.Instructions
                 });

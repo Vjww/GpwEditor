@@ -71,6 +71,21 @@ namespace GpwEditor
             ShowCompleteMessageBox("The executable file has been patched with the Code Shift Patcher.", "The changes made will overhaul the game!");
         }
 
+        private void GlobalUnlockButton_Click(object sender, EventArgs e)
+        {
+            // Warning
+            var dialogResult = ShowWarningMessageBox("Global unlock will create a new method and redirect tested GlobalUnlock calls to it instead.");
+            if (dialogResult == DialogResult.No) return;
+
+            // Act
+            Cursor.Current = Cursors.WaitCursor;
+            ApplyGlobalUnlockPatcher();
+            Cursor.Current = Cursors.Default;
+
+            // Complete
+            ShowCompleteMessageBox("The executable file has been patched with the Global Unlock Patcher.", "The changes made will spruce up the game!");
+        }
+
         private static DialogResult ShowWarningMessageBox(string contextMessage)
         {
             return MessageBox.Show(string.Format(

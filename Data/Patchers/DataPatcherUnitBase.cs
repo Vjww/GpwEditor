@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using Data.Helpers;
 
 namespace Data.Patchers
@@ -31,22 +32,32 @@ namespace Data.Patchers
 
         public void ApplyModifiedCode()
         {
+            Debug.WriteLine("********************************************************************************");
+            Debug.WriteLine($"Starting {GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ApplyCode(ModifiedInstructions);
+            Debug.WriteLine($"Finishing {GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
         }
 
         public void ApplyUnmodifiedCode()
         {
+            Debug.WriteLine("********************************************************************************");
+            Debug.WriteLine($"Starting {GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
             ApplyCode(UnmodifiedInstructions);
+            Debug.WriteLine($"Finishing {GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
         }
 
         public bool IsCodeModified()
         {
-            return IsInstructionTasksEqual(ModifiedInstructions);
+            Debug.WriteLine("********************************************************************************");
+            Debug.WriteLine($"Evaluating {GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
+            return AreInstructionTasksEqual(ModifiedInstructions);
         }
 
         public bool IsCodeUnmodified()
         {
-            return IsInstructionTasksEqual(UnmodifiedInstructions);
+            Debug.WriteLine("********************************************************************************");
+            Debug.WriteLine($"Evaluating {GetType().Name}.{MethodBase.GetCurrentMethod().Name}");
+            return AreInstructionTasksEqual(UnmodifiedInstructions);
         }
 
         private void ApplyCode(IEnumerable<DataPatcherUnitTask> instructionTasks)
@@ -56,24 +67,26 @@ namespace Data.Patchers
                 foreach (var instructionTask in instructionTasks)
                 {
                     var realPosition = InstructionHelper.CalculateRealPositionFromVirtualPosition(instructionTask.VirtualPosition);
+                    Debug.WriteLine($"Executing task {instructionTask.TaskId:D2} at location {instructionTask.VirtualPosition:X8} ({realPosition:X8})");
                     executableConnection.WriteByteArray(realPosition, instructionTask.Instructions);
-                    Debug.WriteLine($"Applied code for {instructionTask.Description} Virtual: {instructionTask.VirtualPosition:X8}; Real: {realPosition:X8};");
                 }
             }
         }
 
-        private bool IsInstructionTasksEqual(IEnumerable<DataPatcherUnitTask> instructionTasks)
+        private bool AreInstructionTasksEqual(IEnumerable<DataPatcherUnitTask> instructionTasks)
         {
             using (var executableConnection = new ExecutableConnection(_executableFilePath))
             {
                 foreach (var instructionTask in instructionTasks)
                 {
-                    var virtualPosition = instructionTask.VirtualPosition;
                     var realPosition = InstructionHelper.CalculateRealPositionFromVirtualPosition(instructionTask.VirtualPosition);
                     var currentInstructions = executableConnection.ReadByteArray(realPosition, instructionTask.Instructions.Length);
 
-                    // If current instructions do not equal unmodified instructions
 #if DEBUG
+                    var virtualPosition = instructionTask.VirtualPosition;
+                    Debug.WriteLine($"Evaluating task {instructionTask.TaskId:D2} at location {virtualPosition:X8} ({realPosition:X8})");
+
+                    // If current instructions (file) do not equal task instructions (code)
                     var debugStringCollection = new StringCollection();
                     for (var i = 0; i < currentInstructions.Count(); i++)
                     {
@@ -85,18 +98,19 @@ namespace Data.Patchers
                         var debugVirtualPosition = virtualPosition + i;
                         var debugRealPosition = realPosition + i;
 
-                        debugStringCollection.Add($"Byte mismatch; - File: {currentInstructions[i]:X2}; Code: {instructionTask.Instructions[i]:X2}; Index: {i:X8}; Virtual: {debugVirtualPosition:X8}; Real: {debugRealPosition:X8};");
+                        debugStringCollection.Add($"Mismatch at location {debugVirtualPosition:X8} ({debugRealPosition:X8}) at byte index {i:X8}. Value {currentInstructions[i]:X2} vs. {instructionTask.Instructions[i]:X2} (File vs. Code).");
                     }
                     if (debugStringCollection.Count > 0)
                     {
-                        //Debug.WriteLine($"{instructionTask.Description} - Instructions in code are not equal to instructions in file.");
-                        //foreach (var line in debugStringCollection)
-                        //{
-                        //    Debug.WriteLine(line);
-                        //}
+                        Debug.WriteLine("WARNING - Instructions in code are not equal to instructions in file.");
+                        foreach (var line in debugStringCollection)
+                        {
+                            Debug.WriteLine(line);
+                        }
                         return false;
                     }
 #else
+                    // If current instructions (file) do not equal task instructions (code)
                     if (!currentInstructions.SequenceEqual(instructionTask.Instructions))
                     {
                         return false;

@@ -14,7 +14,7 @@
             UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
                 TaskId = taskId,
-                Description = $"{typeof(SampleAppFix).Name} Unmodified; TaskId {taskId:D2};",
+                Description = typeof(SampleAppFix).Name,
                 VirtualPosition = 0x0043A10C,
                 Instructions = new byte[]
                 {
@@ -25,7 +25,7 @@
             ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
                 TaskId = taskId,
-                Description = $"{typeof(SampleAppFix).Name} Modified; TaskId {taskId:D2};",
+                Description = typeof(SampleAppFix).Name,
                 VirtualPosition = 0x0043A10C,
                 Instructions = new byte[]
                 {

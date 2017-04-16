@@ -1,0 +1,582 @@
+GlobalUnlock Research
+---------------------
+
+Executable Version: gpw 1.01b executable
+Patches Applied: Jump Bypass, Switch Idiom, Code Shift
+
+- The use of A, B, C is just to identify similar looking pieces of code
+- CA, CB, CC, and CD should call custom function to call global unlock
+- A, BA, BB, CE, CF and CG do not test the result of GlobalUnlock, so no changes required
+
+0x0040C807 = A (with no test)
+0x0040CA85 = A (with no test)
+0x00412B20 = BA sub (with no test)
+0x00413322 = CA mov6
+0x0041362A = CA mov6
+0x004138A1 = CB mov3
+0x00413AB3 = CB mov3
+0x00413FB3 = CB mov3
+0x00414031 = CB mov3
+0x00414219 = CB mov3
+0x0041424B = CB mov3
+0x004142CC = CB mov3
+0x004144B0 = CB mov3
+0x0041459F = CC mov5
+0x0041462E = CC mov5
+0x004146A0 = CC mov5
+0x0041487B = CC mov5
+0x00414A5E = CC mov5
+0x00414A9A = CC mov5
+0x00414AE2 = CD mov5 (tests but with no GlobalFree after GlobalUnlock)
+0x0043B9A5 = CB mov3
+0x00457920 = CE mov3 (with no test, jz or jmp lines)
+0x0047A0D9 = CF mov5 (with no test, jz or jmp lines)
+0x0047A207 = CF mov5 (with no test, jz or jmp lines)
+0x0047A32E = CF mov5 (with no test, jz or jmp lines)
+0x0047A461 = CF mov5 (with no test, jz or jmp lines)
+0x0047A592 = CF mov5 (with no test, jz or jmp lines)
+0x0047B592 = BB sub (with no test)
+0x0049DC03 = CG mov6 (with no test, jz or jmp lines)
+0x00506413 = CE mov3 (with no test, jz or jmp lines)
+0x00506ADC = CE mov3 (with no test, jz or jmp lines)
+0x00506F46 = CE mov3 (with no test, jz or jmp lines)
+0x005070DD = CE mov3 (with no test, jz or jmp lines)
+0x00507157 = CE mov3 (with no test, jz or jmp lines)
+0x00507204 = CE mov3 (with no test, jz or jmp lines)
+0x00507251 = CE mov3 (with no test, jz or jmp lines)
+0x0053A2A2 = CE mov3 (with no test, jz or jmp lines)
+0x0053BD1E = CE mov3 (with no test, jz or jmp lines)
+0x005C5525 = CC mov5
+0x005D2BEA = CF mov5 (with no test, jz or jmp lines)
+0x005D2C02 = CF mov5 (with no test, jz or jmp lines)
+0x005D2DBB = CF mov5 (with no test, jz or jmp lines)
+0x005D2DD3 = CF mov5 (with no test, jz or jmp lines)
+0x005D2E0E = CF mov5 (with no test, jz or jmp lines)
+0x005D2E26 = CF mov5 (with no test, jz or jmp lines)
+0x0062AC9E = CG mov6 (with no test, jz or jmp lines)
+0x0062B0B4 = CG mov6 (with no test, jz or jmp lines)
+0x0062B204 = CG mov6 (with no test, jz or jmp lines)
+
+// File location of each global unlock call to modify
+var globalUnlockLocation = new long[]
+{
+    0x00413322, 0x0041362A, 0x004138A1, 0x00413AB3, 0x00413FB3, 0x00414031, 0x00414219, 0x0041424B,
+    0x004142CC, 0x004144B0, 0x0041459F, 0x0041462E, 0x004146A0, 0x0041487B, 0x00414A5E, 0x00414A9A,
+    0x00414AE2, 0x0043B9A5, 0x005C5525
+};
+
+********************************************************************************
+.text:0040C7F3 A1 8C 1C 69 00                                      mov     eax, ds:dword_691C8C
+.text:0040C7F8 8B 04 85 28 1C 69 00                                mov     eax, ds:pwh[eax*4]
+.text:0040C7FF 50                                                  push    eax
+.text:0040C800 FF 15 A8 D5 60 01                                   call    ds:GlobalHandle ; GlobalHandle:
+.text:0040C806 50                                                  push    eax
+.text:0040C807 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0040C80D A1 8C 1C 69 00                                      mov     eax, ds:dword_691C8C
+.text:0040C812 8B 04 85 28 1C 69 00                                mov     eax, ds:pwh[eax*4]
+.text:0040C819 50                                                  push    eax
+.text:0040C81A FF 15 A8 D5 60 01                                   call    ds:GlobalHandle ; GlobalHandle:
+.text:0040C820 50                                                  push    eax
+.text:0040C821 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0040CA71 A1 8C 1C 69 00                                      mov     eax, ds:dword_691C8C
+.text:0040CA76 8B 04 85 28 1C 69 00                                mov     eax, ds:pwh[eax*4]
+.text:0040CA7D 50                                                  push    eax
+.text:0040CA7E FF 15 A8 D5 60 01                                   call    ds:GlobalHandle ; GlobalHandle:
+.text:0040CA84 50                                                  push    eax
+.text:0040CA85 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0040CA8B A1 8C 1C 69 00                                      mov     eax, ds:dword_691C8C
+.text:0040CA90 8B 04 85 28 1C 69 00                                mov     eax, ds:pwh[eax*4]
+.text:0040CA97 50                                                  push    eax
+.text:0040CA98 FF 15 A8 D5 60 01                                   call    ds:GlobalHandle ; GlobalHandle:
+.text:0040CA9E 50                                                  push    eax
+.text:0040CA9F FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00412B14                                     sub_412B14      proc near               ; CODE XREF: sub_46DA29+8p
+.text:00412B14 55                                                  push    ebp
+.text:00412B15 8B EC                                               mov     ebp, esp
+.text:00412B17 53                                                  push    ebx
+.text:00412B18 56                                                  push    esi
+.text:00412B19 57                                                  push    edi
+.text:00412B1A A1 14 11 5D 01                                      mov     eax, ds:dword_15D1114
+.text:00412B1F 50                                                  push    eax
+.text:00412B20 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00412B26 A1 14 11 5D 01                                      mov     eax, ds:dword_15D1114
+.text:00412B2B 50                                                  push    eax
+.text:00412B2C FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+.text:00412B32 C7 05 14 11 5D 01 00 00 00 00                       mov     ds:dword_15D1114, 0
+.text:00412B3C C7 05 40 14 5D 01 00 00 00 00                       mov     ds:dword_15D1440, 0
+.text:00412B46 C7 05 44 14 5D 01 00 00 00 00                       mov     ds:dword_15D1444, 0
+.text:00412B50 C7 05 48 14 5D 01 00 00 00 00                       mov     ds:dword_15D1448, 0
+.text:00412B5A 5F                                                  pop     edi
+.text:00412B5B 5E                                                  pop     esi
+.text:00412B5C 5B                                                  pop     ebx
+.text:00412B5D C9                                                  leave
+.text:00412B5E C3                                                  retn
+.text:00412B5E                                     sub_412B14      endp
+********************************************************************************
+.text:0041331B                                     loc_41331B:                             ; CODE XREF: sub_412EE0+450j
+.text:0041331B 8B 85 BC FE FF FF                                   mov     eax, [ebp+var_144]
+.text:00413321 50                                                  push    eax
+.text:00413322 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00413328 85 C0                                               test    eax, eax
+.text:0041332A 0F 84 05 00 00 00                                   jz      loc_413335
+.text:00413330 E9 E6 FF FF FF                                      jmp     loc_41331B
+.text:00413335                                     ; ---------------------------------------------------------------------------
+.text:00413335
+.text:00413335                                     loc_413335:                             ; CODE XREF: sub_412EE0+44Aj
+.text:00413335 8B 85 BC FE FF FF                                   mov     eax, [ebp+var_144]
+.text:0041333B 50                                                  push    eax
+.text:0041333C FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00413623                                     loc_413623:                             ; CODE XREF: sub_412EE0+758j
+.text:00413623 8B 85 BC FE FF FF                                   mov     eax, [ebp+var_144]
+.text:00413629 50                                                  push    eax
+.text:0041362A FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00413630 85 C0                                               test    eax, eax
+.text:00413632 0F 84 05 00 00 00                                   jz      loc_41363D
+.text:00413638 E9 E6 FF FF FF                                      jmp     loc_413623
+.text:0041363D                                     ; ---------------------------------------------------------------------------
+.text:0041363D
+.text:0041363D                                     loc_41363D:                             ; CODE XREF: sub_412EE0+752j
+.text:0041363D 8B 85 BC FE FF FF                                   mov     eax, [ebp+var_144]
+.text:00413643 50                                                  push    eax
+.text:00413644 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0041389D                                     loc_41389D:                             ; CODE XREF: sub_41366F+240j
+.text:0041389D 8B 45 88                                            mov     eax, [ebp+var_78]
+.text:004138A0 50                                                  push    eax
+.text:004138A1 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:004138A7 85 C0                                               test    eax, eax
+.text:004138A9 0F 84 05 00 00 00                                   jz      loc_4138B4
+.text:004138AF E9 E9 FF FF FF                                      jmp     loc_41389D
+.text:004138B4                                     ; ---------------------------------------------------------------------------
+.text:004138B4
+.text:004138B4                                     loc_4138B4:                             ; CODE XREF: sub_41366F+23Aj
+.text:004138B4 8B 45 88                                            mov     eax, [ebp+var_78]
+.text:004138B7 50                                                  push    eax
+.text:004138B8 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00413AAF                                     loc_413AAF:                             ; CODE XREF: sub_41366F+452j
+.text:00413AAF 8B 45 88                                            mov     eax, [ebp+var_78]
+.text:00413AB2 50                                                  push    eax
+.text:00413AB3 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00413AB9 85 C0                                               test    eax, eax
+.text:00413ABB 0F 84 05 00 00 00                                   jz      loc_413AC6
+.text:00413AC1 E9 E9 FF FF FF                                      jmp     loc_413AAF
+.text:00413AC6                                     ; ---------------------------------------------------------------------------
+.text:00413AC6
+.text:00413AC6                                     loc_413AC6:                             ; CODE XREF: sub_41366F+44Cj
+.text:00413AC6 8B 45 88                                            mov     eax, [ebp+var_78]
+.text:00413AC9 50                                                  push    eax
+.text:00413ACA FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00413FAF                                     loc_413FAF:                             ; CODE XREF: sub_413ED8+E9j
+.text:00413FAF 8B 45 A4                                            mov     eax, [ebp+var_5C]
+.text:00413FB2 50                                                  push    eax
+.text:00413FB3 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00413FB9 85 C0                                               test    eax, eax
+.text:00413FBB 0F 84 05 00 00 00                                   jz      loc_413FC6
+.text:00413FC1 E9 E9 FF FF FF                                      jmp     loc_413FAF
+.text:00413FC6                                     ; ---------------------------------------------------------------------------
+.text:00413FC6
+.text:00413FC6                                     loc_413FC6:                             ; CODE XREF: sub_413ED8+E3j
+.text:00413FC6 8B 45 A4                                            mov     eax, [ebp+var_5C]
+.text:00413FC9 50                                                  push    eax
+.text:00413FCA FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0041402D                                     loc_41402D:                             ; CODE XREF: sub_413ED8+167j
+.text:0041402D 8B 45 B0                                            mov     eax, [ebp+var_50]
+.text:00414030 50                                                  push    eax
+.text:00414031 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00414037 85 C0                                               test    eax, eax
+.text:00414039 0F 84 05 00 00 00                                   jz      loc_414044
+.text:0041403F E9 E9 FF FF FF                                      jmp     loc_41402D
+.text:00414044                                     ; ---------------------------------------------------------------------------
+.text:00414044
+.text:00414044                                     loc_414044:                             ; CODE XREF: sub_413ED8+161j
+.text:00414044 8B 45 B0                                            mov     eax, [ebp+var_50]
+.text:00414047 50                                                  push    eax
+.text:00414048 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00414215                                     loc_414215:                             ; CODE XREF: sub_413ED8+34Fj
+.text:00414215 8B 45 B0                                            mov     eax, [ebp+var_50]
+.text:00414218 50                                                  push    eax
+.text:00414219 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0041421F 85 C0                                               test    eax, eax
+.text:00414221 0F 84 05 00 00 00                                   jz      loc_41422C
+.text:00414227 E9 E9 FF FF FF                                      jmp     loc_414215
+.text:0041422C                                     ; ---------------------------------------------------------------------------
+.text:0041422C
+.text:0041422C                                     loc_41422C:                             ; CODE XREF: sub_413ED8+349j
+.text:0041422C 8B 45 B0                                            mov     eax, [ebp+var_50]
+.text:0041422F 50                                                  push    eax
+.text:00414230 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00414247                                     loc_414247:                             ; CODE XREF: sub_413ED8+381j
+.text:00414247 8B 45 A4                                            mov     eax, [ebp+var_5C]
+.text:0041424A 50                                                  push    eax
+.text:0041424B FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00414251 85 C0                                               test    eax, eax
+.text:00414253 0F 84 05 00 00 00                                   jz      loc_41425E
+.text:00414259 E9 E9 FF FF FF                                      jmp     loc_414247
+.text:0041425E                                     ; ---------------------------------------------------------------------------
+.text:0041425E
+.text:0041425E                                     loc_41425E:                             ; CODE XREF: sub_413ED8+37Bj
+.text:0041425E 8B 45 A4                                            mov     eax, [ebp+var_5C]
+.text:00414261 50                                                  push    eax
+.text:00414262 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:004142C8                                     loc_4142C8:                             ; CODE XREF: sub_413ED8+402j
+.text:004142C8 8B 45 B0                                            mov     eax, [ebp+var_50]
+.text:004142CB 50                                                  push    eax
+.text:004142CC FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:004142D2 85 C0                                               test    eax, eax
+.text:004142D4 0F 84 05 00 00 00                                   jz      loc_4142DF
+.text:004142DA E9 E9 FF FF FF                                      jmp     loc_4142C8
+.text:004142DF                                     ; ---------------------------------------------------------------------------
+.text:004142DF
+.text:004142DF                                     loc_4142DF:                             ; CODE XREF: sub_413ED8+3FCj
+.text:004142DF 8B 45 B0                                            mov     eax, [ebp+var_50]
+.text:004142E2 50                                                  push    eax
+.text:004142E3 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:004144AC                                     loc_4144AC:                             ; CODE XREF: sub_413ED8+5E6j
+.text:004144AC 8B 45 B0                                            mov     eax, [ebp+var_50]
+.text:004144AF 50                                                  push    eax
+.text:004144B0 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:004144B6 85 C0                                               test    eax, eax
+.text:004144B8 0F 84 05 00 00 00                                   jz      loc_4144C3
+.text:004144BE E9 E9 FF FF FF                                      jmp     loc_4144AC
+.text:004144C3                                     ; ---------------------------------------------------------------------------
+.text:004144C3
+.text:004144C3                                     loc_4144C3:                             ; CODE XREF: sub_413ED8+5E0j
+.text:004144C3 8B 45 B0                                            mov     eax, [ebp+var_50]
+.text:004144C6 50                                                  push    eax
+.text:004144C7 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00414599                                     loc_414599:                             ; CODE XREF: sub_4144E2+CBj
+.text:00414599 A1 64 26 5F 01                                      mov     eax, dword_15F2664
+.text:0041459E 50                                                  push    eax
+.text:0041459F FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:004145A5 85 C0                                               test    eax, eax
+.text:004145A7 0F 84 05 00 00 00                                   jz      loc_4145B2
+.text:004145AD E9 E7 FF FF FF                                      jmp     loc_414599
+.text:004145B2                                     ; ---------------------------------------------------------------------------
+.text:004145B2
+.text:004145B2                                     loc_4145B2:                             ; CODE XREF: sub_4144E2+C5j
+.text:004145B2 A1 64 26 5F 01                                      mov     eax, dword_15F2664
+.text:004145B7 50                                                  push    eax
+.text:004145B8 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00414628                                     loc_414628:                             ; CODE XREF: sub_4144E2+15Aj
+.text:00414628 A1 60 26 5F 01                                      mov     eax, dword_15F2660
+.text:0041462D 50                                                  push    eax
+.text:0041462E FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00414634 85 C0                                               test    eax, eax
+.text:00414636 0F 84 05 00 00 00                                   jz      loc_414641
+.text:0041463C E9 E7 FF FF FF                                      jmp     loc_414628
+.text:00414641                                     ; ---------------------------------------------------------------------------
+.text:00414641
+.text:00414641                                     loc_414641:                             ; CODE XREF: sub_4144E2+154j
+.text:00414641 A1 60 26 5F 01                                      mov     eax, dword_15F2660
+.text:00414646 50                                                  push    eax
+.text:00414647 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0041469A                                     loc_41469A:                             ; CODE XREF: sub_4144E2+1CCj
+.text:0041469A A1 64 26 5F 01                                      mov     eax, dword_15F2664
+.text:0041469F 50                                                  push    eax
+.text:004146A0 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:004146A6 85 C0                                               test    eax, eax
+.text:004146A8 0F 84 05 00 00 00                                   jz      loc_4146B3
+.text:004146AE E9 E7 FF FF FF                                      jmp     loc_41469A
+.text:004146B3                                     ; ---------------------------------------------------------------------------
+.text:004146B3
+.text:004146B3                                     loc_4146B3:                             ; CODE XREF: sub_4144E2+1C6j
+.text:004146B3 A1 64 26 5F 01                                      mov     eax, dword_15F2664
+.text:004146B8 50                                                  push    eax
+.text:004146B9 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00414875                                     loc_414875:                             ; CODE XREF: sub_4144E2+3A7j
+.text:00414875 A1 64 26 5F 01                                      mov     eax, dword_15F2664
+.text:0041487A 50                                                  push    eax
+.text:0041487B FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00414881 85 C0                                               test    eax, eax
+.text:00414883 0F 84 05 00 00 00                                   jz      loc_41488E
+.text:00414889 E9 E7 FF FF FF                                      jmp     loc_414875
+.text:0041488E                                     ; ---------------------------------------------------------------------------
+.text:0041488E
+.text:0041488E                                     loc_41488E:                             ; CODE XREF: sub_4144E2+3A1j
+.text:0041488E A1 64 26 5F 01                                      mov     eax, dword_15F2664
+.text:00414893 50                                                  push    eax
+.text:00414894 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00414A58                                     loc_414A58:                             ; CODE XREF: sub_4144E2+58Aj
+.text:00414A58 A1 60 26 5F 01                                      mov     eax, dword_15F2660
+.text:00414A5D 50                                                  push    eax
+.text:00414A5E FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00414A64 85 C0                                               test    eax, eax
+.text:00414A66 0F 84 05 00 00 00                                   jz      loc_414A71
+.text:00414A6C E9 E7 FF FF FF                                      jmp     loc_414A58
+.text:00414A71                                     ; ---------------------------------------------------------------------------
+.text:00414A71
+.text:00414A71                                     loc_414A71:                             ; CODE XREF: sub_4144E2+584j
+.text:00414A71 A1 60 26 5F 01                                      mov     eax, dword_15F2660
+.text:00414A76 50                                                  push    eax
+.text:00414A77 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00414A94                                     loc_414A94:                             ; CODE XREF: sub_4144E2+5C6j
+.text:00414A94 A1 64 26 5F 01                                      mov     eax, dword_15F2664
+.text:00414A99 50                                                  push    eax
+.text:00414A9A FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00414AA0 85 C0                                               test    eax, eax
+.text:00414AA2 0F 84 05 00 00 00                                   jz      loc_414AAD
+.text:00414AA8 E9 E7 FF FF FF                                      jmp     loc_414A94
+.text:00414AAD                                     ; ---------------------------------------------------------------------------
+.text:00414AAD
+.text:00414AAD                                     loc_414AAD:                             ; CODE XREF: sub_4144E2+5C0j
+.text:00414AAD A1 64 26 5F 01                                      mov     eax, dword_15F2664
+.text:00414AB2 50                                                  push    eax
+.text:00414AB3 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00414ADC                                     loc_414ADC:                             ; CODE XREF: sub_4144E2+5EAj
+.text:00414ADC                                                                             ; sub_4144E2+60Ej
+.text:00414ADC A1 60 26 5F 01                                      mov     eax, dword_15F2660
+.text:00414AE1 50                                                  push    eax
+.text:00414AE2 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00414AE8 85 C0                                               test    eax, eax
+.text:00414AEA 0F 84 05 00 00 00                                   jz      loc_414AF5
+.text:00414AF0 E9 E7 FF FF FF                                      jmp     loc_414ADC
+********************************************************************************
+.text:0043B9A1                                     loc_43B9A1:                             ; CODE XREF: sub_43B117:loc_43B53Dj
+.text:0043B9A1                                                                             ; sub_43B117:loc_43B8BDj ...
+.text:0043B9A1 8B 45 C4                                            mov     eax, [ebp+var_3C] ; jumptable 0043B979 default case
+.text:0043B9A4 50                                                  push    eax
+.text:0043B9A5 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0043B9AB 85 C0                                               test    eax, eax
+.text:0043B9AD 0F 84 05 00 00 00                                   jz      loc_43B9B8
+.text:0043B9B3 E9 E9 FF FF FF                                      jmp     loc_43B9A1      ; jumptable 0043B979 default case
+.text:0043B9B8                                     ; ---------------------------------------------------------------------------
+.text:0043B9B8
+.text:0043B9B8                                     loc_43B9B8:                             ; CODE XREF: sub_43B117+896j
+.text:0043B9B8 8B 45 C4                                            mov     eax, [ebp+var_3C]
+.text:0043B9BB 50                                                  push    eax
+.text:0043B9BC FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0045791C 8B 45 D8                                            mov     eax, [ebp+var_28]
+.text:0045791F 50                                                  push    eax
+.text:00457920 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00457926 8B 45 D8                                            mov     eax, [ebp+var_28]
+.text:00457929 50                                                  push    eax
+.text:0045792A FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0047A0D3                                     loc_47A0D3:                             ; CODE XREF: sub_47A0B9+Dj
+.text:0047A0D3 A1 90 61 5F 01                                      mov     eax, dword_15F6190
+.text:0047A0D8 50                                                  push    eax
+.text:0047A0D9 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0047A0DF A1 90 61 5F 01                                      mov     eax, dword_15F6190
+.text:0047A0E4 50                                                  push    eax
+.text:0047A0E5 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0047A201                                     loc_47A201:                             ; CODE XREF: sub_47A1E7+Dj
+.text:0047A201 A1 C0 61 5F 01                                      mov     eax, dword_15F61C0
+.text:0047A206 50                                                  push    eax
+.text:0047A207 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0047A20D A1 C0 61 5F 01                                      mov     eax, dword_15F61C0
+.text:0047A212 50                                                  push    eax
+.text:0047A213 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0047A328                                     loc_47A328:                             ; CODE XREF: sub_47A30E+Dj
+.text:0047A328 A1 B8 61 5F 01                                      mov     eax, dword_15F61B8
+.text:0047A32D 50                                                  push    eax
+.text:0047A32E FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0047A334 A1 B8 61 5F 01                                      mov     eax, dword_15F61B8
+.text:0047A339 50                                                  push    eax
+.text:0047A33A FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0047A45B                                     loc_47A45B:                             ; CODE XREF: sub_47A441+Dj
+.text:0047A45B A1 98 61 5F 01                                      mov     eax, dword_15F6198
+.text:0047A460 50                                                  push    eax
+.text:0047A461 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0047A467 A1 98 61 5F 01                                      mov     eax, dword_15F6198
+.text:0047A46C 50                                                  push    eax
+.text:0047A46D FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0047A58C                                     loc_47A58C:                             ; CODE XREF: sub_47A572+Dj
+.text:0047A58C A1 A0 61 5F 01                                      mov     eax, dword_15F61A0
+.text:0047A591 50                                                  push    eax
+.text:0047A592 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0047A598 A1 A0 61 5F 01                                      mov     eax, dword_15F61A0
+.text:0047A59D 50                                                  push    eax
+.text:0047A59E FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0047B586                                     sub_47B586      proc near               ; CODE XREF: sub_46DA29+10p
+.text:0047B586 55                                                  push    ebp
+.text:0047B587 8B EC                                               mov     ebp, esp
+.text:0047B589 53                                                  push    ebx
+.text:0047B58A 56                                                  push    esi
+.text:0047B58B 57                                                  push    edi
+.text:0047B58C A1 C0 22 20 01                                      mov     eax, ds:dword_12022C0
+.text:0047B591 50                                                  push    eax
+.text:0047B592 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0047B598 A1 C0 22 20 01                                      mov     eax, ds:dword_12022C0
+.text:0047B59D 50                                                  push    eax
+.text:0047B59E FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+.text:0047B5A4 E9 00 00 00 00                                      jmp     $+5
+.text:0047B5A9 5F                                                  pop     edi
+.text:0047B5AA 5E                                                  pop     esi
+.text:0047B5AB 5B                                                  pop     ebx
+.text:0047B5AC C9                                                  leave
+.text:0047B5AD C3                                                  retn
+.text:0047B5AD                                     sub_47B586      endp
+********************************************************************************
+.text:0049DBFC                                     loc_49DBFC:                             ; CODE XREF: sub_49DAB0+124j
+.text:0049DBFC                                                                             ; sub_49DAB0+12Ej ...
+.text:0049DBFC 8B 85 E4 FD FF FF                                   mov     eax, [ebp+var_21C]
+.text:0049DC02 50                                                  push    eax
+.text:0049DC03 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0049DC09 8B 85 E4 FD FF FF                                   mov     eax, [ebp+var_21C]
+.text:0049DC0F 50                                                  push    eax
+.text:0049DC10 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0050640F 8B 45 FC                                            mov     eax, [ebp-4]
+.text:00506412 50                                                  push    eax
+.text:00506413 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00506419 8B 45 FC                                            mov     eax, [ebp-4]
+.text:0050641C 50                                                  push    eax
+.text:0050641D FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00506AD8 8B 45 FC                                            mov     eax, [ebp-4]
+.text:00506ADB 50                                                  push    eax
+.text:00506ADC FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00506AE2 8B 45 FC                                            mov     eax, [ebp-4]
+.text:00506AE5 50                                                  push    eax
+.text:00506AE6 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00506F42 8B 45 FC                                            mov     eax, [ebp+var_4]
+.text:00506F45 50                                                  push    eax
+.text:00506F46 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00506F4C 8B 45 FC                                            mov     eax, [ebp+var_4]
+.text:00506F4F 50                                                  push    eax
+.text:00506F50 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:005070D9 8B 45 FC                                            mov     eax, [ebp+var_4]
+.text:005070DC 50                                                  push    eax
+.text:005070DD FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:005070E3 8B 45 FC                                            mov     eax, [ebp+var_4]
+.text:005070E6 50                                                  push    eax
+.text:005070E7 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00507153 8B 45 FC                                            mov     eax, [ebp+var_4]
+.text:00507156 50                                                  push    eax
+.text:00507157 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0050715D 8B 45 FC                                            mov     eax, [ebp+var_4]
+.text:00507160 50                                                  push    eax
+.text:00507161 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:00507200 8B 45 FC                                            mov     eax, [ebp+var_4]
+.text:00507203 50                                                  push    eax
+.text:00507204 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0050720A 8B 45 FC                                            mov     eax, [ebp+var_4]
+.text:0050720D 50                                                  push    eax
+.text:0050720E FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0050724D 8B 45 FC                                            mov     eax, [ebp+var_4]
+.text:00507250 50                                                  push    eax
+.text:00507251 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:00507257 8B 45 FC                                            mov     eax, [ebp+var_4]
+.text:0050725A 50                                                  push    eax
+.text:0050725B FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0053A29E 8B 45 E8                                            mov     eax, [ebp-18h]
+.text:0053A2A1 50                                                  push    eax
+.text:0053A2A2 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0053A2A8 8B 45 E8                                            mov     eax, [ebp-18h]
+.text:0053A2AB 50                                                  push    eax
+.text:0053A2AC FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0053BD1A 8B 45 F8                                            mov     eax, [ebp+var_8]
+.text:0053BD1D 50                                                  push    eax
+.text:0053BD1E FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0053BD24 8B 45 F8                                            mov     eax, [ebp+var_8]
+.text:0053BD27 50                                                  push    eax
+.text:0053BD28 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:005C551F                                     loc_5C551F:                             ; CODE XREF: sub_5C550C+27j
+.text:005C551F A1 A4 44 60 01                                      mov     eax, dword_16044A4
+.text:005C5524 50                                                  push    eax
+.text:005C5525 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:005C552B 85 C0                                               test    eax, eax
+.text:005C552D 0F 84 05 00 00 00                                   jz      loc_5C5538
+.text:005C5533 E9 E7 FF FF FF                                      jmp     loc_5C551F
+.text:005C5538                                     ; ---------------------------------------------------------------------------
+.text:005C5538
+.text:005C5538                                     loc_5C5538:                             ; CODE XREF: sub_5C550C+21j
+.text:005C5538 A1 A4 44 60 01                                      mov     eax, dword_16044A4
+.text:005C553D 50                                                  push    eax
+.text:005C553E FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:005D2BE4 A1 4C 21 8D 00                                      mov     eax, ds:dword_8D214C
+.text:005D2BE9 50                                                  push    eax
+.text:005D2BEA FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:005D2BF0 A1 4C 21 8D 00                                      mov     eax, ds:dword_8D214C
+.text:005D2BF5 50                                                  push    eax
+.text:005D2BF6 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:005D2BFC A1 50 21 8D 00                                      mov     eax, ds:dword_8D2150
+.text:005D2C01 50                                                  push    eax
+.text:005D2C02 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:005D2C08 A1 50 21 8D 00                                      mov     eax, ds:dword_8D2150
+.text:005D2C0D 50                                                  push    eax
+.text:005D2C0E FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:005D2DB5 A1 4C 21 8D 00                                      mov     eax, ds:dword_8D214C
+.text:005D2DBA 50                                                  push    eax
+.text:005D2DBB FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:005D2DC1 A1 4C 21 8D 00                                      mov     eax, ds:dword_8D214C
+.text:005D2DC6 50                                                  push    eax
+.text:005D2DC7 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:005D2DCD A1 50 21 8D 00                                      mov     eax, ds:dword_8D2150
+.text:005D2DD2 50                                                  push    eax
+.text:005D2DD3 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:005D2DD9 A1 50 21 8D 00                                      mov     eax, ds:dword_8D2150
+.text:005D2DDE 50                                                  push    eax
+.text:005D2DDF FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:005D2E08                                     loc_5D2E08:                             ; CODE XREF: .text:005D2D22j
+.text:005D2E08 A1 4C 21 8D 00                                      mov     eax, ds:dword_8D214C
+.text:005D2E0D 50                                                  push    eax
+.text:005D2E0E FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:005D2E14 A1 4C 21 8D 00                                      mov     eax, ds:dword_8D214C
+.text:005D2E19 50                                                  push    eax
+.text:005D2E1A FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:005D2E20 A1 50 21 8D 00                                      mov     eax, ds:dword_8D2150
+.text:005D2E25 50                                                  push    eax
+.text:005D2E26 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:005D2E2C A1 50 21 8D 00                                      mov     eax, ds:dword_8D2150
+.text:005D2E31 50                                                  push    eax
+.text:005D2E32 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0062AC97 8B 85 EC FC FF FF                                   mov     eax, [ebp+var_314]
+.text:0062AC9D 50                                                  push    eax
+.text:0062AC9E FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0062ACA4 8B 85 EC FC FF FF                                   mov     eax, [ebp+var_314]
+.text:0062ACAA 50                                                  push    eax
+.text:0062ACAB FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0062B0AD 8B 85 EC FC FF FF                                   mov     eax, [ebp+var_314]
+.text:0062B0B3 50                                                  push    eax
+.text:0062B0B4 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0062B0BA 8B 85 EC FC FF FF                                   mov     eax, [ebp+var_314]
+.text:0062B0C0 50                                                  push    eax
+.text:0062B0C1 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************
+.text:0062B1FD 8B 85 EC FC FF FF                                   mov     eax, [ebp+var_314]
+.text:0062B203 50                                                  push    eax
+.text:0062B204 FF 15 AC D5 60 01                                   call    ds:GlobalUnlock ; GlobalUnlock:
+.text:0062B20A 8B 85 EC FC FF FF                                   mov     eax, [ebp+var_314]
+.text:0062B210 50                                                  push    eax
+.text:0062B211 FF 15 A4 D5 60 01                                   call    ds:GlobalFree   ; GlobalFree:
+********************************************************************************

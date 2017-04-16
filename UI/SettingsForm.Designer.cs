@@ -34,6 +34,7 @@
             this.FilePathTextBox = new System.Windows.Forms.TextBox();
             this.ApplyAllButton = new System.Windows.Forms.Button();
             this.OffsetValueGeneratorToolButton = new System.Windows.Forms.Button();
+            this.GlobalUnlockButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SwitchIdiomButton
@@ -76,7 +77,7 @@
             // 
             // ApplyAllButton
             // 
-            this.ApplyAllButton.Location = new System.Drawing.Point(8, 154);
+            this.ApplyAllButton.Location = new System.Drawing.Point(8, 183);
             this.ApplyAllButton.Name = "ApplyAllButton";
             this.ApplyAllButton.Size = new System.Drawing.Size(176, 23);
             this.ApplyAllButton.TabIndex = 0;
@@ -86,7 +87,7 @@
             // 
             // OffsetValueGeneratorToolButton
             // 
-            this.OffsetValueGeneratorToolButton.Location = new System.Drawing.Point(8, 125);
+            this.OffsetValueGeneratorToolButton.Location = new System.Drawing.Point(8, 154);
             this.OffsetValueGeneratorToolButton.Name = "OffsetValueGeneratorToolButton";
             this.OffsetValueGeneratorToolButton.Size = new System.Drawing.Size(176, 23);
             this.OffsetValueGeneratorToolButton.TabIndex = 4;
@@ -94,13 +95,24 @@
             this.OffsetValueGeneratorToolButton.UseVisualStyleBackColor = true;
             this.OffsetValueGeneratorToolButton.Click += new System.EventHandler(this.OffsetValueGeneratorToolButton_Click);
             // 
+            // GlobalUnlockButton
+            // 
+            this.GlobalUnlockButton.Location = new System.Drawing.Point(8, 125);
+            this.GlobalUnlockButton.Name = "GlobalUnlockButton";
+            this.GlobalUnlockButton.Size = new System.Drawing.Size(176, 23);
+            this.GlobalUnlockButton.TabIndex = 4;
+            this.GlobalUnlockButton.Text = "Apply Global Unlock";
+            this.GlobalUnlockButton.UseVisualStyleBackColor = true;
+            this.GlobalUnlockButton.Click += new System.EventHandler(this.GlobalUnlockButton_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(192, 186);
+            this.ClientSize = new System.Drawing.Size(192, 215);
             this.Controls.Add(this.ApplyAllButton);
             this.Controls.Add(this.OffsetValueGeneratorToolButton);
+            this.Controls.Add(this.GlobalUnlockButton);
             this.Controls.Add(this.CodeShiftButton);
             this.Controls.Add(this.SwitchIdiomButton);
             this.Controls.Add(this.JumpBypassButton);
@@ -124,5 +136,6 @@
         private System.Windows.Forms.TextBox FilePathTextBox;
         private System.Windows.Forms.Button ApplyAllButton;
         private System.Windows.Forms.Button OffsetValueGeneratorToolButton;
+        private System.Windows.Forms.Button GlobalUnlockButton;
     }
 }

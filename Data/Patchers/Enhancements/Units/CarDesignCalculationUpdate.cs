@@ -26,7 +26,7 @@
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
                 TaskId = taskId,
-                Description = $"{typeof(CarDesignCalculationUpdate).Name} Unmodified; TaskId {taskId:D2};",
+                Description = typeof(CarDesignCalculationUpdate).Name,
                 VirtualPosition = 0x0050C449,
                 Instructions = new byte[]
                 {
@@ -42,7 +42,7 @@
                     0x57,                                       // .text:0050C451                 push    edi
                     0x8B, 0x45, 0x08,                           // .text:0050C452                 mov     eax, [ebp+arg_0]
                     0x50,                                       // .text:0050C455                 push    eax
-                    0xE8, 0xB1, 0x4E, 0xEF, 0xFF,               // .text:0050C456                 call    sub_40130C
+                    0xE8, 0x69, 0xFF, 0xFF, 0xFF,               // .text:0050C456                 call    sub_50C3C4
                     0x83, 0xC4, 0x04,                           // .text:0050C45B                 add     esp, 4
                     0x8B, 0x4D, 0x08,                           // .text:0050C45E                 mov     ecx, [ebp+arg_0]
                     0x8B, 0xD1,                                 // .text:0050C461                 mov     edx, ecx
@@ -55,7 +55,7 @@
                     0x50,                                       // .text:0050C478                 push    eax
                     0x8B, 0x45, 0x08,                           // .text:0050C479                 mov     eax, [ebp+arg_0]
                     0x50,                                       // .text:0050C47C                 push    eax
-                    0xE8, 0x2E, 0x73, 0xEF, 0xFF,               // .text:0050C47D                 call    sub_4037B0
+                    0xE8, 0x35, 0xA1, 0xF7, 0xFF,               // .text:0050C47D                 call    sub_4865B7
                     0x83, 0xC4, 0x08,                           // .text:0050C482                 add     esp, 8
                     0x89, 0x45, 0xFC,                           // .text:0050C485                 mov     [ebp+var_4], eax
                     0x8B, 0x45, 0xFC,                           // .text:0050C488                 mov     eax, [ebp+var_4]
@@ -332,7 +332,7 @@
                     0x6A, 0x01,                                 // .text:0050C78E                 push    1
                     0x8B, 0x45, 0x08,                           // .text:0050C790                 mov     eax, [ebp+arg_0]
                     0x50,                                       // .text:0050C793                 push    eax
-                    0xE8, 0x70, 0x71, 0xEF, 0xFF,               // .text:0050C794                 call    sub_403909
+                    0xE8, 0x79, 0x02, 0x00, 0x00,               // .text:0050C794                 call    sub_50CA12
                     0x83, 0xC4, 0x08,                           // .text:0050C799                 add     esp, 8
                     0x5F,                                       // .text:0050C79C                 pop     edi
                     0x5E,                                       // .text:0050C79D                 pop     esi
@@ -347,7 +347,7 @@
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
                 TaskId = taskId,
-                Description = $"{typeof(CarDesignCalculationUpdate).Name} Modified; TaskId {taskId:D2};",
+                Description = typeof(CarDesignCalculationUpdate).Name,
                 VirtualPosition = 0x0050C449,
                 Instructions = new byte[]
                 {
@@ -365,7 +365,7 @@
                                                                 // ; get design efficiency
                     0x8B, 0x45, 0x08,                           // .text:0050C452                 mov     eax, [ebp+arg_0]
                     0x50,                                       // .text:0050C455                 push    eax
-                    0xE8, 0xB1, 0x4E, 0xEF, 0xFF,               // .text:0050C456                 call    sub_40130C
+                    0xE8, 0x69, 0xFF, 0xFF, 0xFF,               // .text:0050C456                 call    sub_50C3C4
                     0x83, 0xC4, 0x04,                           // .text:0050C45B                 add     esp, 4
                     0x8B, 0x4D, 0x08,                           // .text:0050C45E                 mov     ecx, [ebp+arg_0]
                     0x69, 0xC9, 0xFC, 0x02, 0x00, 0x00,         // .text:0050C461                 imul    ecx, 2FCh
@@ -376,7 +376,7 @@
                     0x52,                                       // .text:0050C473                 push    edx
                     0x8B, 0x45, 0x08,                           // .text:0050C474                 mov     eax, [ebp+8]
                     0x50,                                       // .text:0050C477                 push    eax
-                    0xE8, 0x33, 0x73, 0xEF, 0xFF,               // .text:0050C478                 call    sub_4037B0
+                    0xE8, 0x3A, 0xA1, 0xF7, 0xFF,               // .text:0050C478                 call    sub_4865B7
                     0x83, 0xC4, 0x08,                           // .text:0050C47D                 add     esp, 8
                     0x89, 0x45, 0xF8,                           // .text:0050C480                 mov     [ebp+var_8], eax
 
@@ -391,7 +391,7 @@
                     0x52,                                       // .text:0050C495                 push    edx
                     0x8B, 0x45, 0x08,                           // .text:0050C496                 mov     eax, [ebp+arg_0]
                     0x50,                                       // .text:0050C499                 push    eax
-                    0xE8, 0x11, 0x73, 0xEF, 0xFF,               // .text:0050C49A                 call    sub_4037B0
+                    0xE8, 0x18, 0xA1, 0xF7, 0xFF,               // .text:0050C49A                 call    sub_4865B7
                     0x83, 0xC4, 0x08,                           // .text:0050C49F                 add     esp, 8
                     0x89, 0x45, 0xF8,                           // .text:0050C4A2                 mov     [ebp+var_8], eax
 
@@ -630,7 +630,7 @@
                     0x6A, 0x01,                                 // .text:0050C6F9                 push    1
                     0x8B, 0x55, 0x08,                           // .text:0050C6FB                 mov     edx, [ebp+arg_0]
                     0x52,                                       // .text:0050C6FE                 push    edx
-                    0xE8, 0x05, 0x72, 0xEF, 0xFF,               // .text:0050C6FF                 call    sub_403909
+                    0xE8, 0x0E, 0x03, 0x00, 0x00,               // .text:0050C6FF                 call    sub_50CA12
                     0x83, 0xC4, 0x08,                           // .text:0050C704                 add     esp, 8
                     0x5F,                                       // .text:0050C707                 pop     edi
                     0x5E,                                       // .text:0050C708                 pop     esi
@@ -801,7 +801,7 @@
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
                 TaskId = taskId,
-                Description = $"{typeof(CarDesignCalculationUpdate).Name} Unmodified; TaskId {taskId:D2};",
+                Description = typeof(CarDesignCalculationUpdate).Name,
                 VirtualPosition = 0x0050D41E,
                 Instructions = new byte[]
                 {
@@ -1086,7 +1086,7 @@
                     0x50,                                                       // .text:0050D8D1                 push    eax
                     0x8B, 0x85, 0x14, 0xFE, 0xFF, 0xFF,                         // .text:0050D8D2                 mov     eax, [ebp+var_1EC]
                     0x50,                                                       // .text:0050D8D8                 push    eax
-                    0xE8, 0xD2, 0x5E, 0xEF, 0xFF,                               // .text:0050D8D9                 call    sub_4037B0
+                    0xE8, 0xD9, 0x8C, 0xF7, 0xFF,                               // .text:0050D8D9                 call    sub_4865B7
                     0x83, 0xC4, 0x08,                                           // .text:0050D8DE                 add     esp, 8
                     0x89, 0x85, 0x1C, 0xFE, 0xFF, 0xFF,                         // .text:0050D8E1                 mov     [ebp+var_1E4], eax
                     0x83, 0xBD, 0x1C, 0xFE, 0xFF, 0xFF, 0x00,                   // .text:0050D8E7                 cmp     [ebp+var_1E4], 0
@@ -1103,7 +1103,7 @@
                                                                                 // .text:0050D919 
                                                                                 // .text:0050D919 loc_50D919:                             ; CODE XREF: sub_50D41E+4E0j
                     0x6A, 0x64,                                                 // .text:0050D919                 push    64h
-                    0xE8, 0x9F, 0x5E, 0xEF, 0xFF,                               // .text:0050D91B                 call    sub_4037BF
+                    0xE8, 0x3A, 0xB1, 0xF8, 0xFF,                               // .text:0050D91B                 call    sub_498A5A
                     0x83, 0xC4, 0x04,                                           // .text:0050D920                 add     esp, 4
                     0x89, 0x85, 0x18, 0xFE, 0xFF, 0xFF,                         // .text:0050D923                 mov     [ebp+var_1E8], eax
                     0x8B, 0x85, 0x14, 0xFE, 0xFF, 0xFF,                         // .text:0050D929                 mov     eax, [ebp+var_1EC]
@@ -1176,7 +1176,7 @@
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
                 TaskId = taskId,
-                Description = $"{typeof(CarDesignCalculationUpdate).Name} Modified; TaskId {taskId:D2};",
+                Description = typeof(CarDesignCalculationUpdate).Name,
                 VirtualPosition = 0x0050D41E,
                 Instructions = new byte[]
                 {
@@ -1226,7 +1226,7 @@
                     0x50,                                       // .text:0050D460                 push    eax
                     0x8B, 0x4D, 0xF8,                           // .text:0050D461                 mov     ecx, [ebp+var_8]
                     0x51,                                       // .text:0050D464                 push    ecx
-                    0xE8, 0x46, 0x63, 0xEF, 0xFF,               // .text:0050D465                 call    sub_4037B0
+                    0xE8, 0x4D, 0x91, 0xF7, 0xFF,               // .text:0050D465                 call    sub_4865B7
                     0x83, 0xC4, 0x08,                           // .text:0050D46A                 add     esp, 8
                     0x89, 0x45, 0xF0,                           // .text:0050D46D                 mov     [ebp+var_10], eax
                     0x83, 0x7D, 0xF0, 0x00,                     // .text:0050D470                 cmp     [ebp+var_10], 0   ; if 0
@@ -1246,7 +1246,7 @@
                     0x50,                                       // .text:0050D48E                 push    eax
                     0x8B, 0x4D, 0xF8,                           // .text:0050D48F                 mov     ecx, [ebp+var_8]
                     0x51,                                       // .text:0050D492                 push    ecx
-                    0xE8, 0x18, 0x63, 0xEF, 0xFF,               // .text:0050D493                 call    sub_4037B0
+                    0xE8, 0x1F, 0x91, 0xF7, 0xFF,               // .text:0050D493                 call    sub_4865B7
                     0x83, 0xC4, 0x08,                           // .text:0050D498                 add     esp, 8
                     0x89, 0x45, 0xF0,                           // .text:0050D49B                 mov     [ebp+var_10], eax
                     0x83, 0x7D, 0xF0, 0x00,                     // .text:0050D49E                 cmp     [ebp+var_10], 0   ; if 0

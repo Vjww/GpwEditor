@@ -23,14 +23,15 @@ namespace Data.Patchers.GlobalUnlockPatcher
     /// and perform validation that will ensure the memory is successfully unlocked.
     /// 
     /// Code logic
-    /// - Identifies all calls made to GlobalUnlock
-    /// - Replaces calls to GlobalUnlock with calls to location of newly created function
-    /// - Inserts newly created function that will perform calls to GlobalUnlock
+    /// - Identifies all calls made to GlobalUnlock where the return value is tested.
+    /// - Replaces calls to GlobalUnlock with calls to location of newly created function.
+    /// - Inserts newly created function that will perform calls to GlobalUnlock and
+    ///   return an appropriate value to prevent an infinate loop.
     /// 
     /// Notes
     /// - OpCode E8 uses a relative offset to locate the function, rather than a absolute value
     /// - The relative offset formula is: referenced_function_position - (opcode_position + 5 bytes) = relative_offset
-    /// - This formula applies for both forward and backward referencing (using overflow)
+    /// - This formula applies for both forward and backward referencing (using dword and overflow)
     /// 
     /// Examples
     /// --------
@@ -38,12 +39,9 @@ namespace Data.Patchers.GlobalUnlockPatcher
     /// old	.text:0041487B	FF 15 AC D5 60 01           		call ds:GlobalUnlock
     /// new	.text:0041487B	90                                  nop
     ///                 	E8 80 C7 FE FF						call sub_401000
-    /// // TODO verify the above line is a correct relative reference example
     /// </summary>
     public class GlobalUnlockPatcher
     {
-        // TODO THIS CLASS IS NOW REDUNDANT
-
         private readonly string _executableFilePath;
 
         public GlobalUnlockPatcher(string executableFilePath)
@@ -52,7 +50,7 @@ namespace Data.Patchers.GlobalUnlockPatcher
         }
 
         /// <summary>
-        /// Applys the redirect on all calls to GlobalUnlock.
+        /// Applys the redirect on all calls to GlobalUnlock where the return value is tested.
         /// This method is only intended for use with gpw.exe v1.01b.
         /// This method requires the Jump Bypass Patcher to be applied beforehand.
         /// Do not invoke this method more than once on the same file.
@@ -66,36 +64,35 @@ namespace Data.Patchers.GlobalUnlockPatcher
                 0x53,                               // push    ebx
                 0x56,                               // push    esi
                 0x57,                               // push    edi
+
+                // loc_call
                 0x8B, 0x45, 0x08,                   // mov     eax, [ebp + arg_0]
                 0x50,                               // push    eax
                 0xFF, 0x15, 0xAC, 0xD5, 0x60, 0x01, // call    GlobalUnlock
-                0x83, 0xC4, 0x04,                   // add     esp, 4
-                0xE9, 0x00, 0x00, 0x00, 0x00,       // jmp     $+5
+
+                // if result greater than 1, go to loc_call
+                0x83, 0xF8, 0x01,                   // cmp     eax, 1
+                0x0F, 0x8F, 0xED, 0xFF, 0xFF, 0xFF, // jg      loc_call
+
+                // if result is 0, jump to loc_continue
+                0x85, 0xC0,                         // test    eax, eax
+                0x0F, 0x84, 0x0C, 0x00, 0x00, 0x00, // jz      loc_continue
+
+                // therefore result must be 1
+                // call once more for safety (and ignore if still returns 1)
+                0x8B, 0x45, 0x08,                   // mov     eax, [ebp + arg_0]
+                0x50,                               // push    eax
+                0xFF, 0x15, 0xAC, 0xD5, 0x60, 0x01, // call    GlobalUnlock
+
+                // ensure eax is set to 0
+                0x33, 0xC0,                         // xor     eax, eax
+
+                // loc_contine
                 0x5F,                               // pop     edi
                 0x5E,                               // pop     esi
                 0x5B,                               // pop     ebx
                 0xC9,                               // leave
                 0xC3                                // retn
-
-                //////0x55,                               // push    ebp
-                //////0x8B, 0xEC,                         // mov     ebp, esp
-                //////0x53,                               // push    ebx
-                //////0x56,                               // push    esi
-                //////0x57,                               // push    edi
-                //////
-                //////   //8B 45 08 // mov     eax, [ebp + arg_0]
-                //////   //50       // push eax
-                //////
-                //////0xFF, 0x74, 0x24, 0x04,             // push    [esp+arg_0]
-                //////
-                //////0xFF, 0x15, 0xAC, 0xD5, 0x60, 0x01, // call    GlobalUnlock
-                //////0x83, 0xC4, 0x04,                   // add     esp, 4
-                //////   //0xB8, 0x00, 0x00, 0x00, 0x00,
-                //////0x5F,                               // pop     edi
-                //////0x5E,                               // pop     esi
-                //////0x5B,                               // pop     ebx
-                //////0xC9,                               // leave
-                //////0xC3                                // retn
             };
 
             // File location to insert new function
@@ -107,16 +104,11 @@ namespace Data.Patchers.GlobalUnlockPatcher
             };
 
             // File location of each global unlock call to modify
-            var globalUnlockLocation = new long[] {
-                // TODO verify 0x0043B987 is correct
-                0x0040C807, 0x0040CA85, 0x00412B20, 0x00413322, 0x0041362A, 0x004138A1,
-                0x00413AB3, 0x00413FB3, 0x00414031, 0x00414219, 0x0041424B, 0x004142CC,
-                0x004144B0, 0x0041459F, 0x0041462E, 0x004146A0, 0x0041487B, 0x00414A5E,
-                0x00414A9A, 0x00414AE2, 0x0043B987, 0x00457920, 0x0047A0D9, 0x0047A207,
-                0x0047A32E, 0x0047A461, 0x0047A592, 0x0047B592, 0x0049DC03, 0x00506413,
-                0x00506ADC, 0x00506F46, 0x005070DD, 0x00507157, 0x00507204, 0x00507251,
-                0x0053A2A2, 0x0053BD1E, 0x005C5525, 0x005D2BEA, 0x005D2C02, 0x005D2DBB,
-                0x005D2DD3, 0x005D2E0E, 0x005D2E26, 0x0062AC9E, 0x0062B0B4, 0x0062B204
+            var globalUnlockLocation = new long[]
+            {
+                0x00413322, 0x0041362A, 0x004138A1, 0x00413AB3, 0x00413FB3, 0x00414031, 0x00414219, 0x0041424B,
+                0x004142CC, 0x004144B0, 0x0041459F, 0x0041462E, 0x004146A0, 0x0041487B, 0x00414A5E, 0x00414A9A,
+                0x00414AE2, 0x0043B9A5, 0x005C5525
             };
 
             // Open file and write

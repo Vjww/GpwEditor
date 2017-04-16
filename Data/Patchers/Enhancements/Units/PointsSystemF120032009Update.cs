@@ -30,7 +30,7 @@
                 UnmodifiedInstructions.Add(new DataPatcherUnitTask
                 {
                     TaskId = dataPatcherUnitTask.TaskId,
-                    Description = $"{typeof(PointsSystemF120032009Update).Name} Unmodified; TaskId {dataPatcherUnitTask.TaskId:D2};",
+                    Description = typeof(PointsSystemF120032009Update).Name,
                     VirtualPosition = dataPatcherUnitTask.VirtualPosition,
                     Instructions = dataPatcherUnitTask.Instructions
                 });
@@ -39,7 +39,7 @@
             ModifiedInstructions.Add(new DataPatcherUnitTask
             {
                 TaskId = taskId,
-                Description = $"{typeof(PointsSystemF120032009Update).Name} Modified; TaskId {taskId:D2};",
+                Description = typeof(PointsSystemF120032009Update).Name,
                 VirtualPosition = 0x005B8C5D,
                 Instructions = new byte[]
                 {

@@ -14,7 +14,7 @@
             UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
                 TaskId = taskId,
-                Description = $"{typeof(YellowFlagFix).Name} Unmodified; TaskId {taskId:D2};",
+                Description = typeof(YellowFlagFix).Name,
                 VirtualPosition = 0x00444E12,
                 Instructions = new byte[]
                 {
@@ -25,7 +25,7 @@
             ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
                 TaskId = taskId,
-                Description = $"{typeof(YellowFlagFix).Name} Modified; TaskId {taskId:D2};",
+                Description = typeof(YellowFlagFix).Name,
                 VirtualPosition = 0x00444E12,
                 Instructions = new byte[]
                 {

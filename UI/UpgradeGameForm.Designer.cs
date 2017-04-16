@@ -33,7 +33,6 @@
             this.DisableYellowFlagPenaltiesCheckBox = new System.Windows.Forms.CheckBox();
             this.DisableMemoryResetForRaceSoundsCheckbox = new System.Windows.Forms.CheckBox();
             this.DisableGameCdCheckBox = new System.Windows.Forms.CheckBox();
-            this.DisableGlobalUnlockCheckBox = new System.Windows.Forms.CheckBox();
             this.DisableSampleAppCheckBox = new System.Windows.Forms.CheckBox();
             this.EnableCarPerformanceRaceCalcuationCheckbox = new System.Windows.Forms.CheckBox();
             this.EnableCarHandlingDesignCalculationCheckbox = new System.Windows.Forms.CheckBox();
@@ -65,7 +64,6 @@
             this.GameConfigurationGroupBox.Controls.Add(this.DisableYellowFlagPenaltiesCheckBox);
             this.GameConfigurationGroupBox.Controls.Add(this.DisableMemoryResetForRaceSoundsCheckbox);
             this.GameConfigurationGroupBox.Controls.Add(this.DisableGameCdCheckBox);
-            this.GameConfigurationGroupBox.Controls.Add(this.DisableGlobalUnlockCheckBox);
             this.GameConfigurationGroupBox.Controls.Add(this.DisableSampleAppCheckBox);
             this.GameConfigurationGroupBox.Controls.Add(this.EnableCarPerformanceRaceCalcuationCheckbox);
             this.GameConfigurationGroupBox.Controls.Add(this.EnableCarHandlingDesignCalculationCheckbox);
@@ -117,17 +115,6 @@
             this.DisableGameCdCheckBox.TabIndex = 1;
             this.DisableGameCdCheckBox.Text = "Disable check for original game CD";
             this.DisableGameCdCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // DisableGlobalUnlockCheckBox
-            // 
-            this.DisableGlobalUnlockCheckBox.AutoSize = true;
-            this.DisableGlobalUnlockCheckBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.DisableGlobalUnlockCheckBox.Location = new System.Drawing.Point(6, 88);
-            this.DisableGlobalUnlockCheckBox.Name = "DisableGlobalUnlockCheckBox";
-            this.DisableGlobalUnlockCheckBox.Size = new System.Drawing.Size(233, 17);
-            this.DisableGlobalUnlockCheckBox.TabIndex = 0;
-            this.DisableGlobalUnlockCheckBox.Text = "Disable check for global unlock return result";
-            this.DisableGlobalUnlockCheckBox.UseVisualStyleBackColor = true;
             // 
             // DisableSampleAppCheckBox
             // 
@@ -372,7 +359,6 @@
         private System.Windows.Forms.CheckBox EnableCarPerformanceRaceCalcuationCheckbox;
         private System.Windows.Forms.CheckBox DisableMemoryResetForRaceSoundsCheckbox;
         private System.Windows.Forms.CheckBox DisableSampleAppCheckBox;
-        private System.Windows.Forms.CheckBox DisableGlobalUnlockCheckBox;
         private System.Windows.Forms.Button BrowseGameExecutableButton;
         private System.Windows.Forms.Button BrowseLanguageFileButton;
         private System.Windows.Forms.Label GameExecutablePathLabel;

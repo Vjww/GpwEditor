@@ -17,7 +17,6 @@ namespace Data.Databases
         public bool IsGameCdFixApplied { get; private set; }
         public bool IsDisplayModeFixApplied { get; private set; }
         public bool IsSampleAppFixApplied { get; private set; }
-        public bool IsGlobalUnlockFixApplied { get; private set; }
         public bool IsRaceSoundsFixApplied { get; private set; }
         //public bool IsPitExitPriorityFixApplied { get; private set; } // TODO
         public bool IsYellowFlagFixApplied { get; private set; }
@@ -32,7 +31,6 @@ namespace Data.Databases
         public bool IsGameCdFixRequired { get; set; }
         public bool IsDisplayModeFixRequired { get; set; }
         public bool IsSampleAppFixRequired { get; set; }
-        public bool IsGlobalUnlockFixRequired { get; set; }
         public bool IsRaceSoundsFixRequired { get; set; }
         //public bool IsPitExitPriorityFixRequired { get; set; } // TODO
         public bool IsYellowFlagFixRequired { get; set; }
@@ -162,13 +160,6 @@ namespace Data.Databases
                 ApplyReversibleCode(sampleAppFix, IsSampleAppFixRequired);
             }
 
-            var globalUnlockFix = new GlobalUnlockFix(_gameExecutableFilePath);
-            var isGlobalUnlockFixApplied = globalUnlockFix.IsCodeModified();
-            if (isGlobalUnlockFixApplied != IsGlobalUnlockFixRequired)
-            {
-                ApplyReversibleCode(globalUnlockFix, IsGlobalUnlockFixRequired);
-            }
-
             var yellowFlagFix = new YellowFlagFix(_gameExecutableFilePath);
             var isYellowFlagFixApplied = yellowFlagFix.IsCodeModified();
             if (isYellowFlagFixApplied != IsYellowFlagFixRequired)
@@ -244,7 +235,6 @@ namespace Data.Databases
             IsGameCdFixApplied = new GameCdFix(_gameExecutableFilePath).IsCodeModified();
             IsDisplayModeFixApplied = new DisplayModeFix(_gameExecutableFilePath).IsCodeModified();
             IsSampleAppFixApplied = new SampleAppFix(_gameExecutableFilePath).IsCodeModified();
-            IsGlobalUnlockFixApplied = new GlobalUnlockFix(_gameExecutableFilePath).IsCodeModified();
             IsYellowFlagFixApplied = new YellowFlagFix(_gameExecutableFilePath).IsCodeModified();
             IsRaceSoundsFixApplied = new RaceSoundsFix(_gameExecutableFilePath).IsCodeModified();
             //IsPitExitPriorityFixApplied = new PitExitPriorityFix(_gameExecutableFilePath).IsCodeModified(); // TODO

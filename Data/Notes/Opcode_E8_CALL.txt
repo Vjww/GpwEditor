@@ -1,0 +1,49 @@
+﻿E8 = CALL
+---------
+
+To change the location of a function that is called, use the following formulas.
+
+To call a function that is earlier in the file from the current location use:
+    FFFFFFFF - (code_loc - sub_loc) - 4 = result
+
+To call a function that is later in the file from the current location use:
+    sub_loc - code_loc - 5 = result
+
+The format is E8 XX XX XX XX, where using a result of FEDCBA98 would be represented E8 98 BA DC EF.
+
+Usage examples below:
+
+----------------------------------------------------------------------------------------------------
+0xE8, 0x11, 0x73, 0xEF, 0xFF,               // .text:0050C49A                 call    sub_4037B0
+0xE8, 0x18, 0xA1, 0xF7, 0xFF,               // .text:0050C49A                 call    sub_4865B7
+
+The above two lines are calculated as follows:
+FFFFFFFF - (50C49A - 4037B0) - 4 = FFEF7311
+FFFFFFFF - (50C49A - 4865B7) - 4 = FFF7A118
+
+----------------------------------------------------------------------------------------------------
+0xE8, 0x05, 0x72, 0xEF, 0xFF,               // .text:0050C6FF                 call    sub_403909
+0xE8, 0x0E, 0x03, 0x00, 0x00,               // .text:0050C6FF                 call    sub_50CA12
+
+The above two lines are calculated as follows:
+FFFFFFFF - (50C6FF - 403909) - 4 = FFEF7205
+             50CA12 - 50C6FF - 5 = 0000030E
+
+----------------------------------------------------------------------------------------------------
+
+Alternatively, you can use another formula:
+    sub_loc - (code_loc + 5 bytes) = result
+
+This formula works for both forward and backward referencing (using DWORD and overflow).
+
+Usage examples below:
+
+----------------------------------------------------------------------------------------------------
+0xE8, 0x05, 0x72, 0xEF, 0xFF,               // .text:0050C6FF                 call    sub_403909
+0xE8, 0x0E, 0x03, 0x00, 0x00,               // .text:0050C6FF                 call    sub_50CA12
+
+The above two lines are calculated as follows:
+403909 - (50C6FF + 5) = FFEF7205
+50CA12 - (50C6FF + 5) = 0000030E
+
+----------------------------------------------------------------------------------------------------

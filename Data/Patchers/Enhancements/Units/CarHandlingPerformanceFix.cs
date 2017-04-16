@@ -28,7 +28,7 @@
             UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
                 TaskId = taskId,
-                Description = $"{typeof(CarHandlingPerformanceFix).Name} Unmodified; TaskId {taskId:D2};",
+                Description = typeof(CarHandlingPerformanceFix).Name,
                 VirtualPosition = 0x0053656B,
                 Instructions = new byte[]
                 {
@@ -65,7 +65,7 @@
             ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
                 TaskId = taskId,
-                Description = $"{typeof(CarHandlingPerformanceFix).Name} Modified; TaskId {taskId:D2};",
+                Description = typeof(CarHandlingPerformanceFix).Name,
                 VirtualPosition = 0x0053656B,
                 Instructions = new byte[]
                 {

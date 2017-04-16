@@ -25,7 +25,7 @@
             UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
                 TaskId = taskId,
-                Description = $"{typeof(RaceSoundsFix).Name} Unmodified; TaskId {taskId:D2};",
+                Description = typeof(RaceSoundsFix).Name,
                 VirtualPosition = 0x0049AA5F,
                 Instructions = new byte[]
                 {
@@ -51,7 +51,7 @@
             ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
                 TaskId = taskId,
-                Description = $"{typeof(RaceSoundsFix).Name} Modified; TaskId {taskId:D2};",
+                Description = typeof(RaceSoundsFix).Name,
                 VirtualPosition = 0x0049AA5F,
                 Instructions = new byte[]
                 {
@@ -82,7 +82,7 @@
             UnmodifiedInstructions.Add(new DataPatcherUnitTask()
             {
                 TaskId = taskId,
-                Description = $"{typeof(RaceSoundsFix).Name} Unmodified; TaskId {taskId:D2};",
+                Description = typeof(RaceSoundsFix).Name,
                 VirtualPosition = 0x0049B40A,
                 Instructions = new byte[]
                 {
@@ -110,7 +110,7 @@
             ModifiedInstructions.Add(new DataPatcherUnitTask()
             {
                 TaskId = taskId,
-                Description = $"{typeof(RaceSoundsFix).Name} Modified; TaskId {taskId:D2};",
+                Description = typeof(RaceSoundsFix).Name,
                 VirtualPosition = 0x0049B40A,
                 Instructions = new byte[]
                 {

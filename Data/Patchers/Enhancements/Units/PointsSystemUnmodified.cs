@@ -12,7 +12,7 @@
             UnmodifiedInstructions.Add(new DataPatcherUnitTask
             {
                 TaskId = taskId,
-                Description = $"{typeof(PointsSystemUnmodified).Name} Unmodified; TaskId {taskId:D2};",
+                Description = typeof(PointsSystemUnmodified).Name,
                 VirtualPosition = 0x005B8C5D,
                 Instructions = new byte[]
                 {
