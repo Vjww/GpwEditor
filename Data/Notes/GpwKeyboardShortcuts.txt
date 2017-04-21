@@ -1,0 +1,612 @@
+﻿Refer to comments next to case statements for key.
+
+Virtual-Key Codes
+https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85).aspx
+
+gpw.101b.exe
+
+void __cdecl sub_44F289(int a1)
+{
+  __int16 v1; // fps@52
+  unsigned __int8 v2; // c0@52
+  unsigned __int8 v3; // c3@52
+  __int16 v4; // fps@60
+  unsigned __int8 v5; // c0@60
+  unsigned __int8 v6; // c3@60
+  __int16 v7; // fps@68
+  unsigned __int8 v8; // c0@68
+  unsigned __int8 v9; // c3@68
+  char v10; // sf@106
+  int v11; // ST40_4@169
+  __int16 v12; // fps@190
+  char v13; // c0@190
+  __int16 v14; // fps@194
+  char v15; // c0@194
+  char v16; // sf@207
+  char v17; // sf@210
+  int *v18; // ecx@222
+  int *v19; // ecx@222
+  int *v20; // ecx@222
+  int *v21; // ecx@225
+  int *v22; // ecx@225
+  int *v23; // ecx@225
+  int *v24; // eax@226
+  int *v25; // eax@226
+  int *v26; // eax@226
+  int v27; // [sp+20h] [bp-120h]@19
+  int v28; // [sp+24h] [bp-11Ch]@11
+  signed int i; // [sp+34h] [bp-10Ch]@76
+  int j; // [sp+34h] [bp-10Ch]@85
+  char v31; // [sp+38h] [bp-108h]@225
+  float *v32; // [sp+13Ch] [bp-4h]@132
+
+  if ( dword_15F31DC )
+  {
+    switch ( dword_15F31E0 )
+    {
+      case 1:
+        v32 = &flt_716920;
+        break;
+      case 2:
+        v32 = &dword_7117A0;
+        break;
+      case 3:
+        v32 = (float *)dword_697D10;
+        break;
+      default:
+        v32 = (float *)&dword_706060;
+        break;
+    }
+    switch ( a1 )
+    {
+      case 0x7B:                                // VK_F12
+        dword_14C7484 = 0;
+        sub_450C43();
+        dword_15F3218 = 1;
+        dword_15F3214 = 0;
+        break;
+      case 0x7A:                                // VK_F11
+        ++dword_15F31EC;
+        if ( dword_15F31EC > 2 )
+          dword_15F31EC = 0;
+        break;
+      case 0x2E:                                // VK_DELETE
+        LODWORD(dword_15F31D4) = 1061158912;
+        LODWORD(dword_15F31D8) = 1057991784;
+        dword_6981B4[715 * dword_15F3200] = LODWORD(dword_15F31D4);
+        dword_6981B8[715 * dword_15F3200] = LODWORD(dword_15F31D8);
+        LODWORD(flt_716920) = dword_706060;
+        *((_DWORD *)&flt_716920 + 1) = *(&dword_706060 + 1);
+        *((_DWORD *)&flt_716920 + 2) = *(&dword_706060 + 2);
+        dword_7117A0 = flt_716920;
+        *((_DWORD *)&dword_7117A0 + 1) = *((_DWORD *)&flt_716920 + 1);
+        *((_DWORD *)&dword_7117A0 + 2) = *((_DWORD *)&flt_716920 + 2);
+        *(float *)&dword_7117A4 = *(float *)&dword_7117A4 + (double)dword_15F3204;
+        break;
+      case 0x67:                                // VK_NUMPAD7
+        LODWORD(dword_15F31D4) = 1061158912;
+        LODWORD(dword_15F31D8) = 1057991784;
+        dword_6981B4[715 * dword_15F3200] = LODWORD(dword_15F31D4);
+        dword_6981B8[715 * dword_15F3200] = LODWORD(dword_15F31D8);
+        break;
+      case 0x68:                                // VK_NUMPAD8
+        v32[1] = v32[1] + flt_15F31E4;
+        break;
+      case 0x62:                                // VK_NUMPAD2
+        v32[1] = v32[1] - flt_15F31E4;
+        break;
+      case 0x64:                                // VK_NUMPAD4
+        *v32 = *v32 - flt_15F31E4;
+        break;
+      case 0x66:                                // VK_NUMPAD6
+        *v32 = *v32 + flt_15F31E4;
+        break;
+      case 0x61:                                // VK_NUMPAD1
+        v32[2] = v32[2] - flt_15F31E4;
+        break;
+      case 0x63:                                // VK_NUMPAD3
+        v32[2] = v32[2] + flt_15F31E4;
+        break;
+      case 0x4B:                                // K key
+        *(float *)&dword_6981A8[715 * dword_15F3200] = *(float *)&dword_6981A8[715 * dword_15F3200] - flt_15F31E4;
+        *(float *)&dword_6981AC[715 * dword_15F3200] = *(float *)&dword_6981AC[715 * dword_15F3200] - flt_15F31E4;
+        *(float *)&dword_6981B0[715 * dword_15F3200] = *(float *)&dword_6981B0[715 * dword_15F3200] - flt_15F31E4;
+        if ( *(float *)&dword_6981A8[715 * dword_15F3200] <= 0.0 )
+          dword_6981A8[715 * dword_15F3200] = 1036831949;
+        if ( *(float *)&dword_6981AC[715 * dword_15F3200] <= 0.0 )
+          dword_6981AC[715 * dword_15F3200] = 1036831949;
+        if ( *(float *)&dword_6981B0[715 * dword_15F3200] <= 0.0 )
+          dword_6981B0[715 * dword_15F3200] = 1036831949;
+        break;
+      case 0x4C:                                // L key
+        *(float *)&dword_6981A8[715 * dword_15F3200] = *(float *)&dword_6981A8[715 * dword_15F3200] + flt_15F31E4;
+        *(float *)&dword_6981AC[715 * dword_15F3200] = *(float *)&dword_6981AC[715 * dword_15F3200] + flt_15F31E4;
+        *(float *)&dword_6981B0[715 * dword_15F3200] = *(float *)&dword_6981B0[715 * dword_15F3200] + flt_15F31E4;
+        break;
+      case 0x4A:                                // J key
+        dword_6981A8[715 * dword_15F3200] = 1065353216;
+        dword_6981AC[715 * dword_15F3200] = 1065353216;
+        dword_6981B0[715 * dword_15F3200] = 1065353216;
+        break;
+      case 9:                                   // VK_TAB
+        dword_6981B4[715 * dword_15F3200] = 1032000111;
+        dword_6981B8[715 * dword_15F3200] = 1022859883;
+        dword_6981A8[715 * dword_15F3200] = 1065353216;
+        dword_6981AC[715 * dword_15F3200] = 1065353216;
+        dword_6981B0[715 * dword_15F3200] = 1065353216;
+        dword_15F31F4 = 0;
+        break;
+      case 0x21:                                // VK_PRIOR (PAGEUP)
+        *(float *)&dword_6981B4[715 * dword_15F3200] = *(float *)&dword_6981B4[715 * dword_15F3200]
+                                                     - 0.001000000047497451;
+        break;
+      case 0x22:                                // VK_NEXT (PAGEDOWN)
+        *(float *)&dword_6981B4[715 * dword_15F3200] = *(float *)&dword_6981B4[715 * dword_15F3200]
+                                                     + 0.001000000047497451;
+        break;
+      case 0x6F:                                // VK_DIVIDE
+        *(float *)&dword_6981B8[715 * dword_15F3200] = *(float *)&dword_6981B8[715 * dword_15F3200]
+                                                     - 0.001000000047497451;
+        break;
+      case 0x6A:                                // VK_MULTIPLY
+        *(float *)&dword_6981B8[715 * dword_15F3200] = *(float *)&dword_6981B8[715 * dword_15F3200]
+                                                     + 0.001000000047497451;
+        break;
+      case 8:                                   // VK_BACK (BACKSPACE)
+        if ( dword_15F3344 == 3 )
+          dword_15F3344 = 2;
+        else
+          dword_15F3344 = 3;
+        v11 = sub_43C5C0(dword_15F2C58);
+        (*(void (__stdcall **)(int, signed int, int))(*(_DWORD *)v11 + 88))(v11, 8, dword_15F3344);
+        break;
+      case 0x26:                                // VK_UP (arrow keys)
+        sub_4556AC();
+        break;
+      case 0x25:                                // VK_LEFT (arrow keys)
+        *(float *)&dword_706074 = *(float *)&dword_706074 + 0.009999999776482582;
+        sub_4556AC();
+        break;
+      case 0x27:                                // VK_RIGHT (arrow keys)
+        *(float *)&dword_706074 = *(float *)&dword_706074 - 0.009999999776482582;
+        sub_4556AC();
+        break;
+      case 0x28:                                // VK_DOWN (arrow keys)
+        sub_455846();
+        break;
+      case 0x52:                                // R key
+        ++dword_15F31E0;
+        if ( dword_15F31E0 > 3 )
+          dword_15F31E0 = 0;
+        break;
+      case 0x47:                                // G key
+        ++dword_15F31E8;
+        if ( dword_15F31E8 > 2 )
+          dword_15F31E8 = 0;
+        break;
+      case 0x41:                                // A key
+        flt_706070 = flt_706070 + 0.009999999776482582;
+        break;
+      case 0x5A:                                // Z key
+        flt_706070 = flt_706070 - 0.009999999776482582;
+        break;
+      case 0x53:                                // S key
+        *(float *)&dword_706074 = *(float *)&dword_706074 - 0.009999999776482582;
+        break;
+      case 0x58:                                // X key
+        *(float *)&dword_706074 = *(float *)&dword_706074 + 0.009999999776482582;
+        break;
+      case 0x44:                                // D key
+        flt_706078 = flt_706078 + 0.009999999776482582;
+        break;
+      case 0x43:                                // C key
+        flt_706078 = flt_706078 - 0.009999999776482582;
+        break;
+      case 0x51:                                // Q key
+        LODWORD(flt_706070) = 0;
+        break;
+      case 0x57:                                // W key
+        dword_706074 = 0;
+        break;
+      case 0x45:                                // E key
+        LODWORD(flt_706078) = 0;
+        break;
+      case 0x33:                                // 3 key
+        flt_15F31E4 = flt_15F31E4 + 0.1000000014901161;
+        break;
+      case 0x34:                                // 4 key
+        UNDEF(v12);
+        flt_15F31E4 = flt_15F31E4 - 0.1000000014901161;
+        if ( v13 )
+          LODWORD(flt_15F31E4) = 1036831949;
+        break;
+      case 0x35:                                // 5 key
+        dword_706094 = dword_706094 + 0.05000000074505806;
+        break;
+      case 0x36:                                // 6 key
+        UNDEF(v14);
+        dword_706094 = dword_706094 - 0.05000000074505806;
+        if ( v15 )
+          LODWORD(dword_706094) = 1028443341;
+        break;
+      case 0x76:                                // VK_F7
+        sub_455239();
+        break;
+      case 0x77:                                // VK_F8
+        sub_45507C();
+        break;
+      case 0x78:                                // VK_F9
+        sub_4553C6();
+        break;
+      case 0x6B:                                // VK_ADD (keypad)
+        dword_15F3208 = 0;
+        ++dword_15F3200;
+        if ( dword_15F3200 >= un_LoadDataFromFileTrackRtiCounter )
+          dword_15F3200 = 0;
+        while ( dword_697C48[dword_15F3200] )
+        {
+          ++dword_15F3200;
+          if ( dword_15F3200 >= un_LoadDataFromFileTrackRtiCounter )
+            dword_15F3200 = 0;
+        }
+        dword_706098 = dword_15F3200;
+        dword_15F31F4 = 0;
+        sub_455548(0, dword_15F3200, 0);
+        sub_45755A(0, 0);
+        dword_15F701C = 0;
+        break;
+      case 0x6D:                                // VK_SUBTRACT (keypad)
+        dword_15F3208 = 0;
+        v16 = dword_15F3200-- - 1 < 0;
+        if ( v16 )
+          dword_15F3200 = un_LoadDataFromFileTrackRtiCounter - 1;
+        while ( dword_697C48[dword_15F3200] )
+        {
+          v17 = dword_15F3200-- - 1 < 0;
+          if ( v17 )
+            dword_15F3200 = un_LoadDataFromFileTrackRtiCounter - 1;
+        }
+        dword_706098 = dword_15F3200;
+        dword_15F31F4 = 0;
+        sub_455548(0, dword_15F3200, 0);
+        sub_45755A(0, 0);
+        dword_15F701C = 0;
+        break;
+      case 0x4F:                                // O key
+        sub_4554C5(-1);
+        break;
+      case 0x50:                                // P key
+        sub_4554C5(1);
+        break;
+      case 0x54:                                // T key
+        ++dword_15F31F8;
+        if ( dword_15F31F8 > 1 )
+          dword_15F31F8 = 0;
+        break;
+      case 0x31:                                // 1 key
+        ++dword_15F31FC;
+        if ( dword_15F31FC > 1 )
+          dword_15F31FC = 0;
+        if ( dword_15F31FC > 0 )
+        {
+          dword_698180[715 * dword_15F3200] = dword_15F31F0;
+          v18 = &dword_698180[715 * dword_15F3200 + 1];
+          *v18 = LODWORD(dword_7117A0);
+          v18[1] = *((_DWORD *)&dword_7117A0 + 1);
+          v18[2] = *((_DWORD *)&dword_7117A0 + 2);
+          v19 = &dword_698180[715 * dword_15F3200 + 4];
+          *v19 = LODWORD(flt_716920);
+          v19[1] = *((_DWORD *)&flt_716920 + 1);
+          v19[2] = *((_DWORD *)&flt_716920 + 2);
+          v20 = &dword_698180[715 * dword_15F3200 + 7];
+          *v20 = dword_697D10[0];
+          v20[1] = dword_697D10[1];
+          v20[2] = dword_697D10[2];
+        }
+        break;
+      case 0x39:                                // 9 key
+        dword_15F31F4 = 0;
+        sub_455548(0, dword_15F3200, 0);
+        break;
+      case 0x74:                                // VK_F5
+        dword_698180[715 * dword_15F3200] = dword_15F31F0;
+        v21 = &dword_698180[715 * dword_15F3200 + 1];
+        *v21 = LODWORD(dword_7117A0);
+        v21[1] = *((_DWORD *)&dword_7117A0 + 1);
+        v21[2] = *((_DWORD *)&dword_7117A0 + 2);
+        v22 = &dword_698180[715 * dword_15F3200 + 4];
+        *v22 = LODWORD(flt_716920);
+        v22[1] = *((_DWORD *)&flt_716920 + 1);
+        v22[2] = *((_DWORD *)&flt_716920 + 2);
+        v23 = &dword_698180[715 * dword_15F3200 + 7];
+        *v23 = dword_697D10[0];
+        v23[1] = dword_697D10[1];
+        v23[2] = dword_697D10[2];
+        sub_67CDFA(&v31, "tracks%s\\%s.tga", &unk_7017D4, &byte_697848[10 * dword_15F3200]);
+        sub_491026(&v31, &dword_698180[715 * dword_15F3200], 2860);
+        break;
+      case 0x55:                                // U key
+        sub_67CDFA(&v31, "tracks%s\\%s.tga", &unk_7017D4, &byte_697848[10 * dword_15F3200]);
+        sub_490C49(&v31, &dword_698180[715 * dword_15F3200], 2860);
+        dword_15F31F0 = dword_698180[715 * dword_15F3200];
+        dword_15F31F4 = 0;
+        v24 = &dword_698180[715 * dword_15F3200 + 1];
+        LODWORD(dword_7117A0) = *v24;
+        *((_DWORD *)&dword_7117A0 + 1) = dword_698180[715 * dword_15F3200 + 2];
+        *((_DWORD *)&dword_7117A0 + 2) = v24[2];
+        v25 = &dword_698180[715 * dword_15F3200 + 4];
+        LODWORD(flt_716920) = *v25;
+        *((_DWORD *)&flt_716920 + 1) = dword_698180[715 * dword_15F3200 + 5];
+        *((_DWORD *)&flt_716920 + 2) = v25[2];
+        v26 = &dword_698180[715 * dword_15F3200 + 7];
+        dword_697D10[0] = *v26;
+        dword_697D10[1] = dword_698180[715 * dword_15F3200 + 8];
+        dword_697D10[2] = v26[2];
+        sub_455548(0, dword_15F3200, 0);
+        break;
+      case 0x11:                                // VK_CTRL
+        if ( dword_15F33A0 )
+          dword_15F33A0 = 0;
+        else
+          dword_15F33A0 = 1;
+        break;
+      case 0x10:                                // VK_SHIFT
+        if ( dword_15F33A0 > 0 )
+        {
+          ++dword_15F33A0;
+          if ( dword_15F33A0 >= 22 )
+            dword_15F33A0 = 1;
+        }
+        break;
+      default:
+        return;
+    }
+  }
+  else
+  {
+    switch ( a1 )
+    {
+      case 0x77:                                // VK_F8
+        sub_4620DA();
+        break;
+      case 0x78:                                // VK_F9
+        sub_462053();
+        break;
+      case 0x31:                                // 1 key
+        dword_15F2F44 = 0;
+        break;
+      case 0x32:                                // 2 key
+        dword_15F2F44 = 1;
+        break;
+      case 0x33:                                // 3 key
+        dword_15F2F44 = 3;
+        break;
+      case 0x34:                                // 4 key
+        dword_15F2F44 = 2;
+        break;
+      case 0x41:                                // A key
+        sub_45223B(dword_15F2F44, 1);
+        break;
+      case 0x5A:                                // Z key
+        sub_45223B(dword_15F2F44, -1);
+        break;
+      case 0x25:                                // VK_LEFT (arrow keys)
+        v28 = dword_726F28[29 * dword_15F2F44];
+        switch ( v28 )
+        {
+          case 1:
+            sub_452586(dword_15F2F44, -1);
+            break;
+          case 2:
+            sub_4523BB(dword_15F2F44, -1);
+            break;
+          case 4:
+            sub_4A508C(dword_15F2F44, -1);
+            break;
+        }
+        break;
+      case 0x27:                                // VK_RIGHT (arrow keys)
+        v27 = dword_726F28[29 * dword_15F2F44];
+        switch ( v27 )
+        {
+          case 1:
+            sub_452586(dword_15F2F44, 1);
+            break;
+          case 2:
+            sub_4523BB(dword_15F2F44, 1);
+            break;
+          case 4:
+            sub_4A508C(dword_15F2F44, 1);
+            break;
+        }
+        break;
+      case 0x26:                                // VK_UP (arrow keys)
+        if ( dword_726F28[29 * dword_15F2F44] == 4 )
+          sub_49EFE3(dword_15F2F44, 1);
+        break;
+      case 0x28:                                // VK_DOWN (arrow keys)
+        if ( dword_726F28[29 * dword_15F2F44] == 4 )
+          sub_49EFE3(dword_15F2F44, -1);
+        break;
+      case 0x7A:                                // VK_F11
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+        {
+          ++dword_15F3214;
+          if ( dword_15F3214 > 2 )
+            dword_15F3214 = 2;
+        }
+        break;
+      case 0x72:                                // VK_F3
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+        {
+          dword_15F3214 = 1;
+          sub_44A637();
+        }
+        break;
+      case 0x76:                                // VK_F7
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+        {
+          if ( dword_726F28[0] == 2 )
+          {
+            if ( !dword_70618C[292 * dword_726F2C] )
+              sub_45FD30(dword_726F2C);
+          }
+        }
+        break;
+      case 0x49:                                // I key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+        {
+          *(float *)&dword_15F31D0 = *(float *)&dword_15F31D0 - 0.009999999776482582;
+          dword_706098 = 0;
+          sub_455548(0, 0, 0);
+        }
+        break;
+      case 0x4F:                                // O key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+        {
+          UNDEF(v1);
+          *(float *)&dword_15F31D0 = *(float *)&dword_15F31D0 + 0.009999999776482582;
+          if ( !(v2 | v3) )
+            dword_15F31D0 = 1065353216;
+          dword_706098 = 0;
+          sub_455548(0, 0, 0);
+        }
+        break;
+      case 0x4A:                                // J key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+        {
+          *(float *)&dword_15F31D0 = *(float *)&dword_15F31D0 - 0.001000000047497451;
+          dword_706098 = 0;
+          sub_455548(0, 0, 0);
+        }
+        break;
+      case 0x4B:                                // K key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+        {
+          UNDEF(v4);
+          *(float *)&dword_15F31D0 = *(float *)&dword_15F31D0 + 0.001000000047497451;
+          if ( !(v5 | v6) )
+            dword_15F31D0 = 1065353216;
+          dword_706098 = 0;
+          sub_455548(0, 0, 0);
+        }
+        break;
+      case 0x4E:                                // N key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+        {
+          *(float *)&dword_15F31D0 = *(float *)&dword_15F31D0 - 0.00009999999747378752;
+          dword_706098 = 0;
+          sub_455548(0, 0, 0);
+        }
+        break;
+      case 0x4D:                                // M key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+        {
+          UNDEF(v7);
+          *(float *)&dword_15F31D0 = *(float *)&dword_15F31D0 + 0.00009999999747378752;
+          if ( !(v8 | v9) )
+            dword_15F31D0 = 1065353216;
+          dword_706098 = 0;
+          sub_455548(0, 0, 0);
+        }
+        break;
+      case 0x53:                                // S key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+          --dword_706464[292 * dword_726F2C];
+        break;
+      case 0x58:                                // X key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+        {
+          for ( i = 0; i < 22; ++i )
+            dword_706464[292 * i] = 57;
+          dword_706464[0] = 56;
+          dword_7068F4 = 56;
+        }
+        break;
+      case 0x44:                                // D key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+          sub_522D32(0);
+        break;
+      case 0x46:                                // F key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+        {
+          for ( j = 0; j < dword_711798; ++j )
+          {
+            dword_706190[292 * j] = 1;
+            dword_706194[292 * j] = 10;
+            dword_70618C[292 * j] = 1;
+          }
+        }
+        break;
+      case 0x47:                                // G key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+        {
+          dword_706404[292 * dword_726F2C] = 0;
+          sub_4477AB(dword_726F2C, 10);
+        }
+        break;
+      case 0x51:                                // Q key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+          sub_444F7C(7, 0);
+        break;
+      case 0x57:                                // W key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+          dword_7063E0[292 * dword_726F2C] = 0;
+        break;
+      case 0x42:                                // B key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+        {
+          if ( dword_726F28[0] == 2 )
+          {
+            if ( !dword_70618C[292 * dword_726F2C] )
+              dword_7063F0[292 * dword_726F2C] = 0;
+          }
+        }
+        break;
+      case 0x52:                                // R key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+        {
+          v10 = dword_711250-- - 1 < 0;
+          if ( v10 )
+            dword_711250 = 0;
+          sub_45E979();
+          dword_70C798 = dword_711250;
+          sub_45E848();
+        }
+        break;
+      case 0x54:                                // T key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+        {
+          ++dword_711250;
+          if ( dword_711250 > 4 )
+            dword_711250 = 4;
+          sub_45E979();
+          dword_70C798 = dword_711250;
+          sub_45E89C();
+        }
+        break;
+      case 0x59:                                // Y key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+          sub_45F4DE(0, 5);
+        break;
+      case 0x35:                                // 5 key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+          *(float *)&dword_15F2F3C = *(float *)&dword_15F2F3C - 0.05000000074505806;
+        break;
+      case 0x36:                                // 6 key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+          *(float *)&dword_15F2F3C = *(float *)&dword_15F2F3C + 0.05000000074505806;
+        break;
+      case 0x37:                                // 7 key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+          flt_15F2F40 = flt_15F2F40 - 0.05000000074505806;
+        break;
+      case 0x38:                                // 8 key
+        if ( uf_IsFileExist("DAT\\YES3DED.DAT") )
+          flt_15F2F40 = flt_15F2F40 + 0.05000000074505806;
+        break;
+      case 0x7B:                                // VK_F12
+        return;
+    }
+  }
+}

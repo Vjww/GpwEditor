@@ -1,0 +1,34 @@
+﻿DAT FILE LIST
+-------------
+
+JUMPC.DAT - to jump directly to a specific circuit
+AUZ.DAT - to be used with JUMPC.DAT
+BRZ.DAT - to be used with JUMPC.DAT
+ARG.DAT - to be used with JUMPC.DAT
+SAN.DAT - to be used with JUMPC.DAT
+SPA.DAT - to be used with JUMPC.DAT
+MON.DAT - to be used with JUMPC.DAT
+CAN.DAT - to be used with JUMPC.DAT
+FRE.DAT - to be used with JUMPC.DAT
+BRI.DAT - to be used with JUMPC.DAT
+AUT.DAT - to be used with JUMPC.DAT
+GER.DAT - to be used with JUMPC.DAT
+HUN.DAT - to be used with JUMPC.DAT
+BEL.DAT - to be used with JUMPC.DAT
+ITA.DAT - to be used with JUMPC.DAT
+LUX.DAT - to be used with JUMPC.DAT
+JAP.DAT - to be used with JUMPC.DAT
+
+DUMPQUAL.DAT - Data dump of qualifying results to file qual.txt
+DUMPAIDQ.DAT - Dump qualifying telemetry to file RaceAID.txt
+DUMPAID.DAT - Dump race telemetry to file RaceAID.txt
+
+LINGO.DAT - resource file editor (triggered by @ key, SHIFT-2)
+
+YES3DED.DAT - add additional keyboard shortcuts in race screen (possibly unrelated to track editor, more general use)
+
+CHAT.DAT - unknown, seems to be used by game engine, potential triggers are VK_RETURN or VK_OEM_8, on WM_KEYUP in WndProc
+
+UNLIMIT.DAT - use this file to remove 30fps limit, may quadruple game speed 
+
+TEXWHITE.DAT - requires file bmp\sponsors\Green\white.bmp (80x60), shows white texture instead of green sponsor logos

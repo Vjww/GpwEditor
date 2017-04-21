@@ -87,6 +87,7 @@
     <Compile Include="Entities\Executable\Environment\TestingMiles\TestingMiles.cs" />
     <Compile Include="Entities\Language\IIdentity.cs" />
     <Compile Include="Helpers\ResourceHelper.cs" />
+    <Compile Include="Patchers\TrackEditorPatcher\TrackEditorPatcher.cs" />
     <Compile Include="ValueMapping\Executable\Environment\EngineeringCosts\BuildNextYearCar.cs" />
     <Compile Include="ValueMapping\Executable\Environment\EngineeringCosts\BuildSpare.cs" />
     <Compile Include="ValueMapping\Executable\Environment\EngineeringCosts\BuildThisYearCar.cs" />
@@ -257,15 +258,21 @@
     <Content Include="IntegrationTasks\GpwXpExe\Text\c_racepoints_new.txt" />
     <Content Include="IntegrationTasks\GpwXpExe\Text\ViewportDefaults\viewport_default.txt" />
     <Content Include="Notes\CreateFunction.txt" />
+    <Content Include="Notes\engineeringoffsets.txt" />
     <Content Include="Notes\Executable\Drivers.txt" />
     <Content Include="Notes\GlobalUnlockResearch.txt" />
+    <Content Include="Notes\GpwDatFileListing.txt" />
+    <Content Include="Notes\GpwKeyboardShortcuts.txt" />
     <Content Include="Notes\readme.txt" />
     <Content Include="Notes\snippets.txt" />
     <Content Include="Notes\Opcode_E8_CALL.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="IntegrationTasks\BackupIdb\BackupIdb.zip" />
-    <None Include="IntegrationTasks\GpwExe\Binary\gpwidb.zip" />
+    <None Include="Idb\GpwIdbDev.zip" />
+    <None Include="Idb\GpwIdbMigration.zip" />
+    <None Include="Idb\GpwIdbResearch.zip" />
+    <None Include="IntegrationTasks\DEL_BackupIdb\BackupIdb.zip" />
+    <None Include="IntegrationTasks\GpwExe\DEL_Binary\gpwidb.zip" />
     <None Include="IntegrationTasks\GpwExe\Text\x_gpwfix_designbyengineer.hbk" />
     <None Include="IntegrationTasks\GpwExe\Text\a_gpwfix_displaymodecheck.hbk" />
     <None Include="IntegrationTasks\GpwExe\Text\a_gpwmod_carperformancecalc.hbk" />
@@ -282,23 +289,25 @@
     <None Include="IntegrationTasks\GpwExe\Text\a_gpw_teamsdrivers.hbk" />
     <None Include="IntegrationTasks\GpwExe\Text\b_gpw_viewportdefaults.hbk" />
     <None Include="IntegrationTasks\GpwExe\Text\a_gpw_yellowflagfix.hbk" />
-    <None Include="IntegrationTasks\GpwXpExe\Binary\gpwxpidb.zip" />
+    <None Include="IntegrationTasks\GpwXpExe\DEL_Binary\gpwxpidb.zip" />
     <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_gameplay.hbk" />
     <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_misc.hbk" />
     <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_perfcurvecalcfix.hbk" />
     <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_racespeed.hbk" />
     <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_tracks.hbk" />
     <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_tyres.hbk" />
+    <None Include="IntegrationTasks\Release102\gpwv102b.zip" />
     <None Include="IntegrationTasks\Release103\gpwv103b.zip" />
     <None Include="IntegrationTasks\Release103\gpwv103idb.zip" />
     <None Include="IntegrationTasks\Release103\gpw_103testing.zip" />
     <None Include="Notes\Executable\LoadEffectiveAddressCalc.xlsx" />
+    <None Include="Notes\Gpw_TestDriverSalaries.xlsx" />
     <None Include="Notes\Grand Prix World Technical Document.docx" />
+    <None Include="Notes\PitStopBugInvestigation.zip" />
     <None Include="Notes\SwitchIdiomPatcher.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\Executable\Config\" />
-    <Folder Include="IntegrationTasks\Release102\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="_OldEditor\ExecutableForm\MainForm.resx">

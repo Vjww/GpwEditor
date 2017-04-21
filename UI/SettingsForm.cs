@@ -4,6 +4,7 @@ using Data.Patchers.CodeShifting;
 using Data.Patchers.GlobalUnlockPatcher;
 using Data.Patchers.JumpBypassPatcher;
 using Data.Patchers.SwitchIdiomPatcher;
+using Data.Patchers.TrackEditorPatcher;
 using GpwEditor.Properties;
 
 namespace GpwEditor
@@ -116,26 +117,27 @@ namespace GpwEditor
 
         private void ApplySwitchIdiomPatcher()
         {
-            var patcher = new SwitchIdiomPatcher(_filePath);
-            patcher.Apply();
+            new SwitchIdiomPatcher(_filePath).Apply();
         }
 
         private void ApplyJumpBypassPatcher()
         {
-            var patcher = new JumpBypassPatcher(_filePath);
-            patcher.Apply();
+            new JumpBypassPatcher(_filePath).Apply();
         }
 
         private void ApplyGlobalUnlockPatcher()
         {
-            var patcher = new GlobalUnlockPatcher(_filePath);
-            patcher.Apply();
+            new GlobalUnlockPatcher(_filePath).Apply();
         }
 
         private void ApplyCodeShiftPatcher()
         {
-            var patcher = new CodeShiftingPatcher(_filePath);
-            patcher.Apply();
+            new CodeShiftingPatcher(_filePath).Apply();
+        }
+
+        private void ApplyTrackEditorPatcher()
+        {
+            new TrackEditorPatcher(_filePath).Apply();
         }
 
         private void ApplyAllPatchers()
@@ -144,6 +146,7 @@ namespace GpwEditor
             ApplyJumpBypassPatcher();
             ApplyGlobalUnlockPatcher();
             ApplyCodeShiftPatcher();
+            ApplyTrackEditorPatcher();
         }
 
         private void OffsetValueGeneratorToolButton_Click(object sender, EventArgs e)
