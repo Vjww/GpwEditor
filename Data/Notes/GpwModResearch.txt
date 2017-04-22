@@ -1,0 +1,58 @@
+
+
+When files missing from \xdata
+- No CTD, missing files are just not shown in race view
+
+Wheel shapes during race
+Low - always square wheels
+Standard - square on long shots, round on close ups
+High - always round
+
+Car shapes during race
+Low - seems to use c model
+Standard - seems to use c on long shots, b on close up
+High - seems to always use 'a' model
+
+\car\*texm2.ppm used when 1998 sponsors are used
+\textbl\*_bl.bmp used when drawing game sponsors onto livery and saving as ppm to \thisyear and \nextyear
+
+Drivers helmet always shown
+
+
+The following appear to be round wheels in race view and sponsor view
+\wheel\F_Wh*.x
+\wheel\R_Wh*.x
+
+The following appear to be square wheels in race view only
+(appear in long shots or when round wheels are missing)
+\wheel\B_*In.x
+\wheel\B_*Mid.x
+\wheel\B_*Out.x
+
+
+\wheel\tyreIBs.ppm - inside tyre texture for bridgestone, silver wheel
+\wheel\tyreIGb.ppm - inside tyre texture for goodyear, black wheel
+\wheel\tyreIGg.ppm - inside tyre texture for goodyear, gold wheel
+\wheel\tyreIGs.ppm - inside tyre texture for goodyear, silver wheel
+
+\wheel\tyreOBs.ppm - outside tyre texture for bridgestone, silver wheel
+\wheel\tyreOGb.ppm - outside tyre texture for goodyear, black wheel
+\wheel\tyreOGg.ppm - outside tyre texture for goodyear, gold wheel
+\wheel\tyreOGs.ppm - outside tyre texture for goodyear, silver wheel
+
+NOTE: \wheel\tyreOGs.ppm should be used as Michelin outer, and a proper yellow sidewall for Goodyear silver
+
+\wheel\tyreM.ppm   - grooved rear tyre tread
+\wheel\TyreMF.ppm  - grooved front tyre tread
+
+\wheel\TyreMic.ppm - untested, suspect outside tyre texture Michelin
+
+\wheel\tyrebp1.ppm - unused? possibly an outer template used when modelling
+\wheel\tyrebp1b.ppm - unused? possibly an inner template used when modelling
+\wheel\tyretrd2.ppm - unused? possibly a rear tyre tread template used when modelling
+
+
+Rear Left Inner = X 0.539 Y 1.44 Z 0.255
+Rear Left Mid   = X 0.705 Y 1.44 Z 0.255
+Rear Left Outer = X 0.853 Y 1.44 Z 0.255
+

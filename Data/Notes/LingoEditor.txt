@@ -1,0 +1,1 @@
+dat\lingo.dat... notepad.exe %s.. @-[Editor On/Off ] A-[Previous] S -[Next] L-[Langu age - %s] R-[Rel oad Txt]

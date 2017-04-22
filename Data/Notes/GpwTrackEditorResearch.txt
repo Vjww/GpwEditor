@@ -1,0 +1,118 @@
+Track Editor
+- Click on the track abbreviation to change tracks
+- Click on the frame suffix to change lines for the frame
+- Use +/- keys on NumPad (may require numlock enabled esp. laptops) to change frames
+
+
+sub_ 454CF7 has strings 5100 to 5113
+
+sub_ 454CF7 is called by sub_ 401974
+
+sub_ 401974 is called by sub_ 44B697
+
+sub_ 44B697 below
+
+  if ( dword_15F701C < 2 )
+  {
+    sub_4038FA(5);
+    (*(void (__stdcall **)(int, signed int, int, signed int))(*(_DWORD *)a3 + 48))(a3, 1, a4, 3);
+	// 3, 024D2214, 1, 002850E0, d3dim.dll
+    if ( dword_15F31DC > 0 )
+      sub_401974();
+
+------------	  
+
+Put breakpoint on line 44B730 and when it hits dword_15F31DC, change value from 0 to 1.
+
+------------	  
+	  
+sub_ 44B697 is called by sub_ 403B16
+
+sub_ 403B16 is called by sub_ 43A444
+
+sub_43A444 below
+
+  if ( dword_15F2C90 )
+  {
+    v2 = sub_402F04(dword_15F2C58);
+    v3 = sub_4033C8(dword_15F2C58);
+    v4 = sub_401B7C(dword_15F2C58);
+    sub_403B16(v0, v4, v3, v2);
+
+	
+	
+	
+	
+	
+	
+	
+	
+	---------------------
+
+sub_ 438D4B	
+	
+MSG = 513
+	
+            if ( Msg == 513 ) // WM_LBUTTONDOWN
+            {
+              if ( sub_401A64() )
+                return 0;
+              if ( dword_15F2C0C )
+              {
+                sub_4013E3();
+                return 0;
+              }
+              dword_692C88 = wParam;
+              LODWORD(qword_692414) = (unsigned __int16)lParam;
+              HIDWORD(qword_692414) = (unsigned int)lParam >> 16;
+              if ( dword_15F2C90 )
+              {
+                if ( CarPathEditor_15F31DC <= 0 )
+                {
+                  sub_401B54();
+                }
+                else
+                {
+                  sub_401915();                 // 
+                                                // Sets car path editor to 1
+                                                // 
+                  dword_15F29E4 = 1;
+                }
+              }
+
+
+OR MSG = 512
+			  
+          case 512u: // WM_MOUSEFIRST or WM_MOUSEMOVE 
+            if ( dword_15F2C90 )
+            {
+              if ( CarPathEditor_15F31DC > 0 )
+              {
+                if ( dword_15F29E4 )
+                  sub_401915();                 // 
+                                                //  Sets car path editor to 1
+                                                // 
+              }
+            }
+            dword_69241C = (unsigned __int16)lParam;
+            dword_692420 = (unsigned int)lParam >> 16;
+            v5 = dword_69241C;
+            if ( dword_69241C >= 790 )
+              v5 = 790;
+            dword_69241C = v5;
+            v6 = dword_692420;
+            if ( dword_692420 >= 585 )
+              v6 = 585;
+            dword_692420 = v6;
+            if ( dword_15F2C90 )
+            {
+              if ( !CarPathEditor_15F31DC )
+                sub_4017BC();
+            }
+            if ( !dword_15F2C6C )
+            {
+              sub_401E83();
+              sub_403E86(dword_69241C, dword_692420);
+            }
+            break;
+			  

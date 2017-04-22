@@ -1,0 +1,39 @@
+signed int __cdecl sub_43AB84()
+{
+  signed int result; // eax@2
+  const CHAR FileName; // [sp+Ch] [bp-10Ch]@3
+  char v2; // [sp+110h] [bp-8h]@3
+  HANDLE hObject; // [sp+114h] [bp-4h]@3
+
+  if ( sub_4025B8("xox\\house.dat") )
+  {
+    result = 1;
+  }
+  else
+  {
+    sub_401334(0, "INSTALL", 0, &v2, 3);
+    sprintf((char *)&FileName, "%s\\Gpw\\Tga\\Backdrop\\1tb.tga", &v2);
+    hObject = CreateFileA(&FileName, 0x80000000u, 0, 0, 3u, 0x80u, 0);
+    if ( hObject == (HANDLE)-1 )
+    {
+      result = 0;
+    }
+    else
+    {
+      CloseHandle(hObject);
+      sprintf((char *)&FileName, "%s\\Gpw\\check.dat", &v2);
+      hObject = CreateFileA(&FileName, 0x40000000u, 0, 0, 1u, 0x80u, 0);
+      if ( hObject == (HANDLE)-1 )
+      {
+        result = 1;
+      }
+      else
+      {
+        CloseHandle(hObject);
+        DeleteFileA(&FileName);
+        result = 0;
+      }
+    }
+  }
+  return result;
+}
