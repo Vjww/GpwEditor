@@ -1,0 +1,13 @@
+https://sourceforge.net/p/dxwnd/discussion/general/thread/87043da7/#3b8d
+
+Some further improvement: I had to do a couple of things....
+1) fix DxWnd to handle the ddraw surface capabilities: the game checks for DDSCAPS_3DDEVICE capability that is stripped in emulation mode, so I had to add it. The operation has to be investigated a little, but for this game works fine.
+2) fix DxWnd to take proper account that (surprisingly!) after you release the backbuffer surface this is still present and usable. It's odd, but, again, it works!
+3) fix the game exe to eliminate an "offendig" code section that war responsible to copy the cursor region directly to screen. The game cursor works perfectly also without it, anc crashes no more!
+4) modify the DxWnd game configuration, because the game still accesses to physical resources, so it MUST run in 16BPP desktop resolution and 655 color schema.
+So, if you want to try it, do the following:
+a) download the latest v2_02_24f1 DxWnd fix
+b) import the attached game configuration file (this is not necessary, but just in case...)
+c) copy in the game dir the new patched exe
+Ah, before I forget: there's no way to see the game movies, so far. Maybe later on....
+Enjoy and have a goood time with your game editors!

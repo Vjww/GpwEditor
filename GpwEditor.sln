@@ -9,6 +9,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\Common\Common\Common.csproj", "{AB9E96A9-201F-4B41-96D4-3157B88FA1EE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Releases", "Releases", "{D2DF110B-9563-4467-B0C3-7572BFA10D2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Executable", "Executable", "{12B1C695-63E8-477A-B219-4B88E532FCAB}"
+	ProjectSection(SolutionItems) = preProject
+		Releases\Executable\gpwv101b.zip = Releases\Executable\gpwv101b.zip
+		Releases\Executable\gpwv102b.zip = Releases\Executable\gpwv102b.zip
+		Releases\Executable\gpwv103b.zip = Releases\Executable\gpwv103b.zip
+		Releases\Executable\gpwv103f.zip = Releases\Executable\gpwv103f.zip
+		Releases\Executable\gpwv103f_1086.zip = Releases\Executable\gpwv103f_1086.zip
+		Releases\Executable\gpwv103f_rpc.zip = Releases\Executable\gpwv103f_rpc.zip
+		Releases\Executable\gpwxp.zip = Releases\Executable\gpwxp.zip
+		Releases\Executable\gpwxp2.rar = Releases\Executable\gpwxp2.rar
+		Releases\Executable\gpwxp2.txt = Releases\Executable\gpwxp2.txt
+		Releases\Executable\gpwxp3.exe = Releases\Executable\gpwxp3.exe
+		Releases\Executable\gpwxp3.txt = Releases\Executable\gpwxp3.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Idb", "Idb", "{F6F3C8CB-1E01-4C2B-BD4A-7006BA515488}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +49,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{12B1C695-63E8-477A-B219-4B88E532FCAB} = {D2DF110B-9563-4467-B0C3-7572BFA10D2B}
 	EndGlobalSection
 EndGlobal

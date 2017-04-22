@@ -1,0 +1,5 @@
+https://sourceforge.net/p/dxwnd/discussion/general/thread/87043da7/#c6d3
+
+I made some slight progress. First of all I tried the game setting the desktop to 16BPP color depth: with Win7 that isn't as easy as it was in WinXP, but searching through the graphic card tools I found a way. When things will be finished, I may add a "switch to 16BPP" option to DxWnd.
+Then, there was an annoying control that caused the program to always terminate with an error dialog box. I got rid of that in a quick & dirty way: find attached a further-patched version of your gpwxp.exe file. I simply changed a conditional jump to unconditional.
+In this way, using the setting in the exported file, the game is almost working: movies are awful, probably because the video is supposed to be set in some weird way, and the mouse is doubled causing some odd blitting outside the window's area.
