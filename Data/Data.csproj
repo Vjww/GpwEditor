@@ -271,8 +271,6 @@
     <None Include="Idb\GpwIdbDev.zip" />
     <None Include="Idb\GpwIdbMigration.zip" />
     <None Include="Idb\GpwIdbResearch.zip" />
-    <None Include="IntegrationTasks\DEL_BackupIdb\BackupIdb.zip" />
-    <None Include="IntegrationTasks\GpwExe\DEL_Binary\gpwidb.zip" />
     <None Include="IntegrationTasks\GpwExe\Text\x_gpwfix_designbyengineer.hbk" />
     <None Include="IntegrationTasks\GpwExe\Text\a_gpwfix_displaymodecheck.hbk" />
     <None Include="IntegrationTasks\GpwExe\Text\a_gpwmod_carperformancecalc.hbk" />
@@ -289,17 +287,12 @@
     <None Include="IntegrationTasks\GpwExe\Text\a_gpw_teamsdrivers.hbk" />
     <None Include="IntegrationTasks\GpwExe\Text\b_gpw_viewportdefaults.hbk" />
     <None Include="IntegrationTasks\GpwExe\Text\a_gpw_yellowflagfix.hbk" />
-    <None Include="IntegrationTasks\GpwXpExe\DEL_Binary\gpwxpidb.zip" />
     <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_gameplay.hbk" />
     <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_misc.hbk" />
     <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_perfcurvecalcfix.hbk" />
     <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_racespeed.hbk" />
     <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_tracks.hbk" />
     <None Include="IntegrationTasks\GpwXpExe\Text\gpwxp_tyres.hbk" />
-    <None Include="IntegrationTasks\Release102\gpwv102b.zip" />
-    <None Include="IntegrationTasks\Release103\gpwv103b.zip" />
-    <None Include="IntegrationTasks\Release103\gpwv103idb.zip" />
-    <None Include="IntegrationTasks\Release103\gpw_103testing.zip" />
     <None Include="Notes\Executable\LoadEffectiveAddressCalc.xlsx" />
     <None Include="Notes\Gpw_TestDriverSalaries.xlsx" />
     <None Include="Notes\Grand Prix World Technical Document.docx" />
