@@ -238,12 +238,16 @@
     <Content Include="IntegrationTasks\GpwXpExe\Text\c_racepoints.txt" />
     <Content Include="IntegrationTasks\GpwXpExe\Text\c_racepoints_new.txt" />
     <Content Include="IntegrationTasks\GpwXpExe\Text\ViewportDefaults\viewport_default.txt" />
+    <Content Include="Notes\CheckCd.txt" />
     <Content Include="Notes\CreateFunction.txt" />
     <Content Include="Notes\engineeringoffsets.txt" />
     <Content Include="Notes\Executable\Drivers.txt" />
     <Content Include="Notes\GlobalUnlockResearch.txt" />
     <Content Include="Notes\GpwDatFileListing.txt" />
     <Content Include="Notes\GpwKeyboardShortcuts.txt" />
+    <Content Include="Notes\GpwModResearch.txt" />
+    <Content Include="Notes\GpwTrackEditorResearch.txt" />
+    <Content Include="Notes\LingoEditor.txt" />
     <Content Include="Notes\readme.txt" />
     <Content Include="Notes\snippets.txt" />
     <Content Include="Notes\Opcode_E8_CALL.txt" />
@@ -275,6 +279,7 @@
     <None Include="Notes\Executable\LoadEffectiveAddressCalc.xlsx" />
     <None Include="Notes\Gpw_TestDriverSalaries.xlsx" />
     <None Include="Notes\Grand Prix World Technical Document.docx" />
+    <None Include="Notes\Paint.NET PPM Plugin" />
     <None Include="Notes\PitStopBugInvestigation.zip" />
     <None Include="Notes\SwitchIdiomPatcher.xlsx" />
   </ItemGroup>

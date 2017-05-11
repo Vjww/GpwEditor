@@ -28,6 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Executable", "Executable", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Idb", "Idb", "{F6F3C8CB-1E01-4C2B-BD4A-7006BA515488}"
 	ProjectSection(SolutionItems) = preProject
+		Idb\gpw101b.master.idb.py = Idb\gpw101b.master.idb.py
 		Idb\GpwIdbDev.zip = Idb\GpwIdbDev.zip
 		Idb\GpwIdbMigration.zip = Idb\GpwIdbMigration.zip
 		Idb\GpwIdbResearch.zip = Idb\GpwIdbResearch.zip
