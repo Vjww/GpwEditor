@@ -1,6 +1,6 @@
 ﻿namespace Data.ValueMapping.Executable.Team
 {
-    public class NonF1Driver : INonF1Driver
+    public class NonF1Driver
     {
         private const int NameIndex = 5795; // "None"
 

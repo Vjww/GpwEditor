@@ -14,13 +14,15 @@ namespace Data.Patchers.CodeShiftPatcher
 
         public void Apply()
         {
-            ApplyReconstructedDataFunctionAt4706D7();
-            ApplyRelocatedDataFunctionAt401000();
+            // Team, driver and chief data
+            ApplyReconstructedFunctionAt4706D7();
+            ApplyRelocatedFunctionAt4718EA();
 
-            ApplyReorderedInstructionsAt5031C6();
+            // Track data
+            ApplyReorderedModuleAt5031C6();
         }
 
-        private void ApplyReconstructedDataFunctionAt4706D7()
+        private void ApplyReconstructedFunctionAt4706D7()
         {
             const int firstByteAddress = 0x004706D7;
             const int lastByteAddress = 0x004793DE;
@@ -32,24 +34,23 @@ namespace Data.Patchers.CodeShiftPatcher
             using (var executableConnection = new ExecutableConnection(_executableFilePath))
             {
                 NopExistingBytes(executableConnection, address, length);
-                WriteNewBytes(executableConnection, address, ReconstructedDataFunctionAt4706D7.GetInstructions());
+                WriteNewBytes(executableConnection, address, ReconstructedFunctionAt4706D7.GetInstructions());
             }
         }
 
-        private void ApplyRelocatedDataFunctionAt401000()
+        private void ApplyRelocatedFunctionAt4718EA()
         {
-            const int relocationAddress = 0x00401000;
+            const int relocationAddress = 0x004718EA;
 
             // Open file and write
             using (var executableConnection = new ExecutableConnection(_executableFilePath))
             {
-                WriteNewBytes(executableConnection, relocationAddress, RelocatedDataFunctionAt401000.GetInstructions());
+                WriteNewBytes(executableConnection, relocationAddress, RelocatedFunctionAt4718EA.GetInstructions());
             }
         }
 
-        private void ApplyReorderedInstructionsAt5031C6()
+        private void ApplyReorderedModuleAt5031C6()
         {
-            // Apply reordered track data
             const int firstByteAddress = 0x005031C6;
             const int lastByteAddress = 0x00503EE5;
 
@@ -60,7 +61,7 @@ namespace Data.Patchers.CodeShiftPatcher
             using (var executableConnection = new ExecutableConnection(_executableFilePath))
             {
                 NopExistingBytes(executableConnection, address, length);
-                WriteNewBytes(executableConnection, address, TrackData.GetInstructions());
+                WriteNewBytes(executableConnection, address, ReorderedModuleAt5031C6.GetInstructions());
             }
         }
 

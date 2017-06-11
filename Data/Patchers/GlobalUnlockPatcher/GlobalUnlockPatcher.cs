@@ -38,7 +38,7 @@ namespace Data.Patchers.GlobalUnlockPatcher
     /// OpCode FF 15 -> E8
     /// old	.text:0041487B	FF 15 AC D5 60 01           		call ds:GlobalUnlock
     /// new	.text:0041487B	90                                  nop
-    ///                 	E8 80 C7 FE FF						call sub_401000
+    ///                 	E8 6A D0 05 00						call sub_4718EA (newly created function)
     /// </summary>
     public class GlobalUnlockPatcher
     {
@@ -96,7 +96,7 @@ namespace Data.Patchers.GlobalUnlockPatcher
             };
 
             // File location to insert new function
-            var newGlobalUnlockLocation = 0x00401000;
+            var newGlobalUnlockLocation = 0x00474C17;
 
             // New redirect instruction template, 0x00 will be overwritten by relative function location
             var newRedirectInstructions = new byte[] {

@@ -1,10 +1,10 @@
 ﻿namespace Data.ValueMapping.Executable.Team
 {
-    public class Driver : IDriver
+    public class F1Driver
     {
         private const int NameIndex = 5795; // "None"
 
-        private const int BaseOffset = 464687;
+        private const int BaseOffset = 465920;
         private const int LocalOffset = 260;
         private const int SalaryOffset = 0;
         private const int RaceBonusOffset = 10;
@@ -59,7 +59,7 @@
         public int Stamina { get; set; }
         public int Morale { get; set; }
 
-        public Driver(int id)
+        public F1Driver(int id)
         {
             Name = NameIndex + GetLocalResourceId(id);
 
@@ -97,7 +97,7 @@
             var idToResourceIdMap = new[]
             {
                 6, 7, 8, 14, 15, 16, 22, 23, 24, 30, 31, 32, 38, 39, 40, 46, 47, 48, 54, 55, 56, 62, 63, 64, 70, 71, 72,
-                78, 79, 80, 86, 87, 88, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 200, 201, 202, 203
+                78, 79, 80, 86, 87, 88, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139
             };
 
             return idToResourceIdMap[id];

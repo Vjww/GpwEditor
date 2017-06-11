@@ -4,11 +4,11 @@ using Data.Patchers.OldCodeShifting.Units;
 
 namespace Data.Patchers.OldCodeShifting
 {
-    public class CodeShiftingPatcher
+    public class OldCodeShiftingPatcher
     {
         private readonly string _executableFilePath;
 
-        public CodeShiftingPatcher(string executableFilePath)
+        public OldCodeShiftingPatcher(string executableFilePath)
         {
             _executableFilePath = executableFilePath;
         }

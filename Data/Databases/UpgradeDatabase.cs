@@ -3,8 +3,12 @@ using System.Diagnostics;
 using Data.Collections.Language;
 using Data.FileConnection;
 using Data.Patchers;
+using Data.Patchers.CodeShiftPatcher;
 using Data.Patchers.Enhancements.Units;
+using Data.Patchers.GlobalUnlockPatcher;
+using Data.Patchers.JumpBypassPatcher;
 using Data.Patchers.OldCodeShifting;
+using Data.Patchers.SwitchIdiomPatcher;
 
 namespace Data.Databases
 {
@@ -93,24 +97,21 @@ namespace Data.Databases
 
         private void ExportUpgrades()
         {
-            // TODO
-            //// Switch idiom patcher is only intended for use when disassembling.
-            //// Code is included here if you wish to patch all users executables
-            //// during an upgrade but this may introduce defects into the game.
-            //var switchIdiomPatcher = new SwitchIdiomPatcher(_gameExecutableFilePath);
-            //switchIdiomPatcher.Apply();
-
-            // TODO
-            //// Free up space in executable by removing redundant jumping functions
-            //// Required for upgrade to be successful and cannot be reversed
-            //var jumpBypassPatcher = new JumpBypassPatcher(_gameExecutableFilePath);
-            //jumpBypassPatcher.Apply();
-
-            //// Shift code around to consolidate and organise instructions and utilise free space
-            //// May add additional functionality to the game that cannot be reversed
+            // Replace switch statements with new idiom to allow for successful disassembly
             // Required for upgrade to be successful and cannot be reversed
-            var codeShiftingPatcher = new CodeShiftingPatcher(_gameExecutableFilePath);
-            codeShiftingPatcher.Apply();
+            new SwitchIdiomPatcher(_gameExecutableFilePath).Apply();
+
+            // Free up space in executable by removing redundant jumping functions
+            // Required for upgrade to be successful and cannot be reversed
+            new JumpBypassPatcher(_gameExecutableFilePath).Apply();
+
+            // Shift code around to consolidate and organise instructions and generate free space
+            // Required for upgrade to be successful and cannot be reversed
+            new CodeShiftPatcher(_gameExecutableFilePath).Apply();
+
+            // Reroute calls to GlobalUnlock through a custom function to resolve compatibility issues
+            // Required for upgrade to be successful and cannot be reversed
+            new GlobalUnlockPatcher(_gameExecutableFilePath).Apply();
 
             // Upgrade unmodified points scoring system with reworked code
             // to allow alternative point scoring systems to be used.

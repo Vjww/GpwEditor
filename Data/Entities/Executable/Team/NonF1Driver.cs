@@ -4,13 +4,13 @@ using Common.Extensions;
 using Data.Collections.Language;
 using Data.FileConnection;
 using Data.Helpers;
-using DriverMapping = Data.ValueMapping.Executable.Team;
+using Mapping = Data.ValueMapping.Executable.Team;
 
 namespace Data.Entities.Executable.Team
 {
-    public class NonF1Driver : INonF1Driver, IIdentity, IDataConnection
+    public class NonF1Driver : IIdentity, IDataConnection
     {
-        private readonly DriverMapping.NonF1Driver _valueMapping;
+        private readonly Mapping.NonF1Driver _valueMapping;
 
         [Display(Name = "Id", Description = "The id of the record.")]
         public int Id { get; set; }
@@ -65,12 +65,12 @@ namespace Data.Entities.Executable.Team
         [Range(1, 5, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int Morale { get; set; }
 
-        public NonF1Driver(DriverMapping.NonF1Driver valueMapping, int id)
+        public NonF1Driver(Mapping.NonF1Driver valueMapping, int id)
         {
             _valueMapping = valueMapping;
 
             Id = id;
-            LocalResourceId = DriverMapping.NonF1Driver.GetLocalResourceId(Id);
+            LocalResourceId = Mapping.NonF1Driver.GetLocalResourceId(Id);
             ResourceId = _valueMapping.Name.BuildResourceId();
         }
 

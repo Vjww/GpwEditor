@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Data.Patchers.CodeShiftPatcher
 {
-    public static class RelocatedDataFunctionAt401000
+    public static class RelocatedFunctionAt4718EA
     {
         public static byte[] GetInstructions()
         {
@@ -17,8 +17,8 @@ namespace Data.Patchers.CodeShiftPatcher
             };
 
             var teamInstructions = TeamData.GetInstructions();
-            var driverInstructions = DriverData.GetInstructions();
             var chiefInstructions = ChiefData.GetInstructions();
+            var driverInstructions = DriverData.GetInstructions();
 
             var functionEndInstructions = new byte[]
             {
@@ -33,8 +33,8 @@ namespace Data.Patchers.CodeShiftPatcher
             {
                 functionStartInstructions,
                 teamInstructions,
-                driverInstructions,
                 chiefInstructions,
+                driverInstructions,
                 functionEndInstructions
             };
 

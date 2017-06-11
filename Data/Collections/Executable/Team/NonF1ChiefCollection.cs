@@ -2,7 +2,7 @@
 
 namespace Data.Collections.Executable.Team
 {
-    public class NonF1ChiefCollection : Collection<Entities.Executable.Team.NonF1Chief>
+    public class NonF1ChiefCollection : Collection<Entities.Executable.Team.NonF1ChiefCommercial>
     {
     }
 }

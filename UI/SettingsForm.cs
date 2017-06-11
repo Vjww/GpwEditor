@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using Data.Patchers.CodeShiftPatcher;
 using Data.Patchers.GlobalUnlockPatcher;
 using Data.Patchers.JumpBypassPatcher;
-using Data.Patchers.OldCodeShifting;
 using Data.Patchers.SwitchIdiomPatcher;
 using Data.Patchers.TrackEditorPatcher;
 using GpwEditor.Properties;
@@ -40,7 +39,7 @@ namespace GpwEditor
             Cursor.Current = Cursors.Default;
 
             // Complete
-            ShowCompleteMessageBox("The executable file has been patched with the Switch Idiom Patcher.", "The changes made are only intended for disassembly.");
+            ShowCompleteMessageBox("The executable file has been patched with the Switch Idiom Patcher.", "The changes made will simplify disassembly.");
         }
 
         private void JumpBypassButton_Click(object sender, EventArgs e)
@@ -55,13 +54,13 @@ namespace GpwEditor
             Cursor.Current = Cursors.Default;
 
             // Complete
-            ShowCompleteMessageBox("The executable file has been patched with the Jump Bypass Patcher.", "The changes made are only intended for disassembly.");
+            ShowCompleteMessageBox("The executable file has been patched with the Jump Bypass Patcher.", "The changes made will simplify disassembly and improve modding capabilities.");
         }
 
         private void CodeShiftButton_Click(object sender, EventArgs e)
         {
             // Warning
-            var dialogResult = ShowWarningMessageBox("Code shifting will move instructions around the executable, simplify code and generate space for new instructions.");
+            var dialogResult = ShowWarningMessageBox("Code shift will move instructions around the executable, simplify code and generate space for new instructions.");
             if (dialogResult == DialogResult.No) return;
 
             // Act
@@ -70,7 +69,7 @@ namespace GpwEditor
             Cursor.Current = Cursors.Default;
 
             // Complete
-            ShowCompleteMessageBox("The executable file has been patched with the Code Shift Patcher.", "The changes made will overhaul the game!");
+            ShowCompleteMessageBox("The executable file has been patched with the Code Shift Patcher.", "The changes made will improve modding capabilities.");
         }
 
         private void GlobalUnlockButton_Click(object sender, EventArgs e)
@@ -85,20 +84,22 @@ namespace GpwEditor
             Cursor.Current = Cursors.Default;
 
             // Complete
-            ShowCompleteMessageBox("The executable file has been patched with the Global Unlock Patcher.", "The changes made will spruce up the game!");
+            ShowCompleteMessageBox("The executable file has been patched with the Global Unlock Patcher.", "The changes made will resolve compatibility issues.");
         }
 
-        private static DialogResult ShowWarningMessageBox(string contextMessage)
+        private void TrackEditorButton_Click(object sender, EventArgs e)
         {
-            return MessageBox.Show(string.Format(
-                "{0} This operation should only be carried out once on the unmodified original file.{1}{1}Are you sure you wish to proceed?",
-                contextMessage, Environment.NewLine),
-                Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-        }
+            // Warning
+            var dialogResult = ShowWarningMessageBox("Track editor will assign a keyboard shortcut to activate the track editor.");
+            if (dialogResult == DialogResult.No) return;
 
-        private static void ShowCompleteMessageBox(string contextMessage, string purposeMessage)
-        {
-            MessageBox.Show(string.Format("{0}{1}{1}{2}", contextMessage, Environment.NewLine, purposeMessage));
+            // Act
+            Cursor.Current = Cursors.WaitCursor;
+            ApplyTrackEditorPatcher();
+            Cursor.Current = Cursors.Default;
+
+            // Complete
+            ShowCompleteMessageBox("The executable file has been patched with the Track Editor Patcher.", "The changes made will activate the track editor.");
         }
 
         private void ApplyAllButton_Click(object sender, EventArgs e)
@@ -113,7 +114,7 @@ namespace GpwEditor
             Cursor.Current = Cursors.Default;
 
             // Complete
-            ShowCompleteMessageBox("The executable file has been patched with all patchers.", "The changes made will overhaul the game!");
+            ShowCompleteMessageBox("The executable file has been patched with all patchers.", "The changes made will overhaul the game experience!");
         }
 
         private void ApplySwitchIdiomPatcher()
@@ -126,14 +127,14 @@ namespace GpwEditor
             new JumpBypassPatcher(_filePath).Apply();
         }
 
+        private void ApplyCodeShiftPatcher()
+        {
+            new CodeShiftPatcher(_filePath).Apply();
+        }
+
         private void ApplyGlobalUnlockPatcher()
         {
             new GlobalUnlockPatcher(_filePath).Apply();
-        }
-
-        private void ApplyCodeShiftPatcher()
-        {
-            new CodeShiftingPatcher(_filePath).Apply();
         }
 
         private void ApplyTrackEditorPatcher()
@@ -141,17 +142,12 @@ namespace GpwEditor
             new TrackEditorPatcher(_filePath).Apply();
         }
 
-        private void ApplyNewCodeShiftButton_Click(object sender, EventArgs e)
-        {
-            new CodeShiftPatcher(_filePath).Apply();
-        }
-
         private void ApplyAllPatchers()
         {
             ApplySwitchIdiomPatcher();
             ApplyJumpBypassPatcher();
-            ApplyGlobalUnlockPatcher();
             ApplyCodeShiftPatcher();
+            ApplyGlobalUnlockPatcher();
             ApplyTrackEditorPatcher();
         }
 
@@ -163,8 +159,21 @@ namespace GpwEditor
 
         private void CutCodeFromFunctionButton_Click(object sender, EventArgs e)
         {
-            var form = new ReconstructFunctionForm(0x0047141F, 0x00478F19, 0x00401000);
+            var form = new ReconstructFunctionForm(0x0047141F, 0x00478F19, 0x004718EA);
             form.ShowDialog(this);
+        }
+
+        private static DialogResult ShowWarningMessageBox(string contextMessage)
+        {
+            return MessageBox.Show(string.Format(
+                "{0} This operation should only be carried out once on the unmodified original file.{1}{1}Are you sure you wish to proceed?",
+                contextMessage, Environment.NewLine),
+                Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+        }
+
+        private static void ShowCompleteMessageBox(string contextMessage, string purposeMessage)
+        {
+            MessageBox.Show(string.Format("{0}{1}{1}{2}", contextMessage, Environment.NewLine, purposeMessage));
         }
     }
 }

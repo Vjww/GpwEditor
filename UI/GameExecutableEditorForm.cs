@@ -361,9 +361,9 @@ namespace GpwEditor
 
             // Configure data grid view controls
             ConfigureDataGridViewControl<Team>(TeamsDataGridView, 1);
-            ConfigureDataGridViewControl<Driver>(DriversDataGridView, 2);
+            ConfigureDataGridViewControl<F1Driver>(DriversDataGridView, 2);
             ConfigureDataGridViewControl<NonF1Driver>(NonF1DriversDataGridView, 15);
-            ConfigureDataGridViewControl<NonF1Chief>(NonF1ChiefsDataGridView, 16);
+            ConfigureDataGridViewControl<NonF1ChiefCommercial>(NonF1ChiefsDataGridView, 16);
             ConfigureDataGridViewControl<Engine>(EnginesDataGridView, 3);
             ConfigureDataGridViewControl<Tyre>(TyresDataGridView, 4);
             ConfigureDataGridViewControl<Fuel>(FuelsDataGridView, 5);

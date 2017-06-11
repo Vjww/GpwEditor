@@ -4,13 +4,13 @@ using Data.Entities.Language;
 using Data.FileConnection;
 using Data.Helpers;
 using System.ComponentModel.DataAnnotations;
-using TeamMapping = Data.ValueMapping.Executable.Team;
+using Mapping = Data.ValueMapping.Executable.Team;
 
 namespace Data.Entities.Executable.Team
 {
-    public class Team : ITeam, IIdentity, IDataConnection
+    public class Team : IIdentity, IDataConnection
     {
-        private readonly TeamMapping.Team _valueMapping;
+        private readonly Mapping.Team _valueMapping;
 
         [Display(Name = "Id", Description = "The id of the record.")]
         public int Id { get; set; }
@@ -55,12 +55,12 @@ namespace Data.Entities.Executable.Team
         [Range(8, 10, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int TyreSupplierId { get; set; }
 
-        public Team(TeamMapping.Team valueMapping, int id)
+        public Team(Mapping.Team valueMapping, int id)
         {
             _valueMapping = valueMapping;
 
             Id = id;
-            LocalResourceId = TeamMapping.Team.GetLocalResourceId(Id);
+            LocalResourceId = Mapping.Team.GetLocalResourceId(Id);
             ResourceId = _valueMapping.Name.BuildResourceId();
         }
 

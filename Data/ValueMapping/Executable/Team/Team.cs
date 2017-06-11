@@ -1,10 +1,10 @@
 ﻿namespace Data.ValueMapping.Executable.Team
 {
-    public class Team : ITeam
+    public class Team
     {
         private const int NameIndex = 5696; // "No Team"
 
-        private const int BaseOffset = 460837;
+        private const int BaseOffset = 462070;
         private const int LocalOffset = 90;
         private const int LastPositionOffset = 0;
         private const int LastPointsOffset = 10;

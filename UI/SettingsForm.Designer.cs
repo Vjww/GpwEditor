@@ -36,8 +36,9 @@
             this.GlobalUnlockButton = new System.Windows.Forms.Button();
             this.ReconstructFunctionButton = new System.Windows.Forms.Button();
             this.ApplyChangeGroupBox = new System.Windows.Forms.GroupBox();
-            this.ApplyNewCodeShiftButton = new System.Windows.Forms.Button();
+            this.ApplyAllButton = new System.Windows.Forms.Button();
             this.CreateChangeGroupBox = new System.Windows.Forms.GroupBox();
+            this.TrackEditorButton = new System.Windows.Forms.Button();
             this.ApplyChangeGroupBox.SuspendLayout();
             this.CreateChangeGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -82,7 +83,7 @@
             // 
             // OffsetValueGeneratorToolButton
             // 
-            this.OffsetValueGeneratorToolButton.Location = new System.Drawing.Point(6, 19);
+            this.OffsetValueGeneratorToolButton.Location = new System.Drawing.Point(6, 45);
             this.OffsetValueGeneratorToolButton.Name = "OffsetValueGeneratorToolButton";
             this.OffsetValueGeneratorToolButton.Size = new System.Drawing.Size(176, 23);
             this.OffsetValueGeneratorToolButton.TabIndex = 4;
@@ -102,7 +103,7 @@
             // 
             // ReconstructFunctionButton
             // 
-            this.ReconstructFunctionButton.Location = new System.Drawing.Point(6, 48);
+            this.ReconstructFunctionButton.Location = new System.Drawing.Point(6, 74);
             this.ReconstructFunctionButton.Name = "ReconstructFunctionButton";
             this.ReconstructFunctionButton.Size = new System.Drawing.Size(176, 23);
             this.ReconstructFunctionButton.TabIndex = 4;
@@ -116,24 +117,25 @@
             this.ApplyChangeGroupBox.Controls.Add(this.SwitchIdiomButton);
             this.ApplyChangeGroupBox.Controls.Add(this.JumpBypassButton);
             this.ApplyChangeGroupBox.Controls.Add(this.CodeShiftButton);
-            this.ApplyChangeGroupBox.Controls.Add(this.ApplyNewCodeShiftButton);
+            this.ApplyChangeGroupBox.Controls.Add(this.ApplyAllButton);
+            this.ApplyChangeGroupBox.Controls.Add(this.TrackEditorButton);
             this.ApplyChangeGroupBox.Controls.Add(this.GlobalUnlockButton);
             this.ApplyChangeGroupBox.Location = new System.Drawing.Point(12, 12);
             this.ApplyChangeGroupBox.Name = "ApplyChangeGroupBox";
-            this.ApplyChangeGroupBox.Size = new System.Drawing.Size(188, 191);
+            this.ApplyChangeGroupBox.Size = new System.Drawing.Size(188, 219);
             this.ApplyChangeGroupBox.TabIndex = 5;
             this.ApplyChangeGroupBox.TabStop = false;
             this.ApplyChangeGroupBox.Text = "Apply Change";
             // 
-            // ApplyNewCodeShiftButton
+            // ApplyAllButton
             // 
-            this.ApplyNewCodeShiftButton.Location = new System.Drawing.Point(6, 161);
-            this.ApplyNewCodeShiftButton.Name = "ApplyNewCodeShiftButton";
-            this.ApplyNewCodeShiftButton.Size = new System.Drawing.Size(176, 23);
-            this.ApplyNewCodeShiftButton.TabIndex = 4;
-            this.ApplyNewCodeShiftButton.Text = "Apply New Code Shift";
-            this.ApplyNewCodeShiftButton.UseVisualStyleBackColor = true;
-            this.ApplyNewCodeShiftButton.Click += new System.EventHandler(this.ApplyNewCodeShiftButton_Click);
+            this.ApplyAllButton.Location = new System.Drawing.Point(6, 190);
+            this.ApplyAllButton.Name = "ApplyAllButton";
+            this.ApplyAllButton.Size = new System.Drawing.Size(176, 23);
+            this.ApplyAllButton.TabIndex = 4;
+            this.ApplyAllButton.Text = "Apply All";
+            this.ApplyAllButton.UseVisualStyleBackColor = true;
+            this.ApplyAllButton.Click += new System.EventHandler(this.ApplyAllButton_Click);
             // 
             // CreateChangeGroupBox
             // 
@@ -141,16 +143,26 @@
             this.CreateChangeGroupBox.Controls.Add(this.ReconstructFunctionButton);
             this.CreateChangeGroupBox.Location = new System.Drawing.Point(206, 12);
             this.CreateChangeGroupBox.Name = "CreateChangeGroupBox";
-            this.CreateChangeGroupBox.Size = new System.Drawing.Size(188, 191);
+            this.CreateChangeGroupBox.Size = new System.Drawing.Size(188, 219);
             this.CreateChangeGroupBox.TabIndex = 6;
             this.CreateChangeGroupBox.TabStop = false;
             this.CreateChangeGroupBox.Text = "Create Change";
+            // 
+            // TrackEditorButton
+            // 
+            this.TrackEditorButton.Location = new System.Drawing.Point(6, 161);
+            this.TrackEditorButton.Name = "TrackEditorButton";
+            this.TrackEditorButton.Size = new System.Drawing.Size(176, 23);
+            this.TrackEditorButton.TabIndex = 4;
+            this.TrackEditorButton.Text = "Apply Track Editor";
+            this.TrackEditorButton.UseVisualStyleBackColor = true;
+            this.TrackEditorButton.Click += new System.EventHandler(this.TrackEditorButton_Click);
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 213);
+            this.ClientSize = new System.Drawing.Size(405, 241);
             this.Controls.Add(this.CreateChangeGroupBox);
             this.Controls.Add(this.ApplyChangeGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -176,7 +188,8 @@
         private System.Windows.Forms.Button GlobalUnlockButton;
         private System.Windows.Forms.Button ReconstructFunctionButton;
         private System.Windows.Forms.GroupBox ApplyChangeGroupBox;
-        private System.Windows.Forms.Button ApplyNewCodeShiftButton;
+        private System.Windows.Forms.Button ApplyAllButton;
         private System.Windows.Forms.GroupBox CreateChangeGroupBox;
+        private System.Windows.Forms.Button TrackEditorButton;
     }
 }

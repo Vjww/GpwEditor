@@ -4,13 +4,13 @@ using Data.Entities.Language;
 using Data.FileConnection;
 using Data.Helpers;
 using System.ComponentModel.DataAnnotations;
-using TrackMapping = Data.ValueMapping.Executable.Track;
+using Mapping = Data.ValueMapping.Executable.Track;
 
 namespace Data.Entities.Executable.Track
 {
-    public class Track : ITrack, IIdentity, IDataConnection
+    public class Track : IIdentity, IDataConnection
     {
-        private readonly TrackMapping.Track _valueMapping;
+        private readonly Mapping.Track _valueMapping;
 
         [Display(Name = "Id", Description = "The id of the record.")]
         public int Id { get; set; }
@@ -89,12 +89,12 @@ namespace Data.Entities.Executable.Track
         [Range(1, 10, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int Wind { get; set; }
 
-        public Track(TrackMapping.Track valueMapping, int id)
+        public Track(Mapping.Track valueMapping, int id)
         {
             _valueMapping = valueMapping;
 
             Id = id;
-            LocalResourceId = TrackMapping.Track.GetLocalResourceId(Id);
+            LocalResourceId = Mapping.Track.GetLocalResourceId(Id);
             ResourceId = _valueMapping.Name.BuildResourceId();
         }
 

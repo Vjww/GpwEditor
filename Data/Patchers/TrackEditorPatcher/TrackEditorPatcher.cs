@@ -36,10 +36,10 @@ namespace Data.Patchers.TrackEditorPatcher
             const int replacementWndProcLocation = 0x44F2B0;
             var replacementWndProcInstructions = new byte[]
             {
-                0xE8, 0x7D, 0x1D, 0xFB, 0xFF
+                0xE8, 0x94, 0x59, 0x02, 0x00
             };
 
-            const int newTrackEditorToggleLocation = 0x00401032;
+            const int newTrackEditorToggleLocation = 0x00474C49;
             var newTrackEditorToggleInstructions = new byte[]
             {
                 0x55,
