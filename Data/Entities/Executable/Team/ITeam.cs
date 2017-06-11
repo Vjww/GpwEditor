@@ -10,6 +10,8 @@
         int YearlyBudget { get; set; }
         int Unknown { get; set; }
         int CountryMapId { get; set; }
+        int LocationPointerX { get; set; }
+        int LocationPointerY { get; set; }
         int TyreSupplierId { get; set; }
     }
 }

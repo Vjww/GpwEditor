@@ -32,14 +32,19 @@
             this.JumpBypassButton = new System.Windows.Forms.Button();
             this.CodeShiftButton = new System.Windows.Forms.Button();
             this.FilePathTextBox = new System.Windows.Forms.TextBox();
-            this.ApplyAllButton = new System.Windows.Forms.Button();
             this.OffsetValueGeneratorToolButton = new System.Windows.Forms.Button();
             this.GlobalUnlockButton = new System.Windows.Forms.Button();
+            this.ReconstructFunctionButton = new System.Windows.Forms.Button();
+            this.ApplyChangeGroupBox = new System.Windows.Forms.GroupBox();
+            this.ApplyNewCodeShiftButton = new System.Windows.Forms.Button();
+            this.CreateChangeGroupBox = new System.Windows.Forms.GroupBox();
+            this.ApplyChangeGroupBox.SuspendLayout();
+            this.CreateChangeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // SwitchIdiomButton
             // 
-            this.SwitchIdiomButton.Location = new System.Drawing.Point(8, 38);
+            this.SwitchIdiomButton.Location = new System.Drawing.Point(6, 45);
             this.SwitchIdiomButton.Name = "SwitchIdiomButton";
             this.SwitchIdiomButton.Size = new System.Drawing.Size(176, 23);
             this.SwitchIdiomButton.TabIndex = 2;
@@ -49,7 +54,7 @@
             // 
             // JumpBypassButton
             // 
-            this.JumpBypassButton.Location = new System.Drawing.Point(8, 67);
+            this.JumpBypassButton.Location = new System.Drawing.Point(6, 74);
             this.JumpBypassButton.Name = "JumpBypassButton";
             this.JumpBypassButton.Size = new System.Drawing.Size(176, 23);
             this.JumpBypassButton.TabIndex = 3;
@@ -59,7 +64,7 @@
             // 
             // CodeShiftButton
             // 
-            this.CodeShiftButton.Location = new System.Drawing.Point(8, 96);
+            this.CodeShiftButton.Location = new System.Drawing.Point(6, 103);
             this.CodeShiftButton.Name = "CodeShiftButton";
             this.CodeShiftButton.Size = new System.Drawing.Size(176, 23);
             this.CodeShiftButton.TabIndex = 4;
@@ -70,24 +75,14 @@
             // FilePathTextBox
             // 
             this.FilePathTextBox.Enabled = false;
-            this.FilePathTextBox.Location = new System.Drawing.Point(8, 12);
+            this.FilePathTextBox.Location = new System.Drawing.Point(6, 19);
             this.FilePathTextBox.Name = "FilePathTextBox";
             this.FilePathTextBox.Size = new System.Drawing.Size(176, 20);
             this.FilePathTextBox.TabIndex = 1;
             // 
-            // ApplyAllButton
-            // 
-            this.ApplyAllButton.Location = new System.Drawing.Point(8, 183);
-            this.ApplyAllButton.Name = "ApplyAllButton";
-            this.ApplyAllButton.Size = new System.Drawing.Size(176, 23);
-            this.ApplyAllButton.TabIndex = 0;
-            this.ApplyAllButton.Text = "Apply all";
-            this.ApplyAllButton.UseVisualStyleBackColor = true;
-            this.ApplyAllButton.Click += new System.EventHandler(this.ApplyAllButton_Click);
-            // 
             // OffsetValueGeneratorToolButton
             // 
-            this.OffsetValueGeneratorToolButton.Location = new System.Drawing.Point(8, 154);
+            this.OffsetValueGeneratorToolButton.Location = new System.Drawing.Point(6, 19);
             this.OffsetValueGeneratorToolButton.Name = "OffsetValueGeneratorToolButton";
             this.OffsetValueGeneratorToolButton.Size = new System.Drawing.Size(176, 23);
             this.OffsetValueGeneratorToolButton.TabIndex = 4;
@@ -97,7 +92,7 @@
             // 
             // GlobalUnlockButton
             // 
-            this.GlobalUnlockButton.Location = new System.Drawing.Point(8, 125);
+            this.GlobalUnlockButton.Location = new System.Drawing.Point(6, 132);
             this.GlobalUnlockButton.Name = "GlobalUnlockButton";
             this.GlobalUnlockButton.Size = new System.Drawing.Size(176, 23);
             this.GlobalUnlockButton.TabIndex = 4;
@@ -105,26 +100,69 @@
             this.GlobalUnlockButton.UseVisualStyleBackColor = true;
             this.GlobalUnlockButton.Click += new System.EventHandler(this.GlobalUnlockButton_Click);
             // 
+            // ReconstructFunctionButton
+            // 
+            this.ReconstructFunctionButton.Location = new System.Drawing.Point(6, 48);
+            this.ReconstructFunctionButton.Name = "ReconstructFunctionButton";
+            this.ReconstructFunctionButton.Size = new System.Drawing.Size(176, 23);
+            this.ReconstructFunctionButton.TabIndex = 4;
+            this.ReconstructFunctionButton.Text = "Reconstruct Function";
+            this.ReconstructFunctionButton.UseVisualStyleBackColor = true;
+            this.ReconstructFunctionButton.Click += new System.EventHandler(this.CutCodeFromFunctionButton_Click);
+            // 
+            // ApplyChangeGroupBox
+            // 
+            this.ApplyChangeGroupBox.Controls.Add(this.FilePathTextBox);
+            this.ApplyChangeGroupBox.Controls.Add(this.SwitchIdiomButton);
+            this.ApplyChangeGroupBox.Controls.Add(this.JumpBypassButton);
+            this.ApplyChangeGroupBox.Controls.Add(this.CodeShiftButton);
+            this.ApplyChangeGroupBox.Controls.Add(this.ApplyNewCodeShiftButton);
+            this.ApplyChangeGroupBox.Controls.Add(this.GlobalUnlockButton);
+            this.ApplyChangeGroupBox.Location = new System.Drawing.Point(12, 12);
+            this.ApplyChangeGroupBox.Name = "ApplyChangeGroupBox";
+            this.ApplyChangeGroupBox.Size = new System.Drawing.Size(188, 191);
+            this.ApplyChangeGroupBox.TabIndex = 5;
+            this.ApplyChangeGroupBox.TabStop = false;
+            this.ApplyChangeGroupBox.Text = "Apply Change";
+            // 
+            // ApplyNewCodeShiftButton
+            // 
+            this.ApplyNewCodeShiftButton.Location = new System.Drawing.Point(6, 161);
+            this.ApplyNewCodeShiftButton.Name = "ApplyNewCodeShiftButton";
+            this.ApplyNewCodeShiftButton.Size = new System.Drawing.Size(176, 23);
+            this.ApplyNewCodeShiftButton.TabIndex = 4;
+            this.ApplyNewCodeShiftButton.Text = "Apply New Code Shift";
+            this.ApplyNewCodeShiftButton.UseVisualStyleBackColor = true;
+            this.ApplyNewCodeShiftButton.Click += new System.EventHandler(this.ApplyNewCodeShiftButton_Click);
+            // 
+            // CreateChangeGroupBox
+            // 
+            this.CreateChangeGroupBox.Controls.Add(this.OffsetValueGeneratorToolButton);
+            this.CreateChangeGroupBox.Controls.Add(this.ReconstructFunctionButton);
+            this.CreateChangeGroupBox.Location = new System.Drawing.Point(206, 12);
+            this.CreateChangeGroupBox.Name = "CreateChangeGroupBox";
+            this.CreateChangeGroupBox.Size = new System.Drawing.Size(188, 191);
+            this.CreateChangeGroupBox.TabIndex = 6;
+            this.CreateChangeGroupBox.TabStop = false;
+            this.CreateChangeGroupBox.Text = "Create Change";
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(192, 215);
-            this.Controls.Add(this.ApplyAllButton);
-            this.Controls.Add(this.OffsetValueGeneratorToolButton);
-            this.Controls.Add(this.GlobalUnlockButton);
-            this.Controls.Add(this.CodeShiftButton);
-            this.Controls.Add(this.SwitchIdiomButton);
-            this.Controls.Add(this.JumpBypassButton);
-            this.Controls.Add(this.FilePathTextBox);
+            this.ClientSize = new System.Drawing.Size(405, 213);
+            this.Controls.Add(this.CreateChangeGroupBox);
+            this.Controls.Add(this.ApplyChangeGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "SettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.SettingsForm_Load);
+            this.ApplyChangeGroupBox.ResumeLayout(false);
+            this.ApplyChangeGroupBox.PerformLayout();
+            this.CreateChangeGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -134,8 +172,11 @@
         private System.Windows.Forms.Button JumpBypassButton;
         private System.Windows.Forms.Button CodeShiftButton;
         private System.Windows.Forms.TextBox FilePathTextBox;
-        private System.Windows.Forms.Button ApplyAllButton;
         private System.Windows.Forms.Button OffsetValueGeneratorToolButton;
         private System.Windows.Forms.Button GlobalUnlockButton;
+        private System.Windows.Forms.Button ReconstructFunctionButton;
+        private System.Windows.Forms.GroupBox ApplyChangeGroupBox;
+        private System.Windows.Forms.Button ApplyNewCodeShiftButton;
+        private System.Windows.Forms.GroupBox CreateChangeGroupBox;
     }
 }

@@ -362,6 +362,8 @@ namespace GpwEditor
             // Configure data grid view controls
             ConfigureDataGridViewControl<Team>(TeamsDataGridView, 1);
             ConfigureDataGridViewControl<Driver>(DriversDataGridView, 2);
+            ConfigureDataGridViewControl<NonF1Driver>(NonF1DriversDataGridView, 15);
+            ConfigureDataGridViewControl<NonF1Chief>(NonF1ChiefsDataGridView, 16);
             ConfigureDataGridViewControl<Engine>(EnginesDataGridView, 3);
             ConfigureDataGridViewControl<Tyre>(TyresDataGridView, 4);
             ConfigureDataGridViewControl<Fuel>(FuelsDataGridView, 5);
@@ -496,6 +498,8 @@ namespace GpwEditor
             LanguageDataGridView.DataSource = executableDatabase.LanguageStrings;
             TeamsDataGridView.DataSource = executableDatabase.Teams;
             DriversDataGridView.DataSource = executableDatabase.Drivers;
+            NonF1DriversDataGridView.DataSource = executableDatabase.NonF1Drivers;
+            NonF1ChiefsDataGridView.DataSource = executableDatabase.NonF1Chiefs;
             EnginesDataGridView.DataSource = executableDatabase.Engines;
             TyresDataGridView.DataSource = executableDatabase.Tyres;
             FuelsDataGridView.DataSource = executableDatabase.Fuels;
@@ -537,6 +541,8 @@ namespace GpwEditor
             executableDatabase.LanguageStrings = (IdentityCollection)LanguageDataGridView.DataSource;
             executableDatabase.Teams = (TeamCollection)TeamsDataGridView.DataSource;
             executableDatabase.Drivers = (DriverCollection)DriversDataGridView.DataSource;
+            executableDatabase.NonF1Drivers = (NonF1DriverCollection)NonF1DriversDataGridView.DataSource;
+            executableDatabase.NonF1Chiefs = (NonF1ChiefCollection)NonF1ChiefsDataGridView.DataSource;
             executableDatabase.Engines = (EngineCollection)EnginesDataGridView.DataSource;
             executableDatabase.Tyres = (TyreCollection)TyresDataGridView.DataSource;
             executableDatabase.Fuels = (FuelCollection)FuelsDataGridView.DataSource;

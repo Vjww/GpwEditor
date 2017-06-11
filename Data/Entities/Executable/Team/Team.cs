@@ -45,6 +45,12 @@ namespace Data.Entities.Executable.Team
         [Display(Name = "Nationality", Description = "The index of the country where the team's factory is located and represents the country map to display in the game.")]
         [Range(0, 3, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int CountryMapId { get; set; }
+        [Display(Name = "Location X", Description = "The X co-ordinate of the pointer where the team's factory is located on the country map in the game.")]
+        [Range(0, 800, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int LocationPointerX { get; set; } // TODO confirm range
+        [Display(Name = "Location Y", Description = "The Y co-ordinate of the pointer where the team's factory is located on the country map in the game.")]
+        [Range(0, 600, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int LocationPointerY { get; set; } // TODO confirm range
         [Display(Name = "This Year's Tyre Supplier", Description = "The tyre manufacturer supplying the team for this year's championship (e.g. 1998 when playing the 1998 season). Unknown usage but suspect this may be used to determine the tyre sidewalls to display.")]
         [Range(8, 10, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int TyreSupplierId { get; set; }
@@ -69,6 +75,8 @@ namespace Data.Entities.Executable.Team
             executableConnection.WriteInteger(_valueMapping.YearlyBudget, YearlyBudget);
             executableConnection.WriteInteger(_valueMapping.Unknown, Unknown);
             executableConnection.WriteInteger(_valueMapping.CountryMapId, CountryMapId);
+            executableConnection.WriteInteger(_valueMapping.LocationPointerX, LocationPointerX);
+            executableConnection.WriteInteger(_valueMapping.LocationPointerY, LocationPointerY);
             executableConnection.WriteInteger(_valueMapping.TyreSupplierId, TyreSupplierId);
         }
 
@@ -83,6 +91,8 @@ namespace Data.Entities.Executable.Team
             YearlyBudget = executableConnection.ReadInteger(_valueMapping.YearlyBudget);
             Unknown = executableConnection.ReadInteger(_valueMapping.Unknown);
             CountryMapId = executableConnection.ReadInteger(_valueMapping.CountryMapId);
+            LocationPointerX = executableConnection.ReadInteger(_valueMapping.LocationPointerX);
+            LocationPointerY = executableConnection.ReadInteger(_valueMapping.LocationPointerY);
             TyreSupplierId = executableConnection.ReadInteger(_valueMapping.TyreSupplierId);
         }
     }

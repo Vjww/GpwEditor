@@ -66,6 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\NumericUpDownDirectionType.cs" />
+    <Compile Include="ReconstructFunctionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReconstructFunctionForm.Designer.cs">
+      <DependentUpon>ReconstructFunctionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RacePerformanceCurveForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     <EmbeddedResource Include="LanguageFileEditorForm.resx">
       <DependentUpon>LanguageFileEditorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReconstructFunctionForm.resx">
+      <DependentUpon>ReconstructFunctionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RacePerformanceCurveForm.resx">
       <DependentUpon>RacePerformanceCurveForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +180,8 @@
     <Content Include="Resources\Base\ss3.png" />
     <Content Include="Resources\Base\ss4.png" />
     <Content Include="Resources\Base\ss5.png" />
+    <None Include="Properties\DataSources\Data.Collections.Executable.Team.NonF1ChiefCollection.datasource" />
+    <None Include="Properties\DataSources\Data.Collections.Executable.Team.NonF1DriverCollection.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

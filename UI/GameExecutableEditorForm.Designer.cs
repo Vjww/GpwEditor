@@ -93,12 +93,14 @@ namespace GpwEditor
             this.FactoryExpansionCostsDataGridView = new System.Windows.Forms.DataGridView();
             this.FactoryRunningCostsDataGridView = new System.Windows.Forms.DataGridView();
             this.EngineeringTabPage = new System.Windows.Forms.TabPage();
+            this.UnknownBDataGridView = new System.Windows.Forms.DataGridView();
+            this.UnknownADataGridView = new System.Windows.Forms.DataGridView();
             this.EngineeringCostsDataGridView = new System.Windows.Forms.DataGridView();
             this.StaffEffortsDataGridView = new System.Windows.Forms.DataGridView();
             this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.ProgramOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.UnknownADataGridView = new System.Windows.Forms.DataGridView();
-            this.UnknownBDataGridView = new System.Windows.Forms.DataGridView();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.NonF1DriversDataGridView = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localResourceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resourceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -116,6 +118,8 @@ namespace GpwEditor
             this.yearlyBudgetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unknownDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countryMapIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationPointerXDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationPointerYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tyreSupplierIdDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.teamCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -259,6 +263,17 @@ namespace GpwEditor
             this.value04DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.value05DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fiveValueCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localResourceIdDataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceIdDataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceTextDataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.singleValueCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localResourceIdDataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceIdDataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceTextDataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localResourceIdDataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resourceIdDataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -282,17 +297,38 @@ namespace GpwEditor
             this.value03DataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.value04DataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.value05DataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.singleValueCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localResourceIdDataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resourceIdDataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resourceTextDataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localResourceIdDataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resourceIdDataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resourceTextDataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localResourceIdDataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceIdDataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceTextDataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salaryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raceBonusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.championshipBonusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nationalityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unknownDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.speedDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.skillDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.overtakingDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wetWeatherDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.concentrationDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.experienceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staminaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moraleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nonF1DriverCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.NonF1ChiefsDataGridView = new System.Windows.Forms.DataGridView();
+            this.nonF1ChiefCollectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localResourceIdDataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceIdDataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceTextDataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salaryDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.raceBonusDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.championshipBonusDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.royaltyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.abilityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MainTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
             this.FilesGroupBox.SuspendLayout();
@@ -331,10 +367,12 @@ namespace GpwEditor
             ((System.ComponentModel.ISupportInitialize)(this.FactoryExpansionCostsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FactoryRunningCostsDataGridView)).BeginInit();
             this.EngineeringTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UnknownBDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UnknownADataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EngineeringCostsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StaffEffortsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UnknownADataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UnknownBDataGridView)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NonF1DriversDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.identityCollectionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamCollectionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.driverCollectionBindingSource)).BeginInit();
@@ -346,6 +384,10 @@ namespace GpwEditor
             ((System.ComponentModel.ISupportInitialize)(this.fiveRatingCollectionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fiveValueCollectionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.singleValueCollectionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nonF1DriverCollectionBindingSource)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NonF1ChiefsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nonF1ChiefCollectionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // MainTabControl
@@ -360,6 +402,8 @@ namespace GpwEditor
             this.MainTabControl.Controls.Add(this.RacePerformanceTabPage);
             this.MainTabControl.Controls.Add(this.MiscTabPage);
             this.MainTabControl.Controls.Add(this.EngineeringTabPage);
+            this.MainTabControl.Controls.Add(this.tabPage1);
+            this.MainTabControl.Controls.Add(this.tabPage2);
             this.MainTabControl.Location = new System.Drawing.Point(8, 8);
             this.MainTabControl.Name = "MainTabControl";
             this.MainTabControl.SelectedIndex = 0;
@@ -526,6 +570,8 @@ namespace GpwEditor
             this.yearlyBudgetDataGridViewTextBoxColumn,
             this.unknownDataGridViewTextBoxColumn,
             this.countryMapIdDataGridViewTextBoxColumn,
+            this.locationPointerXDataGridViewTextBoxColumn,
+            this.locationPointerYDataGridViewTextBoxColumn,
             this.tyreSupplierIdDataGridViewComboBoxColumn});
             this.TeamsDataGridView.DataSource = this.teamCollectionBindingSource;
             this.TeamsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1274,6 +1320,38 @@ namespace GpwEditor
             this.EngineeringTabPage.Text = "Engineering";
             this.EngineeringTabPage.UseVisualStyleBackColor = true;
             // 
+            // UnknownBDataGridView
+            // 
+            this.UnknownBDataGridView.AutoGenerateColumns = false;
+            this.UnknownBDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UnknownBDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn14,
+            this.localResourceIdDataGridViewTextBoxColumn14,
+            this.resourceIdDataGridViewTextBoxColumn14,
+            this.resourceTextDataGridViewTextBoxColumn14,
+            this.valueDataGridViewTextBoxColumn1});
+            this.UnknownBDataGridView.DataSource = this.singleValueCollectionBindingSource;
+            this.UnknownBDataGridView.Location = new System.Drawing.Point(374, 323);
+            this.UnknownBDataGridView.Name = "UnknownBDataGridView";
+            this.UnknownBDataGridView.Size = new System.Drawing.Size(308, 141);
+            this.UnknownBDataGridView.TabIndex = 2;
+            // 
+            // UnknownADataGridView
+            // 
+            this.UnknownADataGridView.AutoGenerateColumns = false;
+            this.UnknownADataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UnknownADataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn13,
+            this.localResourceIdDataGridViewTextBoxColumn13,
+            this.resourceIdDataGridViewTextBoxColumn13,
+            this.resourceTextDataGridViewTextBoxColumn13,
+            this.valueDataGridViewTextBoxColumn});
+            this.UnknownADataGridView.DataSource = this.singleValueCollectionBindingSource;
+            this.UnknownADataGridView.Location = new System.Drawing.Point(7, 324);
+            this.UnknownADataGridView.Name = "UnknownADataGridView";
+            this.UnknownADataGridView.Size = new System.Drawing.Size(308, 140);
+            this.UnknownADataGridView.TabIndex = 2;
+            // 
             // EngineeringCostsDataGridView
             // 
             this.EngineeringCostsDataGridView.AutoGenerateColumns = false;
@@ -1323,37 +1401,45 @@ namespace GpwEditor
             // 
             this.FolderBrowserDialog.ShowNewFolderButton = false;
             // 
-            // UnknownADataGridView
+            // tabPage1
             // 
-            this.UnknownADataGridView.AutoGenerateColumns = false;
-            this.UnknownADataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.UnknownADataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn13,
-            this.localResourceIdDataGridViewTextBoxColumn13,
-            this.resourceIdDataGridViewTextBoxColumn13,
-            this.resourceTextDataGridViewTextBoxColumn13,
-            this.valueDataGridViewTextBoxColumn});
-            this.UnknownADataGridView.DataSource = this.singleValueCollectionBindingSource;
-            this.UnknownADataGridView.Location = new System.Drawing.Point(7, 324);
-            this.UnknownADataGridView.Name = "UnknownADataGridView";
-            this.UnknownADataGridView.Size = new System.Drawing.Size(308, 140);
-            this.UnknownADataGridView.TabIndex = 2;
+            this.tabPage1.Controls.Add(this.NonF1DriversDataGridView);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(688, 470);
+            this.tabPage1.TabIndex = 10;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // UnknownBDataGridView
+            // NonF1DriversDataGridView
             // 
-            this.UnknownBDataGridView.AutoGenerateColumns = false;
-            this.UnknownBDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.UnknownBDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn14,
-            this.localResourceIdDataGridViewTextBoxColumn14,
-            this.resourceIdDataGridViewTextBoxColumn14,
-            this.resourceTextDataGridViewTextBoxColumn14,
-            this.valueDataGridViewTextBoxColumn1});
-            this.UnknownBDataGridView.DataSource = this.singleValueCollectionBindingSource;
-            this.UnknownBDataGridView.Location = new System.Drawing.Point(374, 323);
-            this.UnknownBDataGridView.Name = "UnknownBDataGridView";
-            this.UnknownBDataGridView.Size = new System.Drawing.Size(308, 141);
-            this.UnknownBDataGridView.TabIndex = 2;
+            this.NonF1DriversDataGridView.AutoGenerateColumns = false;
+            this.NonF1DriversDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.NonF1DriversDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn15,
+            this.localResourceIdDataGridViewTextBoxColumn15,
+            this.resourceIdDataGridViewTextBoxColumn15,
+            this.resourceTextDataGridViewTextBoxColumn15,
+            this.salaryDataGridViewTextBoxColumn1,
+            this.raceBonusDataGridViewTextBoxColumn1,
+            this.championshipBonusDataGridViewTextBoxColumn1,
+            this.ageDataGridViewTextBoxColumn1,
+            this.nationalityDataGridViewTextBoxColumn,
+            this.unknownDataGridViewTextBoxColumn1,
+            this.speedDataGridViewTextBoxColumn2,
+            this.skillDataGridViewTextBoxColumn1,
+            this.overtakingDataGridViewTextBoxColumn2,
+            this.wetWeatherDataGridViewTextBoxColumn1,
+            this.concentrationDataGridViewTextBoxColumn1,
+            this.experienceDataGridViewTextBoxColumn1,
+            this.staminaDataGridViewTextBoxColumn1,
+            this.moraleDataGridViewTextBoxColumn1});
+            this.NonF1DriversDataGridView.DataSource = this.nonF1DriverCollectionBindingSource;
+            this.NonF1DriversDataGridView.Location = new System.Drawing.Point(6, 6);
+            this.NonF1DriversDataGridView.Name = "NonF1DriversDataGridView";
+            this.NonF1DriversDataGridView.Size = new System.Drawing.Size(676, 458);
+            this.NonF1DriversDataGridView.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -1456,6 +1542,18 @@ namespace GpwEditor
             this.countryMapIdDataGridViewTextBoxColumn.DataPropertyName = "CountryMapId";
             this.countryMapIdDataGridViewTextBoxColumn.HeaderText = "CountryMapId";
             this.countryMapIdDataGridViewTextBoxColumn.Name = "countryMapIdDataGridViewTextBoxColumn";
+            // 
+            // locationPointerXDataGridViewTextBoxColumn
+            // 
+            this.locationPointerXDataGridViewTextBoxColumn.DataPropertyName = "LocationPointerX";
+            this.locationPointerXDataGridViewTextBoxColumn.HeaderText = "LocationPointerX";
+            this.locationPointerXDataGridViewTextBoxColumn.Name = "locationPointerXDataGridViewTextBoxColumn";
+            // 
+            // locationPointerYDataGridViewTextBoxColumn
+            // 
+            this.locationPointerYDataGridViewTextBoxColumn.DataPropertyName = "LocationPointerY";
+            this.locationPointerYDataGridViewTextBoxColumn.HeaderText = "LocationPointerY";
+            this.locationPointerYDataGridViewTextBoxColumn.Name = "locationPointerYDataGridViewTextBoxColumn";
             // 
             // tyreSupplierIdDataGridViewComboBoxColumn
             // 
@@ -2311,6 +2409,70 @@ namespace GpwEditor
             // 
             this.fiveValueCollectionBindingSource.DataSource = typeof(Data.Collections.Generic.FiveValueCollection);
             // 
+            // idDataGridViewTextBoxColumn14
+            // 
+            this.idDataGridViewTextBoxColumn14.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn14.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn14.Name = "idDataGridViewTextBoxColumn14";
+            // 
+            // localResourceIdDataGridViewTextBoxColumn14
+            // 
+            this.localResourceIdDataGridViewTextBoxColumn14.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn14.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn14.Name = "localResourceIdDataGridViewTextBoxColumn14";
+            // 
+            // resourceIdDataGridViewTextBoxColumn14
+            // 
+            this.resourceIdDataGridViewTextBoxColumn14.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn14.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn14.Name = "resourceIdDataGridViewTextBoxColumn14";
+            // 
+            // resourceTextDataGridViewTextBoxColumn14
+            // 
+            this.resourceTextDataGridViewTextBoxColumn14.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn14.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn14.Name = "resourceTextDataGridViewTextBoxColumn14";
+            // 
+            // valueDataGridViewTextBoxColumn1
+            // 
+            this.valueDataGridViewTextBoxColumn1.DataPropertyName = "Value";
+            this.valueDataGridViewTextBoxColumn1.HeaderText = "Value";
+            this.valueDataGridViewTextBoxColumn1.Name = "valueDataGridViewTextBoxColumn1";
+            // 
+            // singleValueCollectionBindingSource
+            // 
+            this.singleValueCollectionBindingSource.DataSource = typeof(Data.Collections.Generic.SingleValueCollection);
+            // 
+            // idDataGridViewTextBoxColumn13
+            // 
+            this.idDataGridViewTextBoxColumn13.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn13.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn13.Name = "idDataGridViewTextBoxColumn13";
+            // 
+            // localResourceIdDataGridViewTextBoxColumn13
+            // 
+            this.localResourceIdDataGridViewTextBoxColumn13.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn13.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn13.Name = "localResourceIdDataGridViewTextBoxColumn13";
+            // 
+            // resourceIdDataGridViewTextBoxColumn13
+            // 
+            this.resourceIdDataGridViewTextBoxColumn13.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn13.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn13.Name = "resourceIdDataGridViewTextBoxColumn13";
+            // 
+            // resourceTextDataGridViewTextBoxColumn13
+            // 
+            this.resourceTextDataGridViewTextBoxColumn13.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn13.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn13.Name = "resourceTextDataGridViewTextBoxColumn13";
+            // 
+            // valueDataGridViewTextBoxColumn
+            // 
+            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
+            this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
+            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
+            // 
             // idDataGridViewTextBoxColumn12
             // 
             this.idDataGridViewTextBoxColumn12.DataPropertyName = "Id";
@@ -2449,69 +2611,213 @@ namespace GpwEditor
             this.value05DataGridViewTextBoxColumn4.HeaderText = "Value05";
             this.value05DataGridViewTextBoxColumn4.Name = "value05DataGridViewTextBoxColumn4";
             // 
-            // singleValueCollectionBindingSource
+            // idDataGridViewTextBoxColumn15
             // 
-            this.singleValueCollectionBindingSource.DataSource = typeof(Data.Collections.Generic.SingleValueCollection);
+            this.idDataGridViewTextBoxColumn15.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn15.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn15.Name = "idDataGridViewTextBoxColumn15";
             // 
-            // idDataGridViewTextBoxColumn13
+            // localResourceIdDataGridViewTextBoxColumn15
             // 
-            this.idDataGridViewTextBoxColumn13.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn13.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn13.Name = "idDataGridViewTextBoxColumn13";
+            this.localResourceIdDataGridViewTextBoxColumn15.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn15.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn15.Name = "localResourceIdDataGridViewTextBoxColumn15";
             // 
-            // localResourceIdDataGridViewTextBoxColumn13
+            // resourceIdDataGridViewTextBoxColumn15
             // 
-            this.localResourceIdDataGridViewTextBoxColumn13.DataPropertyName = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn13.HeaderText = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn13.Name = "localResourceIdDataGridViewTextBoxColumn13";
+            this.resourceIdDataGridViewTextBoxColumn15.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn15.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn15.Name = "resourceIdDataGridViewTextBoxColumn15";
             // 
-            // resourceIdDataGridViewTextBoxColumn13
+            // resourceTextDataGridViewTextBoxColumn15
             // 
-            this.resourceIdDataGridViewTextBoxColumn13.DataPropertyName = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn13.HeaderText = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn13.Name = "resourceIdDataGridViewTextBoxColumn13";
+            this.resourceTextDataGridViewTextBoxColumn15.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn15.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn15.Name = "resourceTextDataGridViewTextBoxColumn15";
             // 
-            // resourceTextDataGridViewTextBoxColumn13
+            // salaryDataGridViewTextBoxColumn1
             // 
-            this.resourceTextDataGridViewTextBoxColumn13.DataPropertyName = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn13.HeaderText = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn13.Name = "resourceTextDataGridViewTextBoxColumn13";
+            this.salaryDataGridViewTextBoxColumn1.DataPropertyName = "Salary";
+            this.salaryDataGridViewTextBoxColumn1.HeaderText = "Salary";
+            this.salaryDataGridViewTextBoxColumn1.Name = "salaryDataGridViewTextBoxColumn1";
             // 
-            // valueDataGridViewTextBoxColumn
+            // raceBonusDataGridViewTextBoxColumn1
             // 
-            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
-            this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
-            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
+            this.raceBonusDataGridViewTextBoxColumn1.DataPropertyName = "RaceBonus";
+            this.raceBonusDataGridViewTextBoxColumn1.HeaderText = "RaceBonus";
+            this.raceBonusDataGridViewTextBoxColumn1.Name = "raceBonusDataGridViewTextBoxColumn1";
             // 
-            // idDataGridViewTextBoxColumn14
+            // championshipBonusDataGridViewTextBoxColumn1
             // 
-            this.idDataGridViewTextBoxColumn14.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn14.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn14.Name = "idDataGridViewTextBoxColumn14";
+            this.championshipBonusDataGridViewTextBoxColumn1.DataPropertyName = "ChampionshipBonus";
+            this.championshipBonusDataGridViewTextBoxColumn1.HeaderText = "ChampionshipBonus";
+            this.championshipBonusDataGridViewTextBoxColumn1.Name = "championshipBonusDataGridViewTextBoxColumn1";
             // 
-            // localResourceIdDataGridViewTextBoxColumn14
+            // ageDataGridViewTextBoxColumn1
             // 
-            this.localResourceIdDataGridViewTextBoxColumn14.DataPropertyName = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn14.HeaderText = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn14.Name = "localResourceIdDataGridViewTextBoxColumn14";
+            this.ageDataGridViewTextBoxColumn1.DataPropertyName = "Age";
+            this.ageDataGridViewTextBoxColumn1.HeaderText = "Age";
+            this.ageDataGridViewTextBoxColumn1.Name = "ageDataGridViewTextBoxColumn1";
             // 
-            // resourceIdDataGridViewTextBoxColumn14
+            // nationalityDataGridViewTextBoxColumn
             // 
-            this.resourceIdDataGridViewTextBoxColumn14.DataPropertyName = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn14.HeaderText = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn14.Name = "resourceIdDataGridViewTextBoxColumn14";
+            this.nationalityDataGridViewTextBoxColumn.DataPropertyName = "Nationality";
+            this.nationalityDataGridViewTextBoxColumn.HeaderText = "Nationality";
+            this.nationalityDataGridViewTextBoxColumn.Name = "nationalityDataGridViewTextBoxColumn";
             // 
-            // resourceTextDataGridViewTextBoxColumn14
+            // unknownDataGridViewTextBoxColumn1
             // 
-            this.resourceTextDataGridViewTextBoxColumn14.DataPropertyName = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn14.HeaderText = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn14.Name = "resourceTextDataGridViewTextBoxColumn14";
+            this.unknownDataGridViewTextBoxColumn1.DataPropertyName = "Unknown";
+            this.unknownDataGridViewTextBoxColumn1.HeaderText = "Unknown";
+            this.unknownDataGridViewTextBoxColumn1.Name = "unknownDataGridViewTextBoxColumn1";
             // 
-            // valueDataGridViewTextBoxColumn1
+            // speedDataGridViewTextBoxColumn2
             // 
-            this.valueDataGridViewTextBoxColumn1.DataPropertyName = "Value";
-            this.valueDataGridViewTextBoxColumn1.HeaderText = "Value";
-            this.valueDataGridViewTextBoxColumn1.Name = "valueDataGridViewTextBoxColumn1";
+            this.speedDataGridViewTextBoxColumn2.DataPropertyName = "Speed";
+            this.speedDataGridViewTextBoxColumn2.HeaderText = "Speed";
+            this.speedDataGridViewTextBoxColumn2.Name = "speedDataGridViewTextBoxColumn2";
+            // 
+            // skillDataGridViewTextBoxColumn1
+            // 
+            this.skillDataGridViewTextBoxColumn1.DataPropertyName = "Skill";
+            this.skillDataGridViewTextBoxColumn1.HeaderText = "Skill";
+            this.skillDataGridViewTextBoxColumn1.Name = "skillDataGridViewTextBoxColumn1";
+            // 
+            // overtakingDataGridViewTextBoxColumn2
+            // 
+            this.overtakingDataGridViewTextBoxColumn2.DataPropertyName = "Overtaking";
+            this.overtakingDataGridViewTextBoxColumn2.HeaderText = "Overtaking";
+            this.overtakingDataGridViewTextBoxColumn2.Name = "overtakingDataGridViewTextBoxColumn2";
+            // 
+            // wetWeatherDataGridViewTextBoxColumn1
+            // 
+            this.wetWeatherDataGridViewTextBoxColumn1.DataPropertyName = "WetWeather";
+            this.wetWeatherDataGridViewTextBoxColumn1.HeaderText = "WetWeather";
+            this.wetWeatherDataGridViewTextBoxColumn1.Name = "wetWeatherDataGridViewTextBoxColumn1";
+            // 
+            // concentrationDataGridViewTextBoxColumn1
+            // 
+            this.concentrationDataGridViewTextBoxColumn1.DataPropertyName = "Concentration";
+            this.concentrationDataGridViewTextBoxColumn1.HeaderText = "Concentration";
+            this.concentrationDataGridViewTextBoxColumn1.Name = "concentrationDataGridViewTextBoxColumn1";
+            // 
+            // experienceDataGridViewTextBoxColumn1
+            // 
+            this.experienceDataGridViewTextBoxColumn1.DataPropertyName = "Experience";
+            this.experienceDataGridViewTextBoxColumn1.HeaderText = "Experience";
+            this.experienceDataGridViewTextBoxColumn1.Name = "experienceDataGridViewTextBoxColumn1";
+            // 
+            // staminaDataGridViewTextBoxColumn1
+            // 
+            this.staminaDataGridViewTextBoxColumn1.DataPropertyName = "Stamina";
+            this.staminaDataGridViewTextBoxColumn1.HeaderText = "Stamina";
+            this.staminaDataGridViewTextBoxColumn1.Name = "staminaDataGridViewTextBoxColumn1";
+            // 
+            // moraleDataGridViewTextBoxColumn1
+            // 
+            this.moraleDataGridViewTextBoxColumn1.DataPropertyName = "Morale";
+            this.moraleDataGridViewTextBoxColumn1.HeaderText = "Morale";
+            this.moraleDataGridViewTextBoxColumn1.Name = "moraleDataGridViewTextBoxColumn1";
+            // 
+            // nonF1DriverCollectionBindingSource
+            // 
+            this.nonF1DriverCollectionBindingSource.DataSource = typeof(Data.Collections.Executable.Team.NonF1DriverCollection);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.NonF1ChiefsDataGridView);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(688, 470);
+            this.tabPage2.TabIndex = 11;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // NonF1ChiefsDataGridView
+            // 
+            this.NonF1ChiefsDataGridView.AutoGenerateColumns = false;
+            this.NonF1ChiefsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.NonF1ChiefsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn16,
+            this.localResourceIdDataGridViewTextBoxColumn16,
+            this.resourceIdDataGridViewTextBoxColumn16,
+            this.resourceTextDataGridViewTextBoxColumn16,
+            this.salaryDataGridViewTextBoxColumn2,
+            this.raceBonusDataGridViewTextBoxColumn2,
+            this.championshipBonusDataGridViewTextBoxColumn2,
+            this.royaltyDataGridViewTextBoxColumn,
+            this.ageDataGridViewTextBoxColumn2,
+            this.abilityDataGridViewTextBoxColumn});
+            this.NonF1ChiefsDataGridView.DataSource = this.nonF1ChiefCollectionBindingSource;
+            this.NonF1ChiefsDataGridView.Location = new System.Drawing.Point(6, 6);
+            this.NonF1ChiefsDataGridView.Name = "NonF1ChiefsDataGridView";
+            this.NonF1ChiefsDataGridView.Size = new System.Drawing.Size(676, 458);
+            this.NonF1ChiefsDataGridView.TabIndex = 0;
+            // 
+            // nonF1ChiefCollectionBindingSource
+            // 
+            this.nonF1ChiefCollectionBindingSource.DataSource = typeof(Data.Collections.Executable.Team.NonF1ChiefCollection);
+            // 
+            // idDataGridViewTextBoxColumn16
+            // 
+            this.idDataGridViewTextBoxColumn16.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn16.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn16.Name = "idDataGridViewTextBoxColumn16";
+            // 
+            // localResourceIdDataGridViewTextBoxColumn16
+            // 
+            this.localResourceIdDataGridViewTextBoxColumn16.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn16.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn16.Name = "localResourceIdDataGridViewTextBoxColumn16";
+            // 
+            // resourceIdDataGridViewTextBoxColumn16
+            // 
+            this.resourceIdDataGridViewTextBoxColumn16.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn16.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn16.Name = "resourceIdDataGridViewTextBoxColumn16";
+            // 
+            // resourceTextDataGridViewTextBoxColumn16
+            // 
+            this.resourceTextDataGridViewTextBoxColumn16.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn16.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn16.Name = "resourceTextDataGridViewTextBoxColumn16";
+            // 
+            // salaryDataGridViewTextBoxColumn2
+            // 
+            this.salaryDataGridViewTextBoxColumn2.DataPropertyName = "Salary";
+            this.salaryDataGridViewTextBoxColumn2.HeaderText = "Salary";
+            this.salaryDataGridViewTextBoxColumn2.Name = "salaryDataGridViewTextBoxColumn2";
+            // 
+            // raceBonusDataGridViewTextBoxColumn2
+            // 
+            this.raceBonusDataGridViewTextBoxColumn2.DataPropertyName = "RaceBonus";
+            this.raceBonusDataGridViewTextBoxColumn2.HeaderText = "RaceBonus";
+            this.raceBonusDataGridViewTextBoxColumn2.Name = "raceBonusDataGridViewTextBoxColumn2";
+            // 
+            // championshipBonusDataGridViewTextBoxColumn2
+            // 
+            this.championshipBonusDataGridViewTextBoxColumn2.DataPropertyName = "ChampionshipBonus";
+            this.championshipBonusDataGridViewTextBoxColumn2.HeaderText = "ChampionshipBonus";
+            this.championshipBonusDataGridViewTextBoxColumn2.Name = "championshipBonusDataGridViewTextBoxColumn2";
+            // 
+            // royaltyDataGridViewTextBoxColumn
+            // 
+            this.royaltyDataGridViewTextBoxColumn.DataPropertyName = "Royalty";
+            this.royaltyDataGridViewTextBoxColumn.HeaderText = "Royalty";
+            this.royaltyDataGridViewTextBoxColumn.Name = "royaltyDataGridViewTextBoxColumn";
+            // 
+            // ageDataGridViewTextBoxColumn2
+            // 
+            this.ageDataGridViewTextBoxColumn2.DataPropertyName = "Age";
+            this.ageDataGridViewTextBoxColumn2.HeaderText = "Age";
+            this.ageDataGridViewTextBoxColumn2.Name = "ageDataGridViewTextBoxColumn2";
+            // 
+            // abilityDataGridViewTextBoxColumn
+            // 
+            this.abilityDataGridViewTextBoxColumn.DataPropertyName = "Ability";
+            this.abilityDataGridViewTextBoxColumn.HeaderText = "Ability";
+            this.abilityDataGridViewTextBoxColumn.Name = "abilityDataGridViewTextBoxColumn";
             // 
             // GameExecutableEditorForm
             // 
@@ -2565,10 +2871,12 @@ namespace GpwEditor
             ((System.ComponentModel.ISupportInitialize)(this.FactoryExpansionCostsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FactoryRunningCostsDataGridView)).EndInit();
             this.EngineeringTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.UnknownBDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UnknownADataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EngineeringCostsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.StaffEffortsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UnknownADataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UnknownBDataGridView)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NonF1DriversDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.identityCollectionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamCollectionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.driverCollectionBindingSource)).EndInit();
@@ -2580,6 +2888,10 @@ namespace GpwEditor
             ((System.ComponentModel.ISupportInitialize)(this.fiveRatingCollectionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fiveValueCollectionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.singleValueCollectionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nonF1DriverCollectionBindingSource)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NonF1ChiefsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nonF1ChiefCollectionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2660,19 +2972,6 @@ namespace GpwEditor
         private System.Windows.Forms.DataGridViewTextBoxColumn resourceTextDataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn performanceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn toleranceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn localResourceIdDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resourceIdDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resourceTextDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastPositionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastPointsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn firstGpTrackDataGridViewComboBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstGpYearDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn winsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn yearlyBudgetDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unknownDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn countryMapIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn tyreSupplierIdDataGridViewComboBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn localResourceIdDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn resourceIdDataGridViewTextBoxColumn2;
@@ -2841,5 +3140,54 @@ namespace GpwEditor
         private System.Windows.Forms.DataGridViewTextBoxColumn resourceIdDataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn resourceTextDataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn localResourceIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resourceIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resourceTextDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastPositionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastPointsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn firstGpTrackDataGridViewComboBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstGpYearDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn winsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearlyBudgetDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unknownDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countryMapIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationPointerXDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationPointerYDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn tyreSupplierIdDataGridViewComboBoxColumn;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView NonF1DriversDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn localResourceIdDataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resourceIdDataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resourceTextDataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raceBonusDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn championshipBonusDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nationalityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unknownDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn speedDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn skillDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn overtakingDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wetWeatherDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn concentrationDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn experienceDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staminaDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn moraleDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource nonF1DriverCollectionBindingSource;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView NonF1ChiefsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn localResourceIdDataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resourceIdDataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resourceTextDataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raceBonusDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn championshipBonusDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn royaltyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn abilityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource nonF1ChiefCollectionBindingSource;
     }
 }

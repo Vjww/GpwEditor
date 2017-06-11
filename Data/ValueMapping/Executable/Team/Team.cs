@@ -16,6 +16,11 @@
         private const int CountryMapIdOffset = 70;
         private const int TyreSupplierIdOffset = 80;
 
+        private const int LocationPointerBaseOffset = 1400590;
+        private const int LocationPointerLocalOffset = 20;
+        private const int LocationPointerXOffset = 0;
+        private const int LocationPointerYOffset = 10;
+
         public int Name { get; set; }
         public int LastPosition { get; set; }
         public int LastPoints { get; set; }
@@ -25,6 +30,8 @@
         public int YearlyBudget { get; set; }
         public int Unknown { get; set; }
         public int CountryMapId { get; set; }
+        public int LocationPointerX { get; set; }
+        public int LocationPointerY { get; set; }
         public int TyreSupplierId { get; set; }
 
         public Team(int id)
@@ -41,6 +48,8 @@
             YearlyBudget = BaseOffset + stepOffset + YearlyBudgetOffset;
             Unknown = BaseOffset + stepOffset + UnknownOffset;
             CountryMapId = BaseOffset + stepOffset + CountryMapIdOffset;
+            LocationPointerX = LocationPointerBaseOffset + LocationPointerLocalOffset * id + LocationPointerXOffset;
+            LocationPointerY = LocationPointerBaseOffset + LocationPointerLocalOffset * id + LocationPointerYOffset;
             TyreSupplierId = BaseOffset + stepOffset + TyreSupplierIdOffset;
         }
 

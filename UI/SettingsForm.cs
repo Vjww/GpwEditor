@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
-using Data.Patchers.CodeShifting;
+using Data.Patchers.CodeShiftPatcher;
 using Data.Patchers.GlobalUnlockPatcher;
 using Data.Patchers.JumpBypassPatcher;
+using Data.Patchers.OldCodeShifting;
 using Data.Patchers.SwitchIdiomPatcher;
 using Data.Patchers.TrackEditorPatcher;
 using GpwEditor.Properties;
@@ -140,6 +141,11 @@ namespace GpwEditor
             new TrackEditorPatcher(_filePath).Apply();
         }
 
+        private void ApplyNewCodeShiftButton_Click(object sender, EventArgs e)
+        {
+            new CodeShiftPatcher(_filePath).Apply();
+        }
+
         private void ApplyAllPatchers()
         {
             ApplySwitchIdiomPatcher();
@@ -152,6 +158,12 @@ namespace GpwEditor
         private void OffsetValueGeneratorToolButton_Click(object sender, EventArgs e)
         {
             var form = new OffsetValueGeneratorToolForm();
+            form.ShowDialog(this);
+        }
+
+        private void CutCodeFromFunctionButton_Click(object sender, EventArgs e)
+        {
+            var form = new ReconstructFunctionForm(0x0047141F, 0x00478F19, 0x00401000);
             form.ShowDialog(this);
         }
     }

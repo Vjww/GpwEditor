@@ -36,6 +36,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\Executable\Team\NonF1ChiefCollection.cs" />
+    <Compile Include="Collections\Executable\Team\NonF1DriverCollection.cs" />
     <Compile Include="Collections\Generic\SingleValueCollection.cs" />
     <Compile Include="Entities\Executable\Environment\EngineeringCosts\BuildSpare.cs" />
     <Compile Include="Entities\Executable\Environment\EngineeringCosts\UpgradeDrivingAid.cs" />
@@ -65,8 +67,12 @@
     <Compile Include="Entities\Executable\Supplier\IFuel.cs" />
     <Compile Include="Entities\Executable\Supplier\ITyre.cs" />
     <Compile Include="Entities\Executable\Team\IDriver.cs" />
+    <Compile Include="Entities\Executable\Team\INonF1Driver.cs" />
     <Compile Include="Entities\Executable\Team\ITeam.cs" />
     <Compile Include="Entities\Executable\Lookup\TyreSupplierIdAsSupplierId.cs" />
+    <Compile Include="Entities\Executable\Team\INonF1Chief.cs" />
+    <Compile Include="Entities\Executable\Team\NonF1Chief.cs" />
+    <Compile Include="Entities\Executable\Team\NonF1Driver.cs" />
     <Compile Include="Entities\Executable\Track\ITrack.cs" />
     <Compile Include="Entities\Executable\Lookup\FirstGpTrack.cs" />
     <Compile Include="Entities\Generic\FiveRatingBase.cs" />
@@ -87,6 +93,13 @@
     <Compile Include="Entities\Executable\Environment\TestingMiles\TestingMiles.cs" />
     <Compile Include="Entities\Language\IIdentity.cs" />
     <Compile Include="Helpers\ResourceHelper.cs" />
+    <Compile Include="Patchers\CodeShiftPatcher\DriverData.cs" />
+    <Compile Include="Patchers\CodeShiftPatcher\CodeShiftPatcher.cs" />
+    <Compile Include="Patchers\CodeShiftPatcher\ChiefData.cs" />
+    <Compile Include="Patchers\CodeShiftPatcher\RelocatedFunction.cs" />
+    <Compile Include="Patchers\CodeShiftPatcher\ReconstructedDataFunctionAt4706D7.cs" />
+    <Compile Include="Patchers\CodeShiftPatcher\TeamData.cs" />
+    <Compile Include="Patchers\CodeShiftPatcher\TrackData.cs" />
     <Compile Include="Patchers\TrackEditorPatcher\TrackEditorPatcher.cs" />
     <Compile Include="ValueMapping\Executable\Environment\EngineeringCosts\BuildNextYearCar.cs" />
     <Compile Include="ValueMapping\Executable\Environment\EngineeringCosts\BuildSpare.cs" />
@@ -162,7 +175,11 @@
     <Compile Include="ValueMapping\Executable\Supplier\ITyre.cs" />
     <Compile Include="ValueMapping\Executable\Lookup\TyreSupplierIdAsSupplierId.cs" />
     <Compile Include="ValueMapping\Executable\Team\IDriver.cs" />
+    <Compile Include="ValueMapping\Executable\Team\INonF1Chief.cs" />
+    <Compile Include="ValueMapping\Executable\Team\INonF1Driver.cs" />
     <Compile Include="ValueMapping\Executable\Team\ITeam.cs" />
+    <Compile Include="ValueMapping\Executable\Team\NonF1Chief.cs" />
+    <Compile Include="ValueMapping\Executable\Team\NonF1Driver.cs" />
     <Compile Include="ValueMapping\Executable\Track\ITrack.cs" />
     <Compile Include="ValueMapping\Executable\Lookup\FirstGpTrack.cs" />
     <Compile Include="ValueMapping\Generic\ISingleValueMapping.cs" />
@@ -170,11 +187,11 @@
     <Compile Include="ValueMapping\Generic\IFiveValueMapping.cs" />
     <Compile Include="Entities\Generic\IFiveValue.cs" />
     <Compile Include="Collections\Generic\FiveValueCollection.cs" />
-    <Compile Include="Patchers\CodeShifting\CodeShiftingPatcher.cs" />
-    <Compile Include="Patchers\CodeShifting\Units\DriverData.cs" />
-    <Compile Include="Patchers\CodeShifting\Units\PersonnelData.cs" />
-    <Compile Include="Patchers\CodeShifting\Units\TeamData.cs" />
-    <Compile Include="Patchers\CodeShifting\Units\TrackData.cs" />
+    <Compile Include="Patchers\OldCodeShifting\OldCodeShiftingPatcher.cs" />
+    <Compile Include="Patchers\OldCodeShifting\Units\DriverData.cs" />
+    <Compile Include="Patchers\OldCodeShifting\Units\PersonnelData.cs" />
+    <Compile Include="Patchers\OldCodeShifting\Units\TeamData.cs" />
+    <Compile Include="Patchers\OldCodeShifting\Units\TrackData.cs" />
     <Compile Include="Patchers\CompareTo103Patcher\CompareTo103Patcher.cs" />
     <Compile Include="Patchers\DataPatcherUnitBase.cs">
       <SubType>Code</SubType>
@@ -248,6 +265,7 @@
     <Content Include="Notes\GpwModResearch.txt" />
     <Content Include="Notes\GpwTrackEditorResearch.txt" />
     <Content Include="Notes\LingoEditor.txt" />
+    <Content Include="Notes\PayDriverSalaries.txt" />
     <Content Include="Notes\readme.txt" />
     <Content Include="Notes\snippets.txt" />
     <Content Include="Notes\Opcode_E8_CALL.txt" />

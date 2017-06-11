@@ -1,4 +1,4 @@
-﻿namespace Data._OldEditor.FileIo.SaveGameOffsets
+﻿namespace Data.IntegrationTasks.SaveGameOffsets
 {
     class PersonOffsets
     {

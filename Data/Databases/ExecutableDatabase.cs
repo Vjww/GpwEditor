@@ -27,6 +27,8 @@ namespace Data.Databases
         public IdentityCollection LanguageStrings { get; set; }
         public TeamCollection Teams { get; set; }
         public DriverCollection Drivers { get; set; }
+        public NonF1DriverCollection NonF1Drivers { get; set; }
+        public NonF1ChiefCollection NonF1Chiefs { get; set; }
         public EngineCollection Engines { get; set; }
         public TyreCollection Tyres { get; set; }
         public FuelCollection Fuels { get; set; }
@@ -56,6 +58,8 @@ namespace Data.Databases
             ImportTyreSupplierIdAsSupplierIdLookups();
 
             ImportDrivers(gameExecutableFilePath);
+            ImportNonF1Drivers(gameExecutableFilePath);
+            ImportNonF1Chiefs(gameExecutableFilePath);
             ImportDriverNationalityLookups();
 
             ImportEngines(gameExecutableFilePath);
@@ -83,6 +87,8 @@ namespace Data.Databases
             ExportTeams(gameExecutableFilePath);
 
             ExportDrivers(gameExecutableFilePath);
+            ExportNonF1Drivers(gameExecutableFilePath);
+            ExportNonF1Chiefs(gameExecutableFilePath);
 
             ExportEngines(gameExecutableFilePath);
             ExportTyres(gameExecutableFilePath);
@@ -188,6 +194,83 @@ namespace Data.Databases
         private void ExportDrivers(string gameExecutableFilePath)
         {
             ExportData(gameExecutableFilePath, Drivers);
+        }
+
+        private void ImportNonF1Drivers(string gameExecutableFilePath)
+        {
+            NonF1Drivers = new NonF1DriverCollection
+            {
+                new TeamEntities.NonF1Driver(new TeamMapping.NonF1Driver(0), 0),
+                new TeamEntities.NonF1Driver(new TeamMapping.NonF1Driver(1), 1),
+                new TeamEntities.NonF1Driver(new TeamMapping.NonF1Driver(2), 2),
+                new TeamEntities.NonF1Driver(new TeamMapping.NonF1Driver(3), 3),
+                new TeamEntities.NonF1Driver(new TeamMapping.NonF1Driver(4), 4),
+                new TeamEntities.NonF1Driver(new TeamMapping.NonF1Driver(5), 5),
+                new TeamEntities.NonF1Driver(new TeamMapping.NonF1Driver(6), 6),
+                new TeamEntities.NonF1Driver(new TeamMapping.NonF1Driver(7), 7),
+                new TeamEntities.NonF1Driver(new TeamMapping.NonF1Driver(8), 8),
+                new TeamEntities.NonF1Driver(new TeamMapping.NonF1Driver(9), 9),
+                new TeamEntities.NonF1Driver(new TeamMapping.NonF1Driver(10), 10)
+            };
+            ImportData(gameExecutableFilePath, NonF1Drivers);
+        }
+
+        private void ExportNonF1Drivers(string gameExecutableFilePath)
+        {
+            ExportData(gameExecutableFilePath, NonF1Drivers);
+        }
+
+        private void ImportNonF1Chiefs(string gameExecutableFilePath)
+        {
+            NonF1Chiefs = new NonF1ChiefCollection
+            {
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(0), 0),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(1), 1),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(2), 2),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(3), 3),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(4), 4),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(5), 5),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(6), 6),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(7), 7),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(8), 8),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(9), 9),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(10), 10),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(11), 11),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(12), 12),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(13), 13),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(14), 14),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(15), 15),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(16), 16),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(17), 17),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(18), 18),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(19), 19),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(20), 20),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(21), 21),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(22), 22),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(23), 23),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(24), 24),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(25), 25),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(26), 26),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(27), 27),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(28), 28),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(29), 29),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(30), 30),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(31), 31),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(32), 32),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(33), 33),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(34), 34),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(35), 35),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(36), 36),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(37), 37),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(38), 38),
+                new TeamEntities.NonF1Chief(new TeamMapping.NonF1Chief(39), 39)
+            };
+            ImportData(gameExecutableFilePath, NonF1Chiefs);
+        }
+
+        private void ExportNonF1Chiefs(string gameExecutableFilePath)
+        {
+            ExportData(gameExecutableFilePath, NonF1Chiefs);
         }
 
         private void ImportEngines(string gameExecutableFilePath)
