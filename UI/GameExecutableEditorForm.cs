@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.IO;
@@ -6,19 +7,14 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using Common.Extensions;
-using Data.Collections.Executable.Supplier;
 using Data.Collections.Executable.Team;
-using Data.Collections.Executable.Track;
-using Data.Collections.Generic;
 using Data.Collections.Language;
 using Data.Databases;
+using Data.Entities.Language;
 using Data.Entities.Executable.Race;
 using Data.Entities.Executable.Supplier;
 using Data.Entities.Executable.Team;
 using Data.Entities.Executable.Track;
-using Data.Entities.Generic;
-using Data.Entities.Language;
-using Data.FileConnection;
 using GpwEditor.Enums;
 using GpwEditor.Properties;
 using Cursor = System.Windows.Forms.Cursor;
@@ -173,6 +169,11 @@ namespace GpwEditor
             Export(LanguageFilePathTextBox.Text, GameExecutablePathTextBox.Text);
         }
 
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private static void GenericDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             var dataGridView = (DataGridView)sender;
@@ -220,11 +221,6 @@ namespace GpwEditor
             {
                 e.Cancel = true;
             }
-        }
-
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         private void RacePerformanceNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -361,21 +357,29 @@ namespace GpwEditor
 
             // Configure data grid view controls
             ConfigureDataGridViewControl<Team>(TeamsDataGridView, 1);
-            ConfigureDataGridViewControl<F1Driver>(DriversDataGridView, 2);
-            ConfigureDataGridViewControl<NonF1Driver>(NonF1DriversDataGridView, 15);
-            ConfigureDataGridViewControl<NonF1ChiefCommercial>(NonF1ChiefsDataGridView, 16);
-            ConfigureDataGridViewControl<Engine>(EnginesDataGridView, 3);
-            ConfigureDataGridViewControl<Tyre>(TyresDataGridView, 4);
-            ConfigureDataGridViewControl<Fuel>(FuelsDataGridView, 5);
-            ConfigureDataGridViewControl<Track>(TracksDataGridView, 6);
-            ConfigureDataGridViewControl<FiveValueBase>(FactoryRunningCostsDataGridView, 7, "Running Costs", true);
-            ConfigureDataGridViewControl<FiveRatingBase>(FactoryExpansionCostsDataGridView, 8, "Expansion Costs", true);
-            ConfigureDataGridViewControl<FiveRatingBase>(StaffEffortsDataGridView, 11, "Staff Efforts", true);
-            ConfigureDataGridViewControl<FiveRatingBase>(StaffSalariesDataGridView, 9, "Staff Salaries", true);
-            ConfigureDataGridViewControl<TenValueBase>(TestingMilesDataGridView, 10, "Testing Miles", true);
-            ConfigureDataGridViewControl<TenValueBase>(EngineeringCostsDataGridView, 12, "Engineering Costs", true);
-            ConfigureDataGridViewControl<SingleValueBase>(UnknownADataGridView, 13, "UnknownA", true);
-            ConfigureDataGridViewControl<SingleValueBase>(UnknownBDataGridView, 14, "UnknownB", true);
+            ConfigureDataGridViewControl<F1ChiefCommercial>(ChiefsF1CommerceDataGridView, 2);
+            ConfigureDataGridViewControl<F1ChiefDesigner>(ChiefsF1DesignerDataGridView, 3);
+            ConfigureDataGridViewControl<F1ChiefEngineer>(ChiefsF1EngineerDataGridView, 4);
+            ConfigureDataGridViewControl<F1ChiefMechanic>(ChiefsF1MechanicDataGridView, 5);
+            ConfigureDataGridViewControl<NonF1ChiefCommercial>(ChiefsNonF1CommerceDataGridView, 6);
+            ConfigureDataGridViewControl<NonF1ChiefDesigner>(ChiefsNonF1DesignerDataGridView, 7);
+            ConfigureDataGridViewControl<NonF1ChiefEngineer>(ChiefsNonF1EngineerDataGridView, 8);
+            ConfigureDataGridViewControl<NonF1ChiefMechanic>(ChiefsNonF1MechanicDataGridView, 9);
+            ConfigureDataGridViewControl<F1Driver>(DriversF1DataGridView, 10);
+            ConfigureDataGridViewControl<NonF1Driver>(DriversNonF1DataGridView, 11);
+            ConfigureDataGridViewControl<Engine>(SuppliersEnginesDataGridView, 12);
+            ConfigureDataGridViewControl<Tyre>(SuppliersTyresDataGridView, 13);
+            ConfigureDataGridViewControl<Fuel>(SuppliersFuelsDataGridView, 14);
+            ConfigureDataGridViewControl<Track>(TracksDataGridView, 15);
+            ConfigureDataGridViewControl<ChassisHandling>(ChassisHandlingDataGridView, 16);
+            //TODO ConfigureDataGridViewControl<FiveValueBase>(FactoryRunningCostsDataGridView, 0, "Running Costs", true);
+            //TODO ConfigureDataGridViewControl<FiveRatingBase>(FactoryExpansionCostsDataGridView, 0, "Expansion Costs", true);
+            //TODO ConfigureDataGridViewControl<FiveRatingBase>(StaffEffortsDataGridView, 0, "Staff Efforts", true);
+            //TODO ConfigureDataGridViewControl<FiveRatingBase>(StaffSalariesDataGridView, 0, "Staff Salaries", true);
+            //TODO ConfigureDataGridViewControl<TenValueBase>(TestingMilesDataGridView, 0, "Testing Miles", true);
+            //TODO ConfigureDataGridViewControl<TenValueBase>(EngineeringCostsDataGridView, 0, "Engineering Costs", true);
+            //TODO ConfigureDataGridViewControl<SingleValueBase>(UnknownADataGridView, 0, "UnknownA", true);
+            //TODO ConfigureDataGridViewControl<SingleValueBase>(UnknownBDataGridView, 0, "UnknownB", true);
         }
 
         private static void ConfigureDataGridViewControl<T>(DataGridView dataGridView, int columnId, string resourceTextHeaderText, bool fillColumns = false)
@@ -497,28 +501,40 @@ namespace GpwEditor
             // Move data from database into controls
             LanguageDataGridView.DataSource = executableDatabase.LanguageStrings;
             TeamsDataGridView.DataSource = executableDatabase.Teams;
-            DriversDataGridView.DataSource = executableDatabase.Drivers;
-            NonF1DriversDataGridView.DataSource = executableDatabase.NonF1Drivers;
-            NonF1ChiefsDataGridView.DataSource = executableDatabase.NonF1Chiefs;
-            EnginesDataGridView.DataSource = executableDatabase.Engines;
-            TyresDataGridView.DataSource = executableDatabase.Tyres;
-            FuelsDataGridView.DataSource = executableDatabase.Fuels;
+            ChiefsF1CommerceDataGridView.DataSource = executableDatabase.F1ChiefCommercials;
+            ChiefsF1DesignerDataGridView.DataSource = executableDatabase.F1ChiefDesigners;
+            ChiefsF1EngineerDataGridView.DataSource = executableDatabase.F1ChiefEngineers;
+            ChiefsF1MechanicDataGridView.DataSource = executableDatabase.F1ChiefMechanics;
+            ChiefsNonF1CommerceDataGridView.DataSource = executableDatabase.NonF1ChiefCommercials;
+            ChiefsNonF1DesignerDataGridView.DataSource = executableDatabase.NonF1ChiefDesigners;
+            ChiefsNonF1EngineerDataGridView.DataSource = executableDatabase.NonF1ChiefEngineers;
+            ChiefsNonF1MechanicDataGridView.DataSource = executableDatabase.NonF1ChiefMechanics;
+            DriversF1DataGridView.DataSource = executableDatabase.F1Drivers;
+            DriversNonF1DataGridView.DataSource = executableDatabase.NonF1Drivers;
+            SuppliersEnginesDataGridView.DataSource = executableDatabase.Engines;
+            SuppliersTyresDataGridView.DataSource = executableDatabase.Tyres;
+            SuppliersFuelsDataGridView.DataSource = executableDatabase.Fuels;
             TracksDataGridView.DataSource = executableDatabase.Tracks;
-            FactoryRunningCostsDataGridView.DataSource = executableDatabase.FactoryRunningCosts;
-            FactoryExpansionCostsDataGridView.DataSource = executableDatabase.FactoryExpansionCosts;
-            StaffSalariesDataGridView.DataSource = executableDatabase.StaffSalaries;
-            StaffEffortsDataGridView.DataSource = executableDatabase.StaffEfforts;
-            TestingMilesDataGridView.DataSource = executableDatabase.TestingMiles;
-            EngineeringCostsDataGridView.DataSource = executableDatabase.EngineeringCosts;
-            UnknownADataGridView.DataSource = executableDatabase.UnknownAEfforts;
-            UnknownBDataGridView.DataSource = executableDatabase.UnknownBEfforts;
+            ChassisHandlingDataGridView.DataSource = executableDatabase.ChassisHandlings;
+            //TODO FactoryRunningCostsDataGridView.DataSource = executableDatabase.FactoryRunningCosts;
+            //TODO FactoryExpansionCostsDataGridView.DataSource = executableDatabase.FactoryExpansionCosts;
+            //TODO StaffSalariesDataGridView.DataSource = executableDatabase.StaffSalaries;
+            //TODO StaffEffortsDataGridView.DataSource = executableDatabase.StaffEfforts;
+            //TODO TestingMilesDataGridView.DataSource = executableDatabase.TestingMiles;
+            //TODO EngineeringCostsDataGridView.DataSource = executableDatabase.EngineeringCosts;
+            //TODO UnknownADataGridView.DataSource = executableDatabase.UnknownAEfforts;
+            //TODO UnknownBDataGridView.DataSource = executableDatabase.UnknownBEfforts;
 
             // Bind comboboxes to data
             // Hint: Requires the column type to be set at design time to ComboBoxColumn via DataGridView Tasks Wizard > Edit Columns... > ColumnType
             //       Requires a rename at design time of the column's Name property. Change the suffix TextBoxColumn to ComboBoxColumn to reflect the ColumnType.
             BindDataGridViewComboBoxColumn(TeamsDataGridView, "firstGpTrackDataGridViewComboBoxColumn", executableDatabase.FirstGpTrackLookups);
             BindDataGridViewComboBoxColumn(TeamsDataGridView, "tyreSupplierIdDataGridViewComboBoxColumn", executableDatabase.TyreSupplierIdAsSupplierIdLookups);
-            BindDataGridViewComboBoxColumn(DriversDataGridView, "nationalityDataGridViewComboBoxColumn", executableDatabase.DriverNationalityLookups);
+            BindDataGridViewComboBoxColumn(ChiefsF1DesignerDataGridView, "driverLoyaltyDataGridViewComboBoxColumn", executableDatabase.DriverLoyaltyDriverIdAsStaffIdLookups);
+            BindDataGridViewComboBoxColumn(ChiefsF1EngineerDataGridView, "driverLoyaltyDataGridViewComboBoxColumn1", executableDatabase.DriverLoyaltyDriverIdAsStaffIdLookups);
+            BindDataGridViewComboBoxColumn(ChiefsF1MechanicDataGridView, "driverLoyaltyDataGridViewComboBoxColumn2", executableDatabase.DriverLoyaltyDriverIdAsStaffIdLookups);
+            BindDataGridViewComboBoxColumn(DriversF1DataGridView, "nationalityDataGridViewComboBoxColumn", executableDatabase.DriverNationalityLookups);
+            BindDataGridViewComboBoxColumn(DriversNonF1DataGridView, "nationalityDataGridViewComboBoxColumn1", executableDatabase.DriverNationalityLookups);
             BindDataGridViewComboBoxColumn(TracksDataGridView, "designDataGridViewComboBoxColumn", executableDatabase.TrackDesignLookups);
             BindDataGridViewComboBoxColumn(TracksDataGridView, "lapRecordDriverDataGridViewComboBoxColumn", executableDatabase.FastestLapDriverIdAsStaffIdLookups);
             BindDataGridViewComboBoxColumn(TracksDataGridView, "lapRecordTeamDataGridViewComboBoxColumn", executableDatabase.Teams);
@@ -530,7 +546,7 @@ namespace GpwEditor
             RacePerformanceCurrentCheckBox.Checked = true; // Reset
             RacePerformanceProposedCheckBox.Checked = true; // Reset
             _racePerformanceCurveChart.GenerateChart();
-            _racePerformanceCurveChart.SetCurrentSeries(executableDatabase.RacePerformance.Values);
+            _racePerformanceCurveChart.SetCurrentSeries(executableDatabase.PerformanceCurve.Values);
             _racePerformanceCurveChart.SetProposedSeriesToCurrentSeries();
             RacePerformanceGroupBox.Visible = true;
         }
@@ -540,24 +556,31 @@ namespace GpwEditor
             // Move data from controls into database
             executableDatabase.LanguageStrings = (IdentityCollection)LanguageDataGridView.DataSource;
             executableDatabase.Teams = (TeamCollection)TeamsDataGridView.DataSource;
-            executableDatabase.Drivers = (DriverCollection)DriversDataGridView.DataSource;
-            executableDatabase.NonF1Drivers = (NonF1DriverCollection)NonF1DriversDataGridView.DataSource;
-            executableDatabase.NonF1Chiefs = (NonF1ChiefCollection)NonF1ChiefsDataGridView.DataSource;
-            executableDatabase.Engines = (EngineCollection)EnginesDataGridView.DataSource;
-            executableDatabase.Tyres = (TyreCollection)TyresDataGridView.DataSource;
-            executableDatabase.Fuels = (FuelCollection)FuelsDataGridView.DataSource;
-            executableDatabase.Tracks = (TrackCollection)TracksDataGridView.DataSource;
+            executableDatabase.F1ChiefCommercials = (Collection<F1ChiefCommercial>)ChiefsF1CommerceDataGridView.DataSource;
+            executableDatabase.F1ChiefDesigners = (Collection<F1ChiefDesigner>)ChiefsF1DesignerDataGridView.DataSource;
+            executableDatabase.F1ChiefEngineers = (Collection<F1ChiefEngineer>)ChiefsF1EngineerDataGridView.DataSource;
+            executableDatabase.F1ChiefMechanics = (Collection<F1ChiefMechanic>)ChiefsF1MechanicDataGridView.DataSource;
+            executableDatabase.NonF1ChiefCommercials = (Collection<NonF1ChiefCommercial>)ChiefsNonF1CommerceDataGridView.DataSource;
+            executableDatabase.NonF1ChiefDesigners = (Collection<NonF1ChiefDesigner>)ChiefsNonF1DesignerDataGridView.DataSource;
+            executableDatabase.NonF1ChiefEngineers = (Collection<NonF1ChiefEngineer>)ChiefsNonF1EngineerDataGridView.DataSource;
+            executableDatabase.NonF1ChiefMechanics = (Collection<NonF1ChiefMechanic>)ChiefsNonF1MechanicDataGridView.DataSource;
+            executableDatabase.F1Drivers = (Collection<F1Driver>)DriversF1DataGridView.DataSource;
+            executableDatabase.NonF1Drivers = (Collection<NonF1Driver>)DriversNonF1DataGridView.DataSource;
+            executableDatabase.Engines = (Collection<Engine>)SuppliersEnginesDataGridView.DataSource;
+            executableDatabase.Tyres = (Collection<Tyre>)SuppliersTyresDataGridView.DataSource;
+            executableDatabase.Fuels = (Collection<Fuel>)SuppliersFuelsDataGridView.DataSource;
+            executableDatabase.Tracks = (Collection<Track>)TracksDataGridView.DataSource;
+            executableDatabase.ChassisHandlings = (Collection<ChassisHandling>)ChassisHandlingDataGridView.DataSource;
+            // TODO executableDatabase.StaffEfforts = (FiveRatingCollection)StaffEffortsDataGridView.DataSource;
+            // TODO executableDatabase.StaffSalaries = (FiveRatingCollection)StaffSalariesDataGridView.DataSource;
+            // TODO executableDatabase.FactoryRunningCosts = (FiveValueCollection)FactoryRunningCostsDataGridView.DataSource;
+            // TODO executableDatabase.FactoryExpansionCosts = (FiveRatingCollection)FactoryExpansionCostsDataGridView.DataSource;
+            // TODO executableDatabase.TestingMiles = (TenValueCollection)TestingMilesDataGridView.DataSource;
+            // TODO executableDatabase.EngineeringCosts = (TenValueCollection)EngineeringCostsDataGridView.DataSource;
+            // TODO executableDatabase.UnknownAEfforts = (SingleValueCollection)UnknownADataGridView.DataSource;
+            // TODO executableDatabase.UnknownBEfforts = (SingleValueCollection)UnknownBDataGridView.DataSource;
 
-            executableDatabase.StaffEfforts = (FiveRatingCollection)StaffEffortsDataGridView.DataSource;
-            executableDatabase.StaffSalaries = (FiveRatingCollection)StaffSalariesDataGridView.DataSource;
-            executableDatabase.FactoryRunningCosts = (FiveValueCollection)FactoryRunningCostsDataGridView.DataSource;
-            executableDatabase.FactoryExpansionCosts = (FiveRatingCollection)FactoryExpansionCostsDataGridView.DataSource;
-            executableDatabase.TestingMiles = (TenValueCollection)TestingMilesDataGridView.DataSource;
-            executableDatabase.EngineeringCosts = (TenValueCollection)EngineeringCostsDataGridView.DataSource;
-            executableDatabase.UnknownAEfforts = (SingleValueCollection)UnknownADataGridView.DataSource;
-            executableDatabase.UnknownBEfforts = (SingleValueCollection)UnknownBDataGridView.DataSource;
-
-            executableDatabase.RacePerformance = new RacePerformance
+            executableDatabase.PerformanceCurve = new PerformanceCurve
             {
                 Values = _racePerformanceCurveChart.GetProposedSeries()
             };

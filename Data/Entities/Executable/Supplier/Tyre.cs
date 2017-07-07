@@ -8,7 +8,7 @@ using SupplierMapping = Data.ValueMapping.Executable.Supplier;
 
 namespace Data.Entities.Executable.Supplier
 {
-    public class Tyre : ITyre, IIdentity, IDataConnection
+    public class Tyre : IIdentity, IDataConnection
     {
         private readonly SupplierMapping.Tyre _valueMapping;
 

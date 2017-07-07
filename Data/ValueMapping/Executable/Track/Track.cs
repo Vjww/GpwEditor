@@ -1,6 +1,6 @@
 ﻿namespace Data.ValueMapping.Executable.Track
 {
-    public class Track : ITrack
+    public class Track
     {
         private const int NameIndex = 6043; // "No Circuit"
 

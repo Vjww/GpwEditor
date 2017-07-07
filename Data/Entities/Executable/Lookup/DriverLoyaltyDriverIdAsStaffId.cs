@@ -8,7 +8,7 @@ using Mapping = Data.ValueMapping.Executable.Lookup;
 
 namespace Data.Entities.Executable.Lookup
 {
-    public class FirstGpTrack : IIdentity, IDataConnection
+    public class DriverLoyaltyDriverIdAsStaffId : IIdentity, IDataConnection
     {
         [Display(Name = "Id", Description = "The id of the record.")]
         public int Id { get; set; }
@@ -16,13 +16,13 @@ namespace Data.Entities.Executable.Lookup
         public int LocalResourceId { get; set; }
         [Display(Name = "Resource Id", Description = "The resource id of the resource string in the language file.")]
         public string ResourceId { get; set; }
-        [Display(Name = "Track Name", Description = "The name of the track, as specified in the language file.")]
+        [Display(Name = "Driver Name", Description = "The name of the driver, as specified in the language file.")]
         public string ResourceText { get; set; }
 
-        public FirstGpTrack(Mapping.ILookup valueMapping, int id)
+        public DriverLoyaltyDriverIdAsStaffId(Mapping.ILookup valueMapping, int id)
         {
             Id = id;
-            LocalResourceId = Mapping.FirstGpTrack.GetLocalResourceId(Id);
+            LocalResourceId = Mapping.DriverLoyaltyDriverIdAsStaffId.GetLocalResourceId(Id);
             ResourceId = valueMapping.Name.BuildResourceId();
         }
 

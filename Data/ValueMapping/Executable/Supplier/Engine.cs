@@ -1,6 +1,6 @@
 ﻿namespace Data.ValueMapping.Executable.Supplier
 {
-    public class Engine : IEngine
+    public class Engine
     {
         private const int NameIndex = 4886; // "EngineA"
 

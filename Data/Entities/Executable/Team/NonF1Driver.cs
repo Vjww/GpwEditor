@@ -39,6 +39,9 @@ namespace Data.Entities.Executable.Team
         [Display(Name = "Unknown", Description = "The unknown_value of the driver.")] // TODO identify
         [Range(0, int.MaxValue, ErrorMessage = "Value for {0} must be between {1} and {2}.")] // TODO range
         public int Unknown { get; set; }
+        [Display(Name = "Commentary Index", Description = "The index of the commentary sound/text of the driver.")]
+        [Range(0, int.MaxValue, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int CommentaryIndex { get; set; }
 
         [Display(Name = "Speed", Description = "The speed rating of the driver.")]
         [Range(1, 5, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
@@ -83,6 +86,7 @@ namespace Data.Entities.Executable.Team
             executableConnection.WriteInteger(_valueMapping.Age, Age);
             executableConnection.WriteInteger(_valueMapping.Nationality, Nationality);
             executableConnection.WriteInteger(_valueMapping.Unknown, Unknown);
+            executableConnection.WriteInteger(_valueMapping.CommentaryIndex, CommentaryIndex);
             executableConnection.WriteInteger(_valueMapping.Speed, Speed);
             executableConnection.WriteInteger(_valueMapping.Skill, Skill);
             executableConnection.WriteInteger(_valueMapping.Overtaking, Overtaking);
@@ -102,6 +106,7 @@ namespace Data.Entities.Executable.Team
             Age = executableConnection.ReadInteger(_valueMapping.Age);
             Nationality = executableConnection.ReadInteger(_valueMapping.Nationality);
             Unknown = executableConnection.ReadInteger(_valueMapping.Unknown);
+            CommentaryIndex = executableConnection.ReadInteger(_valueMapping.CommentaryIndex);
             Speed = executableConnection.ReadInteger(_valueMapping.Speed);
             Skill = executableConnection.ReadInteger(_valueMapping.Skill);
             Overtaking = executableConnection.ReadInteger(_valueMapping.Overtaking);

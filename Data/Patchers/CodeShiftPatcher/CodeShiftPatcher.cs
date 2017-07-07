@@ -1,4 +1,5 @@
-﻿using Data.FileConnection;
+﻿using Data.Collections.Language;
+using Data.FileConnection;
 using Data.Helpers;
 
 namespace Data.Patchers.CodeShiftPatcher
@@ -6,10 +7,12 @@ namespace Data.Patchers.CodeShiftPatcher
     public class CodeShiftPatcher
     {
         private readonly string _executableFilePath;
+        private readonly IdentityCollection _languageStrings;
 
-        public CodeShiftPatcher(string executableFilePath)
+        public CodeShiftPatcher(string executableFilePath, IdentityCollection languageStrings)
         {
             _executableFilePath = executableFilePath;
+            _languageStrings = languageStrings;
         }
 
         public void Apply()
@@ -20,6 +23,34 @@ namespace Data.Patchers.CodeShiftPatcher
 
             // Track data
             ApplyReorderedModuleAt5031C6();
+
+            // Driver names
+            ApplyMissingTestDriverNames();
+        }
+
+        private void ApplyMissingTestDriverNames()
+        {
+            const string driver1ResourceId = "SID005819";
+            const string driver2ResourceId = "SID005835";
+            const string driver3ResourceId = "SID005867";
+            const string driver1NameText = "Jason Watt";
+            const string driver2NameText = "Juichi Wakisaka";
+            const string driver3NameText = "Luciano Burti";
+            const string driverUnknownNameText = "Driver Unknown";
+            
+            // Update test driver names if they have not been altered from the original value
+            if (ResourceHelper.GetResourceText(_languageStrings, driver1ResourceId) == driverUnknownNameText)
+            {
+                ResourceHelper.SetResourceText(_languageStrings, driver1ResourceId, driver1NameText);
+            }
+            if (ResourceHelper.GetResourceText(_languageStrings, driver2ResourceId) == driverUnknownNameText)
+            {
+                ResourceHelper.SetResourceText(_languageStrings, driver2ResourceId, driver2NameText);
+            }
+            if (ResourceHelper.GetResourceText(_languageStrings, driver3ResourceId) == driverUnknownNameText)
+            {
+                ResourceHelper.SetResourceText(_languageStrings, driver3ResourceId, driver3NameText);
+            }
         }
 
         private void ApplyReconstructedFunctionAt4706D7()

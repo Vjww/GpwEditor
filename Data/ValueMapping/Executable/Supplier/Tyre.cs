@@ -2,7 +2,7 @@
 
 namespace Data.ValueMapping.Executable.Supplier
 {
-    public class Tyre : ITyre
+    public class Tyre
     {
         private const int NameIndex = 4883; // "TyreA"
 

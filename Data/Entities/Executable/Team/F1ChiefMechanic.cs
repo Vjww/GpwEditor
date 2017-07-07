@@ -37,7 +37,7 @@ namespace Data.Entities.Executable.Team
         [Range(0, int.MaxValue, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int ChampionshipBonus { get; set; }
         [Display(Name = "Driver Loyalty", Description = "The driver the chief has loyalty towards.")]
-        [Range(6, 139, ErrorMessage = "Value for {0} must be between {1} and {2}.")] // TODO check for specific values?
+        [Range(0, 139, ErrorMessage = "Value for {0} must be between {1} and {2}.")] // TODO check for specific values?
         public int DriverLoyalty { get; set; }
         [Display(Name = "Morale", Description = "The morale level of the chief.")]
         [Range(1, 5, ErrorMessage = "Value for {0} must be between {1} and {2}.")]

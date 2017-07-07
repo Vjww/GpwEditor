@@ -27,13 +27,15 @@ namespace GpwEditor
             Text = $"{Settings.Default.ApplicationName} - Upgrade Game";
 
             // Populate file paths with most recently used (MRU) or default
-            var defaultLanguageFileFilePath = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultLanguageFileName);
+            var defaultLanguageFileFilePath = Path.Combine(Settings.Default.UserGameFolderPath,
+                Settings.Default.DefaultLanguageFileName);
             LanguageFilePathTextBox.Text =
                 string.IsNullOrWhiteSpace(Settings.Default.UpgradeGameMruLanguageFileFilePath)
                     ? defaultLanguageFileFilePath
                     : Settings.Default.UpgradeGameMruLanguageFileFilePath;
 
-            var defaultGameExecutableFilePath = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultExecutableFileName);
+            var defaultGameExecutableFilePath = Path.Combine(Settings.Default.UserGameFolderPath,
+                Settings.Default.DefaultExecutableFileName);
             GameExecutablePathTextBox.Text =
                 string.IsNullOrWhiteSpace(Settings.Default.UpgradeGameMruGameExecutableFilePath)
                     ? defaultGameExecutableFilePath
@@ -112,8 +114,9 @@ namespace GpwEditor
 
             // Prompt user whether to close form with unsaved changes
             var result = MessageBox.Show(
-                    $"Are you sure you wish to close the game upgrader?{Environment.NewLine}{Environment.NewLine}Any upgrades not applied will be lost.",
-                    Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                $"Are you sure you wish to close the game upgrader?{Environment.NewLine}{Environment.NewLine}Any upgrades not applied will be lost.",
+                Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2);
 
             return result == DialogResult.Yes;
         }
@@ -125,13 +128,14 @@ namespace GpwEditor
             try
             {
                 // Fill database with data from controls and export to file
-                var upgradeDatabase = new UpgradeDatabase(gameExecutableFilePath, languageFileFilePath);
+                var upgradeDatabase = new UpgradeDatabase();
                 PopulateRecords(upgradeDatabase);
-                upgradeDatabase.ExportDataToFile();
+                upgradeDatabase.ExportDataToFile(gameExecutableFilePath, languageFileFilePath);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
+                MessageBox.Show(
+                    $"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
                     Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -140,7 +144,8 @@ namespace GpwEditor
                 Cursor.Current = Cursors.Default;
             }
 
-            MessageBox.Show("Export complete!", Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Export complete!", Settings.Default.ApplicationName, MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
 
         private void Import(string languageFileFilePath, string gameExecutableFilePath)
@@ -150,13 +155,14 @@ namespace GpwEditor
             try
             {
                 // Import from file to database and fill controls with data
-                var upgradeDatabase = new UpgradeDatabase(gameExecutableFilePath, languageFileFilePath);
-                upgradeDatabase.ImportDataFromFile();
+                var upgradeDatabase = new UpgradeDatabase();
+                upgradeDatabase.ImportDataFromFile(gameExecutableFilePath, languageFileFilePath);
                 PopulateControls(upgradeDatabase);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
+                MessageBox.Show(
+                    $"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
                     Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -169,7 +175,8 @@ namespace GpwEditor
             Settings.Default.UpgradeGameMruLanguageFileFilePath = LanguageFilePathTextBox.Text;
             Settings.Default.UpgradeGameMruGameExecutableFilePath = GameExecutablePathTextBox.Text;
 
-            MessageBox.Show("Import complete!", Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Import complete!", Settings.Default.ApplicationName, MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
 
         private void PopulateControls(UpgradeDatabase upgradeDatabase)

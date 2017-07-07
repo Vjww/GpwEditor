@@ -8,7 +8,7 @@ using SupplierMapping = Data.ValueMapping.Executable.Supplier;
 
 namespace Data.Entities.Executable.Supplier
 {
-    public class Engine : IEngine, IIdentity, IDataConnection
+    public class Engine : IIdentity, IDataConnection
     {
         private readonly SupplierMapping.Engine _valueMapping;
 

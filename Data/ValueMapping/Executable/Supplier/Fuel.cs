@@ -1,6 +1,6 @@
 ﻿namespace Data.ValueMapping.Executable.Supplier
 {
-    public class Fuel : IFuel
+    public class Fuel
     {
         private const int NameIndex = 4894; // "FuelA"
 

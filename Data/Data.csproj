@@ -36,6 +36,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\ViewportIdentityType.cs" />
+    <Compile Include="Enums\ViewportDisplayType.cs" />
+    <Compile Include="ExecutableVerification.cs" />
     <Compile Include="Collections\Executable\Team\NonF1ChiefCollection.cs" />
     <Compile Include="Collections\Executable\Team\NonF1DriverCollection.cs" />
     <Compile Include="Collections\Generic\SingleValueCollection.cs" />
@@ -60,12 +63,10 @@
     <Compile Include="Entities\Executable\Environment\UnknownAEfforts\Unknown2.cs" />
     <Compile Include="Entities\Executable\Environment\UnknownAEfforts\Unknown1.cs" />
     <Compile Include="Entities\Executable\Lookup\DriverNationality.cs" />
+    <Compile Include="Entities\Executable\Lookup\DriverLoyaltyDriverIdAsStaffId.cs" />
     <Compile Include="Entities\Executable\Lookup\FastestLapDriverIdAsStaffId.cs" />
     <Compile Include="Entities\Executable\Lookup\TrackDesign.cs" />
-    <Compile Include="Entities\Executable\Race\IRacePerformance.cs" />
-    <Compile Include="Entities\Executable\Supplier\IEngine.cs" />
-    <Compile Include="Entities\Executable\Supplier\IFuel.cs" />
-    <Compile Include="Entities\Executable\Supplier\ITyre.cs" />
+    <Compile Include="Entities\Executable\Race\ChassisHandling.cs" />
     <Compile Include="Entities\Executable\Team\F1ChiefMechanic.cs" />
     <Compile Include="Entities\Executable\Team\F1ChiefEngineer.cs" />
     <Compile Include="Entities\Executable\Lookup\TyreSupplierIdAsSupplierId.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Patchers\CodeShiftPatcher\TeamData.cs" />
     <Compile Include="Patchers\CodeShiftPatcher\TrackData.cs" />
     <Compile Include="Patchers\TrackEditorPatcher\TrackEditorPatcher.cs" />
+    <Compile Include="ValueMapping\Executable\Config\RaceViewport.cs" />
     <Compile Include="ValueMapping\Executable\Environment\EngineeringCosts\BuildNextYearCar.cs" />
     <Compile Include="ValueMapping\Executable\Environment\EngineeringCosts\BuildSpare.cs" />
     <Compile Include="ValueMapping\Executable\Environment\EngineeringCosts\BuildThisYearCar.cs" />
@@ -136,7 +138,7 @@
     <Compile Include="Databases\ExecutableDatabase.cs" />
     <Compile Include="Databases\LanguageDatabase.cs" />
     <Compile Include="Databases\UpgradeDatabase.cs" />
-    <Compile Include="Entities\Executable\Race\RacePerformance.cs" />
+    <Compile Include="Entities\Executable\Race\PerformanceCurve.cs" />
     <Compile Include="Entities\Executable\Supplier\Engine.cs" />
     <Compile Include="Entities\Executable\Supplier\Fuel.cs" />
     <Compile Include="Entities\Executable\Supplier\Tyre.cs" />
@@ -169,13 +171,11 @@
     <Compile Include="ValueMapping\Executable\Environment\UnknownAEfforts\Unknown5.cs" />
     <Compile Include="ValueMapping\Executable\Environment\UnknownAEfforts\Unknown6.cs" />
     <Compile Include="ValueMapping\Executable\Lookup\DriverNationality.cs" />
+    <Compile Include="ValueMapping\Executable\Lookup\DriverLoyaltyDriverIdAsStaffId.cs" />
     <Compile Include="ValueMapping\Executable\Lookup\FastestLapDriverIdAsStaffId.cs" />
     <Compile Include="ValueMapping\Executable\Lookup\ILookup.cs" />
     <Compile Include="ValueMapping\Executable\Lookup\TrackDesign.cs" />
-    <Compile Include="ValueMapping\Executable\Race\IRacePerformance.cs" />
-    <Compile Include="ValueMapping\Executable\Supplier\IEngine.cs" />
-    <Compile Include="ValueMapping\Executable\Supplier\IFuel.cs" />
-    <Compile Include="ValueMapping\Executable\Supplier\ITyre.cs" />
+    <Compile Include="ValueMapping\Executable\Race\ChassisHandling.cs" />
     <Compile Include="ValueMapping\Executable\Lookup\TyreSupplierIdAsSupplierId.cs" />
     <Compile Include="ValueMapping\Executable\Team\F1ChiefMechanic.cs" />
     <Compile Include="ValueMapping\Executable\Team\F1ChiefEngineer.cs" />
@@ -186,7 +186,6 @@
     <Compile Include="ValueMapping\Executable\Team\NonF1ChiefDesigner.cs" />
     <Compile Include="ValueMapping\Executable\Team\NonF1ChiefCommercial.cs" />
     <Compile Include="ValueMapping\Executable\Team\NonF1Driver.cs" />
-    <Compile Include="ValueMapping\Executable\Track\ITrack.cs" />
     <Compile Include="ValueMapping\Executable\Lookup\FirstGpTrack.cs" />
     <Compile Include="ValueMapping\Generic\ISingleValueMapping.cs" />
     <Compile Include="ValueMapping\Generic\ITenValueMapping.cs" />
@@ -219,8 +218,8 @@
     <Compile Include="Patchers\GlobalUnlockPatcher\GlobalUnlockPatcher.cs" />
     <Compile Include="Patchers\JumpBypassPatcher\JumpBypassPatcher.cs" />
     <Compile Include="Patchers\SwitchIdiomPatcher\SwitchIdiomPatcher.cs" />
-    <Compile Include="ValueMapping\Executable\Config\Viewport.cs" />
-    <Compile Include="ValueMapping\Executable\Race\RacePerformance.cs" />
+    <Compile Include="ValueMapping\Executable\Config\QualifyingViewport.cs" />
+    <Compile Include="ValueMapping\Executable\Race\PerformanceCurve.cs" />
     <Compile Include="ValueMapping\Executable\Supplier\Engine.cs" />
     <Compile Include="ValueMapping\Executable\Supplier\Fuel.cs" />
     <Compile Include="ValueMapping\Executable\Supplier\Tyre.cs" />

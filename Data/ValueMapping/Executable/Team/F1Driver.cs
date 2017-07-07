@@ -13,7 +13,7 @@
         private const int PositiveSalaryOffset = 100;
         private const int LastChampionshipPositionOffset = 70;
         private const int DriverRoleOffset = 60;
-        private const int CarNumberOffset = 240;
+        private const int CarNumberAOffset = 240;
         private const int AgeOffset = 80;
         private const int NationalityOffset = 30;
         private const int CareerChampionshipsOffset = 40;
@@ -32,6 +32,11 @@
         private const int StaminaOffset = 210;
         private const int MoraleOffset = 220;
 
+        private const int CarNumberBBaseOffset = 474500;
+        private const int CarNumberBLocalOffset = 10;
+        private const int CommentaryIndexBaseOffset = 474720;
+        private const int CommentaryIndexLocalOffset = 10;
+
         public int Name { get; set; }
         public int Salary { get; set; }
         public int RaceBonus { get; set; }
@@ -40,9 +45,11 @@
         public int PositiveSalary { get; set; }
         public int LastChampionshipPosition { get; set; }
         public int DriverRole { get; set; }
-        public int CarNumber { get; set; }
+        public int CarNumberA { get; set; }
+        public int CarNumberB { get; set; }
         public int Age { get; set; }
         public int Nationality { get; set; }
+        public int CommentaryIndex { get; set; }
         public int CareerChampionships { get; set; }
         public int CareerRaces { get; set; }
         public int CareerWins { get; set; }
@@ -72,9 +79,10 @@
             PositiveSalary = BaseOffset + stepOffset + PositiveSalaryOffset;
             LastChampionshipPosition = BaseOffset + stepOffset + LastChampionshipPositionOffset;
             DriverRole = BaseOffset + stepOffset + DriverRoleOffset;
-            CarNumber = BaseOffset + stepOffset + CarNumberOffset;
+            CarNumberA = BaseOffset + stepOffset + CarNumberAOffset;
             Age = BaseOffset + stepOffset + AgeOffset;
             Nationality = BaseOffset + stepOffset + NationalityOffset;
+            CommentaryIndex = CommentaryIndexBaseOffset + CommentaryIndexLocalOffset * id;
             CareerChampionships = BaseOffset + stepOffset + CareerChampionshipsOffset;
             CareerRaces = BaseOffset + stepOffset + CareerRacesOffset;
             CareerWins = BaseOffset + stepOffset + CareerWinsOffset;
@@ -90,6 +98,15 @@
             Experience = BaseOffset + stepOffset + ExperienceOffset;
             Stamina = BaseOffset + stepOffset + StaminaOffset;
             Morale = BaseOffset + stepOffset + MoraleOffset;
+
+            // Calculate value mapping only when driver is driver 1 or 2, and not T.
+            var driverId = GetLocalResourceId(id) % 8;
+            if (driverId == 6 || driverId == 7) // 1 and 2
+            {
+                // Generate a multiplier of 0..21 from id of 0..32
+                var multiplier = id / 3 * 2 + id % 3; // 0..10 * 2 + 0..1
+                CarNumberB = CarNumberBBaseOffset + CarNumberBLocalOffset * multiplier;
+            }
         }
 
         public static int GetLocalResourceId(int id)

@@ -1,6 +1,6 @@
 ﻿namespace Data.ValueMapping.Executable.Race
 {
-    public class RacePerformance : IRacePerformance
+    public class PerformanceCurve
     {
         private const int BaseOffset = 2723224;
         private const int LocalOffset = 4;
@@ -8,7 +8,7 @@
 
         public int[] Values { get; set; }
 
-        public RacePerformance()
+        public PerformanceCurve()
         {
             Values = new int[120];
 

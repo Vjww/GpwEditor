@@ -21,6 +21,9 @@
         private const int StaminaOffset = 110;
         private const int MoraleOffset = 120;
 
+        private const int CommentaryIndexBaseOffset = 475050;
+        private const int CommentaryIndexLocalOffset = 10;
+
         public int Name { get; set; }
         public int Salary { get; set; }
         public int RaceBonus { get; set; }
@@ -28,6 +31,7 @@
         public int Age { get; set; }
         public int Nationality { get; set; }
         public int Unknown { get; set; }
+        public int CommentaryIndex { get; set; }
         public int Speed { get; set; }
         public int Skill { get; set; }
         public int Overtaking { get; set; }
@@ -95,6 +99,8 @@
                 Stamina = BaseOffset + stepOffset + StaminaOffset / 10 * 7;
                 Morale = BaseOffset + stepOffset + MoraleOffset / 10 * 7;
             }
+
+            CommentaryIndex = CommentaryIndexBaseOffset + CommentaryIndexLocalOffset * id;
         }
 
         public static int GetLocalResourceId(int id)

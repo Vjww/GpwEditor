@@ -42,15 +42,21 @@ namespace Data.Entities.Executable.Team
         [Display(Name = "Driver Role", Description = "The role of the driver in the team, as agreed in the driver's contract.")]
         [Range(1, 4, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int DriverRole { get; set; }
-        [Display(Name = "Car Number", Description = "The car number used by the driver for the season.")]
+        [Display(Name = "Car Number A", Description = "The car number used by the driver for the season.")]
         [Range(0, 23, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
-        public int CarNumber { get; set; }
+        public int CarNumberA { get; set; }
+        [Display(Name = "Car Number B", Description = "The car number used by the driver for the season.")]
+        [Range(0, 23, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int CarNumberB { get; set; }
         [Display(Name = "Age", Description = "The age of the driver at the start of the year.")]
         [Range(0, 99, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int Age { get; set; }
         [Display(Name = "Nationality", Description = "The nationality of the driver.")]
         [Range(1, 14, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int Nationality { get; set; }
+        [Display(Name = "Commentary Index", Description = "The index of the commentary sound/text of the driver.")]
+        [Range(0, int.MaxValue, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public int CommentaryIndex { get; set; }
 
         [Display(Name = "Championships", Description = "The number of championships the driver has won.")]
         [Range(0, int.MaxValue, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
@@ -118,9 +124,10 @@ namespace Data.Entities.Executable.Team
             executableConnection.WriteInteger(_valueMapping.PositiveSalary, PositiveSalary);
             executableConnection.WriteInteger(_valueMapping.LastChampionshipPosition, LastChampionshipPosition);
             executableConnection.WriteInteger(_valueMapping.DriverRole, DriverRole);
-            executableConnection.WriteInteger(_valueMapping.CarNumber, CarNumber);
+            executableConnection.WriteInteger(_valueMapping.CarNumberA, CarNumberA);
             executableConnection.WriteInteger(_valueMapping.Age, Age);
             executableConnection.WriteInteger(_valueMapping.Nationality, Nationality);
+            executableConnection.WriteInteger(_valueMapping.CommentaryIndex, CommentaryIndex);
             executableConnection.WriteInteger(_valueMapping.CareerChampionships, CareerChampionships);
             executableConnection.WriteInteger(_valueMapping.CareerRaces, CareerRaces);
             executableConnection.WriteInteger(_valueMapping.CareerWins, CareerWins);
@@ -136,6 +143,13 @@ namespace Data.Entities.Executable.Team
             executableConnection.WriteInteger(_valueMapping.Experience, Experience);
             executableConnection.WriteInteger(_valueMapping.Stamina, Stamina);
             executableConnection.WriteInteger(_valueMapping.Morale, Morale.ConvertToTwentyToHundredStepTwenty());
+
+            // Only write value if driver is driver 1 or 2, and not T.
+            var driverId = LocalResourceId % 8;
+            if (driverId == 6 || driverId == 7) // 1 and 2
+            {
+                executableConnection.WriteInteger(_valueMapping.CarNumberB, CarNumberB);
+            }
         }
 
         public void ImportData(ExecutableConnection executableConnection, IdentityCollection identityCollection)
@@ -148,9 +162,10 @@ namespace Data.Entities.Executable.Team
             PositiveSalary = executableConnection.ReadInteger(_valueMapping.PositiveSalary);
             LastChampionshipPosition = executableConnection.ReadInteger(_valueMapping.LastChampionshipPosition);
             DriverRole = executableConnection.ReadInteger(_valueMapping.DriverRole);
-            CarNumber = executableConnection.ReadInteger(_valueMapping.CarNumber);
+            CarNumberA = executableConnection.ReadInteger(_valueMapping.CarNumberA);
             Age = executableConnection.ReadInteger(_valueMapping.Age);
             Nationality = executableConnection.ReadInteger(_valueMapping.Nationality);
+            CommentaryIndex = executableConnection.ReadInteger(_valueMapping.CommentaryIndex);
             CareerChampionships = executableConnection.ReadInteger(_valueMapping.CareerChampionships);
             CareerRaces = executableConnection.ReadInteger(_valueMapping.CareerRaces);
             CareerWins = executableConnection.ReadInteger(_valueMapping.CareerWins);
@@ -166,6 +181,13 @@ namespace Data.Entities.Executable.Team
             Experience = executableConnection.ReadInteger(_valueMapping.Experience);
             Stamina = executableConnection.ReadInteger(_valueMapping.Stamina);
             Morale = executableConnection.ReadInteger(_valueMapping.Morale).ConvertToOneToFiveStepOne();
+
+            // Only read value if driver is driver 1 or 2, and not T.
+            var driverId = LocalResourceId % 8;
+            if (driverId == 6 || driverId == 7) // 1 and 2
+            {
+                CarNumberB = executableConnection.ReadInteger(_valueMapping.CarNumberB);
+            }
         }
     }
 }
