@@ -39,8 +39,6 @@
     <Compile Include="Enums\ViewportIdentityType.cs" />
     <Compile Include="Enums\ViewportDisplayType.cs" />
     <Compile Include="ExecutableVerification.cs" />
-    <Compile Include="Collections\Executable\Team\NonF1ChiefCollection.cs" />
-    <Compile Include="Collections\Executable\Team\NonF1DriverCollection.cs" />
     <Compile Include="Collections\Generic\SingleValueCollection.cs" />
     <Compile Include="Entities\Executable\Environment\EngineeringCosts\BuildSpare.cs" />
     <Compile Include="Entities\Executable\Environment\EngineeringCosts\UpgradeDrivingAid.cs" />
@@ -128,12 +126,6 @@
     <Compile Include="Enums\FileType.cs" />
     <Compile Include="Entities\Generic\FiveValueBase.cs" />
     <Compile Include="Entities\Executable\Environment\ExpansionCosts\Cad.cs" />
-    <Compile Include="Collections\Executable\Supplier\EngineCollection.cs" />
-    <Compile Include="Collections\Executable\Supplier\FuelCollection.cs" />
-    <Compile Include="Collections\Executable\Supplier\TyreCollection.cs" />
-    <Compile Include="Collections\Executable\Team\DriverCollection.cs" />
-    <Compile Include="Collections\Executable\Team\TeamCollection.cs" />
-    <Compile Include="Collections\Executable\Track\TrackCollection.cs" />
     <Compile Include="Collections\Language\IdentityCollection.cs" />
     <Compile Include="Databases\ExecutableDatabase.cs" />
     <Compile Include="Databases\LanguageDatabase.cs" />

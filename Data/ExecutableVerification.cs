@@ -12,7 +12,8 @@ namespace Data
         private const string Sha256ChecksumOfficialGpwxpV100F = "FD-06-19-87-9D-FC-43-CA-39-AF-AC-B7-75-DC-AD-63-36-DD-5F-46-AE-1E-58-C9-42-F2-44-3A-C6-54-DE-8C";
 
         // Unofficially released cracked versions
-        // TODO find these versions and calculate sha-256 checksums
+        private const string Sha256ChecksumUnofficialGpwV100C = "C4-63-58-BB-CF-AE-18-79-43-38-A2-AB-3F-B4-FB-23-B0-9B-1F-61-29-05-26-BC-50-F3-04-03-EC-9B-59-9A";
+        private const string Sha256ChecksumUnofficialGpwV101C = "E7-14-08-F9-2A-0B-58-84-43-29-92-AF-12-E1-6F-DE-7A-2E-D6-96-B4-C0-C5-39-B2-0F-3E-CB-CD-58-08-82";
 
         // Unofficially released versions via DxWnd development
         private const string Sha256ChecksumUnofficialGpwxpV102F = "90-5B-F1-A9-99-CD-40-40-1C-37-9E-99-C7-B2-96-1D-7C-A3-CE-97-4D-BB-67-55-D4-55-E8-6E-E7-C1-D3-BB";
@@ -56,6 +57,14 @@ namespace Data
                     isOfficial = true;
                     fileName = "gpwxp.exe";
                     version = "v1.00";
+                    break;
+                case Sha256ChecksumUnofficialGpwV100C:
+                    fileName = "gpw.exe";
+                    version = "v1.00";
+                    break;
+                case Sha256ChecksumUnofficialGpwV101C:
+                    fileName = "gpw.exe";
+                    version = "v1.01b";
                     break;
                 case Sha256ChecksumUnofficialGpwV102B:
                     fileName = "gpw.exe";

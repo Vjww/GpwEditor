@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Data.Collections.Executable.Supplier;
-using Data.Collections.Executable.Team;
-using Data.Collections.Executable.Track;
 using Data.Collections.Generic;
 using Data.Collections.Language;
 using Data.FileConnection;
@@ -153,7 +150,7 @@ namespace Data.Databases
 
         private void ImportTeams(string gameExecutableFilePath)
         {
-            Teams = new TeamCollection
+            Teams = new Collection<TeamEntities.Team>
             {
                 new TeamEntities.Team(new TeamMapping.Team(0), 0),
                 new TeamEntities.Team(new TeamMapping.Team(1), 1),
@@ -323,7 +320,7 @@ namespace Data.Databases
 
         private void ImportF1Drivers(string gameExecutableFilePath)
         {
-            F1Drivers = new DriverCollection
+            F1Drivers = new Collection<TeamEntities.F1Driver>
             {
                 new TeamEntities.F1Driver(new TeamMapping.F1Driver(0), 0),
                 new TeamEntities.F1Driver(new TeamMapping.F1Driver(1), 1),
@@ -369,7 +366,7 @@ namespace Data.Databases
 
         private void ImportNonF1Drivers(string gameExecutableFilePath)
         {
-            NonF1Drivers = new NonF1DriverCollection
+            NonF1Drivers = new Collection<TeamEntities.NonF1Driver>
             {
                 new TeamEntities.NonF1Driver(new TeamMapping.NonF1Driver(0), 0),
                 new TeamEntities.NonF1Driver(new TeamMapping.NonF1Driver(1), 1),
@@ -393,7 +390,7 @@ namespace Data.Databases
 
         private void ImportEngines(string gameExecutableFilePath)
         {
-            Engines = new EngineCollection
+            Engines = new Collection<SupplierEntities.Engine>
             {
                 new SupplierEntities.Engine(new SupplierMapping.Engine(0), 0),
                 new SupplierEntities.Engine(new SupplierMapping.Engine(1), 1),
@@ -414,7 +411,7 @@ namespace Data.Databases
 
         private void ImportTyres(string gameExecutableFilePath)
         {
-            Tyres = new TyreCollection
+            Tyres = new Collection<SupplierEntities.Tyre>
             {
                 new SupplierEntities.Tyre(new SupplierMapping.Tyre(0), 0),
                 new SupplierEntities.Tyre(new SupplierMapping.Tyre(1), 1),
@@ -430,7 +427,7 @@ namespace Data.Databases
 
         private void ImportFuels(string gameExecutableFilePath)
         {
-            Fuels = new FuelCollection
+            Fuels = new Collection<SupplierEntities.Fuel>
             {
                 new SupplierEntities.Fuel(new SupplierMapping.Fuel(0), 0),
                 new SupplierEntities.Fuel(new SupplierMapping.Fuel(1), 1),
@@ -452,7 +449,7 @@ namespace Data.Databases
 
         private void ImportTracks(string gameExecutableFilePath)
         {
-            Tracks = new TrackCollection
+            Tracks = new Collection<TrackEntities.Track>
             {
                 new TrackEntities.Track(new TrackMapping.Track(0), 0),
                 new TrackEntities.Track(new TrackMapping.Track(1), 1),

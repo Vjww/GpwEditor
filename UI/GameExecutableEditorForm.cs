@@ -7,7 +7,6 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using Common.Extensions;
-using Data.Collections.Executable.Team;
 using Data.Collections.Language;
 using Data.Databases;
 using Data.Entities.Language;
@@ -555,7 +554,7 @@ namespace GpwEditor
         {
             // Move data from controls into database
             executableDatabase.LanguageStrings = (IdentityCollection)LanguageDataGridView.DataSource;
-            executableDatabase.Teams = (TeamCollection)TeamsDataGridView.DataSource;
+            executableDatabase.Teams = (Collection<Team>)TeamsDataGridView.DataSource;
             executableDatabase.F1ChiefCommercials = (Collection<F1ChiefCommercial>)ChiefsF1CommerceDataGridView.DataSource;
             executableDatabase.F1ChiefDesigners = (Collection<F1ChiefDesigner>)ChiefsF1DesignerDataGridView.DataSource;
             executableDatabase.F1ChiefEngineers = (Collection<F1ChiefEngineer>)ChiefsF1EngineerDataGridView.DataSource;
