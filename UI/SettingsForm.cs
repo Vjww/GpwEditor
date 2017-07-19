@@ -129,9 +129,7 @@ namespace GpwEditor
 
         private void ApplyCodeShiftPatcher()
         {
-            throw new NotImplementedException();
-
-            new CodeShiftPatcher(_filePath, null).Apply(); // TODO exchange null for languageFileFilePath
+            new CodeShiftPatcher(_filePath).Apply();
         }
 
         private void ApplyGlobalUnlockPatcher()

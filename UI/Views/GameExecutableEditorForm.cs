@@ -2,28 +2,27 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using Common.Extensions;
 using Data.Collections.Language;
 using Data.Databases;
-using Data.Entities.Language;
 using Data.Entities.Executable.Race;
 using Data.Entities.Executable.Supplier;
 using Data.Entities.Executable.Team;
 using Data.Entities.Executable.Track;
+using Data.Entities.Language;
 using GpwEditor.Enums;
 using GpwEditor.Properties;
 using Cursor = System.Windows.Forms.Cursor;
 
-namespace GpwEditor
+namespace GpwEditor.Views
 {
     /// <summary>
     /// Enables the user to modify data in the game executable.
     /// </summary>
-    public partial class GameExecutableEditorForm : Form
+    public partial class GameExecutableEditorForm : EditorFormBase
     {
         private RacePerformanceCurveChart _racePerformanceCurveChart;
         private bool _isFailedValidationForSwitchingContext;
@@ -36,11 +35,13 @@ namespace GpwEditor
 
         private void GameExecutableEditorForm_Load(object sender, EventArgs e)
         {
-            // Set icon
             Icon = Resources.icon1;
-
-            // Set form title text
             Text = $"{Settings.Default.ApplicationName} - Game Executable Editor";
+            ConvertLinesToRtf(OverviewRichTextBox);
+
+            // Populate with most recently used (MRU) or default
+            GameExecutablePathTextBox.Text = GetGameExecutableMruOrDefault();
+            LanguageFilePathTextBox.Text = GetLanguageFileMruOrDefault();
 
             ConfigureControls();
             GenerateTooltips();
@@ -48,129 +49,64 @@ namespace GpwEditor
 
             // Create and map to chart
             _racePerformanceCurveChart = new RacePerformanceCurveChart(RacePerformanceChart);
-
-            // Populate file paths with most recently used (MRU) or default
-            var defaultLanguageFileFilePath = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultLanguageFileName);
-            LanguageFilePathTextBox.Text =
-                string.IsNullOrWhiteSpace(Settings.Default.ExecutableEditorMruLanguageFileFilePath)
-                    ? defaultLanguageFileFilePath
-                    : Settings.Default.ExecutableEditorMruLanguageFileFilePath;
-
-            var defaultGameExecutableFilePath = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultExecutableFileName);
-            GameExecutablePathTextBox.Text =
-                string.IsNullOrWhiteSpace(Settings.Default.ExecutableEditorMruGameExecutableFilePath)
-                    ? defaultGameExecutableFilePath
-                    : Settings.Default.ExecutableEditorMruGameExecutableFilePath;
         }
 
         private void GameExecutableEditorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // TODO remove
-            // If any data grids are in edit mode, prevent closure
-            //if (IsDataGridViewControlsInEditMode())
-            //{
-            //    // Abort event
-            //    ShowValidationError("Please confirm or reject your change to the selected cell, prior to closing the form.");
-            //    e.Cancel = true;
-            //    return;
-            //}
-
-            // TODO remove
-            // If any data grid view controls on the form are in edit mode
-            //if (CancelAndEndEditOnDataGridViewControls())
-            //{
-            //    // Abort event
-            //    e.Cancel = true;
-            //    return;
-            //}
-
             if (_isFailedValidationForSwitchingContext)
             {
-                // Abort event
-                e.Cancel = true;
+                e.Cancel = true; // Abort event
                 _isFailedValidationForSwitchingContext = false; // Reset
                 return;
             }
 
-            if (!ConfirmCloseFormWithUnsavedChanges())
-            {
-                // Abort event
-                e.Cancel = true;
+            if (CloseFormConfirmation(true,
+                $"Are you sure you wish to close the game executable editor?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost."))
                 return;
-            }
-
-            // Save and close form
-            Settings.Default.Save();
+            e.Cancel = true; // Abort event
         }
 
         private void MainTabControl_Selecting(object sender, TabControlCancelEventArgs e)
         {
             if (!_isImportOccured)
             {
-                // Abort event
-                e.Cancel = true;
-                ShowErrorMessageBox("Unable to switch tabs until a successful import has occurred.");
+                e.Cancel = true; // Abort event
+                ShowMessageBox("Unable to switch tabs until a successful import has occurred.", MessageBoxIcon.Error);
             }
 
             if (_isFailedValidationForSwitchingContext)
             {
-                // Abort event
-                e.Cancel = true;
+                e.Cancel = true; // Abort event
                 _isFailedValidationForSwitchingContext = false; // Reset
             }
         }
 
-        private void BrowseLanguageFileButton_Click(object sender, EventArgs e)
-        {
-            // Prompt user to select file
-            ProgramOpenFileDialog.InitialDirectory = Settings.Default.UserGameFolderPath;
-            ProgramOpenFileDialog.FileName = null;
-            var result = ProgramOpenFileDialog.ShowDialog();
-
-            // Cancel if file was not selected
-            if (result != DialogResult.OK)
-            {
-                return;
-            }
-
-            LanguageFilePathTextBox.Text = ProgramOpenFileDialog.FileName;
-        }
-
         private void BrowseGameExecutableButton_Click(object sender, EventArgs e)
         {
-            // Prompt user to select file
-            ProgramOpenFileDialog.InitialDirectory = Settings.Default.UserGameFolderPath;
-            ProgramOpenFileDialog.FileName = null;
-            var result = ProgramOpenFileDialog.ShowDialog();
+            var result = GetGameExecutablePathFromOpenFileDialog();
+            GameExecutablePathTextBox.Text = string.IsNullOrEmpty(result) ? GameExecutablePathTextBox.Text : result;
+        }
 
-            // Cancel if file was not selected
-            if (result != DialogResult.OK)
-            {
-                return;
-            }
-
-            GameExecutablePathTextBox.Text = ProgramOpenFileDialog.FileName;
+        private void BrowseLanguageFileButton_Click(object sender, EventArgs e)
+        {
+            var result = GetLanguageFilePathFromOpenFileDialog();
+            LanguageFilePathTextBox.Text = string.IsNullOrEmpty(result) ? LanguageFilePathTextBox.Text : result;
         }
 
         private void ImportButton_Click(object sender, EventArgs e)
         {
-            Import(LanguageFilePathTextBox.Text, GameExecutablePathTextBox.Text);
+            Import(GameExecutablePathTextBox.Text, LanguageFilePathTextBox.Text);
         }
 
         private void ExportButton_Click(object sender, EventArgs e)
         {
             if (!_isImportOccured)
             {
-                ShowErrorMessageBox("Unable to export until a successful import has occurred.");
+                ShowMessageBox("Unable to export until a successful import has occurred.", MessageBoxIcon.Error);
                 return;
             }
 
-            Export(LanguageFilePathTextBox.Text, GameExecutablePathTextBox.Text);
-        }
-
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-            Close();
+            Export(GameExecutablePathTextBox.Text, LanguageFilePathTextBox.Text);
         }
 
         private static void GenericDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -381,6 +317,7 @@ namespace GpwEditor
             //TODO ConfigureDataGridViewControl<SingleValueBase>(UnknownBDataGridView, 0, "UnknownB", true);
         }
 
+        // ReSharper disable once UnusedMember.Local
         private static void ConfigureDataGridViewControl<T>(DataGridView dataGridView, int columnId, string resourceTextHeaderText, bool fillColumns = false)
         {
             ConfigureDataGridViewControl<T>(dataGridView, columnId, fillColumns);
@@ -412,40 +349,31 @@ namespace GpwEditor
             dataGridView.RowHeadersVisible = false;
         }
 
-        private static bool ConfirmCloseFormWithUnsavedChanges()
-        {
-            // Prompt user whether to close form
-            var dialogResult = MessageBox.Show(
-                    $"Are you sure you wish to close the game executable editor?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost.",
-                    Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-
-            return dialogResult == DialogResult.Yes;
-        }
-
-        private void Export(string languageFileFilePath, string gameExecutableFilePath)
+        private void Export(string gameExecutablePath, string languageFilePath)
         {
             Cursor.Current = Cursors.WaitCursor;
 
             try
             {
                 // Fill database with data from controls and export to file
-                var executableDatabase = new ExecutableDatabase();
-                PopulateRecords(executableDatabase);
-                executableDatabase.ExportDataToFile(gameExecutableFilePath, languageFileFilePath);
+                var database = new ExecutableDatabase();
+                PopulateRecords(database);
+                database.ExportDataToFile(gameExecutablePath, languageFilePath);
+
+                // Update chart
+                _racePerformanceCurveChart.SetCurrentSeriesToProposedSeries();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
-                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowMessageBox(
+                    $"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
+                    MessageBoxIcon.Error);
                 return;
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-
-            // Update chart
-            _racePerformanceCurveChart.SetCurrentSeriesToProposedSeries();
 
             MessageBox.Show("Export complete!", Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -456,31 +384,32 @@ namespace GpwEditor
 
             // Race Peformance Controls
             toolTip.SetToolTip(RacePerformanceDefaultCheckBox, $"Show/Hide the curve that represents the performance levels defined in v1.01b of {Settings.Default.GameName}.");
-            toolTip.SetToolTip(RacePerformanceCurrentCheckBox, $"Show/Hide the curve that is currently applied in the imported {Settings.Default.DefaultExecutableFileName} game executable file.");
-            toolTip.SetToolTip(RacePerformanceProposedCheckBox, $"Show/Hide the curve that is proposed for export to a {Settings.Default.DefaultExecutableFileName} game executable file.");
+            toolTip.SetToolTip(RacePerformanceCurrentCheckBox, $"Show/Hide the curve that is currently applied in the imported {Settings.Default.DefaultGameExecutableName} game executable file.");
+            toolTip.SetToolTip(RacePerformanceProposedCheckBox, $"Show/Hide the curve that is proposed for export to a {Settings.Default.DefaultGameExecutableName} game executable file.");
             toolTip.SetToolTip(RacePerformanceEditButton, "Opens a window to access and edit the raw data that makes up the Proposed curve.");
             toolTip.SetToolTip(RacePerformanceSoftenCurveButton, "Softens the peaks and troughs of the Proposed curve using a simple moving average formula.");
             toolTip.SetToolTip(RacePerformanceCopyDefaultButton, $"Copies the curve that represents the performance levels defined in v1.01b of {Settings.Default.GameName}.");
-            toolTip.SetToolTip(RacePerformanceCopyCurrentButton, $"Copies the curve that is currently applied in the imported {Settings.Default.DefaultExecutableFileName} game executable file.");
+            toolTip.SetToolTip(RacePerformanceCopyCurrentButton, $"Copies the curve that is currently applied in the imported {Settings.Default.DefaultGameExecutableName} game executable file.");
             toolTip.SetToolTip(RacePerformanceCopyRecommendedButton, $"Copies the curve that is recommended for use by the {Settings.Default.GameName} gaming community.");
         }
 
-        private void Import(string languageFileFilePath, string gameExecutableFilePath)
+        private void Import(string gameExecutablePath, string languageFilePath)
         {
             Cursor.Current = Cursors.WaitCursor;
 
             try
             {
                 // Import from file to database and fill controls with data
-                var executableDatabase = new ExecutableDatabase();
-                executableDatabase.ImportDataFromFile(gameExecutableFilePath, languageFileFilePath);
-                PopulateControls(executableDatabase);
+                var database = new ExecutableDatabase();
+                database.ImportDataFromFile(gameExecutablePath, languageFilePath);
+                PopulateControls(database);
                 _isImportOccured = true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
-                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowMessageBox(
+                    $"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
+                    MessageBoxIcon.Error);
                 return;
             }
             finally
@@ -488,98 +417,94 @@ namespace GpwEditor
                 Cursor.Current = Cursors.Default;
             }
 
-            // Store most recently used (MRU) file paths on successful import
-            Settings.Default.ExecutableEditorMruLanguageFileFilePath = LanguageFilePathTextBox.Text;
-            Settings.Default.ExecutableEditorMruGameExecutableFilePath = GameExecutablePathTextBox.Text;
-
-            MessageBox.Show("Import complete!", Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ShowMessageBox("Import complete!");
         }
 
-        private void PopulateControls(ExecutableDatabase executableDatabase)
+        private void PopulateControls(ExecutableDatabase database)
         {
             // Move data from database into controls
-            LanguageDataGridView.DataSource = executableDatabase.LanguageStrings;
-            TeamsDataGridView.DataSource = executableDatabase.Teams;
-            ChiefsF1CommerceDataGridView.DataSource = executableDatabase.F1ChiefCommercials;
-            ChiefsF1DesignerDataGridView.DataSource = executableDatabase.F1ChiefDesigners;
-            ChiefsF1EngineerDataGridView.DataSource = executableDatabase.F1ChiefEngineers;
-            ChiefsF1MechanicDataGridView.DataSource = executableDatabase.F1ChiefMechanics;
-            ChiefsNonF1CommerceDataGridView.DataSource = executableDatabase.NonF1ChiefCommercials;
-            ChiefsNonF1DesignerDataGridView.DataSource = executableDatabase.NonF1ChiefDesigners;
-            ChiefsNonF1EngineerDataGridView.DataSource = executableDatabase.NonF1ChiefEngineers;
-            ChiefsNonF1MechanicDataGridView.DataSource = executableDatabase.NonF1ChiefMechanics;
-            DriversF1DataGridView.DataSource = executableDatabase.F1Drivers;
-            DriversNonF1DataGridView.DataSource = executableDatabase.NonF1Drivers;
-            SuppliersEnginesDataGridView.DataSource = executableDatabase.Engines;
-            SuppliersTyresDataGridView.DataSource = executableDatabase.Tyres;
-            SuppliersFuelsDataGridView.DataSource = executableDatabase.Fuels;
-            TracksDataGridView.DataSource = executableDatabase.Tracks;
-            ChassisHandlingDataGridView.DataSource = executableDatabase.ChassisHandlings;
-            //TODO FactoryRunningCostsDataGridView.DataSource = executableDatabase.FactoryRunningCosts;
-            //TODO FactoryExpansionCostsDataGridView.DataSource = executableDatabase.FactoryExpansionCosts;
-            //TODO StaffSalariesDataGridView.DataSource = executableDatabase.StaffSalaries;
-            //TODO StaffEffortsDataGridView.DataSource = executableDatabase.StaffEfforts;
-            //TODO TestingMilesDataGridView.DataSource = executableDatabase.TestingMiles;
-            //TODO EngineeringCostsDataGridView.DataSource = executableDatabase.EngineeringCosts;
-            //TODO UnknownADataGridView.DataSource = executableDatabase.UnknownAEfforts;
-            //TODO UnknownBDataGridView.DataSource = executableDatabase.UnknownBEfforts;
+            LanguageDataGridView.DataSource = database.LanguageStrings;
+            TeamsDataGridView.DataSource = database.Teams;
+            ChiefsF1CommerceDataGridView.DataSource = database.F1ChiefCommercials;
+            ChiefsF1DesignerDataGridView.DataSource = database.F1ChiefDesigners;
+            ChiefsF1EngineerDataGridView.DataSource = database.F1ChiefEngineers;
+            ChiefsF1MechanicDataGridView.DataSource = database.F1ChiefMechanics;
+            ChiefsNonF1CommerceDataGridView.DataSource = database.NonF1ChiefCommercials;
+            ChiefsNonF1DesignerDataGridView.DataSource = database.NonF1ChiefDesigners;
+            ChiefsNonF1EngineerDataGridView.DataSource = database.NonF1ChiefEngineers;
+            ChiefsNonF1MechanicDataGridView.DataSource = database.NonF1ChiefMechanics;
+            DriversF1DataGridView.DataSource = database.F1Drivers;
+            DriversNonF1DataGridView.DataSource = database.NonF1Drivers;
+            SuppliersEnginesDataGridView.DataSource = database.Engines;
+            SuppliersTyresDataGridView.DataSource = database.Tyres;
+            SuppliersFuelsDataGridView.DataSource = database.Fuels;
+            TracksDataGridView.DataSource = database.Tracks;
+            ChassisHandlingDataGridView.DataSource = database.ChassisHandlings;
+            //TODO FactoryRunningCostsDataGridView.DataSource = database.FactoryRunningCosts;
+            //TODO FactoryExpansionCostsDataGridView.DataSource = database.FactoryExpansionCosts;
+            //TODO StaffSalariesDataGridView.DataSource = database.StaffSalaries;
+            //TODO StaffEffortsDataGridView.DataSource = database.StaffEfforts;
+            //TODO TestingMilesDataGridView.DataSource = database.TestingMiles;
+            //TODO EngineeringCostsDataGridView.DataSource = database.EngineeringCosts;
+            //TODO UnknownADataGridView.DataSource = database.UnknownAEfforts;
+            //TODO UnknownBDataGridView.DataSource = database.UnknownBEfforts;
 
             // Bind comboboxes to data
             // Hint: Requires the column type to be set at design time to ComboBoxColumn via DataGridView Tasks Wizard > Edit Columns... > ColumnType
             //       Requires a rename at design time of the column's Name property. Change the suffix TextBoxColumn to ComboBoxColumn to reflect the ColumnType.
-            BindDataGridViewComboBoxColumn(TeamsDataGridView, "firstGpTrackDataGridViewComboBoxColumn", executableDatabase.FirstGpTrackLookups);
-            BindDataGridViewComboBoxColumn(TeamsDataGridView, "tyreSupplierIdDataGridViewComboBoxColumn", executableDatabase.TyreSupplierIdAsSupplierIdLookups);
-            BindDataGridViewComboBoxColumn(ChiefsF1DesignerDataGridView, "driverLoyaltyDataGridViewComboBoxColumn", executableDatabase.DriverLoyaltyDriverIdAsStaffIdLookups);
-            BindDataGridViewComboBoxColumn(ChiefsF1EngineerDataGridView, "driverLoyaltyDataGridViewComboBoxColumn1", executableDatabase.DriverLoyaltyDriverIdAsStaffIdLookups);
-            BindDataGridViewComboBoxColumn(ChiefsF1MechanicDataGridView, "driverLoyaltyDataGridViewComboBoxColumn2", executableDatabase.DriverLoyaltyDriverIdAsStaffIdLookups);
-            BindDataGridViewComboBoxColumn(DriversF1DataGridView, "nationalityDataGridViewComboBoxColumn", executableDatabase.DriverNationalityLookups);
-            BindDataGridViewComboBoxColumn(DriversNonF1DataGridView, "nationalityDataGridViewComboBoxColumn1", executableDatabase.DriverNationalityLookups);
-            BindDataGridViewComboBoxColumn(TracksDataGridView, "designDataGridViewComboBoxColumn", executableDatabase.TrackDesignLookups);
-            BindDataGridViewComboBoxColumn(TracksDataGridView, "lapRecordDriverDataGridViewComboBoxColumn", executableDatabase.FastestLapDriverIdAsStaffIdLookups);
-            BindDataGridViewComboBoxColumn(TracksDataGridView, "lapRecordTeamDataGridViewComboBoxColumn", executableDatabase.Teams);
-            BindDataGridViewComboBoxColumn(TracksDataGridView, "lastRaceDriverDataGridViewComboBoxColumn", executableDatabase.FastestLapDriverIdAsStaffIdLookups);
-            BindDataGridViewComboBoxColumn(TracksDataGridView, "lastRaceTeamDataGridViewComboBoxColumn", executableDatabase.Teams);
+            BindDataGridViewComboBoxColumn(TeamsDataGridView, "firstGpTrackDataGridViewComboBoxColumn", database.FirstGpTrackLookups);
+            BindDataGridViewComboBoxColumn(TeamsDataGridView, "tyreSupplierIdDataGridViewComboBoxColumn", database.TyreSupplierIdAsSupplierIdLookups);
+            BindDataGridViewComboBoxColumn(ChiefsF1DesignerDataGridView, "driverLoyaltyDataGridViewComboBoxColumn", database.DriverLoyaltyDriverIdAsStaffIdLookups);
+            BindDataGridViewComboBoxColumn(ChiefsF1EngineerDataGridView, "driverLoyaltyDataGridViewComboBoxColumn1", database.DriverLoyaltyDriverIdAsStaffIdLookups);
+            BindDataGridViewComboBoxColumn(ChiefsF1MechanicDataGridView, "driverLoyaltyDataGridViewComboBoxColumn2", database.DriverLoyaltyDriverIdAsStaffIdLookups);
+            BindDataGridViewComboBoxColumn(DriversF1DataGridView, "nationalityDataGridViewComboBoxColumn", database.DriverNationalityLookups);
+            BindDataGridViewComboBoxColumn(DriversNonF1DataGridView, "nationalityDataGridViewComboBoxColumn1", database.DriverNationalityLookups);
+            BindDataGridViewComboBoxColumn(TracksDataGridView, "designDataGridViewComboBoxColumn", database.TrackDesignLookups);
+            BindDataGridViewComboBoxColumn(TracksDataGridView, "lapRecordDriverDataGridViewComboBoxColumn", database.FastestLapDriverIdAsStaffIdLookups);
+            BindDataGridViewComboBoxColumn(TracksDataGridView, "lapRecordTeamDataGridViewComboBoxColumn", database.Teams);
+            BindDataGridViewComboBoxColumn(TracksDataGridView, "lastRaceDriverDataGridViewComboBoxColumn", database.FastestLapDriverIdAsStaffIdLookups);
+            BindDataGridViewComboBoxColumn(TracksDataGridView, "lastRaceTeamDataGridViewComboBoxColumn", database.Teams);
 
             // Generate chart
             RacePerformanceDefaultCheckBox.Checked = true; // Reset
             RacePerformanceCurrentCheckBox.Checked = true; // Reset
             RacePerformanceProposedCheckBox.Checked = true; // Reset
             _racePerformanceCurveChart.GenerateChart();
-            _racePerformanceCurveChart.SetCurrentSeries(executableDatabase.PerformanceCurve.Values);
+            _racePerformanceCurveChart.SetCurrentSeries(database.PerformanceCurve.Values);
             _racePerformanceCurveChart.SetProposedSeriesToCurrentSeries();
             RacePerformanceGroupBox.Visible = true;
         }
 
-        private void PopulateRecords(ExecutableDatabase executableDatabase)
+        private void PopulateRecords(ExecutableDatabase database)
         {
             // Move data from controls into database
-            executableDatabase.LanguageStrings = (IdentityCollection)LanguageDataGridView.DataSource;
-            executableDatabase.Teams = (Collection<Team>)TeamsDataGridView.DataSource;
-            executableDatabase.F1ChiefCommercials = (Collection<F1ChiefCommercial>)ChiefsF1CommerceDataGridView.DataSource;
-            executableDatabase.F1ChiefDesigners = (Collection<F1ChiefDesigner>)ChiefsF1DesignerDataGridView.DataSource;
-            executableDatabase.F1ChiefEngineers = (Collection<F1ChiefEngineer>)ChiefsF1EngineerDataGridView.DataSource;
-            executableDatabase.F1ChiefMechanics = (Collection<F1ChiefMechanic>)ChiefsF1MechanicDataGridView.DataSource;
-            executableDatabase.NonF1ChiefCommercials = (Collection<NonF1ChiefCommercial>)ChiefsNonF1CommerceDataGridView.DataSource;
-            executableDatabase.NonF1ChiefDesigners = (Collection<NonF1ChiefDesigner>)ChiefsNonF1DesignerDataGridView.DataSource;
-            executableDatabase.NonF1ChiefEngineers = (Collection<NonF1ChiefEngineer>)ChiefsNonF1EngineerDataGridView.DataSource;
-            executableDatabase.NonF1ChiefMechanics = (Collection<NonF1ChiefMechanic>)ChiefsNonF1MechanicDataGridView.DataSource;
-            executableDatabase.F1Drivers = (Collection<F1Driver>)DriversF1DataGridView.DataSource;
-            executableDatabase.NonF1Drivers = (Collection<NonF1Driver>)DriversNonF1DataGridView.DataSource;
-            executableDatabase.Engines = (Collection<Engine>)SuppliersEnginesDataGridView.DataSource;
-            executableDatabase.Tyres = (Collection<Tyre>)SuppliersTyresDataGridView.DataSource;
-            executableDatabase.Fuels = (Collection<Fuel>)SuppliersFuelsDataGridView.DataSource;
-            executableDatabase.Tracks = (Collection<Track>)TracksDataGridView.DataSource;
-            executableDatabase.ChassisHandlings = (Collection<ChassisHandling>)ChassisHandlingDataGridView.DataSource;
-            // TODO executableDatabase.StaffEfforts = (FiveRatingCollection)StaffEffortsDataGridView.DataSource;
-            // TODO executableDatabase.StaffSalaries = (FiveRatingCollection)StaffSalariesDataGridView.DataSource;
-            // TODO executableDatabase.FactoryRunningCosts = (FiveValueCollection)FactoryRunningCostsDataGridView.DataSource;
-            // TODO executableDatabase.FactoryExpansionCosts = (FiveRatingCollection)FactoryExpansionCostsDataGridView.DataSource;
-            // TODO executableDatabase.TestingMiles = (TenValueCollection)TestingMilesDataGridView.DataSource;
-            // TODO executableDatabase.EngineeringCosts = (TenValueCollection)EngineeringCostsDataGridView.DataSource;
-            // TODO executableDatabase.UnknownAEfforts = (SingleValueCollection)UnknownADataGridView.DataSource;
-            // TODO executableDatabase.UnknownBEfforts = (SingleValueCollection)UnknownBDataGridView.DataSource;
+            database.LanguageStrings = (IdentityCollection)LanguageDataGridView.DataSource;
+            database.Teams = (Collection<Team>)TeamsDataGridView.DataSource;
+            database.F1ChiefCommercials = (Collection<F1ChiefCommercial>)ChiefsF1CommerceDataGridView.DataSource;
+            database.F1ChiefDesigners = (Collection<F1ChiefDesigner>)ChiefsF1DesignerDataGridView.DataSource;
+            database.F1ChiefEngineers = (Collection<F1ChiefEngineer>)ChiefsF1EngineerDataGridView.DataSource;
+            database.F1ChiefMechanics = (Collection<F1ChiefMechanic>)ChiefsF1MechanicDataGridView.DataSource;
+            database.NonF1ChiefCommercials = (Collection<NonF1ChiefCommercial>)ChiefsNonF1CommerceDataGridView.DataSource;
+            database.NonF1ChiefDesigners = (Collection<NonF1ChiefDesigner>)ChiefsNonF1DesignerDataGridView.DataSource;
+            database.NonF1ChiefEngineers = (Collection<NonF1ChiefEngineer>)ChiefsNonF1EngineerDataGridView.DataSource;
+            database.NonF1ChiefMechanics = (Collection<NonF1ChiefMechanic>)ChiefsNonF1MechanicDataGridView.DataSource;
+            database.F1Drivers = (Collection<F1Driver>)DriversF1DataGridView.DataSource;
+            database.NonF1Drivers = (Collection<NonF1Driver>)DriversNonF1DataGridView.DataSource;
+            database.Engines = (Collection<Engine>)SuppliersEnginesDataGridView.DataSource;
+            database.Tyres = (Collection<Tyre>)SuppliersTyresDataGridView.DataSource;
+            database.Fuels = (Collection<Fuel>)SuppliersFuelsDataGridView.DataSource;
+            database.Tracks = (Collection<Track>)TracksDataGridView.DataSource;
+            database.ChassisHandlings = (Collection<ChassisHandling>)ChassisHandlingDataGridView.DataSource;
+            // TODO database.StaffEfforts = (FiveRatingCollection)StaffEffortsDataGridView.DataSource;
+            // TODO database.StaffSalaries = (FiveRatingCollection)StaffSalariesDataGridView.DataSource;
+            // TODO database.FactoryRunningCosts = (FiveValueCollection)FactoryRunningCostsDataGridView.DataSource;
+            // TODO database.FactoryExpansionCosts = (FiveRatingCollection)FactoryExpansionCostsDataGridView.DataSource;
+            // TODO database.TestingMiles = (TenValueCollection)TestingMilesDataGridView.DataSource;
+            // TODO database.EngineeringCosts = (TenValueCollection)EngineeringCostsDataGridView.DataSource;
+            // TODO database.UnknownAEfforts = (SingleValueCollection)UnknownADataGridView.DataSource;
+            // TODO database.UnknownBEfforts = (SingleValueCollection)UnknownBDataGridView.DataSource;
 
-            executableDatabase.PerformanceCurve = new PerformanceCurve
+            database.PerformanceCurve = new PerformanceCurve
             {
                 Values = _racePerformanceCurveChart.GetProposedSeries()
             };
@@ -590,11 +515,6 @@ namespace GpwEditor
             childForm.Show(parentForm);
             parentForm.Hide();
             childForm.FormClosing += delegate { parentForm.Show(); };
-        }
-
-        private static void ShowErrorMessageBox(string message)
-        {
-            MessageBox.Show(message, Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void SubscribeDataGridViewControlsToGenericEvents()
@@ -673,7 +593,7 @@ namespace GpwEditor
                     dataGridView.CancelEdit();
                     dataGridView.EndEdit();
                     _isFailedValidationForSwitchingContext = true;
-                    ShowErrorMessageBox($"Value for {column.HeaderText} must be a whole number.");
+                    ShowMessageBox($"Value for {column.HeaderText} must be a whole number.", MessageBoxIcon.Error);
                     return;
                 }
 
@@ -690,7 +610,7 @@ namespace GpwEditor
                             dataGridView.CancelEdit();
                             dataGridView.EndEdit();
                             _isFailedValidationForSwitchingContext = true;
-                            ShowErrorMessageBox(rangeAttribute.FormatErrorMessage(column.HeaderText));
+                            ShowMessageBox(rangeAttribute.FormatErrorMessage(column.HeaderText), MessageBoxIcon.Error);
                             return;
                         }
                     }

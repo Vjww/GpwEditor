@@ -1,4 +1,4 @@
-﻿namespace GpwEditor
+﻿namespace GpwEditor.Views
 {
     partial class LanguageFileEditorForm
     {
@@ -95,7 +95,6 @@
             this.GameExecutablePathTextBox = new System.Windows.Forms.TextBox();
             this.LanguageFilePathTextBox = new System.Windows.Forms.TextBox();
             this.CloseButton = new System.Windows.Forms.Button();
-            this.ProgramOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageStringCollectionBindingSource)).BeginInit();
             this.QuickNavigationGroupBox.SuspendLayout();
@@ -905,8 +904,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.OpenFileDialog ProgramOpenFileDialog;
         private System.Windows.Forms.GroupBox FilesGroupBox;
         private System.Windows.Forms.Button ImportButton;
         private System.Windows.Forms.Button ExportButton;

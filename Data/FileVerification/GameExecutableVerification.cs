@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 
 namespace Data
 {
-    public class ExecutableVerification
+    public class GameExecutableVerification
     {
         // Officially released versions
         private const string Sha256ChecksumOfficialGpwV100F = "DB-91-3C-BD-6F-13-81-E4-CF-BA-8F-68-F2-75-59-DC-40-F8-E0-FA-2F-F5-7C-51-0C-82-2E-FA-4D-05-FB-79";
@@ -32,14 +32,14 @@ namespace Data
         // Filesize of supported executable version, official gpw.exe v1.01b
         private const long SupportedFileSize = 3004928;
 
-        public bool IsGameExecutableSupported(string filePath, out string message)
+        public bool IsFileSupported(string filePath, out string message)
         {
             var isIdentified = true;
             var isOfficial = false;
             var fileName = string.Empty;
             var version = string.Empty;
 
-            // Attempt to identity by checksum
+            // Attempt to identify by checksum
             var checksum = GetSha256Checksum(filePath);
             switch (checksum)
             {
@@ -106,13 +106,13 @@ namespace Data
                 return string.Equals(checksum, Sha256ChecksumOfficialGpwV101B);
             }
 
-            // Attempt to identity by file length
+            // Attempt to identify by file length
             var fileLength = new FileInfo(filePath).Length;
             if (fileLength == SupportedFileSize)
             {
-                // TODO add further validation of changed bytes to confirm this program supports the executable
-                // TODO as any file matching this length could be anything but the expected executable version
-                // TODO possibly do a byte comparison of the code shifting for teams/chiefs/drivers to confirm
+                // TODO: add further validation of changed bytes to confirm this program supports the executable
+                // TODO: as any file matching this length could be anything but the expected executable version
+                // TODO: possibly do a byte comparison of the code shifting for teams/chiefs/drivers to confirm
 
                 fileName = "gpw.exe";
                 version = "v1.01b";

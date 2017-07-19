@@ -52,10 +52,19 @@ namespace GpwEditor.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("gpw.exe")]
-        public string DefaultExecutableFileName {
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files\\MicroProse\\Grand Prix World")]
+        public string DefaultGameFolderPath {
             get {
-                return ((string)(this["DefaultExecutableFileName"]));
+                return ((string)(this["DefaultGameFolderPath"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("gpw.exe")]
+        public string DefaultGameExecutableName {
+            get {
+                return ((string)(this["DefaultGameExecutableName"]));
             }
         }
         
@@ -65,15 +74,6 @@ namespace GpwEditor.Properties {
         public string DefaultLanguageFileName {
             get {
                 return ((string)(this["DefaultLanguageFileName"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files\\MicroProse\\Grand Prix World")]
-        public string DefaultGameFolderPath {
-            get {
-                return ((string)(this["DefaultGameFolderPath"]));
             }
         }
         
@@ -92,12 +92,60 @@ namespace GpwEditor.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string UserExecutableFilePath {
+        public string UserGameExecutablePath {
             get {
-                return ((string)(this["UserExecutableFilePath"]));
+                return ((string)(this["UserGameExecutablePath"]));
             }
             set {
-                this["UserExecutableFilePath"] = value;
+                this["UserGameExecutablePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UserLanguageFilePath {
+            get {
+                return ((string)(this["UserLanguageFilePath"]));
+            }
+            set {
+                this["UserLanguageFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MruGameFolderPath {
+            get {
+                return ((string)(this["MruGameFolderPath"]));
+            }
+            set {
+                this["MruGameFolderPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MruGameExecutablePath {
+            get {
+                return ((string)(this["MruGameExecutablePath"]));
+            }
+            set {
+                this["MruGameExecutablePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MruLanguageFilePath {
+            get {
+                return ((string)(this["MruLanguageFilePath"]));
+            }
+            set {
+                this["MruLanguageFilePath"] = value;
             }
         }
         
@@ -110,90 +158,6 @@ namespace GpwEditor.Properties {
             }
             set {
                 this["InitialRun"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string UpgradeGameMruLanguageFileFilePath
-        {
-            get
-            {
-                return ((string)(this["UpgradeGameMruLanguageFileFilePath"]));
-            }
-            set
-            {
-                this["UpgradeGameMruLanguageFileFilePath"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string UpgradeGameMruGameExecutableFilePath
-        {
-            get
-            {
-                return ((string)(this["UpgradeGameMruGameExecutableFilePath"]));
-            }
-            set
-            {
-                this["UpgradeGameMruGameExecutableFilePath"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ExecutableEditorMruLanguageFileFilePath
-        {
-            get
-            {
-                return ((string)(this["ExecutableEditorMruLanguageFileFilePath"]));
-            }
-            set
-            {
-                this["ExecutableEditorMruLanguageFileFilePath"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ExecutableEditorMruGameExecutableFilePath
-        {
-            get
-            {
-                return ((string)(this["ExecutableEditorMruGameExecutableFilePath"]));
-            }
-            set
-            {
-                this["ExecutableEditorMruGameExecutableFilePath"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string LanguageEditorMruLanguageFileFilePath {
-            get {
-                return ((string)(this["LanguageEditorMruLanguageFileFilePath"]));
-            }
-            set {
-                this["LanguageEditorMruLanguageFileFilePath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string LanguageEditorMruGameExecutableFilePath {
-            get {
-                return ((string)(this["LanguageEditorMruGameExecutableFilePath"]));
-            }
-            set {
-                this["LanguageEditorMruGameExecutableFilePath"] = value;
             }
         }
     }

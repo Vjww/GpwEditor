@@ -3,22 +3,18 @@ using System.Diagnostics;
 using Data.Collections.Language;
 using Data.FileConnection;
 using Data.Patchers;
-using Data.Patchers.CodeShiftPatcher;
 using Data.Patchers.Enhancements.Units;
-using Data.Patchers.GlobalUnlockPatcher;
-using Data.Patchers.JumpBypassPatcher;
-using Data.Patchers.SwitchIdiomPatcher;
 
 namespace Data.Databases
 {
-    public class UpgradeDatabase
+    public class ConfigureGameDatabase
     {
         // Current state flags
         public bool IsGameCdFixApplied { get; private set; }
         public bool IsDisplayModeFixApplied { get; private set; }
         public bool IsSampleAppFixApplied { get; private set; }
         public bool IsRaceSoundsFixApplied { get; private set; }
-        //public bool IsPitExitPriorityFixApplied { get; private set; } // TODO
+        // TODO: public bool IsPitExitPriorityFixApplied { get; private set; }
         public bool IsYellowFlagFixApplied { get; private set; }
         public bool IsCarDesignCalculationUpdateApplied { get; private set; }
         public bool IsCarHandlingPerformanceFixApplied { get; private set; }
@@ -26,13 +22,14 @@ namespace Data.Databases
         public bool IsPointsScoringSystemOption1Applied { get; private set; }
         public bool IsPointsScoringSystemOption2Applied { get; private set; }
         public bool IsPointsScoringSystemOption3Applied { get; private set; }
+        public bool IsCommentaryModifiedApplied { get; set; }
 
         // Future state flags
         public bool IsGameCdFixRequired { get; set; }
         public bool IsDisplayModeFixRequired { get; set; }
         public bool IsSampleAppFixRequired { get; set; }
         public bool IsRaceSoundsFixRequired { get; set; }
-        //public bool IsPitExitPriorityFixRequired { get; set; } // TODO
+        // TODO: public bool IsPitExitPriorityFixRequired { get; set; }
         public bool IsYellowFlagFixRequired { get; set; }
         public bool IsCarDesignCalculationUpdateRequired { get; set; }
         public bool IsCarHandlingPerformanceFixRequired { get; set; }
@@ -40,91 +37,49 @@ namespace Data.Databases
         public bool IsPointsScoringSystemOption1Required { get; set; }
         public bool IsPointsScoringSystemOption2Required { get; set; }
         public bool IsPointsScoringSystemOption3Required { get; set; }
+        public bool IsCommentaryModifiedRequired { get; set; }
 
         public IdentityCollection LanguageStrings { get; set; }
 
-        public void ImportDataFromFile(string gameExecutableFilePath, string languageFileFilePath)
+        public void ImportDataFromFile(string gameFolderPath, string gameExecutablePath, string languageFilePath)
         {
-            ValidateLanguageFile(languageFileFilePath);
-            ValidateGameExecutable(gameExecutableFilePath);
+            ValidateGameFolder(gameFolderPath, "import");
+            ValidateGameExecutable(gameExecutablePath, "import");
+            ValidateLanguageFile(languageFilePath, "import");
 
-            ImportLanguageStrings(languageFileFilePath);
+            ImportLanguageStrings(languageFilePath);
 
-            ImportUpgrades(gameExecutableFilePath);
-            ImportOptions(gameExecutableFilePath);
+            ImportGameConfiguration(gameExecutablePath);
         }
 
-        public void ExportDataToFile(string gameExecutableFilePath, string languageFileFilePath)
+        public void ExportDataToFile(string gameFolderPath, string gameExecutablePath, string languageFilePath)
         {
-            // If an import hasnt occured, load from selected language flie // TODO restrict export before import?
-            if (LanguageStrings == null)
-            {
-                ImportLanguageStrings(languageFileFilePath);
-            }
+            ValidateGameFolder(gameFolderPath, "export");
+            ValidateGameExecutable(gameExecutablePath, "export");
+            ValidateLanguageFile(languageFilePath, "export");
 
-            ValidateLanguageFile(languageFileFilePath);
-            ValidateGameExecutable(gameExecutableFilePath);
+            ExportGameConfiguration(gameExecutablePath);
 
-            ExportUpgrades(gameExecutableFilePath);
-            ExportOptions(gameExecutableFilePath);
-
-            ExportLanguageStrings(languageFileFilePath);
+            ExportLanguageStrings(languageFilePath);
         }
 
-        private void ImportLanguageStrings(string languageFileFilePath)
+        private void ExportLanguageStrings(string languageFilePath)
         {
-            using (var languageConnection = new LanguageConnection(languageFileFilePath))
-            {
-                LanguageStrings = languageConnection.Load();
-            }
-        }
-
-        private void ExportLanguageStrings(string languageFileFilePath)
-        {
-            using (var languageConnection = new LanguageConnection(languageFileFilePath))
+            using (var languageConnection = new LanguageConnection(languageFilePath))
             {
                 languageConnection.Save(LanguageStrings);
             }
         }
 
-        private void ExportUpgrades(string gameExecutableFilePath)
+        private void ImportLanguageStrings(string languageFilePath)
         {
-            // Replace switch statements with new idiom to allow for successful disassembly
-            // Required for upgrade to be successful and cannot be reversed
-            new SwitchIdiomPatcher(gameExecutableFilePath).Apply();
-
-            // Free up space in executable by removing redundant jumping functions
-            // Required for upgrade to be successful and cannot be reversed
-            new JumpBypassPatcher(gameExecutableFilePath).Apply();
-
-            // Shift code around to consolidate and organise instructions and generate free space
-            // Required for upgrade to be successful and cannot be reversed
-            new CodeShiftPatcher(gameExecutableFilePath, LanguageStrings).Apply();
-
-            // Reroute calls to GlobalUnlock through a custom function to resolve compatibility issues
-            // Required for upgrade to be successful and cannot be reversed
-            new GlobalUnlockPatcher(gameExecutableFilePath).Apply();
-
-            // Upgrade unmodified points scoring system with reworked code
-            // to allow alternative point scoring systems to be used.
-            var pointsScoringSystemUnmodified = new PointsSystemUnmodified(gameExecutableFilePath);
-            var isUnmodifiedPointsScoringSystemInPlace = pointsScoringSystemUnmodified.IsCodeUnmodified();
-
-            // If unmodified scoring system is still in place
-            if (isUnmodifiedPointsScoringSystemInPlace)
+            using (var languageConnection = new LanguageConnection(languageFilePath))
             {
-                // Apply default modified scoring system
-                var pointsScoringSystemDefault = new PointsSystemF119912002Update(gameExecutableFilePath);
-                ApplyIrreversibleCode(pointsScoringSystemDefault);
+                LanguageStrings = languageConnection.Load();
             }
         }
 
-        private static void ImportUpgrades(string gameExecutableFilePath)
-        {
-            // TODO Implement
-        }
-
-        private void ExportOptions(string gameExecutableFilePath)
+        private void ExportGameConfiguration(string gameExecutablePath)
         {
             // Scenarios for each reversible code module
             // Scenario 1: If currently applied and should not be applied, apply unmodified code
@@ -132,57 +87,56 @@ namespace Data.Databases
             // Scenario 3: If currently applied and should be applied, do nothing
             // Scenario 4: If currently not applied and should not be applied, do nothing
 
-            var gameCdFix = new GameCdFix(gameExecutableFilePath);
+            var gameCdFix = new GameCdFix(gameExecutablePath);
             var isGameCdFixApplied = gameCdFix.IsCodeModified();
             if (isGameCdFixApplied != IsGameCdFixRequired)
             {
                 ApplyReversibleCode(gameCdFix, IsGameCdFixRequired);
             }
 
-            var displayModeFix = new DisplayModeFix(gameExecutableFilePath);
+            var displayModeFix = new DisplayModeFix(gameExecutablePath);
             var isDisplayModeFixApplied = displayModeFix.IsCodeModified();
             if (isDisplayModeFixApplied != IsDisplayModeFixRequired)
             {
                 ApplyReversibleCode(displayModeFix, IsDisplayModeFixRequired);
             }
 
-            var sampleAppFix = new SampleAppFix(gameExecutableFilePath);
+            var sampleAppFix = new SampleAppFix(gameExecutablePath);
             var isSampleAppFixApplied = sampleAppFix.IsCodeModified();
             if (isSampleAppFixApplied != IsSampleAppFixRequired)
             {
                 ApplyReversibleCode(sampleAppFix, IsSampleAppFixRequired);
             }
 
-            var yellowFlagFix = new YellowFlagFix(gameExecutableFilePath);
-            var isYellowFlagFixApplied = yellowFlagFix.IsCodeModified();
-            if (isYellowFlagFixApplied != IsYellowFlagFixRequired)
-            {
-                ApplyReversibleCode(yellowFlagFix, IsYellowFlagFixRequired);
-            }
-
-            var raceSoundsFix = new RaceSoundsFix(gameExecutableFilePath);
+            var raceSoundsFix = new RaceSoundsFix(gameExecutablePath);
             var isRaceSoundsFixApplied = raceSoundsFix.IsCodeModified();
             if (isRaceSoundsFixApplied != IsRaceSoundsFixRequired)
             {
                 ApplyReversibleCode(raceSoundsFix, IsRaceSoundsFixRequired);
             }
 
-            // TODO
-            //var pitExitPriorityFix = new PitExitPriorityFix(_gameExecutableFilePath);
-            //var isPitExitPriorityFixApplied = pitExitPriorityFix.IsCodeModified();
-            //if (isPitExitPriorityFixApplied != IsPitExitPriorityFixRequired)
-            //{
-            //    ApplyReversibleCode(pitExitPriorityFix, IsPitExitPriorityFixRequired);
-            //}
+            // TODO: var pitExitPriorityFix = new PitExitPriorityFix(gameExecutablePath);
+            // TODO: var isPitExitPriorityFixApplied = pitExitPriorityFix.IsCodeModified();
+            // TODO: if (isPitExitPriorityFixApplied != IsPitExitPriorityFixRequired)
+            // TODO: {
+            // TODO:     ApplyReversibleCode(pitExitPriorityFix, IsPitExitPriorityFixRequired);
+            // TODO: }
 
-            var carDesignCalculationUpdate = new CarDesignCalculationUpdate(gameExecutableFilePath);
+            var yellowFlagFix = new YellowFlagFix(gameExecutablePath);
+            var isYellowFlagFixApplied = yellowFlagFix.IsCodeModified();
+            if (isYellowFlagFixApplied != IsYellowFlagFixRequired)
+            {
+                ApplyReversibleCode(yellowFlagFix, IsYellowFlagFixRequired);
+            }
+
+            var carDesignCalculationUpdate = new CarDesignCalculationUpdate(gameExecutablePath);
             var isEnableCarHandlingDesignCalculationApplied = carDesignCalculationUpdate.IsCodeModified();
             if (isEnableCarHandlingDesignCalculationApplied != IsCarDesignCalculationUpdateRequired)
             {
                 ApplyReversibleCode(carDesignCalculationUpdate, IsCarDesignCalculationUpdateRequired);
             }
 
-            var carHandlingPerformanceFix = new CarHandlingPerformanceFix(gameExecutableFilePath);
+            var carHandlingPerformanceFix = new CarHandlingPerformanceFix(gameExecutablePath);
             var isEnableCarPerformanceRaceCalcuationApplied = carHandlingPerformanceFix.IsCodeModified();
             if (isEnableCarPerformanceRaceCalcuationApplied != IsCarHandlingPerformanceFixRequired)
             {
@@ -194,28 +148,28 @@ namespace Data.Databases
             // Scenario 2: If currently not applied and should not be applied, do nothing
             // Scenario 3: If currently applied, do nothing
 
-            var pointsScoringSystemDefault = new PointsSystemF119912002Update(gameExecutableFilePath);
+            var pointsScoringSystemDefault = new PointsSystemF119912002Update(gameExecutablePath);
             var isPointsScoringSystemDefaultApplied = pointsScoringSystemDefault.IsCodeModified();
             if (!isPointsScoringSystemDefaultApplied && IsPointsScoringSystemDefaultRequired)
             {
                 ApplyIrreversibleCode(pointsScoringSystemDefault);
             }
 
-            var pointsScoringSystemOption1 = new PointsSystemF119811990Update(gameExecutableFilePath);
+            var pointsScoringSystemOption1 = new PointsSystemF119811990Update(gameExecutablePath);
             var isPointsScoringSystemOption1Applied = pointsScoringSystemOption1.IsCodeModified();
             if (!isPointsScoringSystemOption1Applied && IsPointsScoringSystemOption1Required)
             {
                 ApplyIrreversibleCode(pointsScoringSystemOption1);
             }
 
-            var pointsScoringSystemOption2 = new PointsSystemF120032009Update(gameExecutableFilePath);
+            var pointsScoringSystemOption2 = new PointsSystemF120032009Update(gameExecutablePath);
             var isPointsScoringSystemOption2Applied = pointsScoringSystemOption2.IsCodeModified();
             if (!isPointsScoringSystemOption2Applied && IsPointsScoringSystemOption2Required)
             {
                 ApplyIrreversibleCode(pointsScoringSystemOption2);
             }
 
-            var pointsScoringSystemOption3 = new PointsSystemF1201020xxUpdate(gameExecutableFilePath);
+            var pointsScoringSystemOption3 = new PointsSystemF1201020xxUpdate(gameExecutablePath);
             var isPointsScoringSystemOption3Applied = pointsScoringSystemOption3.IsCodeModified();
             if (!isPointsScoringSystemOption3Applied && IsPointsScoringSystemOption3Required)
             {
@@ -223,28 +177,24 @@ namespace Data.Databases
             }
         }
 
-        private void ImportOptions(string gameExecutableFilePath)
+        private void ImportGameConfiguration(string gameExecutablePath)
         {
-            IsGameCdFixApplied = new GameCdFix(gameExecutableFilePath).IsCodeModified();
-            IsDisplayModeFixApplied = new DisplayModeFix(gameExecutableFilePath).IsCodeModified();
-            IsSampleAppFixApplied = new SampleAppFix(gameExecutableFilePath).IsCodeModified();
-            IsYellowFlagFixApplied = new YellowFlagFix(gameExecutableFilePath).IsCodeModified();
-            IsRaceSoundsFixApplied = new RaceSoundsFix(gameExecutableFilePath).IsCodeModified();
-            //IsPitExitPriorityFixApplied = new PitExitPriorityFix(_gameExecutableFilePath).IsCodeModified(); // TODO
-            IsCarDesignCalculationUpdateApplied = new CarDesignCalculationUpdate(gameExecutableFilePath).IsCodeModified();
-            IsCarHandlingPerformanceFixApplied = new CarHandlingPerformanceFix(gameExecutableFilePath).IsCodeModified();
+            IsGameCdFixApplied = new GameCdFix(gameExecutablePath).IsCodeModified();
+            IsDisplayModeFixApplied = new DisplayModeFix(gameExecutablePath).IsCodeModified();
+            IsSampleAppFixApplied = new SampleAppFix(gameExecutablePath).IsCodeModified();
+            IsRaceSoundsFixApplied = new RaceSoundsFix(gameExecutablePath).IsCodeModified();
+            // TODO: IsPitExitPriorityFixApplied = new PitExitPriorityFix(gameExecutablePath).IsCodeModified();
 
-            if (new PointsSystemUnmodified(gameExecutableFilePath).IsCodeUnmodified())
-            {
-                IsPointsScoringSystemDefaultApplied = true;
-            }
-            else
-            {
-                IsPointsScoringSystemDefaultApplied = new PointsSystemF119912002Update(gameExecutableFilePath).IsCodeModified();
-                IsPointsScoringSystemOption1Applied = new PointsSystemF119811990Update(gameExecutableFilePath).IsCodeModified();
-                IsPointsScoringSystemOption2Applied = new PointsSystemF120032009Update(gameExecutableFilePath).IsCodeModified();
-                IsPointsScoringSystemOption3Applied = new PointsSystemF1201020xxUpdate(gameExecutableFilePath).IsCodeModified();
-            }
+            IsYellowFlagFixApplied = new YellowFlagFix(gameExecutablePath).IsCodeModified();
+            IsCarDesignCalculationUpdateApplied = new CarDesignCalculationUpdate(gameExecutablePath).IsCodeModified();
+            IsCarHandlingPerformanceFixApplied = new CarHandlingPerformanceFix(gameExecutablePath).IsCodeModified();
+
+            IsPointsScoringSystemDefaultApplied = new PointsSystemF119912002Update(gameExecutablePath).IsCodeModified();
+            IsPointsScoringSystemOption1Applied = new PointsSystemF119811990Update(gameExecutablePath).IsCodeModified();
+            IsPointsScoringSystemOption2Applied = new PointsSystemF120032009Update(gameExecutablePath).IsCodeModified();
+            IsPointsScoringSystemOption3Applied = new PointsSystemF1201020xxUpdate(gameExecutablePath).IsCodeModified();
+
+            // TODO: IsCommentaryModifiedApplied = ???;
         }
 
         private static void ApplyReversibleCode(IDataPatcherUnitBase dataPatcherUnitBase, bool applyModified)
@@ -287,25 +237,40 @@ namespace Data.Databases
 
         private static void ApplyIrreversibleCode(IDataPatcherUnitBase dataPatcherUnitBase)
         {
-            // TODO should we confirm unmodified code exists? but would that affect differing versions?
+            // TODO: should we confirm unmodified code exists? but would that affect differing versions?
 
             Debug.WriteLine("Applying irreversible modified code.");
             dataPatcherUnitBase.ApplyModifiedCode();
         }
 
-        private static void ValidateGameExecutable(string gameExecutableFilePath)
+        private static void ValidateGameFolder(string gameFolderPath, string context)
         {
             string verificationMessage;
-            var isValid = new ExecutableVerification().IsGameExecutableSupported(gameExecutableFilePath, out verificationMessage);
+            var isValid = new GameFolderVerification().IsFolderSupported(gameFolderPath, out verificationMessage);
 
             if (isValid) return;
-            const string resolutionMessage = "Please ensure the official v1.01b patch has been applied to the game and select a compatible v1.01b game executable to upgrade successfully.";
+            var resolutionMessage = $"Please ensure the selected folder contains the game folders and files to {context} successfully.";
             throw new Exception($"{resolutionMessage}{Environment.NewLine}{Environment.NewLine}{verificationMessage}");
         }
 
-        private static void ValidateLanguageFile(string languageFileFilePath)
+        private static void ValidateGameExecutable(string gameExecutablePath, string context)
         {
-            // TODO Implement
+            string verificationMessage;
+            var isValid = new GameExecutableVerification().IsFileSupported(gameExecutablePath, out verificationMessage);
+
+            if (isValid) return;
+            var resolutionMessage = $"Please ensure the selected file is a compatible v1.01b game executable to {context} successfully.";
+            throw new Exception($"{resolutionMessage}{Environment.NewLine}{Environment.NewLine}{verificationMessage}");
+        }
+
+        private static void ValidateLanguageFile(string languageFilePath, string context)
+        {
+            string verificationMessage;
+            var isValid = new LanguageFileVerification().IsFileSupported(languageFilePath, out verificationMessage);
+
+            if (isValid) return;
+            var resolutionMessage = $"Please ensure the selected file is a compatible v1.01b language file to {context} successfully.";
+            throw new Exception($"{resolutionMessage}{Environment.NewLine}{Environment.NewLine}{verificationMessage}");
         }
     }
 }

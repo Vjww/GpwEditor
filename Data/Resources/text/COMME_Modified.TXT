@@ -1,0 +1,357 @@
+>PITNOW1.WAV In. In. In.<
+>PITNOW2.WAV Coming in.<
+>EASEOFF1.WAV Off. Off. Off.<
+>EASEOFF2.WAV Pulling back.<
+>FLYLAP1.WAV Push. Push. Push.<
+>FLYLAP2.WAV OK. OK. OK.<
+>OVERTAK1.WAV Pass. Pass. Pass.<
+>OVERTAK2.WAV Understood.<
+>BLOCK1.WAV Hold. Hold. Hold.<
+>BLOCK2.WAV Received.<
+>LEAVPIT1.WAV Out. Out. Out.<
+>LEAVPIT2.WAV Going out.<
+>12LAPS.WAV Coming in.<
+>ENGPOW.WAV Losing power.<
+>ENGHEA.WAV Overheating.<
+>ENGUND.WAV Losing traction.<
+>ENGVIB.WAV Rear wing breaking.<
+>FUEL.WAV Fuel low.<
+>TYREW.WAV Tyres worn.<
+>TYREB.WAV Tyres damaged.<
+>TYREC.WAV Tyres too cold.<
+>TYREH.WAV Tyres too hot.<
+>BRAKE.WAV Brake problem.<
+>CLUTCH.WAV Clutch problem.<
+>ELEC.WAV Electronics failing.<
+>GEARS.WAV Gearbox problem.<
+>HYD.WAV Hydraulics failing.<
+>SUS.WAV Suspension damaged.<
+>THROT.WAV Throttle jammed.<
+>AUTOPIT.WAV Coming in this lap.<
+>FWING.WAV Front wing gone!<
+>RWING.WAV Rear wing gone!<
+>NORDER.WAV New orders OK.<
+>TRAF.WAV In traffic.<
+>RWETTYRE.WAV Need wet tyres.<
+>RINTTYRE.WAV Need intermediate tyres.<
+>RDRYTYRE.WAV Need dry tyres.<
+>P1A.WAV P1 - provisional.<
+>P1B.WAV P1 - well done.<
+>P1C.WAV P1 - good work.<
+>P1D.WAV Race won - well done everyone.<
+>P1E.WAV P1 and 2 - great result everybody.<
+>P1F.WAV P1 and 3 - great job.<
+>P2A.WAV P2 - good work.<
+>P2B.WAV Second place - good work.<
+>P2C.WAV P2 and 3 - good job.<
+>P3A.WAV P3 - good work.<
+>P3B.WAV Third place - well done.<
+>P4.WAV P4<
+>P5.WAV P5<
+>P6.WAV P6<
+>P7.WAV P7<
+>P8.WAV P8<
+>P9.WAV P9<
+>P10.WAV P10<
+>P11.WAV P11<
+>P12.WAV P12<
+>P13.WAV P13<
+>P14.WAV P14<
+>P15.WAV P15<
+>P16.WAV P16<
+>P17.WAV P17<
+>P18.WAV P18<
+>P19.WAV P19<
+>P20.WAV P20<
+>P21.WAV P21<
+>P22.WAV P22<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP1.WAV P1<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP2.WAV P2<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEP3.WAV P3<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>NAMEOUT.WAV Car out.<
+>WEREOUT.WAV That's it. Race over.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>NAMEPIT.WAV Car in pits.<
+>BLRUB1.WAV Line rubber low.<
+>BLRUB2.WAV Line rubber okay.<
+>BLRUB3.WAV Line rubber high.<
+>BLRUB4.WAV Line rubber very high.<
+>HEAVRAI.WAV We have heavy rain.<
+>LIGHRAI.WAV We have light rain.<
+>OVER.WAV Sky overcast.<
+>ADRY.WAV Conditions clear.<
+>AVDRY.WAV Conditions sunny.<
+>VWET.WAV Circuit very wet.<
+>WET.WAV Circuit wet.<
+>DAMP.WAV Circuit damp.<
+>CDRY.WAV Circuit dry.<
+>CVDRY.WAV Circuit very dry.<
+>LOSPOS.WAV Lost position.<
+>GAINPOS.WAV Gained position.<
+>UNCLEAR.WAV Position unclear.<
+>QUALX1.WAV Car damaged. Prepare car three.<
+>QUALX3.WAV Car damaged. Unable to continue.<
+>QUALX6.WAV Car damaged. I'm injured but OK. Repeat. OK.<
+>LETPASS2.WAV Moving over.<
+>PITNOW4.WAV Staying out.<
+>EASEOFF4.WAV Pace up.<
+>FLYLAP4.WAV Pace down.<
+>OVERTAK4.WAV Backing off.<
+>BLOCK4.WAV Holding best line.<
+>STALL.WAV The car's stalled! I'm out!<
+>STOPGO.WAV Coming in for stop-go penalty.<
+>DRIPROB.WAV Stamina low. I'm making mistakes.<
+>IMOUT.WAV Going out!<
+>QUALX2.WAV Car three ready.<
+>QUALX4.WAV Bringing race car in pits for repairs.<
+>QUALX5.WAV Can not repair race car. Repeat. Can not repair car.<
+>QUALX7.WAV Driver unable to continue. Sending help.<
+>QUALX8.WAV We have stewards' permission to run Car 3 with Test Driver.<
+>QUALEND.WAV Qualifying over. Well done everybody.<
+>RECORD1.WAV New lap record.<
+>RECORD2.WAV New lap record - great work.<
+>BLUFLAG.WAV Blue flag on circuit.<
+>YELFLAG.WAV Yellow flag on circuit.<
+>FLAGPEN.WAV Flag ignored. 10 second penalty.<
+>PITPEN.WAV Pit lane speeding. 10 second penalty.<
+>FALPEN.WAV False start. 10 second penalty.<
+>ENDSTOP.WAV Late penalty. 25 seconds added to race time.<
+>FLAGPENQ.WAV Yellow flag ignored. Lost fastest lap.<
+>BLRUB0.WAV Line rubber very low.<
+>TTVLOW.WAV Track temperature very low.<
+>TTLOW.WAV Track temperature low.<
+>TTAVE.WAV Track temperature average.<
+>TTHIGH.WAV Track temperature high.<
+>TTVHIGH.WAV Track temperature very high.<
+>WIND1.WAV Windspeed very low.<
+>WIND2.WAV Windspeed low.<
+>WIND3.WAV Windspeed average.<
+>WIND4.WAV Windspeed high.<
+>WIND5.WAV Windspeed very high.<
+>PIT1.WAV Pit stop problem - jack caught.<
+>PIT2.WAV Pit stop problem - car stalled.<
+>PIT3.WAV Pit stop problem - jammed wheel.<
+>PIT4.WAV Pit stop problem - old wheel still in place.<
+>PIT5.WAV Pit stop problem - refuelling hose jam.<
+>PIT6.WAV Pit stop problem - car malfunction! Driver out!<
+>PIT7.WAV Pit stop problem - fire! Fire! Driver out!<
+>PIT8.WAV Pit stop AOK. Car leaving pits.<
+>LETPASS1.WAV Over. Over. Over.<
+>PITNOW3.WAV Stay out. Repeat. Stay out.<
+>EASEOFF3.WAV Drive. Drive. Drive.<
+>FLYLAP3.WAV Easy. Easy. Easy.<
+>OVERTAK3.WAV Back. Back. Back.<
+>BLOCK3.WAV Steady. Steady. Steady.<
+>LETPASS3.WAV Go. Go. Go.<
+>LETPASS4.WAV Taking position.<
+>FUEL2.WAV Fuel load short. Fuel load short.<

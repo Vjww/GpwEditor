@@ -58,97 +58,97 @@ namespace Data.Databases
         public IEnumerable<LookupEntities.TrackDesign> TrackDesignLookups { get; set; }
         public IEnumerable<LookupEntities.TyreSupplierIdAsSupplierId> TyreSupplierIdAsSupplierIdLookups { get; set; }
 
-        public void ImportDataFromFile(string gameExecutableFilePath, string languageFileFilePath)
+        public void ImportDataFromFile(string gameExecutablePath, string languageFilePath)
         {
-            ValidateLanguageFile(languageFileFilePath);
-            ValidateGameExecutable(gameExecutableFilePath);
+            ValidateLanguageFile(languageFilePath);
+            ValidateGameExecutable(gameExecutablePath);
 
-            ImportLanguageStrings(languageFileFilePath);
+            ImportLanguageStrings(languageFilePath);
 
-            ImportTeams(gameExecutableFilePath);
+            ImportTeams(gameExecutablePath);
             ImportFirstGpTrackLookups();
             ImportTyreSupplierIdAsSupplierIdLookups();
 
-            ImportF1Chiefs(gameExecutableFilePath);
-            ImportNonF1Chiefs(gameExecutableFilePath);
+            ImportF1Chiefs(gameExecutablePath);
+            ImportNonF1Chiefs(gameExecutablePath);
 
-            ImportF1Drivers(gameExecutableFilePath);
-            ImportNonF1Drivers(gameExecutableFilePath);
+            ImportF1Drivers(gameExecutablePath);
+            ImportNonF1Drivers(gameExecutablePath);
             ImportDriverNationalityLookups();
             ImportDriverLoyaltyDriverIdAsStaffIdLookups();
 
-            ImportEngines(gameExecutableFilePath);
-            ImportTyres(gameExecutableFilePath);
-            ImportFuels(gameExecutableFilePath);
+            ImportEngines(gameExecutablePath);
+            ImportTyres(gameExecutablePath);
+            ImportFuels(gameExecutablePath);
 
-            ImportTracks(gameExecutableFilePath);
+            ImportTracks(gameExecutablePath);
             ImportTrackDesignLookups();
             ImportFastestLapDriverIdAsStaffIdLookups();
 
-            ImportPerformanceCurve(gameExecutableFilePath);
-            ImportChassisHandlings(gameExecutableFilePath);
+            ImportPerformanceCurve(gameExecutablePath);
+            ImportChassisHandlings(gameExecutablePath);
 
-            // TODO ImportStaffEfforts(gameExecutableFilePath);
-            // TODO ImportStaffSalaries(gameExecutableFilePath);
-            // TODO ImportFactoryRunningCosts(gameExecutableFilePath);
-            // TODO ImportFactoryExpansionCosts(gameExecutableFilePath);
-            // TODO ImportTestingMiles(gameExecutableFilePath);
-            // TODO ImportEngineeringCosts(gameExecutableFilePath);
-            // TODO ImportUnknownAEfforts(gameExecutableFilePath);
-            // TODO ImportUnknownBEfforts(gameExecutableFilePath);
+            // TODO ImportStaffEfforts(gameExecutablePath);
+            // TODO ImportStaffSalaries(gameExecutablePath);
+            // TODO ImportFactoryRunningCosts(gameExecutablePath);
+            // TODO ImportFactoryExpansionCosts(gameExecutablePath);
+            // TODO ImportTestingMiles(gameExecutablePath);
+            // TODO ImportEngineeringCosts(gameExecutablePath);
+            // TODO ImportUnknownAEfforts(gameExecutablePath);
+            // TODO ImportUnknownBEfforts(gameExecutablePath);
         }
 
-        public void ExportDataToFile(string gameExecutableFilePath, string languageFileFilePath)
+        public void ExportDataToFile(string gameExecutablePath, string languageFilePath)
         {
-            ValidateLanguageFile(languageFileFilePath);
-            ValidateGameExecutable(gameExecutableFilePath);
+            ValidateLanguageFile(languageFilePath);
+            ValidateGameExecutable(gameExecutablePath);
 
-            ExportTeams(gameExecutableFilePath);
+            ExportTeams(gameExecutablePath);
 
-            ExportF1Chiefs(gameExecutableFilePath);
-            ExportNonF1Chiefs(gameExecutableFilePath);
+            ExportF1Chiefs(gameExecutablePath);
+            ExportNonF1Chiefs(gameExecutablePath);
 
-            ExportF1Drivers(gameExecutableFilePath);
-            ExportNonF1Drivers(gameExecutableFilePath);
+            ExportF1Drivers(gameExecutablePath);
+            ExportNonF1Drivers(gameExecutablePath);
 
-            ExportEngines(gameExecutableFilePath);
-            ExportTyres(gameExecutableFilePath);
-            ExportFuels(gameExecutableFilePath);
+            ExportEngines(gameExecutablePath);
+            ExportTyres(gameExecutablePath);
+            ExportFuels(gameExecutablePath);
 
-            ExportTracks(gameExecutableFilePath);
+            ExportTracks(gameExecutablePath);
 
-            ExportPerformanceCurve(gameExecutableFilePath);
-            ExportChassisHandlings(gameExecutableFilePath);
+            ExportPerformanceCurve(gameExecutablePath);
+            ExportChassisHandlings(gameExecutablePath);
 
-            // TODO ExportStaffEfforts(gameExecutableFilePath);
-            // TODO ExportStaffSalaries(gameExecutableFilePath);
-            // TODO ExportFactoryRunningCosts(gameExecutableFilePath);
-            // TODO ExportFactoryExpansionCosts(gameExecutableFilePath);
-            // TODO ExportTestingMiles(gameExecutableFilePath);
-            // TODO ExportEngineeringCosts(gameExecutableFilePath);
-            // TODO ExportUnknownAEfforts(gameExecutableFilePath);
-            // TODO ExportUnknownBEfforts(gameExecutableFilePath);
+            // TODO ExportStaffEfforts(gameExecutablePath);
+            // TODO ExportStaffSalaries(gameExecutablePath);
+            // TODO ExportFactoryRunningCosts(gameExecutablePath);
+            // TODO ExportFactoryExpansionCosts(gameExecutablePath);
+            // TODO ExportTestingMiles(gameExecutablePath);
+            // TODO ExportEngineeringCosts(gameExecutablePath);
+            // TODO ExportUnknownAEfforts(gameExecutablePath);
+            // TODO ExportUnknownBEfforts(gameExecutablePath);
 
-            ExportLanguageStrings(languageFileFilePath);
+            ExportLanguageStrings(languageFilePath);
         }
 
-        private void ImportLanguageStrings(string languageFileFilePath)
+        private void ImportLanguageStrings(string languageFilePath)
         {
-            using (var languageConnection = new LanguageConnection(languageFileFilePath))
+            using (var languageConnection = new LanguageConnection(languageFilePath))
             {
                 LanguageStrings = languageConnection.Load();
             }
         }
 
-        private void ExportLanguageStrings(string languageFileFilePath)
+        private void ExportLanguageStrings(string languageFilePath)
         {
-            using (var languageConnection = new LanguageConnection(languageFileFilePath))
+            using (var languageConnection = new LanguageConnection(languageFilePath))
             {
                 languageConnection.Save(LanguageStrings);
             }
         }
 
-        private void ImportTeams(string gameExecutableFilePath)
+        private void ImportTeams(string gameExecutablePath)
         {
             Teams = new Collection<TeamEntities.Team>
             {
@@ -164,15 +164,15 @@ namespace Data.Databases
                 new TeamEntities.Team(new TeamMapping.Team(9), 9),
                 new TeamEntities.Team(new TeamMapping.Team(10), 10)
             };
-            ImportData(gameExecutableFilePath, Teams);
+            ImportData(gameExecutablePath, Teams);
         }
 
-        private void ExportTeams(string gameExecutableFilePath)
+        private void ExportTeams(string gameExecutablePath)
         {
-            ExportData(gameExecutableFilePath, Teams);
+            ExportData(gameExecutablePath, Teams);
         }
 
-        private void ImportF1Chiefs(string gameExecutableFilePath)
+        private void ImportF1Chiefs(string gameExecutablePath)
         {
             F1ChiefCommercials = new Collection<TeamEntities.F1ChiefCommercial>
             {
@@ -188,7 +188,7 @@ namespace Data.Databases
                 new TeamEntities.F1ChiefCommercial(new TeamMapping.F1ChiefCommercial(9), 9),
                 new TeamEntities.F1ChiefCommercial(new TeamMapping.F1ChiefCommercial(10), 10)
             };
-            ImportData(gameExecutableFilePath, F1ChiefCommercials);
+            ImportData(gameExecutablePath, F1ChiefCommercials);
 
             F1ChiefDesigners = new Collection<TeamEntities.F1ChiefDesigner>
             {
@@ -204,7 +204,7 @@ namespace Data.Databases
                 new TeamEntities.F1ChiefDesigner(new TeamMapping.F1ChiefDesigner(9), 9),
                 new TeamEntities.F1ChiefDesigner(new TeamMapping.F1ChiefDesigner(10), 10)
             };
-            ImportData(gameExecutableFilePath, F1ChiefDesigners);
+            ImportData(gameExecutablePath, F1ChiefDesigners);
 
             F1ChiefEngineers = new Collection<TeamEntities.F1ChiefEngineer>
             {
@@ -220,7 +220,7 @@ namespace Data.Databases
                 new TeamEntities.F1ChiefEngineer(new TeamMapping.F1ChiefEngineer(9), 9),
                 new TeamEntities.F1ChiefEngineer(new TeamMapping.F1ChiefEngineer(10), 10)
             };
-            ImportData(gameExecutableFilePath, F1ChiefEngineers);
+            ImportData(gameExecutablePath, F1ChiefEngineers);
 
             F1ChiefMechanics = new Collection<TeamEntities.F1ChiefMechanic>
             {
@@ -236,18 +236,18 @@ namespace Data.Databases
                 new TeamEntities.F1ChiefMechanic(new TeamMapping.F1ChiefMechanic(9), 9),
                 new TeamEntities.F1ChiefMechanic(new TeamMapping.F1ChiefMechanic(10), 10)
             };
-            ImportData(gameExecutableFilePath, F1ChiefMechanics);
+            ImportData(gameExecutablePath, F1ChiefMechanics);
         }
 
-        private void ExportF1Chiefs(string gameExecutableFilePath)
+        private void ExportF1Chiefs(string gameExecutablePath)
         {
-            ExportData(gameExecutableFilePath, F1ChiefCommercials);
-            ExportData(gameExecutableFilePath, F1ChiefDesigners);
-            ExportData(gameExecutableFilePath, F1ChiefEngineers);
-            ExportData(gameExecutableFilePath, F1ChiefMechanics);
+            ExportData(gameExecutablePath, F1ChiefCommercials);
+            ExportData(gameExecutablePath, F1ChiefDesigners);
+            ExportData(gameExecutablePath, F1ChiefEngineers);
+            ExportData(gameExecutablePath, F1ChiefMechanics);
         }
 
-        private void ImportNonF1Chiefs(string gameExecutableFilePath)
+        private void ImportNonF1Chiefs(string gameExecutablePath)
         {
             NonF1ChiefCommercials = new Collection<TeamEntities.NonF1ChiefCommercial>
             {
@@ -262,7 +262,7 @@ namespace Data.Databases
                 new TeamEntities.NonF1ChiefCommercial(new TeamMapping.NonF1ChiefCommercial(8), 8),
                 new TeamEntities.NonF1ChiefCommercial(new TeamMapping.NonF1ChiefCommercial(9), 9)
             };
-            ImportData(gameExecutableFilePath, NonF1ChiefCommercials);
+            ImportData(gameExecutablePath, NonF1ChiefCommercials);
 
             NonF1ChiefDesigners = new Collection<TeamEntities.NonF1ChiefDesigner>
             {
@@ -277,7 +277,7 @@ namespace Data.Databases
                 new TeamEntities.NonF1ChiefDesigner(new TeamMapping.NonF1ChiefDesigner(8), 8),
                 new TeamEntities.NonF1ChiefDesigner(new TeamMapping.NonF1ChiefDesigner(9), 9)
             };
-            ImportData(gameExecutableFilePath, NonF1ChiefDesigners);
+            ImportData(gameExecutablePath, NonF1ChiefDesigners);
 
             NonF1ChiefEngineers = new Collection<TeamEntities.NonF1ChiefEngineer>
             {
@@ -292,7 +292,7 @@ namespace Data.Databases
                 new TeamEntities.NonF1ChiefEngineer(new TeamMapping.NonF1ChiefEngineer(8), 8),
                 new TeamEntities.NonF1ChiefEngineer(new TeamMapping.NonF1ChiefEngineer(9), 9)
             };
-            ImportData(gameExecutableFilePath, NonF1ChiefEngineers);
+            ImportData(gameExecutablePath, NonF1ChiefEngineers);
 
             NonF1ChiefMechanics = new Collection<TeamEntities.NonF1ChiefMechanic>
             {
@@ -307,18 +307,18 @@ namespace Data.Databases
                 new TeamEntities.NonF1ChiefMechanic(new TeamMapping.NonF1ChiefMechanic(8), 8),
                 new TeamEntities.NonF1ChiefMechanic(new TeamMapping.NonF1ChiefMechanic(9), 9)
             };
-            ImportData(gameExecutableFilePath, NonF1ChiefMechanics);
+            ImportData(gameExecutablePath, NonF1ChiefMechanics);
         }
 
-        private void ExportNonF1Chiefs(string gameExecutableFilePath)
+        private void ExportNonF1Chiefs(string gameExecutablePath)
         {
-            ExportData(gameExecutableFilePath, NonF1ChiefCommercials);
-            ExportData(gameExecutableFilePath, NonF1ChiefDesigners);
-            ExportData(gameExecutableFilePath, NonF1ChiefEngineers);
-            ExportData(gameExecutableFilePath, NonF1ChiefMechanics);
+            ExportData(gameExecutablePath, NonF1ChiefCommercials);
+            ExportData(gameExecutablePath, NonF1ChiefDesigners);
+            ExportData(gameExecutablePath, NonF1ChiefEngineers);
+            ExportData(gameExecutablePath, NonF1ChiefMechanics);
         }
 
-        private void ImportF1Drivers(string gameExecutableFilePath)
+        private void ImportF1Drivers(string gameExecutablePath)
         {
             F1Drivers = new Collection<TeamEntities.F1Driver>
             {
@@ -356,15 +356,15 @@ namespace Data.Databases
                 new TeamEntities.F1Driver(new TeamMapping.F1Driver(31), 31),
                 new TeamEntities.F1Driver(new TeamMapping.F1Driver(32), 32)
             };
-            ImportData(gameExecutableFilePath, F1Drivers);
+            ImportData(gameExecutablePath, F1Drivers);
         }
 
-        private void ExportF1Drivers(string gameExecutableFilePath)
+        private void ExportF1Drivers(string gameExecutablePath)
         {
-            ExportData(gameExecutableFilePath, F1Drivers);
+            ExportData(gameExecutablePath, F1Drivers);
         }
 
-        private void ImportNonF1Drivers(string gameExecutableFilePath)
+        private void ImportNonF1Drivers(string gameExecutablePath)
         {
             NonF1Drivers = new Collection<TeamEntities.NonF1Driver>
             {
@@ -380,15 +380,15 @@ namespace Data.Databases
                 new TeamEntities.NonF1Driver(new TeamMapping.NonF1Driver(9), 9),
                 new TeamEntities.NonF1Driver(new TeamMapping.NonF1Driver(10), 10)
             };
-            ImportData(gameExecutableFilePath, NonF1Drivers);
+            ImportData(gameExecutablePath, NonF1Drivers);
         }
 
-        private void ExportNonF1Drivers(string gameExecutableFilePath)
+        private void ExportNonF1Drivers(string gameExecutablePath)
         {
-            ExportData(gameExecutableFilePath, NonF1Drivers);
+            ExportData(gameExecutablePath, NonF1Drivers);
         }
 
-        private void ImportEngines(string gameExecutableFilePath)
+        private void ImportEngines(string gameExecutablePath)
         {
             Engines = new Collection<SupplierEntities.Engine>
             {
@@ -401,15 +401,15 @@ namespace Data.Databases
                 new SupplierEntities.Engine(new SupplierMapping.Engine(6), 6),
                 new SupplierEntities.Engine(new SupplierMapping.Engine(7), 7)
             };
-            ImportData(gameExecutableFilePath, Engines);
+            ImportData(gameExecutablePath, Engines);
         }
 
-        private void ExportEngines(string gameExecutableFilePath)
+        private void ExportEngines(string gameExecutablePath)
         {
-            ExportData(gameExecutableFilePath, Engines);
+            ExportData(gameExecutablePath, Engines);
         }
 
-        private void ImportTyres(string gameExecutableFilePath)
+        private void ImportTyres(string gameExecutablePath)
         {
             Tyres = new Collection<SupplierEntities.Tyre>
             {
@@ -417,15 +417,15 @@ namespace Data.Databases
                 new SupplierEntities.Tyre(new SupplierMapping.Tyre(1), 1),
                 new SupplierEntities.Tyre(new SupplierMapping.Tyre(2), 2)
             };
-            ImportData(gameExecutableFilePath, Tyres);
+            ImportData(gameExecutablePath, Tyres);
         }
 
-        private void ExportTyres(string gameExecutableFilePath)
+        private void ExportTyres(string gameExecutablePath)
         {
-            ExportData(gameExecutableFilePath, Tyres);
+            ExportData(gameExecutablePath, Tyres);
         }
 
-        private void ImportFuels(string gameExecutableFilePath)
+        private void ImportFuels(string gameExecutablePath)
         {
             Fuels = new Collection<SupplierEntities.Fuel>
             {
@@ -439,15 +439,15 @@ namespace Data.Databases
                 new SupplierEntities.Fuel(new SupplierMapping.Fuel(7), 7),
                 new SupplierEntities.Fuel(new SupplierMapping.Fuel(8), 8)
             };
-            ImportData(gameExecutableFilePath, Fuels);
+            ImportData(gameExecutablePath, Fuels);
         }
 
-        private void ExportFuels(string gameExecutableFilePath)
+        private void ExportFuels(string gameExecutablePath)
         {
-            ExportData(gameExecutableFilePath, Fuels);
+            ExportData(gameExecutablePath, Fuels);
         }
 
-        private void ImportTracks(string gameExecutableFilePath)
+        private void ImportTracks(string gameExecutablePath)
         {
             Tracks = new Collection<TrackEntities.Track>
             {
@@ -468,32 +468,32 @@ namespace Data.Databases
                 new TrackEntities.Track(new TrackMapping.Track(14), 14),
                 new TrackEntities.Track(new TrackMapping.Track(15), 15)
             };
-            ImportData(gameExecutableFilePath, Tracks);
+            ImportData(gameExecutablePath, Tracks);
         }
 
-        private void ExportTracks(string gameExecutableFilePath)
+        private void ExportTracks(string gameExecutablePath)
         {
-            ExportData(gameExecutableFilePath, Tracks);
+            ExportData(gameExecutablePath, Tracks);
         }
 
-        private void ImportPerformanceCurve(string gameExecutableFilePath)
+        private void ImportPerformanceCurve(string gameExecutablePath)
         {
             PerformanceCurve = new RaceEntities.PerformanceCurve();
-            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
+            using (var executableConnection = new ExecutableConnection(gameExecutablePath))
             {
                 PerformanceCurve.ImportData(executableConnection, LanguageStrings);
             }
         }
 
-        private void ExportPerformanceCurve(string gameExecutableFilePath)
+        private void ExportPerformanceCurve(string gameExecutablePath)
         {
-            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
+            using (var executableConnection = new ExecutableConnection(gameExecutablePath))
             {
                 PerformanceCurve.ExportData(executableConnection, LanguageStrings);
             }
         }
 
-        private void ImportChassisHandlings(string gameExecutableFilePath)
+        private void ImportChassisHandlings(string gameExecutablePath)
         {
             ChassisHandlings = new Collection<RaceEntities.ChassisHandling>
             {
@@ -509,30 +509,30 @@ namespace Data.Databases
                 new RaceEntities.ChassisHandling(new RaceMapping.ChassisHandling(9), 9),
                 new RaceEntities.ChassisHandling(new RaceMapping.ChassisHandling(10), 10)
             };
-            ImportData(gameExecutableFilePath, ChassisHandlings);
+            ImportData(gameExecutablePath, ChassisHandlings);
         }
 
-        private void ExportChassisHandlings(string gameExecutableFilePath)
+        private void ExportChassisHandlings(string gameExecutablePath)
         {
-            ExportData(gameExecutableFilePath, ChassisHandlings);
+            ExportData(gameExecutablePath, ChassisHandlings);
         }
 
-        //private void ImportStaffEfforts(string gameExecutableFilePath)
+        //private void ImportStaffEfforts(string gameExecutablePath)
         //{
         //    StaffEfforts = new FiveRatingCollection
         //    {
         //        new EnvironmentEntities.StaffEfforts.DepartmentChief(new EnvironmentMapping.StaffEfforts.DepartmentChief()),
         //        new EnvironmentEntities.StaffEfforts.DepartmentStaff(new EnvironmentMapping.StaffEfforts.DepartmentStaff())
         //    };
-        //    ImportData(gameExecutableFilePath, StaffEfforts);
+        //    ImportData(gameExecutablePath, StaffEfforts);
         //}
 
-        //private void ExportStaffEfforts(string gameExecutableFilePath)
+        //private void ExportStaffEfforts(string gameExecutablePath)
         //{
-        //    ExportData(gameExecutableFilePath, StaffEfforts);
+        //    ExportData(gameExecutablePath, StaffEfforts);
         //}
 
-        //private void ImportStaffSalaries(string gameExecutableFilePath)
+        //private void ImportStaffSalaries(string gameExecutablePath)
         //{
         //    StaffSalaries = new FiveRatingCollection
         //    {
@@ -541,30 +541,30 @@ namespace Data.Databases
         //        new EnvironmentEntities.StaffSalaries.Engineering(new EnvironmentMapping.StaffSalaries.Engineering()),
         //        new EnvironmentEntities.StaffSalaries.Mechanics(new EnvironmentMapping.StaffSalaries.Mechanics()),
         //    };
-        //    ImportData(gameExecutableFilePath, StaffSalaries);
+        //    ImportData(gameExecutablePath, StaffSalaries);
         //}
 
-        //private void ExportStaffSalaries(string gameExecutableFilePath)
+        //private void ExportStaffSalaries(string gameExecutablePath)
         //{
-        //    ExportData(gameExecutableFilePath, StaffSalaries);
+        //    ExportData(gameExecutablePath, StaffSalaries);
         //}
 
-        //private void ImportFactoryRunningCosts(string gameExecutableFilePath)
+        //private void ImportFactoryRunningCosts(string gameExecutablePath)
         //{
         //    FactoryRunningCosts = new FiveValueCollection
         //    {
         //        new EnvironmentEntities.RunningCosts.Factory(new EnvironmentMapping.RunningCosts.Factory()),
         //        new EnvironmentEntities.RunningCosts.WindTunnel(new EnvironmentMapping.RunningCosts.WindTunnel())
         //    };
-        //    ImportData(gameExecutableFilePath, FactoryRunningCosts);
+        //    ImportData(gameExecutablePath, FactoryRunningCosts);
         //}
 
-        //private void ExportFactoryRunningCosts(string gameExecutableFilePath)
+        //private void ExportFactoryRunningCosts(string gameExecutablePath)
         //{
-        //    ExportData(gameExecutableFilePath, FactoryRunningCosts);
+        //    ExportData(gameExecutablePath, FactoryRunningCosts);
         //}
 
-        //private void ImportFactoryExpansionCosts(string gameExecutableFilePath)
+        //private void ImportFactoryExpansionCosts(string gameExecutablePath)
         //{
         //    FactoryExpansionCosts = new FiveRatingCollection
         //    {
@@ -576,29 +576,29 @@ namespace Data.Databases
         //        new EnvironmentEntities.ExpansionCosts.WindTunnel(new EnvironmentMapping.ExpansionCosts.WindTunnel()),
         //        new EnvironmentEntities.ExpansionCosts.Workshop(new EnvironmentMapping.ExpansionCosts.Workshop())
         //    };
-        //    ImportData(gameExecutableFilePath, FactoryExpansionCosts);
+        //    ImportData(gameExecutablePath, FactoryExpansionCosts);
         //}
 
-        //private void ExportFactoryExpansionCosts(string gameExecutableFilePath)
+        //private void ExportFactoryExpansionCosts(string gameExecutablePath)
         //{
-        //    ExportData(gameExecutableFilePath, FactoryExpansionCosts);
+        //    ExportData(gameExecutablePath, FactoryExpansionCosts);
         //}
 
-        //private void ImportTestingMiles(string gameExecutableFilePath)
+        //private void ImportTestingMiles(string gameExecutablePath)
         //{
         //    TestingMiles = new TenValueCollection
         //    {
         //        new EnvironmentEntities.TestingMiles.TestingMiles(new EnvironmentMapping.TestingMiles.TestingMiles())
         //    };
-        //    ImportData(gameExecutableFilePath, TestingMiles);
+        //    ImportData(gameExecutablePath, TestingMiles);
         //}
 
-        //private void ExportTestingMiles(string gameExecutableFilePath)
+        //private void ExportTestingMiles(string gameExecutablePath)
         //{
-        //    ExportData(gameExecutableFilePath, TestingMiles);
+        //    ExportData(gameExecutablePath, TestingMiles);
         //}
 
-        //private void ImportEngineeringCosts(string gameExecutableFilePath)
+        //private void ImportEngineeringCosts(string gameExecutablePath)
         //{
         //    EngineeringCosts = new TenValueCollection
         //    {
@@ -609,15 +609,15 @@ namespace Data.Databases
         //        new EnvironmentEntities.EngineeringCosts.UpgradeDrivingAid(new EnvironmentMapping.EngineeringCosts.UpgradeDrivingAid()),
         //        new EnvironmentEntities.EngineeringCosts.BuildSpare(new EnvironmentMapping.EngineeringCosts.BuildSpare())
         //    };
-        //    ImportData(gameExecutableFilePath, EngineeringCosts);
+        //    ImportData(gameExecutablePath, EngineeringCosts);
         //}
 
-        //private void ExportEngineeringCosts(string gameExecutableFilePath)
+        //private void ExportEngineeringCosts(string gameExecutablePath)
         //{
-        //    ExportData(gameExecutableFilePath, EngineeringCosts);
+        //    ExportData(gameExecutablePath, EngineeringCosts);
         //}
 
-        //private void ImportUnknownAEfforts(string gameExecutableFilePath)
+        //private void ImportUnknownAEfforts(string gameExecutablePath)
         //{
         //    UnknownAEfforts = new SingleValueCollection
         //    {
@@ -628,15 +628,15 @@ namespace Data.Databases
         //        new EnvironmentEntities.UnknownAEfforts.Unknown5(new EnvironmentMapping.UnknownAEfforts.Unknown5()),
         //        new EnvironmentEntities.UnknownAEfforts.Unknown6(new EnvironmentMapping.UnknownAEfforts.Unknown6())
         //    };
-        //    ImportData(gameExecutableFilePath, UnknownAEfforts);
+        //    ImportData(gameExecutablePath, UnknownAEfforts);
         //}
 
-        //private void ExportUnknownAEfforts(string gameExecutableFilePath)
+        //private void ExportUnknownAEfforts(string gameExecutablePath)
         //{
-        //    ExportData(gameExecutableFilePath, UnknownAEfforts);
+        //    ExportData(gameExecutablePath, UnknownAEfforts);
         //}
 
-        //private void ImportUnknownBEfforts(string gameExecutableFilePath)
+        //private void ImportUnknownBEfforts(string gameExecutablePath)
         //{
         //    UnknownBEfforts = new SingleValueCollection
         //    {
@@ -647,12 +647,12 @@ namespace Data.Databases
         //        new EnvironmentEntities.UnknownBEfforts.Unknown5(new EnvironmentMapping.UnknownBEfforts.Unknown5()),
         //        new EnvironmentEntities.UnknownBEfforts.Unknown6(new EnvironmentMapping.UnknownBEfforts.Unknown6())
         //    };
-        //    ImportData(gameExecutableFilePath, UnknownBEfforts);
+        //    ImportData(gameExecutablePath, UnknownBEfforts);
         //}
 
-        //private void ExportUnknownBEfforts(string gameExecutableFilePath)
+        //private void ExportUnknownBEfforts(string gameExecutablePath)
         //{
-        //    ExportData(gameExecutableFilePath, UnknownBEfforts);
+        //    ExportData(gameExecutablePath, UnknownBEfforts);
         //}
 
         private void ImportDriverNationalityLookups()
@@ -693,9 +693,9 @@ namespace Data.Databases
             }
         }
 
-        private void ImportData<T>(string gameExecutableFilePath, IEnumerable<T> collection) where T : IDataConnection
+        private void ImportData<T>(string gameExecutablePath, IEnumerable<T> collection) where T : IDataConnection
         {
-            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
+            using (var executableConnection = new ExecutableConnection(gameExecutablePath))
             {
                 foreach (var item in collection)
                 {
@@ -728,9 +728,9 @@ namespace Data.Databases
             return lookups;
         }
 
-        private void ExportData<T>(string gameExecutableFilePath, IEnumerable<T> collection) where T : IDataConnection
+        private void ExportData<T>(string gameExecutablePath, IEnumerable<T> collection) where T : IDataConnection
         {
-            using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
+            using (var executableConnection = new ExecutableConnection(gameExecutablePath))
             {
                 foreach (var item in collection)
                 {
@@ -739,19 +739,19 @@ namespace Data.Databases
             }
         }
 
-        private static void ValidateGameExecutable(string gameExecutableFilePath)
+        private static void ValidateGameExecutable(string gameExecutablePath)
         {
             string verificationMessage;
-            var isValid = new ExecutableVerification().IsGameExecutableSupported(gameExecutableFilePath, out verificationMessage);
+            var isValid = new GameExecutableVerification().IsFileSupported(gameExecutablePath, out verificationMessage);
 
             if (isValid) return;
             const string resolutionMessage = "Please ensure the official v1.01b patch has been applied to the game and select a compatible v1.01b game executable to modify successfully.";
             throw new Exception($"{resolutionMessage}{Environment.NewLine}{Environment.NewLine}{verificationMessage}");
         }
 
-        private static void ValidateLanguageFile(string languageFileFilePath)
+        private static void ValidateLanguageFile(string languageFilePath)
         {
-            // TODO Implement
+            // TODO: Implement
         }
     }
 }

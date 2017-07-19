@@ -34,11 +34,13 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Databases\ConfigureGameDatabase.cs" />
     <Compile Include="Enums\ViewportIdentityType.cs" />
     <Compile Include="Enums\ViewportDisplayType.cs" />
-    <Compile Include="ExecutableVerification.cs" />
+    <Compile Include="FileVerification\GameExecutableVerification.cs" />
     <Compile Include="Collections\Generic\SingleValueCollection.cs" />
     <Compile Include="Entities\Executable\Environment\EngineeringCosts\BuildSpare.cs" />
     <Compile Include="Entities\Executable\Environment\EngineeringCosts\UpgradeDrivingAid.cs" />
@@ -93,7 +95,9 @@
     <Compile Include="Entities\Executable\Environment\StaffSalaries\Commercial.cs" />
     <Compile Include="Entities\Executable\Environment\TestingMiles\TestingMiles.cs" />
     <Compile Include="Entities\Language\IIdentity.cs" />
+    <Compile Include="FileVerification\GameFolderVerification.cs" />
     <Compile Include="Helpers\ResourceHelper.cs" />
+    <Compile Include="FileVerification\LanguageFileVerification.cs" />
     <Compile Include="Patchers\CodeShiftPatcher\DriverData.cs" />
     <Compile Include="Patchers\CodeShiftPatcher\CodeShiftPatcher.cs" />
     <Compile Include="Patchers\CodeShiftPatcher\ChiefData.cs" />
@@ -103,6 +107,11 @@
     <Compile Include="Patchers\CodeShiftPatcher\TeamData.cs" />
     <Compile Include="Patchers\CodeShiftPatcher\TrackData.cs" />
     <Compile Include="Patchers\TrackEditorPatcher\TrackEditorPatcher.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ValueMapping\Executable\Config\RaceViewport.cs" />
     <Compile Include="ValueMapping\Executable\Environment\EngineeringCosts\BuildNextYearCar.cs" />
     <Compile Include="ValueMapping\Executable\Environment\EngineeringCosts\BuildSpare.cs" />
@@ -129,7 +138,7 @@
     <Compile Include="Collections\Language\IdentityCollection.cs" />
     <Compile Include="Databases\ExecutableDatabase.cs" />
     <Compile Include="Databases\LanguageDatabase.cs" />
-    <Compile Include="Databases\UpgradeDatabase.cs" />
+    <Compile Include="Databases\UpgradeGameDatabase.cs" />
     <Compile Include="Entities\Executable\Race\PerformanceCurve.cs" />
     <Compile Include="Entities\Executable\Supplier\Engine.cs" />
     <Compile Include="Entities\Executable\Supplier\Fuel.cs" />
@@ -267,6 +276,21 @@
     <Content Include="Notes\snippets.txt" />
     <Content Include="Notes\Opcode_E8_CALL.txt" />
     <Content Include="Notes\sponsorsuppliercontracts.txt" />
+    <None Include="Resources\text\COMME_Modified_Teams.TXT" />
+    <None Include="Resources\text\COMME_Modified.TXT" />
+    <None Include="Resources\text\COMME_Enhanced.TXT" />
+    <None Include="Resources\bmp\dheads\6.bmp" />
+    <None Include="Resources\bmp\dheads\72.bmp" />
+    <None Include="Resources\bmp\dheads\40.bmp" />
+    <None Include="Resources\bmp\dheads\24.bmp" />
+    <None Include="Resources\speeche\P3A.wav" />
+    <None Include="Resources\speeche\P2A.wav" />
+    <None Include="Resources\speeche\P1C.wav" />
+    <None Include="Resources\speeche\NAMEPIT.wav" />
+    <None Include="Resources\speeche\NAMEP3.wav" />
+    <None Include="Resources\speeche\NAMEP2.wav" />
+    <None Include="Resources\speeche\NAMEP1.wav" />
+    <None Include="Resources\speeche\NAMEOUT.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IntegrationTasks\GpwExe\Text\x_gpwfix_designbyengineer.hbk" />
@@ -300,6 +324,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\Executable\Config\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

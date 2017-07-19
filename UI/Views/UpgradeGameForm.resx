@@ -117,13 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="MenuToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="MenuToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="GameFolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>206, 17</value>
-  </metadata>
+  <data name="OverviewRichTextBox.Text" xml:space="preserve">
+    <value>{\rtf1\ansi\deff0{\fs24\b Overview - Upgrade Game}
+
+Use this tool to upgrade Grand Prix World to the latest specification that is required to support this program.
+
+Before upgrading, you will need to install a fresh copy of the base game onto your computer and then apply the official v1.01b patch to the installation. Do not install any other patches, mods or season updates at this stage, as the upgrade process will make substantial changes to the game files to improve editing and modding capabilities throughout the game. Existing patches, mods or season updates may become incompatible with the game once the upgrades have been applied. If the game folder/files are installed at a location that requires administrator rights to modify the contents (e.g. C:\\Program Files\\MicroProse\\Grand Prix World), you should re-run (and always run) this program as an administrator.
+
+To upgrade, select a language file (e.g. english.txt), a game executable (e.g. gpw.exe) and the path of the game folder (e.g. C:\\Gpw) and click the Upgrade button.
+
+On upgrading, the following changes are applied to the base game.
+
+- Jacques Villeneuve replaces John Newhouse at Williams.
+- Jason Watt joins the game as a test driver for Benetton.
+- Juichi Wakisaka joins the game as a test driver for Jordan.
+- Mário Haberfeld joins the game as a test driver for Stewart.
+- The French Grand Prix now has 72 laps instead of 71.
+- The Japanese Grand Prix now has 53 laps instead of 51.
+- Commentary sounds and texts are updated to support generalised sounds.}</value>
+  </data>
 </root>

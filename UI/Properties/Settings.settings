@@ -11,41 +11,35 @@
     <Setting Name="RegistryKey" Type="System.String" Scope="Application">
       <Value Profile="(Default)">SOFTWARE\MicroProse\Grand Prix World\1.00.000</Value>
     </Setting>
-    <Setting Name="DefaultExecutableFileName" Type="System.String" Scope="Application">
+    <Setting Name="DefaultGameFolderPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Program Files\MicroProse\Grand Prix World</Value>
+    </Setting>
+    <Setting Name="DefaultGameExecutableName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">gpw.exe</Value>
     </Setting>
     <Setting Name="DefaultLanguageFileName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">english.txt</Value>
     </Setting>
-    <Setting Name="DefaultGameFolderPath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\Program Files\MicroProse\Grand Prix World</Value>
-    </Setting>
     <Setting Name="UserGameFolderPath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="UserExecutableFilePath" Type="System.String" Scope="User">
+    <Setting Name="UserGameExecutablePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UserLanguageFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MruGameFolderPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MruGameExecutablePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MruLanguageFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="InitialRun" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="ExecutableEditorMruLanguageFileFilePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="ExecutableEditorMruGameExecutableFilePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="LanguageEditorMruLanguageFileFilePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="LanguageEditorMruGameExecutableFilePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="UpgradeGameMruLanguageFileFilePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="UpgradeGameMruGameExecutableFilePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

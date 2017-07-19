@@ -38,7 +38,7 @@ namespace GpwEditor
                     string.Format(
                         "{0} has detected that the registry keys for {1} are missing.{2}{2}" +
                         "Click the Create Registry Keys button to have {0} create the required registry keys.",
-                        Settings.Default.ApplicationName, "Grand Prix World", Environment.NewLine),
+                        Settings.Default.ApplicationName, Settings.Default.GameName, Environment.NewLine),
                     Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 ChangeGameFolderButton.Enabled = false;
             }
@@ -65,7 +65,7 @@ namespace GpwEditor
                     string.Format(
                         "{0} must be run with administrative rights to be able to create the registry keys for {1}.{2}{2}" +
                         "Please restart {0} as an administrator and try again.",
-                        Settings.Default.ApplicationName, "Grand Prix World", Environment.NewLine),
+                        Settings.Default.ApplicationName, Settings.Default.GameName, Environment.NewLine),
                     Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
@@ -107,7 +107,7 @@ namespace GpwEditor
                     string.Format(
                         "{0} must be run with administrative rights to be able to change the registry keys for {1}.{2}{2}" +
                         "Please restart {0} as an administrator and try again.",
-                        Settings.Default.ApplicationName, "Grand Prix World", Environment.NewLine),
+                        Settings.Default.ApplicationName, Settings.Default.GameName, Environment.NewLine),
                     Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }

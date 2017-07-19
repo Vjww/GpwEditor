@@ -6,14 +6,15 @@ using Data.Databases;
 using Data.FileConnection;
 using GpwEditor.Properties;
 
-namespace GpwEditor
+namespace GpwEditor.Views
 {
     /// <summary>
     /// Enables the user to modify data in the language file.
     /// </summary>
-    public partial class LanguageFileEditorForm : Form
+    public partial class LanguageFileEditorForm : EditorFormBase
     {
         private bool _isFirstRowResult;
+        private bool _isImportOccurred;
         private bool _isModified;
 
         public LanguageFileEditorForm()
@@ -23,80 +24,53 @@ namespace GpwEditor
 
         private void LanguageFileEditorForm_Load(object sender, EventArgs e)
         {
-            // Set icon
             Icon = Resources.icon1;
-
-            // Set form title text
             Text = $"{Settings.Default.ApplicationName} - Language File Editor";
 
+            // Populate with most recently used (MRU) or default
+            GameExecutablePathTextBox.Text = GetGameExecutableMruOrDefault();
+            LanguageFilePathTextBox.Text = GetLanguageFileMruOrDefault();
+
+            // Set modified as default
+            _isModified = true;
+
             ConfigureDataGridViewControl();
-
-            // Populate file paths with most recently used (MRU) or default
-            var defaultLanguageFileFilePath = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultLanguageFileName);
-            LanguageFilePathTextBox.Text =
-                string.IsNullOrWhiteSpace(Settings.Default.LanguageEditorMruLanguageFileFilePath)
-                    ? defaultLanguageFileFilePath
-                    : Settings.Default.LanguageEditorMruLanguageFileFilePath;
-
-            var defaultGameExecutableFilePath = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultExecutableFileName);
-            GameExecutablePathTextBox.Text =
-                string.IsNullOrWhiteSpace(Settings.Default.LanguageEditorMruGameExecutableFilePath)
-                    ? defaultGameExecutableFilePath
-                    : Settings.Default.LanguageEditorMruGameExecutableFilePath;
         }
 
         private void LanguageFileEditorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!ConfirmCloseFormWithUnsavedChanges())
-            {
-                // Abort event
-                e.Cancel = true;
+            if (CloseFormConfirmation(_isModified,
+                $"Are you sure you wish to close the language file editor?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost."))
                 return;
-            }
-
-            // Save and close form
-            Settings.Default.Save();
-        }
-
-        private void BrowseLanguageFileButton_Click(object sender, EventArgs e)
-        {
-            // Prompt user to select file
-            ProgramOpenFileDialog.InitialDirectory = Settings.Default.UserGameFolderPath;
-            ProgramOpenFileDialog.FileName = null;
-            var result = ProgramOpenFileDialog.ShowDialog();
-
-            // Cancel if file was not selected
-            if (result != DialogResult.OK)
-                return;
-
-            LanguageFilePathTextBox.Text = ProgramOpenFileDialog.FileName;
+            e.Cancel = true; // Abort event
         }
 
         private void BrowseGameExecutableButton_Click(object sender, EventArgs e)
         {
-            // Prompt user to select file
-            ProgramOpenFileDialog.InitialDirectory = Settings.Default.UserGameFolderPath;
-            ProgramOpenFileDialog.FileName = null;
-            var result = ProgramOpenFileDialog.ShowDialog();
+            var result = GetGameExecutablePathFromOpenFileDialog();
+            GameExecutablePathTextBox.Text = string.IsNullOrEmpty(result) ? GameExecutablePathTextBox.Text : result;
+        }
 
-            // Cancel if file was not selected
-            if (result != DialogResult.OK)
-                return;
-
-            GameExecutablePathTextBox.Text = ProgramOpenFileDialog.FileName;
+        private void BrowseLanguageFileButton_Click(object sender, EventArgs e)
+        {
+            var result = GetLanguageFilePathFromOpenFileDialog();
+            LanguageFilePathTextBox.Text = string.IsNullOrEmpty(result) ? LanguageFilePathTextBox.Text : result;
         }
 
         private void ImportButton_Click(object sender, EventArgs e)
         {
-            Import(LanguageFilePathTextBox.Text);
-
-            // On import, assume user has made modifications to the data
-            _isModified = true;
+            Import(GameExecutablePathTextBox.Text, LanguageFilePathTextBox.Text);
         }
 
         private void ExportButton_Click(object sender, EventArgs e)
         {
-            Export(LanguageFilePathTextBox.Text);
+            if (!_isImportOccurred)
+            {
+                ShowMessageBox("Unable to export until a successful import has occurred.", MessageBoxIcon.Error);
+                return;
+            }
+
+            Export(GameExecutablePathTextBox.Text, LanguageFilePathTextBox.Text);
         }
 
         private void GoToIndexTextBox_KeyUp(object sender, KeyEventArgs e)
@@ -225,12 +199,12 @@ namespace GpwEditor
 
         private void UpdateTyreCodesButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not implemented yet.");
+            ShowMessageBox("Not implemented yet.");
         }
 
         private void UpdateGameYearButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not implemented yet.");
+            ShowMessageBox("Not implemented yet.");
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -250,37 +224,22 @@ namespace GpwEditor
             LanguageDataGridView.MultiSelect = false;
         }
 
-        private bool ConfirmCloseFormWithUnsavedChanges()
-        {
-            // Return true if there are no unsaved changes 
-            if (!_isModified)
-            {
-                return true;
-            }
-
-            // Prompt user whether to close form with unsaved changes
-            var dialogResult = MessageBox.Show(
-                    $"Are you sure you wish to close the language file editor?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost.",
-                    Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-
-            return dialogResult == DialogResult.Yes;
-        }
-
-        private void Export(string languageFileFilePath)
+        private void Export(string gameExecutablePath, string languageFilePath)
         {
             Cursor.Current = Cursors.WaitCursor;
 
             try
             {
                 // Fill database with data from controls and export to file
-                var languageDatabase = new LanguageDatabase();
-                PopulateRecords(languageDatabase);
-                languageDatabase.ExportDataToFile(languageFileFilePath);
+                var database = new LanguageDatabase();
+                PopulateRecords(database);
+                database.ExportDataToFile(gameExecutablePath, languageFilePath);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
-                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowMessageBox(
+                    $"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
+                    MessageBoxIcon.Error);
                 return;
             }
             finally
@@ -288,7 +247,7 @@ namespace GpwEditor
                 Cursor.Current = Cursors.Default;
             }
 
-            MessageBox.Show("Export complete!", Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ShowMessageBox("Export complete!");
         }
 
         private void Find()
@@ -362,21 +321,23 @@ namespace GpwEditor
             FindTextTextBox.Focus();
         }
 
-        private void Import(string languageFileFilePath)
+        private void Import(string gameExecutablePath, string languageFilePath)
         {
             Cursor.Current = Cursors.WaitCursor;
 
             try
             {
                 // Import from file to database and fill controls with data
-                var languageDatabase = new LanguageDatabase();
-                languageDatabase.ImportDataFromFile(languageFileFilePath);
-                PopulateControls(languageDatabase);
+                var database = new LanguageDatabase();
+                database.ImportDataFromFile(gameExecutablePath, languageFilePath);
+                PopulateControls(database);
+                _isImportOccurred = true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
-                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowMessageBox(
+                    $"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
+                    MessageBoxIcon.Error);
                 return;
             }
             finally
@@ -384,11 +345,7 @@ namespace GpwEditor
                 Cursor.Current = Cursors.Default;
             }
 
-            // Store most recently used (MRU) file paths on successful import
-            Settings.Default.LanguageEditorMruLanguageFileFilePath = LanguageFilePathTextBox.Text;
-            Settings.Default.LanguageEditorMruGameExecutableFilePath = GameExecutablePathTextBox.Text;
-
-            MessageBox.Show("Import complete!", Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ShowMessageBox("Import complete!");
         }
 
         private void NavigateToRow(int index)
@@ -413,10 +370,10 @@ namespace GpwEditor
             }
         }
 
-        private void PopulateControls(LanguageDatabase languageDatabase)
+        private void PopulateControls(LanguageDatabase database)
         {
             // Move data from database into controls
-            LanguageDataGridView.DataSource = languageDatabase.LanguageStrings;
+            LanguageDataGridView.DataSource = database.LanguageStrings;
 
             // Format data grid
             var records = (IdentityCollection)LanguageDataGridView.DataSource;
@@ -428,10 +385,10 @@ namespace GpwEditor
             LanguageDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
-        private void PopulateRecords(LanguageDatabase languageDatabase)
+        private void PopulateRecords(LanguageDatabase database)
         {
             // Move data from controls into database
-            languageDatabase.LanguageStrings = LanguageDataGridView.DataSource as IdentityCollection;
+            database.LanguageStrings = LanguageDataGridView.DataSource as IdentityCollection;
         }
 
         private void Search()

@@ -7,27 +7,27 @@ namespace Data.Databases
     {
         public IdentityCollection LanguageStrings { get; set; }
 
-        public void ImportDataFromFile(string languageFileFilePath)
+        public void ImportDataFromFile(string gameExecutablePath, string languageFilePath)
         {
-            ImportLanguageStrings(languageFileFilePath);
+            ImportLanguageStrings(languageFilePath);
         }
 
-        public void ExportDataToFile(string languageFileFilePath)
+        public void ExportDataToFile(string gameExecutablePath, string languageFilePath)
         {
-            ExportLanguageStrings(languageFileFilePath);
+            ExportLanguageStrings(languageFilePath);
         }
 
-        private void ImportLanguageStrings(string languageFileFilePath)
+        private void ImportLanguageStrings(string languageFilePath)
         {
-            using (var languageConnection = new LanguageConnection(languageFileFilePath))
+            using (var languageConnection = new LanguageConnection(languageFilePath))
             {
                 LanguageStrings = languageConnection.Load();
             }
         }
 
-        private void ExportLanguageStrings(string languageFileFilePath)
+        private void ExportLanguageStrings(string languageFilePath)
         {
-            using (var languageConnection = new LanguageConnection(languageFileFilePath))
+            using (var languageConnection = new LanguageConnection(languageFilePath))
             {
                 languageConnection.Save(LanguageStrings);
             }

@@ -39,12 +39,13 @@
             this.MenuToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.UpgradeGameButton = new System.Windows.Forms.Button();
             this.GameFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.ConfigureGameButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // GameExecutableEditorButton
             // 
-            this.GameExecutableEditorButton.Location = new System.Drawing.Point(8, 136);
+            this.GameExecutableEditorButton.Location = new System.Drawing.Point(8, 170);
             this.GameExecutableEditorButton.Name = "GameExecutableEditorButton";
             this.GameExecutableEditorButton.Size = new System.Drawing.Size(176, 23);
             this.GameExecutableEditorButton.TabIndex = 1;
@@ -55,7 +56,7 @@
             // 
             // SaveGameEditorButton
             // 
-            this.SaveGameEditorButton.Location = new System.Drawing.Point(8, 168);
+            this.SaveGameEditorButton.Location = new System.Drawing.Point(200, 170);
             this.SaveGameEditorButton.Name = "SaveGameEditorButton";
             this.SaveGameEditorButton.Size = new System.Drawing.Size(176, 23);
             this.SaveGameEditorButton.TabIndex = 2;
@@ -66,7 +67,7 @@
             // 
             // RegistryKeysButton
             // 
-            this.RegistryKeysButton.Location = new System.Drawing.Point(200, 104);
+            this.RegistryKeysButton.Location = new System.Drawing.Point(200, 102);
             this.RegistryKeysButton.Name = "RegistryKeysButton";
             this.RegistryKeysButton.Size = new System.Drawing.Size(176, 23);
             this.RegistryKeysButton.TabIndex = 4;
@@ -78,7 +79,7 @@
             // 
             // LanguageFileEditorButton
             // 
-            this.LanguageFileEditorButton.Location = new System.Drawing.Point(8, 200);
+            this.LanguageFileEditorButton.Location = new System.Drawing.Point(8, 204);
             this.LanguageFileEditorButton.Name = "LanguageFileEditorButton";
             this.LanguageFileEditorButton.Size = new System.Drawing.Size(176, 23);
             this.LanguageFileEditorButton.TabIndex = 3;
@@ -89,7 +90,7 @@
             // 
             // LaunchGameButton
             // 
-            this.LaunchGameButton.Location = new System.Drawing.Point(200, 168);
+            this.LaunchGameButton.Location = new System.Drawing.Point(200, 204);
             this.LaunchGameButton.Name = "LaunchGameButton";
             this.LaunchGameButton.Size = new System.Drawing.Size(176, 23);
             this.LaunchGameButton.TabIndex = 6;
@@ -121,7 +122,7 @@
             // 
             // UpgradeGameButton
             // 
-            this.UpgradeGameButton.Location = new System.Drawing.Point(8, 104);
+            this.UpgradeGameButton.Location = new System.Drawing.Point(8, 102);
             this.UpgradeGameButton.Name = "UpgradeGameButton";
             this.UpgradeGameButton.Size = new System.Drawing.Size(176, 23);
             this.UpgradeGameButton.TabIndex = 0;
@@ -134,11 +135,22 @@
             // 
             this.GameFolderBrowserDialog.ShowNewFolderButton = false;
             // 
+            // ConfigureGameButton
+            // 
+            this.ConfigureGameButton.Location = new System.Drawing.Point(8, 136);
+            this.ConfigureGameButton.Name = "ConfigureGameButton";
+            this.ConfigureGameButton.Size = new System.Drawing.Size(176, 23);
+            this.ConfigureGameButton.TabIndex = 7;
+            this.ConfigureGameButton.Text = "Configure Game";
+            this.ConfigureGameButton.UseVisualStyleBackColor = true;
+            this.ConfigureGameButton.Click += new System.EventHandler(this.ConfigureGameButton_Click);
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 236);
+            this.Controls.Add(this.ConfigureGameButton);
             this.Controls.Add(this.LaunchGameButton);
             this.Controls.Add(this.LanguageFileEditorButton);
             this.Controls.Add(this.RegistryKeysButton);
@@ -169,6 +181,7 @@
         private System.Windows.Forms.ToolTip MenuToolTip;
         private System.Windows.Forms.FolderBrowserDialog GameFolderBrowserDialog;
         private System.Windows.Forms.Button UpgradeGameButton;
+        private System.Windows.Forms.Button ConfigureGameButton;
     }
 }
 
