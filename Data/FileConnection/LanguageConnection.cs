@@ -2,6 +2,7 @@
 using Common.FileConnection;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Common.Extensions;
 using Data.Collections.Language;
 using Data.Entities.Language;
@@ -145,7 +146,7 @@ namespace Data.FileConnection
             if (IsRead())
             {
                 Close();
-                Open(StreamDirectionType.Write);
+                Open(StreamDirectionType.Write, FileMode.Truncate);
                 return;
             }
 
