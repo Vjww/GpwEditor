@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Data.Collections.Language;
 using Data.Databases;
 using GpwEditor.Properties;
 
@@ -39,6 +40,15 @@ namespace GpwEditor.Views
                 $"Are you sure you wish to close this window?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost."))
                 return;
             e.Cancel = true; // Abort event
+        }
+
+        private void ConfigureGameTabControl_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (!_isImportOccurred)
+            {
+                e.Cancel = true; // Abort event
+                ShowMessageBox("Unable to switch tabs until a successful import has occurred.", MessageBoxIcon.Error);
+            }
         }
 
         private void BrowseGameFolderButton_Click(object sender, EventArgs e)
@@ -131,6 +141,8 @@ namespace GpwEditor.Views
         private void PopulateControls(ConfigureGameDatabase database)
         {
             // Move data from database into controls
+            LanguageDataGridView.DataSource = database.LanguageStrings;
+
             DisableGameCdCheckBox.Checked = database.IsGameCdFixApplied;
             DisableColourModeCheckBox.Checked = database.IsDisplayModeFixApplied;
             DisableSampleAppCheckBox.Checked = database.IsSampleAppFixApplied;
@@ -153,6 +165,8 @@ namespace GpwEditor.Views
         private void PopulateRecords(ConfigureGameDatabase database)
         {
             // Move data from controls into database
+            database.LanguageStrings = (IdentityCollection)LanguageDataGridView.DataSource;
+
             database.IsGameCdFixRequired = DisableGameCdCheckBox.Checked;
             database.IsDisplayModeFixRequired = DisableColourModeCheckBox.Checked;
             database.IsSampleAppFixRequired = DisableSampleAppCheckBox.Checked;

@@ -26,7 +26,7 @@ namespace GpwEditor.Views
     {
         private RacePerformanceCurveChart _racePerformanceCurveChart;
         private bool _isFailedValidationForSwitchingContext;
-        private bool _isImportOccured;
+        private bool _isImportOccurred;
 
         public GameExecutableEditorForm()
         {
@@ -68,7 +68,7 @@ namespace GpwEditor.Views
 
         private void MainTabControl_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (!_isImportOccured)
+            if (!_isImportOccurred)
             {
                 e.Cancel = true; // Abort event
                 ShowMessageBox("Unable to switch tabs until a successful import has occurred.", MessageBoxIcon.Error);
@@ -100,7 +100,7 @@ namespace GpwEditor.Views
 
         private void ExportButton_Click(object sender, EventArgs e)
         {
-            if (!_isImportOccured)
+            if (!_isImportOccurred)
             {
                 ShowMessageBox("Unable to export until a successful import has occurred.", MessageBoxIcon.Error);
                 return;
@@ -403,7 +403,7 @@ namespace GpwEditor.Views
                 var database = new ExecutableDatabase();
                 database.ImportDataFromFile(gameExecutablePath, languageFilePath);
                 PopulateControls(database);
-                _isImportOccured = true;
+                _isImportOccurred = true;
             }
             catch (Exception ex)
             {

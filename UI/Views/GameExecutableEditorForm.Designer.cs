@@ -442,8 +442,8 @@
             // 
             // HomeTabPage
             // 
-            this.HomeTabPage.Controls.Add(this.FilesGroupBox);
             this.HomeTabPage.Controls.Add(this.LanguageDataGridView);
+            this.HomeTabPage.Controls.Add(this.FilesGroupBox);
             this.HomeTabPage.Controls.Add(this.OverviewGroupBox);
             this.HomeTabPage.Location = new System.Drawing.Point(4, 22);
             this.HomeTabPage.Name = "HomeTabPage";

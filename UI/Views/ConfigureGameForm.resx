@@ -123,6 +123,9 @@
   <metadata name="ProgramFolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>199, 17</value>
   </metadata>
+  <metadata name="identityBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>411, 17</value>
+  </metadata>
   <data name="OverviewRichTextBox.Text" xml:space="preserve">
     <value>{\rtf1\ansi\deff0{\fs24\b Overview - Configure Game}
 

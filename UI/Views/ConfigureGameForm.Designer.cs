@@ -28,9 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigureGameForm));
             this.ConfigureGameTabControl = new System.Windows.Forms.TabControl();
             this.HomeTabPage = new System.Windows.Forms.TabPage();
+            this.LanguageDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localResourceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.identityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.OverviewGroupBox = new System.Windows.Forms.GroupBox();
             this.OverviewRichTextBox = new System.Windows.Forms.RichTextBox();
             this.FilesGroupBox = new System.Windows.Forms.GroupBox();
@@ -71,6 +78,8 @@
             this.ViewportsGroupBox = new System.Windows.Forms.GroupBox();
             this.ConfigureGameTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.identityBindingSource)).BeginInit();
             this.OverviewGroupBox.SuspendLayout();
             this.FilesGroupBox.SuspendLayout();
             this.CompatibilityTabPage.SuspendLayout();
@@ -98,9 +107,11 @@
             this.ConfigureGameTabControl.SelectedIndex = 0;
             this.ConfigureGameTabControl.Size = new System.Drawing.Size(938, 555);
             this.ConfigureGameTabControl.TabIndex = 0;
+            this.ConfigureGameTabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.ConfigureGameTabControl_Selecting);
             // 
             // HomeTabPage
             // 
+            this.HomeTabPage.Controls.Add(this.LanguageDataGridView);
             this.HomeTabPage.Controls.Add(this.OverviewGroupBox);
             this.HomeTabPage.Controls.Add(this.FilesGroupBox);
             this.HomeTabPage.Location = new System.Drawing.Point(4, 22);
@@ -110,6 +121,51 @@
             this.HomeTabPage.TabIndex = 0;
             this.HomeTabPage.Text = "Home";
             this.HomeTabPage.UseVisualStyleBackColor = true;
+            // 
+            // LanguageDataGridView
+            // 
+            this.LanguageDataGridView.AutoGenerateColumns = false;
+            this.LanguageDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.LanguageDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.localResourceIdDataGridViewTextBoxColumn,
+            this.resourceIdDataGridViewTextBoxColumn,
+            this.resourceTextDataGridViewTextBoxColumn});
+            this.LanguageDataGridView.DataSource = this.identityBindingSource;
+            this.LanguageDataGridView.Location = new System.Drawing.Point(6, 476);
+            this.LanguageDataGridView.Name = "LanguageDataGridView";
+            this.LanguageDataGridView.Size = new System.Drawing.Size(918, 47);
+            this.LanguageDataGridView.TabIndex = 5;
+            this.LanguageDataGridView.TabStop = false;
+            this.LanguageDataGridView.Visible = false;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // localResourceIdDataGridViewTextBoxColumn
+            // 
+            this.localResourceIdDataGridViewTextBoxColumn.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn.Name = "localResourceIdDataGridViewTextBoxColumn";
+            // 
+            // resourceIdDataGridViewTextBoxColumn
+            // 
+            this.resourceIdDataGridViewTextBoxColumn.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn.Name = "resourceIdDataGridViewTextBoxColumn";
+            // 
+            // resourceTextDataGridViewTextBoxColumn
+            // 
+            this.resourceTextDataGridViewTextBoxColumn.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn.Name = "resourceTextDataGridViewTextBoxColumn";
+            // 
+            // identityBindingSource
+            // 
+            this.identityBindingSource.DataSource = typeof(Data.Entities.Language.Identity);
             // 
             // OverviewGroupBox
             // 
@@ -533,6 +589,8 @@
             this.Load += new System.EventHandler(this.ConfigureGameForm_Load);
             this.ConfigureGameTabControl.ResumeLayout(false);
             this.HomeTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.identityBindingSource)).EndInit();
             this.OverviewGroupBox.ResumeLayout(false);
             this.FilesGroupBox.ResumeLayout(false);
             this.FilesGroupBox.PerformLayout();
@@ -594,5 +652,11 @@
         private System.Windows.Forms.GroupBox ViewportsGroupBox;
         private System.Windows.Forms.GroupBox OverviewGroupBox;
         private System.Windows.Forms.RichTextBox OverviewRichTextBox;
+        private System.Windows.Forms.DataGridView LanguageDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn localResourceIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resourceIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resourceTextDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource identityBindingSource;
     }
 }
