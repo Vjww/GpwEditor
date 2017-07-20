@@ -1,6 +1,6 @@
 ﻿namespace GpwEditor.Views
 {
-    partial class EditorFormBase
+    partial class EditorForm
     {
         /// <summary>
         /// Required designer variable.

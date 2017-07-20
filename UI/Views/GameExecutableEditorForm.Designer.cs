@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.HomeTabPage = new System.Windows.Forms.TabPage();
+            this.LanguageDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localResourceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.identityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FilesGroupBox = new System.Windows.Forms.GroupBox();
             this.GameExecutablePathLabel = new System.Windows.Forms.Label();
             this.LanguageFilePathLabel = new System.Windows.Forms.Label();
@@ -43,12 +46,6 @@
             this.BrowseLanguageFileButton = new System.Windows.Forms.Button();
             this.ExportButton = new System.Windows.Forms.Button();
             this.ImportButton = new System.Windows.Forms.Button();
-            this.LanguageDataGridView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localResourceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resourceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resourceTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.identityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.OverviewGroupBox = new System.Windows.Forms.GroupBox();
             this.OverviewRichTextBox = new System.Windows.Forms.RichTextBox();
             this.TeamsTabPage = new System.Windows.Forms.TabPage();
@@ -311,7 +308,7 @@
             this.heatDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.windDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trackBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.RacePerformanceTabPage = new System.Windows.Forms.TabPage();
+            this.ChassisHandlingTabPage = new System.Windows.Forms.TabPage();
             this.ChassisHandlingDataGridView = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localResourceIdDataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -319,34 +316,11 @@
             this.resourceTextDataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chassisHandlingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.RacePerformanceGroupBox = new System.Windows.Forms.GroupBox();
-            this.RacePerformanceCopyRecommendedButton = new System.Windows.Forms.Button();
-            this.RacePerformanceProposedCheckBox = new System.Windows.Forms.CheckBox();
-            this.RacePerformanceChartBox000NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceCurrentCheckBox = new System.Windows.Forms.CheckBox();
-            this.RacePerformanceDefaultCheckBox = new System.Windows.Forms.CheckBox();
-            this.RacePerformanceEditButton = new System.Windows.Forms.Button();
-            this.RacePerformanceCopyCurrentButton = new System.Windows.Forms.Button();
-            this.RacePerformanceCopyDefaultButton = new System.Windows.Forms.Button();
-            this.RacePerformanceChartBox120NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceSoftenCurveButton = new System.Windows.Forms.Button();
-            this.RacePerformanceChartBox070NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox060NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox020NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox040NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox080NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox030NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox090NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox050NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox100NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox010NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChartBox110NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RacePerformanceChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.MainTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
-            this.FilesGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.identityBindingSource)).BeginInit();
+            this.FilesGroupBox.SuspendLayout();
             this.OverviewGroupBox.SuspendLayout();
             this.TeamsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TeamsDataGridView)).BeginInit();
@@ -403,24 +377,9 @@
             this.TracksTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TracksDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBindingSource)).BeginInit();
-            this.RacePerformanceTabPage.SuspendLayout();
+            this.ChassisHandlingTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ChassisHandlingDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chassisHandlingBindingSource)).BeginInit();
-            this.RacePerformanceGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox000NumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox120NumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox070NumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox060NumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox020NumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox040NumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox080NumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox030NumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox090NumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox050NumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox100NumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox010NumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox110NumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChart)).BeginInit();
             this.SuspendLayout();
             // 
             // MainTabControl
@@ -431,7 +390,7 @@
             this.MainTabControl.Controls.Add(this.DriversTabPage);
             this.MainTabControl.Controls.Add(this.SuppliersTabPage);
             this.MainTabControl.Controls.Add(this.TracksTabPage);
-            this.MainTabControl.Controls.Add(this.RacePerformanceTabPage);
+            this.MainTabControl.Controls.Add(this.ChassisHandlingTabPage);
             this.MainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTabControl.Location = new System.Drawing.Point(3, 3);
             this.MainTabControl.Name = "MainTabControl";
@@ -452,6 +411,51 @@
             this.HomeTabPage.TabIndex = 0;
             this.HomeTabPage.Text = "Home";
             this.HomeTabPage.UseVisualStyleBackColor = true;
+            // 
+            // LanguageDataGridView
+            // 
+            this.LanguageDataGridView.AutoGenerateColumns = false;
+            this.LanguageDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.LanguageDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.localResourceIdDataGridViewTextBoxColumn,
+            this.resourceIdDataGridViewTextBoxColumn,
+            this.resourceTextDataGridViewTextBoxColumn});
+            this.LanguageDataGridView.DataSource = this.identityBindingSource;
+            this.LanguageDataGridView.Location = new System.Drawing.Point(6, 476);
+            this.LanguageDataGridView.Name = "LanguageDataGridView";
+            this.LanguageDataGridView.Size = new System.Drawing.Size(918, 47);
+            this.LanguageDataGridView.TabIndex = 0;
+            this.LanguageDataGridView.TabStop = false;
+            this.LanguageDataGridView.Visible = false;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // localResourceIdDataGridViewTextBoxColumn
+            // 
+            this.localResourceIdDataGridViewTextBoxColumn.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn.Name = "localResourceIdDataGridViewTextBoxColumn";
+            // 
+            // resourceIdDataGridViewTextBoxColumn
+            // 
+            this.resourceIdDataGridViewTextBoxColumn.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn.Name = "resourceIdDataGridViewTextBoxColumn";
+            // 
+            // resourceTextDataGridViewTextBoxColumn
+            // 
+            this.resourceTextDataGridViewTextBoxColumn.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn.Name = "resourceTextDataGridViewTextBoxColumn";
+            // 
+            // identityBindingSource
+            // 
+            this.identityBindingSource.DataSource = typeof(Data.Entities.Language.Identity);
             // 
             // FilesGroupBox
             // 
@@ -545,51 +549,6 @@
             this.ImportButton.Text = "Import...";
             this.ImportButton.UseVisualStyleBackColor = true;
             this.ImportButton.Click += new System.EventHandler(this.ImportButton_Click);
-            // 
-            // LanguageDataGridView
-            // 
-            this.LanguageDataGridView.AutoGenerateColumns = false;
-            this.LanguageDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.LanguageDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.localResourceIdDataGridViewTextBoxColumn,
-            this.resourceIdDataGridViewTextBoxColumn,
-            this.resourceTextDataGridViewTextBoxColumn});
-            this.LanguageDataGridView.DataSource = this.identityBindingSource;
-            this.LanguageDataGridView.Location = new System.Drawing.Point(6, 476);
-            this.LanguageDataGridView.Name = "LanguageDataGridView";
-            this.LanguageDataGridView.Size = new System.Drawing.Size(918, 47);
-            this.LanguageDataGridView.TabIndex = 0;
-            this.LanguageDataGridView.TabStop = false;
-            this.LanguageDataGridView.Visible = false;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // localResourceIdDataGridViewTextBoxColumn
-            // 
-            this.localResourceIdDataGridViewTextBoxColumn.DataPropertyName = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn.HeaderText = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn.Name = "localResourceIdDataGridViewTextBoxColumn";
-            // 
-            // resourceIdDataGridViewTextBoxColumn
-            // 
-            this.resourceIdDataGridViewTextBoxColumn.DataPropertyName = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn.HeaderText = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn.Name = "resourceIdDataGridViewTextBoxColumn";
-            // 
-            // resourceTextDataGridViewTextBoxColumn
-            // 
-            this.resourceTextDataGridViewTextBoxColumn.DataPropertyName = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn.HeaderText = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn.Name = "resourceTextDataGridViewTextBoxColumn";
-            // 
-            // identityBindingSource
-            // 
-            this.identityBindingSource.DataSource = typeof(Data.Entities.Language.Identity);
             // 
             // OverviewGroupBox
             // 
@@ -2591,18 +2550,16 @@
             // 
             this.trackBindingSource.DataSource = typeof(Data.Entities.Executable.Track.Track);
             // 
-            // RacePerformanceTabPage
+            // ChassisHandlingTabPage
             // 
-            this.RacePerformanceTabPage.Controls.Add(this.ChassisHandlingDataGridView);
-            this.RacePerformanceTabPage.Controls.Add(this.RacePerformanceGroupBox);
-            this.RacePerformanceTabPage.Controls.Add(this.RacePerformanceChart);
-            this.RacePerformanceTabPage.Location = new System.Drawing.Point(4, 22);
-            this.RacePerformanceTabPage.Name = "RacePerformanceTabPage";
-            this.RacePerformanceTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.RacePerformanceTabPage.Size = new System.Drawing.Size(930, 529);
-            this.RacePerformanceTabPage.TabIndex = 7;
-            this.RacePerformanceTabPage.Text = "Race Performance";
-            this.RacePerformanceTabPage.UseVisualStyleBackColor = true;
+            this.ChassisHandlingTabPage.Controls.Add(this.ChassisHandlingDataGridView);
+            this.ChassisHandlingTabPage.Location = new System.Drawing.Point(4, 22);
+            this.ChassisHandlingTabPage.Name = "ChassisHandlingTabPage";
+            this.ChassisHandlingTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.ChassisHandlingTabPage.Size = new System.Drawing.Size(930, 529);
+            this.ChassisHandlingTabPage.TabIndex = 7;
+            this.ChassisHandlingTabPage.Text = "Chassis Handling";
+            this.ChassisHandlingTabPage.UseVisualStyleBackColor = true;
             // 
             // ChassisHandlingDataGridView
             // 
@@ -2615,9 +2572,10 @@
             this.resourceTextDataGridViewTextBoxColumn16,
             this.valueDataGridViewTextBoxColumn});
             this.ChassisHandlingDataGridView.DataSource = this.chassisHandlingBindingSource;
-            this.ChassisHandlingDataGridView.Location = new System.Drawing.Point(684, 6);
+            this.ChassisHandlingDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChassisHandlingDataGridView.Location = new System.Drawing.Point(3, 3);
             this.ChassisHandlingDataGridView.Name = "ChassisHandlingDataGridView";
-            this.ChassisHandlingDataGridView.Size = new System.Drawing.Size(240, 372);
+            this.ChassisHandlingDataGridView.Size = new System.Drawing.Size(924, 523);
             this.ChassisHandlingDataGridView.TabIndex = 1;
             // 
             // idDataGridViewTextBoxColumn16
@@ -2654,414 +2612,6 @@
             // 
             this.chassisHandlingBindingSource.DataSource = typeof(Data.Entities.Executable.Race.ChassisHandling);
             // 
-            // RacePerformanceGroupBox
-            // 
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceCopyRecommendedButton);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceProposedCheckBox);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceChartBox000NumericUpDown);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceCurrentCheckBox);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceDefaultCheckBox);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceEditButton);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceCopyCurrentButton);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceCopyDefaultButton);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceChartBox120NumericUpDown);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceSoftenCurveButton);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceChartBox070NumericUpDown);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceChartBox060NumericUpDown);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceChartBox020NumericUpDown);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceChartBox040NumericUpDown);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceChartBox080NumericUpDown);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceChartBox030NumericUpDown);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceChartBox090NumericUpDown);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceChartBox050NumericUpDown);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceChartBox100NumericUpDown);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceChartBox010NumericUpDown);
-            this.RacePerformanceGroupBox.Controls.Add(this.RacePerformanceChartBox110NumericUpDown);
-            this.RacePerformanceGroupBox.Location = new System.Drawing.Point(6, 384);
-            this.RacePerformanceGroupBox.Name = "RacePerformanceGroupBox";
-            this.RacePerformanceGroupBox.Size = new System.Drawing.Size(676, 80);
-            this.RacePerformanceGroupBox.TabIndex = 0;
-            this.RacePerformanceGroupBox.TabStop = false;
-            // 
-            // RacePerformanceCopyRecommendedButton
-            // 
-            this.RacePerformanceCopyRecommendedButton.Location = new System.Drawing.Point(519, 51);
-            this.RacePerformanceCopyRecommendedButton.Name = "RacePerformanceCopyRecommendedButton";
-            this.RacePerformanceCopyRecommendedButton.Size = new System.Drawing.Size(151, 23);
-            this.RacePerformanceCopyRecommendedButton.TabIndex = 7;
-            this.RacePerformanceCopyRecommendedButton.Text = "Copy Recommended";
-            this.RacePerformanceCopyRecommendedButton.UseVisualStyleBackColor = true;
-            this.RacePerformanceCopyRecommendedButton.Click += new System.EventHandler(this.RacePerformanceCopyRecommendedButton_Click);
-            // 
-            // RacePerformanceProposedCheckBox
-            // 
-            this.RacePerformanceProposedCheckBox.AutoSize = true;
-            this.RacePerformanceProposedCheckBox.Checked = true;
-            this.RacePerformanceProposedCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.RacePerformanceProposedCheckBox.Location = new System.Drawing.Point(5, 57);
-            this.RacePerformanceProposedCheckBox.Name = "RacePerformanceProposedCheckBox";
-            this.RacePerformanceProposedCheckBox.Size = new System.Drawing.Size(71, 17);
-            this.RacePerformanceProposedCheckBox.TabIndex = 2;
-            this.RacePerformanceProposedCheckBox.Text = "Proposed";
-            this.RacePerformanceProposedCheckBox.UseVisualStyleBackColor = true;
-            this.RacePerformanceProposedCheckBox.CheckedChanged += new System.EventHandler(this.RacePerformanceProposedCheckBox_CheckedChanged);
-            // 
-            // RacePerformanceChartBox000NumericUpDown
-            // 
-            this.RacePerformanceChartBox000NumericUpDown.InterceptArrowKeys = false;
-            this.RacePerformanceChartBox000NumericUpDown.Location = new System.Drawing.Point(94, 19);
-            this.RacePerformanceChartBox000NumericUpDown.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.RacePerformanceChartBox000NumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.RacePerformanceChartBox000NumericUpDown.Name = "RacePerformanceChartBox000NumericUpDown";
-            this.RacePerformanceChartBox000NumericUpDown.Size = new System.Drawing.Size(18, 20);
-            this.RacePerformanceChartBox000NumericUpDown.TabIndex = 0;
-            this.RacePerformanceChartBox000NumericUpDown.TabStop = false;
-            this.RacePerformanceChartBox000NumericUpDown.Tag = "0";
-            this.RacePerformanceChartBox000NumericUpDown.ValueChanged += new System.EventHandler(this.RacePerformanceNumericUpDown_ValueChanged);
-            // 
-            // RacePerformanceCurrentCheckBox
-            // 
-            this.RacePerformanceCurrentCheckBox.AutoSize = true;
-            this.RacePerformanceCurrentCheckBox.Checked = true;
-            this.RacePerformanceCurrentCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.RacePerformanceCurrentCheckBox.Location = new System.Drawing.Point(5, 34);
-            this.RacePerformanceCurrentCheckBox.Name = "RacePerformanceCurrentCheckBox";
-            this.RacePerformanceCurrentCheckBox.Size = new System.Drawing.Size(60, 17);
-            this.RacePerformanceCurrentCheckBox.TabIndex = 1;
-            this.RacePerformanceCurrentCheckBox.Text = "Current";
-            this.RacePerformanceCurrentCheckBox.UseVisualStyleBackColor = true;
-            this.RacePerformanceCurrentCheckBox.CheckedChanged += new System.EventHandler(this.RacePerformanceCurrentCheckBox_CheckedChanged);
-            // 
-            // RacePerformanceDefaultCheckBox
-            // 
-            this.RacePerformanceDefaultCheckBox.AutoSize = true;
-            this.RacePerformanceDefaultCheckBox.Checked = true;
-            this.RacePerformanceDefaultCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.RacePerformanceDefaultCheckBox.Location = new System.Drawing.Point(5, 11);
-            this.RacePerformanceDefaultCheckBox.Name = "RacePerformanceDefaultCheckBox";
-            this.RacePerformanceDefaultCheckBox.Size = new System.Drawing.Size(60, 17);
-            this.RacePerformanceDefaultCheckBox.TabIndex = 0;
-            this.RacePerformanceDefaultCheckBox.Text = "Default";
-            this.RacePerformanceDefaultCheckBox.UseVisualStyleBackColor = true;
-            this.RacePerformanceDefaultCheckBox.CheckedChanged += new System.EventHandler(this.RacePerformanceDefaultCheckBox_CheckedChanged);
-            // 
-            // RacePerformanceEditButton
-            // 
-            this.RacePerformanceEditButton.Location = new System.Drawing.Point(111, 51);
-            this.RacePerformanceEditButton.Name = "RacePerformanceEditButton";
-            this.RacePerformanceEditButton.Size = new System.Drawing.Size(63, 23);
-            this.RacePerformanceEditButton.TabIndex = 3;
-            this.RacePerformanceEditButton.Text = "Edit...";
-            this.RacePerformanceEditButton.UseVisualStyleBackColor = true;
-            this.RacePerformanceEditButton.Click += new System.EventHandler(this.RacePerformanceEditButton_Click);
-            // 
-            // RacePerformanceCopyCurrentButton
-            // 
-            this.RacePerformanceCopyCurrentButton.Location = new System.Drawing.Point(406, 51);
-            this.RacePerformanceCopyCurrentButton.Name = "RacePerformanceCopyCurrentButton";
-            this.RacePerformanceCopyCurrentButton.Size = new System.Drawing.Size(107, 23);
-            this.RacePerformanceCopyCurrentButton.TabIndex = 6;
-            this.RacePerformanceCopyCurrentButton.Text = "Copy Current";
-            this.RacePerformanceCopyCurrentButton.UseVisualStyleBackColor = true;
-            this.RacePerformanceCopyCurrentButton.Click += new System.EventHandler(this.RacePerformanceCopyCurrentButton_Click);
-            // 
-            // RacePerformanceCopyDefaultButton
-            // 
-            this.RacePerformanceCopyDefaultButton.Location = new System.Drawing.Point(293, 51);
-            this.RacePerformanceCopyDefaultButton.Name = "RacePerformanceCopyDefaultButton";
-            this.RacePerformanceCopyDefaultButton.Size = new System.Drawing.Size(107, 23);
-            this.RacePerformanceCopyDefaultButton.TabIndex = 5;
-            this.RacePerformanceCopyDefaultButton.Text = "Copy Default";
-            this.RacePerformanceCopyDefaultButton.UseVisualStyleBackColor = true;
-            this.RacePerformanceCopyDefaultButton.Click += new System.EventHandler(this.RacePerformanceCopyDefaultButton_Click);
-            // 
-            // RacePerformanceChartBox120NumericUpDown
-            // 
-            this.RacePerformanceChartBox120NumericUpDown.InterceptArrowKeys = false;
-            this.RacePerformanceChartBox120NumericUpDown.Location = new System.Drawing.Point(628, 19);
-            this.RacePerformanceChartBox120NumericUpDown.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.RacePerformanceChartBox120NumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.RacePerformanceChartBox120NumericUpDown.Name = "RacePerformanceChartBox120NumericUpDown";
-            this.RacePerformanceChartBox120NumericUpDown.Size = new System.Drawing.Size(18, 20);
-            this.RacePerformanceChartBox120NumericUpDown.TabIndex = 0;
-            this.RacePerformanceChartBox120NumericUpDown.TabStop = false;
-            this.RacePerformanceChartBox120NumericUpDown.Tag = "120";
-            this.RacePerformanceChartBox120NumericUpDown.ValueChanged += new System.EventHandler(this.RacePerformanceNumericUpDown_ValueChanged);
-            // 
-            // RacePerformanceSoftenCurveButton
-            // 
-            this.RacePerformanceSoftenCurveButton.Location = new System.Drawing.Point(180, 51);
-            this.RacePerformanceSoftenCurveButton.Name = "RacePerformanceSoftenCurveButton";
-            this.RacePerformanceSoftenCurveButton.Size = new System.Drawing.Size(107, 23);
-            this.RacePerformanceSoftenCurveButton.TabIndex = 4;
-            this.RacePerformanceSoftenCurveButton.Text = "Soften Curve";
-            this.RacePerformanceSoftenCurveButton.UseVisualStyleBackColor = true;
-            this.RacePerformanceSoftenCurveButton.Click += new System.EventHandler(this.RacePerformanceSoftenCurveButton_Click);
-            // 
-            // RacePerformanceChartBox070NumericUpDown
-            // 
-            this.RacePerformanceChartBox070NumericUpDown.InterceptArrowKeys = false;
-            this.RacePerformanceChartBox070NumericUpDown.Location = new System.Drawing.Point(406, 19);
-            this.RacePerformanceChartBox070NumericUpDown.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.RacePerformanceChartBox070NumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.RacePerformanceChartBox070NumericUpDown.Name = "RacePerformanceChartBox070NumericUpDown";
-            this.RacePerformanceChartBox070NumericUpDown.Size = new System.Drawing.Size(18, 20);
-            this.RacePerformanceChartBox070NumericUpDown.TabIndex = 0;
-            this.RacePerformanceChartBox070NumericUpDown.TabStop = false;
-            this.RacePerformanceChartBox070NumericUpDown.Tag = "70";
-            this.RacePerformanceChartBox070NumericUpDown.ValueChanged += new System.EventHandler(this.RacePerformanceNumericUpDown_ValueChanged);
-            // 
-            // RacePerformanceChartBox060NumericUpDown
-            // 
-            this.RacePerformanceChartBox060NumericUpDown.InterceptArrowKeys = false;
-            this.RacePerformanceChartBox060NumericUpDown.Location = new System.Drawing.Point(361, 19);
-            this.RacePerformanceChartBox060NumericUpDown.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.RacePerformanceChartBox060NumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.RacePerformanceChartBox060NumericUpDown.Name = "RacePerformanceChartBox060NumericUpDown";
-            this.RacePerformanceChartBox060NumericUpDown.Size = new System.Drawing.Size(18, 20);
-            this.RacePerformanceChartBox060NumericUpDown.TabIndex = 0;
-            this.RacePerformanceChartBox060NumericUpDown.TabStop = false;
-            this.RacePerformanceChartBox060NumericUpDown.Tag = "60";
-            this.RacePerformanceChartBox060NumericUpDown.ValueChanged += new System.EventHandler(this.RacePerformanceNumericUpDown_ValueChanged);
-            // 
-            // RacePerformanceChartBox020NumericUpDown
-            // 
-            this.RacePerformanceChartBox020NumericUpDown.InterceptArrowKeys = false;
-            this.RacePerformanceChartBox020NumericUpDown.Location = new System.Drawing.Point(183, 19);
-            this.RacePerformanceChartBox020NumericUpDown.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.RacePerformanceChartBox020NumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.RacePerformanceChartBox020NumericUpDown.Name = "RacePerformanceChartBox020NumericUpDown";
-            this.RacePerformanceChartBox020NumericUpDown.Size = new System.Drawing.Size(18, 20);
-            this.RacePerformanceChartBox020NumericUpDown.TabIndex = 0;
-            this.RacePerformanceChartBox020NumericUpDown.TabStop = false;
-            this.RacePerformanceChartBox020NumericUpDown.Tag = "20";
-            this.RacePerformanceChartBox020NumericUpDown.ValueChanged += new System.EventHandler(this.RacePerformanceNumericUpDown_ValueChanged);
-            // 
-            // RacePerformanceChartBox040NumericUpDown
-            // 
-            this.RacePerformanceChartBox040NumericUpDown.InterceptArrowKeys = false;
-            this.RacePerformanceChartBox040NumericUpDown.Location = new System.Drawing.Point(272, 19);
-            this.RacePerformanceChartBox040NumericUpDown.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.RacePerformanceChartBox040NumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.RacePerformanceChartBox040NumericUpDown.Name = "RacePerformanceChartBox040NumericUpDown";
-            this.RacePerformanceChartBox040NumericUpDown.Size = new System.Drawing.Size(18, 20);
-            this.RacePerformanceChartBox040NumericUpDown.TabIndex = 0;
-            this.RacePerformanceChartBox040NumericUpDown.TabStop = false;
-            this.RacePerformanceChartBox040NumericUpDown.Tag = "40";
-            this.RacePerformanceChartBox040NumericUpDown.ValueChanged += new System.EventHandler(this.RacePerformanceNumericUpDown_ValueChanged);
-            // 
-            // RacePerformanceChartBox080NumericUpDown
-            // 
-            this.RacePerformanceChartBox080NumericUpDown.InterceptArrowKeys = false;
-            this.RacePerformanceChartBox080NumericUpDown.Location = new System.Drawing.Point(450, 19);
-            this.RacePerformanceChartBox080NumericUpDown.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.RacePerformanceChartBox080NumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.RacePerformanceChartBox080NumericUpDown.Name = "RacePerformanceChartBox080NumericUpDown";
-            this.RacePerformanceChartBox080NumericUpDown.Size = new System.Drawing.Size(18, 20);
-            this.RacePerformanceChartBox080NumericUpDown.TabIndex = 0;
-            this.RacePerformanceChartBox080NumericUpDown.TabStop = false;
-            this.RacePerformanceChartBox080NumericUpDown.Tag = "80";
-            this.RacePerformanceChartBox080NumericUpDown.ValueChanged += new System.EventHandler(this.RacePerformanceNumericUpDown_ValueChanged);
-            // 
-            // RacePerformanceChartBox030NumericUpDown
-            // 
-            this.RacePerformanceChartBox030NumericUpDown.InterceptArrowKeys = false;
-            this.RacePerformanceChartBox030NumericUpDown.Location = new System.Drawing.Point(228, 19);
-            this.RacePerformanceChartBox030NumericUpDown.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.RacePerformanceChartBox030NumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.RacePerformanceChartBox030NumericUpDown.Name = "RacePerformanceChartBox030NumericUpDown";
-            this.RacePerformanceChartBox030NumericUpDown.Size = new System.Drawing.Size(18, 20);
-            this.RacePerformanceChartBox030NumericUpDown.TabIndex = 0;
-            this.RacePerformanceChartBox030NumericUpDown.TabStop = false;
-            this.RacePerformanceChartBox030NumericUpDown.Tag = "30";
-            this.RacePerformanceChartBox030NumericUpDown.ValueChanged += new System.EventHandler(this.RacePerformanceNumericUpDown_ValueChanged);
-            // 
-            // RacePerformanceChartBox090NumericUpDown
-            // 
-            this.RacePerformanceChartBox090NumericUpDown.InterceptArrowKeys = false;
-            this.RacePerformanceChartBox090NumericUpDown.Location = new System.Drawing.Point(495, 19);
-            this.RacePerformanceChartBox090NumericUpDown.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.RacePerformanceChartBox090NumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.RacePerformanceChartBox090NumericUpDown.Name = "RacePerformanceChartBox090NumericUpDown";
-            this.RacePerformanceChartBox090NumericUpDown.Size = new System.Drawing.Size(18, 20);
-            this.RacePerformanceChartBox090NumericUpDown.TabIndex = 0;
-            this.RacePerformanceChartBox090NumericUpDown.TabStop = false;
-            this.RacePerformanceChartBox090NumericUpDown.Tag = "90";
-            this.RacePerformanceChartBox090NumericUpDown.ValueChanged += new System.EventHandler(this.RacePerformanceNumericUpDown_ValueChanged);
-            // 
-            // RacePerformanceChartBox050NumericUpDown
-            // 
-            this.RacePerformanceChartBox050NumericUpDown.InterceptArrowKeys = false;
-            this.RacePerformanceChartBox050NumericUpDown.Location = new System.Drawing.Point(317, 19);
-            this.RacePerformanceChartBox050NumericUpDown.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.RacePerformanceChartBox050NumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.RacePerformanceChartBox050NumericUpDown.Name = "RacePerformanceChartBox050NumericUpDown";
-            this.RacePerformanceChartBox050NumericUpDown.Size = new System.Drawing.Size(18, 20);
-            this.RacePerformanceChartBox050NumericUpDown.TabIndex = 0;
-            this.RacePerformanceChartBox050NumericUpDown.TabStop = false;
-            this.RacePerformanceChartBox050NumericUpDown.Tag = "50";
-            this.RacePerformanceChartBox050NumericUpDown.ValueChanged += new System.EventHandler(this.RacePerformanceNumericUpDown_ValueChanged);
-            // 
-            // RacePerformanceChartBox100NumericUpDown
-            // 
-            this.RacePerformanceChartBox100NumericUpDown.InterceptArrowKeys = false;
-            this.RacePerformanceChartBox100NumericUpDown.Location = new System.Drawing.Point(539, 19);
-            this.RacePerformanceChartBox100NumericUpDown.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.RacePerformanceChartBox100NumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.RacePerformanceChartBox100NumericUpDown.Name = "RacePerformanceChartBox100NumericUpDown";
-            this.RacePerformanceChartBox100NumericUpDown.Size = new System.Drawing.Size(18, 20);
-            this.RacePerformanceChartBox100NumericUpDown.TabIndex = 0;
-            this.RacePerformanceChartBox100NumericUpDown.TabStop = false;
-            this.RacePerformanceChartBox100NumericUpDown.Tag = "100";
-            this.RacePerformanceChartBox100NumericUpDown.ValueChanged += new System.EventHandler(this.RacePerformanceNumericUpDown_ValueChanged);
-            // 
-            // RacePerformanceChartBox010NumericUpDown
-            // 
-            this.RacePerformanceChartBox010NumericUpDown.InterceptArrowKeys = false;
-            this.RacePerformanceChartBox010NumericUpDown.Location = new System.Drawing.Point(139, 19);
-            this.RacePerformanceChartBox010NumericUpDown.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.RacePerformanceChartBox010NumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.RacePerformanceChartBox010NumericUpDown.Name = "RacePerformanceChartBox010NumericUpDown";
-            this.RacePerformanceChartBox010NumericUpDown.Size = new System.Drawing.Size(18, 20);
-            this.RacePerformanceChartBox010NumericUpDown.TabIndex = 0;
-            this.RacePerformanceChartBox010NumericUpDown.TabStop = false;
-            this.RacePerformanceChartBox010NumericUpDown.Tag = "10";
-            this.RacePerformanceChartBox010NumericUpDown.ValueChanged += new System.EventHandler(this.RacePerformanceNumericUpDown_ValueChanged);
-            // 
-            // RacePerformanceChartBox110NumericUpDown
-            // 
-            this.RacePerformanceChartBox110NumericUpDown.InterceptArrowKeys = false;
-            this.RacePerformanceChartBox110NumericUpDown.Location = new System.Drawing.Point(584, 19);
-            this.RacePerformanceChartBox110NumericUpDown.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.RacePerformanceChartBox110NumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-            this.RacePerformanceChartBox110NumericUpDown.Name = "RacePerformanceChartBox110NumericUpDown";
-            this.RacePerformanceChartBox110NumericUpDown.Size = new System.Drawing.Size(18, 20);
-            this.RacePerformanceChartBox110NumericUpDown.TabIndex = 0;
-            this.RacePerformanceChartBox110NumericUpDown.TabStop = false;
-            this.RacePerformanceChartBox110NumericUpDown.Tag = "110";
-            this.RacePerformanceChartBox110NumericUpDown.ValueChanged += new System.EventHandler(this.RacePerformanceNumericUpDown_ValueChanged);
-            // 
-            // RacePerformanceChart
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.RacePerformanceChart.ChartAreas.Add(chartArea1);
-            this.RacePerformanceChart.Location = new System.Drawing.Point(6, 6);
-            this.RacePerformanceChart.Name = "RacePerformanceChart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Name = "Series1";
-            this.RacePerformanceChart.Series.Add(series1);
-            this.RacePerformanceChart.Size = new System.Drawing.Size(676, 372);
-            this.RacePerformanceChart.TabIndex = 0;
-            this.RacePerformanceChart.TabStop = false;
-            title1.Name = "Title1";
-            title1.Text = "Race Performance Curve";
-            this.RacePerformanceChart.Titles.Add(title1);
-            // 
             // GameExecutableEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3076,10 +2626,10 @@
             this.Load += new System.EventHandler(this.GameExecutableEditorForm_Load);
             this.MainTabControl.ResumeLayout(false);
             this.HomeTabPage.ResumeLayout(false);
-            this.FilesGroupBox.ResumeLayout(false);
-            this.FilesGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.identityBindingSource)).EndInit();
+            this.FilesGroupBox.ResumeLayout(false);
+            this.FilesGroupBox.PerformLayout();
             this.OverviewGroupBox.ResumeLayout(false);
             this.TeamsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TeamsDataGridView)).EndInit();
@@ -3136,25 +2686,9 @@
             this.TracksTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TracksDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBindingSource)).EndInit();
-            this.RacePerformanceTabPage.ResumeLayout(false);
+            this.ChassisHandlingTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ChassisHandlingDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chassisHandlingBindingSource)).EndInit();
-            this.RacePerformanceGroupBox.ResumeLayout(false);
-            this.RacePerformanceGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox000NumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox120NumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox070NumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox060NumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox020NumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox040NumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox080NumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox030NumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox090NumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox050NumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox100NumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox010NumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChartBox110NumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RacePerformanceChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3203,30 +2737,7 @@
         private System.Windows.Forms.DataGridView SuppliersTyresDataGridView;
         private System.Windows.Forms.DataGridView SuppliersFuelsDataGridView;
         private System.Windows.Forms.DataGridView TracksDataGridView;
-        private System.Windows.Forms.TabPage RacePerformanceTabPage;
-        private System.Windows.Forms.DataVisualization.Charting.Chart RacePerformanceChart;
-        private System.Windows.Forms.NumericUpDown RacePerformanceChartBox000NumericUpDown;
-        private System.Windows.Forms.NumericUpDown RacePerformanceChartBox010NumericUpDown;
-        private System.Windows.Forms.NumericUpDown RacePerformanceChartBox020NumericUpDown;
-        private System.Windows.Forms.NumericUpDown RacePerformanceChartBox030NumericUpDown;
-        private System.Windows.Forms.NumericUpDown RacePerformanceChartBox040NumericUpDown;
-        private System.Windows.Forms.NumericUpDown RacePerformanceChartBox050NumericUpDown;
-        private System.Windows.Forms.NumericUpDown RacePerformanceChartBox060NumericUpDown;
-        private System.Windows.Forms.NumericUpDown RacePerformanceChartBox070NumericUpDown;
-        private System.Windows.Forms.NumericUpDown RacePerformanceChartBox080NumericUpDown;
-        private System.Windows.Forms.NumericUpDown RacePerformanceChartBox090NumericUpDown;
-        private System.Windows.Forms.NumericUpDown RacePerformanceChartBox100NumericUpDown;
-        private System.Windows.Forms.NumericUpDown RacePerformanceChartBox110NumericUpDown;
-        private System.Windows.Forms.NumericUpDown RacePerformanceChartBox120NumericUpDown;
-        private System.Windows.Forms.GroupBox RacePerformanceGroupBox;
-        private System.Windows.Forms.CheckBox RacePerformanceCurrentCheckBox;
-        private System.Windows.Forms.CheckBox RacePerformanceDefaultCheckBox;
-        private System.Windows.Forms.CheckBox RacePerformanceProposedCheckBox;
-        private System.Windows.Forms.Button RacePerformanceEditButton;
-        private System.Windows.Forms.Button RacePerformanceSoftenCurveButton;
-        private System.Windows.Forms.Button RacePerformanceCopyDefaultButton;
-        private System.Windows.Forms.Button RacePerformanceCopyCurrentButton;
-        private System.Windows.Forms.Button RacePerformanceCopyRecommendedButton;
+        private System.Windows.Forms.TabPage ChassisHandlingTabPage;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn localResourceIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn resourceIdDataGridViewTextBoxColumn;

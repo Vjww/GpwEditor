@@ -1,6 +1,6 @@
-﻿namespace GpwEditor
+﻿namespace GpwEditor.Views
 {
-    partial class RacePerformanceCurveForm
+    partial class PerformanceCurveValuesForm
     {
         /// <summary>
         /// Required designer variable.
@@ -48,16 +48,16 @@
             this.ValuesGroupBox.Size = new System.Drawing.Size(359, 207);
             this.ValuesGroupBox.TabIndex = 0;
             this.ValuesGroupBox.TabStop = false;
-            this.ValuesGroupBox.Text = "Race Performance Curve";
+            this.ValuesGroupBox.Text = "Performance Curve";
             // 
             // DescriptionLabel
             // 
             this.DescriptionLabel.AutoSize = true;
             this.DescriptionLabel.Location = new System.Drawing.Point(6, 16);
             this.DescriptionLabel.Name = "DescriptionLabel";
-            this.DescriptionLabel.Size = new System.Drawing.Size(336, 13);
+            this.DescriptionLabel.Size = new System.Drawing.Size(312, 13);
             this.DescriptionLabel.TabIndex = 0;
-            this.DescriptionLabel.Text = "Replace the 120 values below to update the race performance curve.";
+            this.DescriptionLabel.Text = "Replace the 120 values below to update the performance curve.";
             // 
             // RequirementsLabel
             // 
@@ -108,7 +108,7 @@
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // RacePerformanceCurveForm
+            // PerformanceCurveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -119,9 +119,9 @@
             this.Controls.Add(this.ValuesGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "RacePerformanceCurveForm";
+            this.Name = "PerformanceCurveForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.RacePerformanceCurveForm_Load);
+            this.Load += new System.EventHandler(this.PerformanceCurveForm_Load);
             this.ValuesGroupBox.ResumeLayout(false);
             this.ValuesGroupBox.PerformLayout();
             this.ResumeLayout(false);

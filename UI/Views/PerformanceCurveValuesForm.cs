@@ -2,29 +2,29 @@
 using System.Windows.Forms;
 using GpwEditor.Properties;
 
-namespace GpwEditor
+namespace GpwEditor.Views
 {
-    public partial class RacePerformanceCurveForm : Form
+    public partial class PerformanceCurveValuesForm : Form
     {
-        private readonly RacePerformanceCurveChart _racePerformanceCurveChart;
+        private readonly PerformanceCurveChart _performanceCurveChart;
 
-        public RacePerformanceCurveForm(RacePerformanceCurveChart racePerformanceCurveChart)
+        public PerformanceCurveValuesForm(PerformanceCurveChart performanceCurveChart)
         {
-            _racePerformanceCurveChart = racePerformanceCurveChart;
+            _performanceCurveChart = performanceCurveChart;
 
             InitializeComponent();
         }
 
-        private void RacePerformanceCurveForm_Load(object sender, EventArgs e)
+        private void PerformanceCurveForm_Load(object sender, EventArgs e)
         {
             // Set icon
             Icon = Resources.icon1;
 
             // Set form title text
-            Text = $"{Settings.Default.ApplicationName} - Race Performance Curve";
+            Text = $"{Settings.Default.ApplicationName} - Performance Curve";
 
             // Update label with lower and upper bound values
-            RequirementsLabel.Text = string.Format(RequirementsLabel.Text, RacePerformanceCurveChart.YAxisLowerBound, RacePerformanceCurveChart.YAxisUpperBound);
+            RequirementsLabel.Text = string.Format(RequirementsLabel.Text, PerformanceCurveChart.YAxisLowerBound, PerformanceCurveChart.YAxisUpperBound);
 
             GetValues();
         }
@@ -78,7 +78,7 @@ namespace GpwEditor
             ValuesTextBox.Clear();
 
             // Get values
-            var proposedValues = _racePerformanceCurveChart.GetProposedSeries();
+            var proposedValues = _performanceCurveChart.GetProposedSeries();
 
             // Populate textbox
             foreach (var proposedValue in proposedValues)
@@ -99,7 +99,7 @@ namespace GpwEditor
             }
 
             // Set values
-            _racePerformanceCurveChart.SetHiddenSeries(values);
+            _performanceCurveChart.SetHiddenSeries(values);
         }
 
         private bool ValidateValues()

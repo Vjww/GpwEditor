@@ -5,7 +5,7 @@ using GpwEditor.Properties;
 
 namespace GpwEditor.Views
 {
-    public partial class UpgradeGameForm : EditorFormBase
+    public partial class UpgradeGameForm : EditorForm
     {
         private bool _isModified;
 

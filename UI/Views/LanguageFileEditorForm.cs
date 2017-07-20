@@ -11,7 +11,7 @@ namespace GpwEditor.Views
     /// <summary>
     /// Enables the user to modify data in the language file.
     /// </summary>
-    public partial class LanguageFileEditorForm : EditorFormBase
+    public partial class LanguageFileEditorForm : EditorForm
     {
         private bool _isFirstRowResult;
         private bool _isImportOccurred;

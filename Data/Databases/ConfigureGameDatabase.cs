@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using Data.Collections.Language;
+using Data.Entities.Executable.Race;
 using Data.FileConnection;
 using Data.Patchers;
 using Data.Patchers.Enhancements.Units;
@@ -40,6 +41,7 @@ namespace Data.Databases
         public bool IsCommentaryModifiedRequired { get; set; }
 
         public IdentityCollection LanguageStrings { get; set; }
+        public PerformanceCurve PerformanceCurve { get; set; }
 
         public void ImportDataFromFile(string gameFolderPath, string gameExecutablePath, string languageFilePath)
         {
@@ -50,6 +52,7 @@ namespace Data.Databases
             ImportLanguageStrings(languageFilePath);
 
             ImportGameConfiguration(gameExecutablePath);
+            ImportPerformanceCurve(gameExecutablePath);
         }
 
         public void ExportDataToFile(string gameFolderPath, string gameExecutablePath, string languageFilePath)
@@ -59,6 +62,7 @@ namespace Data.Databases
             ValidateLanguageFile(languageFilePath, "export");
 
             ExportGameConfiguration(gameExecutablePath);
+            ExportPerformanceCurve(gameExecutablePath);
 
             ExportLanguageStrings(languageFilePath);
         }
@@ -195,6 +199,23 @@ namespace Data.Databases
             IsPointsScoringSystemOption3Applied = new PointsSystemF1201020xxUpdate(gameExecutablePath).IsCodeModified();
 
             // TODO: IsCommentaryModifiedApplied = ???;
+        }
+
+        private void ImportPerformanceCurve(string gameExecutablePath)
+        {
+            PerformanceCurve = new PerformanceCurve();
+            using (var executableConnection = new ExecutableConnection(gameExecutablePath))
+            {
+                PerformanceCurve.ImportData(executableConnection, LanguageStrings);
+            }
+        }
+
+        private void ExportPerformanceCurve(string gameExecutablePath)
+        {
+            using (var executableConnection = new ExecutableConnection(gameExecutablePath))
+            {
+                PerformanceCurve.ExportData(executableConnection, LanguageStrings);
+            }
         }
 
         private static void ApplyReversibleCode(IDataPatcherUnitBase dataPatcherUnitBase, bool applyModified)

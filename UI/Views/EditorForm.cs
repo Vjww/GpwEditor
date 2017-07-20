@@ -5,11 +5,26 @@ using GpwEditor.Properties;
 
 namespace GpwEditor.Views
 {
-    public partial class EditorFormBase : Form
+    public partial class EditorForm : Form
     {
-        public EditorFormBase()
+        protected EditorForm()
         {
             InitializeComponent();
+        }
+
+        protected bool CloseFormConfirmation(bool isModified, string message)
+        {
+            // Return true if there are no unsaved changes 
+            if (!isModified)
+            {
+                return true;
+            }
+
+            // Prompt user whether to close form with unsaved changes
+            var result = MessageBox.Show(message, Settings.Default.ApplicationName, MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+
+            return result == DialogResult.Yes;
         }
 
         protected static void ConvertLinesToRtf(RichTextBox richTextBox)
@@ -126,19 +141,11 @@ namespace GpwEditor.Views
             MessageBox.Show(message, Settings.Default.ApplicationName, MessageBoxButtons.OK, icon);
         }
 
-        protected bool CloseFormConfirmation(bool isModified, string message)
+        protected static void SwitchToForm(Form parentForm, Form childForm)
         {
-            // Return true if there are no unsaved changes 
-            if (!isModified)
-            {
-                return true;
-            }
-
-            // Prompt user whether to close form with unsaved changes
-            var result = MessageBox.Show(message, Settings.Default.ApplicationName, MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-
-            return result == DialogResult.Yes;
+            childForm.Show(parentForm);
+            parentForm.Hide();
+            childForm.FormClosing += delegate { parentForm.Show(); };
         }
     }
 }

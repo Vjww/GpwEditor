@@ -39,7 +39,6 @@ namespace Data.Databases
         public Collection<SupplierEntities.Fuel> Fuels { get; set; }
         public Collection<TrackEntities.Track> Tracks { get; set; }
 
-        public RaceEntities.PerformanceCurve PerformanceCurve { get; set; }
         public Collection<RaceEntities.ChassisHandling> ChassisHandlings { get; set; }
 
         //TODO public FiveRatingCollection StaffEfforts { get; set; }
@@ -85,7 +84,6 @@ namespace Data.Databases
             ImportTrackDesignLookups();
             ImportFastestLapDriverIdAsStaffIdLookups();
 
-            ImportPerformanceCurve(gameExecutablePath);
             ImportChassisHandlings(gameExecutablePath);
 
             // TODO ImportStaffEfforts(gameExecutablePath);
@@ -117,7 +115,6 @@ namespace Data.Databases
 
             ExportTracks(gameExecutablePath);
 
-            ExportPerformanceCurve(gameExecutablePath);
             ExportChassisHandlings(gameExecutablePath);
 
             // TODO ExportStaffEfforts(gameExecutablePath);
@@ -474,23 +471,6 @@ namespace Data.Databases
         private void ExportTracks(string gameExecutablePath)
         {
             ExportData(gameExecutablePath, Tracks);
-        }
-
-        private void ImportPerformanceCurve(string gameExecutablePath)
-        {
-            PerformanceCurve = new RaceEntities.PerformanceCurve();
-            using (var executableConnection = new ExecutableConnection(gameExecutablePath))
-            {
-                PerformanceCurve.ImportData(executableConnection, LanguageStrings);
-            }
-        }
-
-        private void ExportPerformanceCurve(string gameExecutablePath)
-        {
-            using (var executableConnection = new ExecutableConnection(gameExecutablePath))
-            {
-                PerformanceCurve.ExportData(executableConnection, LanguageStrings);
-            }
         }
 
         private void ImportChassisHandlings(string gameExecutablePath)

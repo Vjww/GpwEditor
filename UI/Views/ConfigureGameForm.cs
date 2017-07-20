@@ -1,13 +1,17 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Data.Collections.Language;
 using Data.Databases;
+using Data.Entities.Executable.Race;
+using GpwEditor.Enums;
 using GpwEditor.Properties;
 
 namespace GpwEditor.Views
 {
-    public partial class ConfigureGameForm : EditorFormBase
+    public partial class ConfigureGameForm : EditorForm
     {
+        private PerformanceCurveChart _performanceCurveChart;
         private bool _isImportOccurred;
         private bool _isModified;
 
@@ -30,8 +34,10 @@ namespace GpwEditor.Views
             // Set modified as default
             _isModified = true;
 
-            // Hide unused control
             DisablePitExitPriorityCheckBox.Visible = false;
+            _performanceCurveChart = new PerformanceCurveChart(PerformanceCurveChart);
+            ConfigureControls();
+            GenerateTooltips();
         }
 
         private void ConfigureGameForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -85,6 +91,130 @@ namespace GpwEditor.Views
             Export(GameFolderPathTextBox.Text, GameExecutablePathTextBox.Text, LanguageFilePathTextBox.Text);
         }
 
+        private void PerformanceCurveNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            var numericUpDownControl = (NumericUpDown)sender;
+
+            // Get position in curve to change
+            var position = int.Parse(numericUpDownControl.Tag.ToString());
+
+            // Determine change in direction
+            if (numericUpDownControl.Value > 0)
+            {
+                _performanceCurveChart.AdjustCurve(position, NumericUpDownDirectionType.Up);
+            }
+            else if (numericUpDownControl.Value < 0)
+            {
+                _performanceCurveChart.AdjustCurve(position, NumericUpDownDirectionType.Down);
+            }
+
+            // Reset control
+            numericUpDownControl.ValueChanged -= PerformanceCurveNumericUpDown_ValueChanged;
+            numericUpDownControl.Value = 0;
+            numericUpDownControl.ValueChanged += PerformanceCurveNumericUpDown_ValueChanged;
+        }
+
+        private void PerformanceCurveEditButton_Click(object sender, EventArgs e)
+        {
+            // Hide parent form and show child form
+            SwitchToForm(this, new PerformanceCurveValuesForm(_performanceCurveChart));
+        }
+
+        private void PerformanceCurveSoftenCurveButton_Click(object sender, EventArgs e)
+        {
+            _performanceCurveChart.SoftenCurve();
+        }
+
+        private void PerformanceCurveCopyDefaultButton_Click(object sender, EventArgs e)
+        {
+            _performanceCurveChart.ResetCurveToDefault();
+        }
+
+        private void PerformanceCurveCopyCurrentButton_Click(object sender, EventArgs e)
+        {
+            _performanceCurveChart.ResetCurveToCurrent();
+        }
+
+        private void PerformanceCurveCopyRecommendedButton_Click(object sender, EventArgs e)
+        {
+            _performanceCurveChart.ResetCurveToRecommended();
+        }
+
+        private void PerformanceCurveDefaultCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            // If has been unchecked
+            if (!PerformanceCurveDefaultCheckBox.Checked)
+            {
+                // And at least one other is checked
+                if (PerformanceCurveCurrentCheckBox.Checked || PerformanceCurveProposedCheckBox.Checked)
+                {
+                    _performanceCurveChart.ToggleDefaultSeries();
+                    return;
+                }
+
+                // Else prevent uncheck by checking (and prevent event from firing)
+                PerformanceCurveDefaultCheckBox.CheckedChanged -= PerformanceCurveDefaultCheckBox_CheckedChanged;
+                PerformanceCurveDefaultCheckBox.Checked = true;
+                PerformanceCurveDefaultCheckBox.CheckedChanged += PerformanceCurveDefaultCheckBox_CheckedChanged;
+                return;
+            }
+
+            _performanceCurveChart.ToggleDefaultSeries();
+        }
+
+        private void PerformanceCurveCurrentCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            // If has been unchecked
+            if (!PerformanceCurveCurrentCheckBox.Checked)
+            {
+                // And at least one other is checked
+                if (PerformanceCurveDefaultCheckBox.Checked || PerformanceCurveProposedCheckBox.Checked)
+                {
+                    _performanceCurveChart.ToggleCurrentSeries();
+                    return;
+                }
+
+                // Else prevent uncheck by checking (and prevent event from firing)
+                PerformanceCurveCurrentCheckBox.CheckedChanged -= PerformanceCurveCurrentCheckBox_CheckedChanged;
+                PerformanceCurveCurrentCheckBox.Checked = true;
+                PerformanceCurveCurrentCheckBox.CheckedChanged += PerformanceCurveCurrentCheckBox_CheckedChanged;
+                return;
+            }
+
+            _performanceCurveChart.ToggleCurrentSeries();
+        }
+
+        private void PerformanceCurveProposedCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            // If has been unchecked
+            if (!PerformanceCurveProposedCheckBox.Checked)
+            {
+                // And at least one other is checked
+                if (PerformanceCurveDefaultCheckBox.Checked || PerformanceCurveCurrentCheckBox.Checked)
+                {
+                    _performanceCurveChart.ToggleProposedSeries();
+                    return;
+                }
+
+                // Else prevent uncheck by checking (and prevent event from firing)
+                PerformanceCurveProposedCheckBox.CheckedChanged -= PerformanceCurveProposedCheckBox_CheckedChanged;
+                PerformanceCurveProposedCheckBox.Checked = true;
+                PerformanceCurveProposedCheckBox.CheckedChanged += PerformanceCurveProposedCheckBox_CheckedChanged;
+                return;
+            }
+
+            _performanceCurveChart.ToggleProposedSeries();
+        }
+
+        private void ConfigureControls()
+        {
+            // Configure initial display of performance curve content
+            PerformanceCurveChart.Titles.Clear();
+            var chartTitle = PerformanceCurveChart.Titles.Add("Performance Curve");
+            chartTitle.Font = new Font(chartTitle.Font.FontFamily, chartTitle.Font.SizeInPoints + 10);
+            PerformanceCurveControlsGroupBox.Visible = false;
+        }
+
         private void Export(string gameFolderPath, string gameExecutablePath, string languageFilePath)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -95,6 +225,9 @@ namespace GpwEditor.Views
                 var database = new ConfigureGameDatabase();
                 PopulateRecords(database);
                 database.ExportDataToFile(gameFolderPath, gameExecutablePath, languageFilePath);
+
+                // Update chart
+                _performanceCurveChart.SetCurrentSeriesToProposedSeries();
             }
             catch (Exception ex)
             {
@@ -109,6 +242,21 @@ namespace GpwEditor.Views
             }
 
             ShowMessageBox("Export complete!");
+        }
+
+        private void GenerateTooltips()
+        {
+            var toolTip = new ToolTip();
+
+            // Peformance Curve controls
+            toolTip.SetToolTip(PerformanceCurveDefaultCheckBox, $"Show/Hide the curve that represents the performance levels defined in v1.01b of {Settings.Default.GameName}.");
+            toolTip.SetToolTip(PerformanceCurveCurrentCheckBox, $"Show/Hide the curve that is currently applied in the imported {Settings.Default.DefaultGameExecutableName} game executable file.");
+            toolTip.SetToolTip(PerformanceCurveProposedCheckBox, $"Show/Hide the curve that is proposed for export to a {Settings.Default.DefaultGameExecutableName} game executable file.");
+            toolTip.SetToolTip(PerformanceCurveEditButton, "Opens a window to access and edit the raw data that makes up the Proposed curve.");
+            toolTip.SetToolTip(PerformanceCurveSoftenCurveButton, "Softens the peaks and troughs of the Proposed curve using a simple moving average formula.");
+            toolTip.SetToolTip(PerformanceCurveCopyDefaultButton, $"Copies the curve that represents the performance levels defined in v1.01b of {Settings.Default.GameName}.");
+            toolTip.SetToolTip(PerformanceCurveCopyCurrentButton, $"Copies the curve that is currently applied in the imported {Settings.Default.DefaultGameExecutableName} game executable file.");
+            toolTip.SetToolTip(PerformanceCurveCopyRecommendedButton, $"Copies the curve that is recommended for use by the {Settings.Default.GameName} gaming community.");
         }
 
         private void Import(string gameFolderPath, string gameExecutablePath, string languageFilePath)
@@ -160,6 +308,15 @@ namespace GpwEditor.Views
             PointsScoringSystemOption1RadioButton.Checked = database.IsPointsScoringSystemOption1Applied;
             PointsScoringSystemOption2RadioButton.Checked = database.IsPointsScoringSystemOption2Applied;
             PointsScoringSystemOption3RadioButton.Checked = database.IsPointsScoringSystemOption3Applied;
+
+            // Generate chart
+            PerformanceCurveDefaultCheckBox.Checked = true; // Reset
+            PerformanceCurveCurrentCheckBox.Checked = true; // Reset
+            PerformanceCurveProposedCheckBox.Checked = true; // Reset
+            _performanceCurveChart.GenerateChart();
+            _performanceCurveChart.SetCurrentSeries(database.PerformanceCurve.Values);
+            _performanceCurveChart.SetProposedSeriesToCurrentSeries();
+            PerformanceCurveControlsGroupBox.Visible = true;
         }
 
         private void PopulateRecords(ConfigureGameDatabase database)
@@ -183,6 +340,11 @@ namespace GpwEditor.Views
             database.IsPointsScoringSystemOption1Required = PointsScoringSystemOption1RadioButton.Checked;
             database.IsPointsScoringSystemOption2Required = PointsScoringSystemOption2RadioButton.Checked;
             database.IsPointsScoringSystemOption3Required = PointsScoringSystemOption3RadioButton.Checked;
+
+            database.PerformanceCurve = new PerformanceCurve
+            {
+                Values = _performanceCurveChart.GetProposedSeries()
+            };
         }
     }
 }

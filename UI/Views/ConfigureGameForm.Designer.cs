@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigureGameForm));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.ConfigureGameTabControl = new System.Windows.Forms.TabControl();
             this.HomeTabPage = new System.Windows.Forms.TabPage();
             this.LanguageDataGridView = new System.Windows.Forms.DataGridView();
@@ -76,6 +79,31 @@
             this.PointsScoringSystemDefaultRadioButton = new System.Windows.Forms.RadioButton();
             this.ViewportsTabPage = new System.Windows.Forms.TabPage();
             this.ViewportsGroupBox = new System.Windows.Forms.GroupBox();
+            this.PerformanceCurveTabPage = new System.Windows.Forms.TabPage();
+            this.PerformanceCurveGroupBox = new System.Windows.Forms.GroupBox();
+            this.PerformanceCurveControlsGroupBox = new System.Windows.Forms.GroupBox();
+            this.PerformanceCurveCopyRecommendedButton = new System.Windows.Forms.Button();
+            this.PerformanceCurveProposedCheckBox = new System.Windows.Forms.CheckBox();
+            this.PerformanceCurveChartBox000NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PerformanceCurveCurrentCheckBox = new System.Windows.Forms.CheckBox();
+            this.PerformanceCurveDefaultCheckBox = new System.Windows.Forms.CheckBox();
+            this.PerformanceCurveEditButton = new System.Windows.Forms.Button();
+            this.PerformanceCurveCopyCurrentButton = new System.Windows.Forms.Button();
+            this.PerformanceCurveCopyDefaultButton = new System.Windows.Forms.Button();
+            this.PerformanceCurveChartBox120NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PerformanceCurveSoftenCurveButton = new System.Windows.Forms.Button();
+            this.PerformanceCurveChartBox070NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PerformanceCurveChartBox060NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PerformanceCurveChartBox020NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PerformanceCurveChartBox040NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PerformanceCurveChartBox080NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PerformanceCurveChartBox030NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PerformanceCurveChartBox090NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PerformanceCurveChartBox050NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PerformanceCurveChartBox100NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PerformanceCurveChartBox010NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PerformanceCurveChartBox110NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PerformanceCurveChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.ConfigureGameTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).BeginInit();
@@ -91,6 +119,23 @@
             this.PointsScoringSystemTabPage.SuspendLayout();
             this.PointsScoringSystemGroupBox.SuspendLayout();
             this.ViewportsTabPage.SuspendLayout();
+            this.PerformanceCurveTabPage.SuspendLayout();
+            this.PerformanceCurveGroupBox.SuspendLayout();
+            this.PerformanceCurveControlsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox000NumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox120NumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox070NumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox060NumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox020NumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox040NumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox080NumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox030NumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox090NumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox050NumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox100NumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox010NumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox110NumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChart)).BeginInit();
             this.SuspendLayout();
             // 
             // ConfigureGameTabControl
@@ -101,6 +146,7 @@
             this.ConfigureGameTabControl.Controls.Add(this.CommentaryTabPage);
             this.ConfigureGameTabControl.Controls.Add(this.PointsScoringSystemTabPage);
             this.ConfigureGameTabControl.Controls.Add(this.ViewportsTabPage);
+            this.ConfigureGameTabControl.Controls.Add(this.PerformanceCurveTabPage);
             this.ConfigureGameTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ConfigureGameTabControl.Location = new System.Drawing.Point(3, 3);
             this.ConfigureGameTabControl.Name = "ConfigureGameTabControl";
@@ -574,6 +620,436 @@
             this.ViewportsGroupBox.TabStop = false;
             this.ViewportsGroupBox.Text = "Viewports";
             // 
+            // PerformanceCurveTabPage
+            // 
+            this.PerformanceCurveTabPage.Controls.Add(this.PerformanceCurveGroupBox);
+            this.PerformanceCurveTabPage.Location = new System.Drawing.Point(4, 22);
+            this.PerformanceCurveTabPage.Name = "PerformanceCurveTabPage";
+            this.PerformanceCurveTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.PerformanceCurveTabPage.Size = new System.Drawing.Size(930, 529);
+            this.PerformanceCurveTabPage.TabIndex = 6;
+            this.PerformanceCurveTabPage.Text = "Performance Curve";
+            this.PerformanceCurveTabPage.UseVisualStyleBackColor = true;
+            // 
+            // PerformanceCurveGroupBox
+            // 
+            this.PerformanceCurveGroupBox.Controls.Add(this.PerformanceCurveControlsGroupBox);
+            this.PerformanceCurveGroupBox.Controls.Add(this.PerformanceCurveChart);
+            this.PerformanceCurveGroupBox.Location = new System.Drawing.Point(6, 6);
+            this.PerformanceCurveGroupBox.Name = "PerformanceCurveGroupBox";
+            this.PerformanceCurveGroupBox.Size = new System.Drawing.Size(918, 517);
+            this.PerformanceCurveGroupBox.TabIndex = 1;
+            this.PerformanceCurveGroupBox.TabStop = false;
+            this.PerformanceCurveGroupBox.Text = "Performance Curve";
+            // 
+            // PerformanceCurveControlsGroupBox
+            // 
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveCopyRecommendedButton);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveProposedCheckBox);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveChartBox000NumericUpDown);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveCurrentCheckBox);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveDefaultCheckBox);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveEditButton);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveCopyCurrentButton);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveCopyDefaultButton);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveChartBox120NumericUpDown);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveSoftenCurveButton);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveChartBox070NumericUpDown);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveChartBox060NumericUpDown);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveChartBox020NumericUpDown);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveChartBox040NumericUpDown);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveChartBox080NumericUpDown);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveChartBox030NumericUpDown);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveChartBox090NumericUpDown);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveChartBox050NumericUpDown);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveChartBox100NumericUpDown);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveChartBox010NumericUpDown);
+            this.PerformanceCurveControlsGroupBox.Controls.Add(this.PerformanceCurveChartBox110NumericUpDown);
+            this.PerformanceCurveControlsGroupBox.Location = new System.Drawing.Point(121, 407);
+            this.PerformanceCurveControlsGroupBox.Name = "PerformanceCurveControlsGroupBox";
+            this.PerformanceCurveControlsGroupBox.Size = new System.Drawing.Size(676, 80);
+            this.PerformanceCurveControlsGroupBox.TabIndex = 1;
+            this.PerformanceCurveControlsGroupBox.TabStop = false;
+            // 
+            // PerformanceCurveCopyRecommendedButton
+            // 
+            this.PerformanceCurveCopyRecommendedButton.Location = new System.Drawing.Point(519, 51);
+            this.PerformanceCurveCopyRecommendedButton.Name = "PerformanceCurveCopyRecommendedButton";
+            this.PerformanceCurveCopyRecommendedButton.Size = new System.Drawing.Size(151, 23);
+            this.PerformanceCurveCopyRecommendedButton.TabIndex = 7;
+            this.PerformanceCurveCopyRecommendedButton.Text = "Copy Recommended";
+            this.PerformanceCurveCopyRecommendedButton.UseVisualStyleBackColor = true;
+            this.PerformanceCurveCopyRecommendedButton.Click += new System.EventHandler(this.PerformanceCurveCopyRecommendedButton_Click);
+            // 
+            // PerformanceCurveProposedCheckBox
+            // 
+            this.PerformanceCurveProposedCheckBox.AutoSize = true;
+            this.PerformanceCurveProposedCheckBox.Checked = true;
+            this.PerformanceCurveProposedCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.PerformanceCurveProposedCheckBox.Location = new System.Drawing.Point(5, 57);
+            this.PerformanceCurveProposedCheckBox.Name = "PerformanceCurveProposedCheckBox";
+            this.PerformanceCurveProposedCheckBox.Size = new System.Drawing.Size(71, 17);
+            this.PerformanceCurveProposedCheckBox.TabIndex = 2;
+            this.PerformanceCurveProposedCheckBox.Text = "Proposed";
+            this.PerformanceCurveProposedCheckBox.UseVisualStyleBackColor = true;
+            this.PerformanceCurveProposedCheckBox.CheckedChanged += new System.EventHandler(this.PerformanceCurveProposedCheckBox_CheckedChanged);
+            // 
+            // PerformanceCurveChartBox000NumericUpDown
+            // 
+            this.PerformanceCurveChartBox000NumericUpDown.InterceptArrowKeys = false;
+            this.PerformanceCurveChartBox000NumericUpDown.Location = new System.Drawing.Point(94, 19);
+            this.PerformanceCurveChartBox000NumericUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PerformanceCurveChartBox000NumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.PerformanceCurveChartBox000NumericUpDown.Name = "PerformanceCurveChartBox000NumericUpDown";
+            this.PerformanceCurveChartBox000NumericUpDown.Size = new System.Drawing.Size(18, 20);
+            this.PerformanceCurveChartBox000NumericUpDown.TabIndex = 0;
+            this.PerformanceCurveChartBox000NumericUpDown.TabStop = false;
+            this.PerformanceCurveChartBox000NumericUpDown.Tag = "0";
+            this.PerformanceCurveChartBox000NumericUpDown.ValueChanged += new System.EventHandler(this.PerformanceCurveNumericUpDown_ValueChanged);
+            // 
+            // PerformanceCurveCurrentCheckBox
+            // 
+            this.PerformanceCurveCurrentCheckBox.AutoSize = true;
+            this.PerformanceCurveCurrentCheckBox.Checked = true;
+            this.PerformanceCurveCurrentCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.PerformanceCurveCurrentCheckBox.Location = new System.Drawing.Point(5, 34);
+            this.PerformanceCurveCurrentCheckBox.Name = "PerformanceCurveCurrentCheckBox";
+            this.PerformanceCurveCurrentCheckBox.Size = new System.Drawing.Size(60, 17);
+            this.PerformanceCurveCurrentCheckBox.TabIndex = 1;
+            this.PerformanceCurveCurrentCheckBox.Text = "Current";
+            this.PerformanceCurveCurrentCheckBox.UseVisualStyleBackColor = true;
+            this.PerformanceCurveCurrentCheckBox.CheckedChanged += new System.EventHandler(this.PerformanceCurveCurrentCheckBox_CheckedChanged);
+            // 
+            // PerformanceCurveDefaultCheckBox
+            // 
+            this.PerformanceCurveDefaultCheckBox.AutoSize = true;
+            this.PerformanceCurveDefaultCheckBox.Checked = true;
+            this.PerformanceCurveDefaultCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.PerformanceCurveDefaultCheckBox.Location = new System.Drawing.Point(5, 11);
+            this.PerformanceCurveDefaultCheckBox.Name = "PerformanceCurveDefaultCheckBox";
+            this.PerformanceCurveDefaultCheckBox.Size = new System.Drawing.Size(60, 17);
+            this.PerformanceCurveDefaultCheckBox.TabIndex = 0;
+            this.PerformanceCurveDefaultCheckBox.Text = "Default";
+            this.PerformanceCurveDefaultCheckBox.UseVisualStyleBackColor = true;
+            this.PerformanceCurveDefaultCheckBox.CheckedChanged += new System.EventHandler(this.PerformanceCurveDefaultCheckBox_CheckedChanged);
+            // 
+            // PerformanceCurveEditButton
+            // 
+            this.PerformanceCurveEditButton.Location = new System.Drawing.Point(111, 51);
+            this.PerformanceCurveEditButton.Name = "PerformanceCurveEditButton";
+            this.PerformanceCurveEditButton.Size = new System.Drawing.Size(63, 23);
+            this.PerformanceCurveEditButton.TabIndex = 3;
+            this.PerformanceCurveEditButton.Text = "Edit...";
+            this.PerformanceCurveEditButton.UseVisualStyleBackColor = true;
+            this.PerformanceCurveEditButton.Click += new System.EventHandler(this.PerformanceCurveEditButton_Click);
+            // 
+            // PerformanceCurveCopyCurrentButton
+            // 
+            this.PerformanceCurveCopyCurrentButton.Location = new System.Drawing.Point(406, 51);
+            this.PerformanceCurveCopyCurrentButton.Name = "PerformanceCurveCopyCurrentButton";
+            this.PerformanceCurveCopyCurrentButton.Size = new System.Drawing.Size(107, 23);
+            this.PerformanceCurveCopyCurrentButton.TabIndex = 6;
+            this.PerformanceCurveCopyCurrentButton.Text = "Copy Current";
+            this.PerformanceCurveCopyCurrentButton.UseVisualStyleBackColor = true;
+            this.PerformanceCurveCopyCurrentButton.Click += new System.EventHandler(this.PerformanceCurveCopyCurrentButton_Click);
+            // 
+            // PerformanceCurveCopyDefaultButton
+            // 
+            this.PerformanceCurveCopyDefaultButton.Location = new System.Drawing.Point(293, 51);
+            this.PerformanceCurveCopyDefaultButton.Name = "PerformanceCurveCopyDefaultButton";
+            this.PerformanceCurveCopyDefaultButton.Size = new System.Drawing.Size(107, 23);
+            this.PerformanceCurveCopyDefaultButton.TabIndex = 5;
+            this.PerformanceCurveCopyDefaultButton.Text = "Copy Default";
+            this.PerformanceCurveCopyDefaultButton.UseVisualStyleBackColor = true;
+            this.PerformanceCurveCopyDefaultButton.Click += new System.EventHandler(this.PerformanceCurveCopyDefaultButton_Click);
+            // 
+            // PerformanceCurveChartBox120NumericUpDown
+            // 
+            this.PerformanceCurveChartBox120NumericUpDown.InterceptArrowKeys = false;
+            this.PerformanceCurveChartBox120NumericUpDown.Location = new System.Drawing.Point(628, 19);
+            this.PerformanceCurveChartBox120NumericUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PerformanceCurveChartBox120NumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.PerformanceCurveChartBox120NumericUpDown.Name = "PerformanceCurveChartBox120NumericUpDown";
+            this.PerformanceCurveChartBox120NumericUpDown.Size = new System.Drawing.Size(18, 20);
+            this.PerformanceCurveChartBox120NumericUpDown.TabIndex = 0;
+            this.PerformanceCurveChartBox120NumericUpDown.TabStop = false;
+            this.PerformanceCurveChartBox120NumericUpDown.Tag = "120";
+            this.PerformanceCurveChartBox120NumericUpDown.ValueChanged += new System.EventHandler(this.PerformanceCurveNumericUpDown_ValueChanged);
+            // 
+            // PerformanceCurveSoftenCurveButton
+            // 
+            this.PerformanceCurveSoftenCurveButton.Location = new System.Drawing.Point(180, 51);
+            this.PerformanceCurveSoftenCurveButton.Name = "PerformanceCurveSoftenCurveButton";
+            this.PerformanceCurveSoftenCurveButton.Size = new System.Drawing.Size(107, 23);
+            this.PerformanceCurveSoftenCurveButton.TabIndex = 4;
+            this.PerformanceCurveSoftenCurveButton.Text = "Soften Curve";
+            this.PerformanceCurveSoftenCurveButton.UseVisualStyleBackColor = true;
+            this.PerformanceCurveSoftenCurveButton.Click += new System.EventHandler(this.PerformanceCurveSoftenCurveButton_Click);
+            // 
+            // PerformanceCurveChartBox070NumericUpDown
+            // 
+            this.PerformanceCurveChartBox070NumericUpDown.InterceptArrowKeys = false;
+            this.PerformanceCurveChartBox070NumericUpDown.Location = new System.Drawing.Point(406, 19);
+            this.PerformanceCurveChartBox070NumericUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PerformanceCurveChartBox070NumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.PerformanceCurveChartBox070NumericUpDown.Name = "PerformanceCurveChartBox070NumericUpDown";
+            this.PerformanceCurveChartBox070NumericUpDown.Size = new System.Drawing.Size(18, 20);
+            this.PerformanceCurveChartBox070NumericUpDown.TabIndex = 0;
+            this.PerformanceCurveChartBox070NumericUpDown.TabStop = false;
+            this.PerformanceCurveChartBox070NumericUpDown.Tag = "70";
+            this.PerformanceCurveChartBox070NumericUpDown.ValueChanged += new System.EventHandler(this.PerformanceCurveNumericUpDown_ValueChanged);
+            // 
+            // PerformanceCurveChartBox060NumericUpDown
+            // 
+            this.PerformanceCurveChartBox060NumericUpDown.InterceptArrowKeys = false;
+            this.PerformanceCurveChartBox060NumericUpDown.Location = new System.Drawing.Point(361, 19);
+            this.PerformanceCurveChartBox060NumericUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PerformanceCurveChartBox060NumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.PerformanceCurveChartBox060NumericUpDown.Name = "PerformanceCurveChartBox060NumericUpDown";
+            this.PerformanceCurveChartBox060NumericUpDown.Size = new System.Drawing.Size(18, 20);
+            this.PerformanceCurveChartBox060NumericUpDown.TabIndex = 0;
+            this.PerformanceCurveChartBox060NumericUpDown.TabStop = false;
+            this.PerformanceCurveChartBox060NumericUpDown.Tag = "60";
+            this.PerformanceCurveChartBox060NumericUpDown.ValueChanged += new System.EventHandler(this.PerformanceCurveNumericUpDown_ValueChanged);
+            // 
+            // PerformanceCurveChartBox020NumericUpDown
+            // 
+            this.PerformanceCurveChartBox020NumericUpDown.InterceptArrowKeys = false;
+            this.PerformanceCurveChartBox020NumericUpDown.Location = new System.Drawing.Point(183, 19);
+            this.PerformanceCurveChartBox020NumericUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PerformanceCurveChartBox020NumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.PerformanceCurveChartBox020NumericUpDown.Name = "PerformanceCurveChartBox020NumericUpDown";
+            this.PerformanceCurveChartBox020NumericUpDown.Size = new System.Drawing.Size(18, 20);
+            this.PerformanceCurveChartBox020NumericUpDown.TabIndex = 0;
+            this.PerformanceCurveChartBox020NumericUpDown.TabStop = false;
+            this.PerformanceCurveChartBox020NumericUpDown.Tag = "20";
+            this.PerformanceCurveChartBox020NumericUpDown.ValueChanged += new System.EventHandler(this.PerformanceCurveNumericUpDown_ValueChanged);
+            // 
+            // PerformanceCurveChartBox040NumericUpDown
+            // 
+            this.PerformanceCurveChartBox040NumericUpDown.InterceptArrowKeys = false;
+            this.PerformanceCurveChartBox040NumericUpDown.Location = new System.Drawing.Point(272, 19);
+            this.PerformanceCurveChartBox040NumericUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PerformanceCurveChartBox040NumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.PerformanceCurveChartBox040NumericUpDown.Name = "PerformanceCurveChartBox040NumericUpDown";
+            this.PerformanceCurveChartBox040NumericUpDown.Size = new System.Drawing.Size(18, 20);
+            this.PerformanceCurveChartBox040NumericUpDown.TabIndex = 0;
+            this.PerformanceCurveChartBox040NumericUpDown.TabStop = false;
+            this.PerformanceCurveChartBox040NumericUpDown.Tag = "40";
+            this.PerformanceCurveChartBox040NumericUpDown.ValueChanged += new System.EventHandler(this.PerformanceCurveNumericUpDown_ValueChanged);
+            // 
+            // PerformanceCurveChartBox080NumericUpDown
+            // 
+            this.PerformanceCurveChartBox080NumericUpDown.InterceptArrowKeys = false;
+            this.PerformanceCurveChartBox080NumericUpDown.Location = new System.Drawing.Point(450, 19);
+            this.PerformanceCurveChartBox080NumericUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PerformanceCurveChartBox080NumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.PerformanceCurveChartBox080NumericUpDown.Name = "PerformanceCurveChartBox080NumericUpDown";
+            this.PerformanceCurveChartBox080NumericUpDown.Size = new System.Drawing.Size(18, 20);
+            this.PerformanceCurveChartBox080NumericUpDown.TabIndex = 0;
+            this.PerformanceCurveChartBox080NumericUpDown.TabStop = false;
+            this.PerformanceCurveChartBox080NumericUpDown.Tag = "80";
+            this.PerformanceCurveChartBox080NumericUpDown.ValueChanged += new System.EventHandler(this.PerformanceCurveNumericUpDown_ValueChanged);
+            // 
+            // PerformanceCurveChartBox030NumericUpDown
+            // 
+            this.PerformanceCurveChartBox030NumericUpDown.InterceptArrowKeys = false;
+            this.PerformanceCurveChartBox030NumericUpDown.Location = new System.Drawing.Point(228, 19);
+            this.PerformanceCurveChartBox030NumericUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PerformanceCurveChartBox030NumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.PerformanceCurveChartBox030NumericUpDown.Name = "PerformanceCurveChartBox030NumericUpDown";
+            this.PerformanceCurveChartBox030NumericUpDown.Size = new System.Drawing.Size(18, 20);
+            this.PerformanceCurveChartBox030NumericUpDown.TabIndex = 0;
+            this.PerformanceCurveChartBox030NumericUpDown.TabStop = false;
+            this.PerformanceCurveChartBox030NumericUpDown.Tag = "30";
+            this.PerformanceCurveChartBox030NumericUpDown.ValueChanged += new System.EventHandler(this.PerformanceCurveNumericUpDown_ValueChanged);
+            // 
+            // PerformanceCurveChartBox090NumericUpDown
+            // 
+            this.PerformanceCurveChartBox090NumericUpDown.InterceptArrowKeys = false;
+            this.PerformanceCurveChartBox090NumericUpDown.Location = new System.Drawing.Point(495, 19);
+            this.PerformanceCurveChartBox090NumericUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PerformanceCurveChartBox090NumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.PerformanceCurveChartBox090NumericUpDown.Name = "PerformanceCurveChartBox090NumericUpDown";
+            this.PerformanceCurveChartBox090NumericUpDown.Size = new System.Drawing.Size(18, 20);
+            this.PerformanceCurveChartBox090NumericUpDown.TabIndex = 0;
+            this.PerformanceCurveChartBox090NumericUpDown.TabStop = false;
+            this.PerformanceCurveChartBox090NumericUpDown.Tag = "90";
+            this.PerformanceCurveChartBox090NumericUpDown.ValueChanged += new System.EventHandler(this.PerformanceCurveNumericUpDown_ValueChanged);
+            // 
+            // PerformanceCurveChartBox050NumericUpDown
+            // 
+            this.PerformanceCurveChartBox050NumericUpDown.InterceptArrowKeys = false;
+            this.PerformanceCurveChartBox050NumericUpDown.Location = new System.Drawing.Point(317, 19);
+            this.PerformanceCurveChartBox050NumericUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PerformanceCurveChartBox050NumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.PerformanceCurveChartBox050NumericUpDown.Name = "PerformanceCurveChartBox050NumericUpDown";
+            this.PerformanceCurveChartBox050NumericUpDown.Size = new System.Drawing.Size(18, 20);
+            this.PerformanceCurveChartBox050NumericUpDown.TabIndex = 0;
+            this.PerformanceCurveChartBox050NumericUpDown.TabStop = false;
+            this.PerformanceCurveChartBox050NumericUpDown.Tag = "50";
+            this.PerformanceCurveChartBox050NumericUpDown.ValueChanged += new System.EventHandler(this.PerformanceCurveNumericUpDown_ValueChanged);
+            // 
+            // PerformanceCurveChartBox100NumericUpDown
+            // 
+            this.PerformanceCurveChartBox100NumericUpDown.InterceptArrowKeys = false;
+            this.PerformanceCurveChartBox100NumericUpDown.Location = new System.Drawing.Point(539, 19);
+            this.PerformanceCurveChartBox100NumericUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PerformanceCurveChartBox100NumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.PerformanceCurveChartBox100NumericUpDown.Name = "PerformanceCurveChartBox100NumericUpDown";
+            this.PerformanceCurveChartBox100NumericUpDown.Size = new System.Drawing.Size(18, 20);
+            this.PerformanceCurveChartBox100NumericUpDown.TabIndex = 0;
+            this.PerformanceCurveChartBox100NumericUpDown.TabStop = false;
+            this.PerformanceCurveChartBox100NumericUpDown.Tag = "100";
+            this.PerformanceCurveChartBox100NumericUpDown.ValueChanged += new System.EventHandler(this.PerformanceCurveNumericUpDown_ValueChanged);
+            // 
+            // PerformanceCurveChartBox010NumericUpDown
+            // 
+            this.PerformanceCurveChartBox010NumericUpDown.InterceptArrowKeys = false;
+            this.PerformanceCurveChartBox010NumericUpDown.Location = new System.Drawing.Point(139, 19);
+            this.PerformanceCurveChartBox010NumericUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PerformanceCurveChartBox010NumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.PerformanceCurveChartBox010NumericUpDown.Name = "PerformanceCurveChartBox010NumericUpDown";
+            this.PerformanceCurveChartBox010NumericUpDown.Size = new System.Drawing.Size(18, 20);
+            this.PerformanceCurveChartBox010NumericUpDown.TabIndex = 0;
+            this.PerformanceCurveChartBox010NumericUpDown.TabStop = false;
+            this.PerformanceCurveChartBox010NumericUpDown.Tag = "10";
+            this.PerformanceCurveChartBox010NumericUpDown.ValueChanged += new System.EventHandler(this.PerformanceCurveNumericUpDown_ValueChanged);
+            // 
+            // PerformanceCurveChartBox110NumericUpDown
+            // 
+            this.PerformanceCurveChartBox110NumericUpDown.InterceptArrowKeys = false;
+            this.PerformanceCurveChartBox110NumericUpDown.Location = new System.Drawing.Point(584, 19);
+            this.PerformanceCurveChartBox110NumericUpDown.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PerformanceCurveChartBox110NumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.PerformanceCurveChartBox110NumericUpDown.Name = "PerformanceCurveChartBox110NumericUpDown";
+            this.PerformanceCurveChartBox110NumericUpDown.Size = new System.Drawing.Size(18, 20);
+            this.PerformanceCurveChartBox110NumericUpDown.TabIndex = 0;
+            this.PerformanceCurveChartBox110NumericUpDown.TabStop = false;
+            this.PerformanceCurveChartBox110NumericUpDown.Tag = "110";
+            this.PerformanceCurveChartBox110NumericUpDown.ValueChanged += new System.EventHandler(this.PerformanceCurveNumericUpDown_ValueChanged);
+            // 
+            // PerformanceCurveChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.PerformanceCurveChart.ChartAreas.Add(chartArea1);
+            this.PerformanceCurveChart.Location = new System.Drawing.Point(121, 29);
+            this.PerformanceCurveChart.Name = "PerformanceCurveChart";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Name = "Series1";
+            this.PerformanceCurveChart.Series.Add(series1);
+            this.PerformanceCurveChart.Size = new System.Drawing.Size(676, 372);
+            this.PerformanceCurveChart.TabIndex = 2;
+            this.PerformanceCurveChart.TabStop = false;
+            title1.Name = "Title1";
+            title1.Text = "Performance Curve";
+            this.PerformanceCurveChart.Titles.Add(title1);
+            // 
             // ConfigureGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -607,6 +1083,24 @@
             this.PointsScoringSystemGroupBox.ResumeLayout(false);
             this.PointsScoringSystemGroupBox.PerformLayout();
             this.ViewportsTabPage.ResumeLayout(false);
+            this.PerformanceCurveTabPage.ResumeLayout(false);
+            this.PerformanceCurveGroupBox.ResumeLayout(false);
+            this.PerformanceCurveControlsGroupBox.ResumeLayout(false);
+            this.PerformanceCurveControlsGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox000NumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox120NumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox070NumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox060NumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox020NumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox040NumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox080NumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox030NumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox090NumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox050NumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox100NumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox010NumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox110NumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -658,5 +1152,30 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn resourceIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn resourceTextDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource identityBindingSource;
+        private System.Windows.Forms.TabPage PerformanceCurveTabPage;
+        private System.Windows.Forms.GroupBox PerformanceCurveGroupBox;
+        private System.Windows.Forms.GroupBox PerformanceCurveControlsGroupBox;
+        private System.Windows.Forms.Button PerformanceCurveCopyRecommendedButton;
+        private System.Windows.Forms.CheckBox PerformanceCurveProposedCheckBox;
+        private System.Windows.Forms.NumericUpDown PerformanceCurveChartBox000NumericUpDown;
+        private System.Windows.Forms.CheckBox PerformanceCurveCurrentCheckBox;
+        private System.Windows.Forms.CheckBox PerformanceCurveDefaultCheckBox;
+        private System.Windows.Forms.Button PerformanceCurveEditButton;
+        private System.Windows.Forms.Button PerformanceCurveCopyCurrentButton;
+        private System.Windows.Forms.Button PerformanceCurveCopyDefaultButton;
+        private System.Windows.Forms.NumericUpDown PerformanceCurveChartBox120NumericUpDown;
+        private System.Windows.Forms.Button PerformanceCurveSoftenCurveButton;
+        private System.Windows.Forms.NumericUpDown PerformanceCurveChartBox070NumericUpDown;
+        private System.Windows.Forms.NumericUpDown PerformanceCurveChartBox060NumericUpDown;
+        private System.Windows.Forms.NumericUpDown PerformanceCurveChartBox020NumericUpDown;
+        private System.Windows.Forms.NumericUpDown PerformanceCurveChartBox040NumericUpDown;
+        private System.Windows.Forms.NumericUpDown PerformanceCurveChartBox080NumericUpDown;
+        private System.Windows.Forms.NumericUpDown PerformanceCurveChartBox030NumericUpDown;
+        private System.Windows.Forms.NumericUpDown PerformanceCurveChartBox090NumericUpDown;
+        private System.Windows.Forms.NumericUpDown PerformanceCurveChartBox050NumericUpDown;
+        private System.Windows.Forms.NumericUpDown PerformanceCurveChartBox100NumericUpDown;
+        private System.Windows.Forms.NumericUpDown PerformanceCurveChartBox010NumericUpDown;
+        private System.Windows.Forms.NumericUpDown PerformanceCurveChartBox110NumericUpDown;
+        private System.Windows.Forms.DataVisualization.Charting.Chart PerformanceCurveChart;
     }
 }

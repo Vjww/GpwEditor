@@ -78,13 +78,13 @@
     <Compile Include="ReconstructFunctionForm.Designer.cs">
       <DependentUpon>ReconstructFunctionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RacePerformanceCurveForm.cs">
+    <Compile Include="Views\PerformanceCurveValuesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RacePerformanceCurveForm.Designer.cs">
-      <DependentUpon>RacePerformanceCurveForm.cs</DependentUpon>
+    <Compile Include="Views\PerformanceCurveValuesForm.Designer.cs">
+      <DependentUpon>PerformanceCurveValuesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RacePerformanceCurveChart.cs" />
+    <Compile Include="PerformanceCurveChart.cs" />
     <Compile Include="Views\GameExecutableEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,12 +110,6 @@
     </Compile>
     <Compile Include="Registry\GpwRegistry.cs" />
     <Compile Include="Registry\GpwRegistryKeys.cs" />
-    <Compile Include="ScrapForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScrapForm.Designer.cs">
-      <DependentUpon>ScrapForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,11 +136,11 @@
     <Compile Include="Views\UpgradeGameForm.Designer.cs">
       <DependentUpon>UpgradeGameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\EditorFormBase.cs">
+    <Compile Include="Views\EditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\EditorFormBase.Designer.cs">
-      <DependentUpon>EditorFormBase.cs</DependentUpon>
+    <Compile Include="Views\EditorForm.Designer.cs">
+      <DependentUpon>EditorForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Views\ConfigureGameForm.resx">
       <DependentUpon>ConfigureGameForm.cs</DependentUpon>
@@ -160,14 +154,11 @@
     <EmbeddedResource Include="ReconstructFunctionForm.resx">
       <DependentUpon>ReconstructFunctionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RacePerformanceCurveForm.resx">
-      <DependentUpon>RacePerformanceCurveForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\PerformanceCurveValuesForm.resx">
+      <DependentUpon>PerformanceCurveValuesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistryKeysForm.resx">
       <DependentUpon>RegistryKeysForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScrapForm.resx">
-      <DependentUpon>ScrapForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
@@ -192,8 +183,8 @@
       <DependentUpon>UpgradeGameForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\EditorFormBase.resx">
-      <DependentUpon>EditorFormBase.cs</DependentUpon>
+    <EmbeddedResource Include="Views\EditorForm.resx">
+      <DependentUpon>EditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
   </ItemGroup>

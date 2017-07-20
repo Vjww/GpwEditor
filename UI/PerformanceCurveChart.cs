@@ -6,7 +6,7 @@ using GpwEditor.Enums;
 
 namespace GpwEditor
 {
-    public class RacePerformanceCurveChart
+    public class PerformanceCurveChart
     {
         private readonly Chart _chart;
         private readonly int[] _defaultCurve =
@@ -40,7 +40,7 @@ namespace GpwEditor
         public const int YAxisLowerBound = 506;
         public const int YAxisUpperBound = 8800;
 
-        public RacePerformanceCurveChart(Chart chart)
+        public PerformanceCurveChart(Chart chart)
         {
             _chart = chart;
         }
@@ -119,12 +119,12 @@ namespace GpwEditor
             // Known defect when closing bracket is drawn in a vertical orientation at small font size
             // http://support2.dundas.com/forum/tm.aspx?m=8114
             _chart.Titles.Clear();
-            var chartTitle = _chart.Titles.Add("Race Performance Curve");
+            var chartTitle = _chart.Titles.Add("Performance Curve");
             chartTitle.Font = new Font(chartTitle.Font.FontFamily, chartTitle.Font.SizeInPoints + 10);
             chartArea.AxisX.Title = "Chassis Handling Rating + Engine Power Rating (0-120)";
             chartArea.AxisX.TitleFont = new Font(chartArea.AxisX.TitleFont.FontFamily, chartArea.AxisX.TitleFont.SizeInPoints + 2);
             chartArea.AxisX.Interval = 10;
-            chartArea.AxisY.Title = $"Race Performance ({YAxisLowerBound}-{YAxisUpperBound})";
+            chartArea.AxisY.Title = $"Performance ({YAxisLowerBound}-{YAxisUpperBound})";
             chartArea.AxisY.TitleFont = new Font(chartArea.AxisY.TitleFont.FontFamily, chartArea.AxisY.TitleFont.SizeInPoints + 2);
             chartArea.AxisY.Interval = 1000;
 
