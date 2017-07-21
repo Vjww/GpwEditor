@@ -1,4 +1,4 @@
-﻿namespace GpwEditor
+﻿namespace GpwEditor.Views
 {
     sealed partial class MenuForm
     {

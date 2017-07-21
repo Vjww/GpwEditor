@@ -4,11 +4,10 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 using GpwEditor.Properties;
-using GpwEditor.Views;
 
-namespace GpwEditor
+namespace GpwEditor.Views
 {
-    public sealed partial class MenuForm : Form
+    public sealed partial class MenuForm : EditorForm
     {
         public MenuForm()
         {
@@ -34,8 +33,7 @@ namespace GpwEditor
         {
             Icon = Resources.icon1;
             Text = $"{Settings.Default.ApplicationName} v{GetApplicationVersion()}";
-
-            SelectRandomLogo();
+            SetLogo();
 
             // On initial run
             if (Settings.Default.InitialRun)
@@ -47,36 +45,28 @@ namespace GpwEditor
             Settings.Default.UserGameFolderPath = @"C:\Gpw";
 #endif
 
-            // If game folder has not been set
-            if (string.IsNullOrWhiteSpace(Settings.Default.UserGameFolderPath))
-            {
-                // http://stackoverflow.com/a/218740
-                Invoke((MethodInvoker)ConfigureGameFolder); // TODO: test, intent is to show form before dialog
-                //ConfigureGameFolder(); // TODO: remove
-            }
-
             Settings.Default.InitialRun = false;
             Settings.Default.Save();
         }
 
         private void UpgradeGameButton_Click(object sender, EventArgs e)
         {
-            SwitchToForm(this, new UpgradeGameForm());
+            SwitchContext(new UpgradeGameForm());
         }
 
         private void ConfigureGameButton_Click(object sender, EventArgs e)
         {
-            SwitchToForm(this, new ConfigureGameForm());
+            SwitchContext(new ConfigureGameForm());
         }
 
         private void GameEditorButton_Click(object sender, EventArgs e)
         {
-            SwitchToForm(this, new GameExecutableEditorForm());
+            SwitchContext(new GameExecutableEditorForm());
         }
 
         private void SaveGameEditorButton_Click(object sender, EventArgs e)
         {
-            //SwitchToForm(this, new SaveGameEditorForm());
+            //SwitchContext(new SaveGameEditorForm());
 
             MessageBox.Show(
                 $"The save game editor is not available in this version of {Settings.Default.ApplicationName}.{Environment.NewLine}{Environment.NewLine}" +
@@ -90,17 +80,17 @@ namespace GpwEditor
 
         private void LanguageFileEditorButton_Click(object sender, EventArgs e)
         {
-            SwitchToForm(this, new LanguageFileEditorForm());
+            SwitchContext(new LanguageFileEditorForm());
         }
 
         private void RegistryKeysButton_Click(object sender, EventArgs e)
         {
-            SwitchToForm(this, new RegistryKeysForm());
+            SwitchContext(new RegistryKeysForm());
         }
 
         private void SettingsButton_Click(object sender, EventArgs e)
         {
-            SwitchToForm(this, new SettingsForm());
+            SwitchContext(new SettingsForm());
         }
 
         private void LaunchGameButton_Click(object sender, EventArgs e)
@@ -168,10 +158,21 @@ namespace GpwEditor
             }
         }
 
-        private void SelectRandomLogo()
+        private void SwitchContext(Form form)
         {
-            var rand = new Random();
-            var value = rand.Next(5);
+            // If game folder has not been set
+            if (string.IsNullOrWhiteSpace(Settings.Default.UserGameFolderPath))
+            {
+                ConfigureGameFolder();
+                return;
+            }
+            SwitchToForm(this, form);
+        }
+
+        private void SetLogo()
+        {
+            var random = new Random();
+            var value = random.Next(5);
             switch (value)
             {
                 case 0:
@@ -193,27 +194,6 @@ namespace GpwEditor
                     LogoPictureBox.Image = Resources.logo1;
                     break;
             }
-        }
-
-        private static void SwitchToForm(Form parentForm, Form childForm)
-        {
-            // Hide parent form and show child form
-            childForm.Show(parentForm);
-            parentForm.Hide();
-            //childForm.FormClosing += delegate { parentForm.Show(); };
-            childForm.FormClosed += delegate { parentForm.Show(); };
-
-            // TODO: Old logic below for the above, possibly required to swallow exception to close parentForm?
-            //try
-            //{
-            //    childForm.Show(parentForm);
-            //    parentForm.Hide();
-            //    childForm.FormClosing += delegate { parentForm.Show(); };
-            //}
-            //catch (Exception)
-            //{
-            //    parentForm.Close();
-            //}
         }
     }
 }

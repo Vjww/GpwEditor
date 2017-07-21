@@ -108,30 +108,30 @@ namespace GpwEditor.Views
 
         protected string GetGameFolderMruOrDefault()
         {
-            var defaultPath = GetValueOrDefault(Settings.Default.UserGameFolderPath,
+            var defaultPath = GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.UserGameFolderPath,
                 Settings.Default.DefaultGameFolderPath);
-            return GetValueOrDefault(Settings.Default.MruGameFolderPath, defaultPath);
+            return GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.MruGameFolderPath, defaultPath);
         }
 
         protected string GetGameExecutableMruOrDefault()
         {
             var gameFolderPath = GetGameFolderMruOrDefault();
-            var defaultFileName = GetValueOrDefault(Path.GetFileName(Settings.Default.UserGameExecutablePath),
+            var defaultFileName = GetValueOrDefaultIfNullOrWhiteSpace(Path.GetFileName(Settings.Default.UserGameExecutablePath),
                 Settings.Default.DefaultGameExecutableName);
             var defaultFilePath = Path.Combine(gameFolderPath, defaultFileName);
-            return GetValueOrDefault(Settings.Default.MruGameExecutablePath, defaultFilePath);
+            return GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.MruGameExecutablePath, defaultFilePath);
         }
 
         protected string GetLanguageFileMruOrDefault()
         {
             var gameFolderPath = GetGameFolderMruOrDefault();
-            var defaultFileName = GetValueOrDefault(Path.GetFileName(Settings.Default.UserLanguageFilePath),
+            var defaultFileName = GetValueOrDefaultIfNullOrWhiteSpace(Path.GetFileName(Settings.Default.UserLanguageFilePath),
                 Settings.Default.DefaultLanguageFileName);
             var defaultFilePath = Path.Combine(gameFolderPath, defaultFileName);
-            return GetValueOrDefault(Settings.Default.MruLanguageFilePath, defaultFilePath);
+            return GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.MruLanguageFilePath, defaultFilePath);
         }
 
-        protected string GetValueOrDefault(string value, string @default)
+        protected string GetValueOrDefaultIfNullOrWhiteSpace(string value, string @default)
         {
             return string.IsNullOrWhiteSpace(value) ? @default : value;
         }
@@ -143,9 +143,9 @@ namespace GpwEditor.Views
 
         protected static void SwitchToForm(Form parentForm, Form childForm)
         {
+            childForm.FormClosing += delegate { parentForm.Show(); };
             childForm.Show(parentForm);
             parentForm.Hide();
-            childForm.FormClosing += delegate { parentForm.Show(); };
         }
     }
 }
