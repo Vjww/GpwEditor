@@ -309,6 +309,7 @@
             this.windDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trackBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ChassisHandlingTabPage = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ChassisHandlingDataGridView = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localResourceIdDataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -316,6 +317,10 @@
             this.resourceTextDataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chassisHandlingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ChassisHandlingOptionsGroupBox = new System.Windows.Forms.GroupBox();
+            this.ChassisHandlingCalculatedValuesButton = new System.Windows.Forms.Button();
+            this.ChassisHandlingModifiedValuesButton = new System.Windows.Forms.Button();
+            this.ChassisHandlingOriginalValuesButton = new System.Windows.Forms.Button();
             this.MainTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).BeginInit();
@@ -378,8 +383,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.TracksDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBindingSource)).BeginInit();
             this.ChassisHandlingTabPage.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ChassisHandlingDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chassisHandlingBindingSource)).BeginInit();
+            this.ChassisHandlingOptionsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainTabControl
@@ -2552,14 +2559,28 @@
             // 
             // ChassisHandlingTabPage
             // 
-            this.ChassisHandlingTabPage.Controls.Add(this.ChassisHandlingDataGridView);
+            this.ChassisHandlingTabPage.Controls.Add(this.tableLayoutPanel1);
             this.ChassisHandlingTabPage.Location = new System.Drawing.Point(4, 22);
             this.ChassisHandlingTabPage.Name = "ChassisHandlingTabPage";
-            this.ChassisHandlingTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.ChassisHandlingTabPage.Size = new System.Drawing.Size(930, 529);
             this.ChassisHandlingTabPage.TabIndex = 7;
             this.ChassisHandlingTabPage.Text = "Chassis Handling";
             this.ChassisHandlingTabPage.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.ChassisHandlingDataGridView, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ChassisHandlingOptionsGroupBox, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(930, 529);
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
             // ChassisHandlingDataGridView
             // 
@@ -2575,7 +2596,7 @@
             this.ChassisHandlingDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChassisHandlingDataGridView.Location = new System.Drawing.Point(3, 3);
             this.ChassisHandlingDataGridView.Name = "ChassisHandlingDataGridView";
-            this.ChassisHandlingDataGridView.Size = new System.Drawing.Size(924, 523);
+            this.ChassisHandlingDataGridView.Size = new System.Drawing.Size(924, 469);
             this.ChassisHandlingDataGridView.TabIndex = 1;
             // 
             // idDataGridViewTextBoxColumn16
@@ -2611,6 +2632,49 @@
             // chassisHandlingBindingSource
             // 
             this.chassisHandlingBindingSource.DataSource = typeof(Data.Entities.Executable.Race.ChassisHandling);
+            // 
+            // ChassisHandlingOptionsGroupBox
+            // 
+            this.ChassisHandlingOptionsGroupBox.Controls.Add(this.ChassisHandlingCalculatedValuesButton);
+            this.ChassisHandlingOptionsGroupBox.Controls.Add(this.ChassisHandlingModifiedValuesButton);
+            this.ChassisHandlingOptionsGroupBox.Controls.Add(this.ChassisHandlingOriginalValuesButton);
+            this.ChassisHandlingOptionsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChassisHandlingOptionsGroupBox.Location = new System.Drawing.Point(3, 478);
+            this.ChassisHandlingOptionsGroupBox.Name = "ChassisHandlingOptionsGroupBox";
+            this.ChassisHandlingOptionsGroupBox.Size = new System.Drawing.Size(924, 48);
+            this.ChassisHandlingOptionsGroupBox.TabIndex = 2;
+            this.ChassisHandlingOptionsGroupBox.TabStop = false;
+            this.ChassisHandlingOptionsGroupBox.Text = "Chassis Handling Options";
+            // 
+            // ChassisHandlingCalculatedValuesButton
+            // 
+            this.ChassisHandlingCalculatedValuesButton.Location = new System.Drawing.Point(618, 19);
+            this.ChassisHandlingCalculatedValuesButton.Name = "ChassisHandlingCalculatedValuesButton";
+            this.ChassisHandlingCalculatedValuesButton.Size = new System.Drawing.Size(300, 23);
+            this.ChassisHandlingCalculatedValuesButton.TabIndex = 0;
+            this.ChassisHandlingCalculatedValuesButton.Text = "Use randomised values from modified design calculation";
+            this.ChassisHandlingCalculatedValuesButton.UseVisualStyleBackColor = true;
+            this.ChassisHandlingCalculatedValuesButton.Click += new System.EventHandler(this.ChassisHandlingCalculatedValuesButton_Click);
+            // 
+            // ChassisHandlingModifiedValuesButton
+            // 
+            this.ChassisHandlingModifiedValuesButton.Location = new System.Drawing.Point(312, 19);
+            this.ChassisHandlingModifiedValuesButton.Name = "ChassisHandlingModifiedValuesButton";
+            this.ChassisHandlingModifiedValuesButton.Size = new System.Drawing.Size(300, 23);
+            this.ChassisHandlingModifiedValuesButton.TabIndex = 0;
+            this.ChassisHandlingModifiedValuesButton.Text = "Use modified 1998 season values";
+            this.ChassisHandlingModifiedValuesButton.UseVisualStyleBackColor = true;
+            this.ChassisHandlingModifiedValuesButton.Click += new System.EventHandler(this.ChassisHandlingModifiedValuesButton_Click);
+            // 
+            // ChassisHandlingOriginalValuesButton
+            // 
+            this.ChassisHandlingOriginalValuesButton.Location = new System.Drawing.Point(6, 19);
+            this.ChassisHandlingOriginalValuesButton.Name = "ChassisHandlingOriginalValuesButton";
+            this.ChassisHandlingOriginalValuesButton.Size = new System.Drawing.Size(300, 23);
+            this.ChassisHandlingOriginalValuesButton.TabIndex = 0;
+            this.ChassisHandlingOriginalValuesButton.Text = "Use original 1998 season values";
+            this.ChassisHandlingOriginalValuesButton.UseVisualStyleBackColor = true;
+            this.ChassisHandlingOriginalValuesButton.Click += new System.EventHandler(this.ChassisHandlingOriginalValuesButton_Click);
             // 
             // GameExecutableEditorForm
             // 
@@ -2687,8 +2751,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.TracksDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBindingSource)).EndInit();
             this.ChassisHandlingTabPage.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ChassisHandlingDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chassisHandlingBindingSource)).EndInit();
+            this.ChassisHandlingOptionsGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2981,5 +3047,10 @@
         private System.Windows.Forms.Button ImportButton;
         private System.Windows.Forms.GroupBox OverviewGroupBox;
         private System.Windows.Forms.RichTextBox OverviewRichTextBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox ChassisHandlingOptionsGroupBox;
+        private System.Windows.Forms.Button ChassisHandlingCalculatedValuesButton;
+        private System.Windows.Forms.Button ChassisHandlingModifiedValuesButton;
+        private System.Windows.Forms.Button ChassisHandlingOriginalValuesButton;
     }
 }

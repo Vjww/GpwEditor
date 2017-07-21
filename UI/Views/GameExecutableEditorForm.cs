@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -451,6 +452,103 @@ namespace GpwEditor.Views
                 {
                     dataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
                     dataGridView.EndEdit();
+                }
+            }
+        }
+
+        private void ChassisHandlingOriginalValuesButton_Click(object sender, EventArgs e)
+        {
+            var values = new[]
+            {
+                75,
+                80,
+                70,
+                90,
+                55,
+                30,
+                45,
+                50,
+                40,
+                25,
+                20
+            };
+
+            UpdateChassisHandlingValues(ChassisHandlingDataGridView, 4, values);
+        }
+
+        private void ChassisHandlingModifiedValuesButton_Click(object sender, EventArgs e)
+        {
+            var values = new[]
+            {
+                75, // TODO:
+                80, // TODO:
+                70, // TODO:
+                90, // TODO:
+                55, // TODO:
+                30, // TODO: Update to recommended values from community to match new performance curve
+                45, // TODO:
+                50, // TODO:
+                40, // TODO:
+                25, // TODO:
+                20  // TODO:
+            };
+
+            UpdateChassisHandlingValues(ChassisHandlingDataGridView, 4, values);
+        }
+
+        private void ChassisHandlingCalculatedValuesButton_Click(object sender, EventArgs e)
+        {
+            var values = new[]
+            {
+                CalculateChassisHandling(0),
+                CalculateChassisHandling(1),
+                CalculateChassisHandling(2),
+                CalculateChassisHandling(3),
+                CalculateChassisHandling(4),
+                CalculateChassisHandling(5),
+                CalculateChassisHandling(6),
+                CalculateChassisHandling(7),
+                CalculateChassisHandling(8),
+                CalculateChassisHandling(9),
+                CalculateChassisHandling(10)
+            };
+
+            UpdateChassisHandlingValues(ChassisHandlingDataGridView, 4, values);
+        }
+
+        private int CalculateChassisHandling(int id)
+        {
+            var championshipPosition = GetDataGridCellValue(TeamsDataGridView, 4, id);
+            var designerAbility = GetDataGridCellValue(ChiefsF1DesignerDataGridView, 4, id);
+            var engineerAbility = GetDataGridCellValue(ChiefsF1EngineerDataGridView, 4, id);
+            const int designerFactor = 5;
+            const int engineerFactor = 15;
+            var randomFactor = new Random().Next(0, 21); // 0..20
+            return designerFactor * (designerAbility - 1) + engineerFactor * (engineerAbility - 1) +
+                              (31 - championshipPosition - randomFactor);
+        }
+
+        private static int GetDataGridCellValue(DataGridView dataGridView, int columnIndex, int rowIndex)
+        {
+            int tryParseResult;
+            if (!int.TryParse(dataGridView.Rows[rowIndex].Cells[columnIndex].Value.ToString(), out tryParseResult))
+            {
+                throw new Exception("Unable to parse value to the required type.");
+            }
+            return tryParseResult;
+        }
+
+        private void UpdateChassisHandlingValues(DataGridView dataGridView, int columnIndex, IReadOnlyList<int> values)
+        {
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                if (column.Index != columnIndex) continue;
+
+                var counter = 0;
+                foreach (DataGridViewRow row in ChassisHandlingDataGridView.Rows)
+                {
+                    row.Cells[columnIndex].Value = values[counter];
+                    counter++;
                 }
             }
         }
