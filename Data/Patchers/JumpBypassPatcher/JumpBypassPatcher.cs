@@ -319,12 +319,12 @@ namespace Data.Patchers.JumpBypassPatcher
                 }
 
                 // Remove redundant jump functions
-                var nopByteArray = new byte[0x352F];
-                for (var i = 0; i < nopByteArray.Length; i++)
+                var clearByteArray = new byte[0x352F];
+                for (var i = 0; i < clearByteArray.Length; i++)
                 {
-                    nopByteArray[i] = 0x90; // Fill array with nop opcode
+                    clearByteArray[i] = 0xCC; // Fill array with int3 opcode
                 }
-                executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(jumpFunctionFirstReference), nopByteArray);
+                executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(jumpFunctionFirstReference), clearByteArray);
             }
 
             Debug.WriteLine(" .text section bypass count: " + textBypassStatsCounter);

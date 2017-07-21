@@ -33,7 +33,7 @@ namespace Data.Patchers.CodeShiftPatcher
             // Open file and write
             using (var executableConnection = new ExecutableConnection(_executableFilePath))
             {
-                NopExistingBytes(executableConnection, address, length);
+                ClearExistingBytes(executableConnection, address, length);
                 WriteNewBytes(executableConnection, address, ReconstructedFunctionAt4706D7.GetInstructions());
             }
         }
@@ -61,22 +61,22 @@ namespace Data.Patchers.CodeShiftPatcher
             // Open file and write
             using (var executableConnection = new ExecutableConnection(_executableFilePath))
             {
-                NopExistingBytes(executableConnection, address, length);
+                ClearExistingBytes(executableConnection, address, length);
                 WriteNewBytes(executableConnection, address, ReorderedModuleAt5031C6.GetInstructions());
             }
         }
 
-        private static void NopExistingBytes(ExecutableConnection executableConnection, int address, int length)
+        private static void ClearExistingBytes(ExecutableConnection executableConnection, int address, int length)
         {
-            // Create byte array of NOPs
-            var nopInstructions = new byte[length];
-            for (var i = 0; i < nopInstructions.Length; i++)
+            // Create byte array
+            var clearByteArray = new byte[length];
+            for (var i = 0; i < clearByteArray.Length; i++)
             {
-                nopInstructions[i] = 0x90;
+                clearByteArray[i] = 0xCC; // Fill array with int3 opcode
             }
 
-            // Write byte array of NOPs
-            executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(address), nopInstructions);
+            // Write byte array
+            executableConnection.WriteByteArray(InstructionHelper.CalculateRealPositionFromVirtualPosition(address), clearByteArray);
         }
 
         private static void WriteNewBytes(ExecutableConnection executableConnection, int address, byte[] instructions)

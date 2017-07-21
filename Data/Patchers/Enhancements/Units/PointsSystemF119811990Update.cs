@@ -300,35 +300,35 @@
                                                                                         // .text:005B8FD6 sub_5B8C5D      endp
                                                                                         // .text:005B8FD6
                                                                                         // .text:005B8FD6 ; ---------------------------------------------------------------------------
-                    0x90,                                                               // .text:005B8FD7                 db  90h ; É
-                    0x90,                                                               // .text:005B8FD8                 db  90h ; É
-                    0x90,                                                               // .text:005B8FD9                 db  90h ; É
-                    0x90,                                                               // .text:005B8FDA                 db  90h ; É
-                    0x90,                                                               // .text:005B8FDB                 db  90h ; É
-                    0x90,                                                               // .text:005B8FDC                 db  90h ; É
-                    0x90,                                                               // .text:005B8FDD                 db  90h ; É
-                    0x90,                                                               // .text:005B8FDE                 db  90h ; É
-                    0x90,                                                               // .text:005B8FDF                 db  90h ; É
-                    0x90,                                                               // .text:005B8FE0                 db  90h ; É
-                    0x90,                                                               // .text:005B8FE1                 db  90h ; É
-                    0x90,                                                               // .text:005B8FE2                 db  90h ; É
-                    0x90,                                                               // .text:005B8FE3                 db  90h ; É
-                    0x90,                                                               // .text:005B8FE4                 db  90h ; É
-                    0x90,                                                               // .text:005B8FE5                 db  90h ; É
-                    0x90,                                                               // .text:005B8FE6                 db  90h ; É OFF32 SEGDEF [0,90909090]
-                    0x90,                                                               // .text:005B8FE7                 db  90h ; É
-                    0x90,                                                               // .text:005B8FE8                 db  90h ; É
-                    0x90,                                                               // .text:005B8FE9                 db  90h ; É
-                    0x90,                                                               // .text:005B8FEA                 db  90h ; É
-                    0x90,                                                               // .text:005B8FEB                 db  90h ; É
-                    0x90,                                                               // .text:005B8FEC                 db  90h ; É
-                    0x90,                                                               // .text:005B8FED                 db  90h ; É
-                    0x90,                                                               // .text:005B8FEE                 db  90h ; É
-                    0x90,                                                               // .text:005B8FEF                 db  90h ; É
-                    0x90,                                                               // .text:005B8FF0                 db  90h ; É
-                    0x90,                                                               // .text:005B8FF1                 db  90h ; É
-                    0x90,                                                               // .text:005B8FF2                 db  90h ; É
-                    0x90                                                                // .text:005B8FF3                 db  90h ; É
+                    0xCC,                                                               // .text:005B8FD7                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FD8                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FD9                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FDA                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FDB                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FDC                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FDD                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FDE                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FDF                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FE0                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FE1                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FE2                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FE3                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FE4                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FE5                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FE6                 db  CCh ; É OFF32 SEGDEF [0,90909090]
+                    0xCC,                                                               // .text:005B8FE7                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FE8                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FE9                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FEA                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FEB                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FEC                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FED                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FEE                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FEF                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FF0                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FF1                 db  CCh ; É
+                    0xCC,                                                               // .text:005B8FF2                 db  CCh ; É
+                    0xCC                                                                // .text:005B8FF3                 db  CCh ; É
                 }
             });
         }
