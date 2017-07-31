@@ -413,7 +413,7 @@ namespace GpwEditor.Views
             }
 
             // Return if integer not within range
-            if ((index < LanguageConnection.FirstLineId) || (index > LanguageConnection.LastLineId))
+            if ((index < LanguageResourceConnection.FirstLineId) || (index > LanguageResourceConnection.LastLineId))
             {
                 GoToIndexTextBox.Text = string.Empty;
                 GoToIndexTextBox.Focus();

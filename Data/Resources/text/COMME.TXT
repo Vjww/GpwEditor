@@ -1,4 +1,4 @@
->PITNOW1.WAV In. In. In.<
+ï»¿>PITNOW1.WAV In. In. In.<
 >PITNOW2.WAV Coming in.<
 >EASEOFF1.WAV Off. Off. Off.<
 >EASEOFF2.WAV Pulling back.<
@@ -86,7 +86,7 @@
 >SARP1.WAV Sarazzin P1<
 >ALESP1.WAV Alesi P1<
 >HERBP1.WAV Herbert P1<
->MULLP1.WAV Müller P1<
+>MULLP1.WAV MÃ¼ller P1<
 >BARIP1.WAV Barrichello P1<
 >MAGP1.WAV Magnussen P1<
 >TAKP1.WAV Takagi P1<
@@ -127,7 +127,7 @@
 >SARP2.WAV Sarazzin P2<
 >ALESP2.WAV Alesi P2<
 >HERBP2.WAV Herbert P2<
->MULLP2.WAV Müller P2<
+>MULLP2.WAV MÃ¼ller P2<
 >BARIP2.WAV Barrichello P2<
 >MAGP2.WAV Magnussen P2<
 >TAKP2.WAV Takagi P2<
@@ -168,7 +168,7 @@
 >SARP3.WAV Sarazzin P3<
 >ALESP3.WAV Alesi P3<
 >HERBP3.WAV Herbert P3<
->MULLP3.WAV Müller P3<
+>MULLP3.WAV MÃ¼ller P3<
 >BARIP3.WAV Barrichello P3<
 >MAGP3.WAV Magnussen P3<
 >TAKP3.WAV Takagi P3<
@@ -190,7 +190,7 @@
 >MORP3.WAV Moreira P3<
 >DINOUT.WAV Diniz out.<
 >SALOUT.WAV Salo out.<
->COLOUT.WAV Collard out<
+>COLOUT.WAV Collard out.<
 >FISOUT.WAV Fisichella out.<
 >WURZOUT.WAV Wurz out.<
 >SCHUOUT.WAV Michael Schumacher out.<
@@ -209,7 +209,7 @@
 >SAROUT.WAV Sarazzin out.<
 >ALESOUT.WAV Alesi out.<
 >HERBOUT.WAV Herbert out.<
->MULLOUT.WAV Müller out.<
+>MULLOUT.WAV MÃ¼ller out.<
 >BARIOUT.WAV Barrichello out.<
 >MAGOUT.WAV Magnussen out.<
 >TAKOUT.WAV Takagi out.<
@@ -238,8 +238,8 @@
 >PROOUT.WAV Prost out.<
 >SAUOUT.WAV Sauber out.<
 >STEWOUT.WAV Stewart out.<
->TYROUT.WAV Tyrrell out.  <
->WILOUT.WAV Williams out.  <
+>TYROUT.WAV Tyrrell out.<
+>WILOUT.WAV Williams out.<
 >WEREOUT.WAV That's it. Race over.<
 >DINPIT.WAV Diniz In Pits.<
 >SALPIT.WAV Salo In Pits.<
@@ -262,7 +262,7 @@
 >SARPIT.WAV Sarazzin In Pits.<
 >ALESPIT.WAV Alesi In Pits.<
 >HERBPIT.WAV Herbert In Pits.<
->MULLPIT.WAV Müller In Pits.<
+>MULLPIT.WAV MÃ¼ller In Pits.<
 >BARIPIT.WAV Barrichello In Pits.<
 >MAGPIT.WAV Magnussen In Pits.<
 >TAKPIT.WAV Takagi In Pits.<
@@ -301,7 +301,7 @@
 >UNCLEAR.WAV Position unclear.<
 >QUALX1.WAV Car damaged. Prepare car three.<
 >QUALX3.WAV Car damaged. Unable to continue.<
->QUALX6.WAV Car damaged. I'm injured but OK. Repeat. OK.<
+>QUALX6.WAV Car damaged. I'm injured but okay. Repeat. Okay.<
 >LETPASS2.WAV Moving over.<
 >PITNOW4.WAV Staying out.<
 >EASEOFF4.WAV Pace up.<
@@ -316,7 +316,7 @@
 >QUALX4.WAV Bringing race car in pits for repairs.<
 >QUALX5.WAV Can not repair race car. Repeat. Can not repair car.<
 >QUALX7.WAV Driver unable to continue. Sending help.<
->QUALX8.WAV We have stewards' permission to run Car 3 with Test Driver.<
+>QUALX8.WAV We have stewards' permission to run car three with test driver.<
 >QUALEND.WAV Qualifying over. Well done everybody.<
 >RECORD1.WAV New lap record.<
 >RECORD2.WAV New lap record - great work.<

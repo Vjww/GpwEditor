@@ -19,7 +19,7 @@ namespace Data.Databases
 
         private void ImportLanguageStrings(string languageFilePath)
         {
-            using (var languageConnection = new LanguageConnection(languageFilePath))
+            using (var languageConnection = new LanguageResourceConnection(languageFilePath))
             {
                 LanguageStrings = languageConnection.Load();
             }
@@ -27,7 +27,7 @@ namespace Data.Databases
 
         private void ExportLanguageStrings(string languageFilePath)
         {
-            using (var languageConnection = new LanguageConnection(languageFilePath))
+            using (var languageConnection = new LanguageResourceConnection(languageFilePath))
             {
                 languageConnection.Save(LanguageStrings);
             }

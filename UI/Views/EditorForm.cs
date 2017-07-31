@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using GpwEditor.Properties;
 
@@ -37,6 +40,43 @@ namespace GpwEditor.Views
                 rtfString += item + @"\line ";
             }
             richTextBox.Rtf = rtfString.TrimEnd(@"\line".ToCharArray());
+        }
+
+        // ReSharper disable once UnusedMember.Local
+        private static void ConfigureDataGridViewControl<T>(DataGridView dataGridView, int columnId, string resourceTextHeaderText, bool fillColumns = false)
+        {
+            ConfigureDataGridViewControl<T>(dataGridView, columnId, fillColumns);
+            dataGridView.Columns[3].HeaderText = resourceTextHeaderText;
+        }
+
+        protected static void ConfigureDataGridViewControl<T>(DataGridView dataGridView, int idColumnId, int localResourceIdColumnId, int resourceIdColumnId, int resourceTextColumnId, bool fillColumns = false)
+        {
+            // Hide columns
+            dataGridView.Columns[$"idDataGridViewTextBoxColumn{idColumnId}"].Visible = false;
+            dataGridView.Columns[$"localResourceIdDataGridViewTextBoxColumn{localResourceIdColumnId}"].Visible = false;
+            dataGridView.Columns[$"resourceIdDataGridViewTextBoxColumn{resourceIdColumnId}"].Visible = false;
+
+            // Freeze primary column (to always show when scrolling horizontally)
+            dataGridView.Columns[$"resourceTextDataGridViewTextBoxColumn{resourceTextColumnId}"].Frozen = !fillColumns;
+
+            // Make primary column readonly
+            dataGridView.Columns[$"resourceTextDataGridViewTextBoxColumn{resourceTextColumnId}"].ReadOnly = true;
+
+            // Rename column headers and populate column tooltips using model attributes
+            UpdateDataGridViewColumnHeaders<T>(dataGridView);
+
+            // Configure grid
+            dataGridView.AutoSizeColumnsMode = fillColumns ? DataGridViewAutoSizeColumnsMode.Fill : DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.AllowUserToDeleteRows = false;
+            dataGridView.AllowUserToResizeRows = false;
+            dataGridView.MultiSelect = false;
+            dataGridView.RowHeadersVisible = false;
+        }
+
+        protected static void ConfigureDataGridViewControl<T>(DataGridView dataGridView, int columnId, bool fillColumns = false)
+        {
+            ConfigureDataGridViewControl<T>(dataGridView, columnId, columnId, columnId, columnId, fillColumns);
         }
 
         protected string GetGameFolderPathFromFolderBrowserDialog()
@@ -146,6 +186,41 @@ namespace GpwEditor.Views
             childForm.FormClosing += delegate { parentForm.Show(); };
             childForm.Show(parentForm);
             parentForm.Hide();
+        }
+
+        protected static void UpdateDataGridViewColumnHeaders<T>(DataGridView dataGridView)
+        {
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                var properties = typeof(T).GetProperties();
+                var property = properties.Single(x => x.Name == column.DataPropertyName);
+                var attributes = property.GetCustomAttributes(true);
+                foreach (var attribute in attributes)
+                {
+                    var displayAttribute = attribute as DisplayAttribute;
+                    if (displayAttribute != null)
+                    {
+                        // Update header text and tooltip text with attribute text
+                        column.HeaderText = displayAttribute.GetName();
+                        column.ToolTipText = displayAttribute.GetDescription();
+                    }
+                }
+            }
+        }
+
+        protected static void UpdateValuesInDataGridViewColumn<T>(DataGridView dataGridView, int columnIndex, IReadOnlyList<T> values)
+        {
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                if (column.Index != columnIndex) continue;
+
+                var counter = 0;
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    row.Cells[columnIndex].Value = values[counter];
+                    counter++;
+                }
+            }
         }
     }
 }

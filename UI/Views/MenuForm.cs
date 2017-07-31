@@ -145,6 +145,10 @@ namespace GpwEditor.Views
                     Settings.Default.UserGameFolderPath = GameFolderBrowserDialog.SelectedPath;
                 }
 
+                // Update other user paths
+                Settings.Default.UserGameExecutablePath = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultGameExecutableName);
+                Settings.Default.UserLanguageFilePath = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultLanguageFileName);
+
                 // Save selected game installation folder
                 Settings.Default.Save();
             }

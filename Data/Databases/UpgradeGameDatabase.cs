@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Text;
 using Data.Collections.Language;
 using Data.FileConnection;
 using Data.Helpers;
@@ -73,18 +74,18 @@ namespace Data.Databases
 
         private static void ApplyCommentaryResourcesToGameFolder(string gameFolderPath)
         {
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\NAMEOUT.wav"), Resources.NAMEOUT);   // New
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\NAMEP1.wav"), Resources.NAMEP1);     // New
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\NAMEP2.wav"), Resources.NAMEP2);     // New
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\NAMEP3.wav"), Resources.NAMEP3);     // New
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\NAMEPIT.wav"), Resources.NAMEPIT);   // New
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\P1C.wav"), Resources.P1C);           // Overwrite
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\P2A.wav"), Resources.P2A);           // Overwrite
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\P3A.wav"), Resources.P3A);           // Overwrite
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\ANONOUT.wav"), Resources.ANONOUT); // New
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\ANONP1.wav"), Resources.ANONP1);   // New
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\ANONP2.wav"), Resources.ANONP2);   // New
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\ANONP3.wav"), Resources.ANONP3);   // New
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\ANONPIT.wav"), Resources.ANONPIT); // New
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\P1C.wav"), Resources.P1C);  // Overwrite
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\P2A.wav"), Resources.P2A);  // Overwrite
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\P3A.wav"), Resources.P3A);  // Overwrite
 
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"text\COMME.txt"), Resources.COMME_Enhanced); // Overwrite
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"text\COMMF.txt"), Resources.COMME_Enhanced); // Overwrite
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"text\COMMG.txt"), Resources.COMME_Enhanced); // Overwrite
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"text\COMME.txt"), Resources.COMME); // Overwrite
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"text\COMMF.txt"), Resources.COMME); // Overwrite
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"text\COMMG.txt"), Resources.COMME); // Overwrite
         }
 
         private static void ApplyCommentarySoundIndexFix(string gameExecutablePath)
@@ -162,7 +163,8 @@ namespace Data.Databases
 
         private static void CopyResourceToFile(string filePath, string resource)
         {
-            File.WriteAllText(filePath, resource);
+            // https://stackoverflow.com/a/17269952
+            File.WriteAllText(filePath, resource, Encoding.GetEncoding(1252)); // Western European (Windows)
         }
 
         private static void CopyResourceToFile(string filePath, Stream resource)
@@ -176,7 +178,7 @@ namespace Data.Databases
 
         private void ExportLanguageStrings(string languageFilePath)
         {
-            using (var languageConnection = new LanguageConnection(languageFilePath))
+            using (var languageConnection = new LanguageResourceConnection(languageFilePath))
             {
                 languageConnection.Save(LanguageStrings);
             }
@@ -184,7 +186,7 @@ namespace Data.Databases
 
         private void ImportLanguageStrings(string languageFilePath)
         {
-            using (var languageConnection = new LanguageConnection(languageFilePath))
+            using (var languageConnection = new LanguageResourceConnection(languageFilePath))
             {
                 LanguageStrings = languageConnection.Load();
             }

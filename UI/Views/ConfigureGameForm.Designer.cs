@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigureGameForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.ConfigureGameTabControl = new System.Windows.Forms.TabControl();
             this.HomeTabPage = new System.Windows.Forms.TabPage();
             this.LanguageDataGridView = new System.Windows.Forms.DataGridView();
@@ -41,8 +41,15 @@
             this.resourceIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resourceTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.identityBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.OverviewGroupBox = new System.Windows.Forms.GroupBox();
-            this.OverviewRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.CommentaryResourcesDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fileNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fileNamePrefixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fileNameSuffixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transcriptDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transcriptPrefixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transcriptSuffixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentaryResourceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FilesGroupBox = new System.Windows.Forms.GroupBox();
             this.GameFolderPathLabel = new System.Windows.Forms.Label();
             this.GameExecutablePathLabel = new System.Windows.Forms.Label();
@@ -55,6 +62,8 @@
             this.BrowseLanguageFileButton = new System.Windows.Forms.Button();
             this.ExportButton = new System.Windows.Forms.Button();
             this.ImportButton = new System.Windows.Forms.Button();
+            this.OverviewGroupBox = new System.Windows.Forms.GroupBox();
+            this.OverviewRichTextBox = new System.Windows.Forms.RichTextBox();
             this.CompatibilityTabPage = new System.Windows.Forms.TabPage();
             this.CompatibilityGroupBox = new System.Windows.Forms.GroupBox();
             this.DisableGameCdCheckBox = new System.Windows.Forms.CheckBox();
@@ -68,9 +77,43 @@
             this.EnableCarPerformanceRaceCalcuationCheckbox = new System.Windows.Forms.CheckBox();
             this.EnableCarHandlingDesignCalculationCheckbox = new System.Windows.Forms.CheckBox();
             this.CommentaryTabPage = new System.Windows.Forms.TabPage();
-            this.CommentaryGroupBox = new System.Windows.Forms.GroupBox();
-            this.CommentaryModifiedRadioButton = new System.Windows.Forms.RadioButton();
-            this.CommentaryOriginalRadioButton = new System.Windows.Forms.RadioButton();
+            this.CommentaryTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.CommentaryPrefixesDriverGroupBox = new System.Windows.Forms.GroupBox();
+            this.CommentaryPrefixesDriverDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fileNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fileNamePrefixDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fileNameSuffixDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transcriptDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transcriptPrefixDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transcriptSuffixDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CommentaryPrefixesTeamGroupBox = new System.Windows.Forms.GroupBox();
+            this.CommentaryPrefixesTeamDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fileNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fileNamePrefixDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fileNameSuffixDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transcriptDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transcriptPrefixDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transcriptSuffixDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CommentaryFilesGroupBox = new System.Windows.Forms.GroupBox();
+            this.CommentaryFilesDataGridView = new System.Windows.Forms.DataGridView();
+            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stringValueBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.CommentaryIndicesDriverGroupBox = new System.Windows.Forms.GroupBox();
+            this.CommentaryIndicesDriverDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localResourceIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceTextDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentaryIndexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentaryDriverIndexBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.CommentaryOptionsGroupBox = new System.Windows.Forms.GroupBox();
+            this.CommentaryIndicesDefaultButton = new System.Windows.Forms.Button();
+            this.CommentaryDriversDefaultButton = new System.Windows.Forms.Button();
+            this.CommentaryDriversGenericButton = new System.Windows.Forms.Button();
+            this.CommentaryTeamsGenericButton = new System.Windows.Forms.Button();
+            this.CommentaryTeamsDefaultButton = new System.Windows.Forms.Button();
             this.PointsScoringSystemTabPage = new System.Windows.Forms.TabPage();
             this.PointsScoringSystemGroupBox = new System.Windows.Forms.GroupBox();
             this.PointsScoringSystemOption3RadioButton = new System.Windows.Forms.RadioButton();
@@ -104,18 +147,39 @@
             this.PerformanceCurveChartBox010NumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.PerformanceCurveChartBox110NumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.PerformanceCurveChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.CommentaryIndicesTeamGroupBox = new System.Windows.Forms.GroupBox();
+            this.CommentaryIndicesTeamDataGridView = new System.Windows.Forms.DataGridView();
+            this.commentaryTeamIndexBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localResourceIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceTextDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentaryIndexDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConfigureGameTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.identityBindingSource)).BeginInit();
-            this.OverviewGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CommentaryResourcesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commentaryResourceBindingSource)).BeginInit();
             this.FilesGroupBox.SuspendLayout();
+            this.OverviewGroupBox.SuspendLayout();
             this.CompatibilityTabPage.SuspendLayout();
             this.CompatibilityGroupBox.SuspendLayout();
             this.GameplayTabPage.SuspendLayout();
             this.GameplayGroupBox.SuspendLayout();
             this.CommentaryTabPage.SuspendLayout();
-            this.CommentaryGroupBox.SuspendLayout();
+            this.CommentaryTableLayoutPanel.SuspendLayout();
+            this.CommentaryPrefixesDriverGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CommentaryPrefixesDriverDataGridView)).BeginInit();
+            this.CommentaryPrefixesTeamGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CommentaryPrefixesTeamDataGridView)).BeginInit();
+            this.CommentaryFilesGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CommentaryFilesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stringValueBindingSource)).BeginInit();
+            this.CommentaryIndicesDriverGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CommentaryIndicesDriverDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commentaryDriverIndexBindingSource)).BeginInit();
+            this.CommentaryOptionsGroupBox.SuspendLayout();
             this.PointsScoringSystemTabPage.SuspendLayout();
             this.PointsScoringSystemGroupBox.SuspendLayout();
             this.ViewportsTabPage.SuspendLayout();
@@ -136,6 +200,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox010NumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox110NumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChart)).BeginInit();
+            this.CommentaryIndicesTeamGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CommentaryIndicesTeamDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commentaryTeamIndexBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ConfigureGameTabControl
@@ -158,8 +225,9 @@
             // HomeTabPage
             // 
             this.HomeTabPage.Controls.Add(this.LanguageDataGridView);
-            this.HomeTabPage.Controls.Add(this.OverviewGroupBox);
+            this.HomeTabPage.Controls.Add(this.CommentaryResourcesDataGridView);
             this.HomeTabPage.Controls.Add(this.FilesGroupBox);
+            this.HomeTabPage.Controls.Add(this.OverviewGroupBox);
             this.HomeTabPage.Location = new System.Drawing.Point(4, 22);
             this.HomeTabPage.Name = "HomeTabPage";
             this.HomeTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -178,7 +246,7 @@
             this.resourceIdDataGridViewTextBoxColumn,
             this.resourceTextDataGridViewTextBoxColumn});
             this.LanguageDataGridView.DataSource = this.identityBindingSource;
-            this.LanguageDataGridView.Location = new System.Drawing.Point(6, 476);
+            this.LanguageDataGridView.Location = new System.Drawing.Point(6, 423);
             this.LanguageDataGridView.Name = "LanguageDataGridView";
             this.LanguageDataGridView.Size = new System.Drawing.Size(918, 47);
             this.LanguageDataGridView.TabIndex = 5;
@@ -213,25 +281,71 @@
             // 
             this.identityBindingSource.DataSource = typeof(Data.Entities.Language.Identity);
             // 
-            // OverviewGroupBox
+            // CommentaryResourcesDataGridView
             // 
-            this.OverviewGroupBox.Controls.Add(this.OverviewRichTextBox);
-            this.OverviewGroupBox.Location = new System.Drawing.Point(6, 118);
-            this.OverviewGroupBox.Name = "OverviewGroupBox";
-            this.OverviewGroupBox.Size = new System.Drawing.Size(918, 405);
-            this.OverviewGroupBox.TabIndex = 4;
-            this.OverviewGroupBox.TabStop = false;
+            this.CommentaryResourcesDataGridView.AutoGenerateColumns = false;
+            this.CommentaryResourcesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CommentaryResourcesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn1,
+            this.fileNameDataGridViewTextBoxColumn,
+            this.fileNamePrefixDataGridViewTextBoxColumn,
+            this.fileNameSuffixDataGridViewTextBoxColumn,
+            this.transcriptDataGridViewTextBoxColumn,
+            this.transcriptPrefixDataGridViewTextBoxColumn,
+            this.transcriptSuffixDataGridViewTextBoxColumn});
+            this.CommentaryResourcesDataGridView.DataSource = this.commentaryResourceBindingSource;
+            this.CommentaryResourcesDataGridView.Location = new System.Drawing.Point(6, 476);
+            this.CommentaryResourcesDataGridView.Name = "CommentaryResourcesDataGridView";
+            this.CommentaryResourcesDataGridView.Size = new System.Drawing.Size(918, 47);
+            this.CommentaryResourcesDataGridView.TabIndex = 5;
+            this.CommentaryResourcesDataGridView.TabStop = false;
+            this.CommentaryResourcesDataGridView.Visible = false;
             // 
-            // OverviewRichTextBox
+            // idDataGridViewTextBoxColumn1
             // 
-            this.OverviewRichTextBox.BackColor = System.Drawing.SystemColors.Window;
-            this.OverviewRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OverviewRichTextBox.Location = new System.Drawing.Point(6, 19);
-            this.OverviewRichTextBox.Name = "OverviewRichTextBox";
-            this.OverviewRichTextBox.ReadOnly = true;
-            this.OverviewRichTextBox.Size = new System.Drawing.Size(906, 380);
-            this.OverviewRichTextBox.TabIndex = 2;
-            this.OverviewRichTextBox.Text = resources.GetString("OverviewRichTextBox.Text");
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            // 
+            // fileNameDataGridViewTextBoxColumn
+            // 
+            this.fileNameDataGridViewTextBoxColumn.DataPropertyName = "FileName";
+            this.fileNameDataGridViewTextBoxColumn.HeaderText = "FileName";
+            this.fileNameDataGridViewTextBoxColumn.Name = "fileNameDataGridViewTextBoxColumn";
+            // 
+            // fileNamePrefixDataGridViewTextBoxColumn
+            // 
+            this.fileNamePrefixDataGridViewTextBoxColumn.DataPropertyName = "FileNamePrefix";
+            this.fileNamePrefixDataGridViewTextBoxColumn.HeaderText = "FileNamePrefix";
+            this.fileNamePrefixDataGridViewTextBoxColumn.Name = "fileNamePrefixDataGridViewTextBoxColumn";
+            // 
+            // fileNameSuffixDataGridViewTextBoxColumn
+            // 
+            this.fileNameSuffixDataGridViewTextBoxColumn.DataPropertyName = "FileNameSuffix";
+            this.fileNameSuffixDataGridViewTextBoxColumn.HeaderText = "FileNameSuffix";
+            this.fileNameSuffixDataGridViewTextBoxColumn.Name = "fileNameSuffixDataGridViewTextBoxColumn";
+            // 
+            // transcriptDataGridViewTextBoxColumn
+            // 
+            this.transcriptDataGridViewTextBoxColumn.DataPropertyName = "Transcript";
+            this.transcriptDataGridViewTextBoxColumn.HeaderText = "Transcript";
+            this.transcriptDataGridViewTextBoxColumn.Name = "transcriptDataGridViewTextBoxColumn";
+            // 
+            // transcriptPrefixDataGridViewTextBoxColumn
+            // 
+            this.transcriptPrefixDataGridViewTextBoxColumn.DataPropertyName = "TranscriptPrefix";
+            this.transcriptPrefixDataGridViewTextBoxColumn.HeaderText = "TranscriptPrefix";
+            this.transcriptPrefixDataGridViewTextBoxColumn.Name = "transcriptPrefixDataGridViewTextBoxColumn";
+            // 
+            // transcriptSuffixDataGridViewTextBoxColumn
+            // 
+            this.transcriptSuffixDataGridViewTextBoxColumn.DataPropertyName = "TranscriptSuffix";
+            this.transcriptSuffixDataGridViewTextBoxColumn.HeaderText = "TranscriptSuffix";
+            this.transcriptSuffixDataGridViewTextBoxColumn.Name = "transcriptSuffixDataGridViewTextBoxColumn";
+            // 
+            // commentaryResourceBindingSource
+            // 
+            this.commentaryResourceBindingSource.DataSource = typeof(Data.Entities.Commentary.CommentaryResource);
             // 
             // FilesGroupBox
             // 
@@ -356,6 +470,26 @@
             this.ImportButton.Text = "Import...";
             this.ImportButton.UseVisualStyleBackColor = true;
             this.ImportButton.Click += new System.EventHandler(this.ImportButton_Click);
+            // 
+            // OverviewGroupBox
+            // 
+            this.OverviewGroupBox.Controls.Add(this.OverviewRichTextBox);
+            this.OverviewGroupBox.Location = new System.Drawing.Point(6, 118);
+            this.OverviewGroupBox.Name = "OverviewGroupBox";
+            this.OverviewGroupBox.Size = new System.Drawing.Size(918, 405);
+            this.OverviewGroupBox.TabIndex = 4;
+            this.OverviewGroupBox.TabStop = false;
+            // 
+            // OverviewRichTextBox
+            // 
+            this.OverviewRichTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.OverviewRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OverviewRichTextBox.Location = new System.Drawing.Point(6, 19);
+            this.OverviewRichTextBox.Name = "OverviewRichTextBox";
+            this.OverviewRichTextBox.ReadOnly = true;
+            this.OverviewRichTextBox.Size = new System.Drawing.Size(906, 386);
+            this.OverviewRichTextBox.TabIndex = 2;
+            this.OverviewRichTextBox.Text = resources.GetString("OverviewRichTextBox.Text");
             // 
             // CompatibilityTabPage
             // 
@@ -491,7 +625,7 @@
             // 
             // CommentaryTabPage
             // 
-            this.CommentaryTabPage.Controls.Add(this.CommentaryGroupBox);
+            this.CommentaryTabPage.Controls.Add(this.CommentaryTableLayoutPanel);
             this.CommentaryTabPage.Location = new System.Drawing.Point(4, 22);
             this.CommentaryTabPage.Name = "CommentaryTabPage";
             this.CommentaryTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -500,39 +634,337 @@
             this.CommentaryTabPage.Text = "Commentary";
             this.CommentaryTabPage.UseVisualStyleBackColor = true;
             // 
-            // CommentaryGroupBox
+            // CommentaryTableLayoutPanel
             // 
-            this.CommentaryGroupBox.Controls.Add(this.CommentaryModifiedRadioButton);
-            this.CommentaryGroupBox.Controls.Add(this.CommentaryOriginalRadioButton);
-            this.CommentaryGroupBox.Location = new System.Drawing.Point(6, 6);
-            this.CommentaryGroupBox.Name = "CommentaryGroupBox";
-            this.CommentaryGroupBox.Size = new System.Drawing.Size(918, 517);
-            this.CommentaryGroupBox.TabIndex = 16;
-            this.CommentaryGroupBox.TabStop = false;
-            this.CommentaryGroupBox.Text = "Commentary";
+            this.CommentaryTableLayoutPanel.ColumnCount = 4;
+            this.CommentaryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.CommentaryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.CommentaryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.CommentaryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.CommentaryTableLayoutPanel.Controls.Add(this.CommentaryPrefixesDriverGroupBox, 1, 0);
+            this.CommentaryTableLayoutPanel.Controls.Add(this.CommentaryPrefixesTeamGroupBox, 2, 0);
+            this.CommentaryTableLayoutPanel.Controls.Add(this.CommentaryFilesGroupBox, 3, 0);
+            this.CommentaryTableLayoutPanel.Controls.Add(this.CommentaryIndicesDriverGroupBox, 0, 0);
+            this.CommentaryTableLayoutPanel.Controls.Add(this.CommentaryOptionsGroupBox, 0, 2);
+            this.CommentaryTableLayoutPanel.Controls.Add(this.CommentaryIndicesTeamGroupBox, 0, 1);
+            this.CommentaryTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommentaryTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.CommentaryTableLayoutPanel.Name = "CommentaryTableLayoutPanel";
+            this.CommentaryTableLayoutPanel.RowCount = 3;
+            this.CommentaryTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.CommentaryTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.CommentaryTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 83F));
+            this.CommentaryTableLayoutPanel.Size = new System.Drawing.Size(924, 523);
+            this.CommentaryTableLayoutPanel.TabIndex = 18;
             // 
-            // CommentaryModifiedRadioButton
+            // CommentaryPrefixesDriverGroupBox
             // 
-            this.CommentaryModifiedRadioButton.AutoSize = true;
-            this.CommentaryModifiedRadioButton.Location = new System.Drawing.Point(6, 55);
-            this.CommentaryModifiedRadioButton.Name = "CommentaryModifiedRadioButton";
-            this.CommentaryModifiedRadioButton.Size = new System.Drawing.Size(592, 17);
-            this.CommentaryModifiedRadioButton.TabIndex = 14;
-            this.CommentaryModifiedRadioButton.Text = "Use generalised driver and team commentary sounds and texts, with references to n" +
-    "ames removed (e.g. P1, In Pits, Out).";
-            this.CommentaryModifiedRadioButton.UseVisualStyleBackColor = true;
+            this.CommentaryPrefixesDriverGroupBox.Controls.Add(this.CommentaryPrefixesDriverDataGridView);
+            this.CommentaryPrefixesDriverGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommentaryPrefixesDriverGroupBox.Location = new System.Drawing.Point(280, 3);
+            this.CommentaryPrefixesDriverGroupBox.Name = "CommentaryPrefixesDriverGroupBox";
+            this.CommentaryTableLayoutPanel.SetRowSpan(this.CommentaryPrefixesDriverGroupBox, 2);
+            this.CommentaryPrefixesDriverGroupBox.Size = new System.Drawing.Size(225, 434);
+            this.CommentaryPrefixesDriverGroupBox.TabIndex = 19;
+            this.CommentaryPrefixesDriverGroupBox.TabStop = false;
+            this.CommentaryPrefixesDriverGroupBox.Text = "Drivers";
             // 
-            // CommentaryOriginalRadioButton
+            // CommentaryPrefixesDriverDataGridView
             // 
-            this.CommentaryOriginalRadioButton.AutoSize = true;
-            this.CommentaryOriginalRadioButton.Checked = true;
-            this.CommentaryOriginalRadioButton.Location = new System.Drawing.Point(6, 19);
-            this.CommentaryOriginalRadioButton.Name = "CommentaryOriginalRadioButton";
-            this.CommentaryOriginalRadioButton.Size = new System.Drawing.Size(787, 30);
-            this.CommentaryOriginalRadioButton.TabIndex = 15;
-            this.CommentaryOriginalRadioButton.TabStop = true;
-            this.CommentaryOriginalRadioButton.Text = resources.GetString("CommentaryOriginalRadioButton.Text");
-            this.CommentaryOriginalRadioButton.UseVisualStyleBackColor = true;
+            this.CommentaryPrefixesDriverDataGridView.AutoGenerateColumns = false;
+            this.CommentaryPrefixesDriverDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CommentaryPrefixesDriverDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn3,
+            this.fileNameDataGridViewTextBoxColumn1,
+            this.fileNamePrefixDataGridViewTextBoxColumn1,
+            this.fileNameSuffixDataGridViewTextBoxColumn1,
+            this.transcriptDataGridViewTextBoxColumn1,
+            this.transcriptPrefixDataGridViewTextBoxColumn1,
+            this.transcriptSuffixDataGridViewTextBoxColumn1});
+            this.CommentaryPrefixesDriverDataGridView.DataSource = this.commentaryResourceBindingSource;
+            this.CommentaryPrefixesDriverDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommentaryPrefixesDriverDataGridView.Location = new System.Drawing.Point(3, 16);
+            this.CommentaryPrefixesDriverDataGridView.Name = "CommentaryPrefixesDriverDataGridView";
+            this.CommentaryPrefixesDriverDataGridView.Size = new System.Drawing.Size(219, 415);
+            this.CommentaryPrefixesDriverDataGridView.TabIndex = 0;
+            // 
+            // idDataGridViewTextBoxColumn3
+            // 
+            this.idDataGridViewTextBoxColumn3.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn3.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn3.Name = "idDataGridViewTextBoxColumn3";
+            // 
+            // fileNameDataGridViewTextBoxColumn1
+            // 
+            this.fileNameDataGridViewTextBoxColumn1.DataPropertyName = "FileName";
+            this.fileNameDataGridViewTextBoxColumn1.HeaderText = "FileName";
+            this.fileNameDataGridViewTextBoxColumn1.Name = "fileNameDataGridViewTextBoxColumn1";
+            // 
+            // fileNamePrefixDataGridViewTextBoxColumn1
+            // 
+            this.fileNamePrefixDataGridViewTextBoxColumn1.DataPropertyName = "FileNamePrefix";
+            this.fileNamePrefixDataGridViewTextBoxColumn1.HeaderText = "FileNamePrefix";
+            this.fileNamePrefixDataGridViewTextBoxColumn1.Name = "fileNamePrefixDataGridViewTextBoxColumn1";
+            // 
+            // fileNameSuffixDataGridViewTextBoxColumn1
+            // 
+            this.fileNameSuffixDataGridViewTextBoxColumn1.DataPropertyName = "FileNameSuffix";
+            this.fileNameSuffixDataGridViewTextBoxColumn1.HeaderText = "FileNameSuffix";
+            this.fileNameSuffixDataGridViewTextBoxColumn1.Name = "fileNameSuffixDataGridViewTextBoxColumn1";
+            // 
+            // transcriptDataGridViewTextBoxColumn1
+            // 
+            this.transcriptDataGridViewTextBoxColumn1.DataPropertyName = "Transcript";
+            this.transcriptDataGridViewTextBoxColumn1.HeaderText = "Transcript";
+            this.transcriptDataGridViewTextBoxColumn1.Name = "transcriptDataGridViewTextBoxColumn1";
+            // 
+            // transcriptPrefixDataGridViewTextBoxColumn1
+            // 
+            this.transcriptPrefixDataGridViewTextBoxColumn1.DataPropertyName = "TranscriptPrefix";
+            this.transcriptPrefixDataGridViewTextBoxColumn1.HeaderText = "TranscriptPrefix";
+            this.transcriptPrefixDataGridViewTextBoxColumn1.Name = "transcriptPrefixDataGridViewTextBoxColumn1";
+            // 
+            // transcriptSuffixDataGridViewTextBoxColumn1
+            // 
+            this.transcriptSuffixDataGridViewTextBoxColumn1.DataPropertyName = "TranscriptSuffix";
+            this.transcriptSuffixDataGridViewTextBoxColumn1.HeaderText = "TranscriptSuffix";
+            this.transcriptSuffixDataGridViewTextBoxColumn1.Name = "transcriptSuffixDataGridViewTextBoxColumn1";
+            // 
+            // CommentaryPrefixesTeamGroupBox
+            // 
+            this.CommentaryPrefixesTeamGroupBox.Controls.Add(this.CommentaryPrefixesTeamDataGridView);
+            this.CommentaryPrefixesTeamGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommentaryPrefixesTeamGroupBox.Location = new System.Drawing.Point(511, 3);
+            this.CommentaryPrefixesTeamGroupBox.Name = "CommentaryPrefixesTeamGroupBox";
+            this.CommentaryTableLayoutPanel.SetRowSpan(this.CommentaryPrefixesTeamGroupBox, 2);
+            this.CommentaryPrefixesTeamGroupBox.Size = new System.Drawing.Size(225, 434);
+            this.CommentaryPrefixesTeamGroupBox.TabIndex = 20;
+            this.CommentaryPrefixesTeamGroupBox.TabStop = false;
+            this.CommentaryPrefixesTeamGroupBox.Text = "Teams";
+            // 
+            // CommentaryPrefixesTeamDataGridView
+            // 
+            this.CommentaryPrefixesTeamDataGridView.AutoGenerateColumns = false;
+            this.CommentaryPrefixesTeamDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CommentaryPrefixesTeamDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn4,
+            this.fileNameDataGridViewTextBoxColumn2,
+            this.fileNamePrefixDataGridViewTextBoxColumn2,
+            this.fileNameSuffixDataGridViewTextBoxColumn2,
+            this.transcriptDataGridViewTextBoxColumn2,
+            this.transcriptPrefixDataGridViewTextBoxColumn2,
+            this.transcriptSuffixDataGridViewTextBoxColumn2});
+            this.CommentaryPrefixesTeamDataGridView.DataSource = this.commentaryResourceBindingSource;
+            this.CommentaryPrefixesTeamDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommentaryPrefixesTeamDataGridView.Location = new System.Drawing.Point(3, 16);
+            this.CommentaryPrefixesTeamDataGridView.Name = "CommentaryPrefixesTeamDataGridView";
+            this.CommentaryPrefixesTeamDataGridView.Size = new System.Drawing.Size(219, 415);
+            this.CommentaryPrefixesTeamDataGridView.TabIndex = 0;
+            // 
+            // idDataGridViewTextBoxColumn4
+            // 
+            this.idDataGridViewTextBoxColumn4.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn4.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn4.Name = "idDataGridViewTextBoxColumn4";
+            // 
+            // fileNameDataGridViewTextBoxColumn2
+            // 
+            this.fileNameDataGridViewTextBoxColumn2.DataPropertyName = "FileName";
+            this.fileNameDataGridViewTextBoxColumn2.HeaderText = "FileName";
+            this.fileNameDataGridViewTextBoxColumn2.Name = "fileNameDataGridViewTextBoxColumn2";
+            // 
+            // fileNamePrefixDataGridViewTextBoxColumn2
+            // 
+            this.fileNamePrefixDataGridViewTextBoxColumn2.DataPropertyName = "FileNamePrefix";
+            this.fileNamePrefixDataGridViewTextBoxColumn2.HeaderText = "FileNamePrefix";
+            this.fileNamePrefixDataGridViewTextBoxColumn2.Name = "fileNamePrefixDataGridViewTextBoxColumn2";
+            // 
+            // fileNameSuffixDataGridViewTextBoxColumn2
+            // 
+            this.fileNameSuffixDataGridViewTextBoxColumn2.DataPropertyName = "FileNameSuffix";
+            this.fileNameSuffixDataGridViewTextBoxColumn2.HeaderText = "FileNameSuffix";
+            this.fileNameSuffixDataGridViewTextBoxColumn2.Name = "fileNameSuffixDataGridViewTextBoxColumn2";
+            // 
+            // transcriptDataGridViewTextBoxColumn2
+            // 
+            this.transcriptDataGridViewTextBoxColumn2.DataPropertyName = "Transcript";
+            this.transcriptDataGridViewTextBoxColumn2.HeaderText = "Transcript";
+            this.transcriptDataGridViewTextBoxColumn2.Name = "transcriptDataGridViewTextBoxColumn2";
+            // 
+            // transcriptPrefixDataGridViewTextBoxColumn2
+            // 
+            this.transcriptPrefixDataGridViewTextBoxColumn2.DataPropertyName = "TranscriptPrefix";
+            this.transcriptPrefixDataGridViewTextBoxColumn2.HeaderText = "TranscriptPrefix";
+            this.transcriptPrefixDataGridViewTextBoxColumn2.Name = "transcriptPrefixDataGridViewTextBoxColumn2";
+            // 
+            // transcriptSuffixDataGridViewTextBoxColumn2
+            // 
+            this.transcriptSuffixDataGridViewTextBoxColumn2.DataPropertyName = "TranscriptSuffix";
+            this.transcriptSuffixDataGridViewTextBoxColumn2.HeaderText = "TranscriptSuffix";
+            this.transcriptSuffixDataGridViewTextBoxColumn2.Name = "transcriptSuffixDataGridViewTextBoxColumn2";
+            // 
+            // CommentaryFilesGroupBox
+            // 
+            this.CommentaryFilesGroupBox.Controls.Add(this.CommentaryFilesDataGridView);
+            this.CommentaryFilesGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommentaryFilesGroupBox.Location = new System.Drawing.Point(742, 3);
+            this.CommentaryFilesGroupBox.Name = "CommentaryFilesGroupBox";
+            this.CommentaryTableLayoutPanel.SetRowSpan(this.CommentaryFilesGroupBox, 2);
+            this.CommentaryFilesGroupBox.Size = new System.Drawing.Size(179, 434);
+            this.CommentaryFilesGroupBox.TabIndex = 18;
+            this.CommentaryFilesGroupBox.TabStop = false;
+            this.CommentaryFilesGroupBox.Text = "Files";
+            // 
+            // CommentaryFilesDataGridView
+            // 
+            this.CommentaryFilesDataGridView.AutoGenerateColumns = false;
+            this.CommentaryFilesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CommentaryFilesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.valueDataGridViewTextBoxColumn});
+            this.CommentaryFilesDataGridView.DataSource = this.stringValueBindingSource;
+            this.CommentaryFilesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommentaryFilesDataGridView.Location = new System.Drawing.Point(3, 16);
+            this.CommentaryFilesDataGridView.Name = "CommentaryFilesDataGridView";
+            this.CommentaryFilesDataGridView.Size = new System.Drawing.Size(173, 415);
+            this.CommentaryFilesDataGridView.TabIndex = 0;
+            // 
+            // valueDataGridViewTextBoxColumn
+            // 
+            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
+            this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
+            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
+            // 
+            // stringValueBindingSource
+            // 
+            this.stringValueBindingSource.DataSource = typeof(Data.Entities.Generic.StringValue);
+            // 
+            // CommentaryIndicesDriverGroupBox
+            // 
+            this.CommentaryIndicesDriverGroupBox.Controls.Add(this.CommentaryIndicesDriverDataGridView);
+            this.CommentaryIndicesDriverGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommentaryIndicesDriverGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.CommentaryIndicesDriverGroupBox.Name = "CommentaryIndicesDriverGroupBox";
+            this.CommentaryIndicesDriverGroupBox.Size = new System.Drawing.Size(271, 214);
+            this.CommentaryIndicesDriverGroupBox.TabIndex = 25;
+            this.CommentaryIndicesDriverGroupBox.TabStop = false;
+            this.CommentaryIndicesDriverGroupBox.Text = "Driver Indices";
+            // 
+            // CommentaryIndicesDriverDataGridView
+            // 
+            this.CommentaryIndicesDriverDataGridView.AutoGenerateColumns = false;
+            this.CommentaryIndicesDriverDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CommentaryIndicesDriverDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn2,
+            this.localResourceIdDataGridViewTextBoxColumn1,
+            this.resourceIdDataGridViewTextBoxColumn1,
+            this.resourceTextDataGridViewTextBoxColumn1,
+            this.commentaryIndexDataGridViewTextBoxColumn});
+            this.CommentaryIndicesDriverDataGridView.DataSource = this.commentaryDriverIndexBindingSource;
+            this.CommentaryIndicesDriverDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommentaryIndicesDriverDataGridView.Location = new System.Drawing.Point(3, 16);
+            this.CommentaryIndicesDriverDataGridView.Name = "CommentaryIndicesDriverDataGridView";
+            this.CommentaryIndicesDriverDataGridView.Size = new System.Drawing.Size(265, 195);
+            this.CommentaryIndicesDriverDataGridView.TabIndex = 0;
+            // 
+            // idDataGridViewTextBoxColumn2
+            // 
+            this.idDataGridViewTextBoxColumn2.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn2.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
+            // 
+            // localResourceIdDataGridViewTextBoxColumn1
+            // 
+            this.localResourceIdDataGridViewTextBoxColumn1.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn1.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn1.Name = "localResourceIdDataGridViewTextBoxColumn1";
+            // 
+            // resourceIdDataGridViewTextBoxColumn1
+            // 
+            this.resourceIdDataGridViewTextBoxColumn1.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn1.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn1.Name = "resourceIdDataGridViewTextBoxColumn1";
+            // 
+            // resourceTextDataGridViewTextBoxColumn1
+            // 
+            this.resourceTextDataGridViewTextBoxColumn1.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn1.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn1.Name = "resourceTextDataGridViewTextBoxColumn1";
+            // 
+            // commentaryIndexDataGridViewTextBoxColumn
+            // 
+            this.commentaryIndexDataGridViewTextBoxColumn.DataPropertyName = "CommentaryIndex";
+            this.commentaryIndexDataGridViewTextBoxColumn.HeaderText = "CommentaryIndex";
+            this.commentaryIndexDataGridViewTextBoxColumn.Name = "commentaryIndexDataGridViewTextBoxColumn";
+            // 
+            // commentaryDriverIndexBindingSource
+            // 
+            this.commentaryDriverIndexBindingSource.DataSource = typeof(Data.Entities.Commentary.CommentaryDriverIndex);
+            // 
+            // CommentaryOptionsGroupBox
+            // 
+            this.CommentaryTableLayoutPanel.SetColumnSpan(this.CommentaryOptionsGroupBox, 4);
+            this.CommentaryOptionsGroupBox.Controls.Add(this.CommentaryIndicesDefaultButton);
+            this.CommentaryOptionsGroupBox.Controls.Add(this.CommentaryDriversDefaultButton);
+            this.CommentaryOptionsGroupBox.Controls.Add(this.CommentaryDriversGenericButton);
+            this.CommentaryOptionsGroupBox.Controls.Add(this.CommentaryTeamsGenericButton);
+            this.CommentaryOptionsGroupBox.Controls.Add(this.CommentaryTeamsDefaultButton);
+            this.CommentaryOptionsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommentaryOptionsGroupBox.Location = new System.Drawing.Point(3, 443);
+            this.CommentaryOptionsGroupBox.Name = "CommentaryOptionsGroupBox";
+            this.CommentaryOptionsGroupBox.Size = new System.Drawing.Size(918, 77);
+            this.CommentaryOptionsGroupBox.TabIndex = 26;
+            this.CommentaryOptionsGroupBox.TabStop = false;
+            this.CommentaryOptionsGroupBox.Text = "Commentary Options";
+            // 
+            // CommentaryIndicesDefaultButton
+            // 
+            this.CommentaryIndicesDefaultButton.Location = new System.Drawing.Point(6, 19);
+            this.CommentaryIndicesDefaultButton.Name = "CommentaryIndicesDefaultButton";
+            this.CommentaryIndicesDefaultButton.Size = new System.Drawing.Size(354, 23);
+            this.CommentaryIndicesDefaultButton.TabIndex = 25;
+            this.CommentaryIndicesDefaultButton.Text = "Reset indices to original values";
+            this.CommentaryIndicesDefaultButton.UseVisualStyleBackColor = true;
+            this.CommentaryIndicesDefaultButton.Click += new System.EventHandler(this.CommentaryIndicesDefaultButton_Click);
+            // 
+            // CommentaryDriversDefaultButton
+            // 
+            this.CommentaryDriversDefaultButton.Location = new System.Drawing.Point(372, 19);
+            this.CommentaryDriversDefaultButton.Name = "CommentaryDriversDefaultButton";
+            this.CommentaryDriversDefaultButton.Size = new System.Drawing.Size(171, 23);
+            this.CommentaryDriversDefaultButton.TabIndex = 21;
+            this.CommentaryDriversDefaultButton.Text = "Reset to use 1998 sounds";
+            this.CommentaryDriversDefaultButton.UseVisualStyleBackColor = true;
+            this.CommentaryDriversDefaultButton.Click += new System.EventHandler(this.CommentaryDriversDefaultButton_Click);
+            // 
+            // CommentaryDriversGenericButton
+            // 
+            this.CommentaryDriversGenericButton.Location = new System.Drawing.Point(372, 48);
+            this.CommentaryDriversGenericButton.Name = "CommentaryDriversGenericButton";
+            this.CommentaryDriversGenericButton.Size = new System.Drawing.Size(171, 23);
+            this.CommentaryDriversGenericButton.TabIndex = 23;
+            this.CommentaryDriversGenericButton.Text = "Reset to use generic sounds";
+            this.CommentaryDriversGenericButton.UseVisualStyleBackColor = true;
+            this.CommentaryDriversGenericButton.Click += new System.EventHandler(this.CommentaryDriversGenericButton_Click);
+            // 
+            // CommentaryTeamsGenericButton
+            // 
+            this.CommentaryTeamsGenericButton.Location = new System.Drawing.Point(556, 48);
+            this.CommentaryTeamsGenericButton.Name = "CommentaryTeamsGenericButton";
+            this.CommentaryTeamsGenericButton.Size = new System.Drawing.Size(172, 23);
+            this.CommentaryTeamsGenericButton.TabIndex = 24;
+            this.CommentaryTeamsGenericButton.Text = "Reset to use generic sounds";
+            this.CommentaryTeamsGenericButton.UseVisualStyleBackColor = true;
+            this.CommentaryTeamsGenericButton.Click += new System.EventHandler(this.CommentaryTeamsGenericButton_Click);
+            // 
+            // CommentaryTeamsDefaultButton
+            // 
+            this.CommentaryTeamsDefaultButton.Location = new System.Drawing.Point(556, 19);
+            this.CommentaryTeamsDefaultButton.Name = "CommentaryTeamsDefaultButton";
+            this.CommentaryTeamsDefaultButton.Size = new System.Drawing.Size(172, 23);
+            this.CommentaryTeamsDefaultButton.TabIndex = 22;
+            this.CommentaryTeamsDefaultButton.Text = "Reset to use 1998 sounds";
+            this.CommentaryTeamsDefaultButton.UseVisualStyleBackColor = true;
+            this.CommentaryTeamsDefaultButton.Click += new System.EventHandler(this.CommentaryTeamsDefaultButton_Click);
             // 
             // PointsScoringSystemTabPage
             // 
@@ -1035,20 +1467,82 @@
             // 
             // PerformanceCurveChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.PerformanceCurveChart.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.PerformanceCurveChart.ChartAreas.Add(chartArea2);
             this.PerformanceCurveChart.Location = new System.Drawing.Point(121, 29);
             this.PerformanceCurveChart.Name = "PerformanceCurveChart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Name = "Series1";
-            this.PerformanceCurveChart.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Name = "Series1";
+            this.PerformanceCurveChart.Series.Add(series2);
             this.PerformanceCurveChart.Size = new System.Drawing.Size(676, 372);
             this.PerformanceCurveChart.TabIndex = 2;
             this.PerformanceCurveChart.TabStop = false;
-            title1.Name = "Title1";
-            title1.Text = "Performance Curve";
-            this.PerformanceCurveChart.Titles.Add(title1);
+            title2.Name = "Title1";
+            title2.Text = "Performance Curve";
+            this.PerformanceCurveChart.Titles.Add(title2);
+            // 
+            // CommentaryIndicesTeamGroupBox
+            // 
+            this.CommentaryIndicesTeamGroupBox.Controls.Add(this.CommentaryIndicesTeamDataGridView);
+            this.CommentaryIndicesTeamGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommentaryIndicesTeamGroupBox.Location = new System.Drawing.Point(3, 223);
+            this.CommentaryIndicesTeamGroupBox.Name = "CommentaryIndicesTeamGroupBox";
+            this.CommentaryIndicesTeamGroupBox.Size = new System.Drawing.Size(271, 214);
+            this.CommentaryIndicesTeamGroupBox.TabIndex = 27;
+            this.CommentaryIndicesTeamGroupBox.TabStop = false;
+            this.CommentaryIndicesTeamGroupBox.Text = "Team Indices";
+            // 
+            // CommentaryIndicesTeamDataGridView
+            // 
+            this.CommentaryIndicesTeamDataGridView.AutoGenerateColumns = false;
+            this.CommentaryIndicesTeamDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CommentaryIndicesTeamDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn5,
+            this.localResourceIdDataGridViewTextBoxColumn2,
+            this.resourceIdDataGridViewTextBoxColumn2,
+            this.resourceTextDataGridViewTextBoxColumn2,
+            this.commentaryIndexDataGridViewTextBoxColumn1});
+            this.CommentaryIndicesTeamDataGridView.DataSource = this.commentaryTeamIndexBindingSource;
+            this.CommentaryIndicesTeamDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommentaryIndicesTeamDataGridView.Location = new System.Drawing.Point(3, 16);
+            this.CommentaryIndicesTeamDataGridView.Name = "CommentaryIndicesTeamDataGridView";
+            this.CommentaryIndicesTeamDataGridView.Size = new System.Drawing.Size(265, 195);
+            this.CommentaryIndicesTeamDataGridView.TabIndex = 0;
+            // 
+            // commentaryTeamIndexBindingSource
+            // 
+            this.commentaryTeamIndexBindingSource.DataSource = typeof(Data.Entities.Commentary.CommentaryTeamIndex);
+            // 
+            // idDataGridViewTextBoxColumn5
+            // 
+            this.idDataGridViewTextBoxColumn5.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn5.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn5.Name = "idDataGridViewTextBoxColumn5";
+            // 
+            // localResourceIdDataGridViewTextBoxColumn2
+            // 
+            this.localResourceIdDataGridViewTextBoxColumn2.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn2.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn2.Name = "localResourceIdDataGridViewTextBoxColumn2";
+            // 
+            // resourceIdDataGridViewTextBoxColumn2
+            // 
+            this.resourceIdDataGridViewTextBoxColumn2.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn2.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn2.Name = "resourceIdDataGridViewTextBoxColumn2";
+            // 
+            // resourceTextDataGridViewTextBoxColumn2
+            // 
+            this.resourceTextDataGridViewTextBoxColumn2.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn2.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn2.Name = "resourceTextDataGridViewTextBoxColumn2";
+            // 
+            // commentaryIndexDataGridViewTextBoxColumn1
+            // 
+            this.commentaryIndexDataGridViewTextBoxColumn1.DataPropertyName = "CommentaryIndex";
+            this.commentaryIndexDataGridViewTextBoxColumn1.HeaderText = "CommentaryIndex";
+            this.commentaryIndexDataGridViewTextBoxColumn1.Name = "commentaryIndexDataGridViewTextBoxColumn1";
             // 
             // ConfigureGameForm
             // 
@@ -1067,9 +1561,11 @@
             this.HomeTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.identityBindingSource)).EndInit();
-            this.OverviewGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CommentaryResourcesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commentaryResourceBindingSource)).EndInit();
             this.FilesGroupBox.ResumeLayout(false);
             this.FilesGroupBox.PerformLayout();
+            this.OverviewGroupBox.ResumeLayout(false);
             this.CompatibilityTabPage.ResumeLayout(false);
             this.CompatibilityGroupBox.ResumeLayout(false);
             this.CompatibilityGroupBox.PerformLayout();
@@ -1077,8 +1573,18 @@
             this.GameplayGroupBox.ResumeLayout(false);
             this.GameplayGroupBox.PerformLayout();
             this.CommentaryTabPage.ResumeLayout(false);
-            this.CommentaryGroupBox.ResumeLayout(false);
-            this.CommentaryGroupBox.PerformLayout();
+            this.CommentaryTableLayoutPanel.ResumeLayout(false);
+            this.CommentaryPrefixesDriverGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CommentaryPrefixesDriverDataGridView)).EndInit();
+            this.CommentaryPrefixesTeamGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CommentaryPrefixesTeamDataGridView)).EndInit();
+            this.CommentaryFilesGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CommentaryFilesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stringValueBindingSource)).EndInit();
+            this.CommentaryIndicesDriverGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CommentaryIndicesDriverDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commentaryDriverIndexBindingSource)).EndInit();
+            this.CommentaryOptionsGroupBox.ResumeLayout(false);
             this.PointsScoringSystemTabPage.ResumeLayout(false);
             this.PointsScoringSystemGroupBox.ResumeLayout(false);
             this.PointsScoringSystemGroupBox.PerformLayout();
@@ -1101,6 +1607,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox010NumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox110NumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChart)).EndInit();
+            this.CommentaryIndicesTeamGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CommentaryIndicesTeamDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commentaryTeamIndexBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1122,8 +1631,6 @@
         private System.Windows.Forms.CheckBox EnableCarHandlingDesignCalculationCheckbox;
         private System.Windows.Forms.CheckBox EnableCarPerformanceRaceCalcuationCheckbox;
         private System.Windows.Forms.TabPage CommentaryTabPage;
-        private System.Windows.Forms.RadioButton CommentaryOriginalRadioButton;
-        private System.Windows.Forms.RadioButton CommentaryModifiedRadioButton;
         private System.Windows.Forms.TabPage PointsScoringSystemTabPage;
         private System.Windows.Forms.Label GameFolderPathLabel;
         private System.Windows.Forms.Label GameExecutablePathLabel;
@@ -1141,16 +1648,11 @@
         private System.Windows.Forms.RadioButton PointsScoringSystemDefaultRadioButton;
         private System.Windows.Forms.GroupBox CompatibilityGroupBox;
         private System.Windows.Forms.GroupBox GameplayGroupBox;
-        private System.Windows.Forms.GroupBox CommentaryGroupBox;
         private System.Windows.Forms.TabPage ViewportsTabPage;
         private System.Windows.Forms.GroupBox ViewportsGroupBox;
         private System.Windows.Forms.GroupBox OverviewGroupBox;
         private System.Windows.Forms.RichTextBox OverviewRichTextBox;
         private System.Windows.Forms.DataGridView LanguageDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn localResourceIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resourceIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resourceTextDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource identityBindingSource;
         private System.Windows.Forms.TabPage PerformanceCurveTabPage;
         private System.Windows.Forms.GroupBox PerformanceCurveGroupBox;
@@ -1177,5 +1679,63 @@
         private System.Windows.Forms.NumericUpDown PerformanceCurveChartBox010NumericUpDown;
         private System.Windows.Forms.NumericUpDown PerformanceCurveChartBox110NumericUpDown;
         private System.Windows.Forms.DataVisualization.Charting.Chart PerformanceCurveChart;
+        private System.Windows.Forms.TableLayoutPanel CommentaryTableLayoutPanel;
+        private System.Windows.Forms.GroupBox CommentaryFilesGroupBox;
+        private System.Windows.Forms.GroupBox CommentaryPrefixesDriverGroupBox;
+        private System.Windows.Forms.GroupBox CommentaryPrefixesTeamGroupBox;
+        private System.Windows.Forms.DataGridView CommentaryFilesDataGridView;
+        private System.Windows.Forms.DataGridView CommentaryPrefixesDriverDataGridView;
+        private System.Windows.Forms.DataGridView CommentaryPrefixesTeamDataGridView;
+        private System.Windows.Forms.DataGridView CommentaryResourcesDataGridView;
+        private System.Windows.Forms.BindingSource commentaryResourceBindingSource;
+        private System.Windows.Forms.BindingSource stringValueBindingSource;
+        private System.Windows.Forms.Button CommentaryDriversDefaultButton;
+        private System.Windows.Forms.Button CommentaryTeamsDefaultButton;
+        private System.Windows.Forms.Button CommentaryDriversGenericButton;
+        private System.Windows.Forms.Button CommentaryTeamsGenericButton;
+        private System.Windows.Forms.GroupBox CommentaryIndicesDriverGroupBox;
+        private System.Windows.Forms.DataGridView CommentaryIndicesDriverDataGridView;
+        private System.Windows.Forms.BindingSource commentaryDriverIndexBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn localResourceIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resourceIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resourceTextDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fileNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fileNamePrefixDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fileNameSuffixDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transcriptDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transcriptPrefixDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transcriptSuffixDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fileNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fileNamePrefixDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fileNameSuffixDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transcriptDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transcriptPrefixDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transcriptSuffixDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fileNameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fileNamePrefixDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fileNameSuffixDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transcriptDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transcriptPrefixDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transcriptSuffixDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn localResourceIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resourceIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resourceTextDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commentaryIndexDataGridViewTextBoxColumn;
+        private System.Windows.Forms.GroupBox CommentaryOptionsGroupBox;
+        private System.Windows.Forms.Button CommentaryIndicesDefaultButton;
+        private System.Windows.Forms.GroupBox CommentaryIndicesTeamGroupBox;
+        private System.Windows.Forms.DataGridView CommentaryIndicesTeamDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn localResourceIdDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resourceIdDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resourceTextDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commentaryIndexDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource commentaryTeamIndexBindingSource;
     }
 }

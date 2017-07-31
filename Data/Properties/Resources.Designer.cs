@@ -101,6 +101,51 @@ namespace Data.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream ANONOUT {
+            get {
+                return ResourceManager.GetStream("ANONOUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream ANONP1 {
+            get {
+                return ResourceManager.GetStream("ANONP1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream ANONP2 {
+            get {
+                return ResourceManager.GetStream("ANONP2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream ANONP3 {
+            get {
+                return ResourceManager.GetStream("ANONP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream ANONPIT {
+            get {
+                return ResourceManager.GetStream("ANONPIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &gt;PITNOW1.WAV In. In. In.&lt;
         ///&gt;PITNOW2.WAV Coming in.&lt;
         ///&gt;EASEOFF1.WAV Off. Off. Off.&lt;
@@ -120,106 +165,9 @@ namespace Data.Properties {
         ///&gt;ENGVIB.WAV Rear wing breaking.&lt;
         ///&gt;FUEL.WAV Fuel lo [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string COMME_Enhanced {
+        internal static string COMME {
             get {
-                return ResourceManager.GetString("COMME_Enhanced", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &gt;PITNOW1.WAV In. In. In.&lt;
-        ///&gt;PITNOW2.WAV Coming in.&lt;
-        ///&gt;EASEOFF1.WAV Off. Off. Off.&lt;
-        ///&gt;EASEOFF2.WAV Pulling back.&lt;
-        ///&gt;FLYLAP1.WAV Push. Push. Push.&lt;
-        ///&gt;FLYLAP2.WAV OK. OK. OK.&lt;
-        ///&gt;OVERTAK1.WAV Pass. Pass. Pass.&lt;
-        ///&gt;OVERTAK2.WAV Understood.&lt;
-        ///&gt;BLOCK1.WAV Hold. Hold. Hold.&lt;
-        ///&gt;BLOCK2.WAV Received.&lt;
-        ///&gt;LEAVPIT1.WAV Out. Out. Out.&lt;
-        ///&gt;LEAVPIT2.WAV Going out.&lt;
-        ///&gt;12LAPS.WAV Coming in.&lt;
-        ///&gt;ENGPOW.WAV Losing power.&lt;
-        ///&gt;ENGHEA.WAV Overheating.&lt;
-        ///&gt;ENGUND.WAV Losing traction.&lt;
-        ///&gt;ENGVIB.WAV Rear wing breaking.&lt;
-        ///&gt;FUEL.WAV Fuel lo [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string COMME_Modified {
-            get {
-                return ResourceManager.GetString("COMME_Modified", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &gt;PITNOW1.WAV In. In. In.&lt;
-        ///&gt;PITNOW2.WAV Coming in.&lt;
-        ///&gt;EASEOFF1.WAV Off. Off. Off.&lt;
-        ///&gt;EASEOFF2.WAV Pulling back.&lt;
-        ///&gt;FLYLAP1.WAV Push. Push. Push.&lt;
-        ///&gt;FLYLAP2.WAV OK. OK. OK.&lt;
-        ///&gt;OVERTAK1.WAV Pass. Pass. Pass.&lt;
-        ///&gt;OVERTAK2.WAV Understood.&lt;
-        ///&gt;BLOCK1.WAV Hold. Hold. Hold.&lt;
-        ///&gt;BLOCK2.WAV Received.&lt;
-        ///&gt;LEAVPIT1.WAV Out. Out. Out.&lt;
-        ///&gt;LEAVPIT2.WAV Going out.&lt;
-        ///&gt;12LAPS.WAV Coming in.&lt;
-        ///&gt;ENGPOW.WAV Losing power.&lt;
-        ///&gt;ENGHEA.WAV Overheating.&lt;
-        ///&gt;ENGUND.WAV Losing traction.&lt;
-        ///&gt;ENGVIB.WAV Rear wing breaking.&lt;
-        ///&gt;FUEL.WAV Fuel lo [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string COMME_Modified_Teams {
-            get {
-                return ResourceManager.GetString("COMME_Modified_Teams", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream NAMEOUT {
-            get {
-                return ResourceManager.GetStream("NAMEOUT", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream NAMEP1 {
-            get {
-                return ResourceManager.GetStream("NAMEP1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream NAMEP2 {
-            get {
-                return ResourceManager.GetStream("NAMEP2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream NAMEP3 {
-            get {
-                return ResourceManager.GetStream("NAMEP3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream NAMEPIT {
-            get {
-                return ResourceManager.GetStream("NAMEPIT", resourceCulture);
+                return ResourceManager.GetString("COMME", resourceCulture);
             }
         }
         

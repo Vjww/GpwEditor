@@ -9,14 +9,13 @@ using Data.Entities.Language;
 
 namespace Data.FileConnection
 {
-    public class LanguageConnection : TextFileConnectionBase
+    public class LanguageResourceConnection : TextFileConnectionBase
     {
         public const int FirstLineId = 0;
         public const int LastLineId = 7172;
 
-        public LanguageConnection(string filePath) : base(filePath)
+        public LanguageResourceConnection(string filePath) : base(filePath)
         {
-            //
         }
 
         public IdentityCollection Load()

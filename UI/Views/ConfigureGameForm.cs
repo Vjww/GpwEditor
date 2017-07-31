@@ -1,9 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Data.Collections.Language;
 using Data.Databases;
+using Data.Entities.Commentary;
 using Data.Entities.Executable.Race;
+using Data.Entities.Generic;
 using GpwEditor.Enums;
 using GpwEditor.Properties;
 
@@ -38,6 +45,11 @@ namespace GpwEditor.Views
             _performanceCurveChart = new PerformanceCurveChart(PerformanceCurveChart);
             ConfigureControls();
             GenerateTooltips();
+
+#if DEBUG
+            LanguageDataGridView.Visible = true;
+            CommentaryResourcesDataGridView.Visible = true;
+#endif
         }
 
         private void ConfigureGameForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -89,6 +101,169 @@ namespace GpwEditor.Views
             }
 
             Export(GameFolderPathTextBox.Text, GameExecutablePathTextBox.Text, LanguageFilePathTextBox.Text);
+        }
+
+        private void CommentaryIndicesDefaultButton_Click(object sender, EventArgs e)
+        {
+            var driverValues = new[]
+            {
+                67,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                107,
+                107,
+                107
+            };
+
+            UpdateValuesInDataGridViewColumn(CommentaryIndicesDriverDataGridView, 4, driverValues);
+
+            var teamValues = new[]
+            {
+                231,
+                232,
+                233,
+                234,
+                235,
+                236,
+                237,
+                238,
+                239,
+                240,
+                241
+            };
+
+            UpdateValuesInDataGridViewColumn(CommentaryIndicesTeamDataGridView, 4, teamValues);
+        }
+
+        private void CommentaryDriversDefaultButton_Click(object sender, EventArgs e)
+        {
+            var values = new[]
+            {
+                "NEWH",
+                "FREN",
+                "TOY",
+                "SCHU",
+                "IRV",
+                "BAD",
+                "FIS",
+                "WURZ",
+                "ANON",
+                "HAK",
+                "COUL",
+                "ZON",
+                "HIL",
+                "RALF",
+                "ANON",
+                "PAN",
+                "TRU",
+                "SAR",
+                "ALES",
+                "HERB",
+                "MULL",
+                "DIN",
+                "SAL",
+                "COL",
+                "BARI",
+                "MAG",
+                "ANON",
+                "TAK",
+                "ROS",
+                "MONT",
+                "NAK",
+                "TUER",
+                "RED",
+                "ELL",
+                "MAR",
+                "RAIM",
+                "TAN",
+                "EBE",
+                "PAT",
+                "FELL",
+                "LAUR"//,
+                //"EIS",
+                //"WILL",
+                //"MOR"
+            };
+
+            UpdateValuesInDataGridViewColumn(CommentaryPrefixesDriverDataGridView, 2, values);
+        }
+
+        private void CommentaryDriversGenericButton_Click(object sender, EventArgs e)
+        {
+            var values = new string[41];
+            for (var i = 0; i < values.Length; i++)
+            {
+                values[i] = "ANON";
+            }
+
+            UpdateValuesInDataGridViewColumn(CommentaryPrefixesDriverDataGridView, 2, values);
+        }
+
+        private void CommentaryTeamsDefaultButton_Click(object sender, EventArgs e)
+        {
+            var values = new[]
+            {
+                "WIL",
+                "FER",
+                "BEN",
+                "MCL",
+                "JOR",
+                "PRO",
+                "SAU",
+                "ARR",
+                "STEW",
+                "TYR",
+                "MIN",
+            };
+            UpdateValuesInDataGridViewColumn(CommentaryPrefixesTeamDataGridView, 2, values);
+        }
+
+        private void CommentaryTeamsGenericButton_Click(object sender, EventArgs e)
+        {
+            var values = new string[11];
+            for (var i = 0; i < values.Length; i++)
+            {
+                values[i] = "ANON";
+            }
+            UpdateValuesInDataGridViewColumn(CommentaryPrefixesTeamDataGridView, 2, values);
         }
 
         private void PerformanceCurveNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -208,11 +383,126 @@ namespace GpwEditor.Views
 
         private void ConfigureControls()
         {
+            ConfigureCommentaryIndicesDriverDataGridView();
+            ConfigureCommentaryIndicesTeamDataGridView();
+            ConfigureCommentaryDriversDataGridView();
+            ConfigureCommentaryTeamsDataGridView();
+            ConfigureCommentaryFilesDataGridView();
+
             // Configure initial display of performance curve content
             PerformanceCurveChart.Titles.Clear();
             var chartTitle = PerformanceCurveChart.Titles.Add("Performance Curve");
             chartTitle.Font = new Font(chartTitle.Font.FontFamily, chartTitle.Font.SizeInPoints + 10);
             PerformanceCurveControlsGroupBox.Visible = false;
+        }
+
+        private void ConfigureCommentaryIndicesDriverDataGridView()
+        {
+            const bool fillColumns = false;
+            CommentaryIndicesDriverDataGridView.Columns["idDataGridViewTextBoxColumn2"].Visible = false;
+            CommentaryIndicesDriverDataGridView.Columns["localResourceIdDataGridViewTextBoxColumn1"].Visible = false;
+            CommentaryIndicesDriverDataGridView.Columns["resourceIdDataGridViewTextBoxColumn1"].Visible = false;
+            CommentaryIndicesDriverDataGridView.Columns["resourceTextDataGridViewTextBoxColumn1"].Frozen = !fillColumns;
+            CommentaryIndicesDriverDataGridView.Columns["resourceTextDataGridViewTextBoxColumn1"].ReadOnly = true;
+
+            // Rename column headers and populate column tooltips using model attributes
+            UpdateDataGridViewColumnHeaders<CommentaryDriverIndex>(CommentaryIndicesDriverDataGridView);
+
+            // Configure grid
+            CommentaryIndicesDriverDataGridView.AutoSizeColumnsMode = fillColumns ? DataGridViewAutoSizeColumnsMode.Fill : DataGridViewAutoSizeColumnsMode.AllCells;
+            CommentaryIndicesDriverDataGridView.AllowUserToAddRows = false;
+            CommentaryIndicesDriverDataGridView.AllowUserToDeleteRows = false;
+            CommentaryIndicesDriverDataGridView.AllowUserToResizeRows = false;
+            CommentaryIndicesDriverDataGridView.MultiSelect = false;
+            CommentaryIndicesDriverDataGridView.RowHeadersVisible = false;
+        }
+
+        private void ConfigureCommentaryIndicesTeamDataGridView()
+        {
+            const bool fillColumns = false;
+            CommentaryIndicesTeamDataGridView.Columns["idDataGridViewTextBoxColumn5"].Visible = false;
+            CommentaryIndicesTeamDataGridView.Columns["localResourceIdDataGridViewTextBoxColumn2"].Visible = false;
+            CommentaryIndicesTeamDataGridView.Columns["resourceIdDataGridViewTextBoxColumn2"].Visible = false;
+            CommentaryIndicesTeamDataGridView.Columns["resourceTextDataGridViewTextBoxColumn2"].Frozen = !fillColumns;
+            CommentaryIndicesTeamDataGridView.Columns["resourceTextDataGridViewTextBoxColumn2"].ReadOnly = true;
+
+            // Rename column headers and populate column tooltips using model attributes
+            UpdateDataGridViewColumnHeaders<CommentaryTeamIndex>(CommentaryIndicesTeamDataGridView);
+
+            // Configure grid
+            CommentaryIndicesTeamDataGridView.AutoSizeColumnsMode = fillColumns ? DataGridViewAutoSizeColumnsMode.Fill : DataGridViewAutoSizeColumnsMode.AllCells;
+            CommentaryIndicesTeamDataGridView.AllowUserToAddRows = false;
+            CommentaryIndicesTeamDataGridView.AllowUserToDeleteRows = false;
+            CommentaryIndicesTeamDataGridView.AllowUserToResizeRows = false;
+            CommentaryIndicesTeamDataGridView.MultiSelect = false;
+            CommentaryIndicesTeamDataGridView.RowHeadersVisible = false;
+        }
+
+        private void ConfigureCommentaryDriversDataGridView()
+        {
+            const bool fillColumns = false;
+            var dataGrid = CommentaryPrefixesDriverDataGridView;
+            dataGrid.Columns["fileNameDataGridViewTextBoxColumn1"].Visible = false;
+            dataGrid.Columns["fileNameSuffixDataGridViewTextBoxColumn1"].Visible = false;
+            dataGrid.Columns["transcriptDataGridViewTextBoxColumn1"].Visible = false;
+            dataGrid.Columns["transcriptPrefixDataGridViewTextBoxColumn1"].Visible = false;
+            dataGrid.Columns["transcriptSuffixDataGridViewTextBoxColumn1"].Visible = false;
+            dataGrid.Columns["idDataGridViewTextBoxColumn3"].Frozen = !fillColumns;
+            dataGrid.Columns["idDataGridViewTextBoxColumn3"].ReadOnly = true;
+
+            // Rename column headers and populate column tooltips using model attributes
+            UpdateDataGridViewColumnHeaders<CommentaryResource>(dataGrid);
+
+            // Configure grid
+            dataGrid.AutoSizeColumnsMode = fillColumns ? DataGridViewAutoSizeColumnsMode.Fill : DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGrid.AllowUserToAddRows = false;
+            dataGrid.AllowUserToDeleteRows = false;
+            dataGrid.AllowUserToResizeRows = false;
+            dataGrid.MultiSelect = false;
+            dataGrid.RowHeadersVisible = false;
+        }
+
+        private void ConfigureCommentaryTeamsDataGridView()
+        {
+            const bool fillColumns = false;
+            var dataGrid = CommentaryPrefixesTeamDataGridView;
+            dataGrid.Columns["fileNameDataGridViewTextBoxColumn2"].Visible = false;
+            dataGrid.Columns["fileNameSuffixDataGridViewTextBoxColumn2"].Visible = false;
+            dataGrid.Columns["transcriptDataGridViewTextBoxColumn2"].Visible = false;
+            dataGrid.Columns["transcriptPrefixDataGridViewTextBoxColumn2"].Visible = false;
+            dataGrid.Columns["transcriptSuffixDataGridViewTextBoxColumn2"].Visible = false;
+            dataGrid.Columns["idDataGridViewTextBoxColumn4"].Frozen = !fillColumns;
+            dataGrid.Columns["idDataGridViewTextBoxColumn4"].ReadOnly = true;
+
+            // Rename column headers and populate column tooltips using model attributes
+            UpdateDataGridViewColumnHeaders<CommentaryResource>(dataGrid);
+
+            // Configure grid
+            dataGrid.AutoSizeColumnsMode = fillColumns ? DataGridViewAutoSizeColumnsMode.Fill : DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGrid.AllowUserToAddRows = false;
+            dataGrid.AllowUserToDeleteRows = false;
+            dataGrid.AllowUserToResizeRows = false;
+            dataGrid.MultiSelect = false;
+            dataGrid.RowHeadersVisible = false;
+        }
+
+        private void ConfigureCommentaryFilesDataGridView()
+        {
+            const bool fillColumns = false;
+            var dataGrid = CommentaryFilesDataGridView;
+            dataGrid.Columns["valueDataGridViewTextBoxColumn"].Frozen = !fillColumns;
+            dataGrid.Columns["valueDataGridViewTextBoxColumn"].ReadOnly = true;
+
+            // Rename column headers and populate column tooltips using model attributes
+            UpdateDataGridViewColumnHeaders<StringValue>(dataGrid);
+
+            // Configure grid
+            dataGrid.AutoSizeColumnsMode = fillColumns ? DataGridViewAutoSizeColumnsMode.Fill : DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGrid.AllowUserToAddRows = false;
+            dataGrid.AllowUserToDeleteRows = false;
+            dataGrid.AllowUserToResizeRows = false;
+            dataGrid.MultiSelect = false;
+            dataGrid.RowHeadersVisible = false;
         }
 
         private void Export(string gameFolderPath, string gameExecutablePath, string languageFilePath)
@@ -289,7 +579,8 @@ namespace GpwEditor.Views
         private void PopulateControls(ConfigureGameDatabase database)
         {
             // Move data from database into controls
-            LanguageDataGridView.DataSource = database.LanguageStrings;
+            LanguageDataGridView.DataSource = database.LanguageResources;
+            CommentaryResourcesDataGridView.DataSource = database.CommentaryResources;
 
             DisableGameCdCheckBox.Checked = database.IsGameCdFixApplied;
             DisableColourModeCheckBox.Checked = database.IsDisplayModeFixApplied;
@@ -301,8 +592,11 @@ namespace GpwEditor.Views
             EnableCarHandlingDesignCalculationCheckbox.Checked = database.IsCarDesignCalculationUpdateApplied;
             EnableCarPerformanceRaceCalcuationCheckbox.Checked = database.IsCarHandlingPerformanceFixApplied;
 
-            CommentaryOriginalRadioButton.Checked = database.IsCommentaryModifiedRequired == false;
-            CommentaryModifiedRadioButton.Checked = database.IsCommentaryModifiedRequired;
+            CommentaryIndicesDriverDataGridView.DataSource = database.CommentaryIndicesDriver;
+            CommentaryIndicesTeamDataGridView.DataSource = database.CommentaryIndicesTeam;
+            CommentaryPrefixesDriverDataGridView.DataSource = database.CommentaryResourcesDriverPrefixes;
+            CommentaryPrefixesTeamDataGridView.DataSource = database.CommentaryResourcesTeamPrefixes;
+            CommentaryFilesDataGridView.DataSource = database.CommentaryResourcesWavSoundFiles;
 
             PointsScoringSystemDefaultRadioButton.Checked = database.IsPointsScoringSystemDefaultApplied;
             PointsScoringSystemOption1RadioButton.Checked = database.IsPointsScoringSystemOption1Applied;
@@ -322,7 +616,8 @@ namespace GpwEditor.Views
         private void PopulateRecords(ConfigureGameDatabase database)
         {
             // Move data from controls into database
-            database.LanguageStrings = (IdentityCollection)LanguageDataGridView.DataSource;
+            database.LanguageResources = (IdentityCollection)LanguageDataGridView.DataSource;
+            database.CommentaryResources = (Collection<CommentaryResource>)CommentaryResourcesDataGridView.DataSource;
 
             database.IsGameCdFixRequired = DisableGameCdCheckBox.Checked;
             database.IsDisplayModeFixRequired = DisableColourModeCheckBox.Checked;
@@ -334,7 +629,10 @@ namespace GpwEditor.Views
             database.IsCarDesignCalculationUpdateRequired = EnableCarHandlingDesignCalculationCheckbox.Checked;
             database.IsCarHandlingPerformanceFixRequired = EnableCarPerformanceRaceCalcuationCheckbox.Checked;
 
-            database.IsCommentaryModifiedRequired = CommentaryOriginalRadioButton.Checked == false && CommentaryModifiedRadioButton.Checked;
+            database.CommentaryIndicesDriver = (Collection<CommentaryDriverIndex>)CommentaryIndicesDriverDataGridView.DataSource;
+            database.CommentaryIndicesTeam = (Collection<CommentaryTeamIndex>)CommentaryIndicesTeamDataGridView.DataSource;
+            database.CommentaryResourcesDriverPrefixes = (Collection<CommentaryResource>)CommentaryPrefixesDriverDataGridView.DataSource;
+            database.CommentaryResourcesTeamPrefixes = (Collection<CommentaryResource>)CommentaryPrefixesTeamDataGridView.DataSource;
 
             database.IsPointsScoringSystemDefaultRequired = PointsScoringSystemDefaultRadioButton.Checked;
             database.IsPointsScoringSystemOption1Required = PointsScoringSystemOption1RadioButton.Checked;

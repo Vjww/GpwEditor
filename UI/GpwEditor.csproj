@@ -200,6 +200,7 @@
     <Content Include="Resources\Base\ss3.png" />
     <Content Include="Resources\Base\ss4.png" />
     <Content Include="Resources\Base\ss5.png" />
+    <None Include="Properties\DataSources\Data.Entities.Commentary.CommentaryTeamIndex.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -171,6 +171,8 @@ namespace GpwEditor.Views
             ConfigureDataGridViewControl<NonF1ChiefEngineer>(ChiefsNonF1EngineerDataGridView, 8);
             ConfigureDataGridViewControl<NonF1ChiefMechanic>(ChiefsNonF1MechanicDataGridView, 9);
             ConfigureDataGridViewControl<F1Driver>(DriversF1DataGridView, 10);
+            DriversF1DataGridView.Columns[7].Visible = false; // Hide pay driver columns
+            DriversF1DataGridView.Columns[8].Visible = false; // Hide pay driver columns
             ConfigureDataGridViewControl<NonF1Driver>(DriversNonF1DataGridView, 11);
             ConfigureDataGridViewControl<Engine>(SuppliersEnginesDataGridView, 12);
             ConfigureDataGridViewControl<Tyre>(SuppliersTyresDataGridView, 13);
@@ -185,38 +187,6 @@ namespace GpwEditor.Views
             //TODO ConfigureDataGridViewControl<TenValueBase>(EngineeringCostsDataGridView, 0, "Engineering Costs", true);
             //TODO ConfigureDataGridViewControl<SingleValueBase>(UnknownADataGridView, 0, "UnknownA", true);
             //TODO ConfigureDataGridViewControl<SingleValueBase>(UnknownBDataGridView, 0, "UnknownB", true);
-        }
-
-        // ReSharper disable once UnusedMember.Local
-        private static void ConfigureDataGridViewControl<T>(DataGridView dataGridView, int columnId, string resourceTextHeaderText, bool fillColumns = false)
-        {
-            ConfigureDataGridViewControl<T>(dataGridView, columnId, fillColumns);
-            dataGridView.Columns[3].HeaderText = resourceTextHeaderText;
-        }
-
-        private static void ConfigureDataGridViewControl<T>(DataGridView dataGridView, int columnId, bool fillColumns = false)
-        {
-            // Hide columns
-            dataGridView.Columns[$"idDataGridViewTextBoxColumn{columnId}"].Visible = false;
-            dataGridView.Columns[$"localResourceIdDataGridViewTextBoxColumn{columnId}"].Visible = false;
-            dataGridView.Columns[$"resourceIdDataGridViewTextBoxColumn{columnId}"].Visible = false;
-
-            // Freeze primary column (to always show when scrolling horizontally)
-            dataGridView.Columns[$"resourceTextDataGridViewTextBoxColumn{columnId}"].Frozen = !fillColumns;
-
-            // Make primary column readonly
-            dataGridView.Columns[$"resourceTextDataGridViewTextBoxColumn{columnId}"].ReadOnly = true;
-
-            // Rename column headers and populate column tooltips using model attributes
-            UpdateDataGridViewColumnHeaders<T>(dataGridView);
-
-            // Configure grid
-            dataGridView.AutoSizeColumnsMode = fillColumns ? DataGridViewAutoSizeColumnsMode.Fill : DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView.AllowUserToAddRows = false;
-            dataGridView.AllowUserToDeleteRows = false;
-            dataGridView.AllowUserToResizeRows = false;
-            dataGridView.MultiSelect = false;
-            dataGridView.RowHeadersVisible = false;
         }
 
         private void Export(string gameExecutablePath, string languageFilePath)
@@ -360,26 +330,6 @@ namespace GpwEditor.Views
             }
         }
 
-        private static void UpdateDataGridViewColumnHeaders<T>(DataGridView dataGridView)
-        {
-            foreach (DataGridViewColumn column in dataGridView.Columns)
-            {
-                var properties = typeof(T).GetProperties();
-                var property = properties.Single(x => x.Name == column.DataPropertyName);
-                var attributes = property.GetCustomAttributes(true);
-                foreach (var attribute in attributes)
-                {
-                    var displayAttribute = attribute as DisplayAttribute;
-                    if (displayAttribute != null)
-                    {
-                        // Update header text and tooltip text with attribute text
-                        column.HeaderText = displayAttribute.GetName();
-                        column.ToolTipText = displayAttribute.GetDescription();
-                    }
-                }
-            }
-        }
-
         // ReSharper disable once UnusedMember.Local
         private void ValidateDataGridViewCell<T>(DataGridView dataGridView, DataGridViewCellValidatingEventArgs e) where T : IIdentity
         {
@@ -473,27 +423,27 @@ namespace GpwEditor.Views
                 20
             };
 
-            UpdateChassisHandlingValues(ChassisHandlingDataGridView, 4, values);
+            UpdateValuesInDataGridViewColumn(ChassisHandlingDataGridView, 4, values);
         }
 
-        private void ChassisHandlingModifiedValuesButton_Click(object sender, EventArgs e)
+        private void ChassisHandlingRecommendedValuesButton_Click(object sender, EventArgs e)
         {
             var values = new[]
             {
-                75, // TODO:
-                80, // TODO:
-                70, // TODO:
-                90, // TODO:
-                55, // TODO:
-                30, // TODO: Update to recommended values from community to match new performance curve
-                45, // TODO:
-                50, // TODO:
-                40, // TODO:
-                25, // TODO:
-                20  // TODO:
+                44,
+                50,
+                45,
+                66,
+                37,
+                26,
+                34,
+                23,
+                22,
+                13,
+                13
             };
 
-            UpdateChassisHandlingValues(ChassisHandlingDataGridView, 4, values);
+            UpdateValuesInDataGridViewColumn(ChassisHandlingDataGridView, 4, values);
         }
 
         private void ChassisHandlingCalculatedValuesButton_Click(object sender, EventArgs e)
@@ -513,7 +463,7 @@ namespace GpwEditor.Views
                 CalculateChassisHandling(10)
             };
 
-            UpdateChassisHandlingValues(ChassisHandlingDataGridView, 4, values);
+            UpdateValuesInDataGridViewColumn(ChassisHandlingDataGridView, 4, values);
         }
 
         private int CalculateChassisHandling(int id)
@@ -536,21 +486,6 @@ namespace GpwEditor.Views
                 throw new Exception("Unable to parse value to the required type.");
             }
             return tryParseResult;
-        }
-
-        private void UpdateChassisHandlingValues(DataGridView dataGridView, int columnIndex, IReadOnlyList<int> values)
-        {
-            foreach (DataGridViewColumn column in dataGridView.Columns)
-            {
-                if (column.Index != columnIndex) continue;
-
-                var counter = 0;
-                foreach (DataGridViewRow row in ChassisHandlingDataGridView.Rows)
-                {
-                    row.Cells[columnIndex].Value = values[counter];
-                    counter++;
-                }
-            }
         }
     }
 }

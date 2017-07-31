@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using Data.Collections.Generic;
 using Data.Collections.Language;
 using Data.FileConnection;
+using Data.Patchers.Enhancements.Units;
 using LanguageEntities = Data.Entities.Language;
 using LookupEntities = Data.Entities.Executable.Lookup;
 using LookupMapping = Data.ValueMapping.Executable.Lookup;
@@ -131,7 +132,7 @@ namespace Data.Databases
 
         private void ImportLanguageStrings(string languageFilePath)
         {
-            using (var languageConnection = new LanguageConnection(languageFilePath))
+            using (var languageConnection = new LanguageResourceConnection(languageFilePath))
             {
                 LanguageStrings = languageConnection.Load();
             }
@@ -139,7 +140,7 @@ namespace Data.Databases
 
         private void ExportLanguageStrings(string languageFilePath)
         {
-            using (var languageConnection = new LanguageConnection(languageFilePath))
+            using (var languageConnection = new LanguageResourceConnection(languageFilePath))
             {
                 languageConnection.Save(LanguageStrings);
             }
@@ -358,7 +359,32 @@ namespace Data.Databases
 
         private void ExportF1Drivers(string gameExecutablePath)
         {
+            UpdateF1DriversPayDrivers();
             ExportData(gameExecutablePath, F1Drivers);
+        }
+
+        private void UpdateF1DriversPayDrivers()
+        {
+            foreach (var item in F1Drivers)
+            {
+                if (item.Salary < 0)
+                {
+                    item.RaceBonus = 0;
+                    item.ChampionshipBonus = 0;
+                }
+                item.PositiveSalary = item.Salary < 0 ? Math.Abs(item.Salary) : 0;
+                item.PayRating = item.Salary < 0 ? GetPayRating(item.PositiveSalary) : 0;
+            }
+        }
+
+        private static int GetPayRating(int salary)
+        {
+                                              // Pay driver salaries ($million):
+            if (salary <= 3500000) return 1;  // Level 1: 2.6-3.5
+            if (salary <= 4500000) return 2;  // Level 2: 3.6-4.5
+            if (salary <= 6500000) return 3;  // Level 3: 5.6-6.5
+            if (salary <= 8500000) return 4;  // Level 4: 7.6-8.5
+            return 5;                         // Level 5: 9.6-10.5
         }
 
         private void ImportNonF1Drivers(string gameExecutablePath)

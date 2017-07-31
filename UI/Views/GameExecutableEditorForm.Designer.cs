@@ -319,7 +319,7 @@
             this.chassisHandlingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ChassisHandlingOptionsGroupBox = new System.Windows.Forms.GroupBox();
             this.ChassisHandlingCalculatedValuesButton = new System.Windows.Forms.Button();
-            this.ChassisHandlingModifiedValuesButton = new System.Windows.Forms.Button();
+            this.ChassisHandlingRecommendedValuesButton = new System.Windows.Forms.Button();
             this.ChassisHandlingOriginalValuesButton = new System.Windows.Forms.Button();
             this.MainTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
@@ -2636,7 +2636,7 @@
             // ChassisHandlingOptionsGroupBox
             // 
             this.ChassisHandlingOptionsGroupBox.Controls.Add(this.ChassisHandlingCalculatedValuesButton);
-            this.ChassisHandlingOptionsGroupBox.Controls.Add(this.ChassisHandlingModifiedValuesButton);
+            this.ChassisHandlingOptionsGroupBox.Controls.Add(this.ChassisHandlingRecommendedValuesButton);
             this.ChassisHandlingOptionsGroupBox.Controls.Add(this.ChassisHandlingOriginalValuesButton);
             this.ChassisHandlingOptionsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChassisHandlingOptionsGroupBox.Location = new System.Drawing.Point(3, 478);
@@ -2656,15 +2656,15 @@
             this.ChassisHandlingCalculatedValuesButton.UseVisualStyleBackColor = true;
             this.ChassisHandlingCalculatedValuesButton.Click += new System.EventHandler(this.ChassisHandlingCalculatedValuesButton_Click);
             // 
-            // ChassisHandlingModifiedValuesButton
+            // ChassisHandlingRecommendedValuesButton
             // 
-            this.ChassisHandlingModifiedValuesButton.Location = new System.Drawing.Point(312, 19);
-            this.ChassisHandlingModifiedValuesButton.Name = "ChassisHandlingModifiedValuesButton";
-            this.ChassisHandlingModifiedValuesButton.Size = new System.Drawing.Size(300, 23);
-            this.ChassisHandlingModifiedValuesButton.TabIndex = 0;
-            this.ChassisHandlingModifiedValuesButton.Text = "Use modified 1998 season values";
-            this.ChassisHandlingModifiedValuesButton.UseVisualStyleBackColor = true;
-            this.ChassisHandlingModifiedValuesButton.Click += new System.EventHandler(this.ChassisHandlingModifiedValuesButton_Click);
+            this.ChassisHandlingRecommendedValuesButton.Location = new System.Drawing.Point(312, 19);
+            this.ChassisHandlingRecommendedValuesButton.Name = "ChassisHandlingRecommendedValuesButton";
+            this.ChassisHandlingRecommendedValuesButton.Size = new System.Drawing.Size(300, 23);
+            this.ChassisHandlingRecommendedValuesButton.TabIndex = 0;
+            this.ChassisHandlingRecommendedValuesButton.Text = "Use recommended 1998 season values";
+            this.ChassisHandlingRecommendedValuesButton.UseVisualStyleBackColor = true;
+            this.ChassisHandlingRecommendedValuesButton.Click += new System.EventHandler(this.ChassisHandlingRecommendedValuesButton_Click);
             // 
             // ChassisHandlingOriginalValuesButton
             // 
@@ -3050,7 +3050,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox ChassisHandlingOptionsGroupBox;
         private System.Windows.Forms.Button ChassisHandlingCalculatedValuesButton;
-        private System.Windows.Forms.Button ChassisHandlingModifiedValuesButton;
+        private System.Windows.Forms.Button ChassisHandlingRecommendedValuesButton;
         private System.Windows.Forms.Button ChassisHandlingOriginalValuesButton;
     }
 }

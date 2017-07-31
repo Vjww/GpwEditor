@@ -118,29 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="COMME_Enhanced" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\text\COMME_Enhanced.TXT;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="ANONOUT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\speeche\ANONOUT.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="COMME_Modified" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\text\COMME_Modified.TXT;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="ANONP1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\speeche\ANONP1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="COMME_Modified_Teams" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\text\COMME_Modified_Teams.TXT;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="ANONP2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\speeche\ANONP2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="NAMEOUT" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\speeche\NAMEOUT.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ANONP3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\speeche\ANONP3.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="NAMEP1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\speeche\NAMEP1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ANONPIT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\speeche\ANONPIT.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="NAMEP2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\speeche\NAMEP2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="NAMEP3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\speeche\NAMEP3.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="NAMEPIT" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\speeche\NAMEPIT.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="COMME" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text\COMME.TXT;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="P1C" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\speeche\P1C.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

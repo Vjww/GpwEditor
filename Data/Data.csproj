@@ -38,8 +38,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Databases\ConfigureGameDatabase.cs" />
+    <Compile Include="Entities\Commentary\CommentaryTeamIndex.cs" />
+    <Compile Include="Entities\Commentary\CommentaryDriverIndex.cs" />
+    <Compile Include="Entities\Commentary\CommentaryResource.cs" />
+    <Compile Include="Entities\Generic\StringValue.cs" />
     <Compile Include="Enums\ViewportIdentityType.cs" />
     <Compile Include="Enums\ViewportDisplayType.cs" />
+    <Compile Include="FileConnection\CommentaryResourceConnection.cs" />
     <Compile Include="FileVerification\GameExecutableVerification.cs" />
     <Compile Include="Collections\Generic\SingleValueCollection.cs" />
     <Compile Include="Entities\Executable\Environment\EngineeringCosts\BuildSpare.cs" />
@@ -112,6 +117,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ValueMapping\Commentary\CommentaryTeamIndex.cs" />
+    <Compile Include="ValueMapping\Commentary\CommentaryDriverIndex.cs" />
     <Compile Include="ValueMapping\Executable\Config\RaceViewport.cs" />
     <Compile Include="ValueMapping\Executable\Environment\EngineeringCosts\BuildNextYearCar.cs" />
     <Compile Include="ValueMapping\Executable\Environment\EngineeringCosts\BuildSpare.cs" />
@@ -149,7 +156,7 @@
     <Compile Include="Entities\Language\Identity.cs" />
     <Compile Include="Enums\PointsScoringSystemType.cs" />
     <Compile Include="FileConnection\ExecutableConnection.cs" />
-    <Compile Include="FileConnection\LanguageConnection.cs" />
+    <Compile Include="FileConnection\LanguageResourceConnection.cs" />
     <Compile Include="Helpers\InstructionHelper.cs" />
     <Compile Include="FileConnection\IDataConnection.cs" />
     <Compile Include="ValueMapping\Executable\Environment\StaffSalaries\Commercial.cs" />
@@ -276,9 +283,7 @@
     <Content Include="Notes\snippets.txt" />
     <Content Include="Notes\Opcode_E8_CALL.txt" />
     <Content Include="Notes\sponsorsuppliercontracts.txt" />
-    <None Include="Resources\text\COMME_Modified_Teams.TXT" />
-    <None Include="Resources\text\COMME_Modified.TXT" />
-    <None Include="Resources\text\COMME_Enhanced.TXT" />
+    <None Include="Resources\text\COMME.TXT" />
     <None Include="Resources\bmp\dheads\6.bmp" />
     <None Include="Resources\bmp\dheads\72.bmp" />
     <None Include="Resources\bmp\dheads\40.bmp" />
@@ -286,11 +291,11 @@
     <None Include="Resources\speeche\P3A.wav" />
     <None Include="Resources\speeche\P2A.wav" />
     <None Include="Resources\speeche\P1C.wav" />
-    <None Include="Resources\speeche\NAMEPIT.wav" />
-    <None Include="Resources\speeche\NAMEP3.wav" />
-    <None Include="Resources\speeche\NAMEP2.wav" />
-    <None Include="Resources\speeche\NAMEP1.wav" />
-    <None Include="Resources\speeche\NAMEOUT.wav" />
+    <None Include="Resources\speeche\ANONPIT.wav" />
+    <None Include="Resources\speeche\ANONP3.wav" />
+    <None Include="Resources\speeche\ANONP2.wav" />
+    <None Include="Resources\speeche\ANONP1.wav" />
+    <None Include="Resources\speeche\ANONOUT.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IntegrationTasks\GpwExe\Text\x_gpwfix_designbyengineer.hbk" />
