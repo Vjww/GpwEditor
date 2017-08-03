@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Text;
-using Data.Collections.Language;
 using Data.FileConnection;
 using Data.Helpers;
 using Data.Patchers;
@@ -19,17 +18,15 @@ using Data.ValueMapping.Executable.Team;
 
 namespace Data.Databases
 {
-    public class UpgradeGameDatabase
+    public class UpgradeGameDatabase : DatabaseBase
     {
-        public IdentityCollection LanguageStrings { get; set; }
-
         public void Upgrade(string gameFolderPath, string gameExecutablePath, string languageFilePath)
         {
-            ValidateGameFolder(gameFolderPath);
-            ValidateGameExecutable(gameExecutablePath);
-            ValidateLanguageFile(languageFilePath);
+            ValidateGameFolder(gameFolderPath, "Please ensure the selected folder contains the game folders and files to upgrade successfully.");
+            ValidateGameExecutable(gameExecutablePath, "Please ensure the official v1.01b patch has been applied to the game and select a compatible v1.01b game executable to upgrade successfully.");
+            ValidateLanguageFile(languageFilePath, "Please ensure the official v1.01b patch has been applied to the game and select a compatible v1.01b language file to upgrade successfully.");
 
-            ImportLanguageStrings(languageFilePath);
+            ImportLanguageResources(languageFilePath);
 
             // Replace switch statements with new idiom to allow for successful disassembly.
             // Required for upgrade to be successful and cannot be reversed.
@@ -69,7 +66,7 @@ namespace Data.Databases
             ApplyJacquesVilleneuveNameFix();
             ApplyMissingTestDriverNameFix();
 
-            ExportLanguageStrings(languageFilePath);
+            ExportLanguageResources(languageFilePath);
         }
 
         private static void ApplyCommentaryResourcesToGameFolder(string gameFolderPath)
@@ -127,10 +124,10 @@ namespace Data.Databases
             foreach (var driver in drivers)
             {
                 const string originalText = "John Newhouse";
-                if (ResourceHelper.GetResourceText(LanguageStrings, driver.Key) == originalText)
+                if (ResourceHelper.GetResourceText(LanguageResources, driver.Key) == originalText)
                 {
                     // Only update text if the original text is still in place
-                    ResourceHelper.SetResourceText(LanguageStrings, driver.Key, driver.Value);
+                    ResourceHelper.SetResourceText(LanguageResources, driver.Key, driver.Value);
                 }
             }
         }
@@ -147,10 +144,10 @@ namespace Data.Databases
             foreach (var driver in drivers)
             {
                 const string originalText = "Driver Unknown";
-                if (ResourceHelper.GetResourceText(LanguageStrings, driver.Key) == originalText)
+                if (ResourceHelper.GetResourceText(LanguageResources, driver.Key) == originalText)
                 {
                     // Only update text if the original text is still in place
-                    ResourceHelper.SetResourceText(LanguageStrings, driver.Key, driver.Value);
+                    ResourceHelper.SetResourceText(LanguageResources, driver.Key, driver.Value);
                 }
             }
         }
@@ -173,22 +170,6 @@ namespace Data.Databases
             {
                 resource.Seek(0, SeekOrigin.Begin);
                 resource.CopyTo(fileStream);
-            }
-        }
-
-        private void ExportLanguageStrings(string languageFilePath)
-        {
-            using (var languageConnection = new LanguageResourceConnection(languageFilePath))
-            {
-                languageConnection.Save(LanguageStrings);
-            }
-        }
-
-        private void ImportLanguageStrings(string languageFilePath)
-        {
-            using (var languageConnection = new LanguageResourceConnection(languageFilePath))
-            {
-                LanguageStrings = languageConnection.Load();
             }
         }
 
@@ -236,36 +217,6 @@ namespace Data.Databases
 
             Debug.WriteLine("Applying irreversible modified code.");
             dataPatcherUnitBase.ApplyModifiedCode();
-        }
-
-        private static void ValidateGameFolder(string gameFolderPath)
-        {
-            string verificationMessage;
-            var isValid = new GameFolderVerification().IsFolderSupported(gameFolderPath, out verificationMessage);
-
-            if (isValid) return;
-            const string resolutionMessage = "Please ensure the selected folder contains the game folders and files to upgrade successfully.";
-            throw new Exception($"{resolutionMessage}{Environment.NewLine}{Environment.NewLine}{verificationMessage}");
-        }
-
-        private static void ValidateGameExecutable(string gameExecutablePath)
-        {
-            string verificationMessage;
-            var isValid = new GameExecutableVerification().IsFileSupported(gameExecutablePath, out verificationMessage);
-
-            if (isValid) return;
-            const string resolutionMessage = "Please ensure the official v1.01b patch has been applied to the game and select a compatible v1.01b game executable to upgrade successfully.";
-            throw new Exception($"{resolutionMessage}{Environment.NewLine}{Environment.NewLine}{verificationMessage}");
-        }
-
-        private static void ValidateLanguageFile(string languageFilePath)
-        {
-            string verificationMessage;
-            var isValid = new LanguageFileVerification().IsFileSupported(languageFilePath, out verificationMessage);
-
-            if (isValid) return;
-            const string resolutionMessage = "Please ensure the official v1.01b patch has been applied to the game and select a compatible v1.01b language file to upgrade successfully.";
-            throw new Exception($"{resolutionMessage}{Environment.NewLine}{Environment.NewLine}{verificationMessage}");
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms.DataVisualization.Charting;
 using GpwEditor.Enums;
 
-namespace GpwEditor
+namespace GpwEditor.Charts
 {
     public class PerformanceCurveChart
     {

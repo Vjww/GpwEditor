@@ -195,6 +195,10 @@ namespace GpwEditor.Views
 
             try
             {
+                // TODO: FolderTest(gameFolderPath);
+                FileTest(gameExecutablePath);
+                FileTest(languageFilePath);
+
                 // Fill database with data from controls and export to file
                 var database = new ExecutableDatabase();
                 PopulateRecords(database);
@@ -221,6 +225,10 @@ namespace GpwEditor.Views
 
             try
             {
+                // TODO: FolderTest(gameFolderPath);
+                FileTest(gameExecutablePath);
+                FileTest(languageFilePath);
+
                 // Import from file to database and fill controls with data
                 var database = new ExecutableDatabase();
                 database.ImportDataFromFile(gameExecutablePath, languageFilePath);
@@ -245,7 +253,7 @@ namespace GpwEditor.Views
         private void PopulateControls(ExecutableDatabase database)
         {
             // Move data from database into controls
-            LanguageDataGridView.DataSource = database.LanguageStrings;
+            LanguageDataGridView.DataSource = database.LanguageResources;
             TeamsDataGridView.DataSource = database.Teams;
             ChiefsF1CommerceDataGridView.DataSource = database.F1ChiefCommercials;
             ChiefsF1DesignerDataGridView.DataSource = database.F1ChiefDesigners;
@@ -291,7 +299,7 @@ namespace GpwEditor.Views
         private void PopulateRecords(ExecutableDatabase database)
         {
             // Move data from controls into database
-            database.LanguageStrings = (IdentityCollection)LanguageDataGridView.DataSource;
+            database.LanguageResources = (IdentityCollection)LanguageDataGridView.DataSource;
             database.Teams = (Collection<Team>)TeamsDataGridView.DataSource;
             database.F1ChiefCommercials = (Collection<F1ChiefCommercial>)ChiefsF1CommerceDataGridView.DataSource;
             database.F1ChiefDesigners = (Collection<F1ChiefDesigner>)ChiefsF1DesignerDataGridView.DataSource;

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Windows.Forms;
 using Data.Collections.Language;
 using Data.Databases;
@@ -8,9 +7,6 @@ using GpwEditor.Properties;
 
 namespace GpwEditor.Views
 {
-    /// <summary>
-    /// Enables the user to modify data in the language file.
-    /// </summary>
     public partial class LanguageFileEditorForm : EditorForm
     {
         private bool _isFirstRowResult;
@@ -230,6 +226,10 @@ namespace GpwEditor.Views
 
             try
             {
+                // TODO: FolderTest(gameFolderPath);
+                FileTest(gameExecutablePath);
+                FileTest(languageFilePath);
+
                 // Fill database with data from controls and export to file
                 var database = new LanguageDatabase();
                 PopulateRecords(database);
@@ -327,6 +327,10 @@ namespace GpwEditor.Views
 
             try
             {
+                // TODO: FolderTest(gameFolderPath);
+                FileTest(gameExecutablePath);
+                FileTest(languageFilePath);
+
                 // Import from file to database and fill controls with data
                 var database = new LanguageDatabase();
                 database.ImportDataFromFile(gameExecutablePath, languageFilePath);
@@ -373,7 +377,7 @@ namespace GpwEditor.Views
         private void PopulateControls(LanguageDatabase database)
         {
             // Move data from database into controls
-            LanguageDataGridView.DataSource = database.LanguageStrings;
+            LanguageDataGridView.DataSource = database.LanguageResources;
 
             // Format data grid
             var records = (IdentityCollection)LanguageDataGridView.DataSource;
@@ -388,7 +392,7 @@ namespace GpwEditor.Views
         private void PopulateRecords(LanguageDatabase database)
         {
             // Move data from controls into database
-            database.LanguageStrings = LanguageDataGridView.DataSource as IdentityCollection;
+            database.LanguageResources = LanguageDataGridView.DataSource as IdentityCollection;
         }
 
         private void Search()

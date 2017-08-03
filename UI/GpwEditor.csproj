@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Charts\PerformanceCurveChart.cs" />
     <Compile Include="Enums\NumericUpDownDirectionType.cs" />
     <Compile Include="Views\ConfigureGameForm.cs">
       <SubType>Form</SubType>
@@ -73,11 +74,11 @@
     <Compile Include="Views\ConfigureGameForm.Designer.cs">
       <DependentUpon>ConfigureGameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReconstructFunctionForm.cs">
+    <Compile Include="Views\OffsetValueGeneratorToolForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReconstructFunctionForm.Designer.cs">
-      <DependentUpon>ReconstructFunctionForm.cs</DependentUpon>
+    <Compile Include="Views\OffsetValueGeneratorToolForm.Designer.cs">
+      <DependentUpon>OffsetValueGeneratorToolForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\PerformanceCurveValuesForm.cs">
       <SubType>Form</SubType>
@@ -85,7 +86,6 @@
     <Compile Include="Views\PerformanceCurveValuesForm.Designer.cs">
       <DependentUpon>PerformanceCurveValuesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PerformanceCurveChart.cs" />
     <Compile Include="Views\GameExecutableEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,34 +103,34 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="RegistryKeysForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RegistryKeysForm.Designer.cs">
-      <DependentUpon>RegistryKeysForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Registry\GpwRegistry.cs" />
-    <Compile Include="Registry\GpwRegistryKeys.cs" />
-    <Compile Include="SettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SettingsForm.Designer.cs">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Helpers\GpwRegistry.cs" />
+    <Compile Include="Helpers\GpwRegistryKeys.cs" />
     <Compile Include="Views\MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OffsetValueGeneratorToolForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OffsetValueGeneratorToolForm.Designer.cs">
-      <DependentUpon>OffsetValueGeneratorToolForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ReconstructFunctionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReconstructFunctionForm.Designer.cs">
+      <DependentUpon>ReconstructFunctionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegistryKeysForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RegistryKeysForm.Designer.cs">
+      <DependentUpon>RegistryKeysForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UpgradeGameForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,23 +152,14 @@
     <EmbeddedResource Include="Views\LanguageFileEditorForm.resx">
       <DependentUpon>LanguageFileEditorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReconstructFunctionForm.resx">
-      <DependentUpon>ReconstructFunctionForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\OffsetValueGeneratorToolForm.resx">
+      <DependentUpon>OffsetValueGeneratorToolForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PerformanceCurveValuesForm.resx">
       <DependentUpon>PerformanceCurveValuesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RegistryKeysForm.resx">
-      <DependentUpon>RegistryKeysForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OffsetValueGeneratorToolForm.resx">
-      <DependentUpon>OffsetValueGeneratorToolForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -180,6 +171,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\ReconstructFunctionForm.resx">
+      <DependentUpon>ReconstructFunctionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RegistryKeysForm.resx">
+      <DependentUpon>RegistryKeysForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UpgradeGameForm.resx">
       <DependentUpon>UpgradeGameForm.cs</DependentUpon>
       <SubType>Designer</SubType>

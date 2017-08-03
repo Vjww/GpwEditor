@@ -66,7 +66,7 @@ namespace GpwEditor.Views
 
         private void SaveGameEditorButton_Click(object sender, EventArgs e)
         {
-            //SwitchContext(new SaveGameEditorForm());
+            // TODO: SwitchContext(new SaveGameEditorForm());
 
             MessageBox.Show(
                 $"The save game editor is not available in this version of {Settings.Default.ApplicationName}.{Environment.NewLine}{Environment.NewLine}" +
@@ -96,10 +96,6 @@ namespace GpwEditor.Views
         private void LaunchGameButton_Click(object sender, EventArgs e)
         {
             var filePath = Settings.Default.UserGameExecutablePath;
-            if (string.IsNullOrWhiteSpace(filePath))
-            {
-                filePath = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultGameExecutableName);
-            }
 
             if (!File.Exists(filePath))
             {

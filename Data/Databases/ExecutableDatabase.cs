@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Data.Collections.Generic;
-using Data.Collections.Language;
 using Data.FileConnection;
-using Data.Patchers.Enhancements.Units;
 using LanguageEntities = Data.Entities.Language;
 using LookupEntities = Data.Entities.Executable.Lookup;
 using LookupMapping = Data.ValueMapping.Executable.Lookup;
@@ -21,9 +18,8 @@ using EnvironmentMapping = Data.ValueMapping.Executable.Environment;
 
 namespace Data.Databases
 {
-    public class ExecutableDatabase
+    public class ExecutableDatabase : DatabaseBase
     {
-        public IdentityCollection LanguageStrings { get; set; }
         public Collection<TeamEntities.Team> Teams { get; set; }
         public Collection<TeamEntities.F1ChiefCommercial> F1ChiefCommercials { get; set; }
         public Collection<TeamEntities.F1ChiefDesigner> F1ChiefDesigners { get; set; }
@@ -60,10 +56,11 @@ namespace Data.Databases
 
         public void ImportDataFromFile(string gameExecutablePath, string languageFilePath)
         {
-            ValidateLanguageFile(languageFilePath);
-            ValidateGameExecutable(gameExecutablePath);
+            // TODO: ValidateGameFolder(gameFolderPath, "Please ensure the selected folder contains the game folders and files to import successfully.");
+            ValidateGameExecutable(gameExecutablePath, "Please ensure the selected file is a compatible v1.01b game executable to import successfully.");
+            ValidateLanguageFile(languageFilePath, "Please ensure the selected file is a compatible v1.01b language file to import successfully.");
 
-            ImportLanguageStrings(languageFilePath);
+            ImportLanguageResources(languageFilePath);
 
             ImportTeams(gameExecutablePath);
             ImportFirstGpTrackLookups();
@@ -99,8 +96,9 @@ namespace Data.Databases
 
         public void ExportDataToFile(string gameExecutablePath, string languageFilePath)
         {
-            ValidateLanguageFile(languageFilePath);
-            ValidateGameExecutable(gameExecutablePath);
+            // TODO: ValidateGameFolder(gameFolderPath, "Please ensure the selected folder contains the game folders and files to export successfully.");
+            ValidateGameExecutable(gameExecutablePath, "Please ensure the selected file is a compatible v1.01b game executable to export successfully.");
+            ValidateLanguageFile(languageFilePath, "Please ensure the selected file is a compatible v1.01b language file to export successfully.");
 
             ExportTeams(gameExecutablePath);
 
@@ -127,23 +125,7 @@ namespace Data.Databases
             // TODO ExportUnknownAEfforts(gameExecutablePath);
             // TODO ExportUnknownBEfforts(gameExecutablePath);
 
-            ExportLanguageStrings(languageFilePath);
-        }
-
-        private void ImportLanguageStrings(string languageFilePath)
-        {
-            using (var languageConnection = new LanguageResourceConnection(languageFilePath))
-            {
-                LanguageStrings = languageConnection.Load();
-            }
-        }
-
-        private void ExportLanguageStrings(string languageFilePath)
-        {
-            using (var languageConnection = new LanguageResourceConnection(languageFilePath))
-            {
-                languageConnection.Save(LanguageStrings);
-            }
+            ExportLanguageResources(languageFilePath);
         }
 
         private void ImportTeams(string gameExecutablePath)
@@ -695,7 +677,7 @@ namespace Data.Databases
         {
             foreach (var item in collection)
             {
-                item.ImportData(null, LanguageStrings);
+                item.ImportData(null, LanguageResources);
             }
         }
 
@@ -705,7 +687,7 @@ namespace Data.Databases
             {
                 foreach (var item in collection)
                 {
-                    item.ImportData(executableConnection, LanguageStrings);
+                    item.ImportData(executableConnection, LanguageResources);
                 }
             }
         }
@@ -740,24 +722,9 @@ namespace Data.Databases
             {
                 foreach (var item in collection)
                 {
-                    item.ExportData(executableConnection, LanguageStrings);
+                    item.ExportData(executableConnection, LanguageResources);
                 }
             }
-        }
-
-        private static void ValidateGameExecutable(string gameExecutablePath)
-        {
-            string verificationMessage;
-            var isValid = new GameExecutableVerification().IsFileSupported(gameExecutablePath, out verificationMessage);
-
-            if (isValid) return;
-            const string resolutionMessage = "Please ensure the official v1.01b patch has been applied to the game and select a compatible v1.01b game executable to modify successfully.";
-            throw new Exception($"{resolutionMessage}{Environment.NewLine}{Environment.NewLine}{verificationMessage}");
-        }
-
-        private static void ValidateLanguageFile(string languageFilePath)
-        {
-            // TODO: Implement
         }
     }
 }

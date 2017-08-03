@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
+using GpwEditor.Charts;
 using GpwEditor.Properties;
 
 namespace GpwEditor.Views
 {
-    public partial class PerformanceCurveValuesForm : Form
+    public partial class PerformanceCurveValuesForm : EditorForm
     {
         private readonly PerformanceCurveChart _performanceCurveChart;
 
@@ -17,10 +18,7 @@ namespace GpwEditor.Views
 
         private void PerformanceCurveForm_Load(object sender, EventArgs e)
         {
-            // Set icon
             Icon = Resources.icon1;
-
-            // Set form title text
             Text = $"{Settings.Default.ApplicationName} - Performance Curve";
 
             // Update label with lower and upper bound values

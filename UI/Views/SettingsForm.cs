@@ -7,15 +7,15 @@ using Data.Patchers.SwitchIdiomPatcher;
 using Data.Patchers.TrackEditorPatcher;
 using GpwEditor.Properties;
 
-namespace GpwEditor
+namespace GpwEditor.Views
 {
-    public partial class SettingsForm : Form
+    public partial class SettingsForm : EditorForm
     {
-        private string _filePath;
+        private readonly string _filePath;
 
         public SettingsForm()
         {
-            _filePath = @"C:\Gpw\gpw.exe";
+            _filePath = GetGameExecutableMruOrDefault();
 
             InitializeComponent();
             FilePathTextBox.Text = _filePath;
@@ -23,8 +23,8 @@ namespace GpwEditor
 
         private void SettingsForm_Load(object sender, EventArgs e)
         {
-            // Set icon
             Icon = Resources.icon1;
+            Text = $"{Settings.Default.ApplicationName} - Settings";
         }
 
         private void SwitchIdiomButton_Click(object sender, EventArgs e)

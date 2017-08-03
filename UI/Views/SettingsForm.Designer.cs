@@ -1,4 +1,4 @@
-﻿namespace GpwEditor
+﻿namespace GpwEditor.Views
 {
     partial class SettingsForm
     {
@@ -37,8 +37,8 @@
             this.ReconstructFunctionButton = new System.Windows.Forms.Button();
             this.ApplyChangeGroupBox = new System.Windows.Forms.GroupBox();
             this.ApplyAllButton = new System.Windows.Forms.Button();
-            this.CreateChangeGroupBox = new System.Windows.Forms.GroupBox();
             this.TrackEditorButton = new System.Windows.Forms.Button();
+            this.CreateChangeGroupBox = new System.Windows.Forms.GroupBox();
             this.ApplyChangeGroupBox.SuspendLayout();
             this.CreateChangeGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -137,6 +137,16 @@
             this.ApplyAllButton.UseVisualStyleBackColor = true;
             this.ApplyAllButton.Click += new System.EventHandler(this.ApplyAllButton_Click);
             // 
+            // TrackEditorButton
+            // 
+            this.TrackEditorButton.Location = new System.Drawing.Point(6, 161);
+            this.TrackEditorButton.Name = "TrackEditorButton";
+            this.TrackEditorButton.Size = new System.Drawing.Size(176, 23);
+            this.TrackEditorButton.TabIndex = 4;
+            this.TrackEditorButton.Text = "Apply Track Editor";
+            this.TrackEditorButton.UseVisualStyleBackColor = true;
+            this.TrackEditorButton.Click += new System.EventHandler(this.TrackEditorButton_Click);
+            // 
             // CreateChangeGroupBox
             // 
             this.CreateChangeGroupBox.Controls.Add(this.OffsetValueGeneratorToolButton);
@@ -147,16 +157,6 @@
             this.CreateChangeGroupBox.TabIndex = 6;
             this.CreateChangeGroupBox.TabStop = false;
             this.CreateChangeGroupBox.Text = "Create Change";
-            // 
-            // TrackEditorButton
-            // 
-            this.TrackEditorButton.Location = new System.Drawing.Point(6, 161);
-            this.TrackEditorButton.Name = "TrackEditorButton";
-            this.TrackEditorButton.Size = new System.Drawing.Size(176, 23);
-            this.TrackEditorButton.TabIndex = 4;
-            this.TrackEditorButton.Text = "Apply Track Editor";
-            this.TrackEditorButton.UseVisualStyleBackColor = true;
-            this.TrackEditorButton.Click += new System.EventHandler(this.TrackEditorButton_Click);
             // 
             // SettingsForm
             // 
@@ -169,7 +169,6 @@
             this.MaximizeBox = false;
             this.Name = "SettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Settings";
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.ApplyChangeGroupBox.ResumeLayout(false);
             this.ApplyChangeGroupBox.PerformLayout();

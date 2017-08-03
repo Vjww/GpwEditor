@@ -2,7 +2,7 @@
 using GpwEditor.Properties;
 using Microsoft.Win32;
 
-namespace GpwEditor.Registry
+namespace GpwEditor.Helpers
 {
     public class GpwRegistry
     {

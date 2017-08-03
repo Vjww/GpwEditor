@@ -11,6 +11,7 @@ using Data.Databases;
 using Data.Entities.Commentary;
 using Data.Entities.Executable.Race;
 using Data.Entities.Generic;
+using GpwEditor.Charts;
 using GpwEditor.Enums;
 using GpwEditor.Properties;
 

@@ -1,4 +1,4 @@
-﻿namespace GpwEditor
+﻿namespace GpwEditor.Views
 {
     partial class OffsetValueGeneratorToolForm
     {
@@ -95,7 +95,6 @@
             this.Controls.Add(this.InputTextBox);
             this.Controls.Add(this.InputLabel);
             this.Name = "OffsetValueGeneratorToolForm";
-            this.Text = "OffsetValueGeneratorToolForm";
             this.Load += new System.EventHandler(this.OffsetValueGeneratorToolForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

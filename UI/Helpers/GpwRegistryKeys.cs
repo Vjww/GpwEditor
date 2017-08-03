@@ -1,4 +1,4 @@
-﻿namespace GpwEditor.Registry
+﻿namespace GpwEditor.Helpers
 {
     public class GpwRegistryKeys
     {

@@ -6,9 +6,9 @@ using System.Windows.Forms;
 using Common;
 using GpwEditor.Properties;
 
-namespace GpwEditor
+namespace GpwEditor.Views
 {
-    public partial class ReconstructFunctionForm : Form
+    public partial class ReconstructFunctionForm : EditorForm
     {
         private class InstructionDefinition
         {
@@ -30,10 +30,10 @@ namespace GpwEditor
             RelocatedFunctionOutputTextBox.MaxLength = int.MaxValue;
         }
 
-        private void OffsetValueGeneratorToolForm_Load(object sender, EventArgs e)
+        private void ReconstructFunctionForm_Load(object sender, EventArgs e)
         {
-            // Set icon
             Icon = Resources.icon1;
+            Text = $"{Settings.Default.ApplicationName} - Reconstruct Function";
         }
 
         private void GenerateButton_Click(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace GpwEditor
                 relocatedFunctionDefinition.Select(i => FormatBytesToString(i, RawOutputCheckBox.Checked)).ToArray();
         }
 
-        private List<InstructionDefinition> BuildFunctionDefinitionFromIdaDisassemblyOutput(string[] lines)
+        private IEnumerable<InstructionDefinition> BuildFunctionDefinitionFromIdaDisassemblyOutput(string[] lines)
         {
             if (lines == null) throw new ArgumentNullException(nameof(lines));
 
@@ -167,7 +167,7 @@ namespace GpwEditor
             return instructionDefinitions;
         }
 
-        private static void ReconstructFunctionDefinition(List<InstructionDefinition> functionDefinition,
+        private static void ReconstructFunctionDefinition(IEnumerable<InstructionDefinition> functionDefinition,
             int cutFromAddress, int cutToAddress, int relocationFunctionAddress,
             out List<byte[]> reconstructedFunctionDefinition,
             out List<byte[]> relocationFunctionDefinition)

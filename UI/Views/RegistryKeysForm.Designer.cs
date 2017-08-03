@@ -1,4 +1,4 @@
-﻿namespace GpwEditor
+﻿namespace GpwEditor.Views
 {
     partial class RegistryKeysForm
     {
@@ -202,7 +202,6 @@
             this.MaximizeBox = false;
             this.Name = "RegistryKeysForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Grand Prix World Registry Keys";
             this.Load += new System.EventHandler(this.RegistryKeysForm_Load);
             this.CurrentRegistryKeyValuesGroupBox.ResumeLayout(false);
             this.CurrentRegistryKeyValuesGroupBox.PerformLayout();

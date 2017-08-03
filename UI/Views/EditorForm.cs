@@ -222,5 +222,42 @@ namespace GpwEditor.Views
                 }
             }
         }
+
+        protected static void FileTest(string path)
+        {
+            if (!File.Exists(path))
+            {
+                throw new FileNotFoundException();
+            }
+
+            // TODO: Not a permanent solution, as file could become locked after check.
+            if (IsFileLocked(new FileInfo(path)))
+            {
+                throw new Exception("The file is currently locked by another process.");
+            }
+        }
+
+        protected static void FolderTest(string path)
+        {
+            if (!Directory.Exists(path))
+            {
+                throw new DirectoryNotFoundException();
+            }
+        }
+
+        public static bool IsFileLocked(FileInfo fileInfo)
+        {
+            try
+            {
+                var filePath = fileInfo.FullName;
+                var fs = File.Open(filePath, FileMode.Open, FileAccess.ReadWrite, FileShare.None);
+                fs.Close();
+                return false;
+            }
+            catch (Exception)
+            {
+                return true;
+            }
+        }
     }
 }

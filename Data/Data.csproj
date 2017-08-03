@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Databases\ConfigureGameDatabase.cs" />
+    <Compile Include="Databases\DatabaseBase.cs" />
     <Compile Include="Entities\Commentary\CommentaryTeamIndex.cs" />
     <Compile Include="Entities\Commentary\CommentaryDriverIndex.cs" />
     <Compile Include="Entities\Commentary\CommentaryResource.cs" />

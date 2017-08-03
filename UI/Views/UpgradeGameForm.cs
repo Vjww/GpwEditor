@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using Data.Databases;
 using GpwEditor.Properties;
@@ -64,6 +65,10 @@ namespace GpwEditor.Views
 
             try
             {
+                FolderTest(gameFolderPath);
+                FileTest(gameExecutablePath);
+                FileTest(languageFilePath);
+
                 var database = new UpgradeGameDatabase();
                 database.Upgrade(gameFolderPath, gameExecutablePath, languageFilePath);
             }

@@ -1,4 +1,4 @@
-﻿namespace GpwEditor
+﻿namespace GpwEditor.Views
 {
     partial class ReconstructFunctionForm
     {
@@ -41,8 +41,8 @@
             this.CutFromAddressLabel = new System.Windows.Forms.Label();
             this.CutFromAddressTextBox = new System.Windows.Forms.TextBox();
             this.OutputGroupBox = new System.Windows.Forms.GroupBox();
-            this.RawOutputCheckBox = new System.Windows.Forms.CheckBox();
             this.RelocatedFunctionOutputTextBox = new System.Windows.Forms.TextBox();
+            this.RawOutputCheckBox = new System.Windows.Forms.CheckBox();
             this.InputGroupBox.SuspendLayout();
             this.OutputGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -175,16 +175,6 @@
             this.OutputGroupBox.TabIndex = 5;
             this.OutputGroupBox.TabStop = false;
             // 
-            // RawOutputCheckBox
-            // 
-            this.RawOutputCheckBox.AutoSize = true;
-            this.RawOutputCheckBox.Location = new System.Drawing.Point(18, 482);
-            this.RawOutputCheckBox.Name = "RawOutputCheckBox";
-            this.RawOutputCheckBox.Size = new System.Drawing.Size(175, 17);
-            this.RawOutputCheckBox.TabIndex = 6;
-            this.RawOutputCheckBox.Text = "Display output as raw hex bytes";
-            this.RawOutputCheckBox.UseVisualStyleBackColor = true;
-            // 
             // RelocatedFunctionOutputTextBox
             // 
             this.RelocatedFunctionOutputTextBox.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -197,7 +187,17 @@
             this.RelocatedFunctionOutputTextBox.WordWrap = false;
             this.RelocatedFunctionOutputTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OutputTextBox_KeyDown);
             // 
-            // CutCodeFromFunctionForm
+            // RawOutputCheckBox
+            // 
+            this.RawOutputCheckBox.AutoSize = true;
+            this.RawOutputCheckBox.Location = new System.Drawing.Point(18, 482);
+            this.RawOutputCheckBox.Name = "RawOutputCheckBox";
+            this.RawOutputCheckBox.Size = new System.Drawing.Size(175, 17);
+            this.RawOutputCheckBox.TabIndex = 6;
+            this.RawOutputCheckBox.Text = "Display output as raw hex bytes";
+            this.RawOutputCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // ReconstructFunctionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -206,9 +206,8 @@
             this.Controls.Add(this.OutputGroupBox);
             this.Controls.Add(this.InputGroupBox);
             this.Controls.Add(this.GenerateButton);
-            this.Name = "CutCodeFromFunctionForm";
-            this.Text = "OffsetValueGeneratorToolForm";
-            this.Load += new System.EventHandler(this.OffsetValueGeneratorToolForm_Load);
+            this.Name = "ReconstructFunctionForm";
+            this.Load += new System.EventHandler(this.ReconstructFunctionForm_Load);
             this.InputGroupBox.ResumeLayout(false);
             this.InputGroupBox.PerformLayout();
             this.OutputGroupBox.ResumeLayout(false);

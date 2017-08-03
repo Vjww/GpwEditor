@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using Data.Collections.Language;
 using Data.Entities.Commentary;
 using Data.Entities.Executable.Race;
 using Data.Entities.Generic;
@@ -16,7 +15,7 @@ using CommentaryMapping = Data.ValueMapping.Commentary;
 
 namespace Data.Databases
 {
-    public class ConfigureGameDatabase
+    public class ConfigureGameDatabase : DatabaseBase
     {
         // Current state flags
         public bool IsGameCdFixApplied { get; private set; }
@@ -46,7 +45,6 @@ namespace Data.Databases
         public bool IsPointsScoringSystemOption2Required { get; set; }
         public bool IsPointsScoringSystemOption3Required { get; set; }
 
-        public IdentityCollection LanguageResources { get; set; }
         public Collection<CommentaryResource> CommentaryResources { get; set; }
         public Collection<CommentaryDriverIndex> CommentaryIndicesDriver { get; set; }
         public Collection<CommentaryTeamIndex> CommentaryIndicesTeam { get; set; }
@@ -57,9 +55,9 @@ namespace Data.Databases
 
         public void ImportDataFromFile(string gameFolderPath, string gameExecutablePath, string languageFilePath)
         {
-            ValidateGameFolder(gameFolderPath, "import");
-            ValidateGameExecutable(gameExecutablePath, "import");
-            ValidateLanguageFile(languageFilePath, "import");
+            ValidateGameFolder(gameFolderPath, "Please ensure the selected folder contains the game folders and files to import successfully.");
+            ValidateGameExecutable(gameExecutablePath, "Please ensure the selected file is a compatible v1.01b game executable to import successfully.");
+            ValidateLanguageFile(languageFilePath, "Please ensure the selected file is a compatible v1.01b language file to import successfully.");
 
             ImportLanguageResources(languageFilePath);
             ImportCommentaryResources(gameFolderPath, Path.Combine(gameFolderPath, @"text\comme.txt"));
@@ -72,9 +70,9 @@ namespace Data.Databases
 
         public void ExportDataToFile(string gameFolderPath, string gameExecutablePath, string languageFilePath)
         {
-            ValidateGameFolder(gameFolderPath, "export");
-            ValidateGameExecutable(gameExecutablePath, "export");
-            ValidateLanguageFile(languageFilePath, "export");
+            ValidateGameFolder(gameFolderPath, "Please ensure the selected folder contains the game folders and files to export successfully.");
+            ValidateGameExecutable(gameExecutablePath, "Please ensure the selected file is a compatible v1.01b game executable to export successfully.");
+            ValidateLanguageFile(languageFilePath, "Please ensure the selected file is a compatible v1.01b language file to export successfully.");
 
             ExportGameConfiguration(gameExecutablePath);
             ExportCommentaryIndicesDriver(gameExecutablePath);
@@ -196,22 +194,6 @@ namespace Data.Databases
                 new CommentaryEntities.CommentaryTeamIndex(new CommentaryMapping.CommentaryTeamIndex(10), 10)
             };
             ImportData(gameExecutablePath, CommentaryIndicesTeam);
-        }
-
-        private void ExportLanguageResources(string filePath)
-        {
-            using (var connection = new LanguageResourceConnection(filePath))
-            {
-                connection.Save(LanguageResources);
-            }
-        }
-
-        private void ImportLanguageResources(string filePath)
-        {
-            using (var connection = new LanguageResourceConnection(filePath))
-            {
-                LanguageResources = connection.Load();
-            }
         }
 
         private void ExportGameConfiguration(string gameExecutablePath)
@@ -519,36 +501,6 @@ namespace Data.Databases
                     }
                 }
             }
-        }
-
-        private static void ValidateGameFolder(string gameFolderPath, string context)
-        {
-            string verificationMessage;
-            var isValid = new GameFolderVerification().IsFolderSupported(gameFolderPath, out verificationMessage);
-
-            if (isValid) return;
-            var resolutionMessage = $"Please ensure the selected folder contains the game folders and files to {context} successfully.";
-            throw new Exception($"{resolutionMessage}{Environment.NewLine}{Environment.NewLine}{verificationMessage}");
-        }
-
-        private static void ValidateGameExecutable(string gameExecutablePath, string context)
-        {
-            string verificationMessage;
-            var isValid = new GameExecutableVerification().IsFileSupported(gameExecutablePath, out verificationMessage);
-
-            if (isValid) return;
-            var resolutionMessage = $"Please ensure the selected file is a compatible v1.01b game executable to {context} successfully.";
-            throw new Exception($"{resolutionMessage}{Environment.NewLine}{Environment.NewLine}{verificationMessage}");
-        }
-
-        private static void ValidateLanguageFile(string languageFilePath, string context)
-        {
-            string verificationMessage;
-            var isValid = new LanguageFileVerification().IsFileSupported(languageFilePath, out verificationMessage);
-
-            if (isValid) return;
-            var resolutionMessage = $"Please ensure the selected file is a compatible v1.01b language file to {context} successfully.";
-            throw new Exception($"{resolutionMessage}{Environment.NewLine}{Environment.NewLine}{verificationMessage}");
         }
     }
 }

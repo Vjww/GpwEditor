@@ -3,12 +3,12 @@ using System.IO;
 using System.Security.Principal;
 using System.Windows.Forms;
 using GpwEditor.Properties;
-using GpwRegistry = GpwEditor.Registry.GpwRegistry;
-using GpwRegistryKeys = GpwEditor.Registry.GpwRegistryKeys;
+using GpwRegistry = GpwEditor.Helpers.GpwRegistry;
+using GpwRegistryKeys = GpwEditor.Helpers.GpwRegistryKeys;
 
-namespace GpwEditor
+namespace GpwEditor.Views
 {
-    public partial class RegistryKeysForm : Form
+    public partial class RegistryKeysForm : EditorForm
     {
         public RegistryKeysForm()
         {
@@ -17,8 +17,8 @@ namespace GpwEditor
 
         private void RegistryKeysForm_Load(object sender, EventArgs e)
         {
-            // Set icon
             Icon = Resources.icon1;
+            Text = $"{Settings.Default.ApplicationName} - Registry Keys";
 
             var registry = new GpwRegistry();
 

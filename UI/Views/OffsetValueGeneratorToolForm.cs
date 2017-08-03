@@ -3,9 +3,9 @@ using System.Collections;
 using System.Windows.Forms;
 using GpwEditor.Properties;
 
-namespace GpwEditor
+namespace GpwEditor.Views
 {
-    public partial class OffsetValueGeneratorToolForm : Form
+    public partial class OffsetValueGeneratorToolForm : EditorForm
     {
         public OffsetValueGeneratorToolForm()
         {
@@ -14,8 +14,8 @@ namespace GpwEditor
 
         private void OffsetValueGeneratorToolForm_Load(object sender, EventArgs e)
         {
-            // Set icon
             Icon = Resources.icon1;
+            Text = $"{Settings.Default.ApplicationName} - Offset Value Generator Tool";
         }
 
         private void GenerateButton_Click(object sender, EventArgs e)
