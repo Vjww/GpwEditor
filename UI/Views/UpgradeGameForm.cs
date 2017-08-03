@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Windows.Forms;
 using Data.Databases;
 using GpwEditor.Properties;
@@ -23,8 +22,6 @@ namespace GpwEditor.Views
 
             // Populate with most recently used (MRU) or default
             GameFolderPathTextBox.Text = GetGameFolderMruOrDefault();
-            GameExecutablePathTextBox.Text = GetGameExecutableMruOrDefault();
-            LanguageFilePathTextBox.Text = GetLanguageFileMruOrDefault();
 
             // Set modified as default
             _isModified = true;
@@ -42,21 +39,10 @@ namespace GpwEditor.Views
             GameFolderPathTextBox.Text = string.IsNullOrEmpty(result) ? GameFolderPathTextBox.Text : result;
         }
 
-        private void BrowseGameExecutableButton_Click(object sender, EventArgs e)
-        {
-            var result = GetGameExecutablePathFromOpenFileDialog();
-            GameExecutablePathTextBox.Text = string.IsNullOrEmpty(result) ? GameExecutablePathTextBox.Text : result;
-        }
-
-        private void BrowseLanguageFileButton_Click(object sender, EventArgs e)
-        {
-            var result = GetLanguageFilePathFromOpenFileDialog();
-            LanguageFilePathTextBox.Text = string.IsNullOrEmpty(result) ? LanguageFilePathTextBox.Text : result;
-        }
-
         private void UpgradeButton_Click(object sender, EventArgs e)
         {
-            Upgrade(GameFolderPathTextBox.Text, GameExecutablePathTextBox.Text, LanguageFilePathTextBox.Text);
+            // TODO: refactor/remove paths to executable and language
+            Upgrade(GameFolderPathTextBox.Text, GetGameExecutableMruOrDefault(), GetLanguageFileMruOrDefault());
         }
 
         private static void Upgrade(string gameFolderPath, string gameExecutablePath, string languageFilePath)
