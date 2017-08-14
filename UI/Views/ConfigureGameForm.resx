@@ -123,14 +123,23 @@
   <metadata name="ProgramFolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>199, 17</value>
   </metadata>
+  <metadata name="stringValueBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>831, 17</value>
+  </metadata>
+  <metadata name="commentaryDriverIndexBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1023, 17</value>
+  </metadata>
+  <metadata name="commentaryTeamIndexBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="identityBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>411, 17</value>
+  </metadata>
+  <metadata name="identityBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>411, 17</value>
+  </metadata>
   <metadata name="commentaryResourceBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>582, 17</value>
-  </metadata>
-  <metadata name="identityBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>411, 17</value>
-  </metadata>
-  <metadata name="identityBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>411, 17</value>
   </metadata>
   <metadata name="commentaryResourceBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>582, 17</value>
@@ -138,32 +147,25 @@
   <data name="OverviewRichTextBox.Text" xml:space="preserve">
     <value>{\rtf1\ansi\deff0{\fs24\b Overview - Configure Game}
 
-Use this tool to configure Grand Prix World to suit your game play.
+Use this tool to configure Grand Prix World to meet your gameplay preferences.
 
 Compatibility - toggle the options you require to get your game working with a modern operating system.
 
 Gameplay - toggle the enhancements you wish to play the game with.
 
-Commentary - choose whether you wish to keep the original sound files and text commentary or change to a generalised commentary system where driver and/or team names have been removed from the sound files and text commentary. The former may result in more immersive gameplay but some sound files and text commentary may not be correct for all drivers and teams. The latter may be less immersive but the game will look and sound accurate. You may need to change this setting depending on the season mod you are using.
+Commentary - choose between the default or anonymised commentary sound clips.
 
 Points Scoring System - choose the system used for the year you are playing the game with.
 
-Viewports - configure the default views selected for each viewport when watching qualifying and the race.}</value>
+Viewports - configure the default views selected for each viewport when watching qualifying and the race.
+
+Performance Curve - modify the performance effect of chassis handling and engine power.}</value>
   </data>
   <metadata name="stringValueBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>831, 17</value>
   </metadata>
-  <metadata name="stringValueBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>831, 17</value>
-  </metadata>
   <metadata name="commentaryDriverIndexBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1023, 17</value>
-  </metadata>
-  <metadata name="commentaryDriverIndexBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1023, 17</value>
-  </metadata>
-  <metadata name="commentaryTeamIndexBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
   </metadata>
   <metadata name="commentaryTeamIndexBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>

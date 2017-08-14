@@ -90,12 +90,16 @@ namespace GpwEditor.Views
 
         private void SettingsButton_Click(object sender, EventArgs e)
         {
+#if DEBUG
             SwitchContext(new SettingsForm());
+#else
+            ConfigureGameFolder();
+#endif
         }
 
         private void LaunchGameButton_Click(object sender, EventArgs e)
         {
-            var filePath = Settings.Default.UserGameExecutablePath;
+            var filePath = Settings.Default.UserGameLaunchCommand;
 
             if (!File.Exists(filePath))
             {
@@ -142,8 +146,7 @@ namespace GpwEditor.Views
                 }
 
                 // Update other user paths
-                Settings.Default.UserGameExecutablePath = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultGameExecutableName);
-                Settings.Default.UserLanguageFilePath = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultLanguageFileName);
+                Settings.Default.UserGameLaunchCommand = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultGameExecutableName);
 
                 // Save selected game installation folder
                 Settings.Default.Save();

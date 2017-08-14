@@ -140,10 +140,10 @@ namespace GpwEditor.Views
             if (dialogResult != DialogResult.OK) return null;
 
             // Save selected file
-            Settings.Default.MruLanguageFilePath = ProgramOpenFileDialog.FileName;
+            Settings.Default.MruEnglishLanguageFilePath = ProgramOpenFileDialog.FileName;
             Settings.Default.Save();
 
-            return Settings.Default.MruLanguageFilePath;
+            return Settings.Default.MruEnglishLanguageFilePath;
         }
 
         protected string GetGameFolderMruOrDefault()
@@ -156,19 +156,15 @@ namespace GpwEditor.Views
         protected string GetGameExecutableMruOrDefault()
         {
             var gameFolderPath = GetGameFolderMruOrDefault();
-            var defaultFileName = GetValueOrDefaultIfNullOrWhiteSpace(Path.GetFileName(Settings.Default.UserGameExecutablePath),
-                Settings.Default.DefaultGameExecutableName);
-            var defaultFilePath = Path.Combine(gameFolderPath, defaultFileName);
+            var defaultFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultGameExecutableName);
             return GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.MruGameExecutablePath, defaultFilePath);
         }
 
         protected string GetLanguageFileMruOrDefault()
         {
             var gameFolderPath = GetGameFolderMruOrDefault();
-            var defaultFileName = GetValueOrDefaultIfNullOrWhiteSpace(Path.GetFileName(Settings.Default.UserLanguageFilePath),
-                Settings.Default.DefaultLanguageFileName);
-            var defaultFilePath = Path.Combine(gameFolderPath, defaultFileName);
-            return GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.MruLanguageFilePath, defaultFilePath);
+            var defaultFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultEnglishLanguageFileName);
+            return GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.MruEnglishLanguageFilePath, defaultFilePath);
         }
 
         protected string GetValueOrDefaultIfNullOrWhiteSpace(string value, string @default)
@@ -223,21 +219,15 @@ namespace GpwEditor.Views
             }
         }
 
-        protected static void FileTest(string path)
+        protected static void FileExists(string path)
         {
             if (!File.Exists(path))
             {
                 throw new FileNotFoundException();
             }
-
-            // TODO: Not a permanent solution, as file could become locked after check.
-            if (IsFileLocked(new FileInfo(path)))
-            {
-                throw new Exception("The file is currently locked by another process.");
-            }
         }
 
-        protected static void FolderTest(string path)
+        protected static void FolderExists(string path)
         {
             if (!Directory.Exists(path))
             {

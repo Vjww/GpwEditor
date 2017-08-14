@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameExecutableEditorForm));
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.HomeTabPage = new System.Windows.Forms.TabPage();
             this.LanguageDataGridView = new System.Windows.Forms.DataGridView();
@@ -403,7 +404,7 @@
             this.MainTabControl.Name = "MainTabControl";
             this.MainTabControl.SelectedIndex = 0;
             this.MainTabControl.Size = new System.Drawing.Size(938, 555);
-            this.MainTabControl.TabIndex = 1;
+            this.MainTabControl.TabIndex = 0;
             this.MainTabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.MainTabControl_Selecting);
             // 
             // HomeTabPage
@@ -477,7 +478,7 @@
             this.FilesGroupBox.Location = new System.Drawing.Point(6, 6);
             this.FilesGroupBox.Name = "FilesGroupBox";
             this.FilesGroupBox.Size = new System.Drawing.Size(918, 77);
-            this.FilesGroupBox.TabIndex = 8;
+            this.FilesGroupBox.TabIndex = 1;
             this.FilesGroupBox.TabStop = false;
             this.FilesGroupBox.Text = "Files";
             // 
@@ -487,7 +488,7 @@
             this.GameExecutablePathLabel.Location = new System.Drawing.Point(6, 24);
             this.GameExecutablePathLabel.Name = "GameExecutablePathLabel";
             this.GameExecutablePathLabel.Size = new System.Drawing.Size(94, 13);
-            this.GameExecutablePathLabel.TabIndex = 6;
+            this.GameExecutablePathLabel.TabIndex = 2;
             this.GameExecutablePathLabel.Text = "Game Executable:";
             // 
             // LanguageFilePathLabel
@@ -496,7 +497,7 @@
             this.LanguageFilePathLabel.Location = new System.Drawing.Point(23, 53);
             this.LanguageFilePathLabel.Name = "LanguageFilePathLabel";
             this.LanguageFilePathLabel.Size = new System.Drawing.Size(77, 13);
-            this.LanguageFilePathLabel.TabIndex = 7;
+            this.LanguageFilePathLabel.TabIndex = 6;
             this.LanguageFilePathLabel.Text = "Language File:";
             // 
             // GameExecutablePathTextBox
@@ -505,7 +506,7 @@
             this.GameExecutablePathTextBox.Name = "GameExecutablePathTextBox";
             this.GameExecutablePathTextBox.ReadOnly = true;
             this.GameExecutablePathTextBox.Size = new System.Drawing.Size(644, 20);
-            this.GameExecutablePathTextBox.TabIndex = 9;
+            this.GameExecutablePathTextBox.TabIndex = 3;
             this.GameExecutablePathTextBox.TabStop = false;
             // 
             // LanguageFilePathTextBox
@@ -514,7 +515,7 @@
             this.LanguageFilePathTextBox.Name = "LanguageFilePathTextBox";
             this.LanguageFilePathTextBox.ReadOnly = true;
             this.LanguageFilePathTextBox.Size = new System.Drawing.Size(644, 20);
-            this.LanguageFilePathTextBox.TabIndex = 10;
+            this.LanguageFilePathTextBox.TabIndex = 7;
             this.LanguageFilePathTextBox.TabStop = false;
             // 
             // BrowseGameExecutableButton
@@ -522,7 +523,7 @@
             this.BrowseGameExecutableButton.Location = new System.Drawing.Point(756, 19);
             this.BrowseGameExecutableButton.Name = "BrowseGameExecutableButton";
             this.BrowseGameExecutableButton.Size = new System.Drawing.Size(75, 23);
-            this.BrowseGameExecutableButton.TabIndex = 13;
+            this.BrowseGameExecutableButton.TabIndex = 4;
             this.BrowseGameExecutableButton.Text = "Browse...";
             this.BrowseGameExecutableButton.UseVisualStyleBackColor = true;
             this.BrowseGameExecutableButton.Click += new System.EventHandler(this.BrowseGameExecutableButton_Click);
@@ -532,7 +533,7 @@
             this.BrowseLanguageFileButton.Location = new System.Drawing.Point(756, 48);
             this.BrowseLanguageFileButton.Name = "BrowseLanguageFileButton";
             this.BrowseLanguageFileButton.Size = new System.Drawing.Size(75, 23);
-            this.BrowseLanguageFileButton.TabIndex = 11;
+            this.BrowseLanguageFileButton.TabIndex = 8;
             this.BrowseLanguageFileButton.Text = "Browse...";
             this.BrowseLanguageFileButton.UseVisualStyleBackColor = true;
             this.BrowseLanguageFileButton.Click += new System.EventHandler(this.BrowseLanguageFileButton_Click);
@@ -542,7 +543,7 @@
             this.ExportButton.Location = new System.Drawing.Point(837, 48);
             this.ExportButton.Name = "ExportButton";
             this.ExportButton.Size = new System.Drawing.Size(75, 23);
-            this.ExportButton.TabIndex = 4;
+            this.ExportButton.TabIndex = 9;
             this.ExportButton.Text = "Export...";
             this.ExportButton.UseVisualStyleBackColor = true;
             this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
@@ -552,7 +553,7 @@
             this.ImportButton.Location = new System.Drawing.Point(837, 19);
             this.ImportButton.Name = "ImportButton";
             this.ImportButton.Size = new System.Drawing.Size(75, 23);
-            this.ImportButton.TabIndex = 3;
+            this.ImportButton.TabIndex = 5;
             this.ImportButton.Text = "Import...";
             this.ImportButton.UseVisualStyleBackColor = true;
             this.ImportButton.Click += new System.EventHandler(this.ImportButton_Click);
@@ -563,7 +564,7 @@
             this.OverviewGroupBox.Location = new System.Drawing.Point(6, 89);
             this.OverviewGroupBox.Name = "OverviewGroupBox";
             this.OverviewGroupBox.Size = new System.Drawing.Size(918, 434);
-            this.OverviewGroupBox.TabIndex = 9;
+            this.OverviewGroupBox.TabIndex = 10;
             this.OverviewGroupBox.TabStop = false;
             // 
             // OverviewRichTextBox
@@ -574,9 +575,8 @@
             this.OverviewRichTextBox.Name = "OverviewRichTextBox";
             this.OverviewRichTextBox.ReadOnly = true;
             this.OverviewRichTextBox.Size = new System.Drawing.Size(906, 409);
-            this.OverviewRichTextBox.TabIndex = 2;
-            this.OverviewRichTextBox.Text = "{\\rtf1\\ansi\\deff0{\\fs24\\b Overview - Game Executable Editor}\n\nInsert a descriptio" +
-    "n here.}";
+            this.OverviewRichTextBox.TabIndex = 11;
+            this.OverviewRichTextBox.Text = resources.GetString("OverviewRichTextBox.Text");
             // 
             // TeamsTabPage
             // 
@@ -2597,7 +2597,7 @@
             this.ChassisHandlingDataGridView.Location = new System.Drawing.Point(3, 3);
             this.ChassisHandlingDataGridView.Name = "ChassisHandlingDataGridView";
             this.ChassisHandlingDataGridView.Size = new System.Drawing.Size(924, 469);
-            this.ChassisHandlingDataGridView.TabIndex = 1;
+            this.ChassisHandlingDataGridView.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn16
             // 
@@ -2642,7 +2642,7 @@
             this.ChassisHandlingOptionsGroupBox.Location = new System.Drawing.Point(3, 478);
             this.ChassisHandlingOptionsGroupBox.Name = "ChassisHandlingOptionsGroupBox";
             this.ChassisHandlingOptionsGroupBox.Size = new System.Drawing.Size(924, 48);
-            this.ChassisHandlingOptionsGroupBox.TabIndex = 2;
+            this.ChassisHandlingOptionsGroupBox.TabIndex = 1;
             this.ChassisHandlingOptionsGroupBox.TabStop = false;
             this.ChassisHandlingOptionsGroupBox.Text = "Chassis Handling Options";
             // 
@@ -2651,7 +2651,7 @@
             this.ChassisHandlingCalculatedValuesButton.Location = new System.Drawing.Point(618, 19);
             this.ChassisHandlingCalculatedValuesButton.Name = "ChassisHandlingCalculatedValuesButton";
             this.ChassisHandlingCalculatedValuesButton.Size = new System.Drawing.Size(300, 23);
-            this.ChassisHandlingCalculatedValuesButton.TabIndex = 0;
+            this.ChassisHandlingCalculatedValuesButton.TabIndex = 4;
             this.ChassisHandlingCalculatedValuesButton.Text = "Use randomised values from modified design calculation";
             this.ChassisHandlingCalculatedValuesButton.UseVisualStyleBackColor = true;
             this.ChassisHandlingCalculatedValuesButton.Click += new System.EventHandler(this.ChassisHandlingCalculatedValuesButton_Click);
@@ -2661,7 +2661,7 @@
             this.ChassisHandlingRecommendedValuesButton.Location = new System.Drawing.Point(312, 19);
             this.ChassisHandlingRecommendedValuesButton.Name = "ChassisHandlingRecommendedValuesButton";
             this.ChassisHandlingRecommendedValuesButton.Size = new System.Drawing.Size(300, 23);
-            this.ChassisHandlingRecommendedValuesButton.TabIndex = 0;
+            this.ChassisHandlingRecommendedValuesButton.TabIndex = 3;
             this.ChassisHandlingRecommendedValuesButton.Text = "Use recommended 1998 season values";
             this.ChassisHandlingRecommendedValuesButton.UseVisualStyleBackColor = true;
             this.ChassisHandlingRecommendedValuesButton.Click += new System.EventHandler(this.ChassisHandlingRecommendedValuesButton_Click);
@@ -2671,7 +2671,7 @@
             this.ChassisHandlingOriginalValuesButton.Location = new System.Drawing.Point(6, 19);
             this.ChassisHandlingOriginalValuesButton.Name = "ChassisHandlingOriginalValuesButton";
             this.ChassisHandlingOriginalValuesButton.Size = new System.Drawing.Size(300, 23);
-            this.ChassisHandlingOriginalValuesButton.TabIndex = 0;
+            this.ChassisHandlingOriginalValuesButton.TabIndex = 2;
             this.ChassisHandlingOriginalValuesButton.Text = "Use original 1998 season values";
             this.ChassisHandlingOriginalValuesButton.UseVisualStyleBackColor = true;
             this.ChassisHandlingOriginalValuesButton.Click += new System.EventHandler(this.ChassisHandlingOriginalValuesButton_Click);

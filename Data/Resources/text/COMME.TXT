@@ -1,4 +1,4 @@
-ï»¿>PITNOW1.WAV In. In. In.<
+>PITNOW1.WAV In. In. In.<
 >PITNOW2.WAV Coming in.<
 >EASEOFF1.WAV Off. Off. Off.<
 >EASEOFF2.WAV Pulling back.<
@@ -65,223 +65,223 @@
 >P20.WAV P20<
 >P21.WAV P21<
 >P22.WAV P22<
->DINP1.WAV Diniz P1<
->SALP1.WAV Salo P1<
->COLP1.WAV Collard P1<
->FISP1.WAV Fisichella P1<
->WURZP1.WAV Wurz P1<
+>NEWHP1.WAV John Newhouse P1<
+>FRENP1.WAV Heinz-Harald Frentzen P1<
+>TOYP1.WAV Juan Pablo Montoya P1<
 >SCHUP1.WAV Michael Schumacher P1<
->IRVP1.WAV Irvine P1<
->BADP1.WAV Badoer P1<
->HILP1.WAV Hill P1<
+>IRVP1.WAV Eddie Irvine P1<
+>BADP1.WAV Luca Badoer P1<
+>FISP1.WAV Giancarlo Fisichella P1<
+>WURZP1.WAV Alexander Wurz P1<
+>ANONP1.WAV Driver Unknown P1<
+>HAKP1.WAV Mika Hakkinen P1<
+>COULP1.WAV David Coulthard P1<
+>ZONP1.WAV Ricardo Zonta P1<
+>HILP1.WAV Damon Hill P1<
 >RALFP1.WAV Ralf Schumacher P1<
->HAKP1.WAV Hakkinen P1<
->COULP1.WAV Coulthard P1<
->ZONP1.WAV Zonta P1<
->NAKP1.WAV Nakano P1<
->TUERP1.WAV Tuero P1<
->REDP1.WAV Redon P1<
->PANP1.WAV Panis P1<
->TRUP1.WAV Trulli P1<
->SARP1.WAV Sarazzin P1<
->ALESP1.WAV Alesi P1<
->HERBP1.WAV Herbert P1<
->MULLP1.WAV MÃ¼ller P1<
->BARIP1.WAV Barrichello P1<
->MAGP1.WAV Magnussen P1<
->TAKP1.WAV Takagi P1<
->ROSP1.WAV Rosset P1<
->MONTP1.WAV Montermini P1<
->NEWHP1.WAV Newhouse P1<
->FRENP1.WAV Frentzen P1<
->TOYP1.WAV Montoya P1<
->ELLP1.WAV Elliott P1<
->MARP1.WAV Marini P1<
->RAIMP1.WAV Raimbeaux P1<
->TANP1.WAV Tanaka P1<
->EBEP1.WAV Ebert P1<
->PATP1.WAV Paterson P1<
->FELLP1.WAV Fellowes P1<
->LAURP1.WAV Laureti P1<
->EISP1.WAV Eisen P1<
->WILLP1.WAV Johnson P1<
->MORP1.WAV Moreira P1<
->DINP2.WAV Diniz P2<
->SALP2.WAV Salo P2<
->COLP2.WAV Collard P2<
->FISP2.WAV Fisichella P2<
->WURZP2.WAV Wurz P2<
+>ANONP1.WAV Driver Unknown P1<
+>PANP1.WAV Olivier Panis P1<
+>TRUP1.WAV Jarno Trulli P1<
+>SARP1.WAV Stéphane Sarrazin P1<
+>ALESP1.WAV Jean Alesi P1<
+>HERBP1.WAV Johnny Herbert P1<
+>MULLP1.WAV Jörg Müller P1<
+>DINP1.WAV Pedro Diniz P1<
+>SALP1.WAV Mika Salo P1<
+>COLP1.WAV Emmanuel Collard P1<
+>BARIP1.WAV Rubens Barrichello P1<
+>MAGP1.WAV Jan Magnussen P1<
+>ANONP1.WAV Driver Unknown P1<
+>TAKP1.WAV Ricardo Rosset P1<
+>ROSP1.WAV Toranosuke Takagi P1<
+>MONTP1.WAV Andrea Montermini P1<
+>NAKP1.WAV Shinji Nakano P1<
+>TUERP1.WAV Esteban Tuero P1<
+>REDP1.WAV Laurent Redon P1<
+>ELLP1.WAV Graham Elliott P1<
+>MARP1.WAV Alberto Marini P1<
+>RAIMP1.WAV Pierre Raimbeaux P1<
+>TANP1.WAV Hiroshi Tanaka P1<
+>EBEP1.WAV Hans Ebert P1<
+>PATP1.WAV Dan Paterson P1<
+>FELLP1.WAV John Fellowes P1<
+>LAURP1.WAV Dario Laureti P1<
+>NEWHP2.WAV John Newhouse P2<
+>FRENP2.WAV Heinz-Harald Frentzen P2<
+>TOYP2.WAV Juan Pablo Montoya P2<
 >SCHUP2.WAV Michael Schumacher P2<
->IRVP2.WAV Irvine P2<
->BADP2.WAV Badoer P2<
->HILP2.WAV Hill P2<
+>IRVP2.WAV Eddie Irvine P2<
+>BADP2.WAV Luca Badoer P2<
+>FISP2.WAV Giancarlo Fisichella P2<
+>WURZP2.WAV Alexander Wurz P2<
+>ANONP2.WAV Driver Unknown P2<
+>HAKP2.WAV Mika Hakkinen P2<
+>COULP2.WAV David Coulthard P2<
+>ZONP2.WAV Ricardo Zonta P2<
+>HILP2.WAV Damon Hill P2<
 >RALFP2.WAV Ralf Schumacher P2<
->HAKP2.WAV Hakkinen P2<
->COULP2.WAV Coulthard P2<
->ZONP2.WAV Zonta P2<
->NAKP2.WAV Nakano P2<
->TUERP2.WAV Tuero P2<
->REDP2.WAV Redon P2<
->PANP2.WAV Panis P2<
->TRUP2.WAV Trulli P2<
->SARP2.WAV Sarazzin P2<
->ALESP2.WAV Alesi P2<
->HERBP2.WAV Herbert P2<
->MULLP2.WAV MÃ¼ller P2<
->BARIP2.WAV Barrichello P2<
->MAGP2.WAV Magnussen P2<
->TAKP2.WAV Takagi P2<
->ROSP2.WAV Rosset P2<
->MONTP2.WAV Montermini P2<
->NEWHP2.WAV Newhouse P2<
->FRENP2.WAV Frentzen P2<
->TOYP2.WAV Montoya P2<
->ELLP2.WAV Elliott P2<
->MARP2.WAV Marini P2<
->RAIMP2.WAV Raimbeaux P2<
->TANP2.WAV Tanaka P2<
->EBEP2.WAV Ebert P2<
->PATP2.WAV Paterson P2<
->FELLP2.WAV Fellowes P2<
->LAURP2.WAV Laureti P2<
->EISP2.WAV Eisen P2<
->WILLP2.WAV Johnson P2<
->MORP2.WAV Moreira P2<
->DINP3.WAV Diniz P3<
->SALP3.WAV Salo P3<
->COLP3.WAV Collard P3<
->FISP3.WAV Fisichella P3<
->WURZP3.WAV Wurz P3<
+>ANONP2.WAV Driver Unknown P2<
+>PANP2.WAV Olivier Panis P2<
+>TRUP2.WAV Jarno Trulli P2<
+>SARP2.WAV Stéphane Sarrazin P2<
+>ALESP2.WAV Jean Alesi P2<
+>HERBP2.WAV Johnny Herbert P2<
+>MULLP2.WAV Jörg Müller P2<
+>DINP2.WAV Pedro Diniz P2<
+>SALP2.WAV Mika Salo P2<
+>COLP2.WAV Emmanuel Collard P2<
+>BARIP2.WAV Rubens Barrichello P2<
+>MAGP2.WAV Jan Magnussen P2<
+>ANONP2.WAV Driver Unknown P2<
+>TAKP2.WAV Ricardo Rosset P2<
+>ROSP2.WAV Toranosuke Takagi P2<
+>MONTP2.WAV Andrea Montermini P2<
+>NAKP2.WAV Shinji Nakano P2<
+>TUERP2.WAV Esteban Tuero P2<
+>REDP2.WAV Laurent Redon P2<
+>ELLP2.WAV Graham Elliott P2<
+>MARP2.WAV Alberto Marini P2<
+>RAIMP2.WAV Pierre Raimbeaux P2<
+>TANP2.WAV Hiroshi Tanaka P2<
+>EBEP2.WAV Hans Ebert P2<
+>PATP2.WAV Dan Paterson P2<
+>FELLP2.WAV John Fellowes P2<
+>LAURP2.WAV Dario Laureti P2<
+>NEWHP3.WAV John Newhouse P3<
+>FRENP3.WAV Heinz-Harald Frentzen P3<
+>TOYP3.WAV Juan Pablo Montoya P3<
 >SCHUP3.WAV Michael Schumacher P3<
->IRVP3.WAV Irvine P3<
->BADP3.WAV Badoer P3<
->HILP3.WAV Hill P3<
+>IRVP3.WAV Eddie Irvine P3<
+>BADP3.WAV Luca Badoer P3<
+>FISP3.WAV Giancarlo Fisichella P3<
+>WURZP3.WAV Alexander Wurz P3<
+>ANONP3.WAV Driver Unknown P3<
+>HAKP3.WAV Mika Hakkinen P3<
+>COULP3.WAV David Coulthard P3<
+>ZONP3.WAV Ricardo Zonta P3<
+>HILP3.WAV Damon Hill P3<
 >RALFP3.WAV Ralf Schumacher P3<
->HAKP3.WAV Hakkinen P3<
->COULP3.WAV Coulthard P3<
->ZONP3.WAV Zonta P3<
->NAKP3.WAV Nakano P3<
->TUERP3.WAV Tuero P3<
->REDP3.WAV Redon P3<
->PANP3.WAV Panis P3<
->TRUP3.WAV Trulli P3<
->SARP3.WAV Sarazzin P3<
->ALESP3.WAV Alesi P3<
->HERBP3.WAV Herbert P3<
->MULLP3.WAV MÃ¼ller P3<
->BARIP3.WAV Barrichello P3<
->MAGP3.WAV Magnussen P3<
->TAKP3.WAV Takagi P3<
->ROSP3.WAV Rosset P3<
->MONTP3.WAV Montermini P3<
->NEWHP3.WAV Newhouse P3<
->FRENP3.WAV Frentzen P3<
->TOYP3.WAV Montoya P3<
->ELLP3.WAV Elliott P3<
->MARP3.WAV Marini P3<
->RAIMP3.WAV Raimbeaux P3<
->TANP3.WAV Tanaka P3<
->EBEP3.WAV Ebert P3<
->PATP3.WAV Paterson P3<
->FELLP3.WAV Fellowes P3<
->LAURP3.WAV Laureti P3<
->EISP3.WAV Eisen P3<
->WILLP3.WAV Johnson P3<
->MORP3.WAV Moreira P3<
->DINOUT.WAV Diniz out.<
->SALOUT.WAV Salo out.<
->COLOUT.WAV Collard out.<
->FISOUT.WAV Fisichella out.<
->WURZOUT.WAV Wurz out.<
+>ANONP3.WAV Driver Unknown P3<
+>PANP3.WAV Olivier Panis P3<
+>TRUP3.WAV Jarno Trulli P3<
+>SARP3.WAV Stéphane Sarrazin P3<
+>ALESP3.WAV Jean Alesi P3<
+>HERBP3.WAV Johnny Herbert P3<
+>MULLP3.WAV Jörg Müller P3<
+>DINP3.WAV Pedro Diniz P3<
+>SALP3.WAV Mika Salo P3<
+>COLP3.WAV Emmanuel Collard P3<
+>BARIP3.WAV Rubens Barrichello P3<
+>MAGP3.WAV Jan Magnussen P3<
+>ANONP3.WAV Driver Unknown P3<
+>TAKP3.WAV Ricardo Rosset P3<
+>ROSP3.WAV Toranosuke Takagi P3<
+>MONTP3.WAV Andrea Montermini P3<
+>NAKP3.WAV Shinji Nakano P3<
+>TUERP3.WAV Esteban Tuero P3<
+>REDP3.WAV Laurent Redon P3<
+>ELLP3.WAV Graham Elliott P3<
+>MARP3.WAV Alberto Marini P3<
+>RAIMP3.WAV Pierre Raimbeaux P3<
+>TANP3.WAV Hiroshi Tanaka P3<
+>EBEP3.WAV Hans Ebert P3<
+>PATP3.WAV Dan Paterson P3<
+>FELLP3.WAV John Fellowes P3<
+>LAURP3.WAV Dario Laureti P3<
+>NEWHOUT.WAV John Newhouse out.<
+>FRENOUT.WAV Heinz-Harald Frentzen out.<
+>TOYOUT.WAV Juan Pablo Montoya out.<
 >SCHUOUT.WAV Michael Schumacher out.<
->IRVOUT.WAV Irvine out.<
->BADOUT.WAV Badoer out.<
->HILOUT.WAV Hill out.<
+>IRVOUT.WAV Eddie Irvine out.<
+>BADOUT.WAV Luca Badoer out.<
+>FISOUT.WAV Giancarlo Fisichella out.<
+>WURZOUT.WAV Alexander Wurz out.<
+>ANONOUT.WAV Driver Unknown out.<
+>HAKOUT.WAV Mika Hakkinen out.<
+>COULOUT.WAV David Coulthard out.<
+>ZONOUT.WAV Ricardo Zonta out.<
+>HILOUT.WAV Damon Hill out.<
 >RALFOUT.WAV Ralf Schumacher out.<
->HAKOUT.WAV Hakkinen out.<
->COULOUT.WAV Coulthard out.<
->ZONOUT.WAV Zonta out.<
->NAKOUT.WAV Nakano out.<
->TUEROUT.WAV Tuero out.<
->REDOUT.WAV Redon out.<
->PANOUT.WAV Panis out.<
->TRUOUT.WAV Trulli out.<
->SAROUT.WAV Sarazzin out.<
->ALESOUT.WAV Alesi out.<
->HERBOUT.WAV Herbert out.<
->MULLOUT.WAV MÃ¼ller out.<
->BARIOUT.WAV Barrichello out.<
->MAGOUT.WAV Magnussen out.<
->TAKOUT.WAV Takagi out.<
->ROSOUT.WAV Rosset out.<
->MONTOUT.WAV Montermini out.<
->NEWHOUT.WAV Newhouse out.<
->FRENOUT.WAV Frentzen out.<
->TOYOUT.WAV Montoya out.<
->ELLOUT.WAV Elliott out.<
->MAROUT.WAV Marini out.<
->RAIMOUT.WAV Raimbeaux out.<
->TANOUT.WAV Tanaka out.<
->EBEOUT.WAV Ebert out.<
->PATOUT.WAV Paterson out.<
->FELLOUT.WAV Fellowes out.<
->LAUROUT.WAV Laureti out.<
->EISOUT.WAV Eisen out.<
->WILLOUT.WAV Johnson out.<
->MOROUT.WAV Moreira out.<
->ARROUT.WAV Arrows out.<
->BENOUT.WAV Benetton out.<
+>ANONOUT.WAV Driver Unknown out.<
+>PANOUT.WAV Olivier Panis out.<
+>TRUOUT.WAV Jarno Trulli out.<
+>SAROUT.WAV Stéphane Sarrazin out.<
+>ALESOUT.WAV Jean Alesi out.<
+>HERBOUT.WAV Johnny Herbert out.<
+>MULLOUT.WAV Jörg Müller out.<
+>DINOUT.WAV Pedro Diniz out.<
+>SALOUT.WAV Mika Salo out.<
+>COLOUT.WAV Emmanuel Collard out.<
+>BARIOUT.WAV Rubens Barrichello out.<
+>MAGOUT.WAV Jan Magnussen out.<
+>ANONOUT.WAV Driver Unknown out.<
+>TAKOUT.WAV Ricardo Rosset out.<
+>ROSOUT.WAV Toranosuke Takagi out.<
+>MONTOUT.WAV Andrea Montermini out.<
+>NAKOUT.WAV Shinji Nakano out.<
+>TUEROUT.WAV Esteban Tuero out.<
+>REDOUT.WAV Laurent Redon out.<
+>ELLOUT.WAV Graham Elliott out.<
+>MAROUT.WAV Alberto Marini out.<
+>RAIMOUT.WAV Pierre Raimbeaux out.<
+>TANOUT.WAV Hiroshi Tanaka out.<
+>EBEOUT.WAV Hans Ebert out.<
+>PATOUT.WAV Dan Paterson out.<
+>FELLOUT.WAV John Fellowes out.<
+>LAUROUT.WAV Dario Laureti out.<
+>WILOUT.WAV Williams out.<
 >FEROUT.WAV Ferrari out.<
->JOROUT.WAV Jordan out.<
+>BENOUT.WAV Benetton out.<
 >MCLOUT.WAV McLaren out.<
->MINOUT.WAV Minardi out.<
+>JOROUT.WAV Jordan out.<
 >PROOUT.WAV Prost out.<
 >SAUOUT.WAV Sauber out.<
+>ARROUT.WAV Arrows out.<
 >STEWOUT.WAV Stewart out.<
 >TYROUT.WAV Tyrrell out.<
->WILOUT.WAV Williams out.<
+>MINOUT.WAV Minardi out.<
 >WEREOUT.WAV That's it. Race over.<
->DINPIT.WAV Diniz In Pits.<
->SALPIT.WAV Salo In Pits.<
->COLPIT.WAV Collard In Pits.<
->FISPIT.WAV Fisichella In Pits.<
->WURZPIT.WAV Wurz In Pits.<
->SCHUPIT.WAV Michael Schumacher In Pits.<
->IRVPIT.WAV Irvine In Pits.<
->BADPIT.WAV Badoer In Pits.<
->HILPIT.WAV Hill In Pits.<
->RALFPIT.WAV Ralf Schumacher In Pits.<
->HAKPIT.WAV Hakkinen In Pits.<
->COULPIT.WAV Coulthard In Pits.<
->ZONPIT.WAV Zonta In Pits.<
->NAKPIT.WAV Nakano In Pits.<
->TUERPIT.WAV Tuero In Pits.<
->REDPIT.WAV Redon In Pits.<
->PANPIT.WAV Panis In Pits.<
->TRUPIT.WAV Trulli In Pits.<
->SARPIT.WAV Sarazzin In Pits.<
->ALESPIT.WAV Alesi In Pits.<
->HERBPIT.WAV Herbert In Pits.<
->MULLPIT.WAV MÃ¼ller In Pits.<
->BARIPIT.WAV Barrichello In Pits.<
->MAGPIT.WAV Magnussen In Pits.<
->TAKPIT.WAV Takagi In Pits.<
->ROSPIT.WAV Rosset In Pits.<
->MONTPIT.WAV Montermini In Pits.<
->NEWHPIT.WAV Newhouse In Pits.<
->FRENPIT.WAV Frentzen In Pits.<
->TOYPIT.WAV Montoya In Pits.<
->ELLPIT.WAV Elliott In Pits.<
->MARPIT.WAV Marini In Pits.<
->RAIMPIT.WAV Raimbeaux In Pits.<
->TANPIT.WAV Tanaka In Pits.<
->EBEPIT.WAV Ebert In Pits.<
->PATPIT.WAV Paterson In Pits.<
->FELLPIT.WAV Fellowes In Pits.<
->LAURPIT.WAV Laureti In Pits.<
->EISPIT.WAV Eisen In Pits.<
->WILLPIT.WAV Johnson In Pits.<
->MORPIT.WAV Moreira In Pits.<
+>NEWHPIT.WAV John Newhouse in pits.<
+>FRENPIT.WAV Heinz-Harald Frentzen in pits.<
+>TOYPIT.WAV Juan Pablo Montoya in pits.<
+>SCHUPIT.WAV Michael Schumacher in pits.<
+>IRVPIT.WAV Eddie Irvine in pits.<
+>BADPIT.WAV Luca Badoer in pits.<
+>FISPIT.WAV Giancarlo Fisichella in pits.<
+>WURZPIT.WAV Alexander Wurz in pits.<
+>ANONPIT.WAV Driver Unknown in pits.<
+>HAKPIT.WAV Mika Hakkinen in pits.<
+>COULPIT.WAV David Coulthard in pits.<
+>ZONPIT.WAV Ricardo Zonta in pits.<
+>HILPIT.WAV Damon Hill in pits.<
+>RALFPIT.WAV Ralf Schumacher in pits.<
+>ANONPIT.WAV Driver Unknown in pits.<
+>PANPIT.WAV Olivier Panis in pits.<
+>TRUPIT.WAV Jarno Trulli in pits.<
+>SARPIT.WAV Stéphane Sarrazin in pits.<
+>ALESPIT.WAV Jean Alesi in pits.<
+>HERBPIT.WAV Johnny Herbert in pits.<
+>MULLPIT.WAV Jörg Müller in pits.<
+>DINPIT.WAV Pedro Diniz in pits.<
+>SALPIT.WAV Mika Salo in pits.<
+>COLPIT.WAV Emmanuel Collard in pits.<
+>BARIPIT.WAV Rubens Barrichello in pits.<
+>MAGPIT.WAV Jan Magnussen in pits.<
+>ANONPIT.WAV Driver Unknown in pits.<
+>TAKPIT.WAV Ricardo Rosset in pits.<
+>ROSPIT.WAV Toranosuke Takagi in pits.<
+>MONTPIT.WAV Andrea Montermini in pits.<
+>NAKPIT.WAV Shinji Nakano in pits.<
+>TUERPIT.WAV Esteban Tuero in pits.<
+>REDPIT.WAV Laurent Redon in pits.<
+>ELLPIT.WAV Graham Elliott in pits.<
+>MARPIT.WAV Alberto Marini in pits.<
+>RAIMPIT.WAV Pierre Raimbeaux in pits.<
+>TANPIT.WAV Hiroshi Tanaka in pits.<
+>EBEPIT.WAV Hans Ebert in pits.<
+>PATPIT.WAV Dan Paterson in pits.<
+>FELLPIT.WAV John Fellowes in pits.<
+>LAURPIT.WAV Dario Laureti in pits.<
 >BLRUB1.WAV Line rubber low.<
 >BLRUB2.WAV Line rubber okay.<
 >BLRUB3.WAV Line rubber high.<

@@ -111,9 +111,17 @@
             this.CommentaryOptionsGroupBox = new System.Windows.Forms.GroupBox();
             this.CommentaryIndicesDefaultButton = new System.Windows.Forms.Button();
             this.CommentaryDriversDefaultButton = new System.Windows.Forms.Button();
-            this.CommentaryDriversGenericButton = new System.Windows.Forms.Button();
-            this.CommentaryTeamsGenericButton = new System.Windows.Forms.Button();
+            this.CommentaryDriversAnonymousButton = new System.Windows.Forms.Button();
+            this.CommentaryTeamsAnonymousButton = new System.Windows.Forms.Button();
             this.CommentaryTeamsDefaultButton = new System.Windows.Forms.Button();
+            this.CommentaryIndicesTeamGroupBox = new System.Windows.Forms.GroupBox();
+            this.CommentaryIndicesTeamDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localResourceIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resourceTextDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentaryIndexDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentaryTeamIndexBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.PointsScoringSystemTabPage = new System.Windows.Forms.TabPage();
             this.PointsScoringSystemGroupBox = new System.Windows.Forms.GroupBox();
             this.PointsScoringSystemOption3RadioButton = new System.Windows.Forms.RadioButton();
@@ -122,6 +130,7 @@
             this.PointsScoringSystemDefaultRadioButton = new System.Windows.Forms.RadioButton();
             this.ViewportsTabPage = new System.Windows.Forms.TabPage();
             this.ViewportsGroupBox = new System.Windows.Forms.GroupBox();
+            this.ViewportsLabel = new System.Windows.Forms.Label();
             this.PerformanceCurveTabPage = new System.Windows.Forms.TabPage();
             this.PerformanceCurveGroupBox = new System.Windows.Forms.GroupBox();
             this.PerformanceCurveControlsGroupBox = new System.Windows.Forms.GroupBox();
@@ -147,14 +156,6 @@
             this.PerformanceCurveChartBox010NumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.PerformanceCurveChartBox110NumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.PerformanceCurveChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.CommentaryIndicesTeamGroupBox = new System.Windows.Forms.GroupBox();
-            this.CommentaryIndicesTeamDataGridView = new System.Windows.Forms.DataGridView();
-            this.commentaryTeamIndexBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localResourceIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resourceIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resourceTextDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentaryIndexDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConfigureGameTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).BeginInit();
@@ -180,9 +181,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.CommentaryIndicesDriverDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commentaryDriverIndexBindingSource)).BeginInit();
             this.CommentaryOptionsGroupBox.SuspendLayout();
+            this.CommentaryIndicesTeamGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CommentaryIndicesTeamDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commentaryTeamIndexBindingSource)).BeginInit();
             this.PointsScoringSystemTabPage.SuspendLayout();
             this.PointsScoringSystemGroupBox.SuspendLayout();
             this.ViewportsTabPage.SuspendLayout();
+            this.ViewportsGroupBox.SuspendLayout();
             this.PerformanceCurveTabPage.SuspendLayout();
             this.PerformanceCurveGroupBox.SuspendLayout();
             this.PerformanceCurveControlsGroupBox.SuspendLayout();
@@ -200,9 +205,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox010NumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox110NumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChart)).BeginInit();
-            this.CommentaryIndicesTeamGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CommentaryIndicesTeamDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.commentaryTeamIndexBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ConfigureGameTabControl
@@ -249,7 +251,7 @@
             this.LanguageDataGridView.Location = new System.Drawing.Point(6, 423);
             this.LanguageDataGridView.Name = "LanguageDataGridView";
             this.LanguageDataGridView.Size = new System.Drawing.Size(918, 47);
-            this.LanguageDataGridView.TabIndex = 5;
+            this.LanguageDataGridView.TabIndex = 15;
             this.LanguageDataGridView.TabStop = false;
             this.LanguageDataGridView.Visible = false;
             // 
@@ -297,7 +299,7 @@
             this.CommentaryResourcesDataGridView.Location = new System.Drawing.Point(6, 476);
             this.CommentaryResourcesDataGridView.Name = "CommentaryResourcesDataGridView";
             this.CommentaryResourcesDataGridView.Size = new System.Drawing.Size(918, 47);
-            this.CommentaryResourcesDataGridView.TabIndex = 5;
+            this.CommentaryResourcesDataGridView.TabIndex = 16;
             this.CommentaryResourcesDataGridView.TabStop = false;
             this.CommentaryResourcesDataGridView.Visible = false;
             // 
@@ -363,7 +365,7 @@
             this.FilesGroupBox.Location = new System.Drawing.Point(6, 6);
             this.FilesGroupBox.Name = "FilesGroupBox";
             this.FilesGroupBox.Size = new System.Drawing.Size(918, 106);
-            this.FilesGroupBox.TabIndex = 2;
+            this.FilesGroupBox.TabIndex = 1;
             this.FilesGroupBox.TabStop = false;
             this.FilesGroupBox.Text = "Files";
             // 
@@ -373,7 +375,7 @@
             this.GameFolderPathLabel.Location = new System.Drawing.Point(30, 24);
             this.GameFolderPathLabel.Name = "GameFolderPathLabel";
             this.GameFolderPathLabel.Size = new System.Drawing.Size(70, 13);
-            this.GameFolderPathLabel.TabIndex = 5;
+            this.GameFolderPathLabel.TabIndex = 2;
             this.GameFolderPathLabel.Text = "Game Folder:";
             // 
             // GameExecutablePathLabel
@@ -382,7 +384,7 @@
             this.GameExecutablePathLabel.Location = new System.Drawing.Point(6, 53);
             this.GameExecutablePathLabel.Name = "GameExecutablePathLabel";
             this.GameExecutablePathLabel.Size = new System.Drawing.Size(94, 13);
-            this.GameExecutablePathLabel.TabIndex = 6;
+            this.GameExecutablePathLabel.TabIndex = 5;
             this.GameExecutablePathLabel.Text = "Game Executable:";
             // 
             // LanguageFilePathLabel
@@ -391,7 +393,7 @@
             this.LanguageFilePathLabel.Location = new System.Drawing.Point(23, 82);
             this.LanguageFilePathLabel.Name = "LanguageFilePathLabel";
             this.LanguageFilePathLabel.Size = new System.Drawing.Size(77, 13);
-            this.LanguageFilePathLabel.TabIndex = 7;
+            this.LanguageFilePathLabel.TabIndex = 8;
             this.LanguageFilePathLabel.Text = "Language File:";
             // 
             // GameFolderPathTextBox
@@ -400,7 +402,7 @@
             this.GameFolderPathTextBox.Name = "GameFolderPathTextBox";
             this.GameFolderPathTextBox.ReadOnly = true;
             this.GameFolderPathTextBox.Size = new System.Drawing.Size(644, 20);
-            this.GameFolderPathTextBox.TabIndex = 8;
+            this.GameFolderPathTextBox.TabIndex = 3;
             this.GameFolderPathTextBox.TabStop = false;
             // 
             // GameExecutablePathTextBox
@@ -409,7 +411,7 @@
             this.GameExecutablePathTextBox.Name = "GameExecutablePathTextBox";
             this.GameExecutablePathTextBox.ReadOnly = true;
             this.GameExecutablePathTextBox.Size = new System.Drawing.Size(644, 20);
-            this.GameExecutablePathTextBox.TabIndex = 9;
+            this.GameExecutablePathTextBox.TabIndex = 6;
             this.GameExecutablePathTextBox.TabStop = false;
             // 
             // BrowseGameFolderButton
@@ -417,7 +419,7 @@
             this.BrowseGameFolderButton.Location = new System.Drawing.Point(756, 19);
             this.BrowseGameFolderButton.Name = "BrowseGameFolderButton";
             this.BrowseGameFolderButton.Size = new System.Drawing.Size(75, 23);
-            this.BrowseGameFolderButton.TabIndex = 12;
+            this.BrowseGameFolderButton.TabIndex = 4;
             this.BrowseGameFolderButton.Text = "Browse...";
             this.BrowseGameFolderButton.UseVisualStyleBackColor = true;
             this.BrowseGameFolderButton.Click += new System.EventHandler(this.BrowseGameFolderButton_Click);
@@ -428,7 +430,7 @@
             this.LanguageFilePathTextBox.Name = "LanguageFilePathTextBox";
             this.LanguageFilePathTextBox.ReadOnly = true;
             this.LanguageFilePathTextBox.Size = new System.Drawing.Size(644, 20);
-            this.LanguageFilePathTextBox.TabIndex = 10;
+            this.LanguageFilePathTextBox.TabIndex = 9;
             this.LanguageFilePathTextBox.TabStop = false;
             // 
             // BrowseGameExecutableButton
@@ -436,7 +438,7 @@
             this.BrowseGameExecutableButton.Location = new System.Drawing.Point(756, 48);
             this.BrowseGameExecutableButton.Name = "BrowseGameExecutableButton";
             this.BrowseGameExecutableButton.Size = new System.Drawing.Size(75, 23);
-            this.BrowseGameExecutableButton.TabIndex = 13;
+            this.BrowseGameExecutableButton.TabIndex = 7;
             this.BrowseGameExecutableButton.Text = "Browse...";
             this.BrowseGameExecutableButton.UseVisualStyleBackColor = true;
             this.BrowseGameExecutableButton.Click += new System.EventHandler(this.BrowseGameExecutableButton_Click);
@@ -446,7 +448,7 @@
             this.BrowseLanguageFileButton.Location = new System.Drawing.Point(756, 77);
             this.BrowseLanguageFileButton.Name = "BrowseLanguageFileButton";
             this.BrowseLanguageFileButton.Size = new System.Drawing.Size(75, 23);
-            this.BrowseLanguageFileButton.TabIndex = 11;
+            this.BrowseLanguageFileButton.TabIndex = 10;
             this.BrowseLanguageFileButton.Text = "Browse...";
             this.BrowseLanguageFileButton.UseVisualStyleBackColor = true;
             this.BrowseLanguageFileButton.Click += new System.EventHandler(this.BrowseLanguageFileButton_Click);
@@ -456,7 +458,7 @@
             this.ExportButton.Location = new System.Drawing.Point(837, 63);
             this.ExportButton.Name = "ExportButton";
             this.ExportButton.Size = new System.Drawing.Size(75, 37);
-            this.ExportButton.TabIndex = 4;
+            this.ExportButton.TabIndex = 12;
             this.ExportButton.Text = "Export...";
             this.ExportButton.UseVisualStyleBackColor = true;
             this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
@@ -466,7 +468,7 @@
             this.ImportButton.Location = new System.Drawing.Point(837, 19);
             this.ImportButton.Name = "ImportButton";
             this.ImportButton.Size = new System.Drawing.Size(75, 37);
-            this.ImportButton.TabIndex = 3;
+            this.ImportButton.TabIndex = 11;
             this.ImportButton.Text = "Import...";
             this.ImportButton.UseVisualStyleBackColor = true;
             this.ImportButton.Click += new System.EventHandler(this.ImportButton_Click);
@@ -477,7 +479,7 @@
             this.OverviewGroupBox.Location = new System.Drawing.Point(6, 118);
             this.OverviewGroupBox.Name = "OverviewGroupBox";
             this.OverviewGroupBox.Size = new System.Drawing.Size(918, 405);
-            this.OverviewGroupBox.TabIndex = 4;
+            this.OverviewGroupBox.TabIndex = 13;
             this.OverviewGroupBox.TabStop = false;
             // 
             // OverviewRichTextBox
@@ -488,7 +490,7 @@
             this.OverviewRichTextBox.Name = "OverviewRichTextBox";
             this.OverviewRichTextBox.ReadOnly = true;
             this.OverviewRichTextBox.Size = new System.Drawing.Size(906, 386);
-            this.OverviewRichTextBox.TabIndex = 2;
+            this.OverviewRichTextBox.TabIndex = 14;
             this.OverviewRichTextBox.Text = resources.GetString("OverviewRichTextBox.Text");
             // 
             // CompatibilityTabPage
@@ -512,7 +514,7 @@
             this.CompatibilityGroupBox.Location = new System.Drawing.Point(6, 6);
             this.CompatibilityGroupBox.Name = "CompatibilityGroupBox";
             this.CompatibilityGroupBox.Size = new System.Drawing.Size(918, 517);
-            this.CompatibilityGroupBox.TabIndex = 9;
+            this.CompatibilityGroupBox.TabIndex = 0;
             this.CompatibilityGroupBox.TabStop = false;
             this.CompatibilityGroupBox.Text = "Compatibility";
             // 
@@ -522,7 +524,7 @@
             this.DisableGameCdCheckBox.Location = new System.Drawing.Point(6, 19);
             this.DisableGameCdCheckBox.Name = "DisableGameCdCheckBox";
             this.DisableGameCdCheckBox.Size = new System.Drawing.Size(192, 17);
-            this.DisableGameCdCheckBox.TabIndex = 7;
+            this.DisableGameCdCheckBox.TabIndex = 1;
             this.DisableGameCdCheckBox.Text = "Disable check for original game CD";
             this.DisableGameCdCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -533,7 +535,7 @@
             this.DisablePitExitPriorityCheckBox.Location = new System.Drawing.Point(6, 111);
             this.DisablePitExitPriorityCheckBox.Name = "DisablePitExitPriorityCheckBox";
             this.DisablePitExitPriorityCheckBox.Size = new System.Drawing.Size(291, 17);
-            this.DisablePitExitPriorityCheckBox.TabIndex = 8;
+            this.DisablePitExitPriorityCheckBox.TabIndex = 5;
             this.DisablePitExitPriorityCheckBox.Text = "Disable pit-exit priority for lower numbered teams (bug fix)";
             this.DisablePitExitPriorityCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -543,7 +545,7 @@
             this.DisableColourModeCheckBox.Location = new System.Drawing.Point(6, 42);
             this.DisableColourModeCheckBox.Name = "DisableColourModeCheckBox";
             this.DisableColourModeCheckBox.Size = new System.Drawing.Size(199, 17);
-            this.DisableColourModeCheckBox.TabIndex = 5;
+            this.DisableColourModeCheckBox.TabIndex = 2;
             this.DisableColourModeCheckBox.Text = "Disable check for 16-bit colour mode";
             this.DisableColourModeCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -553,7 +555,7 @@
             this.DisableMemoryResetForRaceSoundsCheckbox.Location = new System.Drawing.Point(6, 88);
             this.DisableMemoryResetForRaceSoundsCheckbox.Name = "DisableMemoryResetForRaceSoundsCheckbox";
             this.DisableMemoryResetForRaceSoundsCheckbox.Size = new System.Drawing.Size(242, 17);
-            this.DisableMemoryResetForRaceSoundsCheckbox.TabIndex = 6;
+            this.DisableMemoryResetForRaceSoundsCheckbox.TabIndex = 4;
             this.DisableMemoryResetForRaceSoundsCheckbox.Text = "Disable memory reset for race sounds (bug fix)";
             this.DisableMemoryResetForRaceSoundsCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -564,7 +566,7 @@
             this.DisableSampleAppCheckBox.Location = new System.Drawing.Point(6, 65);
             this.DisableSampleAppCheckBox.Name = "DisableSampleAppCheckBox";
             this.DisableSampleAppCheckBox.Size = new System.Drawing.Size(239, 17);
-            this.DisableSampleAppCheckBox.TabIndex = 4;
+            this.DisableSampleAppCheckBox.TabIndex = 3;
             this.DisableSampleAppCheckBox.Text = "Disable check for sample app object cleanup";
             this.DisableSampleAppCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -587,7 +589,7 @@
             this.GameplayGroupBox.Location = new System.Drawing.Point(6, 6);
             this.GameplayGroupBox.Name = "GameplayGroupBox";
             this.GameplayGroupBox.Size = new System.Drawing.Size(918, 517);
-            this.GameplayGroupBox.TabIndex = 6;
+            this.GameplayGroupBox.TabIndex = 0;
             this.GameplayGroupBox.TabStop = false;
             this.GameplayGroupBox.Text = "Gameplay";
             // 
@@ -597,7 +599,7 @@
             this.DisableYellowFlagPenaltiesCheckBox.Location = new System.Drawing.Point(6, 19);
             this.DisableYellowFlagPenaltiesCheckBox.Name = "DisableYellowFlagPenaltiesCheckBox";
             this.DisableYellowFlagPenaltiesCheckBox.Size = new System.Drawing.Size(158, 17);
-            this.DisableYellowFlagPenaltiesCheckBox.TabIndex = 5;
+            this.DisableYellowFlagPenaltiesCheckBox.TabIndex = 1;
             this.DisableYellowFlagPenaltiesCheckBox.Text = "Disable yellow flag penalties";
             this.DisableYellowFlagPenaltiesCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -608,7 +610,7 @@
             this.EnableCarPerformanceRaceCalcuationCheckbox.Location = new System.Drawing.Point(6, 65);
             this.EnableCarPerformanceRaceCalcuationCheckbox.Name = "EnableCarPerformanceRaceCalcuationCheckbox";
             this.EnableCarPerformanceRaceCalcuationCheckbox.Size = new System.Drawing.Size(225, 17);
-            this.EnableCarPerformanceRaceCalcuationCheckbox.TabIndex = 4;
+            this.EnableCarPerformanceRaceCalcuationCheckbox.TabIndex = 3;
             this.EnableCarPerformanceRaceCalcuationCheckbox.Text = "Upgrade car performance race calculation";
             this.EnableCarPerformanceRaceCalcuationCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -619,7 +621,7 @@
             this.EnableCarHandlingDesignCalculationCheckbox.Location = new System.Drawing.Point(6, 42);
             this.EnableCarHandlingDesignCalculationCheckbox.Name = "EnableCarHandlingDesignCalculationCheckbox";
             this.EnableCarHandlingDesignCalculationCheckbox.Size = new System.Drawing.Size(219, 17);
-            this.EnableCarHandlingDesignCalculationCheckbox.TabIndex = 3;
+            this.EnableCarHandlingDesignCalculationCheckbox.TabIndex = 2;
             this.EnableCarHandlingDesignCalculationCheckbox.Text = "Upgrade car handling design calculation ";
             this.EnableCarHandlingDesignCalculationCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -665,9 +667,9 @@
             this.CommentaryPrefixesDriverGroupBox.Name = "CommentaryPrefixesDriverGroupBox";
             this.CommentaryTableLayoutPanel.SetRowSpan(this.CommentaryPrefixesDriverGroupBox, 2);
             this.CommentaryPrefixesDriverGroupBox.Size = new System.Drawing.Size(225, 434);
-            this.CommentaryPrefixesDriverGroupBox.TabIndex = 19;
+            this.CommentaryPrefixesDriverGroupBox.TabIndex = 2;
             this.CommentaryPrefixesDriverGroupBox.TabStop = false;
-            this.CommentaryPrefixesDriverGroupBox.Text = "Drivers";
+            this.CommentaryPrefixesDriverGroupBox.Text = "Driver Sound Clips";
             // 
             // CommentaryPrefixesDriverDataGridView
             // 
@@ -738,9 +740,9 @@
             this.CommentaryPrefixesTeamGroupBox.Name = "CommentaryPrefixesTeamGroupBox";
             this.CommentaryTableLayoutPanel.SetRowSpan(this.CommentaryPrefixesTeamGroupBox, 2);
             this.CommentaryPrefixesTeamGroupBox.Size = new System.Drawing.Size(225, 434);
-            this.CommentaryPrefixesTeamGroupBox.TabIndex = 20;
+            this.CommentaryPrefixesTeamGroupBox.TabIndex = 3;
             this.CommentaryPrefixesTeamGroupBox.TabStop = false;
-            this.CommentaryPrefixesTeamGroupBox.Text = "Teams";
+            this.CommentaryPrefixesTeamGroupBox.Text = "Team Sound Clips";
             // 
             // CommentaryPrefixesTeamDataGridView
             // 
@@ -811,9 +813,9 @@
             this.CommentaryFilesGroupBox.Name = "CommentaryFilesGroupBox";
             this.CommentaryTableLayoutPanel.SetRowSpan(this.CommentaryFilesGroupBox, 2);
             this.CommentaryFilesGroupBox.Size = new System.Drawing.Size(179, 434);
-            this.CommentaryFilesGroupBox.TabIndex = 18;
+            this.CommentaryFilesGroupBox.TabIndex = 4;
             this.CommentaryFilesGroupBox.TabStop = false;
-            this.CommentaryFilesGroupBox.Text = "Files";
+            this.CommentaryFilesGroupBox.Text = "Available Sound Clip Files";
             // 
             // CommentaryFilesDataGridView
             // 
@@ -845,7 +847,7 @@
             this.CommentaryIndicesDriverGroupBox.Location = new System.Drawing.Point(3, 3);
             this.CommentaryIndicesDriverGroupBox.Name = "CommentaryIndicesDriverGroupBox";
             this.CommentaryIndicesDriverGroupBox.Size = new System.Drawing.Size(271, 214);
-            this.CommentaryIndicesDriverGroupBox.TabIndex = 25;
+            this.CommentaryIndicesDriverGroupBox.TabIndex = 0;
             this.CommentaryIndicesDriverGroupBox.TabStop = false;
             this.CommentaryIndicesDriverGroupBox.Text = "Driver Indices";
             // 
@@ -905,14 +907,14 @@
             this.CommentaryTableLayoutPanel.SetColumnSpan(this.CommentaryOptionsGroupBox, 4);
             this.CommentaryOptionsGroupBox.Controls.Add(this.CommentaryIndicesDefaultButton);
             this.CommentaryOptionsGroupBox.Controls.Add(this.CommentaryDriversDefaultButton);
-            this.CommentaryOptionsGroupBox.Controls.Add(this.CommentaryDriversGenericButton);
-            this.CommentaryOptionsGroupBox.Controls.Add(this.CommentaryTeamsGenericButton);
+            this.CommentaryOptionsGroupBox.Controls.Add(this.CommentaryDriversAnonymousButton);
+            this.CommentaryOptionsGroupBox.Controls.Add(this.CommentaryTeamsAnonymousButton);
             this.CommentaryOptionsGroupBox.Controls.Add(this.CommentaryTeamsDefaultButton);
             this.CommentaryOptionsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CommentaryOptionsGroupBox.Location = new System.Drawing.Point(3, 443);
             this.CommentaryOptionsGroupBox.Name = "CommentaryOptionsGroupBox";
             this.CommentaryOptionsGroupBox.Size = new System.Drawing.Size(918, 77);
-            this.CommentaryOptionsGroupBox.TabIndex = 26;
+            this.CommentaryOptionsGroupBox.TabIndex = 5;
             this.CommentaryOptionsGroupBox.TabStop = false;
             this.CommentaryOptionsGroupBox.Text = "Commentary Options";
             // 
@@ -920,51 +922,113 @@
             // 
             this.CommentaryIndicesDefaultButton.Location = new System.Drawing.Point(6, 19);
             this.CommentaryIndicesDefaultButton.Name = "CommentaryIndicesDefaultButton";
-            this.CommentaryIndicesDefaultButton.Size = new System.Drawing.Size(354, 23);
-            this.CommentaryIndicesDefaultButton.TabIndex = 25;
-            this.CommentaryIndicesDefaultButton.Text = "Reset indices to original values";
+            this.CommentaryIndicesDefaultButton.Size = new System.Drawing.Size(265, 23);
+            this.CommentaryIndicesDefaultButton.TabIndex = 0;
+            this.CommentaryIndicesDefaultButton.Text = "Use default indices";
             this.CommentaryIndicesDefaultButton.UseVisualStyleBackColor = true;
             this.CommentaryIndicesDefaultButton.Click += new System.EventHandler(this.CommentaryIndicesDefaultButton_Click);
             // 
             // CommentaryDriversDefaultButton
             // 
-            this.CommentaryDriversDefaultButton.Location = new System.Drawing.Point(372, 19);
+            this.CommentaryDriversDefaultButton.Location = new System.Drawing.Point(277, 19);
             this.CommentaryDriversDefaultButton.Name = "CommentaryDriversDefaultButton";
-            this.CommentaryDriversDefaultButton.Size = new System.Drawing.Size(171, 23);
-            this.CommentaryDriversDefaultButton.TabIndex = 21;
-            this.CommentaryDriversDefaultButton.Text = "Reset to use 1998 sounds";
+            this.CommentaryDriversDefaultButton.Size = new System.Drawing.Size(225, 23);
+            this.CommentaryDriversDefaultButton.TabIndex = 1;
+            this.CommentaryDriversDefaultButton.Text = "Use default driver sound clips";
             this.CommentaryDriversDefaultButton.UseVisualStyleBackColor = true;
             this.CommentaryDriversDefaultButton.Click += new System.EventHandler(this.CommentaryDriversDefaultButton_Click);
             // 
-            // CommentaryDriversGenericButton
+            // CommentaryDriversAnonymousButton
             // 
-            this.CommentaryDriversGenericButton.Location = new System.Drawing.Point(372, 48);
-            this.CommentaryDriversGenericButton.Name = "CommentaryDriversGenericButton";
-            this.CommentaryDriversGenericButton.Size = new System.Drawing.Size(171, 23);
-            this.CommentaryDriversGenericButton.TabIndex = 23;
-            this.CommentaryDriversGenericButton.Text = "Reset to use generic sounds";
-            this.CommentaryDriversGenericButton.UseVisualStyleBackColor = true;
-            this.CommentaryDriversGenericButton.Click += new System.EventHandler(this.CommentaryDriversGenericButton_Click);
+            this.CommentaryDriversAnonymousButton.Location = new System.Drawing.Point(277, 48);
+            this.CommentaryDriversAnonymousButton.Name = "CommentaryDriversAnonymousButton";
+            this.CommentaryDriversAnonymousButton.Size = new System.Drawing.Size(225, 23);
+            this.CommentaryDriversAnonymousButton.TabIndex = 2;
+            this.CommentaryDriversAnonymousButton.Text = "Use anonymous driver sound clips";
+            this.CommentaryDriversAnonymousButton.UseVisualStyleBackColor = true;
+            this.CommentaryDriversAnonymousButton.Click += new System.EventHandler(this.CommentaryDriversAnonymousButton_Click);
             // 
-            // CommentaryTeamsGenericButton
+            // CommentaryTeamsAnonymousButton
             // 
-            this.CommentaryTeamsGenericButton.Location = new System.Drawing.Point(556, 48);
-            this.CommentaryTeamsGenericButton.Name = "CommentaryTeamsGenericButton";
-            this.CommentaryTeamsGenericButton.Size = new System.Drawing.Size(172, 23);
-            this.CommentaryTeamsGenericButton.TabIndex = 24;
-            this.CommentaryTeamsGenericButton.Text = "Reset to use generic sounds";
-            this.CommentaryTeamsGenericButton.UseVisualStyleBackColor = true;
-            this.CommentaryTeamsGenericButton.Click += new System.EventHandler(this.CommentaryTeamsGenericButton_Click);
+            this.CommentaryTeamsAnonymousButton.Location = new System.Drawing.Point(508, 48);
+            this.CommentaryTeamsAnonymousButton.Name = "CommentaryTeamsAnonymousButton";
+            this.CommentaryTeamsAnonymousButton.Size = new System.Drawing.Size(225, 23);
+            this.CommentaryTeamsAnonymousButton.TabIndex = 4;
+            this.CommentaryTeamsAnonymousButton.Text = "Use anonymous team sound clips";
+            this.CommentaryTeamsAnonymousButton.UseVisualStyleBackColor = true;
+            this.CommentaryTeamsAnonymousButton.Click += new System.EventHandler(this.CommentaryTeamsAnonymousButton_Click);
             // 
             // CommentaryTeamsDefaultButton
             // 
-            this.CommentaryTeamsDefaultButton.Location = new System.Drawing.Point(556, 19);
+            this.CommentaryTeamsDefaultButton.Location = new System.Drawing.Point(508, 19);
             this.CommentaryTeamsDefaultButton.Name = "CommentaryTeamsDefaultButton";
-            this.CommentaryTeamsDefaultButton.Size = new System.Drawing.Size(172, 23);
-            this.CommentaryTeamsDefaultButton.TabIndex = 22;
-            this.CommentaryTeamsDefaultButton.Text = "Reset to use 1998 sounds";
+            this.CommentaryTeamsDefaultButton.Size = new System.Drawing.Size(225, 23);
+            this.CommentaryTeamsDefaultButton.TabIndex = 3;
+            this.CommentaryTeamsDefaultButton.Text = "Use default team sound clips";
             this.CommentaryTeamsDefaultButton.UseVisualStyleBackColor = true;
             this.CommentaryTeamsDefaultButton.Click += new System.EventHandler(this.CommentaryTeamsDefaultButton_Click);
+            // 
+            // CommentaryIndicesTeamGroupBox
+            // 
+            this.CommentaryIndicesTeamGroupBox.Controls.Add(this.CommentaryIndicesTeamDataGridView);
+            this.CommentaryIndicesTeamGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommentaryIndicesTeamGroupBox.Location = new System.Drawing.Point(3, 223);
+            this.CommentaryIndicesTeamGroupBox.Name = "CommentaryIndicesTeamGroupBox";
+            this.CommentaryIndicesTeamGroupBox.Size = new System.Drawing.Size(271, 214);
+            this.CommentaryIndicesTeamGroupBox.TabIndex = 1;
+            this.CommentaryIndicesTeamGroupBox.TabStop = false;
+            this.CommentaryIndicesTeamGroupBox.Text = "Team Indices";
+            // 
+            // CommentaryIndicesTeamDataGridView
+            // 
+            this.CommentaryIndicesTeamDataGridView.AutoGenerateColumns = false;
+            this.CommentaryIndicesTeamDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CommentaryIndicesTeamDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn5,
+            this.localResourceIdDataGridViewTextBoxColumn2,
+            this.resourceIdDataGridViewTextBoxColumn2,
+            this.resourceTextDataGridViewTextBoxColumn2,
+            this.commentaryIndexDataGridViewTextBoxColumn1});
+            this.CommentaryIndicesTeamDataGridView.DataSource = this.commentaryTeamIndexBindingSource;
+            this.CommentaryIndicesTeamDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CommentaryIndicesTeamDataGridView.Location = new System.Drawing.Point(3, 16);
+            this.CommentaryIndicesTeamDataGridView.Name = "CommentaryIndicesTeamDataGridView";
+            this.CommentaryIndicesTeamDataGridView.Size = new System.Drawing.Size(265, 195);
+            this.CommentaryIndicesTeamDataGridView.TabIndex = 0;
+            // 
+            // idDataGridViewTextBoxColumn5
+            // 
+            this.idDataGridViewTextBoxColumn5.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn5.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn5.Name = "idDataGridViewTextBoxColumn5";
+            // 
+            // localResourceIdDataGridViewTextBoxColumn2
+            // 
+            this.localResourceIdDataGridViewTextBoxColumn2.DataPropertyName = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn2.HeaderText = "LocalResourceId";
+            this.localResourceIdDataGridViewTextBoxColumn2.Name = "localResourceIdDataGridViewTextBoxColumn2";
+            // 
+            // resourceIdDataGridViewTextBoxColumn2
+            // 
+            this.resourceIdDataGridViewTextBoxColumn2.DataPropertyName = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn2.HeaderText = "ResourceId";
+            this.resourceIdDataGridViewTextBoxColumn2.Name = "resourceIdDataGridViewTextBoxColumn2";
+            // 
+            // resourceTextDataGridViewTextBoxColumn2
+            // 
+            this.resourceTextDataGridViewTextBoxColumn2.DataPropertyName = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn2.HeaderText = "ResourceText";
+            this.resourceTextDataGridViewTextBoxColumn2.Name = "resourceTextDataGridViewTextBoxColumn2";
+            // 
+            // commentaryIndexDataGridViewTextBoxColumn1
+            // 
+            this.commentaryIndexDataGridViewTextBoxColumn1.DataPropertyName = "CommentaryIndex";
+            this.commentaryIndexDataGridViewTextBoxColumn1.HeaderText = "CommentaryIndex";
+            this.commentaryIndexDataGridViewTextBoxColumn1.Name = "commentaryIndexDataGridViewTextBoxColumn1";
+            // 
+            // commentaryTeamIndexBindingSource
+            // 
+            this.commentaryTeamIndexBindingSource.DataSource = typeof(Data.Entities.Commentary.CommentaryTeamIndex);
             // 
             // PointsScoringSystemTabPage
             // 
@@ -986,7 +1050,7 @@
             this.PointsScoringSystemGroupBox.Location = new System.Drawing.Point(6, 6);
             this.PointsScoringSystemGroupBox.Name = "PointsScoringSystemGroupBox";
             this.PointsScoringSystemGroupBox.Size = new System.Drawing.Size(918, 517);
-            this.PointsScoringSystemGroupBox.TabIndex = 2;
+            this.PointsScoringSystemGroupBox.TabIndex = 0;
             this.PointsScoringSystemGroupBox.TabStop = false;
             this.PointsScoringSystemGroupBox.Text = "Points Scoring System";
             // 
@@ -1045,12 +1109,24 @@
             // 
             // ViewportsGroupBox
             // 
+            this.ViewportsGroupBox.Controls.Add(this.ViewportsLabel);
             this.ViewportsGroupBox.Location = new System.Drawing.Point(6, 6);
             this.ViewportsGroupBox.Name = "ViewportsGroupBox";
             this.ViewportsGroupBox.Size = new System.Drawing.Size(918, 517);
             this.ViewportsGroupBox.TabIndex = 0;
             this.ViewportsGroupBox.TabStop = false;
             this.ViewportsGroupBox.Text = "Viewports";
+            // 
+            // ViewportsLabel
+            // 
+            this.ViewportsLabel.AutoSize = true;
+            this.ViewportsLabel.Location = new System.Drawing.Point(6, 16);
+            this.ViewportsLabel.Name = "ViewportsLabel";
+            this.ViewportsLabel.Size = new System.Drawing.Size(858, 13);
+            this.ViewportsLabel.TabIndex = 0;
+            this.ViewportsLabel.Text = "This feature is currently unavailable and in development. In a future version of " +
+    "this program, you will be able to choose the layout of the screens when watching" +
+    " qualifying or the race.";
             // 
             // PerformanceCurveTabPage
             // 
@@ -1070,7 +1146,7 @@
             this.PerformanceCurveGroupBox.Location = new System.Drawing.Point(6, 6);
             this.PerformanceCurveGroupBox.Name = "PerformanceCurveGroupBox";
             this.PerformanceCurveGroupBox.Size = new System.Drawing.Size(918, 517);
-            this.PerformanceCurveGroupBox.TabIndex = 1;
+            this.PerformanceCurveGroupBox.TabIndex = 0;
             this.PerformanceCurveGroupBox.TabStop = false;
             this.PerformanceCurveGroupBox.Text = "Performance Curve";
             // 
@@ -1482,68 +1558,6 @@
             title2.Text = "Performance Curve";
             this.PerformanceCurveChart.Titles.Add(title2);
             // 
-            // CommentaryIndicesTeamGroupBox
-            // 
-            this.CommentaryIndicesTeamGroupBox.Controls.Add(this.CommentaryIndicesTeamDataGridView);
-            this.CommentaryIndicesTeamGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CommentaryIndicesTeamGroupBox.Location = new System.Drawing.Point(3, 223);
-            this.CommentaryIndicesTeamGroupBox.Name = "CommentaryIndicesTeamGroupBox";
-            this.CommentaryIndicesTeamGroupBox.Size = new System.Drawing.Size(271, 214);
-            this.CommentaryIndicesTeamGroupBox.TabIndex = 27;
-            this.CommentaryIndicesTeamGroupBox.TabStop = false;
-            this.CommentaryIndicesTeamGroupBox.Text = "Team Indices";
-            // 
-            // CommentaryIndicesTeamDataGridView
-            // 
-            this.CommentaryIndicesTeamDataGridView.AutoGenerateColumns = false;
-            this.CommentaryIndicesTeamDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CommentaryIndicesTeamDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn5,
-            this.localResourceIdDataGridViewTextBoxColumn2,
-            this.resourceIdDataGridViewTextBoxColumn2,
-            this.resourceTextDataGridViewTextBoxColumn2,
-            this.commentaryIndexDataGridViewTextBoxColumn1});
-            this.CommentaryIndicesTeamDataGridView.DataSource = this.commentaryTeamIndexBindingSource;
-            this.CommentaryIndicesTeamDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CommentaryIndicesTeamDataGridView.Location = new System.Drawing.Point(3, 16);
-            this.CommentaryIndicesTeamDataGridView.Name = "CommentaryIndicesTeamDataGridView";
-            this.CommentaryIndicesTeamDataGridView.Size = new System.Drawing.Size(265, 195);
-            this.CommentaryIndicesTeamDataGridView.TabIndex = 0;
-            // 
-            // commentaryTeamIndexBindingSource
-            // 
-            this.commentaryTeamIndexBindingSource.DataSource = typeof(Data.Entities.Commentary.CommentaryTeamIndex);
-            // 
-            // idDataGridViewTextBoxColumn5
-            // 
-            this.idDataGridViewTextBoxColumn5.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn5.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn5.Name = "idDataGridViewTextBoxColumn5";
-            // 
-            // localResourceIdDataGridViewTextBoxColumn2
-            // 
-            this.localResourceIdDataGridViewTextBoxColumn2.DataPropertyName = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn2.HeaderText = "LocalResourceId";
-            this.localResourceIdDataGridViewTextBoxColumn2.Name = "localResourceIdDataGridViewTextBoxColumn2";
-            // 
-            // resourceIdDataGridViewTextBoxColumn2
-            // 
-            this.resourceIdDataGridViewTextBoxColumn2.DataPropertyName = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn2.HeaderText = "ResourceId";
-            this.resourceIdDataGridViewTextBoxColumn2.Name = "resourceIdDataGridViewTextBoxColumn2";
-            // 
-            // resourceTextDataGridViewTextBoxColumn2
-            // 
-            this.resourceTextDataGridViewTextBoxColumn2.DataPropertyName = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn2.HeaderText = "ResourceText";
-            this.resourceTextDataGridViewTextBoxColumn2.Name = "resourceTextDataGridViewTextBoxColumn2";
-            // 
-            // commentaryIndexDataGridViewTextBoxColumn1
-            // 
-            this.commentaryIndexDataGridViewTextBoxColumn1.DataPropertyName = "CommentaryIndex";
-            this.commentaryIndexDataGridViewTextBoxColumn1.HeaderText = "CommentaryIndex";
-            this.commentaryIndexDataGridViewTextBoxColumn1.Name = "commentaryIndexDataGridViewTextBoxColumn1";
-            // 
             // ConfigureGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1585,10 +1599,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.CommentaryIndicesDriverDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commentaryDriverIndexBindingSource)).EndInit();
             this.CommentaryOptionsGroupBox.ResumeLayout(false);
+            this.CommentaryIndicesTeamGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CommentaryIndicesTeamDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commentaryTeamIndexBindingSource)).EndInit();
             this.PointsScoringSystemTabPage.ResumeLayout(false);
             this.PointsScoringSystemGroupBox.ResumeLayout(false);
             this.PointsScoringSystemGroupBox.PerformLayout();
             this.ViewportsTabPage.ResumeLayout(false);
+            this.ViewportsGroupBox.ResumeLayout(false);
+            this.ViewportsGroupBox.PerformLayout();
             this.PerformanceCurveTabPage.ResumeLayout(false);
             this.PerformanceCurveGroupBox.ResumeLayout(false);
             this.PerformanceCurveControlsGroupBox.ResumeLayout(false);
@@ -1607,9 +1626,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox010NumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChartBox110NumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PerformanceCurveChart)).EndInit();
-            this.CommentaryIndicesTeamGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.CommentaryIndicesTeamDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.commentaryTeamIndexBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1691,8 +1707,8 @@
         private System.Windows.Forms.BindingSource stringValueBindingSource;
         private System.Windows.Forms.Button CommentaryDriversDefaultButton;
         private System.Windows.Forms.Button CommentaryTeamsDefaultButton;
-        private System.Windows.Forms.Button CommentaryDriversGenericButton;
-        private System.Windows.Forms.Button CommentaryTeamsGenericButton;
+        private System.Windows.Forms.Button CommentaryDriversAnonymousButton;
+        private System.Windows.Forms.Button CommentaryTeamsAnonymousButton;
         private System.Windows.Forms.GroupBox CommentaryIndicesDriverGroupBox;
         private System.Windows.Forms.DataGridView CommentaryIndicesDriverDataGridView;
         private System.Windows.Forms.BindingSource commentaryDriverIndexBindingSource;
@@ -1737,5 +1753,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn resourceTextDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn commentaryIndexDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource commentaryTeamIndexBindingSource;
+        private System.Windows.Forms.Label ViewportsLabel;
     }
 }

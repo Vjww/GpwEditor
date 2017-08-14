@@ -48,7 +48,7 @@
             this.GameExecutableEditorButton.Location = new System.Drawing.Point(8, 170);
             this.GameExecutableEditorButton.Name = "GameExecutableEditorButton";
             this.GameExecutableEditorButton.Size = new System.Drawing.Size(176, 23);
-            this.GameExecutableEditorButton.TabIndex = 1;
+            this.GameExecutableEditorButton.TabIndex = 2;
             this.GameExecutableEditorButton.Text = "Game Executable Editor";
             this.MenuToolTip.SetToolTip(this.GameExecutableEditorButton, "Use the game executable editor to make changes to a game executable file.");
             this.GameExecutableEditorButton.UseVisualStyleBackColor = true;
@@ -59,7 +59,7 @@
             this.SaveGameEditorButton.Location = new System.Drawing.Point(200, 170);
             this.SaveGameEditorButton.Name = "SaveGameEditorButton";
             this.SaveGameEditorButton.Size = new System.Drawing.Size(176, 23);
-            this.SaveGameEditorButton.TabIndex = 2;
+            this.SaveGameEditorButton.TabIndex = 6;
             this.SaveGameEditorButton.Text = "Save Game Editor";
             this.MenuToolTip.SetToolTip(this.SaveGameEditorButton, "Use the save game editor to make changes to a save game file.");
             this.SaveGameEditorButton.UseVisualStyleBackColor = true;
@@ -93,7 +93,7 @@
             this.LaunchGameButton.Location = new System.Drawing.Point(200, 204);
             this.LaunchGameButton.Name = "LaunchGameButton";
             this.LaunchGameButton.Size = new System.Drawing.Size(176, 23);
-            this.LaunchGameButton.TabIndex = 6;
+            this.LaunchGameButton.TabIndex = 7;
             this.LaunchGameButton.Text = "Launch Game";
             this.MenuToolTip.SetToolTip(this.LaunchGameButton, "Launch the game!");
             this.LaunchGameButton.UseVisualStyleBackColor = true;
@@ -140,7 +140,7 @@
             this.ConfigureGameButton.Location = new System.Drawing.Point(8, 136);
             this.ConfigureGameButton.Name = "ConfigureGameButton";
             this.ConfigureGameButton.Size = new System.Drawing.Size(176, 23);
-            this.ConfigureGameButton.TabIndex = 7;
+            this.ConfigureGameButton.TabIndex = 1;
             this.ConfigureGameButton.Text = "Configure Game";
             this.ConfigureGameButton.UseVisualStyleBackColor = true;
             this.ConfigureGameButton.Click += new System.EventHandler(this.ConfigureGameButton_Click);

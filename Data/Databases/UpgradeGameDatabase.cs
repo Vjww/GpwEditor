@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Text;
-using Data.FileConnection;
 using Data.Helpers;
 using Data.Patchers;
 using Data.Patchers.CodeShiftPatcher;
@@ -14,19 +12,27 @@ using Data.Patchers.GlobalUnlockPatcher;
 using Data.Patchers.JumpBypassPatcher;
 using Data.Patchers.SwitchIdiomPatcher;
 using Data.Properties;
-using Data.ValueMapping.Executable.Team;
 
 namespace Data.Databases
 {
     public class UpgradeGameDatabase : DatabaseBase
     {
-        public void Upgrade(string gameFolderPath, string gameExecutablePath, string languageFilePath)
+        public void Upgrade(string gameFolderPath, string gameExecutablePath, string englishLanguageFilePath, string frenchLanguageFilePath, string germanLanguageFilePath)
         {
-            ValidateGameFolder(gameFolderPath, "Please ensure the selected folder contains the game folders and files to upgrade successfully.");
-            ValidateGameExecutable(gameExecutablePath, "Please ensure the official v1.01b patch has been applied to the game and select a compatible v1.01b game executable to upgrade successfully.");
-            ValidateLanguageFile(languageFilePath, "Please ensure the official v1.01b patch has been applied to the game and select a compatible v1.01b language file to upgrade successfully.");
+            const string folderValidationMessageFormat = "The upgrader was unable to recognise the {0} as a valid path to upgrade. Please ensure the selected folder contains the required game folders and files, re-run this program as an administrator and try upgrading again.";
+            const string fileValidationMessageFormat = "The upgrader was unable to recognise the {0} as a valid file to upgrade. Please ensure the file is not currently in use, re-run this program as an administrator and try upgrading again.";
 
-            ImportLanguageResources(languageFilePath);
+            ValidateGameFolder(gameFolderPath, string.Format(folderValidationMessageFormat, "selected game folder"));
+
+            DeployExecutableResourcesToGameFolder(gameExecutablePath);
+            ValidateGameExecutable(gameExecutablePath, string.Format(fileValidationMessageFormat ,"game executable (gpw.exe)"));
+
+            DeployLanguageResourcesToGameFolder(englishLanguageFilePath, frenchLanguageFilePath, germanLanguageFilePath);
+            ValidateLanguageFile(englishLanguageFilePath, string.Format(fileValidationMessageFormat, "English language file (english.txt)"));
+            ValidateLanguageFile(frenchLanguageFilePath, string.Format(fileValidationMessageFormat , "French language file (french.txt)"));
+            ValidateLanguageFile(germanLanguageFilePath, string.Format(fileValidationMessageFormat, "German language file (german.txt)"));
+
+            ImportLanguageResources(englishLanguageFilePath);
 
             // Replace switch statements with new idiom to allow for successful disassembly.
             // Required for upgrade to be successful and cannot be reversed.
@@ -59,96 +65,93 @@ namespace Data.Databases
             ApplyReversibleCode(new CarDesignCalculationUpdate(gameExecutablePath), true);
             ApplyReversibleCode(new CarHandlingPerformanceFix(gameExecutablePath), true);
 
-            // Enhancements
-            ApplyDriverResourcesToGameFolder(gameFolderPath);
-            ApplyCommentaryResourcesToGameFolder(gameFolderPath);
-            ApplyCommentarySoundIndexFix(gameExecutablePath);
-            ApplyJacquesVilleneuveNameFix();
-            ApplyMissingTestDriverNameFix();
+            ImportCommentaryIndicesDriver(gameExecutablePath);
+            ImportCommentaryIndicesTeam(gameExecutablePath);
 
-            ExportLanguageResources(languageFilePath);
+            // Enhancements
+            DeployDriverResourcesToGameFolder(gameFolderPath);
+            DeployCommentaryResourcesToGameFolder(gameFolderPath);
+            ApplyCommentaryIndicesChanges();
+            ApplyDriverNameChanges();
+
+            ExportCommentaryIndicesDriver(gameExecutablePath);
+            ExportCommentaryIndicesTeam(gameExecutablePath);
+
+            ExportLanguageResources(englishLanguageFilePath);
         }
 
-        private static void ApplyCommentaryResourcesToGameFolder(string gameFolderPath)
+        private static void DeployCommentaryResourcesToGameFolder(string gameFolderPath)
         {
             CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\ANONOUT.wav"), Resources.ANONOUT); // New
             CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\ANONP1.wav"), Resources.ANONP1);   // New
             CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\ANONP2.wav"), Resources.ANONP2);   // New
             CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\ANONP3.wav"), Resources.ANONP3);   // New
             CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\ANONPIT.wav"), Resources.ANONPIT); // New
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\P1C.wav"), Resources.P1C);  // Overwrite
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\P2A.wav"), Resources.P2A);  // Overwrite
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\P3A.wav"), Resources.P3A);  // Overwrite
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\P1C.wav"), Resources.P1C); // Overwrite
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\P2A.wav"), Resources.P2A); // Overwrite
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"speeche\P3A.wav"), Resources.P3A); // Overwrite
 
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"text\COMME.txt"), Resources.COMME); // Overwrite
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"text\COMMF.txt"), Resources.COMME); // Overwrite
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"text\COMMG.txt"), Resources.COMME); // Overwrite
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"text\COMME.txt"), Resources.CommE);           // Overwrite
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"text\COMMF.txt"), Resources.CommF_Redundant); // Overwrite
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"text\COMMG.txt"), Resources.CommG_Redundant); // Overwrite
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"textf\COMMF.txt"), Resources.CommF);          // Overwrite
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"textg\COMMG.txt"), Resources.CommG);          // Overwrite
         }
 
-        private static void ApplyCommentarySoundIndexFix(string gameExecutablePath)
+        private static void DeployDriverResourcesToGameFolder(string gameFolderPath)
         {
-            const int indexValue = 67;
-
-            // Apply index fix to new additional drivers
-            var f1AdditionalDriverValueMappings = new Collection<F1Driver>
-            {
-                new F1Driver(8),  // Team 3, Driver 3
-                new F1Driver(14), // Team 5, Driver 3
-                new F1Driver(26)  // Team 9, Driver 3
-            };
-
-            using (var executableConnection = new ExecutableConnection(gameExecutablePath))
-            {
-                foreach (var valueMapping in f1AdditionalDriverValueMappings)
-                {
-                    executableConnection.WriteInteger(valueMapping.CommentaryIndex, indexValue);
-                }
-            }
-        }
-
-        private static void ApplyDriverResourcesToGameFolder(string gameFolderPath)
-        {
-            CopyResourceToFile(Path.Combine(gameFolderPath, @"bmp\dheads\6.bmp"), Resources._6);   // Overwrite
+            CopyResourceToFile(Path.Combine(gameFolderPath, @"bmp\dheads\6.bmp"), Resources._06);   // Overwrite
             CopyResourceToFile(Path.Combine(gameFolderPath, @"bmp\dheads\24.bmp"), Resources._24); // Overwrite
             CopyResourceToFile(Path.Combine(gameFolderPath, @"bmp\dheads\40.bmp"), Resources._40); // Overwrite
             CopyResourceToFile(Path.Combine(gameFolderPath, @"bmp\dheads\72.bmp"), Resources._72); // Overwrite
         }
 
-        private void ApplyJacquesVilleneuveNameFix()
+        private static void DeployExecutableResourcesToGameFolder(string gameExecutablePath)
         {
-            var drivers = new Dictionary<string, string>
-            {
-                {"SID005801", "Jacques Villeneuve"}
-            };
+            CopyResourceToFile(gameExecutablePath, Resources.Gpw); // Overwrite
+        }
 
-            foreach (var driver in drivers)
+        private static void DeployLanguageResourcesToGameFolder(string englishLanguageFilePath, string frenchLanguageFilePath, string germanLanguageFilePath)
+        {
+            CopyResourceToFile(englishLanguageFilePath, Resources.English); // Overwrite
+            CopyResourceToFile(frenchLanguageFilePath, Resources.French); // New/Overwrite
+            CopyResourceToFile(germanLanguageFilePath, Resources.German); // New/Overwrite
+        }
+
+        private void ApplyCommentaryIndicesChanges()
+        {
+            var commentary = new Commentary();
+
+            // Update all drivers with reordered commentary indices
+            var counter = 0;
+            foreach (var item in CommentaryIndicesDriver)
             {
-                const string originalText = "John Newhouse";
-                if (ResourceHelper.GetResourceText(LanguageResources, driver.Key) == originalText)
-                {
-                    // Only update text if the original text is still in place
-                    ResourceHelper.SetResourceText(LanguageResources, driver.Key, driver.Value);
-                }
+                item.CommentaryIndex = commentary.DefaultDriverIndices[counter];
+                counter++;
+            }
+
+            // Update all teams with reordered commentary indices
+            counter = 0;
+            foreach (var item in CommentaryIndicesTeam)
+            {
+                item.CommentaryIndex = commentary.DefaultTeamIndices[counter];
+                counter++;
             }
         }
 
-        private void ApplyMissingTestDriverNameFix()
+        private void ApplyDriverNameChanges()
         {
             var drivers = new Dictionary<string, string>
             {
-                {"SID005819", "Jason Watt"},
-                {"SID005835", "Juichi Wakisaka"},
-                {"SID005867", "Mário Haberfeld"}
+                {"SID005801", "Jacques Villeneuve"}, // Replaces "John Newhouse"
+                {"SID005819", "Jason Watt"},         // Replaces "Driver Unknown"
+                {"SID005835", "Juichi Wakisaka"},    // Replaces "Driver Unknown"
+                {"SID005867", "Mário Haberfeld"}     // Replaces "Driver Unknown"
             };
 
             foreach (var driver in drivers)
             {
-                const string originalText = "Driver Unknown";
-                if (ResourceHelper.GetResourceText(LanguageResources, driver.Key) == originalText)
-                {
-                    // Only update text if the original text is still in place
-                    ResourceHelper.SetResourceText(LanguageResources, driver.Key, driver.Value);
-                }
+                ResourceHelper.SetResourceText(LanguageResources, driver.Key, driver.Value);
             }
         }
 
@@ -156,6 +159,11 @@ namespace Data.Databases
         {
             var imageConverter = new ImageConverter();
             File.WriteAllBytes(filePath, (byte[])imageConverter.ConvertTo(resource, typeof(byte[])));
+        }
+
+        private static void CopyResourceToFile(string filePath, byte[] resource)
+        {
+            File.WriteAllBytes(filePath, resource);
         }
 
         private static void CopyResourceToFile(string filePath, string resource)

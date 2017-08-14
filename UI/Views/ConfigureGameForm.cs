@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Data;
 using Data.Collections.Language;
 using Data.Databases;
 using Data.Entities.Commentary;
@@ -106,165 +104,33 @@ namespace GpwEditor.Views
 
         private void CommentaryIndicesDefaultButton_Click(object sender, EventArgs e)
         {
-            var driverValues = new[]
-            {
-                67,
-                68,
-                69,
-                70,
-                71,
-                72,
-                73,
-                74,
-                75,
-                76,
-                77,
-                78,
-                79,
-                80,
-                81,
-                82,
-                83,
-                84,
-                85,
-                86,
-                87,
-                88,
-                89,
-                90,
-                91,
-                92,
-                93,
-                94,
-                95,
-                96,
-                97,
-                98,
-                99,
-                100,
-                101,
-                102,
-                103,
-                104,
-                105,
-                106,
-                107,
-                107,
-                107,
-                107
-            };
-
-            UpdateValuesInDataGridViewColumn(CommentaryIndicesDriverDataGridView, 4, driverValues);
-
-            var teamValues = new[]
-            {
-                231,
-                232,
-                233,
-                234,
-                235,
-                236,
-                237,
-                238,
-                239,
-                240,
-                241
-            };
-
-            UpdateValuesInDataGridViewColumn(CommentaryIndicesTeamDataGridView, 4, teamValues);
+            var commentary = new Commentary();
+            UpdateValuesInDataGridViewColumn(CommentaryIndicesDriverDataGridView, 4, commentary.DefaultDriverIndices);
+            UpdateValuesInDataGridViewColumn(CommentaryIndicesTeamDataGridView, 4, commentary.DefaultTeamIndices);
         }
 
         private void CommentaryDriversDefaultButton_Click(object sender, EventArgs e)
         {
-            var values = new[]
-            {
-                "NEWH",
-                "FREN",
-                "TOY",
-                "SCHU",
-                "IRV",
-                "BAD",
-                "FIS",
-                "WURZ",
-                "ANON",
-                "HAK",
-                "COUL",
-                "ZON",
-                "HIL",
-                "RALF",
-                "ANON",
-                "PAN",
-                "TRU",
-                "SAR",
-                "ALES",
-                "HERB",
-                "MULL",
-                "DIN",
-                "SAL",
-                "COL",
-                "BARI",
-                "MAG",
-                "ANON",
-                "TAK",
-                "ROS",
-                "MONT",
-                "NAK",
-                "TUER",
-                "RED",
-                "ELL",
-                "MAR",
-                "RAIM",
-                "TAN",
-                "EBE",
-                "PAT",
-                "FELL",
-                "LAUR"//,
-                //"EIS",
-                //"WILL",
-                //"MOR"
-            };
-
-            UpdateValuesInDataGridViewColumn(CommentaryPrefixesDriverDataGridView, 2, values);
+            var commentary = new Commentary();
+            UpdateValuesInDataGridViewColumn(CommentaryPrefixesDriverDataGridView, 2, commentary.DefaultDriverCodes.Take(41).ToArray());
         }
 
-        private void CommentaryDriversGenericButton_Click(object sender, EventArgs e)
+        private void CommentaryDriversAnonymousButton_Click(object sender, EventArgs e)
         {
-            var values = new string[41];
-            for (var i = 0; i < values.Length; i++)
-            {
-                values[i] = "ANON";
-            }
-
-            UpdateValuesInDataGridViewColumn(CommentaryPrefixesDriverDataGridView, 2, values);
+            var commentary = new Commentary();
+            UpdateValuesInDataGridViewColumn(CommentaryPrefixesDriverDataGridView, 2, commentary.AnonymousDriverCodes.Take(41).ToArray());
         }
 
         private void CommentaryTeamsDefaultButton_Click(object sender, EventArgs e)
         {
-            var values = new[]
-            {
-                "WIL",
-                "FER",
-                "BEN",
-                "MCL",
-                "JOR",
-                "PRO",
-                "SAU",
-                "ARR",
-                "STEW",
-                "TYR",
-                "MIN",
-            };
-            UpdateValuesInDataGridViewColumn(CommentaryPrefixesTeamDataGridView, 2, values);
+            var commentary = new Commentary();
+            UpdateValuesInDataGridViewColumn(CommentaryPrefixesTeamDataGridView, 2, commentary.DefaultTeamCodes);
         }
 
-        private void CommentaryTeamsGenericButton_Click(object sender, EventArgs e)
+        private void CommentaryTeamsAnonymousButton_Click(object sender, EventArgs e)
         {
-            var values = new string[11];
-            for (var i = 0; i < values.Length; i++)
-            {
-                values[i] = "ANON";
-            }
-            UpdateValuesInDataGridViewColumn(CommentaryPrefixesTeamDataGridView, 2, values);
+            var commentary = new Commentary();
+            UpdateValuesInDataGridViewColumn(CommentaryPrefixesTeamDataGridView, 2, commentary.AnonymousTeamCodes);
         }
 
         private void PerformanceCurveNumericUpDown_ValueChanged(object sender, EventArgs e)

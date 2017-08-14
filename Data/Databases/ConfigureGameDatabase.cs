@@ -46,8 +46,6 @@ namespace Data.Databases
         public bool IsPointsScoringSystemOption3Required { get; set; }
 
         public Collection<CommentaryResource> CommentaryResources { get; set; }
-        public Collection<CommentaryDriverIndex> CommentaryIndicesDriver { get; set; }
-        public Collection<CommentaryTeamIndex> CommentaryIndicesTeam { get; set; }
         public Collection<CommentaryResource> CommentaryResourcesDriverPrefixes { get; set; }
         public Collection<CommentaryResource> CommentaryResourcesTeamPrefixes { get; set; }
         public Collection<StringValue> CommentaryResourcesWavSoundFiles { get; set; }
@@ -113,87 +111,6 @@ namespace Data.Databases
             }
 
             CommentaryResourcesWavSoundFiles = new Collection<StringValue>(GetCommentaryResourcesWavSoundFiles(gameFolderPath));
-        }
-
-        private void ExportCommentaryIndicesDriver(string gameExecutablePath)
-        {
-            ExportData(gameExecutablePath, CommentaryIndicesDriver);
-        }
-
-        private void ImportCommentaryIndicesDriver(string gameExecutablePath)
-        {
-            CommentaryIndicesDriver = new Collection<CommentaryEntities.CommentaryDriverIndex>
-            {
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(0), 0),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(1), 1),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(2), 2),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(3), 3),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(4), 4),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(5), 5),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(6), 6),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(7), 7),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(8), 8),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(9), 9),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(10), 10),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(11), 11),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(12), 12),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(13), 13),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(14), 14),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(15), 15),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(16), 16),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(17), 17),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(18), 18),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(19), 19),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(20), 20),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(21), 21),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(22), 22),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(23), 23),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(24), 24),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(25), 25),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(26), 26),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(27), 27),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(28), 28),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(29), 29),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(30), 30),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(31), 31),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(32), 32),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(33), 33),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(34), 34),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(35), 35),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(36), 36),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(37), 37),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(38), 38),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(39), 39),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(40), 40),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(41), 41),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(42), 42),
-                new CommentaryEntities.CommentaryDriverIndex(new CommentaryMapping.CommentaryDriverIndex(43), 43)
-            };
-            ImportData(gameExecutablePath, CommentaryIndicesDriver);
-        }
-
-        private void ExportCommentaryIndicesTeam(string gameExecutablePath)
-        {
-            ExportData(gameExecutablePath, CommentaryIndicesTeam);
-        }
-
-        private void ImportCommentaryIndicesTeam(string gameExecutablePath)
-        {
-            CommentaryIndicesTeam = new Collection<CommentaryEntities.CommentaryTeamIndex>
-            {
-                new CommentaryEntities.CommentaryTeamIndex(new CommentaryMapping.CommentaryTeamIndex(0), 0),
-                new CommentaryEntities.CommentaryTeamIndex(new CommentaryMapping.CommentaryTeamIndex(1), 1),
-                new CommentaryEntities.CommentaryTeamIndex(new CommentaryMapping.CommentaryTeamIndex(2), 2),
-                new CommentaryEntities.CommentaryTeamIndex(new CommentaryMapping.CommentaryTeamIndex(3), 3),
-                new CommentaryEntities.CommentaryTeamIndex(new CommentaryMapping.CommentaryTeamIndex(4), 4),
-                new CommentaryEntities.CommentaryTeamIndex(new CommentaryMapping.CommentaryTeamIndex(5), 5),
-                new CommentaryEntities.CommentaryTeamIndex(new CommentaryMapping.CommentaryTeamIndex(6), 6),
-                new CommentaryEntities.CommentaryTeamIndex(new CommentaryMapping.CommentaryTeamIndex(7), 7),
-                new CommentaryEntities.CommentaryTeamIndex(new CommentaryMapping.CommentaryTeamIndex(8), 8),
-                new CommentaryEntities.CommentaryTeamIndex(new CommentaryMapping.CommentaryTeamIndex(9), 9),
-                new CommentaryEntities.CommentaryTeamIndex(new CommentaryMapping.CommentaryTeamIndex(10), 10)
-            };
-            ImportData(gameExecutablePath, CommentaryIndicesTeam);
         }
 
         private void ExportGameConfiguration(string gameExecutablePath)
@@ -410,36 +327,6 @@ namespace Data.Databases
             });
             fileList.Sort((x, y) => string.Compare(x.Value, y.Value, StringComparison.Ordinal));
             return fileList;
-        }
-
-        private void ExportData<T>(string gameExecutablePath, IEnumerable<T> collection) where T : IDataConnection
-        {
-            using (var executableConnection = new ExecutableConnection(gameExecutablePath))
-            {
-                foreach (var item in collection)
-                {
-                    item.ExportData(executableConnection, LanguageResources);
-                }
-            }
-        }
-
-        private void ImportData<T>(IEnumerable<T> collection) where T : IDataConnection
-        {
-            foreach (var item in collection)
-            {
-                item.ImportData(null, LanguageResources);
-            }
-        }
-
-        private void ImportData<T>(string gameExecutablePath, IEnumerable<T> collection) where T : IDataConnection
-        {
-            using (var executableConnection = new ExecutableConnection(gameExecutablePath))
-            {
-                foreach (var item in collection)
-                {
-                    item.ImportData(executableConnection, LanguageResources);
-                }
-            }
         }
 
         private void MergeCommentaryResourcesCollections()

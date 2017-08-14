@@ -63,6 +63,16 @@ namespace Data.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _06 {
+            get {
+                object obj = ResourceManager.GetObject("_06", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _24 {
             get {
                 object obj = ResourceManager.GetObject("_24", resourceCulture);
@@ -76,16 +86,6 @@ namespace Data.Properties {
         internal static System.Drawing.Bitmap _40 {
             get {
                 object obj = ResourceManager.GetObject("_40", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _6 {
-            get {
-                object obj = ResourceManager.GetObject("_6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -165,9 +165,141 @@ namespace Data.Properties {
         ///&gt;ENGVIB.WAV Rear wing breaking.&lt;
         ///&gt;FUEL.WAV Fuel lo [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string COMME {
+        internal static string CommE {
             get {
-                return ResourceManager.GetString("COMME", resourceCulture);
+                return ResourceManager.GetString("CommE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &gt;PITNOW1.WAV Aux stands. Aux stands.&lt;
+        ///&gt;PITNOW2.WAV Je rentre.&lt;
+        ///&gt;EASEOFF1.WAV Doucement. Doucement.&lt;
+        ///&gt;EASEOFF2.WAV Je lève le pied.&lt;
+        ///&gt;FLYLAP1.WAV Fonce. Fonce. Fonce.&lt;
+        ///&gt;FLYLAP2.WAV OK. OK. OK.&lt;
+        ///&gt;OVERTAK1.WAV Double. Double. Double.&lt;
+        ///&gt;OVERTAK2.WAV Compris.&lt;
+        ///&gt;BLOCK1.WAV Bloque. Bloque. Bloque.&lt;
+        ///&gt;BLOCK2.WAV Reçu.&lt;
+        ///&gt;LEAVPIT1.WAV Repars. Repars.&lt;
+        ///&gt;LEAVPIT2.WAV Je sors.&lt;
+        ///&gt;12LAPS.WAV Je rentre.&lt;
+        ///&gt;ENGPOW.WAV Perte de puissance.&lt;
+        ///&gt;ENGHEA.WAV Surchauffe.&lt;
+        ///&gt;ENGUND.WAV Perte de traction.&lt;
+        ///&gt;ENGVIB.WAV L&apos;a [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CommF {
+            get {
+                return ResourceManager.GetString("CommF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This file has been marked as redundant by GPW Edit. Refer to \textf\commf.txt.
+        /// </summary>
+        internal static string CommF_Redundant {
+            get {
+                return ResourceManager.GetString("CommF_Redundant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &gt;PITNOW1.WAV Rein. Rein. Rein.&lt;
+        ///&gt;PITNOW2.WAV Komme rein.&lt;
+        ///&gt;EASEOFF1.WAV Langsam. Langsam. Langsam.&lt;
+        ///&gt;EASEOFF2.WAV Bleibe zurück.&lt;
+        ///&gt;FLYLAP1.WAV Ran. Ran. Ran.&lt;
+        ///&gt;FLYLAP2.WAV OK. OK. OK.&lt;
+        ///&gt;OVERTAK1.WAV Vorbei. Vorbei. Vorbei.&lt;
+        ///&gt;OVERTAK2.WAV Verstanden.&lt;
+        ///&gt;BLOCK1.WAV Halten. Halten. Halten.&lt;
+        ///&gt;BLOCK2.WAV Blockiere.&lt;
+        ///&gt;LEAVPIT1.WAV Raus. Raus. Raus.&lt;
+        ///&gt;LEAVPIT2.WAV Gehe raus.&lt;
+        ///&gt;12LAPS.WAV Komme rein.&lt;
+        ///&gt;ENGPOW.WAV Verliere Leistung.&lt;
+        ///&gt;ENGHEA.WAV Überhitze.&lt;
+        ///&gt;ENGUND.WAV Verliere Traktion.&lt;
+        ///&gt;ENGVIB.WAV  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CommG {
+            get {
+                return ResourceManager.GetString("CommG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This file has been marked as redundant by GPW Edit. Refer to \textg\commg.txt.
+        /// </summary>
+        internal static string CommG_Redundant {
+            get {
+                return ResourceManager.GetString("CommG_Redundant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SID000000 &quot;Loan Confirmed&quot;
+        ///SID000001 &quot;Commercial Manager&quot;
+        ///SID000002 &quot;The bank has written to confirm that the loan has been credited to our account.&quot;
+        ///SID000003 &quot;%s has had to borrow money to stay in business.&quot;
+        ///SID000004 &quot;CAP IN HAND&quot;
+        ///SID000005 &quot;%s has secured private investment as part of a growth initiative.&quot;
+        ///SID000006 &quot;BORROW TO WIN&quot;
+        ///SID000007 &quot;Loan Repaid&quot;
+        ///SID000008 &quot;Commercial Manager&quot;
+        ///SID000009 &quot;The bank has confirmed our final loan repayment and has invited us to take out further borrowing.&quot;        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SID000000 &quot;Prêt confirmé&quot;
+        ///SID000001 &quot;Directeur commercial&quot;
+        ///SID000002 &quot;La banque a écrit afin de confirmer le versement du prêt sur notre compte.&quot;
+        ///SID000003 &quot;%s a dû emprunter pour demeurer en course.&quot;
+        ///SID000004 &quot;MANQUE D&apos;ARGENT&quot;
+        ///SID000005 &quot;%s a effectué des investissements privés dans le cadre de sa croissance.&quot;
+        ///SID000006 &quot;EMPRUNTER POUR GAGNER&quot;
+        ///SID000007 &quot;Prêt remboursé&quot;
+        ///SID000008 &quot;Directeur commercial&quot;
+        ///SID000009 &quot;La banque a confirmé notre dernier remboursement et nous a invité à faire un nouvel  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string French {
+            get {
+                return ResourceManager.GetString("French", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SID000000 &quot;Kredit bestätigt&quot;
+        ///SID000001 &quot;Kommerz-Manager&quot;
+        ///SID000002 &quot;Die Bank hat uns geschrieben, dass der Kredit auf unser Konto überwiesen wurde.&quot;
+        ///SID000003 &quot;%s musste sich Geld leihen, um im Geschäft zu bleiben.&quot;
+        ///SID000004 &quot;DEN HUT AUFHALTEN&quot;
+        ///SID000005 &quot;%s hat sich private Gelder für eine Wachtumsinitiative gesichert.&quot;
+        ///SID000006 &quot;GEBORGTE SIEGE&quot;
+        ///SID000000 &quot;Kredit abgezahlt&quot;
+        ///SID000008 &quot;Kommerz-Manager&quot;
+        ///SID000009 &quot;Die Bank hat den Eingang der letzten Rate bestätigt und empfiehlt sich für die Zukun [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string German {
+            get {
+                return ResourceManager.GetString("German", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Gpw {
+            get {
+                object obj = ResourceManager.GetObject("Gpw", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

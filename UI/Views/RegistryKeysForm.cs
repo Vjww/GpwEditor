@@ -155,10 +155,5 @@ namespace GpwEditor.Views
                         Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
     }
 }

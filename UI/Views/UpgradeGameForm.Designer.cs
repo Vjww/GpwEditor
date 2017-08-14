@@ -53,7 +53,7 @@
             this.FilesGroupBox.Location = new System.Drawing.Point(6, 6);
             this.FilesGroupBox.Name = "FilesGroupBox";
             this.FilesGroupBox.Size = new System.Drawing.Size(918, 48);
-            this.FilesGroupBox.TabIndex = 2;
+            this.FilesGroupBox.TabIndex = 1;
             this.FilesGroupBox.TabStop = false;
             this.FilesGroupBox.Text = "Files";
             // 
@@ -63,7 +63,7 @@
             this.GameFolderPathLabel.Location = new System.Drawing.Point(30, 24);
             this.GameFolderPathLabel.Name = "GameFolderPathLabel";
             this.GameFolderPathLabel.Size = new System.Drawing.Size(70, 13);
-            this.GameFolderPathLabel.TabIndex = 14;
+            this.GameFolderPathLabel.TabIndex = 2;
             this.GameFolderPathLabel.Text = "Game Folder:";
             // 
             // GameFolderPathTextBox
@@ -72,7 +72,7 @@
             this.GameFolderPathTextBox.Name = "GameFolderPathTextBox";
             this.GameFolderPathTextBox.ReadOnly = true;
             this.GameFolderPathTextBox.Size = new System.Drawing.Size(644, 20);
-            this.GameFolderPathTextBox.TabIndex = 17;
+            this.GameFolderPathTextBox.TabIndex = 3;
             this.GameFolderPathTextBox.TabStop = false;
             // 
             // BrowseGameFolderButton
@@ -80,7 +80,7 @@
             this.BrowseGameFolderButton.Location = new System.Drawing.Point(756, 19);
             this.BrowseGameFolderButton.Name = "BrowseGameFolderButton";
             this.BrowseGameFolderButton.Size = new System.Drawing.Size(75, 23);
-            this.BrowseGameFolderButton.TabIndex = 21;
+            this.BrowseGameFolderButton.TabIndex = 4;
             this.BrowseGameFolderButton.Text = "Browse...";
             this.BrowseGameFolderButton.UseVisualStyleBackColor = true;
             this.BrowseGameFolderButton.Click += new System.EventHandler(this.BrowseGameFolderButton_Click);
@@ -90,7 +90,7 @@
             this.UpgradeButton.Location = new System.Drawing.Point(837, 19);
             this.UpgradeButton.Name = "UpgradeButton";
             this.UpgradeButton.Size = new System.Drawing.Size(75, 23);
-            this.UpgradeButton.TabIndex = 3;
+            this.UpgradeButton.TabIndex = 5;
             this.UpgradeButton.Text = "Upgrade";
             this.UpgradeButton.UseVisualStyleBackColor = true;
             this.UpgradeButton.Click += new System.EventHandler(this.UpgradeButton_Click);
@@ -101,7 +101,7 @@
             this.OverviewGroupBox.Location = new System.Drawing.Point(6, 60);
             this.OverviewGroupBox.Name = "OverviewGroupBox";
             this.OverviewGroupBox.Size = new System.Drawing.Size(918, 463);
-            this.OverviewGroupBox.TabIndex = 3;
+            this.OverviewGroupBox.TabIndex = 6;
             this.OverviewGroupBox.TabStop = false;
             // 
             // OverviewRichTextBox
@@ -112,7 +112,7 @@
             this.OverviewRichTextBox.Name = "OverviewRichTextBox";
             this.OverviewRichTextBox.ReadOnly = true;
             this.OverviewRichTextBox.Size = new System.Drawing.Size(906, 438);
-            this.OverviewRichTextBox.TabIndex = 2;
+            this.OverviewRichTextBox.TabIndex = 7;
             this.OverviewRichTextBox.Text = resources.GetString("OverviewRichTextBox.Text");
             // 
             // UpgradeTabControl

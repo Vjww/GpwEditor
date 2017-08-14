@@ -71,9 +71,27 @@ namespace GpwEditor.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("english.txt")]
-        public string DefaultLanguageFileName {
+        public string DefaultEnglishLanguageFileName {
             get {
-                return ((string)(this["DefaultLanguageFileName"]));
+                return ((string)(this["DefaultEnglishLanguageFileName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("french.txt")]
+        public string DefaultFrenchLanguageFileName {
+            get {
+                return ((string)(this["DefaultFrenchLanguageFileName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("german.txt")]
+        public string DefaultGermanLanguageFileName {
+            get {
+                return ((string)(this["DefaultGermanLanguageFileName"]));
             }
         }
         
@@ -92,24 +110,12 @@ namespace GpwEditor.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string UserGameExecutablePath {
+        public string UserGameLaunchCommand {
             get {
-                return ((string)(this["UserGameExecutablePath"]));
+                return ((string)(this["UserGameLaunchCommand"]));
             }
             set {
-                this["UserGameExecutablePath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string UserLanguageFilePath {
-            get {
-                return ((string)(this["UserLanguageFilePath"]));
-            }
-            set {
-                this["UserLanguageFilePath"] = value;
+                this["UserGameLaunchCommand"] = value;
             }
         }
         
@@ -140,12 +146,12 @@ namespace GpwEditor.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string MruLanguageFilePath {
+        public string MruEnglishLanguageFilePath {
             get {
-                return ((string)(this["MruLanguageFilePath"]));
+                return ((string)(this["MruEnglishLanguageFilePath"]));
             }
             set {
-                this["MruLanguageFilePath"] = value;
+                this["MruEnglishLanguageFilePath"] = value;
             }
         }
         

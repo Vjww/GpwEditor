@@ -673,25 +673,6 @@ namespace Data.Databases
             TyreSupplierIdAsSupplierIdLookups = ImportLookups<LookupEntities.TyreSupplierIdAsSupplierId, LookupMapping.TyreSupplierIdAsSupplierId>(3);
         }
 
-        private void ImportData<T>(IEnumerable<T> collection) where T : IDataConnection
-        {
-            foreach (var item in collection)
-            {
-                item.ImportData(null, LanguageResources);
-            }
-        }
-
-        private void ImportData<T>(string gameExecutablePath, IEnumerable<T> collection) where T : IDataConnection
-        {
-            using (var executableConnection = new ExecutableConnection(gameExecutablePath))
-            {
-                foreach (var item in collection)
-                {
-                    item.ImportData(executableConnection, LanguageResources);
-                }
-            }
-        }
-
         /// <summary>
         /// Generic method that imports a collection of lookup entities.
         /// </summary>
@@ -714,17 +695,6 @@ namespace Data.Databases
             }
             ImportData(lookups);
             return lookups;
-        }
-
-        private void ExportData<T>(string gameExecutablePath, IEnumerable<T> collection) where T : IDataConnection
-        {
-            using (var executableConnection = new ExecutableConnection(gameExecutablePath))
-            {
-                foreach (var item in collection)
-                {
-                    item.ExportData(executableConnection, LanguageResources);
-                }
-            }
         }
     }
 }

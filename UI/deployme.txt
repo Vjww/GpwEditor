@@ -1,0 +1,14 @@
+﻿Click on the Project menu and select "{Project} Properties..."
+
+Click on the Publish tab and set the Publish location (deployment folder).
+
+e.g. \\localhost\c$\Source\Deployment\{Project}\
+
+Click the Options button and on the Description page, set the Product name as required and click OK.
+
+When changing the version of the application, change both the AssemblyInfo.cs files for each project
+and the Publish Version through the the Publish tab.
+
+Under the Build menu, use the Publish command to publish the solution to the deployment folder.
+
+Zip the deployment files and name the archive as {Project}_X_X_X_X.zip

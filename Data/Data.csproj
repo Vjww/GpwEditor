@@ -37,6 +37,7 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commentary.cs" />
     <Compile Include="Databases\ConfigureGameDatabase.cs" />
     <Compile Include="Databases\DatabaseBase.cs" />
     <Compile Include="Entities\Commentary\CommentaryTeamIndex.cs" />
@@ -284,6 +285,14 @@
     <Content Include="Notes\snippets.txt" />
     <Content Include="Notes\Opcode_E8_CALL.txt" />
     <Content Include="Notes\sponsorsuppliercontracts.txt" />
+    <Content Include="Resources\english.txt" />
+    <Content Include="Resources\french.txt" />
+    <Content Include="Resources\german.txt" />
+    <Content Include="Resources\gpw.exe" />
+    <Content Include="Resources\textf\Commf.txt" />
+    <Content Include="Resources\textg\Commg.TXT" />
+    <Content Include="Resources\text\Commf.txt" />
+    <Content Include="Resources\text\Commg.TXT" />
     <None Include="Resources\text\COMME.TXT" />
     <None Include="Resources\bmp\dheads\6.bmp" />
     <None Include="Resources\bmp\dheads\72.bmp" />

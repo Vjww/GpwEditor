@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>\\localhost\c%24\Dev\Deployment\</PublishUrl>
+    <PublishUrl>\\localhost\c%24\Dev\Deployment\GpwEdit\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,9 +23,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>GpwEdit</ProductName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -53,6 +56,15 @@
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>46D05BF18614F6215FD588CF78EFA1AD1480138B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GpwEditor_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -195,22 +207,23 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Base\ss1.png" />
-    <Content Include="Resources\Base\ss2.png" />
-    <Content Include="Resources\Base\ss3.png" />
-    <Content Include="Resources\Base\ss4.png" />
-    <Content Include="Resources\Base\ss5.png" />
+    <None Include="GpwEditor_TemporaryKey.pfx" />
+    <None Include="Resources\Base\ss1.png" />
+    <None Include="Resources\Base\ss2.png" />
+    <None Include="Resources\Base\ss3.png" />
+    <None Include="Resources\Base\ss4.png" />
+    <None Include="Resources\Base\ss5.png" />
     <None Include="Properties\DataSources\Data.Entities.Commentary.CommentaryTeamIndex.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Resources\icon1.ico" />
-    <Content Include="Resources\logo1.png" />
-    <Content Include="Resources\logo2.png" />
-    <Content Include="Resources\logo3.png" />
-    <Content Include="Resources\logo4.png" />
-    <Content Include="Resources\logo5.png" />
+    <None Include="Resources\logo1.png" />
+    <None Include="Resources\logo2.png" />
+    <None Include="Resources\logo3.png" />
+    <None Include="Resources\logo4.png" />
+    <None Include="Resources\logo5.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common\Common.csproj">
@@ -239,7 +252,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="deployme.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

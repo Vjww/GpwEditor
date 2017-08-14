@@ -128,7 +128,7 @@
 
 Use this tool to upgrade your Grand Prix World installation to the latest specification that is required to support this program.
 
-It is strongly recommended that you only attempt to upgrade a fresh/unmodified installation of the game (either official version 1.00 or 1.01b). Do not install any other patches, mods or season updates at this stage, as the upgrade process will make substantial changes to the files in the game folder. Existing patches, mods or season updates may become incompatible with the game once the upgrade has been applied. The Windows XP version of the game executable (gpwxp.exe) is unsupported by this program, however the upgrade process will allow the game to run on all modern operating systems. If the game folder path is at a location that requires administrator rights to modify the contents (e.g. C:\\Program Files\\MicroProse\\Grand Prix World), you should re-run (and always run) this program as an administrator.
+It is strongly recommended that you only attempt to upgrade a fresh/unmodified installation of the game (either official version 1.00 or 1.01b). Do not install any other patches, mods or season updates at this stage, as the upgrade process will make substantial changes to the files in the game folder. Existing patches, mods or season updates may become incompatible with the game once the upgrade has been applied. The Windows XP version of the game executable (gpwxp.exe) is unsupported by this program and is no longer required, as the upgrade process will allow the game to run on all modern operating systems. If the game folder path is at a location that requires administrator rights to modify the contents (e.g. C:\\Program Files\\MicroProse\\Grand Prix World), you should re-run (and always run) this program as an administrator.
 
 To upgrade, click the Browse button to select the path of the game folder (e.g. C:\\Gpw) and then click the Upgrade button.
 
@@ -145,10 +145,10 @@ On upgrading, the following changes are applied:
 - Jason Watt joins the game as a test driver for Benetton and will use an anonymous commentary sound clip with a named commentary transcript.
 - Juichi Wakisaka joins the game as a test driver for Jordan and will use an anonymous commentary sound clip with a named commentary transcript.
 - Mário Haberfeld joins the game as a test driver for Stewart and will use an anonymous commentary sound clip with a named commentary transcript.
-- Non-F1 drivers Karl Eisen, Pete Johnson and Celso Moreira will share* the same commentary sound clips and transcripts used for Dario Laureti.
+- Non-F1 drivers Karl Eisen, Pete Johnson and Celso Moreira will share the same commentary sound clips and transcripts used for Dario Laureti. *
 - The French Grand Prix now has 72 laps instead of 71. The race in 1998 was reduced by one lap due to an aborted start.
 - The Japanese Grand Prix now has 53 laps instead of 51. The race in 1998 was reduced by two laps due to two aborted starts.
 
-* The game currently only allocates commentary sound clips and transcripts for 41 drivers (of a potential 44 drivers).}</value>
+* Currently the game only allocates commentary sound clips and transcripts for 41 drivers (of a potential 44 drivers).}</value>
   </data>
 </root>

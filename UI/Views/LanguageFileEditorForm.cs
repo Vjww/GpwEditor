@@ -226,9 +226,9 @@ namespace GpwEditor.Views
 
             try
             {
-                // TODO: FolderTest(gameFolderPath);
-                FileTest(gameExecutablePath);
-                FileTest(languageFilePath);
+                // TODO: FolderExists(gameFolderPath);
+                FileExists(gameExecutablePath);
+                FileExists(languageFilePath);
 
                 // Fill database with data from controls and export to file
                 var database = new LanguageDatabase();
@@ -327,9 +327,9 @@ namespace GpwEditor.Views
 
             try
             {
-                // TODO: FolderTest(gameFolderPath);
-                FileTest(gameExecutablePath);
-                FileTest(languageFilePath);
+                // TODO: FolderExists(gameFolderPath);
+                FileExists(gameExecutablePath);
+                FileExists(languageFilePath);
 
                 // Import from file to database and fill controls with data
                 var database = new LanguageDatabase();

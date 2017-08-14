@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using Data.Databases;
 using GpwEditor.Properties;
@@ -41,22 +42,24 @@ namespace GpwEditor.Views
 
         private void UpgradeButton_Click(object sender, EventArgs e)
         {
-            // TODO: refactor/remove paths to executable and language
-            Upgrade(GameFolderPathTextBox.Text, GetGameExecutableMruOrDefault(), GetLanguageFileMruOrDefault());
+            var gameFolderPath = GameFolderPathTextBox.Text;
+            var gameExecutablePath = Path.Combine(gameFolderPath, Settings.Default.DefaultGameExecutableName);
+            var englishLanguageFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultEnglishLanguageFileName);
+            var frenchLanguageFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultFrenchLanguageFileName);
+            var germanLanguageFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultGermanLanguageFileName);
+            Upgrade(gameFolderPath, gameExecutablePath, englishLanguageFilePath, frenchLanguageFilePath, germanLanguageFilePath);
         }
 
-        private static void Upgrade(string gameFolderPath, string gameExecutablePath, string languageFilePath)
+        private static void Upgrade(string gameFolderPath, string gameExecutablePath, string englishLanguageFilePath, string frenchLanguageFilePath, string germanLanguageFilePath)
         {
             Cursor.Current = Cursors.WaitCursor;
 
             try
             {
-                FolderTest(gameFolderPath);
-                FileTest(gameExecutablePath);
-                FileTest(languageFilePath);
+                FolderExists(gameFolderPath);
 
                 var database = new UpgradeGameDatabase();
-                database.Upgrade(gameFolderPath, gameExecutablePath, languageFilePath);
+                database.Upgrade(gameFolderPath, gameExecutablePath, englishLanguageFilePath, frenchLanguageFilePath, germanLanguageFilePath);
             }
             catch (Exception ex)
             {

@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\Common\Common\Common.csproj", "{AB9E96A9-201F-4B41-96D4-3157B88FA1EE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Releases", "Releases", "{D2DF110B-9563-4467-B0C3-7572BFA10D2B}"
+	ProjectSection(SolutionItems) = preProject
+		Releases\GpwEdit_1_0_0_0.zip = Releases\GpwEdit_1_0_0_0.zip
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Executable", "Executable", "{12B1C695-63E8-477A-B219-4B88E532FCAB}"
 	ProjectSection(SolutionItems) = preProject

@@ -5,7 +5,7 @@ namespace Data
     public class LanguageFileVerification
     {
         private const long MinimumSupportedFileSize = 260000;
-        private const long MaximumSupportedFileSize = 270000;
+        private const long MaximumSupportedFileSize = 295000;
 
         public bool IsFileSupported(string filePath, out string message)
         {
