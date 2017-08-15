@@ -65,15 +65,15 @@ namespace Data.Databases
             ApplyReversibleCode(new CarDesignCalculationUpdate(gameExecutablePath), true);
             ApplyReversibleCode(new CarHandlingPerformanceFix(gameExecutablePath), true);
 
-            ImportCommentaryIndicesDriver(gameExecutablePath);
-            ImportCommentaryIndicesTeam(gameExecutablePath);
 
             // Enhancements
             DeployDriverResourcesToGameFolder(gameFolderPath);
             DeployCommentaryResourcesToGameFolder(gameFolderPath);
-            ApplyCommentaryIndicesChanges();
             ApplyDriverNameChanges();
 
+            ImportCommentaryIndicesDriver(gameExecutablePath);
+            ImportCommentaryIndicesTeam(gameExecutablePath);
+            ApplyCommentaryIndicesChanges();
             ExportCommentaryIndicesDriver(gameExecutablePath);
             ExportCommentaryIndicesTeam(gameExecutablePath);
 
