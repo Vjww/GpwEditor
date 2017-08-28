@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using ConsoleApplication.Entities;
 
 namespace ConsoleApplication.Repositories
 {
-    public class Repository<T> : IRepository<T> where T : class, IEntity
+    public class Repository<T> : IRepository<T>
+        where T : class, IEntity
     {
         private readonly Collection<T> _collection;
 
@@ -25,12 +25,14 @@ namespace ConsoleApplication.Repositories
             return _collection;
         }
 
-        public IEnumerable<T> Get(Func<T, bool> predicate)
-        {
-            return _collection.Where(predicate).AsEnumerable();
-        }
+        #region Disabled Get Method
+        //public IEnumerable<T> Get(Func<T, bool> predicate)
+        //{
+        //    return _collection.Where(predicate).AsEnumerable();
+        //}
+        #endregion
 
-        public void Set(T item)
+        public void SetById(T item)
         {
             for (var i = 0; i < _collection.Count; i++)
             {
@@ -41,19 +43,21 @@ namespace ConsoleApplication.Repositories
             }
         }
 
-        public void Set(IEnumerable<T> collection)
-        {
-            var array = collection as T[] ?? collection.OrderBy(x => x.Id).ToArray();
+        #region Disabled Set Method
+        //public void Set(IEnumerable<T> collection)
+        //{
+        //    var array = collection as T[] ?? collection.OrderBy(x => x.Id).ToArray();
 
-            if (_collection.Count != array.Length)
-            {
-                throw new Exception("The number of items in the source collection does not match the number of items in the destination collection.");
-            }
+        //    if (_collection.Count != array.Length)
+        //    {
+        //        throw new Exception("The number of items in the source collection does not match the number of items in the destination collection.");
+        //    }
 
-            for (var i = 0; i < _collection.Count; i++)
-            {
-                _collection[i] = array[i];
-            }
-        }
+        //    for (var i = 0; i < _collection.Count; i++)
+        //    {
+        //        _collection[i] = array[i];
+        //    }
+        //}
+        #endregion
     }
 }

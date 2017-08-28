@@ -1,5 +1,5 @@
 ﻿
- DbContext                   DirectContext
+  Database                      Direct
      |                             |
      |                             |
 Repositories ---------------- DataSources
@@ -10,17 +10,14 @@ Repositories ---------------- DataSources
                     |
                  Mappers
 
-//DbContext - collection of repositories
+Database - contains repositories
+Repositories - contains entities
+Entities - contains game data
 
-RepositoryManager - collection of repositories
-Repositories - collection of entities
-
+Direct - access to memory streams
 DataSources - data source for the editing context
+Streams - loads/saves data from/to files
+Files - contains game data
 
-Entities - objects to store game data
 Populators - imports/exports entities from/to memory streams
-Streams - imports/exports data from/to files
-
-Mappers - where to find the values in the game files.
-
-Services - largely memory stream and file services
+Mappers - where to find the values in the game files

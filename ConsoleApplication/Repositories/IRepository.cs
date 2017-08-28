@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ConsoleApplication.Entities;
 
 namespace ConsoleApplication.Repositories
@@ -8,8 +7,12 @@ namespace ConsoleApplication.Repositories
     {
         T GetById(int id);
         IEnumerable<T> Get();
-        IEnumerable<T> Get(Func<T, bool> predicate);
-        void Set(T item);
-        void Set(IEnumerable<T> collection);
+        #region Disabled Get Method
+        //IEnumerable<T> Get(Func<T, bool> predicate);
+        #endregion
+        void SetById(T item);
+        #region Disabled Set Method
+        //void Set(IEnumerable<T> collection);
+        #endregion
     }
 }

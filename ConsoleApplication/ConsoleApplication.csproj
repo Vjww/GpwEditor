@@ -43,35 +43,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSources\DataSource.cs" />
+    <Compile Include="DataSources\SaveGameDataSource.cs" />
+    <Compile Include="DataSources\BaseGameDataSource.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="DataSources\IDataSource.cs" />
-    <Compile Include="Mappers\CarNumberMapper.cs" />
+    <Compile Include="Infrastructure\SaveGameConnectionStrings.cs" />
+    <Compile Include="Infrastructure\IConnectionStrings.cs" />
+    <Compile Include="Managers\DatabaseBase.cs" />
+    <Compile Include="Mappers\BaseGame\CarNumberMapper.cs" />
     <Compile Include="Mappers\IMapper.cs" />
     <Compile Include="Mappers\MapperBase.cs" />
-    <Compile Include="Entities\CarNumberEntity.cs" />
+    <Compile Include="Entities\BaseGame\CarNumberEntity.cs" />
     <Compile Include="Entities\EntityBase.cs" />
-    <Compile Include="Infrastructure\ConnectionStrings.cs" />
-    <Compile Include="Populators\CarNumberPopulator.cs" />
+    <Compile Include="Infrastructure\BaseGameConnectionStrings.cs" />
+    <Compile Include="Populators\BaseGame\CarNumberPopulator.cs" />
     <Compile Include="Populators\IPopulator.cs" />
     <Compile Include="Populators\PopulatorBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
-    <Compile Include="Managers\IRepositoryManager.cs" />
+    <Compile Include="Managers\IDatabase.cs" />
     <Compile Include="Repositories\Repository.cs" />
-    <Compile Include="Managers\RepositoryManager.cs" />
-    <Compile Include="Services\BinaryFileService.cs" />
-    <Compile Include="Services\IFileService.cs" />
-    <Compile Include="Services\IMemoryStreamService.cs" />
-    <Compile Include="Services\MemoryStreamService.cs" />
-    <Compile Include="Services\TextFileService.cs" />
+    <Compile Include="Managers\BaseGameDatabase.cs" />
+    <Compile Include="Services\IStreamService.cs" />
+    <Compile Include="Services\StreamService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\SaveGame\" />
+    <Folder Include="Mappers\SaveGame\" />
+    <Folder Include="Populators\SaveGame\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

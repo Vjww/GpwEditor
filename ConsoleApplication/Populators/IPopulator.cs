@@ -1,10 +1,8 @@
-﻿using ConsoleApplication.DataSources;
-
-namespace ConsoleApplication.Populators
+﻿namespace ConsoleApplication.Populators
 {
-    public interface IPopulator<in TEntity, in TMapper>
+    public interface IPopulator<in T, in TU, in TV>
     {
-        void PopulateEntityFromDataSource(IDataSource dataSource, TEntity entity, TMapper mapper);
-        void PopulateDataSourceFromEntity(IDataSource dataSource, TEntity entity, TMapper mapper);
+        void ImportEntityFromDataSource(T dataSource, TU entity, TV mapper);
+        void ExportEntityToDataSource(T dataSource, TU entity, TV mapper);
     }
 }

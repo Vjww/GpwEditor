@@ -1,15 +1,11 @@
-﻿using ConsoleApplication.Services;
+﻿using ConsoleApplication.Infrastructure;
 
 namespace ConsoleApplication.DataSources
 {
-    public interface IDataSource
+    public interface IDataSource<in T>
+        where T : class, IConnectionStrings
     {
-        IMemoryStreamService GameExecutable { get; }
-        IMemoryStreamService EnglishLanguageResource { get; }
-        IMemoryStreamService FrenchLanguageResource { get; }
-        IMemoryStreamService GermanLanguageResource { get; }
-        IMemoryStreamService EnglishCommentaryResource { get; }
-        IMemoryStreamService FrenchCommentaryResource { get; }
-        IMemoryStreamService GermanCommentaryResource { get; }
+        void Load(T connectionStrings);
+        void Save(T connectionStrings);
     }
 }
