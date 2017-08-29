@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using ConsoleApplication.DataSources;
 using ConsoleApplication.Entities;
+using ConsoleApplication.Factories;
 using ConsoleApplication.Infrastructure;
 using ConsoleApplication.Mappers;
 using ConsoleApplication.Populators;
@@ -24,8 +25,8 @@ namespace ConsoleApplication.Managers
             var collection = new Collection<TEntity>();
             for (var i = 0; i < itemCount; i++)
             {
-                var entity = new TEntity { Id = i };
-                var mapper = new TMapper { Id = i };
+                var entity = EntityFactory<TEntity>.New(i);
+                var mapper = MapperFactory<TMapper>.New(i);
                 mapper.Map();
 
                 var populator = new TPopulator();
@@ -44,8 +45,7 @@ namespace ConsoleApplication.Managers
             for (var i = 0; i < itemCount; i++)
             {
                 var entity = repository.GetById(i);
-
-                var mapper = new TMapper { Id = i };
+                var mapper = MapperFactory<TMapper>.New(i);
                 mapper.Map();
 
                 var populator = new TPopulator();

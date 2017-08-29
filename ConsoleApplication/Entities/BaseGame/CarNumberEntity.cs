@@ -2,7 +2,7 @@
 {
     public class CarNumberEntity : EntityBase
     {
-        public int CarNumberA { get; set; }
-        public int CarNumberB { get; set; }
+        public int ValueA { get; set; }
+        public int ValueB { get; set; }
     }
 }

@@ -9,14 +9,14 @@ namespace ConsoleApplication.Populators.BaseGame
     {
         public override void ImportEntityFromDataSource(BaseGameDataSource dataSource, CarNumberEntity entity, CarNumberMapper mapper)
         {
-            entity.CarNumberA = ReadIntegerFromMemoryStream(dataSource.GameExecutable, mapper.CarNumberA);
-            entity.CarNumberB = ReadIntegerFromMemoryStream(dataSource.GameExecutable, mapper.CarNumberB);
+            entity.ValueA = ReadIntegerFromMemoryStream(dataSource.GameExecutable, mapper.ValueA);
+            entity.ValueB = ReadIntegerFromMemoryStream(dataSource.GameExecutable, mapper.ValueB);
         }
 
         public override void ExportEntityToDataSource(BaseGameDataSource dataSource, CarNumberEntity entity, CarNumberMapper mapper)
         {
-            WriteIntegerToMemoryStream(dataSource.GameExecutable, mapper.CarNumberA, entity.CarNumberA);
-            WriteIntegerToMemoryStream(dataSource.GameExecutable, mapper.CarNumberB, entity.CarNumberB);
+            WriteIntegerToMemoryStream(dataSource.GameExecutable, mapper.ValueA, entity.ValueA);
+            WriteIntegerToMemoryStream(dataSource.GameExecutable, mapper.ValueB, entity.ValueB);
         }
     }
 }

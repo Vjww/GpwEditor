@@ -45,18 +45,23 @@
   <ItemGroup>
     <Compile Include="DataSources\SaveGameDataSource.cs" />
     <Compile Include="DataSources\BaseGameDataSource.cs" />
+    <Compile Include="Entities\BaseGame\ChassisHandlingEntity.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="DataSources\IDataSource.cs" />
+    <Compile Include="Factories\EntityFactory.cs" />
+    <Compile Include="Factories\MapperFactory.cs" />
     <Compile Include="Infrastructure\SaveGameConnectionStrings.cs" />
     <Compile Include="Infrastructure\IConnectionStrings.cs" />
     <Compile Include="Managers\DatabaseBase.cs" />
     <Compile Include="Mappers\BaseGame\CarNumberMapper.cs" />
+    <Compile Include="Mappers\BaseGame\ChassisHandlingMapper.cs" />
     <Compile Include="Mappers\IMapper.cs" />
     <Compile Include="Mappers\MapperBase.cs" />
     <Compile Include="Entities\BaseGame\CarNumberEntity.cs" />
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Infrastructure\BaseGameConnectionStrings.cs" />
     <Compile Include="Populators\BaseGame\CarNumberPopulator.cs" />
+    <Compile Include="Populators\BaseGame\ChassisHandlingPopulator.cs" />
     <Compile Include="Populators\IPopulator.cs" />
     <Compile Include="Populators\PopulatorBase.cs" />
     <Compile Include="Program.cs" />

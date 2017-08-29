@@ -15,7 +15,7 @@ namespace ConsoleApplication.Entities
 
         private void SetId(int id)
         {
-            Debug.Assert(!_isInitialised, $"The {nameof(Id)} property cannot be changed once it has been initialised.");
+            Debug.Assert(!_isInitialised, $"The {nameof(Id)} property cannot be changed after it has been initialised.");
 
             _id = id;
             _isInitialised = true;

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using ConsoleApplication.DataSources;
 using ConsoleApplication.Infrastructure;
 using ConsoleApplication.Managers;
@@ -44,21 +43,22 @@ namespace ConsoleApplication
             gameDatabase.Import(gameDataSource);
 
             // Display values
-            var records = gameDatabase.CarNumberRepository.Get();
-            foreach (var record in records)
+            Console.WriteLine("CarNumberRepository");
+            Console.WriteLine("-------------------");
+            var carNumberEntities = gameDatabase.CarNumberRepository.Get();
+            foreach (var entity in carNumberEntities)
             {
-                Console.WriteLine($"Id:{record.Id}, A:{record.CarNumberA}, B:{record.CarNumberB}");
+                Console.WriteLine($"Id:{entity.Id}, A:{entity.ValueA}, B:{entity.ValueB}");
             }
 
-            // Change values
-            records.First(x => x.Id == 6).CarNumberA = 33;
-            records.First(x => x.Id == 6).CarNumberB = 34;
-
-            // Display changed values
-            var changedRecords = gameDatabase.CarNumberRepository.Get();
-            foreach (var changedRecord in changedRecords)
+            // Display values
+            Console.WriteLine();
+            Console.WriteLine("ChassisHandlingRepository");
+            Console.WriteLine("-------------------------");
+            var chassisHandlingEntities = gameDatabase.ChassisHandlingRepository.Get();
+            foreach (var entity in chassisHandlingEntities)
             {
-                Console.WriteLine($"Id:{changedRecord.Id}, A:{changedRecord.CarNumberA}, B:{changedRecord.CarNumberB}");
+                Console.WriteLine($"Id:{entity.Id}, A:{entity.Value}");
             }
 
             // Destination
