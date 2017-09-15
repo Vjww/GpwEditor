@@ -283,7 +283,7 @@ namespace Data.Properties {
         ///SID000004 &quot;DEN HUT AUFHALTEN&quot;
         ///SID000005 &quot;%s hat sich private Gelder für eine Wachtumsinitiative gesichert.&quot;
         ///SID000006 &quot;GEBORGTE SIEGE&quot;
-        ///SID000000 &quot;Kredit abgezahlt&quot;
+        ///SID000007 &quot;Kredit abgezahlt&quot;
         ///SID000008 &quot;Kommerz-Manager&quot;
         ///SID000009 &quot;Die Bank hat den Eingang der letzten Rate bestätigt und empfiehlt sich für die Zukun [rest of string was truncated]&quot;;.
         /// </summary>
