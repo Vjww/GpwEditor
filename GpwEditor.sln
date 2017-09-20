@@ -62,6 +62,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkingNotes", "WorkingNote
 		WorkingNotes\TodoList.txt = WorkingNotes\TodoList.txt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GpwDevTest", "GpwDevTest", "{54C02E11-257B-491E-A97B-BF886D289432}"
+	ProjectSection(SolutionItems) = preProject
+		GpwDevTest\GpwDevTest.zip = GpwDevTest\GpwDevTest.zip
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
