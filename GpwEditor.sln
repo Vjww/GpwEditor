@@ -49,6 +49,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GpwEditor.Application", "Gp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GpwEditor.Infrastructure.Tests", "GpwEditor.Infrastructure.Tests\GpwEditor.Infrastructure.Tests.csproj", "{33F89894-8188-4F87-A4C8-330F241A73A8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkingNotes", "WorkingNotes", "{6F52DFCA-0E82-41B4-9524-C664BCF12A1A}"
+	ProjectSection(SolutionItems) = preProject
+		WorkingNotes\QualViewport1.txt = WorkingNotes\QualViewport1.txt
+		WorkingNotes\QualViewport2.txt = WorkingNotes\QualViewport2.txt
+		WorkingNotes\RaceViewport1.txt = WorkingNotes\RaceViewport1.txt
+		WorkingNotes\RaceViewport2.txt = WorkingNotes\RaceViewport2.txt
+		WorkingNotes\SponsorStruct11.txt = WorkingNotes\SponsorStruct11.txt
+		WorkingNotes\SponsorStruct12.txt = WorkingNotes\SponsorStruct12.txt
+		WorkingNotes\SponsorStruct13.txt = WorkingNotes\SponsorStruct13.txt
+		WorkingNotes\SponsorStruct14.txt = WorkingNotes\SponsorStruct14.txt
+		WorkingNotes\TodoList.txt = WorkingNotes\TodoList.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

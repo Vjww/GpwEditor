@@ -1,0 +1,55 @@
+.text:004E7A2E C6 05 C6 62 7E 00 01                                mov     ds:byte_7E62C6, 1        // Value 1 - the team id?
+.text:004E7A35 68 0C 13 00 00                                      push    130Ch                    // Value 2 - the sponsor stringId (could fix up Marrano etc.)
+.text:004E7A3A E8 DC BC 02 00                                      call    uf_XpLoadResourceString3 // ...
+.text:004E7A3F 83 C4 04                                            add     esp, 4                   // ...
+.text:004E7A42 50                                                  push    eax             ; Source // ...
+.text:004E7A43 B8 90 5C 7E 00                                      mov     eax, offset dword_7E5C90 // ...
+.text:004E7A48 05 18 06 00 00                                      add     eax, 618h                // ... this value changes to add offset to 0x007E5C90
+.text:004E7A4D 50                                                  push    eax             ; Dest   // ...
+.text:004E7A4E E8 39 4B 19 00                                      call    _strcpy                  // ...
+.text:004E7A53 83 C4 08                                            add     esp, 8                   // ...
+.text:004E7A56 C7 05 F8 62 7E 00 02 00 00 00                       mov     ds:dword_7E62F8, 2       // Value 3 - sponsor cash value?
+.text:004E7A60 C7 05 B4 65 7E 00 05 00 00 00                       mov     ds:dword_7E65B4, 5       // Value 4 - sponsor slot id?
+
+Offsets
+
+var Value1 = 4E7A2E + 6 (1 byte)
+var Value2 = 4E7A35 + 1 (4 bytes)
+var Value3 = 4E7A56 + 6 (1 byte)
+var Value4 = 
+
+But you have missing sponsors for Jordan... so maybe I need to rewrite the function after all to find space.
+
+Hopefully the string array has space for the missing sponsors???
+
+
+SID004953 "Hewlett Packard"     // STEWART ???
+SID004954 "HSBC"                // STEWART ??? TITLE ???
+SID004955 "Lear"                // STEWART ???
+SID004956 "MCI"                 // STEWART ???
+SID004957 "Visteon"             // STEWART ???
+
+SID004958 "Biofox"              // TYRRELL ???
+SID004959 "Brother"             // TYRRELL ???
+SID004960 "Lycra"               // TYRRELL ???
+SID004961 "Morse"               // TYRRELL ??? TITLE ???
+SID004962 "PIAA"                // TYRRELL ???
+SID004963 "Safra"               // TYRRELL ???
+SID004964 "YKK"                 // TYRRELL ???
+
+SID004965 "Auto Motor Sport"    // WILLIAMS ???
+SID004966 "Castrol"             // WILLIAMS ???
+SID004967 "Falke"               // WILLIAMS ???
+SID004968 "Komatsu"             // WILLIAMS ???
+SID004969 "Sonax"               // WILLIAMS ???
+SID004970 "Universal Studios"   // WILLIAMS ???
+
+SID004971 "Brembo"              // FREE ???
+SID004972 "Serra"               // FREE ???
+SID004973 "Telecom Argentina"   // FREE ???
+
+Two of the free could be added to Stewart?
+
+Before you reorder the code, try take out a few lines and move them to a relocation function and try add in the missing two sponsors???
+
+The relative offsets to LoadResourceString and _strcpy will be a pain to recalcuate.

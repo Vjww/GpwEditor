@@ -1,9 +1,9 @@
 ﻿using GpwEditor.Infrastructure.ConnectionStrings;
 using GpwEditor.Infrastructure.DataSources;
 using GpwEditor.Infrastructure.Entities.BaseGame;
-using GpwEditor.Infrastructure.Mappers.BaseGame;
 using GpwEditor.Infrastructure.Populators.BaseGame;
 using GpwEditor.Infrastructure.Repositories;
+using GpwEditor.Infrastructure.ValueMappers.BaseGame;
 
 namespace GpwEditor.Infrastructure.Databases
 {
@@ -20,17 +20,17 @@ namespace GpwEditor.Infrastructure.Databases
         public override void Import(BaseGameDataSource dataSource)
         {
             // Import repository data from datasource
-            CarNumberRepository = ImportRepositoryFromDataSource<BaseGameDataSource, CarNumberEntity, CarNumberMapper, CarNumberPopulator>(dataSource, CarNumberRecordCount);
-            ChassisHandlingRepository = ImportRepositoryFromDataSource<BaseGameDataSource, ChassisHandlingEntity, ChassisHandlingMapper, ChassisHandlingPopulator>(dataSource, ChassisHandlingRecordCount);
-            TeamRepository = ImportRepositoryFromDataSource<BaseGameDataSource, TeamEntity, TeamMapper, TeamPopulator>(dataSource, TeamRecordCount);
+            CarNumberRepository = ImportRepositoryFromDataSource<BaseGameDataSource, CarNumberEntity, CarNumberValueMapper, CarNumberPopulator>(dataSource, CarNumberRecordCount);
+            ChassisHandlingRepository = ImportRepositoryFromDataSource<BaseGameDataSource, ChassisHandlingEntity, ChassisHandlingValueMapper, ChassisHandlingPopulator>(dataSource, ChassisHandlingRecordCount);
+            TeamRepository = ImportRepositoryFromDataSource<BaseGameDataSource, TeamEntity, TeamValueMapper, TeamPopulator>(dataSource, TeamRecordCount);
         }
 
         public override void Export(BaseGameDataSource dataSource)
         {
             // Export repository data to datasource
-            ExportDataSourceFromRepository<BaseGameDataSource, ChassisHandlingEntity, ChassisHandlingMapper, ChassisHandlingPopulator>(dataSource, ChassisHandlingRepository, ChassisHandlingRecordCount);
-            ExportDataSourceFromRepository<BaseGameDataSource, CarNumberEntity, CarNumberMapper, CarNumberPopulator>(dataSource, CarNumberRepository, CarNumberRecordCount);
-            ExportDataSourceFromRepository<BaseGameDataSource, TeamEntity, TeamMapper, TeamPopulator>(dataSource, TeamRepository, TeamRecordCount);
+            ExportDataSourceFromRepository<BaseGameDataSource, ChassisHandlingEntity, ChassisHandlingValueMapper, ChassisHandlingPopulator>(dataSource, ChassisHandlingRepository, ChassisHandlingRecordCount);
+            ExportDataSourceFromRepository<BaseGameDataSource, CarNumberEntity, CarNumberValueMapper, CarNumberPopulator>(dataSource, CarNumberRepository, CarNumberRecordCount);
+            ExportDataSourceFromRepository<BaseGameDataSource, TeamEntity, TeamValueMapper, TeamPopulator>(dataSource, TeamRepository, TeamRecordCount);
         }
     }
 }

@@ -3,9 +3,9 @@ using GpwEditor.Infrastructure.ConnectionStrings;
 using GpwEditor.Infrastructure.DataSources;
 using GpwEditor.Infrastructure.Entities;
 using GpwEditor.Infrastructure.Factories;
-using GpwEditor.Infrastructure.Mappers;
 using GpwEditor.Infrastructure.Populators;
 using GpwEditor.Infrastructure.Repositories;
+using GpwEditor.Infrastructure.ValueMappers;
 
 namespace GpwEditor.Infrastructure.Databases
 {
@@ -17,16 +17,16 @@ namespace GpwEditor.Infrastructure.Databases
 
         public abstract void Export(T dataSource);
 
-        protected static Repository<TEntity> ImportRepositoryFromDataSource<TDataSource, TEntity, TMapper, TPopulator>(TDataSource dataSource, int itemCount)
+        protected static Repository<TEntity> ImportRepositoryFromDataSource<TDataSource, TEntity, TValueMapper, TPopulator>(TDataSource dataSource, int itemCount)
             where TEntity : class, IEntity, new()
-            where TMapper : class, IMapper, new()
-            where TPopulator : class, IPopulator<TDataSource, TEntity, TMapper>, new()
+            where TValueMapper : class, IValueMapper, new()
+            where TPopulator : class, IPopulator<TDataSource, TEntity, TValueMapper>, new()
         {
             var list = new List<TEntity>();
             for (var i = 0; i < itemCount; i++)
             {
                 var entity = EntityFactory<TEntity>.New(i);
-                var mapper = MapperFactory<TMapper>.New(i);
+                var mapper = ValueMapperFactory<TValueMapper>.New(i);
                 mapper.Map();
 
                 var populator = new TPopulator();
@@ -37,15 +37,15 @@ namespace GpwEditor.Infrastructure.Databases
             return new Repository<TEntity>(list);
         }
 
-        protected static void ExportDataSourceFromRepository<TDataSource, TEntity, TMapper, TPopulator>(TDataSource dataSource, IRepository<TEntity> repository, int itemCount)
+        protected static void ExportDataSourceFromRepository<TDataSource, TEntity, TValueMapper, TPopulator>(TDataSource dataSource, IRepository<TEntity> repository, int itemCount)
             where TEntity : class, IEntity
-            where TMapper : class, IMapper, new()
-            where TPopulator : class, IPopulator<TDataSource, TEntity, TMapper>, new()
+            where TValueMapper : class, IValueMapper, new()
+            where TPopulator : class, IPopulator<TDataSource, TEntity, TValueMapper>, new()
         {
             for (var i = 0; i < itemCount; i++)
             {
                 var entity = repository.GetById(i);
-                var mapper = MapperFactory<TMapper>.New(i);
+                var mapper = ValueMapperFactory<TValueMapper>.New(i);
                 mapper.Map();
 
                 var populator = new TPopulator();

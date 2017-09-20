@@ -1,0 +1,602 @@
+Race viewport
+
+.text:0048D100
+.text:0048D100                                     ; =============== S U B R O U T I N E =======================================
+.text:0048D100
+.text:0048D100                                     ; Attributes: bp-based frame
+.text:0048D100
+.text:0048D100                                     sub_48D100      proc near               ; CODE XREF: uf_XpGameLoop+610p
+.text:0048D100                                                                             ; __cfltcvt_init_2+29p ...
+.text:0048D100
+.text:0048D100                                     var_250         = dword ptr -250h
+.text:0048D100                                     var_24C         = dword ptr -24Ch
+.text:0048D100                                     var_248         = dword ptr -248h
+.text:0048D100                                     var_244         = dword ptr -244h
+.text:0048D100                                     var_240         = dword ptr -240h
+.text:0048D100                                     FileName        = byte ptr -23Ch
+.text:0048D100                                     OutputString    = byte ptr -138h
+.text:0048D100
+.text:0048D100 55                                                  push    ebp
+.text:0048D101 8B EC                                               mov     ebp, esp
+.text:0048D103 81 EC 50 02 00 00                                   sub     esp, 250h
+.text:0048D109 53                                                  push    ebx
+.text:0048D10A 56                                                  push    esi
+.text:0048D10B 57                                                  push    edi
+.text:0048D10C C7 85 B8 FD FF FF 01 00 00 00                       mov     [ebp+var_248], 1
+.text:0048D116 C7 05 1C 70 5F 01 00 00 00 00                       mov     dword_15F701C, 0
+.text:0048D120 68 A0 74 5F 01                                      push    offset aDatNo3dwav_dat ; "DAT\\NO3DWAV.DAT"
+.text:0048D125 E8 8E 8B FA FF                                      call    uf_IsFileExist
+.text:0048D12A 83 C4 04                                            add     esp, 4
+.text:0048D12D 85 C0                                               test    eax, eax
+.text:0048D12F 0F 84 0A 00 00 00                                   jz      loc_48D13F
+.text:0048D135 C7 05 D8 7A 5F 01 00 00 00 00                       mov     dword_15F7AD8, 0
+.text:0048D13F
+.text:0048D13F                                     loc_48D13F:                             ; CODE XREF: sub_48D100+2Fj
+.text:0048D13F C7 05 24 33 5F 01 01 00 00 00                       mov     dword_15F3324, 1
+.text:0048D149 68 B0 74 5F 01                                      push    offset aDatFlagoff_dat ; "DAT\\FLAGOFF.DAT"
+.text:0048D14E E8 65 8B FA FF                                      call    uf_IsFileExist
+.text:0048D153 83 C4 04                                            add     esp, 4
+.text:0048D156 85 C0                                               test    eax, eax
+.text:0048D158 0F 84 0A 00 00 00                                   jz      loc_48D168
+.text:0048D15E C7 05 24 33 5F 01 00 00 00 00                       mov     dword_15F3324, 0
+.text:0048D168
+.text:0048D168                                     loc_48D168:                             ; CODE XREF: sub_48D100+58j
+.text:0048D168 C7 05 68 33 5F 01 00 00 00 00                       mov     dword_15F3368, 0
+.text:0048D172 68 C0 74 5F 01                                      push    offset aDatOnecarm_dat ; "DAT\\ONECARM.DAT"
+.text:0048D177 E8 3C 8B FA FF                                      call    uf_IsFileExist
+.text:0048D17C 83 C4 04                                            add     esp, 4
+.text:0048D17F 85 C0                                               test    eax, eax
+.text:0048D181 0F 84 0F 00 00 00                                   jz      loc_48D196
+.text:0048D187 C7 05 68 33 5F 01 01 00 00 00                       mov     dword_15F3368, 1
+.text:0048D191 E9 1F 00 00 00                                      jmp     loc_48D1B5
+.text:0048D196                                     ; ---------------------------------------------------------------------------
+.text:0048D196
+.text:0048D196                                     loc_48D196:                             ; CODE XREF: sub_48D100+81j
+.text:0048D196 68 D0 74 5F 01                                      push    offset aDatOnecar7_dat ; "DAT\\ONECAR7.DAT"
+.text:0048D19B E8 18 8B FA FF                                      call    uf_IsFileExist
+.text:0048D1A0 83 C4 04                                            add     esp, 4
+.text:0048D1A3 85 C0                                               test    eax, eax
+.text:0048D1A5 0F 84 0A 00 00 00                                   jz      loc_48D1B5
+.text:0048D1AB C7 05 68 33 5F 01 02 00 00 00                       mov     dword_15F3368, 2
+.text:0048D1B5
+.text:0048D1B5                                     loc_48D1B5:                             ; CODE XREF: sub_48D100+91j
+.text:0048D1B5                                                                             ; sub_48D100+A5j
+.text:0048D1B5 A1 1C 32 5F 01                                      mov     eax, un_XpRaceDatFileTrackId
+.text:0048D1BA 50                                                  push    eax
+.text:0048D1BB E8 9C 4B 00 00                                      call    sub_491D5C
+.text:0048D1C0 83 C4 04                                            add     esp, 4
+.text:0048D1C3 83 3D 84 A8 5F 01 00                                cmp     un_IsLanguageFrench, 0
+.text:0048D1CA 0F 84 19 00 00 00                                   jz      loc_48D1E9
+.text:0048D1D0 68 E0 74 5F 01                                      push    offset aTextfCommf_txt ; "textf\\CommF.txt"
+.text:0048D1D5 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D1DB 50                                                  push    eax             ; Dest
+.text:0048D1DC E8 19 FC 1E 00                                      call    _sprintf
+.text:0048D1E1 83 C4 08                                            add     esp, 8
+.text:0048D1E4 E9 3A 00 00 00                                      jmp     loc_48D223
+.text:0048D1E9                                     ; ---------------------------------------------------------------------------
+.text:0048D1E9
+.text:0048D1E9                                     loc_48D1E9:                             ; CODE XREF: sub_48D100+CAj
+.text:0048D1E9 83 3D 88 A8 5F 01 00                                cmp     un_IsLanguageGerman, 0
+.text:0048D1F0 0F 84 19 00 00 00                                   jz      loc_48D20F
+.text:0048D1F6 68 F0 74 5F 01                                      push    offset aTextgCommg_txt ; "textg\\CommG.txt"
+.text:0048D1FB 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D201 50                                                  push    eax             ; Dest
+.text:0048D202 E8 F3 FB 1E 00                                      call    _sprintf
+.text:0048D207 83 C4 08                                            add     esp, 8
+.text:0048D20A E9 14 00 00 00                                      jmp     loc_48D223
+.text:0048D20F                                     ; ---------------------------------------------------------------------------
+.text:0048D20F
+.text:0048D20F                                     loc_48D20F:                             ; CODE XREF: sub_48D100+F0j
+.text:0048D20F 68 00 75 5F 01                                      push    offset aTextComme_txt ; "text\\CommE.txt"
+.text:0048D214 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D21A 50                                                  push    eax             ; Dest
+.text:0048D21B E8 DA FB 1E 00                                      call    _sprintf
+.text:0048D220 83 C4 08                                            add     esp, 8
+.text:0048D223
+.text:0048D223                                     loc_48D223:                             ; CODE XREF: sub_48D100+E4j
+.text:0048D223                                                                             ; sub_48D100+10Aj
+.text:0048D223 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D229 50                                                  push    eax             ; lpFileName
+.text:0048D22A E8 3C 39 00 00                                      call    uf_LoadDataFromFileIntoBuffer
+.text:0048D22F 83 C4 04                                            add     esp, 4
+.text:0048D232 E8 79 3D 09 00                                      call    uf_LoadCommentaryResourceStrings
+.text:0048D237 A1 CC 6A 72 00                                      mov     eax, ds:un_DataBuffer
+.text:0048D23C 50                                                  push    eax             ; Memory
+.text:0048D23D E8 33 04 1F 00                                      call    _free
+.text:0048D242 83 C4 04                                            add     esp, 4
+.text:0048D245 68 58 40 70 00                                      push    offset byte_704058
+.text:0048D24A 68 D4 17 70 00                                      push    offset byte_7017D4
+.text:0048D24F 68 10 75 5F 01                                      push    offset aTracksSS_rti ; "tracks%s\\%s.rti"
+.text:0048D254 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D25A 50                                                  push    eax             ; Dest
+.text:0048D25B E8 9A FB 1E 00                                      call    _sprintf
+.text:0048D260 83 C4 10                                            add     esp, 10h
+.text:0048D263 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D269 50                                                  push    eax             ; lpFileName
+.text:0048D26A E8 FC 38 00 00                                      call    uf_LoadDataFromFileIntoBuffer
+.text:0048D26F 83 C4 04                                            add     esp, 4
+.text:0048D272 E8 C0 40 00 00                                      call    uf_LoadDataFromFileTrackRti
+.text:0048D277 A1 CC 6A 72 00                                      mov     eax, ds:un_DataBuffer
+.text:0048D27C 50                                                  push    eax             ; Memory
+.text:0048D27D E8 F3 03 1F 00                                      call    _free
+.text:0048D282 83 C4 04                                            add     esp, 4
+.text:0048D285 C7 05 5C 6B 72 00 00 00 00 00                       mov     ds:dword_726B5C, 0
+.text:0048D28F C7 05 5C 40 70 00 00 00 00 00                       mov     ds:dword_70405C, 0
+.text:0048D299 C7 85 BC FD FF FF 00 00 00 00                       mov     [ebp+var_244], 0
+.text:0048D2A3 E9 06 00 00 00                                      jmp     loc_48D2AE
+.text:0048D2A8                                     ; ---------------------------------------------------------------------------
+.text:0048D2A8
+.text:0048D2A8                                     loc_48D2A8:                             ; CODE XREF: sub_48D100+1E5j
+.text:0048D2A8                                                                             ; sub_48D100:loc_48D532j
+.text:0048D2A8 FF 85 BC FD FF FF                                   inc     [ebp+var_244]
+.text:0048D2AE
+.text:0048D2AE                                     loc_48D2AE:                             ; CODE XREF: sub_48D100+1A3j
+.text:0048D2AE 8B 85 BC FD FF FF                                   mov     eax, [ebp+var_244]
+.text:0048D2B4 39 05 48 9A 72 00                                   cmp     ds:un_LoadDataFromFileTrackRtiCounter, eax
+.text:0048D2BA 0F 8E 77 02 00 00                                   jle     loc_48D537
+.text:0048D2C0 8B 85 BC FD FF FF                                   mov     eax, [ebp+var_244]
+.text:0048D2C6 C7 04 85 40 F5 70 00 00 00 00 00                    mov     ds:dword_70F540[eax*4], 0
+.text:0048D2D1 8B 85 BC FD FF FF                                   mov     eax, [ebp+var_244]
+.text:0048D2D7 83 3C 85 48 7C 69 00 00                             cmp     ds:dword_697C48[eax*4], 0
+.text:0048D2DF 0F 84 05 00 00 00                                   jz      loc_48D2EA
+.text:0048D2E5 E9 BE FF FF FF                                      jmp     loc_48D2A8
+.text:0048D2EA                                     ; ---------------------------------------------------------------------------
+.text:0048D2EA
+.text:0048D2EA                                     loc_48D2EA:                             ; CODE XREF: sub_48D100+1DFj
+.text:0048D2EA 83 3D 50 12 71 00 02                                cmp     ds:dword_711250, 2
+.text:0048D2F1 0F 8E C3 00 00 00                                   jle     loc_48D3BA
+.text:0048D2F7 8B 85 BC FD FF FF                                   mov     eax, [ebp+var_244]
+.text:0048D2FD 8D 04 80                                            lea     eax, [eax+eax*4]
+.text:0048D300 8D 04 45 48 78 69 00                                lea     eax, Source[eax*2]
+.text:0048D307 50                                                  push    eax
+.text:0048D308 68 D4 17 70 00                                      push    offset byte_7017D4
+.text:0048D30D 68 20 75 5F 01                                      push    offset aTracksSSw_tga ; "tracks%s\\%sw.tga"
+.text:0048D312 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D318 50                                                  push    eax             ; Dest
+.text:0048D319 E8 DC FA 1E 00                                      call    _sprintf
+.text:0048D31E 83 C4 10                                            add     esp, 10h
+.text:0048D321 C7 05 5C 40 70 00 01 00 00 00                       mov     ds:dword_70405C, 1
+.text:0048D32B 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D331 50                                                  push    eax             ; lpFileName
+.text:0048D332 E8 EF 89 FA FF                                      call    sub_435D26
+.text:0048D337 83 C4 04                                            add     esp, 4
+.text:0048D33A 85 C0                                               test    eax, eax
+.text:0048D33C 0F 85 73 00 00 00                                   jnz     loc_48D3B5
+.text:0048D342 8B 85 BC FD FF FF                                   mov     eax, [ebp+var_244]
+.text:0048D348 8D 04 80                                            lea     eax, [eax+eax*4]
+.text:0048D34B 8D 04 45 48 78 69 00                                lea     eax, Source[eax*2]
+.text:0048D352 50                                                  push    eax
+.text:0048D353 68 2F 14 00 00                                      push    142Fh
+.text:0048D358 E8 2A 65 08 00                                      call    uf_LoadResourceStringValueIntoDataBuffer1
+.text:0048D35D 83 C4 04                                            add     esp, 4
+.text:0048D360 50                                                  push    eax             ; Format
+.text:0048D361 8D 85 C8 FE FF FF                                   lea     eax, [ebp+OutputString]
+.text:0048D367 50                                                  push    eax             ; Dest
+.text:0048D368 E8 8D FA 1E 00                                      call    _sprintf
+.text:0048D36D 83 C4 0C                                            add     esp, 0Ch
+.text:0048D370 8D 85 C8 FE FF FF                                   lea     eax, [ebp+OutputString]
+.text:0048D376 50                                                  push    eax             ; lpOutputString
+.text:0048D377 6A 00                                               push    0               ; int
+.text:0048D379 68 2D 03 00 00                                      push    32Dh            ; int
+.text:0048D37E 68 34 75 5F 01                                      push    offset aCGpwD3track_cp ; "C:\\gpw\\D3Track.cpp"
+.text:0048D383 E8 A7 04 FB FF                                      call    sub_43D82F
+.text:0048D388 83 C4 10                                            add     esp, 10h
+.text:0048D38B 8B 85 BC FD FF FF                                   mov     eax, [ebp+var_244]
+.text:0048D391 8D 04 80                                            lea     eax, [eax+eax*4]
+.text:0048D394 8D 04 45 48 78 69 00                                lea     eax, Source[eax*2]
+.text:0048D39B 50                                                  push    eax
+.text:0048D39C 68 D4 17 70 00                                      push    offset byte_7017D4
+.text:0048D3A1 68 48 75 5F 01                                      push    offset aTracksSS_tga_3 ; "tracks%s\\%s.tga"
+.text:0048D3A6 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D3AC 50                                                  push    eax             ; Dest
+.text:0048D3AD E8 48 FA 1E 00                                      call    _sprintf
+.text:0048D3B2 83 C4 10                                            add     esp, 10h
+.text:0048D3B5
+.text:0048D3B5                                     loc_48D3B5:                             ; CODE XREF: sub_48D100+23Cj
+.text:0048D3B5 E9 2A 00 00 00                                      jmp     loc_48D3E4
+.text:0048D3BA                                     ; ---------------------------------------------------------------------------
+.text:0048D3BA
+.text:0048D3BA                                     loc_48D3BA:                             ; CODE XREF: sub_48D100+1F1j
+.text:0048D3BA 8B 85 BC FD FF FF                                   mov     eax, [ebp+var_244]
+.text:0048D3C0 8D 04 80                                            lea     eax, [eax+eax*4]
+.text:0048D3C3 8D 04 45 48 78 69 00                                lea     eax, Source[eax*2]
+.text:0048D3CA 50                                                  push    eax
+.text:0048D3CB 68 D4 17 70 00                                      push    offset byte_7017D4
+.text:0048D3D0 68 58 75 5F 01                                      push    offset aTracksSS_tga_4 ; "tracks%s\\%s.tga"
+.text:0048D3D5 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D3DB 50                                                  push    eax             ; Dest
+.text:0048D3DC E8 19 FA 1E 00                                      call    _sprintf
+.text:0048D3E1 83 C4 10                                            add     esp, 10h
+.text:0048D3E4
+.text:0048D3E4                                     loc_48D3E4:                             ; CODE XREF: sub_48D100:loc_48D3B5j
+.text:0048D3E4 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D3EA 50                                                  push    eax             ; lpFileName
+.text:0048D3EB E8 7B 37 00 00                                      call    uf_LoadDataFromFileIntoBuffer
+.text:0048D3F0 83 C4 04                                            add     esp, 4
+.text:0048D3F3 E8 E8 7F FA FF                                      call    uf_LoadDataFromFileTga
+.text:0048D3F8 83 F8 01                                            cmp     eax, 1
+.text:0048D3FB 0F 85 31 00 00 00                                   jnz     loc_48D432
+.text:0048D401 A1 5C 6B 72 00                                      mov     eax, ds:dword_726B5C
+.text:0048D406 8B 8D BC FD FF FF                                   mov     ecx, [ebp+var_244]
+.text:0048D40C 89 04 8D 18 C5 70 00                                mov     ds:dword_70C518[ecx*4], eax
+.text:0048D413 FF 05 5C 6B 72 00                                   inc     ds:dword_726B5C
+.text:0048D419 8B 85 B8 FD FF FF                                   mov     eax, [ebp+var_248]
+.text:0048D41F 8B 8D BC FD FF FF                                   mov     ecx, [ebp+var_244]
+.text:0048D425 89 04 8D 38 16 70 00                                mov     ds:dword_701638[ecx*4], eax
+.text:0048D42C FF 85 B8 FD FF FF                                   inc     [ebp+var_248]
+.text:0048D432
+.text:0048D432                                     loc_48D432:                             ; CODE XREF: sub_48D100+2FBj
+.text:0048D432 A1 CC 6A 72 00                                      mov     eax, ds:un_DataBuffer
+.text:0048D437 50                                                  push    eax             ; Memory
+.text:0048D438 E8 38 02 1F 00                                      call    _free
+.text:0048D43D 83 C4 04                                            add     esp, 4
+.text:0048D440 8B 85 BC FD FF FF                                   mov     eax, [ebp+var_244]
+.text:0048D446 8D 04 80                                            lea     eax, [eax+eax*4]
+.text:0048D449 8D 04 45 48 78 69 00                                lea     eax, Source[eax*2]
+.text:0048D450 50                                                  push    eax
+.text:0048D451 68 D4 17 70 00                                      push    offset byte_7017D4
+.text:0048D456 68 68 75 5F 01                                      push    offset aTracksSS_e3d ; "tracks%s\\%s.e3d"
+.text:0048D45B 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D461 50                                                  push    eax             ; Dest
+.text:0048D462 E8 93 F9 1E 00                                      call    _sprintf
+.text:0048D467 83 C4 10                                            add     esp, 10h
+.text:0048D46A 68 2C 0B 00 00                                      push    0B2Ch           ; nNumberOfBytesToRead
+.text:0048D46F 8B 85 BC FD FF FF                                   mov     eax, [ebp+var_244]
+.text:0048D475 8B C8                                               mov     ecx, eax
+.text:0048D477 8D 04 C0                                            lea     eax, [eax+eax*8]
+.text:0048D47A C1 E0 04                                            shl     eax, 4
+.text:0048D47D 2B C1                                               sub     eax, ecx
+.text:0048D47F C1 E0 02                                            shl     eax, 2
+.text:0048D482 8D 04 80                                            lea     eax, [eax+eax*4]
+.text:0048D485 05 80 81 69 00                                      add     eax, offset dword_698180
+.text:0048D48A 50                                                  push    eax             ; lpBuffer
+.text:0048D48B 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D491 50                                                  push    eax             ; lpFileName
+.text:0048D492 E8 0D 3A 00 00                                      call    sub_490EA4
+.text:0048D497 83 C4 0C                                            add     esp, 0Ch
+.text:0048D49A 8B 85 BC FD FF FF                                   mov     eax, [ebp+var_244]
+.text:0048D4A0 8D 04 80                                            lea     eax, [eax+eax*4]
+.text:0048D4A3 8D 04 45 48 78 69 00                                lea     eax, Source[eax*2]
+.text:0048D4AA 50                                                  push    eax
+.text:0048D4AB 68 D4 17 70 00                                      push    offset byte_7017D4
+.text:0048D4B0 68 78 75 5F 01                                      push    offset aTracksSSa_tga ; "tracks%s\\%sa.tga"
+.text:0048D4B5 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D4BB 50                                                  push    eax             ; Dest
+.text:0048D4BC E8 39 F9 1E 00                                      call    _sprintf
+.text:0048D4C1 83 C4 10                                            add     esp, 10h
+.text:0048D4C4 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D4CA 50                                                  push    eax             ; lpFileName
+.text:0048D4CB E8 9B 36 00 00                                      call    uf_LoadDataFromFileIntoBuffer
+.text:0048D4D0 83 C4 04                                            add     esp, 4
+.text:0048D4D3 0F BF C0                                            movsx   eax, ax
+.text:0048D4D6 85 C0                                               test    eax, eax
+.text:0048D4D8 0F 84 54 00 00 00                                   jz      loc_48D532
+.text:0048D4DE E8 FD 7E FA FF                                      call    uf_LoadDataFromFileTga
+.text:0048D4E3 83 F8 01                                            cmp     eax, 1
+.text:0048D4E6 0F 85 38 00 00 00                                   jnz     loc_48D524
+.text:0048D4EC A1 5C 6B 72 00                                      mov     eax, ds:dword_726B5C
+.text:0048D4F1 8B 8D BC FD FF FF                                   mov     ecx, [ebp+var_244]
+.text:0048D4F7 89 04 8D 48 3F 70 00                                mov     ds:dword_703F48[ecx*4], eax
+.text:0048D4FE 8B 85 BC FD FF FF                                   mov     eax, [ebp+var_244]
+.text:0048D504 C7 04 85 40 F5 70 00 01 00 00 00                    mov     ds:dword_70F540[eax*4], 1
+.text:0048D50F FF 05 5C 6B 72 00                                   inc     ds:dword_726B5C
+.text:0048D515 8B 85 BC FD FF FF                                   mov     eax, [ebp+var_244]
+.text:0048D51B 50                                                  push    eax
+.text:0048D51C E8 68 47 00 00                                      call    sub_491C89
+.text:0048D521 83 C4 04                                            add     esp, 4
+.text:0048D524
+.text:0048D524                                     loc_48D524:                             ; CODE XREF: sub_48D100+3E6j
+.text:0048D524 A1 CC 6A 72 00                                      mov     eax, ds:un_DataBuffer
+.text:0048D529 50                                                  push    eax             ; Memory
+.text:0048D52A E8 46 01 1F 00                                      call    _free
+.text:0048D52F 83 C4 04                                            add     esp, 4
+.text:0048D532
+.text:0048D532                                     loc_48D532:                             ; CODE XREF: sub_48D100+3D8j
+.text:0048D532 E9 71 FD FF FF                                      jmp     loc_48D2A8
+.text:0048D537                                     ; ---------------------------------------------------------------------------
+.text:0048D537
+.text:0048D537                                     loc_48D537:                             ; CODE XREF: sub_48D100+1BAj
+.text:0048D537 68 58 40 70 00                                      push    offset byte_704058
+.text:0048D53C 68 D4 17 70 00                                      push    offset byte_7017D4
+.text:0048D541 68 8C 75 5F 01                                      push    offset aTracksSMmS_tga ; "tracks%s\\MM%s.tga"
+.text:0048D546 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D54C 50                                                  push    eax             ; Dest
+.text:0048D54D E8 A8 F8 1E 00                                      call    _sprintf
+.text:0048D552 83 C4 10                                            add     esp, 10h
+.text:0048D555 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D55B 50                                                  push    eax             ; lpFileName
+.text:0048D55C E8 0A 36 00 00                                      call    uf_LoadDataFromFileIntoBuffer
+.text:0048D561 83 C4 04                                            add     esp, 4
+.text:0048D564 E8 77 7E FA FF                                      call    uf_LoadDataFromFileTga
+.text:0048D569 83 F8 01                                            cmp     eax, 1
+.text:0048D56C 0F 85 10 00 00 00                                   jnz     loc_48D582
+.text:0048D572 A1 5C 6B 72 00                                      mov     eax, ds:dword_726B5C
+.text:0048D577 A3 DC C5 70 00                                      mov     ds:dword_70C5DC, eax
+.text:0048D57C FF 05 5C 6B 72 00                                   inc     ds:dword_726B5C
+.text:0048D582
+.text:0048D582                                     loc_48D582:                             ; CODE XREF: sub_48D100+46Cj
+.text:0048D582 A1 CC 6A 72 00                                      mov     eax, ds:un_DataBuffer
+.text:0048D587 50                                                  push    eax             ; Memory
+.text:0048D588 E8 E8 00 1F 00                                      call    _free
+.text:0048D58D 83 C4 04                                            add     esp, 4
+.text:0048D590 E8 3B B6 01 00                                      call    unknown_libname_22 ; Microsoft VisualC 2-10/net runtime
+.text:0048D595 E8 46 B6 01 00                                      call    sub_4A8BE0
+.text:0048D59A 68 A0 75 5F 01                                      push    offset aTrackReport_tg ; "track\\report.tga"
+.text:0048D59F 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D5A5 50                                                  push    eax             ; Dest
+.text:0048D5A6 E8 4F F8 1E 00                                      call    _sprintf
+.text:0048D5AB 83 C4 08                                            add     esp, 8
+.text:0048D5AE 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D5B4 50                                                  push    eax             ; lpFileName
+.text:0048D5B5 E8 B1 35 00 00                                      call    uf_LoadDataFromFileIntoBuffer
+.text:0048D5BA 83 C4 04                                            add     esp, 4
+.text:0048D5BD E8 1E 7E FA FF                                      call    uf_LoadDataFromFileTga
+.text:0048D5C2 83 F8 01                                            cmp     eax, 1
+.text:0048D5C5 0F 85 10 00 00 00                                   jnz     loc_48D5DB
+.text:0048D5CB A1 5C 6B 72 00                                      mov     eax, ds:dword_726B5C
+.text:0048D5D0 A3 40 78 69 00                                      mov     ds:dword_697840, eax
+.text:0048D5D5 FF 05 5C 6B 72 00                                   inc     ds:dword_726B5C
+.text:0048D5DB
+.text:0048D5DB                                     loc_48D5DB:                             ; CODE XREF: sub_48D100+4C5j
+.text:0048D5DB A1 CC 6A 72 00                                      mov     eax, ds:un_DataBuffer
+.text:0048D5E0 50                                                  push    eax             ; Memory
+.text:0048D5E1 E8 8F 00 1F 00                                      call    _free
+.text:0048D5E6 83 C4 04                                            add     esp, 4
+.text:0048D5E9 83 3D 98 C7 70 00 02                                cmp     ds:dword_70C798, 2
+.text:0048D5F0 0F 8E 19 00 00 00                                   jle     loc_48D60F
+.text:0048D5F6 68 B4 75 5F 01                                      push    offset aTrackLightsw_t ; "track\\lightsw.tga"
+.text:0048D5FB 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D601 50                                                  push    eax             ; Dest
+.text:0048D602 E8 F3 F7 1E 00                                      call    _sprintf
+.text:0048D607 83 C4 08                                            add     esp, 8
+.text:0048D60A E9 14 00 00 00                                      jmp     loc_48D623
+.text:0048D60F                                     ; ---------------------------------------------------------------------------
+.text:0048D60F
+.text:0048D60F                                     loc_48D60F:                             ; CODE XREF: sub_48D100+4F0j
+.text:0048D60F 68 C8 75 5F 01                                      push    offset aTrackLights_tg ; "track\\lights.tga"
+.text:0048D614 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D61A 50                                                  push    eax             ; Dest
+.text:0048D61B E8 DA F7 1E 00                                      call    _sprintf
+.text:0048D620 83 C4 08                                            add     esp, 8
+.text:0048D623
+.text:0048D623                                     loc_48D623:                             ; CODE XREF: sub_48D100+50Aj
+.text:0048D623 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D629 50                                                  push    eax             ; lpFileName
+.text:0048D62A E8 3C 35 00 00                                      call    uf_LoadDataFromFileIntoBuffer
+.text:0048D62F 83 C4 04                                            add     esp, 4
+.text:0048D632 E8 A9 7D FA FF                                      call    uf_LoadDataFromFileTga
+.text:0048D637 83 F8 01                                            cmp     eax, 1
+.text:0048D63A 0F 85 10 00 00 00                                   jnz     loc_48D650
+.text:0048D640 A1 5C 6B 72 00                                      mov     eax, ds:dword_726B5C
+.text:0048D645 A3 B4 69 71 00                                      mov     ds:dword_7169B4, eax
+.text:0048D64A FF 05 5C 6B 72 00                                   inc     ds:dword_726B5C
+.text:0048D650
+.text:0048D650                                     loc_48D650:                             ; CODE XREF: sub_48D100+53Aj
+.text:0048D650 A1 CC 6A 72 00                                      mov     eax, ds:un_DataBuffer
+.text:0048D655 50                                                  push    eax             ; Memory
+.text:0048D656 E8 1A 00 1F 00                                      call    _free
+.text:0048D65B 83 C4 04                                            add     esp, 4
+.text:0048D65E 68 DC 75 5F 01                                      push    offset aTrackReportpn_ ; "track\\reportpn.tga"
+.text:0048D663 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D669 50                                                  push    eax             ; Dest
+.text:0048D66A E8 8B F7 1E 00                                      call    _sprintf
+.text:0048D66F 83 C4 08                                            add     esp, 8
+.text:0048D672 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D678 50                                                  push    eax             ; lpFileName
+.text:0048D679 E8 ED 34 00 00                                      call    uf_LoadDataFromFileIntoBuffer
+.text:0048D67E 83 C4 04                                            add     esp, 4
+.text:0048D681 E8 5A 7D FA FF                                      call    uf_LoadDataFromFileTga
+.text:0048D686 83 F8 01                                            cmp     eax, 1
+.text:0048D689 0F 85 10 00 00 00                                   jnz     loc_48D69F
+.text:0048D68F A1 5C 6B 72 00                                      mov     eax, ds:dword_726B5C
+.text:0048D694 A3 38 4D 69 00                                      mov     ds:dword_694D38, eax
+.text:0048D699 FF 05 5C 6B 72 00                                   inc     ds:dword_726B5C
+.text:0048D69F
+.text:0048D69F                                     loc_48D69F:                             ; CODE XREF: sub_48D100+589j
+.text:0048D69F A1 CC 6A 72 00                                      mov     eax, ds:un_DataBuffer
+.text:0048D6A4 50                                                  push    eax             ; Memory
+.text:0048D6A5 E8 CB FF 1E 00                                      call    _free
+.text:0048D6AA 83 C4 04                                            add     esp, 4
+.text:0048D6AD 83 3D 20 32 5F 01 01                                cmp     dword_15F3220, 1
+.text:0048D6B4 0F 85 19 00 00 00                                   jnz     loc_48D6D3
+.text:0048D6BA 68 F0 75 5F 01                                      push    offset aTrackRacqbck_t ; "track\\RacQBck.tga"
+.text:0048D6BF 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D6C5 50                                                  push    eax             ; Dest
+.text:0048D6C6 E8 2F F7 1E 00                                      call    _sprintf
+.text:0048D6CB 83 C4 08                                            add     esp, 8
+.text:0048D6CE E9 14 00 00 00                                      jmp     loc_48D6E7
+.text:0048D6D3                                     ; ---------------------------------------------------------------------------
+.text:0048D6D3
+.text:0048D6D3                                     loc_48D6D3:                             ; CODE XREF: sub_48D100+5B4j
+.text:0048D6D3 68 04 76 5F 01                                      push    offset aTrackRacebck_t ; "track\\RaceBck.tga"
+.text:0048D6D8 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D6DE 50                                                  push    eax             ; Dest
+.text:0048D6DF E8 16 F7 1E 00                                      call    _sprintf
+.text:0048D6E4 83 C4 08                                            add     esp, 8
+.text:0048D6E7
+.text:0048D6E7                                     loc_48D6E7:                             ; CODE XREF: sub_48D100+5CEj
+.text:0048D6E7 8D 85 C4 FD FF FF                                   lea     eax, [ebp+FileName]
+.text:0048D6ED 50                                                  push    eax             ; lpFileName
+.text:0048D6EE E8 78 34 00 00                                      call    uf_LoadDataFromFileIntoBuffer
+.text:0048D6F3 83 C4 04                                            add     esp, 4
+.text:0048D6F6 E8 E5 7C FA FF                                      call    uf_LoadDataFromFileTga
+.text:0048D6FB 83 F8 01                                            cmp     eax, 1
+.text:0048D6FE 0F 85 25 00 00 00                                   jnz     loc_48D729
+.text:0048D704 A1 5C 6B 72 00                                      mov     eax, ds:dword_726B5C
+.text:0048D709 50                                                  push    eax
+.text:0048D70A E8 FB 0C 00 00                                      call    sub_48E40A
+.text:0048D70F 83 C4 04                                            add     esp, 4
+.text:0048D712 A1 5C 6B 72 00                                      mov     eax, ds:dword_726B5C
+.text:0048D717 C1 E0 04                                            shl     eax, 4
+.text:0048D71A 8B 80 64 6B 72 00                                   mov     eax, ds:dword_726B64[eax]
+.text:0048D720 50                                                  push    eax             ; Memory
+.text:0048D721 E8 4F FF 1E 00                                      call    _free
+.text:0048D726 83 C4 04                                            add     esp, 4
+.text:0048D729
+.text:0048D729                                     loc_48D729:                             ; CODE XREF: sub_48D100+5FEj
+.text:0048D729 A1 CC 6A 72 00                                      mov     eax, ds:un_DataBuffer
+.text:0048D72E 50                                                  push    eax             ; Memory
+.text:0048D72F E8 41 FF 1E 00                                      call    _free
+.text:0048D734 83 C4 04                                            add     esp, 4
+.text:0048D737 C7 05 00 32 5F 01 00 00 00 00                       mov     dword_15F3200, 0
+.text:0048D741 6A 01                                               push    1
+.text:0048D743 E8 DD 3B 00 00                                      call    unknown_libname_18 ; Microsoft VisualC 2-10/net runtime
+.text:0048D748 83 C4 04                                            add     esp, 4
+.text:0048D74B 85 C0                                               test    eax, eax
+.text:0048D74D 0F 85 88 01 00 00                                   jnz     loc_48D8DB
+.text:0048D753 C7 05 28 6F 72 00 00 00 00 00                       mov     ds:un_XpRaceChannelIdUnknown, 0
+.text:0048D75D C7 05 2C 6F 72 00 00 00 00 00                       mov     ds:dword_726F2C, 0
+.text:0048D767 C7 05 30 6F 72 00 00 00 00 00                       mov     ds:dword_726F30, 0
+.text:0048D771 C7 05 34 6F 72 00 00 00 00 00                       mov     ds:dword_726F34, 0
+.text:0048D77B C7 05 38 6F 72 00 00 00 00 00                       mov     ds:dword_726F38, 0
+.text:0048D785 C7 05 3C 6F 72 00 00 00 00 00                       mov     ds:dword_726F3C, 0
+.text:0048D78F C7 05 40 6F 72 00 00 00 00 00                       mov     ds:dword_726F40, 0
+.text:0048D799 C7 05 9C 6F 72 00 04 00 00 00                       mov     ds:dword_726F9C, 4
+.text:0048D7A3 C7 05 A8 6F 72 00 00 00 00 00                       mov     ds:dword_726FA8, 0
+.text:0048D7AD C7 05 A0 6F 72 00 00 00 00 00                       mov     ds:dword_726FA0, 0
+.text:0048D7B7 C7 05 A4 6F 72 00 00 00 00 00                       mov     ds:dword_726FA4, 0
+.text:0048D7C1 C7 05 AC 6F 72 00 00 00 00 00                       mov     ds:dword_726FAC, 0
+.text:0048D7CB C7 05 B0 6F 72 00 00 00 00 00                       mov     ds:dword_726FB0, 0
+.text:0048D7D5 C7 05 B4 6F 72 00 00 00 00 00                       mov     ds:dword_726FB4, 0
+.text:0048D7DF C7 05 10 70 72 00 03 00 00 00                       mov     ds:dword_727010, 3
+.text:0048D7E9 C7 05 14 70 72 00 00 00 00 00                       mov     ds:dword_727014, 0
+.text:0048D7F3 C7 05 18 70 72 00 00 00 00 00                       mov     ds:dword_727018, 0
+.text:0048D7FD C7 05 1C 70 72 00 00 00 00 00                       mov     ds:dword_72701C, 0
+.text:0048D807 C7 05 20 70 72 00 00 00 00 00                       mov     ds:dword_727020, 0
+.text:0048D811 C7 05 24 70 72 00 00 00 00 00                       mov     ds:dword_727024, 0
+.text:0048D81B C7 05 28 70 72 00 00 00 00 00                       mov     ds:dword_727028, 0
+.text:0048D825 C7 05 84 70 72 00 02 00 00 00                       mov     ds:dword_727084, 2
+.text:0048D82F A1 40 8D 5F 01                                      mov     eax, dword_15F8D40
+.text:0048D834 A3 88 70 72 00                                      mov     ds:dword_727088, eax
+.text:0048D839 C7 05 8C 70 72 00 00 00 00 00                       mov     ds:dword_72708C, 0
+.text:0048D843 C7 05 90 70 72 00 00 00 00 00                       mov     ds:dword_727090, 0
+.text:0048D84D C7 05 94 70 72 00 00 00 00 00                       mov     ds:dword_727094, 0
+.text:0048D857 C7 05 98 70 72 00 00 00 00 00                       mov     ds:dword_727098, 0
+.text:0048D861 C7 05 9C 70 72 00 00 00 00 00                       mov     ds:dword_72709C, 0
+.text:0048D86B C7 85 B4 FD FF FF 00 00 00 00                       mov     [ebp+var_24C], 0
+.text:0048D875 E9 06 00 00 00                                      jmp     loc_48D880
+.text:0048D87A                                     ; ---------------------------------------------------------------------------
+.text:0048D87A
+.text:0048D87A                                     loc_48D87A:                             ; CODE XREF: sub_48D100+7D1j
+.text:0048D87A FF 85 B4 FD FF FF                                   inc     [ebp+var_24C]
+.text:0048D880
+.text:0048D880                                     loc_48D880:                             ; CODE XREF: sub_48D100+775j
+.text:0048D880 83 BD B4 FD FF FF 16                                cmp     [ebp+var_24C], 16h
+.text:0048D887 0F 8D 49 00 00 00                                   jge     loc_48D8D6
+.text:0048D88D 8B 85 B4 FD FF FF                                   mov     eax, [ebp+var_24C]
+.text:0048D893 C7 04 85 44 6F 72 00 00 00 00 00                    mov     ds:dword_726F44[eax*4], 0
+.text:0048D89E 8B 85 B4 FD FF FF                                   mov     eax, [ebp+var_24C]
+.text:0048D8A4 C7 04 85 B8 6F 72 00 00 00 00 00                    mov     ds:dword_726FB8[eax*4], 0
+.text:0048D8AF 8B 85 B4 FD FF FF                                   mov     eax, [ebp+var_24C]
+.text:0048D8B5 C7 04 85 2C 70 72 00 00 00 00 00                    mov     ds:dword_72702C[eax*4], 0
+.text:0048D8C0 8B 85 B4 FD FF FF                                   mov     eax, [ebp+var_24C]
+.text:0048D8C6 C7 04 85 A0 70 72 00 00 00 00 00                    mov     ds:dword_7270A0[eax*4], 0
+.text:0048D8D1 E9 A4 FF FF FF                                      jmp     loc_48D87A
+.text:0048D8D6                                     ; ---------------------------------------------------------------------------
+.text:0048D8D6
+.text:0048D8D6                                     loc_48D8D6:                             ; CODE XREF: sub_48D100+787j
+.text:0048D8D6 E9 34 01 00 00                                      jmp     loc_48DA0F
+.text:0048D8DB                                     ; ---------------------------------------------------------------------------
+.text:0048D8DB
+.text:0048D8DB                                     loc_48D8DB:                             ; CODE XREF: sub_48D100+64Dj
+.text:0048D8DB C7 85 B4 FD FF FF 00 00 00 00                       mov     [ebp+var_24C], 0
+.text:0048D8E5 E9 06 00 00 00                                      jmp     loc_48D8F0
+.text:0048D8EA                                     ; ---------------------------------------------------------------------------
+.text:0048D8EA
+.text:0048D8EA                                     loc_48D8EA:                             ; CODE XREF: sub_48D100:loc_48DA0Aj
+.text:0048D8EA FF 85 B4 FD FF FF                                   inc     [ebp+var_24C]
+.text:0048D8F0
+.text:0048D8F0                                     loc_48D8F0:                             ; CODE XREF: sub_48D100+7E5j
+.text:0048D8F0 83 BD B4 FD FF FF 04                                cmp     [ebp+var_24C], 4
+.text:0048D8F7 0F 8D 12 01 00 00                                   jge     loc_48DA0F
+.text:0048D8FD A1 40 8D 5F 01                                      mov     eax, dword_15F8D40
+.text:0048D902 89 85 C0 FD FF FF                                   mov     [ebp+var_240], eax
+.text:0048D908 8B 85 B4 FD FF FF                                   mov     eax, [ebp+var_24C]
+.text:0048D90E 8B C8                                               mov     ecx, eax
+.text:0048D910 C1 E0 03                                            shl     eax, 3
+.text:0048D913 2B C1                                               sub     eax, ecx
+.text:0048D915 8D 04 81                                            lea     eax, [ecx+eax*4]
+.text:0048D918 83 3C 85 28 6F 72 00 02                             cmp     ds:un_XpRaceChannelIdUnknown[eax*4], 2
+.text:0048D920 0F 85 E4 00 00 00                                   jnz     loc_48DA0A
+.text:0048D926 C7 85 B0 FD FF FF 00 00 00 00                       mov     [ebp+var_250], 0
+.text:0048D930 E9 06 00 00 00                                      jmp     loc_48D93B
+.text:0048D935                                     ; ---------------------------------------------------------------------------
+.text:0048D935
+.text:0048D935                                     loc_48D935:                             ; CODE XREF: sub_48D100:loc_48D97Ej
+.text:0048D935 FF 85 B0 FD FF FF                                   inc     [ebp+var_250]
+.text:0048D93B
+.text:0048D93B                                     loc_48D93B:                             ; CODE XREF: sub_48D100+830j
+.text:0048D93B 83 BD B0 FD FF FF 16                                cmp     [ebp+var_250], 16h
+.text:0048D942 0F 8D 3B 00 00 00                                   jge     loc_48D983
+.text:0048D948 8B 85 C0 FD FF FF                                   mov     eax, [ebp+var_240]
+.text:0048D94E 83 3C 85 30 D8 F5 00 00                             cmp     ds:dword_F5D830[eax*4], 0
+.text:0048D956 0F 85 05 00 00 00                                   jnz     loc_48D961
+.text:0048D95C E9 22 00 00 00                                      jmp     loc_48D983
+.text:0048D961                                     ; ---------------------------------------------------------------------------
+.text:0048D961
+.text:0048D961                                     loc_48D961:                             ; CODE XREF: sub_48D100+856j
+.text:0048D961 FF 85 C0 FD FF FF                                   inc     [ebp+var_240]
+.text:0048D967 83 BD C0 FD FF FF 16                                cmp     [ebp+var_240], 16h
+.text:0048D96E 0F 8C 0A 00 00 00                                   jl      loc_48D97E
+.text:0048D974 C7 85 C0 FD FF FF 00 00 00 00                       mov     [ebp+var_240], 0
+.text:0048D97E
+.text:0048D97E                                     loc_48D97E:                             ; CODE XREF: sub_48D100+86Ej
+.text:0048D97E E9 B2 FF FF FF                                      jmp     loc_48D935
+.text:0048D983                                     ; ---------------------------------------------------------------------------
+.text:0048D983
+.text:0048D983                                     loc_48D983:                             ; CODE XREF: sub_48D100+842j
+.text:0048D983                                                                             ; sub_48D100+85Cj
+.text:0048D983 83 BD C0 FD FF FF 16                                cmp     [ebp+var_240], 16h
+.text:0048D98A 0F 8C 0A 00 00 00                                   jl      loc_48D99A
+.text:0048D990 C7 85 C0 FD FF FF 00 00 00 00                       mov     [ebp+var_240], 0
+.text:0048D99A
+.text:0048D99A                                     loc_48D99A:                             ; CODE XREF: sub_48D100+88Aj
+.text:0048D99A 8B 85 C0 FD FF FF                                   mov     eax, [ebp+var_240]
+.text:0048D9A0 8B 8D B4 FD FF FF                                   mov     ecx, [ebp+var_24C]
+.text:0048D9A6 8B D1                                               mov     edx, ecx
+.text:0048D9A8 C1 E1 03                                            shl     ecx, 3
+.text:0048D9AB 2B CA                                               sub     ecx, edx
+.text:0048D9AD 8D 0C 8A                                            lea     ecx, [edx+ecx*4]
+.text:0048D9B0 89 04 8D 2C 6F 72 00                                mov     ds:dword_726F2C[ecx*4], eax
+.text:0048D9B7 8B 85 B4 FD FF FF                                   mov     eax, [ebp+var_24C]
+.text:0048D9BD 8B C8                                               mov     ecx, eax
+.text:0048D9BF C1 E0 03                                            shl     eax, 3
+.text:0048D9C2 2B C1                                               sub     eax, ecx
+.text:0048D9C4 8D 04 81                                            lea     eax, [ecx+eax*4]
+.text:0048D9C7 C7 04 85 34 6F 72 00 00 00 00 00                    mov     ds:dword_726F34[eax*4], 0
+.text:0048D9D2 8B 85 B4 FD FF FF                                   mov     eax, [ebp+var_24C]
+.text:0048D9D8 8B C8                                               mov     ecx, eax
+.text:0048D9DA C1 E0 03                                            shl     eax, 3
+.text:0048D9DD 2B C1                                               sub     eax, ecx
+.text:0048D9DF 8D 04 81                                            lea     eax, [ecx+eax*4]
+.text:0048D9E2 C7 04 85 38 6F 72 00 00 00 00 00                    mov     ds:dword_726F38[eax*4], 0
+.text:0048D9ED FF 85 C0 FD FF FF                                   inc     [ebp+var_240]
+.text:0048D9F3 83 BD C0 FD FF FF 16                                cmp     [ebp+var_240], 16h
+.text:0048D9FA 0F 8C 0A 00 00 00                                   jl      loc_48DA0A
+.text:0048DA00 C7 85 C0 FD FF FF 00 00 00 00                       mov     [ebp+var_240], 0
+.text:0048DA0A
+.text:0048DA0A                                     loc_48DA0A:                             ; CODE XREF: sub_48D100+820j
+.text:0048DA0A                                                                             ; sub_48D100+8FAj
+.text:0048DA0A E9 DB FE FF FF                                      jmp     loc_48D8EA
+.text:0048DA0F                                     ; ---------------------------------------------------------------------------
+.text:0048DA0F
+.text:0048DA0F                                     loc_48DA0F:                             ; CODE XREF: sub_48D100:loc_48D8D6j
+.text:0048DA0F                                                                             ; sub_48D100+7F7j
+.text:0048DA0F E8 33 48 00 00                                      call    sub_492247
+.text:0048DA14 68 48 86 72 00                                      push    offset unk_728648 ; lpBuffer
+.text:0048DA19 68 18 76 5F 01                                      push    offset aEdyRacebut_edy ; "edy\\racebut.edy"
+.text:0048DA1E E8 29 35 00 00                                      call    sub_490F4C
+.text:0048DA23 83 C4 08                                            add     esp, 8
+.text:0048DA26 68 A0 9A 72 00                                      push    offset unk_729AA0 ; lpBuffer
+.text:0048DA2B 68 28 76 5F 01                                      push    offset aEdyLighton_edy ; "edy\\lighton.edy"
+.text:0048DA30 E8 17 35 00 00                                      call    sub_490F4C
+.text:0048DA35 83 C4 08                                            add     esp, 8
+.text:0048DA38 C7 05 18 32 5F 01 01 00 00 00                       mov     dword_15F3218, 1
+.text:0048DA42 E9 00 00 00 00                                      jmp     $+5
+.text:0048DA47 5F                                                  pop     edi
+.text:0048DA48 5E                                                  pop     esi
+.text:0048DA49 5B                                                  pop     ebx
+.text:0048DA4A C9                                                  leave
+.text:0048DA4B C3                                                  retn
+.text:0048DA4B                                     sub_48D100      endp
+.text:0048DA4B

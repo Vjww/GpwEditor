@@ -1,6 +1,6 @@
-﻿namespace GpwEditor.Infrastructure.Mappers.BaseGame
+﻿namespace GpwEditor.Infrastructure.ValueMappers.BaseGame
 {
-    public class CarNumberMapper : MapperBase
+    public class CarNumberValueMapper : ValueMapperBase
     {
         private const int ValueABaseOffset = 466160;
         private const int ValueALocalOffset = 260;

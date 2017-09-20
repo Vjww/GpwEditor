@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace GpwEditor.Infrastructure.Services
 {
-    public class LanguageResourceService
+    public class LanguageResourceService : ITextResourceService
     {
         // TODO: remove?
         //private const int FirstLineId = 0;

@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 
-namespace GpwEditor.Infrastructure.Mappers
+namespace GpwEditor.Infrastructure.ValueMappers
 {
-    public abstract class MapperBase : IMapper
+    public abstract class ValueMapperBase : IValueMapper
     {
         private bool _isInitialised;
         private int _id;

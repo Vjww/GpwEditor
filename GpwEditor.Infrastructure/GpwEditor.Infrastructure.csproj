@@ -52,20 +52,22 @@
     <Compile Include="DataSources\SaveGameDataSource.cs" />
     <Compile Include="Entities\BaseGame\CarNumberEntity.cs" />
     <Compile Include="Entities\BaseGame\ChassisHandlingEntity.cs" />
+    <Compile Include="Entities\ResourceString.cs" />
     <Compile Include="Entities\BaseGame\TeamEntity.cs" />
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Factories\EntityFactory.cs" />
-    <Compile Include="Factories\MapperFactory.cs" />
+    <Compile Include="Factories\ValueMapperFactory.cs" />
     <Compile Include="Services\CommentaryResource.cs" />
     <Compile Include="Services\CommentaryType.cs" />
+    <Compile Include="Services\ITextResourceService.cs" />
     <Compile Include="Services\LanguageType.cs" />
     <Compile Include="Services\LanguageResource.cs" />
-    <Compile Include="Mappers\BaseGame\CarNumberMapper.cs" />
-    <Compile Include="Mappers\BaseGame\ChassisHandlingMapper.cs" />
-    <Compile Include="Mappers\BaseGame\TeamMapper.cs" />
-    <Compile Include="Mappers\IMapper.cs" />
-    <Compile Include="Mappers\MapperBase.cs" />
+    <Compile Include="ValueMappers\BaseGame\CarNumberValueMapper.cs" />
+    <Compile Include="ValueMappers\BaseGame\ChassisHandlingValueMapper.cs" />
+    <Compile Include="ValueMappers\BaseGame\TeamValueMapper.cs" />
+    <Compile Include="ValueMappers\IValueMapper.cs" />
+    <Compile Include="ValueMappers\ValueMapperBase.cs" />
     <Compile Include="Populators\BaseGame\CarNumberPopulator.cs" />
     <Compile Include="Populators\BaseGame\ChassisHandlingPopulator.cs" />
     <Compile Include="Populators\BaseGame\TeamPopulator.cs" />
@@ -83,8 +85,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\SaveGame\" />
-    <Folder Include="Mappers\SaveGame\" />
     <Folder Include="Populators\SaveGame\" />
+    <Folder Include="ValueMappers\SaveGame\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

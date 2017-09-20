@@ -1,6 +1,6 @@
-﻿namespace GpwEditor.Infrastructure.Mappers.BaseGame
+﻿namespace GpwEditor.Infrastructure.ValueMappers.BaseGame
 {
-    public class ChassisHandlingMapper : MapperBase
+    public class ChassisHandlingValueMapper : ValueMapperBase
     {
         private const int BaseOffset = 1094126;
         private const int LocalOffset = 30;

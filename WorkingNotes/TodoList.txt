@@ -1,0 +1,51 @@
+
+UPGRADE
+- validates for and upgrades original gpw101b.exe, english.txt and game folder files
+- commentary sounds, commentary texts, driver heads
+
+CONFIGURE
+- validates for and imports/exports configuration
+- configure earlier applied upgrades
+- configure game options (points, gameplay)
+
+EDITOR
+- validates for and imports/exports game data
+
+
+--------------
+
+Team tab
+Drivers tab
+|- F1 Drivers
+|- Non-F1 Drivers
+Chiefs tab
+|- F1 Commercial Managers
+|- F1 Chief Designers
+|- F1 Technical Directors
+|- F1 Chief Mechanics
+|- Non-F1 Commercial Managers
+|- Non-F1 Chief Designers
+|- Non-F1 Technical Directors
+|- Non-F1 Chief Mechanics
+|- Effort
+Suppliers tab
+|- Engine Suppliers
+|- Tyre Suppliers
+|- Fuel Suppliers
+Tracks tab
+RacePerformance tab
+Staff tab
+|- Salaries
+|- Effort
+Design tab
+|- Efficiency
+|- Effort
+Engineering tab
+|- Cost
+|- Effort
+
+https://www.martinfowler.com/bliki/AnemicDomainModel.html
+
+Domain layer - the logic that should be in a domain object is domain logic - validations, calculations, business rules - whatever you like to call it. (There are cases when you make an argument for putting data source or presentation logic in a domain object, but that's orthogonal to my view of anemia.)
+
+Application Layer - this layer is kept thin. It does not contain business rules or knowledge, but only coordinates tasks and delegates work to collaborations of domain objects in the next layer down. It does not have state reflecting the business situation, but it can have state that reflects the progress of a task for the user or the program.
