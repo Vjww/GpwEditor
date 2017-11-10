@@ -1,4 +1,4 @@
-﻿using GpwEditor.Infrastructure.ConnectionStrings;
+﻿using GpwEditor.Infrastructure.Connections;
 using GpwEditor.Infrastructure.Databases;
 using GpwEditor.Infrastructure.DataSources;
 
@@ -7,10 +7,10 @@ namespace GpwEditor.Application.Models
     public abstract class ModelBase<T, TU, TV>
         where T : class, IDatabase<TU, TV>
         where TU : class, IDataSource<TV>
-        where TV : class, IConnectionStrings
+        where TV : class, IConnection
     {
         protected readonly T Database;
-        protected readonly int Id;
+        public readonly int Id;
 
         protected ModelBase(T database, int id)
         {

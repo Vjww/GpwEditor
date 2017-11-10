@@ -5,7 +5,7 @@ using GpwEditor.Application.Managers.BaseGame;
 using GpwEditor.Application.Models.BaseGame;
 using GpwEditor.Domain.Objects.BaseGame;
 using GpwEditor.Domain.Validators.BaseGame;
-using GpwEditor.Infrastructure.ConnectionStrings;
+using GpwEditor.Infrastructure.Connections;
 using GpwEditor.Infrastructure.Databases;
 using GpwEditor.Infrastructure.DataSources;
 using GpwEditor.Infrastructure.Services;
@@ -14,7 +14,7 @@ namespace GpwEditor.Application.Services
 {
     public class BaseGameService
     {
-        private readonly BaseGameDataSource _gameDataSource;
+        private readonly BaseGameDataContext _gameDataSource;
         private readonly BaseGameDatabase _gameDatabase;
 
         private readonly TeamManager _teamManager;
@@ -23,7 +23,7 @@ namespace GpwEditor.Application.Services
         {
             _gameDatabase = new BaseGameDatabase();
 
-            _gameDataSource = new BaseGameDataSource(
+            _gameDataSource = new BaseGameDataContext(
                 new StreamService<MemoryStream>(new MemoryStream()),
                 new LanguageResourceService(LanguageType.English),
                 new LanguageResourceService(LanguageType.French),
@@ -52,7 +52,7 @@ namespace GpwEditor.Application.Services
             string frenchCommentaryResource,
             string germanCommentaryResource)
         {
-            var connectionStrings = new BaseGameConnectionStrings
+            var connectionStrings = new BaseGameConnection
             {
                 GameFolder = gameFolder,
                 GameExecutable = gameExecutable,
@@ -82,7 +82,7 @@ namespace GpwEditor.Application.Services
             string frenchCommentaryResource,
             string germanCommentaryResource)
         {
-            var connectionStrings = new BaseGameConnectionStrings
+            var connectionStrings = new BaseGameConnection
             {
                 GameFolder = gameFolder,
                 GameExecutable = gameExecutable,
@@ -107,7 +107,7 @@ namespace GpwEditor.Application.Services
             _teamManager.SetTeams(teams);
         }
 
-        private static bool ValidateConnectionStrings(BaseGameConnectionStrings connectionStrings)
+        private static bool ValidateConnectionStrings(BaseGameConnection connectionStrings)
         {
             if (string.IsNullOrWhiteSpace(connectionStrings.GameFolder)) return false;
             if (string.IsNullOrWhiteSpace(connectionStrings.GameExecutable)) return false;

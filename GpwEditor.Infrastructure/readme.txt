@@ -1,29 +1,30 @@
 ﻿
- Databases                      Direct
-     |                             |
-     |                             |
-Repositories ---------------- DataSources
-     |                             |
-     |                             |
-  Entities ---- Populators ---- Streams ----- Files
-                    |
-                    |
-               ValueMappers
+ Databases                   Direct
+     |                          |
+     |                          |
+Repositories ------------- DataSources ---- Connections
+     |                          |
+     |                          |
+  Entities ---- Mappers ---- Streams ------ Files
+                   |
+                   |
+                Locators
 
-Databases - contains repositories
-Repositories - contains entities
-Entities - contains game data
+Databases - contain repositories
+Repositories - contain entities
+Entities - contain game data
 
-Direct - access to memory streams
-DataSources - data source for the editing context
+Direct - immediate access to files
+DataSources - the editing context
+Connections - the locations of files
 Streams - loads/saves data from/to files
 Files - contains game data
 
-Populators - imports/exports entities from/to memory streams
-ValueMappers - where to find the values in the game files
+Mappers - imports/exports entities from/to streams
+Locators - the locations of data in files
 
 To add a new module:
 - Add a new entity class that will hold the game data
-- Add a new value mapper class that will locate the game data
-- Add a new populator class that will move the game data
-- Add a new repository variable to the database class and integrate
+- Add a new locator class that will locate the game data in the datasources
+- Add a new mapper class that will move the game data between entities and datasources
+- Add a new repository to the database class and integrate the module into the application

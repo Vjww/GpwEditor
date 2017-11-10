@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
@@ -36,7 +37,13 @@ namespace Data.FileConnection
 
         public Collection<CommentaryResource> Load()
         {
-            var lines = ReadLines();
+            // Read strings from file
+            string readLine;
+            var lines = new List<string>();
+            while ((readLine = ReadLine()) != null)
+            {
+                lines.Add(readLine);
+            }
 
             var collection = new Collection<CommentaryResource>();
 
@@ -84,7 +91,12 @@ namespace Data.FileConnection
                 lines.Add($"{RightAngleBracket}{fileName} {transcript}{LeftAngleBracket}");
                 counter++;
             }
-            WriteLines(lines);
+
+            // Write strings to file
+            foreach (var line in lines)
+            {
+                WriteLine(line);
+            }
         }
 
         protected override string ReadLine()

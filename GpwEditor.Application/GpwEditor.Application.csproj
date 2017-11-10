@@ -45,11 +45,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mappers\BaseGame\DatabaseToTeamModelMapper.cs" />
+    <Compile Include="Mappers\BaseGame\ModelOnBaseGameDatabaseMapperBase.cs" />
+    <Compile Include="Mappers\IModelOnDatabaseMapper.cs" />
+    <Compile Include="Mappers\BaseGame\TeamModelOnBaseGameDatabaseMapper.cs" />
     <Compile Include="Mappers\IReversableMapper.cs" />
     <Compile Include="Mappers\IMapper.cs" />
     <Compile Include="Mappers\IThingy.cs" />
     <Compile Include="Models\BaseGame\TeamModel.cs" />
     <Compile Include="Models\ModelBase.cs" />
+    <Compile Include="ObjectReaders\BaseGame\ObjectReaderBase.cs" />
+    <Compile Include="ObjectReaders\BaseGame\TeamObjectReader.cs" />
+    <Compile Include="ObjectReaders\IObjectReader.cs" />
     <Compile Include="Services\BaseGameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Managers\BaseGame\TeamManager.cs" />
@@ -58,6 +64,7 @@
   <ItemGroup>
     <Folder Include="Managers\SaveGame\" />
     <Folder Include="Mappers\SaveGame\" />
+    <Folder Include="ObjectReaders\SaveGame\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GpwEditor.Domain\GpwEditor.Domain.csproj">

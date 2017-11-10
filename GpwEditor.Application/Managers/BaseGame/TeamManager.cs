@@ -16,11 +16,8 @@ namespace GpwEditor.Application.Managers.BaseGame
             BaseGameDatabase database,
             IValidator<TeamModel> validator)
         {
-            if (database == null) throw new ArgumentNullException(nameof(database));
-            if (validator == null) throw new ArgumentNullException(nameof(validator));
-
-            _database = database;
-            _validator = validator;
+            _database = database ?? throw new ArgumentNullException(nameof(database));
+            _validator = validator ?? throw new ArgumentNullException(nameof(validator));
         }
 
         public IEnumerable<TeamModel> GetTeams()

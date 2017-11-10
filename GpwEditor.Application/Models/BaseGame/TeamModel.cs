@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 using GpwEditor.Domain.Objects.BaseGame;
-using GpwEditor.Infrastructure.ConnectionStrings;
+using GpwEditor.Infrastructure.Connections;
 using GpwEditor.Infrastructure.Databases;
 using GpwEditor.Infrastructure.DataSources;
 
 namespace GpwEditor.Application.Models.BaseGame
 {
-    public class TeamModel : ModelBase<BaseGameDatabase, BaseGameDataSource, BaseGameConnectionStrings>, ITeamObject
+    public class TeamModel : ModelBase<BaseGameDatabase, BaseGameDataContext, BaseGameConnection>, ITeamObject
     {
         public int TeamId { get; set; }
         public string Name { get; set; }

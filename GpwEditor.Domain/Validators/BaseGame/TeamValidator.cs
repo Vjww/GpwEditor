@@ -14,7 +14,7 @@ namespace GpwEditor.Domain.Validators.BaseGame
                 validationMessages.Add($"Field {nameof(@object.TeamId)} is out of range and must be a value from 1 to 11.");
             }
 
-            return new List<string>();
+            return validationMessages;
         }
     }
 }
