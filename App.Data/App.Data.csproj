@@ -45,5 +45,11 @@
   <ItemGroup>
     <Content Include="readme.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\App.Infrastructure\App.Infrastructure.csproj">
+      <Project>{d3d1c21b-be26-40ef-a94a-9202f4773990}</Project>
+      <Name>App.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

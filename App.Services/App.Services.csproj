@@ -43,5 +43,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="readme.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\App.Core\App.Core.csproj">
+      <Project>{f3ce8598-63b2-4526-b637-65a6bbe5c8a2}</Project>
+      <Name>App.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Data\App.Data.csproj">
+      <Project>{7b849204-9113-48d5-9dc1-9562e2ac522b}</Project>
+      <Name>App.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Infrastructure\App.Infrastructure.csproj">
+      <Project>{d3d1c21b-be26-40ef-a94a-9202f4773990}</Project>
+      <Name>App.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
