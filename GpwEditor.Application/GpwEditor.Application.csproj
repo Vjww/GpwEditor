@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GpwEditor.Application</RootNamespace>
     <AssemblyName>GpwEditor.Application</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,12 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,29 +45,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mappers\BaseGame\DatabaseToTeamModelMapper.cs" />
-    <Compile Include="Mappers\BaseGame\ModelOnBaseGameDatabaseMapperBase.cs" />
-    <Compile Include="Mappers\IModelOnDatabaseMapper.cs" />
-    <Compile Include="Mappers\BaseGame\TeamModelOnBaseGameDatabaseMapper.cs" />
-    <Compile Include="Mappers\IReversableMapper.cs" />
-    <Compile Include="Mappers\IMapper.cs" />
-    <Compile Include="Mappers\IThingy.cs" />
-    <Compile Include="Models\BaseGame\TeamModel.cs" />
-    <Compile Include="Models\ModelBase.cs" />
-    <Compile Include="ObjectReaders\BaseGame\ObjectReaderBase.cs" />
-    <Compile Include="ObjectReaders\BaseGame\TeamObjectReader.cs" />
-    <Compile Include="ObjectReaders\IObjectReader.cs" />
-    <Compile Include="Services\BaseGameService.cs" />
+    <Compile Include="DataConnections\BaseGameDataConnectionValidator.cs" />
+    <Compile Include="DataServices\BaseGameDataServiceExporter.cs" />
+    <Compile Include="DataServices\BaseGameDataServiceImporter.cs" />
+    <Compile Include="DataServices\IDataServiceExporter.cs" />
+    <Compile Include="DataServices\IDataServiceImporter.cs" />
+    <Compile Include="DataConnections\IDataConnectionValidator.cs" />
+    <Compile Include="DataServices\BaseGameDataService.cs" />
+    <Compile Include="Factories\IModelFactory.cs" />
+    <Compile Include="Factories\ModelFactory.cs" />
+    <Compile Include="Mappers\IDataContextToModelMapper.cs" />
+    <Compile Include="Mappers\BaseGame\TeamModelToDataContextMapper.cs" />
+    <Compile Include="Mappers\BaseGame\DataContextToTeamModelMapper.cs" />
+    <Compile Include="Mappers\IModelToDataContextMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Managers\BaseGame\TeamManager.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Managers\SaveGame\" />
-    <Folder Include="Mappers\SaveGame\" />
-    <Folder Include="ObjectReaders\SaveGame\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.Editor.Data\Common.Editor.Data.csproj">
+      <Project>{d3a62601-844d-459d-a720-9530cd86a7de}</Project>
+      <Name>Common.Editor.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GpwEditor.Domain\GpwEditor.Domain.csproj">
       <Project>{6f5104e8-377b-4e0a-af55-c4c76a226acd}</Project>
       <Name>GpwEditor.Domain</Name>

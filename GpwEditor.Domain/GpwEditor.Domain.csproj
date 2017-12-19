@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GpwEditor.Domain</RootNamespace>
     <AssemblyName>GpwEditor.Domain</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,14 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Objects\BaseGame\ITeamObject.cs" />
-    <Compile Include="Objects\IObject.cs" />
+    <Compile Include="Models\BaseGame\ITeamModel.cs" />
+    <Compile Include="Models\IModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\BaseGame\TeamValidator.cs" />
     <Compile Include="Validators\IValidator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Objects\SaveGame\" />
+    <Folder Include="Models\SaveGame\" />
     <Folder Include="Validators\SaveGame\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

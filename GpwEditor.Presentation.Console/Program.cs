@@ -1,18 +1,52 @@
-﻿using GpwEditor.Application.Services;
+﻿using System;
+using GpwEditor.Application.DataServices;
 using GpwEditor.Presentation.Console.Controllers;
+using GpwEditor.Presentation.Console.DependencyInjection.Autofac;
+using GpwEditor.Presentation.Console.DependencyInjection.Output;
+using GpwEditor.Presentation.Console.DependencyInjection.Unity;
 
 namespace GpwEditor.Presentation.Console
 {
     internal class Program
     {
+        private static void Main(string[] args)
+        {
+            var outputDevice = new ConsoleOutput();
+
+            // TODO: Pick a dependency injection container to match your taste
+            //using (var container = new AutofacDependencyInjectionContainer(outputDevice))
+            using (var container = new UnityDependencyInjectionContainer(outputDevice))
+
+            {
+                container.DisplayContainerName();
+                container.PerformRegistrations();
+                container.DisplayRegistrations();
+
+                container.GetInstance<Application>().Run();
+            }
+
+            // TODO: remove, temp measure
+            System.Console.ReadLine();
+        }
+    }
+
+    public class Application
+    {
         private const string GameFolder = @"C:\gpw";
         private const string TempFolder = @"C:\temp\gpwtest";
 
-        private static void Main(string[] args)
-        {
-            var application = new BaseGameService();
+        private readonly BaseGameController _controller;
+        private readonly BaseGameDataService _service;
 
-            application.Load(
+        public Application(BaseGameController controller, BaseGameDataService service)
+        {
+            _controller = controller ?? throw new ArgumentNullException(nameof(controller));
+            _service = service ?? throw new ArgumentNullException(nameof(service));
+        }
+
+        public void Run()
+        {
+            _service.Load(
                 $@"{GameFolder}",
                 $@"{GameFolder}\gpw.exe",
                 $@"{GameFolder}\english.txt",
@@ -22,10 +56,9 @@ namespace GpwEditor.Presentation.Console
                 $@"{GameFolder}\textf\commf.txt",
                 $@"{GameFolder}\textg\commg.txt");
 
-            var controller = new BaseGameController();
-            controller.Home(application);
+            _controller.Home();
 
-            application.Save(
+            _service.Save(
                 $@"{TempFolder}",
                 $@"{TempFolder}\gpw.exe",
                 $@"{TempFolder}\english.txt",
@@ -34,9 +67,6 @@ namespace GpwEditor.Presentation.Console
                 $@"{TempFolder}\comme.txt",
                 $@"{TempFolder}\commf.txt",
                 $@"{TempFolder}\commg.txt");
-
-            // Wait
-            System.Console.ReadLine();
         }
     }
 }

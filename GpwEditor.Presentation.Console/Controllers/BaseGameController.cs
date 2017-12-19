@@ -1,20 +1,31 @@
-﻿using GpwEditor.Application.Services;
+﻿using System;
+using GpwEditor.Application.DataServices;
 using GpwEditor.Presentation.Console.Models;
 using GpwEditor.Presentation.Console.Views.BaseGame;
 
 namespace GpwEditor.Presentation.Console.Controllers
 {
-    public class BaseGameController
+    public class BaseGameController : IController
     {
-        public void Home(BaseGameService application)
-        {
-            var model = new BaseGameModel
-            {
-                Teams = application.GetTeams()
-            };
+        private readonly BaseGameDataService _service;
+        private readonly BaseGameModel _model;
+        private readonly TeamView _teamView;
 
-            var view = new TeamView();
-            view.Display(model);
+        public BaseGameController(
+            BaseGameDataService service,
+            BaseGameModel model,
+            TeamView teamView)
+        {
+            _service = service ?? throw new ArgumentNullException(nameof(service));
+            _model = model ?? throw new ArgumentNullException(nameof(model));
+            _teamView = teamView ?? throw new ArgumentNullException(nameof(teamView));
+        }
+
+        public void Home()
+        {
+            _model.Teams = _service.GetTeams();
+
+            _teamView.Display();
         }
     }
 }

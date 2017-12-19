@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.IO;
 
-namespace Data
+namespace Data.FileVerification
 {
     public class GameFolderVerification
     {

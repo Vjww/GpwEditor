@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using GpwEditor.Domain.Objects;
+using GpwEditor.Domain.Models;
 
 namespace GpwEditor.Domain.Validators
 {
-    public interface IValidator<in TObject>
-        where TObject : class, IObject
+    public interface IValidator<in TModel>
+        where TModel : class, IModel
     {
-        List<string> Validate(TObject @object);
+        List<string> Validate(TModel model);
     }
 }

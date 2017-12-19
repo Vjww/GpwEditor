@@ -1,0 +1,7 @@
+C:\Source\Repos\GpwEditor\GpwEditor.Infrastructure.Tests\Fakes\GpwEditor.Infrastructure.fakes : warning : Cannot generate stub for GpwEditor.Infrastructure.Enums.CommentaryType: type is a value type.
+C:\Source\Repos\GpwEditor\GpwEditor.Infrastructure.Tests\Fakes\GpwEditor.Infrastructure.fakes : warning : Cannot generate stub for GpwEditor.Infrastructure.Enums.LanguageType: type is a value type.
+C:\Source\Repos\GpwEditor\GpwEditor.Infrastructure.Tests\Fakes\GpwEditor.Infrastructure.fakes : warning : Cannot generate stub for <PrivateImplementationDetails>: type is sealed.
+C:\Source\Repos\GpwEditor\GpwEditor.Infrastructure.Tests\Fakes\GpwEditor.Infrastructure.fakes : warning : Cannot generate shim for GpwEditor.Infrastructure.Enums.CommentaryType: type is an enum.
+C:\Source\Repos\GpwEditor\GpwEditor.Infrastructure.Tests\Fakes\GpwEditor.Infrastructure.fakes : warning : Cannot generate shim for GpwEditor.Infrastructure.Enums.LanguageType: type is an enum.
+C:\Source\Repos\GpwEditor\GpwEditor.Infrastructure.Tests\Fakes\GpwEditor.Infrastructure.fakes : warning : Cannot generate shim for GpwEditor.Infrastructure.Catalogues.Commentary.ICommentaryCatalogueLanguagePhrases: type is an interface.
+C:\Source\Repos\GpwEditor\GpwEditor.Infrastructure.Tests\Fakes\GpwEditor.Infrastructure.fakes : warning : Cannot generate shim for <PrivateImplementationDetails>: type is not supported because of internal limitations.

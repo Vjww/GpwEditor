@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using GpwEditor.Domain.Objects.BaseGame;
+using GpwEditor.Domain.Models.BaseGame;
 
 namespace GpwEditor.Presentation.Console.Models
 {
-    public class BaseGameModel
+    public class BaseGameModel : IModel
     {
-        public IEnumerable<ITeamObject> Teams { get; set; }
+        public IEnumerable<ITeamModel> Teams { get; set; }
     }
 }

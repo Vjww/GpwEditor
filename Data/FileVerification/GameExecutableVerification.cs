@@ -2,7 +2,7 @@
 using System.IO;
 using System.Security.Cryptography;
 
-namespace Data
+namespace Data.FileVerification
 {
     public class GameExecutableVerification
     {

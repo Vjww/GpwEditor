@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Data
+namespace Data.FileVerification
 {
     public class LanguageFileVerification
     {

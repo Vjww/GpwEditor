@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GpwEditor.Infrastructure</RootNamespace>
     <AssemblyName>GpwEditor.Infrastructure</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -35,58 +35,62 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Catalogues\CommentaryCatalogueExporter.cs" />
-    <Compile Include="Catalogues\LanguageCatalogueExporter.cs" />
-    <Compile Include="Catalogues\CommentaryCatalogueImporter.cs" />
-    <Compile Include="Catalogues\LanguageCatalogueImporter.cs" />
+    <Compile Include="Catalogues\Commentary\CommentaryCatalogueExporter.cs" />
+    <Compile Include="Catalogues\Commentary\CommentaryCatalogueParser.cs" />
+    <Compile Include="Catalogues\Commentary\EnglishCommentaryCatalogueLanguagePhrases.cs" />
+    <Compile Include="Catalogues\Commentary\FrenchCommentaryCatalogueLanguagePhrases.cs" />
+    <Compile Include="Catalogues\Commentary\GermanCommentaryCatalogue.cs" />
+    <Compile Include="Catalogues\Commentary\FrenchCommentaryCatalogue.cs" />
+    <Compile Include="Catalogues\Commentary\GermanCommentaryCatalogueLanguagePhrases.cs" />
+    <Compile Include="Catalogues\Commentary\ICommentaryCatalogueLanguagePhrases.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogueExporter.cs" />
+    <Compile Include="Catalogues\Commentary\CommentaryCatalogueImporter.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogueImporter.cs" />
     <Compile Include="DataConnections\BaseGameDataConnection.cs" />
     <Compile Include="DataConnections\SaveGameDataConnection.cs" />
-    <Compile Include="Catalogues\CommentaryCatalogueItem.cs" />
-    <Compile Include="Catalogues\LanguageCatalogueItem.cs" />
-    <Compile Include="Catalogues\CommentaryCatalogue.cs" />
-    <Compile Include="Catalogues\LanguageCatalogue.cs" />
-    <Compile Include="Repositories_TODO\BaseGameRepository.cs" />
+    <Compile Include="Catalogues\Commentary\CommentaryCatalogueItem.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogueItem.cs" />
+    <Compile Include="Catalogues\Commentary\EnglishCommentaryCatalogue.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogue.cs" />
+    <Compile Include="DataLocators\ChassisHandlingDataLocator.cs" />
+    <Compile Include="DataLocators\CarNumberDataLocator.cs" />
+    <Compile Include="Calculators\IdentityCalculator.cs" />
+    <Compile Include="DataLocators\TeamDataLocator.cs" />
+    <Compile Include="EntityExporters\BaseGame\ChassisHandlingEntityExporter.cs" />
+    <Compile Include="EntityExporters\BaseGame\CarNumberEntityExporter.cs" />
+    <Compile Include="EntityExporters\BaseGame\TeamEntityExporter.cs" />
+    <Compile Include="EntityImporters\BaseGame\ChassisHandlingEntityImporter.cs" />
+    <Compile Include="EntityImporters\BaseGame\CarNumberEntityImporter.cs" />
+    <Compile Include="Factories\BaseGame\CarNumberEntityFactory.cs" />
+    <Compile Include="Factories\BaseGame\ChassisHandlingEntityFactory.cs" />
+    <Compile Include="Factories\BaseGame\TeamEntityFactory.cs" />
+    <Compile Include="EntityImporters\BaseGame\TeamEntityImporter.cs" />
     <Compile Include="DataContexts\BaseGameDataContext.cs" />
-    <Compile Include="DataContexts\SaveGameDataContext.cs" />
-    <Compile Include="Entities_TODO\BaseGame\CarNumberEntity.cs" />
-    <Compile Include="Entities_TODO\BaseGame\ChassisHandlingEntity.cs" />
-    <Compile Include="Entities_TODO\BaseGame\ResourceString.cs" />
-    <Compile Include="Entities_TODO\BaseGame\TeamEntity.cs" />
-    <Compile Include="Resources_TODO\GameExecutableResourceService.cs" />
-    <Compile Include="Resources_TODO\CommentaryResource.cs" />
+    <Compile Include="DataEndpoints\BaseGameDataEndpoint.cs" />
+    <Compile Include="DataEndpoints\SaveGameDataEndpoint.cs" />
+    <Compile Include="Entities\BaseGame\CarNumberEntity.cs" />
+    <Compile Include="Entities\BaseGame\ChassisHandlingEntity.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogueString.cs" />
+    <Compile Include="Entities\BaseGame\TeamEntity.cs" />
     <Compile Include="Enums\CommentaryType.cs" />
     <Compile Include="Enums\LanguageType.cs" />
-    <Compile Include="Resources_TODO\LanguageResource.cs" />
-    <Compile Include="Locators_TODO\BaseGame\CarNumberLocator.cs" />
-    <Compile Include="Locators_TODO\BaseGame\ChassisHandlingLocator.cs" />
-    <Compile Include="Locators_TODO\BaseGame\TeamLocator.cs" />
-    <Compile Include="Mappers_TODO\BaseGame\CarNumberMapper.cs" />
-    <Compile Include="Mappers_TODO\BaseGame\ChassisHandlingMapper.cs" />
-    <Compile Include="Mappers_TODO\BaseGame\TeamMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources_TODO\CommentaryResourceService.cs" />
-    <Compile Include="Resources_TODO\LanguageResourceService.cs" />
-    <Compile Include="Resources_TODO\SaveGameResourceService.cs" />
-    <Compile Include="TestClasses_TODO\TestFileResource_TODO.cs" />
-    <Compile Include="TestClasses_TODO\TestDataSet.cs" />
-    <Compile Include="TestClasses_TODO\TestEntity.cs" />
-    <Compile Include="TestClasses_TODO\TestEntityExporter.cs" />
-    <Compile Include="TestClasses_TODO\TestEntityImporter.cs" />
-    <Compile Include="TestClasses_TODO\TestProgram.cs" />
-    <Compile Include="TestClasses_TODO\TestRepository.cs" />
+    <Compile Include="Catalogues\MERGE_CommentaryResourceService.cs" />
+    <Compile Include="Catalogues\MERGE_LanguageResourceService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities_TODO\SaveGame\" />
-    <Folder Include="Locators_TODO\SaveGame\" />
-    <Folder Include="Mappers_TODO\SaveGame\" />
+    <Folder Include="Entities\SaveGame\" />
+    <Folder Include="EntityExporters\SaveGame\" />
+    <Folder Include="EntityImporters\SaveGame\" />
+    <Folder Include="Factories\SaveGame\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Common.Editor.Infrastructure\Common.Editor.Infrastructure.csproj">
-      <Project>{74daf043-edb8-4666-b293-b09735f22a03}</Project>
-      <Name>Common.Editor.Infrastructure</Name>
+    <ProjectReference Include="..\..\Common\Common.Editor.Data\Common.Editor.Data.csproj">
+      <Project>{d3a62601-844d-459d-a720-9530cd86a7de}</Project>
+      <Name>Common.Editor.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

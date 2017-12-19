@@ -1,77 +1,57 @@
 ﻿using System;
-using Common.Editor.Infrastructure.Catalogues;
-using Common.Editor.Infrastructure.DataContexts;
-using Common.Editor.Infrastructure.FileResources;
-using GpwEditor.Infrastructure.Catalogues;
-using GpwEditor.Infrastructure.DataConnections;
+using System.Collections.Generic;
+using Common.Editor.Data.DataContexts;
+using Common.Editor.Data.Entities;
+using Common.Editor.Data.Repositories;
+using GpwEditor.Infrastructure.Entities.BaseGame;
 
 namespace GpwEditor.Infrastructure.DataContexts
 {
-    public class BaseGameDataContext : IDataContext<BaseGameDataConnection>
+    public class BaseGameDataContext : IDataContext
     {
-        private readonly IFileResourceExporter _fileResourceExporter;
-        private readonly IFileResourceImporter _fileResourceImporter;
-        private readonly ICatalogueExporter<ICatalogueItem> _catalogueExporter;
-        private readonly ICatalogueImporter<ICatalogueItem> _catalogueImporter;
+        private readonly IList<IRepository<IEntity>> _repositories;
+        private readonly IDataContextExporter _dataContextExporter;
+        private readonly IDataContextImporter _dataContextImporter;
 
-        public IFileResource GameExecutableResource { get; private set; }
-        public LanguageCatalogue EnglishLanguageCatalogue { get; private set; }
-        public LanguageCatalogue FrenchLanguageCatalogue { get; private set; }
-        public LanguageCatalogue GermanLanguageCatalogue { get; private set; }
-        public CommentaryCatalogue EnglishCommentaryCatalogue { get; private set; }
-        public CommentaryCatalogue FrenchCommentaryCatalogue { get; private set; }
-        public CommentaryCatalogue GermanCommentaryCatalogue { get; private set; }
+        public IRepository<CarNumberEntity> CarNumbers { get; set; }
+        public IRepository<ChassisHandlingEntity> ChassisHandlings { get; set; }
+        public IRepository<TeamEntity> Teams { get; set; }
 
         public BaseGameDataContext(
-            IFileResourceExporter fileResourceExporter,
-            IFileResourceImporter fileResourceImporter,
-            ICatalogueExporter<ICatalogueItem> catalogueExporter,
-            ICatalogueImporter<ICatalogueItem> catalogueImporter,
-            IFileResource gameExecutableResource,
-            LanguageCatalogue englishLanguageCatalogue,
-            LanguageCatalogue frenchLanguageCatalogue,
-            LanguageCatalogue germanLanguageCatalogue,
-            CommentaryCatalogue englishCommentaryCatalogue,
-            CommentaryCatalogue frenchCommentaryCatalogue,
-            CommentaryCatalogue germanCommentaryCatalogue)
+            IDataContextExporter dataContextExporter,
+            IDataContextImporter dataContextImporter,
+            IRepository<CarNumberEntity> carNumbers,
+            IRepository<ChassisHandlingEntity> chassisHandlings,
+            IRepository<TeamEntity> teams)
         {
-            _fileResourceExporter = fileResourceExporter ?? throw new ArgumentNullException(nameof(fileResourceExporter));
-            _fileResourceImporter = fileResourceImporter ?? throw new ArgumentNullException(nameof(fileResourceImporter));
-            _catalogueImporter = catalogueImporter ?? throw new ArgumentNullException(nameof(catalogueImporter));
-            _catalogueExporter = catalogueExporter ?? throw new ArgumentNullException(nameof(catalogueExporter));
-            GameExecutableResource = gameExecutableResource ?? throw new ArgumentNullException(nameof(gameExecutableResource));
-            EnglishLanguageCatalogue = englishLanguageCatalogue ?? throw new ArgumentNullException(nameof(englishLanguageCatalogue));
-            FrenchLanguageCatalogue = frenchLanguageCatalogue ?? throw new ArgumentNullException(nameof(frenchLanguageCatalogue));
-            GermanLanguageCatalogue = germanLanguageCatalogue ?? throw new ArgumentNullException(nameof(germanLanguageCatalogue));
-            EnglishCommentaryCatalogue = englishCommentaryCatalogue ?? throw new ArgumentNullException(nameof(englishCommentaryCatalogue));
-            FrenchCommentaryCatalogue = frenchCommentaryCatalogue ?? throw new ArgumentNullException(nameof(frenchCommentaryCatalogue));
-            GermanCommentaryCatalogue = germanCommentaryCatalogue ?? throw new ArgumentNullException(nameof(germanCommentaryCatalogue));
+            _repositories = new List<IRepository<IEntity>>();
+            _dataContextExporter = dataContextExporter ?? throw new ArgumentNullException(nameof(dataContextExporter));
+            _dataContextImporter = dataContextImporter ?? throw new ArgumentNullException(nameof(dataContextImporter));
+            CarNumbers = carNumbers ?? throw new ArgumentNullException(nameof(carNumbers));
+            ChassisHandlings = chassisHandlings ?? throw new ArgumentNullException(nameof(chassisHandlings));
+            Teams = teams ?? throw new ArgumentNullException(nameof(teams));
         }
 
-        public void Import(BaseGameDataConnection connection)
+        public void Export()
         {
-            if (connection == null) throw new ArgumentNullException(nameof(connection));
-
-            GameExecutableResource = _fileResourceImporter.Import(connection.GameExecutableFilePath);
-            EnglishLanguageCatalogue = _catalogueImporter.Import(connection.EnglishLanguageFilePath) as LanguageCatalogue;
-            FrenchLanguageCatalogue = _catalogueImporter.Import(connection.FrenchLanguageFilePath) as LanguageCatalogue;
-            GermanLanguageCatalogue = _catalogueImporter.Import(connection.GermanLanguageFilePath) as LanguageCatalogue;
-            EnglishCommentaryCatalogue = _catalogueImporter.Import(connection.EnglishCommentaryFilePath) as CommentaryCatalogue;
-            FrenchCommentaryCatalogue = _catalogueImporter.Import(connection.FrenchCommentaryFilePath) as CommentaryCatalogue;
-            GermanCommentaryCatalogue = _catalogueImporter.Import(connection.GermanCommentaryFilePath) as CommentaryCatalogue;
+            _dataContextExporter.Export(_repositories);
         }
 
-        public void Export(BaseGameDataConnection connection)
+        public void Import()
         {
-            if (connection == null) throw new ArgumentNullException(nameof(connection));
+            _repositories.Clear();
 
-            _fileResourceExporter.Export(GameExecutableResource, connection.GameExecutableFilePath);
-            _catalogueExporter.Export(EnglishLanguageCatalogue, connection.EnglishLanguageFilePath);
-            _catalogueExporter.Export(FrenchLanguageCatalogue, connection.FrenchLanguageFilePath);
-            _catalogueExporter.Export(GermanLanguageCatalogue, connection.GermanLanguageFilePath);
-            _catalogueExporter.Export(EnglishCommentaryCatalogue, connection.EnglishCommentaryFilePath);
-            _catalogueExporter.Export(FrenchCommentaryCatalogue, connection.FrenchCommentaryFilePath);
-            _catalogueExporter.Export(GermanCommentaryCatalogue, connection.GermanCommentaryFilePath);
+            // Set the capacity of each repository
+            CarNumbers.Capacity = 22;
+            ChassisHandlings.Capacity = 11;
+            Teams.Capacity = 11;
+
+            // Add each repository to the repository collection
+            _repositories.Add((IRepository<IEntity>)CarNumbers);
+            _repositories.Add((IRepository<IEntity>)ChassisHandlings);
+            _repositories.Add((IRepository<IEntity>)Teams);
+
+            _dataContextImporter.Import(_repositories);
         }
     }
 }

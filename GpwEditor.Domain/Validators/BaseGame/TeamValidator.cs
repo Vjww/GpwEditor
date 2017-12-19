@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
-using GpwEditor.Domain.Objects.BaseGame;
+using GpwEditor.Domain.Models.BaseGame;
 
 namespace GpwEditor.Domain.Validators.BaseGame
 {
-    public class TeamValidator : IValidator<ITeamObject>
+    public class TeamValidator : IValidator<ITeamModel>
     {
-        public List<string> Validate(ITeamObject @object)
+        public List<string> Validate(ITeamModel model)
         {
             var validationMessages = new List<string>();
 
-            if (@object.TeamId < 1 || @object.TeamId > 11)
+            if (model.TeamId < 1 || model.TeamId > 11)
             {
-                validationMessages.Add($"Field {nameof(@object.TeamId)} is out of range and must be a value from 1 to 11.");
+                validationMessages.Add($"Field {nameof(model.TeamId)} is out of range and must be a value from 1 to 11.");
             }
 
             return validationMessages;

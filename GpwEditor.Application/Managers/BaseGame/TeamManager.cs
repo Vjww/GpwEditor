@@ -1,53 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GpwEditor.Application.Models.BaseGame;
+using Common.Editor.Data.Repositories;
+using GpwEditor.Domain.Models.BaseGame;
 using GpwEditor.Domain.Validators;
-using GpwEditor.Infrastructure.Databases;
+using GpwEditor.Infrastructure.DataContexts;
+using GpwEditor.Infrastructure.Entities.BaseGame;
 
 namespace GpwEditor.Application.Managers.BaseGame
 {
-    internal class TeamManager
+    public class TeamManager
     {
-        private readonly BaseGameDatabase _database;
-        private readonly IValidator<TeamModel> _validator;
+        private readonly BaseGameDataContext _dataContext;
+        private readonly IValidator<ITeamModel> _validator;
 
         public TeamManager(
-            BaseGameDatabase database,
-            IValidator<TeamModel> validator)
+            BaseGameDataContext dataContext,
+            IValidator<ITeamModel> validator)
         {
-            _database = database ?? throw new ArgumentNullException(nameof(database));
+            _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
             _validator = validator ?? throw new ArgumentNullException(nameof(validator));
         }
 
-        public IEnumerable<TeamModel> GetTeams()
+        public IEnumerable<ITeamModel> GetTeams()
         {
-            // TODO: return base.Get<T>(BaseGameDatabase.TeamRecordCount)
-
-            var result = new List<TeamModel>();
-
-            for (var i = 0; i < BaseGameDatabase.TeamRecordCount; i++)
-            {
-                var model = new TeamModel(_database, i);
-                model.Get();
-                result.Add(model);
-            }
-
-            return result;
+            return (IEnumerable<ITeamModel>)_dataContext.Teams;
         }
 
-        public IEnumerable<string> SetTeams(IEnumerable<TeamModel> models)
+        public IEnumerable<string> SetTeams(IEnumerable<ITeamModel> models)
         {
-            // TODO: base.Set<T>(models, BaseGameDatabase.TeamRecordCount)
-
             if (models == null) throw new ArgumentNullException(nameof(models));
-
-            var modelsList = models.ToList();
-            if (modelsList.Count() != BaseGameDatabase.TeamRecordCount) throw new ArgumentOutOfRangeException(nameof(models));
 
             var validationMessages = new List<string>();
 
-            foreach (var item in modelsList)
+            var enumerable = models as IList<ITeamModel> ?? models.ToList();
+            foreach (var item in enumerable)
             {
                 validationMessages.AddRange(_validator.Validate(item));
             }
@@ -57,11 +44,7 @@ namespace GpwEditor.Application.Managers.BaseGame
                 return validationMessages;
             }
 
-            for (var i = 0; i < BaseGameDatabase.TeamRecordCount; i++)
-            {
-                var model = new TeamModel(_database, i);
-                model.Set();
-            }
+            _dataContext.Teams = (IRepository<TeamEntity>)enumerable;
 
             return validationMessages;
         }
