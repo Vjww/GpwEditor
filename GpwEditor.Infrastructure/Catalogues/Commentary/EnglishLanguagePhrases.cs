@@ -1,7 +1,8 @@
 ﻿namespace GpwEditor.Infrastructure.Catalogues.Commentary
 {
-    public class EnglishCommentaryCatalogueLanguagePhrases : ICommentaryCatalogueLanguagePhrases
+    public class EnglishLanguagePhrases : ILanguagePhrases
     {
+        public LanguageEnum Language { get; } = LanguageEnum.English;
         public string DriverInPitsSuffix { get; } = "in pits.";
         public string DriverP1Suffix { get; } = "P1";
         public string DriverP2Suffix { get; } = "P2";

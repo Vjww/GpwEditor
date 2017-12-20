@@ -8,14 +8,14 @@ namespace GpwEditor.Infrastructure.Catalogues.Commentary
 {
     public class CommentaryCatalogueImporter : ICatalogueImporter<CommentaryCatalogueItem>
     {
-        private readonly CommentaryCatalogueParser _commentaryCatalogueParser;
+        private readonly CommentaryCatalogueParser _catalogueParser;
         private readonly IFileResource _fileResource;
 
         public CommentaryCatalogueImporter(
-            CommentaryCatalogueParser commentaryCatalogueParser,
+            CommentaryCatalogueParser catalogueParser,
             IFileResource fileResource)
         {
-            _commentaryCatalogueParser = commentaryCatalogueParser ?? throw new ArgumentNullException(nameof(commentaryCatalogueParser));
+            _catalogueParser = catalogueParser ?? throw new ArgumentNullException(nameof(catalogueParser));
             _fileResource = fileResource ?? throw new ArgumentNullException(nameof(fileResource));
         }
 
@@ -35,19 +35,19 @@ namespace GpwEditor.Infrastructure.Catalogues.Commentary
             {
                 var line = item.Trim();
 
-                _commentaryCatalogueParser.Validate(line, id + 1, out var validationMessage);
+                _catalogueParser.Validate(line, id + 1, out var validationMessage);
                 if (!string.IsNullOrWhiteSpace(validationMessage))
                 {
                     throw new Exception(validationMessage);
                 }
 
-                var commentaryType = _commentaryCatalogueParser.GetCommentaryType(id);
-                var fileName = _commentaryCatalogueParser.ExtractFileName(line);
-                var fileNamePrefix = _commentaryCatalogueParser.ExtractFileNamePrefix(fileName, commentaryType);
-                var fileNameSuffix = _commentaryCatalogueParser.ExtractFileNameSuffix(commentaryType);
-                var transcript = _commentaryCatalogueParser.ExtractTranscript(line);
-                var transcriptPrefix = _commentaryCatalogueParser.ExtractTranscriptPrefix(transcript, commentaryType);
-                var transcriptSuffix = _commentaryCatalogueParser.ExtractTranscriptSuffix(commentaryType);
+                var commentaryType = _catalogueParser.GetCommentaryType(id);
+                var fileName = _catalogueParser.ExtractFileName(line);
+                var fileNamePrefix = _catalogueParser.ExtractFileNamePrefix(fileName, commentaryType);
+                var fileNameSuffix = _catalogueParser.ExtractFileNameSuffix(commentaryType);
+                var transcript = _catalogueParser.ExtractTranscript(line);
+                var transcriptPrefix = _catalogueParser.ExtractTranscriptPrefix(transcript, commentaryType);
+                var transcriptSuffix = _catalogueParser.ExtractTranscriptSuffix(commentaryType);
                 var commentaryCatalogueItem = new CommentaryCatalogueItem
                 {
                     Id = id,

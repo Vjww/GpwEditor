@@ -86,7 +86,7 @@
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueExporter.ConstructorCommentaryCatalogueParserIFileResource">
-            <summary>Sets the shim of CommentaryCatalogueExporter.CommentaryCatalogueExporter(CommentaryCatalogueParser commentaryCatalogueParser, IFileResource fileResource)</summary>
+            <summary>Sets the shim of CommentaryCatalogueExporter.CommentaryCatalogueExporter(CommentaryCatalogueParser catalogueParser, IFileResource fileResource)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueExporter.ExportIEnumerableOfCommentaryCatalogueItemString">
             <summary>Sets the shim of CommentaryCatalogueExporter.Export(IEnumerable`1&lt;CommentaryCatalogueItem&gt; catalogue, String filePath)</summary>
@@ -119,7 +119,7 @@
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueImporter.ConstructorCommentaryCatalogueParserIFileResource">
-            <summary>Sets the shim of CommentaryCatalogueImporter.CommentaryCatalogueImporter(CommentaryCatalogueParser commentaryCatalogueParser, IFileResource fileResource)</summary>
+            <summary>Sets the shim of CommentaryCatalogueImporter.CommentaryCatalogueImporter(CommentaryCatalogueParser catalogueParser, IFileResource fileResource)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueImporter.ImportString">
             <summary>Sets the shim of CommentaryCatalogueImporter.Import(String filePath)</summary>
@@ -310,14 +310,17 @@
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueParser.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueParser.Bind(Common.Editor.Data.Catalogues.ICatalogueParser{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueParser.BuildFileNameCommentaryCatalogueItem">
             <summary>Sets the shim of CommentaryCatalogueParser.BuildFileName(CommentaryCatalogueItem catalogueItem)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueParser.BuildTranscriptCommentaryCatalogueItem">
             <summary>Sets the shim of CommentaryCatalogueParser.BuildTranscript(CommentaryCatalogueItem catalogueItem)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueParser.ConstructorICommentaryCatalogueLanguagePhrases">
-            <summary>Sets the shim of CommentaryCatalogueParser.CommentaryCatalogueParser(ICommentaryCatalogueLanguagePhrases languagePhrases)</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueParser.ConstructorILanguagePhrases">
+            <summary>Sets the shim of CommentaryCatalogueParser.CommentaryCatalogueParser(ILanguagePhrases languagePhrases)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueParser.ExtractFileNamePrefixStringCommentaryType">
             <summary>Sets the shim of CommentaryCatalogueParser.ExtractFileNamePrefix(String fileName, CommentaryType commentaryType)</summary>
@@ -355,6 +358,72 @@
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueParser.ValidateStringInt32StringOut">
             <summary>Sets the shim of CommentaryCatalogueParser.Validate(String text, Int32 lineNumber, String&amp; validationMessage)</summary>
         </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueReader">
+            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueReader</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueReader.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueReader.#ctor(GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueReader)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueReader.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueReader.AllInstances.ReadIEnumerableOfCommentaryCatalogueItemInt32">
+            <summary>Sets the shim of CommentaryCatalogueReader.Read(IEnumerable`1&lt;CommentaryCatalogueItem&gt; catalogue, Int32 id)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueReader.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueReader.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueReader.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueReader.Bind(Common.Editor.Data.Catalogues.ICatalogueReader{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueReader.Constructor">
+            <summary>Sets the shim of CommentaryCatalogueReader.CommentaryCatalogueReader()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueReader.ReadIEnumerableOfCommentaryCatalogueItemInt32">
+            <summary>Sets the shim of CommentaryCatalogueReader.Read(IEnumerable`1&lt;CommentaryCatalogueItem&gt; catalogue, Int32 id)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueWriter">
+            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueWriter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueWriter.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueWriter.#ctor(GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueWriter)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueWriter.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueWriter.AllInstances.WriteIEnumerableOfCommentaryCatalogueItemInt32String">
+            <summary>Sets the shim of CommentaryCatalogueWriter.Write(IEnumerable`1&lt;CommentaryCatalogueItem&gt; catalogue, Int32 id, String value)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueWriter.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueWriter.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueWriter.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueWriter.Bind(Common.Editor.Data.Catalogues.ICatalogueWriter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueWriter.Constructor">
+            <summary>Sets the shim of CommentaryCatalogueWriter.CommentaryCatalogueWriter()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueWriter.WriteIEnumerableOfCommentaryCatalogueItemInt32String">
+            <summary>Sets the shim of CommentaryCatalogueWriter.Write(IEnumerable`1&lt;CommentaryCatalogueItem&gt; catalogue, Int32 id, String value)</summary>
+        </member>
         <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogue">
             <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Commentary.EnglishCommentaryCatalogue</summary>
         </member>
@@ -367,6 +436,9 @@
         <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogue.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogue.AllInstances.LanguageGet">
+            <summary>Sets the shim of EnglishCommentaryCatalogue.get_Language()</summary>
+        </member>
         <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogue.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
@@ -377,6 +449,9 @@
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
         <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogue.Bind(Common.Editor.Data.Catalogues.ICatalogue)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogue.Bind(GpwEditor.Infrastructure.Catalogues.Commentary.ICommentaryCatalogue)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogue.Bind(System.Collections.ICollection)">
@@ -403,71 +478,80 @@
         <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogue.Bind(System.Collections.Generic.IReadOnlyList{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogue.ConstructorICatalogueExporterOfCommentaryCatalogueItemICatalogueImporterOfCommentaryCatalogueItemICatalogueReaderICatalogueWriter">
-            <summary>Sets the shim of EnglishCommentaryCatalogue.EnglishCommentaryCatalogue(ICatalogueExporter`1&lt;CommentaryCatalogueItem&gt; catalogueExporter, ICatalogueImporter`1&lt;CommentaryCatalogueItem&gt; catalogueImporter, ICatalogueReader catalogueReader, ICatalogueWriter catalogueWriter)</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogue.ConstructorICatalogueExporterOfCommentaryCatalogueItemICatalogueImporterOfCommentaryCatalogueItemICatalogueReaderOfCommentaryCatalogueItemICatalogueWriterOfCommentaryCatalogueItem">
+            <summary>Sets the shim of EnglishCommentaryCatalogue.EnglishCommentaryCatalogue(ICatalogueExporter`1&lt;CommentaryCatalogueItem&gt; catalogueExporter, ICatalogueImporter`1&lt;CommentaryCatalogueItem&gt; catalogueImporter, ICatalogueReader`1&lt;CommentaryCatalogueItem&gt; catalogueReader, ICatalogueWriter`1&lt;CommentaryCatalogueItem&gt; catalogueWriter)</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases">
-            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Commentary.EnglishCommentaryCatalogueLanguagePhrases</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogue.LanguageGet">
+            <summary>Sets the shim of EnglishCommentaryCatalogue.get_Language()</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.#ctor">
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases">
+            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Commentary.EnglishLanguagePhrases</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.#ctor">
             <summary>Initializes a new shim instance</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.#ctor(GpwEditor.Infrastructure.Catalogues.Commentary.EnglishCommentaryCatalogueLanguagePhrases)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.#ctor(GpwEditor.Infrastructure.Catalogues.Commentary.EnglishLanguagePhrases)">
             <summary>Initializes a new shim for the given instance</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.AllInstances">
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.AllInstances.DriverInPitsSuffixGet">
-            <summary>Sets the shim of EnglishCommentaryCatalogueLanguagePhrases.get_DriverInPitsSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.AllInstances.DriverInPitsSuffixGet">
+            <summary>Sets the shim of EnglishLanguagePhrases.get_DriverInPitsSuffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.AllInstances.DriverOutSuffixGet">
-            <summary>Sets the shim of EnglishCommentaryCatalogueLanguagePhrases.get_DriverOutSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.AllInstances.DriverOutSuffixGet">
+            <summary>Sets the shim of EnglishLanguagePhrases.get_DriverOutSuffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.AllInstances.DriverP1SuffixGet">
-            <summary>Sets the shim of EnglishCommentaryCatalogueLanguagePhrases.get_DriverP1Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.AllInstances.DriverP1SuffixGet">
+            <summary>Sets the shim of EnglishLanguagePhrases.get_DriverP1Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.AllInstances.DriverP2SuffixGet">
-            <summary>Sets the shim of EnglishCommentaryCatalogueLanguagePhrases.get_DriverP2Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.AllInstances.DriverP2SuffixGet">
+            <summary>Sets the shim of EnglishLanguagePhrases.get_DriverP2Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.AllInstances.DriverP3SuffixGet">
-            <summary>Sets the shim of EnglishCommentaryCatalogueLanguagePhrases.get_DriverP3Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.AllInstances.DriverP3SuffixGet">
+            <summary>Sets the shim of EnglishLanguagePhrases.get_DriverP3Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.AllInstances.TeamOutSuffixGet">
-            <summary>Sets the shim of EnglishCommentaryCatalogueLanguagePhrases.get_TeamOutSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.AllInstances.LanguageGet">
+            <summary>Sets the shim of EnglishLanguagePhrases.get_Language()</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.BehaveAsCurrent">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.AllInstances.TeamOutSuffixGet">
+            <summary>Sets the shim of EnglishLanguagePhrases.get_TeamOutSuffix()</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.BehaveAsNotImplemented">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.BehaveAsNotImplemented">
             <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.Behavior">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.Bind(GpwEditor.Infrastructure.Catalogues.Commentary.ICommentaryCatalogueLanguagePhrases)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.Bind(GpwEditor.Infrastructure.Catalogues.Commentary.ILanguagePhrases)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.Constructor">
-            <summary>Sets the shim of EnglishCommentaryCatalogueLanguagePhrases.EnglishCommentaryCatalogueLanguagePhrases()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.Constructor">
+            <summary>Sets the shim of EnglishLanguagePhrases.EnglishLanguagePhrases()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.DriverInPitsSuffixGet">
-            <summary>Sets the shim of EnglishCommentaryCatalogueLanguagePhrases.get_DriverInPitsSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.DriverInPitsSuffixGet">
+            <summary>Sets the shim of EnglishLanguagePhrases.get_DriverInPitsSuffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.DriverOutSuffixGet">
-            <summary>Sets the shim of EnglishCommentaryCatalogueLanguagePhrases.get_DriverOutSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.DriverOutSuffixGet">
+            <summary>Sets the shim of EnglishLanguagePhrases.get_DriverOutSuffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.DriverP1SuffixGet">
-            <summary>Sets the shim of EnglishCommentaryCatalogueLanguagePhrases.get_DriverP1Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.DriverP1SuffixGet">
+            <summary>Sets the shim of EnglishLanguagePhrases.get_DriverP1Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.DriverP2SuffixGet">
-            <summary>Sets the shim of EnglishCommentaryCatalogueLanguagePhrases.get_DriverP2Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.DriverP2SuffixGet">
+            <summary>Sets the shim of EnglishLanguagePhrases.get_DriverP2Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.DriverP3SuffixGet">
-            <summary>Sets the shim of EnglishCommentaryCatalogueLanguagePhrases.get_DriverP3Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.DriverP3SuffixGet">
+            <summary>Sets the shim of EnglishLanguagePhrases.get_DriverP3Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishCommentaryCatalogueLanguagePhrases.TeamOutSuffixGet">
-            <summary>Sets the shim of EnglishCommentaryCatalogueLanguagePhrases.get_TeamOutSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.LanguageGet">
+            <summary>Sets the shim of EnglishLanguagePhrases.get_Language()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimEnglishLanguagePhrases.TeamOutSuffixGet">
+            <summary>Sets the shim of EnglishLanguagePhrases.get_TeamOutSuffix()</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogue">
             <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Commentary.FrenchCommentaryCatalogue</summary>
@@ -481,6 +565,9 @@
         <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogue.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogue.AllInstances.LanguageGet">
+            <summary>Sets the shim of FrenchCommentaryCatalogue.get_Language()</summary>
+        </member>
         <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogue.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
@@ -491,6 +578,9 @@
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
         <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogue.Bind(Common.Editor.Data.Catalogues.ICatalogue)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogue.Bind(GpwEditor.Infrastructure.Catalogues.Commentary.ICommentaryCatalogue)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogue.Bind(System.Collections.ICollection)">
@@ -517,71 +607,80 @@
         <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogue.Bind(System.Collections.Generic.IReadOnlyList{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogue.ConstructorICatalogueExporterOfCommentaryCatalogueItemICatalogueImporterOfCommentaryCatalogueItemICatalogueReaderICatalogueWriter">
-            <summary>Sets the shim of FrenchCommentaryCatalogue.FrenchCommentaryCatalogue(ICatalogueExporter`1&lt;CommentaryCatalogueItem&gt; catalogueExporter, ICatalogueImporter`1&lt;CommentaryCatalogueItem&gt; catalogueImporter, ICatalogueReader catalogueReader, ICatalogueWriter catalogueWriter)</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogue.ConstructorICatalogueExporterOfCommentaryCatalogueItemICatalogueImporterOfCommentaryCatalogueItemICatalogueReaderOfCommentaryCatalogueItemICatalogueWriterOfCommentaryCatalogueItem">
+            <summary>Sets the shim of FrenchCommentaryCatalogue.FrenchCommentaryCatalogue(ICatalogueExporter`1&lt;CommentaryCatalogueItem&gt; catalogueExporter, ICatalogueImporter`1&lt;CommentaryCatalogueItem&gt; catalogueImporter, ICatalogueReader`1&lt;CommentaryCatalogueItem&gt; catalogueReader, ICatalogueWriter`1&lt;CommentaryCatalogueItem&gt; catalogueWriter)</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases">
-            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Commentary.FrenchCommentaryCatalogueLanguagePhrases</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogue.LanguageGet">
+            <summary>Sets the shim of FrenchCommentaryCatalogue.get_Language()</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.#ctor">
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases">
+            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Commentary.FrenchLanguagePhrases</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.#ctor">
             <summary>Initializes a new shim instance</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.#ctor(GpwEditor.Infrastructure.Catalogues.Commentary.FrenchCommentaryCatalogueLanguagePhrases)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.#ctor(GpwEditor.Infrastructure.Catalogues.Commentary.FrenchLanguagePhrases)">
             <summary>Initializes a new shim for the given instance</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.AllInstances">
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.AllInstances.DriverInPitsSuffixGet">
-            <summary>Sets the shim of FrenchCommentaryCatalogueLanguagePhrases.get_DriverInPitsSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.AllInstances.DriverInPitsSuffixGet">
+            <summary>Sets the shim of FrenchLanguagePhrases.get_DriverInPitsSuffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.AllInstances.DriverOutSuffixGet">
-            <summary>Sets the shim of FrenchCommentaryCatalogueLanguagePhrases.get_DriverOutSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.AllInstances.DriverOutSuffixGet">
+            <summary>Sets the shim of FrenchLanguagePhrases.get_DriverOutSuffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.AllInstances.DriverP1SuffixGet">
-            <summary>Sets the shim of FrenchCommentaryCatalogueLanguagePhrases.get_DriverP1Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.AllInstances.DriverP1SuffixGet">
+            <summary>Sets the shim of FrenchLanguagePhrases.get_DriverP1Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.AllInstances.DriverP2SuffixGet">
-            <summary>Sets the shim of FrenchCommentaryCatalogueLanguagePhrases.get_DriverP2Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.AllInstances.DriverP2SuffixGet">
+            <summary>Sets the shim of FrenchLanguagePhrases.get_DriverP2Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.AllInstances.DriverP3SuffixGet">
-            <summary>Sets the shim of FrenchCommentaryCatalogueLanguagePhrases.get_DriverP3Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.AllInstances.DriverP3SuffixGet">
+            <summary>Sets the shim of FrenchLanguagePhrases.get_DriverP3Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.AllInstances.TeamOutSuffixGet">
-            <summary>Sets the shim of FrenchCommentaryCatalogueLanguagePhrases.get_TeamOutSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.AllInstances.LanguageGet">
+            <summary>Sets the shim of FrenchLanguagePhrases.get_Language()</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.BehaveAsCurrent">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.AllInstances.TeamOutSuffixGet">
+            <summary>Sets the shim of FrenchLanguagePhrases.get_TeamOutSuffix()</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.BehaveAsNotImplemented">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.BehaveAsNotImplemented">
             <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.Behavior">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.Bind(GpwEditor.Infrastructure.Catalogues.Commentary.ICommentaryCatalogueLanguagePhrases)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.Bind(GpwEditor.Infrastructure.Catalogues.Commentary.ILanguagePhrases)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.Constructor">
-            <summary>Sets the shim of FrenchCommentaryCatalogueLanguagePhrases.FrenchCommentaryCatalogueLanguagePhrases()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.Constructor">
+            <summary>Sets the shim of FrenchLanguagePhrases.FrenchLanguagePhrases()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.DriverInPitsSuffixGet">
-            <summary>Sets the shim of FrenchCommentaryCatalogueLanguagePhrases.get_DriverInPitsSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.DriverInPitsSuffixGet">
+            <summary>Sets the shim of FrenchLanguagePhrases.get_DriverInPitsSuffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.DriverOutSuffixGet">
-            <summary>Sets the shim of FrenchCommentaryCatalogueLanguagePhrases.get_DriverOutSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.DriverOutSuffixGet">
+            <summary>Sets the shim of FrenchLanguagePhrases.get_DriverOutSuffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.DriverP1SuffixGet">
-            <summary>Sets the shim of FrenchCommentaryCatalogueLanguagePhrases.get_DriverP1Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.DriverP1SuffixGet">
+            <summary>Sets the shim of FrenchLanguagePhrases.get_DriverP1Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.DriverP2SuffixGet">
-            <summary>Sets the shim of FrenchCommentaryCatalogueLanguagePhrases.get_DriverP2Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.DriverP2SuffixGet">
+            <summary>Sets the shim of FrenchLanguagePhrases.get_DriverP2Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.DriverP3SuffixGet">
-            <summary>Sets the shim of FrenchCommentaryCatalogueLanguagePhrases.get_DriverP3Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.DriverP3SuffixGet">
+            <summary>Sets the shim of FrenchLanguagePhrases.get_DriverP3Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchCommentaryCatalogueLanguagePhrases.TeamOutSuffixGet">
-            <summary>Sets the shim of FrenchCommentaryCatalogueLanguagePhrases.get_TeamOutSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.LanguageGet">
+            <summary>Sets the shim of FrenchLanguagePhrases.get_Language()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimFrenchLanguagePhrases.TeamOutSuffixGet">
+            <summary>Sets the shim of FrenchLanguagePhrases.get_TeamOutSuffix()</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogue">
             <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Commentary.GermanCommentaryCatalogue</summary>
@@ -595,6 +694,9 @@
         <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogue.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogue.AllInstances.LanguageGet">
+            <summary>Sets the shim of GermanCommentaryCatalogue.get_Language()</summary>
+        </member>
         <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogue.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
@@ -605,6 +707,9 @@
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
         <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogue.Bind(Common.Editor.Data.Catalogues.ICatalogue)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogue.Bind(GpwEditor.Infrastructure.Catalogues.Commentary.ICommentaryCatalogue)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogue.Bind(System.Collections.ICollection)">
@@ -631,71 +736,80 @@
         <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogue.Bind(System.Collections.Generic.IReadOnlyList{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogue.ConstructorICatalogueExporterOfCommentaryCatalogueItemICatalogueImporterOfCommentaryCatalogueItemICatalogueReaderICatalogueWriter">
-            <summary>Sets the shim of GermanCommentaryCatalogue.GermanCommentaryCatalogue(ICatalogueExporter`1&lt;CommentaryCatalogueItem&gt; catalogueExporter, ICatalogueImporter`1&lt;CommentaryCatalogueItem&gt; catalogueImporter, ICatalogueReader catalogueReader, ICatalogueWriter catalogueWriter)</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogue.ConstructorICatalogueExporterOfCommentaryCatalogueItemICatalogueImporterOfCommentaryCatalogueItemICatalogueReaderOfCommentaryCatalogueItemICatalogueWriterOfCommentaryCatalogueItem">
+            <summary>Sets the shim of GermanCommentaryCatalogue.GermanCommentaryCatalogue(ICatalogueExporter`1&lt;CommentaryCatalogueItem&gt; catalogueExporter, ICatalogueImporter`1&lt;CommentaryCatalogueItem&gt; catalogueImporter, ICatalogueReader`1&lt;CommentaryCatalogueItem&gt; catalogueReader, ICatalogueWriter`1&lt;CommentaryCatalogueItem&gt; catalogueWriter)</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases">
-            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Commentary.GermanCommentaryCatalogueLanguagePhrases</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogue.LanguageGet">
+            <summary>Sets the shim of GermanCommentaryCatalogue.get_Language()</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.#ctor">
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases">
+            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Commentary.GermanLanguagePhrases</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.#ctor">
             <summary>Initializes a new shim instance</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.#ctor(GpwEditor.Infrastructure.Catalogues.Commentary.GermanCommentaryCatalogueLanguagePhrases)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.#ctor(GpwEditor.Infrastructure.Catalogues.Commentary.GermanLanguagePhrases)">
             <summary>Initializes a new shim for the given instance</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.AllInstances">
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.AllInstances.DriverInPitsSuffixGet">
-            <summary>Sets the shim of GermanCommentaryCatalogueLanguagePhrases.get_DriverInPitsSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.AllInstances.DriverInPitsSuffixGet">
+            <summary>Sets the shim of GermanLanguagePhrases.get_DriverInPitsSuffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.AllInstances.DriverOutSuffixGet">
-            <summary>Sets the shim of GermanCommentaryCatalogueLanguagePhrases.get_DriverOutSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.AllInstances.DriverOutSuffixGet">
+            <summary>Sets the shim of GermanLanguagePhrases.get_DriverOutSuffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.AllInstances.DriverP1SuffixGet">
-            <summary>Sets the shim of GermanCommentaryCatalogueLanguagePhrases.get_DriverP1Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.AllInstances.DriverP1SuffixGet">
+            <summary>Sets the shim of GermanLanguagePhrases.get_DriverP1Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.AllInstances.DriverP2SuffixGet">
-            <summary>Sets the shim of GermanCommentaryCatalogueLanguagePhrases.get_DriverP2Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.AllInstances.DriverP2SuffixGet">
+            <summary>Sets the shim of GermanLanguagePhrases.get_DriverP2Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.AllInstances.DriverP3SuffixGet">
-            <summary>Sets the shim of GermanCommentaryCatalogueLanguagePhrases.get_DriverP3Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.AllInstances.DriverP3SuffixGet">
+            <summary>Sets the shim of GermanLanguagePhrases.get_DriverP3Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.AllInstances.TeamOutSuffixGet">
-            <summary>Sets the shim of GermanCommentaryCatalogueLanguagePhrases.get_TeamOutSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.AllInstances.LanguageGet">
+            <summary>Sets the shim of GermanLanguagePhrases.get_Language()</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.BehaveAsCurrent">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.AllInstances.TeamOutSuffixGet">
+            <summary>Sets the shim of GermanLanguagePhrases.get_TeamOutSuffix()</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.BehaveAsNotImplemented">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.BehaveAsNotImplemented">
             <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.Behavior">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.Bind(GpwEditor.Infrastructure.Catalogues.Commentary.ICommentaryCatalogueLanguagePhrases)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.Bind(GpwEditor.Infrastructure.Catalogues.Commentary.ILanguagePhrases)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.Constructor">
-            <summary>Sets the shim of GermanCommentaryCatalogueLanguagePhrases.GermanCommentaryCatalogueLanguagePhrases()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.Constructor">
+            <summary>Sets the shim of GermanLanguagePhrases.GermanLanguagePhrases()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.DriverInPitsSuffixGet">
-            <summary>Sets the shim of GermanCommentaryCatalogueLanguagePhrases.get_DriverInPitsSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.DriverInPitsSuffixGet">
+            <summary>Sets the shim of GermanLanguagePhrases.get_DriverInPitsSuffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.DriverOutSuffixGet">
-            <summary>Sets the shim of GermanCommentaryCatalogueLanguagePhrases.get_DriverOutSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.DriverOutSuffixGet">
+            <summary>Sets the shim of GermanLanguagePhrases.get_DriverOutSuffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.DriverP1SuffixGet">
-            <summary>Sets the shim of GermanCommentaryCatalogueLanguagePhrases.get_DriverP1Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.DriverP1SuffixGet">
+            <summary>Sets the shim of GermanLanguagePhrases.get_DriverP1Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.DriverP2SuffixGet">
-            <summary>Sets the shim of GermanCommentaryCatalogueLanguagePhrases.get_DriverP2Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.DriverP2SuffixGet">
+            <summary>Sets the shim of GermanLanguagePhrases.get_DriverP2Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.DriverP3SuffixGet">
-            <summary>Sets the shim of GermanCommentaryCatalogueLanguagePhrases.get_DriverP3Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.DriverP3SuffixGet">
+            <summary>Sets the shim of GermanLanguagePhrases.get_DriverP3Suffix()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanCommentaryCatalogueLanguagePhrases.TeamOutSuffixGet">
-            <summary>Sets the shim of GermanCommentaryCatalogueLanguagePhrases.get_TeamOutSuffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.LanguageGet">
+            <summary>Sets the shim of GermanLanguagePhrases.get_Language()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimGermanLanguagePhrases.TeamOutSuffixGet">
+            <summary>Sets the shim of GermanLanguagePhrases.get_TeamOutSuffix()</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueExporter">
             <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueExporter</summary>
@@ -754,7 +868,7 @@
         <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueParser">
             <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueParser</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueParser.#ctor(GpwEditor.Infrastructure.Catalogues.Commentary.ICommentaryCatalogueLanguagePhrases)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueParser.#ctor(GpwEditor.Infrastructure.Catalogues.Commentary.ILanguagePhrases)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueParser.CallBase">
@@ -769,10 +883,46 @@
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueParser.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueReader">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueReader</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueReader.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueReader.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueReader.InitializeStub">
+            <summary>Initializes a new instance of type StubCommentaryCatalogueReader</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueReader.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueReader.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueWriter">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueWriter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueWriter.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueWriter.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueWriter.InitializeStub">
+            <summary>Initializes a new instance of type StubCommentaryCatalogueWriter</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueWriter.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubCommentaryCatalogueWriter.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
         <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishCommentaryCatalogue">
             <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.EnglishCommentaryCatalogue</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishCommentaryCatalogue.#ctor(Common.Editor.Data.Catalogues.ICatalogueExporter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueImporter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueReader,Common.Editor.Data.Catalogues.ICatalogueWriter)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishCommentaryCatalogue.#ctor(Common.Editor.Data.Catalogues.ICatalogueExporter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueImporter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueReader{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueWriter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem})">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishCommentaryCatalogue.CallBase">
@@ -787,28 +937,28 @@
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishCommentaryCatalogue.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishCommentaryCatalogueLanguagePhrases">
-            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.EnglishCommentaryCatalogueLanguagePhrases</summary>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishLanguagePhrases">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.EnglishLanguagePhrases</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishCommentaryCatalogueLanguagePhrases.#ctor">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishLanguagePhrases.#ctor">
             <summary>Initializes a new instance</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishCommentaryCatalogueLanguagePhrases.CallBase">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishLanguagePhrases.CallBase">
             <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishCommentaryCatalogueLanguagePhrases.InitializeStub">
-            <summary>Initializes a new instance of type StubEnglishCommentaryCatalogueLanguagePhrases</summary>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishLanguagePhrases.InitializeStub">
+            <summary>Initializes a new instance of type StubEnglishLanguagePhrases</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishCommentaryCatalogueLanguagePhrases.InstanceBehavior">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishLanguagePhrases.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishCommentaryCatalogueLanguagePhrases.InstanceObserver">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubEnglishLanguagePhrases.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchCommentaryCatalogue">
             <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.FrenchCommentaryCatalogue</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchCommentaryCatalogue.#ctor(Common.Editor.Data.Catalogues.ICatalogueExporter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueImporter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueReader,Common.Editor.Data.Catalogues.ICatalogueWriter)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchCommentaryCatalogue.#ctor(Common.Editor.Data.Catalogues.ICatalogueExporter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueImporter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueReader{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueWriter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem})">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchCommentaryCatalogue.CallBase">
@@ -823,28 +973,28 @@
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchCommentaryCatalogue.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchCommentaryCatalogueLanguagePhrases">
-            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.FrenchCommentaryCatalogueLanguagePhrases</summary>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchLanguagePhrases">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.FrenchLanguagePhrases</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchCommentaryCatalogueLanguagePhrases.#ctor">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchLanguagePhrases.#ctor">
             <summary>Initializes a new instance</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchCommentaryCatalogueLanguagePhrases.CallBase">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchLanguagePhrases.CallBase">
             <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchCommentaryCatalogueLanguagePhrases.InitializeStub">
-            <summary>Initializes a new instance of type StubFrenchCommentaryCatalogueLanguagePhrases</summary>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchLanguagePhrases.InitializeStub">
+            <summary>Initializes a new instance of type StubFrenchLanguagePhrases</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchCommentaryCatalogueLanguagePhrases.InstanceBehavior">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchLanguagePhrases.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchCommentaryCatalogueLanguagePhrases.InstanceObserver">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubFrenchLanguagePhrases.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanCommentaryCatalogue">
             <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.GermanCommentaryCatalogue</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanCommentaryCatalogue.#ctor(Common.Editor.Data.Catalogues.ICatalogueExporter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueImporter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueReader,Common.Editor.Data.Catalogues.ICatalogueWriter)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanCommentaryCatalogue.#ctor(Common.Editor.Data.Catalogues.ICatalogueExporter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueImporter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueReader{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueWriter{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem})">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanCommentaryCatalogue.CallBase">
@@ -859,128 +1009,287 @@
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanCommentaryCatalogue.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanCommentaryCatalogueLanguagePhrases">
-            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.GermanCommentaryCatalogueLanguagePhrases</summary>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanLanguagePhrases">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.GermanLanguagePhrases</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanCommentaryCatalogueLanguagePhrases.#ctor">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanLanguagePhrases.#ctor">
             <summary>Initializes a new instance</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanCommentaryCatalogueLanguagePhrases.CallBase">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanLanguagePhrases.CallBase">
             <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanCommentaryCatalogueLanguagePhrases.InitializeStub">
-            <summary>Initializes a new instance of type StubGermanCommentaryCatalogueLanguagePhrases</summary>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanLanguagePhrases.InitializeStub">
+            <summary>Initializes a new instance of type StubGermanLanguagePhrases</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanCommentaryCatalogueLanguagePhrases.InstanceBehavior">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanLanguagePhrases.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanCommentaryCatalogueLanguagePhrases.InstanceObserver">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubGermanLanguagePhrases.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueLanguagePhrases">
-            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.ICommentaryCatalogueLanguagePhrases</summary>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogue">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.ICommentaryCatalogue</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueLanguagePhrases.#ctor">
-            <summary>Initializes a new instance of type StubICommentaryCatalogueLanguagePhrases</summary>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogue.#ctor">
+            <summary>Initializes a new instance of type StubICommentaryCatalogue</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueLanguagePhrases.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueLanguagePhrases#DriverInPitsSuffix">
-            <summary>Sets the stub of ICommentaryCatalogueLanguagePhrases.get_DriverInPitsSuffix()</summary>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogue.Common#Editor#Data#Catalogues#ICatalogue#Export(System.String)">
+            <summary>Sets the stub of ICatalogue.Export(String filePath)</summary>
         </member>
-        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueLanguagePhrases.DriverInPitsSuffixGet">
-            <summary>Sets the stub of ICommentaryCatalogueLanguagePhrases.get_DriverInPitsSuffix()</summary>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogue.Common#Editor#Data#Catalogues#ICatalogue#Import(System.String)">
+            <summary>Sets the stub of ICatalogue.Import(String filePath)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueLanguagePhrases.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueLanguagePhrases#DriverOutSuffix">
-            <summary>Sets the stub of ICommentaryCatalogueLanguagePhrases.get_DriverOutSuffix()</summary>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogue.Common#Editor#Data#Catalogues#ICatalogue#Read(System.Int32)">
+            <summary>Sets the stub of ICatalogue.Read(Int32 id)</summary>
         </member>
-        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueLanguagePhrases.DriverOutSuffixGet">
-            <summary>Sets the stub of ICommentaryCatalogueLanguagePhrases.get_DriverOutSuffix()</summary>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogue.Common#Editor#Data#Catalogues#ICatalogue#Write(System.Int32,System.String)">
+            <summary>Sets the stub of ICatalogue.Write(Int32 id, String value)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueLanguagePhrases.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueLanguagePhrases#DriverP1Suffix">
-            <summary>Sets the stub of ICommentaryCatalogueLanguagePhrases.get_DriverP1Suffix()</summary>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogue.ExportString">
+            <summary>Sets the stub of ICatalogue.Export(String filePath)</summary>
         </member>
-        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueLanguagePhrases.DriverP1SuffixGet">
-            <summary>Sets the stub of ICommentaryCatalogueLanguagePhrases.get_DriverP1Suffix()</summary>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogue.ImportString">
+            <summary>Sets the stub of ICatalogue.Import(String filePath)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueLanguagePhrases.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueLanguagePhrases#DriverP2Suffix">
-            <summary>Sets the stub of ICommentaryCatalogueLanguagePhrases.get_DriverP2Suffix()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogue.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogue#Language">
+            <summary>Sets the stub of ICommentaryCatalogue.get_Language()</summary>
         </member>
-        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueLanguagePhrases.DriverP2SuffixGet">
-            <summary>Sets the stub of ICommentaryCatalogueLanguagePhrases.get_DriverP2Suffix()</summary>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogue.LanguageGet">
+            <summary>Sets the stub of ICommentaryCatalogue.get_Language()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueLanguagePhrases.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueLanguagePhrases#DriverP3Suffix">
-            <summary>Sets the stub of ICommentaryCatalogueLanguagePhrases.get_DriverP3Suffix()</summary>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogue.ReadInt32">
+            <summary>Sets the stub of ICatalogue.Read(Int32 id)</summary>
         </member>
-        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueLanguagePhrases.DriverP3SuffixGet">
-            <summary>Sets the stub of ICommentaryCatalogueLanguagePhrases.get_DriverP3Suffix()</summary>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogue.WriteInt32String">
+            <summary>Sets the stub of ICatalogue.Write(Int32 id, String value)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueLanguagePhrases.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueLanguagePhrases#TeamOutSuffix">
-            <summary>Sets the stub of ICommentaryCatalogueLanguagePhrases.get_TeamOutSuffix()</summary>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.ILanguagePhrases</summary>
         </member>
-        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueLanguagePhrases.TeamOutSuffixGet">
-            <summary>Sets the stub of ICommentaryCatalogueLanguagePhrases.get_TeamOutSuffix()</summary>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases.#ctor">
+            <summary>Initializes a new instance of type StubILanguagePhrases</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue">
-            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogue</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases.GpwEditor#Infrastructure#Catalogues#Commentary#ILanguagePhrases#DriverInPitsSuffix">
+            <summary>Sets the stub of ILanguagePhrases.get_DriverInPitsSuffix()</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.#ctor">
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases.DriverInPitsSuffixGet">
+            <summary>Sets the stub of ILanguagePhrases.get_DriverInPitsSuffix()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases.GpwEditor#Infrastructure#Catalogues#Commentary#ILanguagePhrases#DriverOutSuffix">
+            <summary>Sets the stub of ILanguagePhrases.get_DriverOutSuffix()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases.DriverOutSuffixGet">
+            <summary>Sets the stub of ILanguagePhrases.get_DriverOutSuffix()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases.GpwEditor#Infrastructure#Catalogues#Commentary#ILanguagePhrases#DriverP1Suffix">
+            <summary>Sets the stub of ILanguagePhrases.get_DriverP1Suffix()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases.DriverP1SuffixGet">
+            <summary>Sets the stub of ILanguagePhrases.get_DriverP1Suffix()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases.GpwEditor#Infrastructure#Catalogues#Commentary#ILanguagePhrases#DriverP2Suffix">
+            <summary>Sets the stub of ILanguagePhrases.get_DriverP2Suffix()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases.DriverP2SuffixGet">
+            <summary>Sets the stub of ILanguagePhrases.get_DriverP2Suffix()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases.GpwEditor#Infrastructure#Catalogues#Commentary#ILanguagePhrases#DriverP3Suffix">
+            <summary>Sets the stub of ILanguagePhrases.get_DriverP3Suffix()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases.DriverP3SuffixGet">
+            <summary>Sets the stub of ILanguagePhrases.get_DriverP3Suffix()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases.GpwEditor#Infrastructure#Catalogues#Commentary#ILanguagePhrases#Language">
+            <summary>Sets the stub of ILanguagePhrases.get_Language()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases.LanguageGet">
+            <summary>Sets the stub of ILanguagePhrases.get_Language()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases.GpwEditor#Infrastructure#Catalogues#Commentary#ILanguagePhrases#TeamOutSuffix">
+            <summary>Sets the stub of ILanguagePhrases.get_TeamOutSuffix()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases.TeamOutSuffixGet">
+            <summary>Sets the stub of ILanguagePhrases.get_TeamOutSuffix()</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue">
+            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Language.EnglishLanguageCatalogue</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.#ctor">
             <summary>Initializes a new shim instance</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.#ctor(GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogue)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.#ctor(GpwEditor.Infrastructure.Catalogues.Language.EnglishLanguageCatalogue)">
             <summary>Initializes a new shim for the given instance</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.AllInstances">
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.AllInstances.LanguageTypeGet">
-            <summary>Sets the shim of LanguageCatalogue.get_LanguageType()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.AllInstances.LanguageGet">
+            <summary>Sets the shim of EnglishLanguageCatalogue.get_Language()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.AllInstances.LanguageTypeSetLanguageType">
-            <summary>Sets the shim of LanguageCatalogue.set_LanguageType(LanguageType value)</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.BehaveAsCurrent">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.BehaveAsNotImplemented">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.BehaveAsNotImplemented">
             <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.Behavior">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.Bind(Common.Editor.Data.Catalogues.ICatalogue)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.Bind(Common.Editor.Data.Catalogues.ICatalogue)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.Bind(System.Collections.ICollection)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.Bind(GpwEditor.Infrastructure.Catalogues.Language.ILanguageCatalogue)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.Bind(System.Collections.IEnumerable)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.Bind(System.Collections.ICollection)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.Bind(System.Collections.IList)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.Bind(System.Collections.IEnumerable)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.Bind(System.Collections.Generic.ICollection{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.Bind(System.Collections.IList)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.Bind(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.Bind(System.Collections.Generic.ICollection{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.Bind(System.Collections.Generic.IList{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.Bind(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.Bind(System.Collections.Generic.IReadOnlyCollection{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.Bind(System.Collections.Generic.IList{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.Bind(System.Collections.Generic.IReadOnlyList{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.Bind(System.Collections.Generic.IReadOnlyCollection{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.ConstructorICatalogueExporterOfLanguageCatalogueItemICatalogueImporterOfLanguageCatalogueItemICatalogueReaderICatalogueWriter">
-            <summary>Sets the shim of LanguageCatalogue.LanguageCatalogue(ICatalogueExporter`1&lt;LanguageCatalogueItem&gt; catalogueExporter, ICatalogueImporter`1&lt;LanguageCatalogueItem&gt; catalogueImporter, ICatalogueReader catalogueReader, ICatalogueWriter catalogueWriter)</summary>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.Bind(System.Collections.Generic.IReadOnlyList{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.LanguageTypeGet">
-            <summary>Sets the shim of LanguageCatalogue.get_LanguageType()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.ConstructorICatalogueExporterOfLanguageCatalogueItemICatalogueImporterOfLanguageCatalogueItemICatalogueReaderOfLanguageCatalogueItemICatalogueWriterOfLanguageCatalogueItem">
+            <summary>Sets the shim of EnglishLanguageCatalogue.EnglishLanguageCatalogue(ICatalogueExporter`1&lt;LanguageCatalogueItem&gt; catalogueExporter, ICatalogueImporter`1&lt;LanguageCatalogueItem&gt; catalogueImporter, ICatalogueReader`1&lt;LanguageCatalogueItem&gt; catalogueReader, ICatalogueWriter`1&lt;LanguageCatalogueItem&gt; catalogueWriter)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogue.LanguageTypeSetLanguageType">
-            <summary>Sets the shim of LanguageCatalogue.set_LanguageType(LanguageType value)</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimEnglishLanguageCatalogue.LanguageGet">
+            <summary>Sets the shim of EnglishLanguageCatalogue.get_Language()</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue">
+            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Language.FrenchLanguageCatalogue</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.#ctor(GpwEditor.Infrastructure.Catalogues.Language.FrenchLanguageCatalogue)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.AllInstances.LanguageGet">
+            <summary>Sets the shim of FrenchLanguageCatalogue.get_Language()</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.Bind(Common.Editor.Data.Catalogues.ICatalogue)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.Bind(GpwEditor.Infrastructure.Catalogues.Language.ILanguageCatalogue)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.Bind(System.Collections.ICollection)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.Bind(System.Collections.IEnumerable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.Bind(System.Collections.IList)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.Bind(System.Collections.Generic.ICollection{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.Bind(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.Bind(System.Collections.Generic.IList{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.Bind(System.Collections.Generic.IReadOnlyCollection{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.Bind(System.Collections.Generic.IReadOnlyList{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.ConstructorICatalogueExporterOfLanguageCatalogueItemICatalogueImporterOfLanguageCatalogueItemICatalogueReaderOfLanguageCatalogueItemICatalogueWriterOfLanguageCatalogueItem">
+            <summary>Sets the shim of FrenchLanguageCatalogue.FrenchLanguageCatalogue(ICatalogueExporter`1&lt;LanguageCatalogueItem&gt; catalogueExporter, ICatalogueImporter`1&lt;LanguageCatalogueItem&gt; catalogueImporter, ICatalogueReader`1&lt;LanguageCatalogueItem&gt; catalogueReader, ICatalogueWriter`1&lt;LanguageCatalogueItem&gt; catalogueWriter)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimFrenchLanguageCatalogue.LanguageGet">
+            <summary>Sets the shim of FrenchLanguageCatalogue.get_Language()</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue">
+            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Language.GermanLanguageCatalogue</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.#ctor(GpwEditor.Infrastructure.Catalogues.Language.GermanLanguageCatalogue)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.AllInstances.LanguageGet">
+            <summary>Sets the shim of GermanLanguageCatalogue.get_Language()</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.Bind(Common.Editor.Data.Catalogues.ICatalogue)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.Bind(GpwEditor.Infrastructure.Catalogues.Language.ILanguageCatalogue)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.Bind(System.Collections.ICollection)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.Bind(System.Collections.IEnumerable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.Bind(System.Collections.IList)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.Bind(System.Collections.Generic.ICollection{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.Bind(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.Bind(System.Collections.Generic.IList{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.Bind(System.Collections.Generic.IReadOnlyCollection{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.Bind(System.Collections.Generic.IReadOnlyList{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.ConstructorICatalogueExporterOfLanguageCatalogueItemICatalogueImporterOfLanguageCatalogueItemICatalogueReaderOfLanguageCatalogueItemICatalogueWriterOfLanguageCatalogueItem">
+            <summary>Sets the shim of GermanLanguageCatalogue.GermanLanguageCatalogue(ICatalogueExporter`1&lt;LanguageCatalogueItem&gt; catalogueExporter, ICatalogueImporter`1&lt;LanguageCatalogueItem&gt; catalogueImporter, ICatalogueReader`1&lt;LanguageCatalogueItem&gt; catalogueReader, ICatalogueWriter`1&lt;LanguageCatalogueItem&gt; catalogueWriter)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimGermanLanguageCatalogue.LanguageGet">
+            <summary>Sets the shim of GermanLanguageCatalogue.get_Language()</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueExporter">
             <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueExporter</summary>
@@ -1042,8 +1351,8 @@
         <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueImporter.Bind(Common.Editor.Data.Catalogues.ICatalogueImporter{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueImporter.ConstructorIFileResource">
-            <summary>Sets the shim of LanguageCatalogueImporter.LanguageCatalogueImporter(IFileResource fileResource)</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueImporter.ConstructorLanguageCatalogueParserIFileResource">
+            <summary>Sets the shim of LanguageCatalogueImporter.LanguageCatalogueImporter(LanguageCatalogueParser catalogueParser, IFileResource fileResource)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueImporter.ImportString">
             <summary>Sets the shim of LanguageCatalogueImporter.Import(String filePath)</summary>
@@ -1111,59 +1420,236 @@
         <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueItem.ValueSetString">
             <summary>Sets the shim of LanguageCatalogueItem.set_Value(String value)</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueString">
-            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueString</summary>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser">
+            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueParser</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueString.#ctor">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.#ctor">
             <summary>Initializes a new shim instance</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueString.#ctor(GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueString)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.#ctor(GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueParser)">
             <summary>Initializes a new shim for the given instance</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueString.AllGet">
-            <summary>Sets the shim of LanguageCatalogueString.get_All()</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueString.AllInstances">
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueString.AllInstances.AllGet">
-            <summary>Sets the shim of LanguageCatalogueString.get_All()</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.AllInstances.BuildResourceIdInt32">
+            <summary>Sets the shim of LanguageCatalogueParser.BuildResourceId(Int32 id)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueString.AllInstances.AllSetString">
-            <summary>Sets the shim of LanguageCatalogueString.set_All(String value)</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.AllInstances.IsValueInTextStringString">
+            <summary>Sets the shim of LanguageCatalogueParser.IsValueInText(String text, String value)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueString.AllSetString">
-            <summary>Sets the shim of LanguageCatalogueString.set_All(String value)</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueString.BehaveAsCurrent">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueString.BehaveAsNotImplemented">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.BehaveAsNotImplemented">
             <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueString.Behavior">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueString.Constructor">
-            <summary>Sets the shim of LanguageCatalogueString.LanguageCatalogueString()</summary>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.Bind(Common.Editor.Data.Catalogues.ICatalogueParser{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogue">
-            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogue</summary>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.BuildResourceIdInt32">
+            <summary>Sets the shim of LanguageCatalogueParser.BuildResourceId(Int32 id)</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogue.#ctor(Common.Editor.Data.Catalogues.ICatalogueExporter{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueImporter{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueReader,Common.Editor.Data.Catalogues.ICatalogueWriter)">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.Constructor">
+            <summary>Sets the shim of LanguageCatalogueParser.LanguageCatalogueParser()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.IsValueInTextStringString">
+            <summary>Sets the shim of LanguageCatalogueParser.IsValueInText(String text, String value)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueReader">
+            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueReader</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueReader.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueReader.#ctor(GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueReader)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueReader.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueReader.AllInstances.ReadIEnumerableOfLanguageCatalogueItemInt32">
+            <summary>Sets the shim of LanguageCatalogueReader.Read(IEnumerable`1&lt;LanguageCatalogueItem&gt; catalogue, Int32 id)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueReader.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueReader.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueReader.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueReader.Bind(Common.Editor.Data.Catalogues.ICatalogueReader{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueReader.Constructor">
+            <summary>Sets the shim of LanguageCatalogueReader.LanguageCatalogueReader()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueReader.ReadIEnumerableOfLanguageCatalogueItemInt32">
+            <summary>Sets the shim of LanguageCatalogueReader.Read(IEnumerable`1&lt;LanguageCatalogueItem&gt; catalogue, Int32 id)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue">
+            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueValue</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.#ctor(GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueValue)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.AllGet">
+            <summary>Sets the shim of LanguageCatalogueValue.get_All()</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.AllInstances.AllGet">
+            <summary>Sets the shim of LanguageCatalogueValue.get_All()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.AllInstances.AllSetString">
+            <summary>Sets the shim of LanguageCatalogueValue.set_All(String value)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.AllSetString">
+            <summary>Sets the shim of LanguageCatalogueValue.set_All(String value)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.Constructor">
+            <summary>Sets the shim of LanguageCatalogueValue.LanguageCatalogueValue()</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueWriter">
+            <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueWriter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueWriter.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueWriter.#ctor(GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueWriter)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueWriter.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueWriter.AllInstances.WriteIEnumerableOfLanguageCatalogueItemInt32String">
+            <summary>Sets the shim of LanguageCatalogueWriter.Write(IEnumerable`1&lt;LanguageCatalogueItem&gt; catalogue, Int32 id, String value)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueWriter.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueWriter.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueWriter.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueWriter.Bind(Common.Editor.Data.Catalogues.ICatalogueWriter{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueWriter.Constructor">
+            <summary>Sets the shim of LanguageCatalogueWriter.LanguageCatalogueWriter()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueWriter.WriteIEnumerableOfLanguageCatalogueItemInt32String">
+            <summary>Sets the shim of LanguageCatalogueWriter.Write(IEnumerable`1&lt;LanguageCatalogueItem&gt; catalogue, Int32 id, String value)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubEnglishLanguageCatalogue">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Language.EnglishLanguageCatalogue</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubEnglishLanguageCatalogue.#ctor(Common.Editor.Data.Catalogues.ICatalogueExporter{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueImporter{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueReader{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueWriter{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
             <summary>Initializes a new instance</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogue.CallBase">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubEnglishLanguageCatalogue.CallBase">
             <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogue.InitializeStub">
-            <summary>Initializes a new instance of type StubLanguageCatalogue</summary>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubEnglishLanguageCatalogue.InitializeStub">
+            <summary>Initializes a new instance of type StubEnglishLanguageCatalogue</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogue.InstanceBehavior">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubEnglishLanguageCatalogue.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogue.InstanceObserver">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubEnglishLanguageCatalogue.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubFrenchLanguageCatalogue">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Language.FrenchLanguageCatalogue</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubFrenchLanguageCatalogue.#ctor(Common.Editor.Data.Catalogues.ICatalogueExporter{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueImporter{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueReader{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueWriter{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubFrenchLanguageCatalogue.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubFrenchLanguageCatalogue.InitializeStub">
+            <summary>Initializes a new instance of type StubFrenchLanguageCatalogue</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubFrenchLanguageCatalogue.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubFrenchLanguageCatalogue.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubGermanLanguageCatalogue">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Language.GermanLanguageCatalogue</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubGermanLanguageCatalogue.#ctor(Common.Editor.Data.Catalogues.ICatalogueExporter{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueImporter{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueReader{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem},Common.Editor.Data.Catalogues.ICatalogueWriter{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubGermanLanguageCatalogue.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubGermanLanguageCatalogue.InitializeStub">
+            <summary>Initializes a new instance of type StubGermanLanguageCatalogue</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubGermanLanguageCatalogue.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubGermanLanguageCatalogue.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogue">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Language.ILanguageCatalogue</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogue.#ctor">
+            <summary>Initializes a new instance of type StubILanguageCatalogue</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogue.Common#Editor#Data#Catalogues#ICatalogue#Export(System.String)">
+            <summary>Sets the stub of ICatalogue.Export(String filePath)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogue.Common#Editor#Data#Catalogues#ICatalogue#Import(System.String)">
+            <summary>Sets the stub of ICatalogue.Import(String filePath)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogue.Common#Editor#Data#Catalogues#ICatalogue#Read(System.Int32)">
+            <summary>Sets the stub of ICatalogue.Read(Int32 id)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogue.Common#Editor#Data#Catalogues#ICatalogue#Write(System.Int32,System.String)">
+            <summary>Sets the stub of ICatalogue.Write(Int32 id, String value)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogue.ExportString">
+            <summary>Sets the stub of ICatalogue.Export(String filePath)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogue.ImportString">
+            <summary>Sets the stub of ICatalogue.Import(String filePath)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogue.GpwEditor#Infrastructure#Catalogues#Language#ILanguageCatalogue#Language">
+            <summary>Sets the stub of ILanguageCatalogue.get_Language()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogue.LanguageGet">
+            <summary>Sets the stub of ILanguageCatalogue.get_Language()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogue.ReadInt32">
+            <summary>Sets the stub of ICatalogue.Read(Int32 id)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogue.WriteInt32String">
+            <summary>Sets the stub of ICatalogue.Write(Int32 id, String value)</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueExporter">
             <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueExporter</summary>
@@ -1186,7 +1672,7 @@
         <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueImporter">
             <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueImporter</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueImporter.#ctor(Common.Editor.Data.FileResources.IFileResource)">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueImporter.#ctor(GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueParser,Common.Editor.Data.FileResources.IFileResource)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueImporter.CallBase">
@@ -1219,22 +1705,76 @@
         <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueItem.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueString">
-            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueString</summary>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueParser">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueParser</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueString.#ctor">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueParser.#ctor">
             <summary>Initializes a new instance</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueString.CallBase">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueParser.CallBase">
             <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueString.InitializeStub">
-            <summary>Initializes a new instance of type StubLanguageCatalogueString</summary>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueParser.InitializeStub">
+            <summary>Initializes a new instance of type StubLanguageCatalogueParser</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueString.InstanceBehavior">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueParser.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueString.InstanceObserver">
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueParser.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueReader">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueReader</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueReader.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueReader.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueReader.InitializeStub">
+            <summary>Initializes a new instance of type StubLanguageCatalogueReader</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueReader.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueReader.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueValue">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueValue</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueValue.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueValue.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueValue.InitializeStub">
+            <summary>Initializes a new instance of type StubLanguageCatalogueValue</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueValue.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueValue.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueWriter">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueWriter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueWriter.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueWriter.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueWriter.InitializeStub">
+            <summary>Initializes a new instance of type StubLanguageCatalogueWriter</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueWriter.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueWriter.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.DataConnections.Fakes.ShimBaseGameDataConnection">
@@ -1450,14 +1990,14 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.CarNumbersGet">
             <summary>Sets the shim of BaseGameDataContext.get_CarNumbers()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.CarNumbersSetIRepositoryOfCarNumberEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IRepository`1&lt;CarNumberEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.CarNumbersSetIBaseGameRepositoryOfIEntity">
+            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IBaseGameRepository`1&lt;IEntity&gt; value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.ChassisHandlingsGet">
             <summary>Sets the shim of BaseGameDataContext.get_ChassisHandlings()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.ChassisHandlingsSetIRepositoryOfChassisHandlingEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IRepository`1&lt;ChassisHandlingEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.ChassisHandlingsSetIBaseGameRepositoryOfIEntity">
+            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IBaseGameRepository`1&lt;IEntity&gt; value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.Export">
             <summary>Sets the shim of BaseGameDataContext.Export()</summary>
@@ -1468,8 +2008,8 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.TeamsGet">
             <summary>Sets the shim of BaseGameDataContext.get_Teams()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.TeamsSetIRepositoryOfTeamEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_Teams(IRepository`1&lt;TeamEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.TeamsSetIBaseGameRepositoryOfIEntity">
+            <summary>Sets the shim of BaseGameDataContext.set_Teams(IBaseGameRepository`1&lt;IEntity&gt; value)</summary>
         </member>
         <member name="M:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
@@ -1486,17 +2026,17 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.CarNumbersGet">
             <summary>Sets the shim of BaseGameDataContext.get_CarNumbers()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.CarNumbersSetIRepositoryOfCarNumberEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IRepository`1&lt;CarNumberEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.CarNumbersSetIBaseGameRepositoryOfIEntity">
+            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IBaseGameRepository`1&lt;IEntity&gt; value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ChassisHandlingsGet">
             <summary>Sets the shim of BaseGameDataContext.get_ChassisHandlings()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ChassisHandlingsSetIRepositoryOfChassisHandlingEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IRepository`1&lt;ChassisHandlingEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ChassisHandlingsSetIBaseGameRepositoryOfIEntity">
+            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IBaseGameRepository`1&lt;IEntity&gt; value)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ConstructorIDataContextExporterIDataContextImporterIRepositoryOfCarNumberEntityIRepositoryOfChassisHandlingEntityIRepositoryOfTeamEntity">
-            <summary>Sets the shim of BaseGameDataContext.BaseGameDataContext(IDataContextExporter dataContextExporter, IDataContextImporter dataContextImporter, IRepository`1&lt;CarNumberEntity&gt; carNumbers, IRepository`1&lt;ChassisHandlingEntity&gt; chassisHandlings, IRepository`1&lt;TeamEntity&gt; teams)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ConstructorIDataContextExporterIDataContextImporterIRepositoryFactory">
+            <summary>Sets the shim of BaseGameDataContext.BaseGameDataContext(IDataContextExporter dataContextExporter, IDataContextImporter dataContextImporter, IRepositoryFactory repositoryFactory)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.Export">
             <summary>Sets the shim of BaseGameDataContext.Export()</summary>
@@ -1507,13 +2047,13 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.TeamsGet">
             <summary>Sets the shim of BaseGameDataContext.get_Teams()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.TeamsSetIRepositoryOfTeamEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_Teams(IRepository`1&lt;TeamEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.TeamsSetIBaseGameRepositoryOfIEntity">
+            <summary>Sets the shim of BaseGameDataContext.set_Teams(IBaseGameRepository`1&lt;IEntity&gt; value)</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.DataContexts.Fakes.StubBaseGameDataContext">
             <summary>Stub type of GpwEditor.Infrastructure.DataContexts.BaseGameDataContext</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.DataContexts.Fakes.StubBaseGameDataContext.#ctor(Common.Editor.Data.DataContexts.IDataContextExporter,Common.Editor.Data.DataContexts.IDataContextImporter,Common.Editor.Data.Repositories.IRepository{GpwEditor.Infrastructure.Entities.BaseGame.CarNumberEntity},Common.Editor.Data.Repositories.IRepository{GpwEditor.Infrastructure.Entities.BaseGame.ChassisHandlingEntity},Common.Editor.Data.Repositories.IRepository{GpwEditor.Infrastructure.Entities.BaseGame.TeamEntity})">
+        <member name="M:GpwEditor.Infrastructure.DataContexts.Fakes.StubBaseGameDataContext.#ctor(Common.Editor.Data.DataContexts.IDataContextExporter,Common.Editor.Data.DataContexts.IDataContextImporter,GpwEditor.Infrastructure.Factories.IRepositoryFactory)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.StubBaseGameDataContext.CallBase">
@@ -1579,8 +2119,8 @@
         <member name="M:GpwEditor.Infrastructure.DataEndpoints.Fakes.ShimBaseGameDataEndpoint.Bind(Common.Editor.Data.DataEndpoints.IDataEndpoint{GpwEditor.Infrastructure.DataConnections.BaseGameDataConnection})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataEndpoints.Fakes.ShimBaseGameDataEndpoint.ConstructorIFileResourceLanguageCatalogueLanguageCatalogueLanguageCatalogueEnglishCommentaryCatalogueFrenchCommentaryCatalogueGermanCommentaryCatalogue">
-            <summary>Sets the shim of BaseGameDataEndpoint.BaseGameDataEndpoint(IFileResource gameExecutableResource, LanguageCatalogue englishLanguageCatalogue, LanguageCatalogue frenchLanguageCatalogue, LanguageCatalogue germanLanguageCatalogue, EnglishCommentaryCatalogue englishCommentaryCatalogue, FrenchCommentaryCatalogue frenchCommentaryCatalogue, GermanCommentaryCatalogue germanCommentaryCatalogue)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataEndpoints.Fakes.ShimBaseGameDataEndpoint.ConstructorIFileResourceILanguageCatalogueFactoryICommentaryCatalogueFactory">
+            <summary>Sets the shim of BaseGameDataEndpoint.BaseGameDataEndpoint(IFileResource gameExecutableResource, ILanguageCatalogueFactory languageCatalogueFactory, ICommentaryCatalogueFactory commentaryCatalogueFactory)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataEndpoints.Fakes.ShimBaseGameDataEndpoint.EnglishCommentaryCatalogueGet">
             <summary>Sets the shim of BaseGameDataEndpoint.get_EnglishCommentaryCatalogue()</summary>
@@ -1657,7 +2197,7 @@
         <member name="T:GpwEditor.Infrastructure.DataEndpoints.Fakes.StubBaseGameDataEndpoint">
             <summary>Stub type of GpwEditor.Infrastructure.DataEndpoints.BaseGameDataEndpoint</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.DataEndpoints.Fakes.StubBaseGameDataEndpoint.#ctor(Common.Editor.Data.FileResources.IFileResource,GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogue,GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogue,GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogue,GpwEditor.Infrastructure.Catalogues.Commentary.EnglishCommentaryCatalogue,GpwEditor.Infrastructure.Catalogues.Commentary.FrenchCommentaryCatalogue,GpwEditor.Infrastructure.Catalogues.Commentary.GermanCommentaryCatalogue)">
+        <member name="M:GpwEditor.Infrastructure.DataEndpoints.Fakes.StubBaseGameDataEndpoint.#ctor(Common.Editor.Data.FileResources.IFileResource,GpwEditor.Infrastructure.Factories.ILanguageCatalogueFactory,GpwEditor.Infrastructure.Factories.ICommentaryCatalogueFactory)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataEndpoints.Fakes.StubBaseGameDataEndpoint.CallBase">
@@ -2242,8 +2782,8 @@
         <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.AllInstances.NameGet">
             <summary>Sets the shim of TeamEntity.get_Name()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.AllInstances.NameSetLanguageCatalogueString">
-            <summary>Sets the shim of TeamEntity.set_Name(LanguageCatalogueString value)</summary>
+        <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.AllInstances.NameSetLanguageCatalogueValue">
+            <summary>Sets the shim of TeamEntity.set_Name(LanguageCatalogueValue value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.AllInstances.TyreSupplierIdGet">
             <summary>Sets the shim of TeamEntity.get_TyreSupplierId()</summary>
@@ -2281,8 +2821,8 @@
         <member name="M:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.Bind(Common.Editor.Data.Entities.IEntity)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.ConstructorLanguageCatalogueString">
-            <summary>Sets the shim of TeamEntity.TeamEntity(LanguageCatalogueString languageCatalogueString)</summary>
+        <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.ConstructorLanguageCatalogueValue">
+            <summary>Sets the shim of TeamEntity.TeamEntity(LanguageCatalogueValue languageCatalogueValue)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.CountryMapIdGet">
             <summary>Sets the shim of TeamEntity.get_CountryMapId()</summary>
@@ -2329,8 +2869,8 @@
         <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.NameGet">
             <summary>Sets the shim of TeamEntity.get_Name()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.NameSetLanguageCatalogueString">
-            <summary>Sets the shim of TeamEntity.set_Name(LanguageCatalogueString value)</summary>
+        <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.NameSetLanguageCatalogueValue">
+            <summary>Sets the shim of TeamEntity.set_Name(LanguageCatalogueValue value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.TyreSupplierIdGet">
             <summary>Sets the shim of TeamEntity.get_TyreSupplierId()</summary>
@@ -2395,7 +2935,7 @@
         <member name="T:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.StubTeamEntity">
             <summary>Stub type of GpwEditor.Infrastructure.Entities.BaseGame.TeamEntity</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.StubTeamEntity.#ctor(GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueString)">
+        <member name="M:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.StubTeamEntity.#ctor(GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueValue)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.StubTeamEntity.CallBase">
@@ -2409,6 +2949,18 @@
         </member>
         <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.StubTeamEntity.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Entities.Fakes.StubIEntityType">
+            <summary>Stub type of GpwEditor.Infrastructure.Entities.IEntityType</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Entities.Fakes.StubIEntityType.#ctor">
+            <summary>Initializes a new instance of type StubIEntityType</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Entities.Fakes.StubIEntityType.GpwEditor#Infrastructure#Entities#IEntityType#Type">
+            <summary>Sets the stub of IEntityType.get_Type()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Entities.Fakes.StubIEntityType.TypeGet">
+            <summary>Sets the stub of IEntityType.get_Type()</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimCarNumberEntityExporter">
             <summary>Shim type of GpwEditor.Infrastructure.EntityExporters.BaseGame.CarNumberEntityExporter</summary>
@@ -2491,15 +3043,6 @@
         <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter.AllInstances.ExportIEntity">
             <summary>Sets the shim of TeamEntityExporter.Export(IEntity entity)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter.AllInstances._Exportb__3_0LanguageCatalogueItem">
-            <summary>Sets the shim of TeamEntityExporter.&lt;Export&gt;b__3_0(LanguageCatalogueItem x)</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter.AllInstances._Exportb__3_1LanguageCatalogueItem">
-            <summary>Sets the shim of TeamEntityExporter.&lt;Export&gt;b__3_1(LanguageCatalogueItem x)</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter.AllInstances._Exportb__3_2LanguageCatalogueItem">
-            <summary>Sets the shim of TeamEntityExporter.&lt;Export&gt;b__3_2(LanguageCatalogueItem x)</summary>
-        </member>
         <member name="M:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
@@ -2517,15 +3060,6 @@
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter.ExportIEntity">
             <summary>Sets the shim of TeamEntityExporter.Export(IEntity entity)</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter._Exportb__3_0LanguageCatalogueItem">
-            <summary>Sets the shim of TeamEntityExporter.&lt;Export&gt;b__3_0(LanguageCatalogueItem x)</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter._Exportb__3_1LanguageCatalogueItem">
-            <summary>Sets the shim of TeamEntityExporter.&lt;Export&gt;b__3_1(LanguageCatalogueItem x)</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter._Exportb__3_2LanguageCatalogueItem">
-            <summary>Sets the shim of TeamEntityExporter.&lt;Export&gt;b__3_2(LanguageCatalogueItem x)</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.StubCarNumberEntityExporter">
             <summary>Stub type of GpwEditor.Infrastructure.EntityExporters.BaseGame.CarNumberEntityExporter</summary>
@@ -2827,8 +3361,8 @@
         <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimTeamEntityFactory.Bind(Common.Editor.Data.Factories.IEntityFactory{GpwEditor.Infrastructure.Entities.BaseGame.TeamEntity})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimTeamEntityFactory.ConstructorLanguageCatalogueString">
-            <summary>Sets the shim of TeamEntityFactory.TeamEntityFactory(LanguageCatalogueString languageCatalogueString)</summary>
+        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimTeamEntityFactory.ConstructorLanguageCatalogueValue">
+            <summary>Sets the shim of TeamEntityFactory.TeamEntityFactory(LanguageCatalogueValue languageCatalogueString)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimTeamEntityFactory.CreateInt32">
             <summary>Sets the shim of TeamEntityFactory.Create(Int32 id)</summary>
@@ -2872,7 +3406,7 @@
         <member name="T:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubTeamEntityFactory">
             <summary>Stub type of GpwEditor.Infrastructure.Factories.BaseGame.TeamEntityFactory</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubTeamEntityFactory.#ctor(GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueString)">
+        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubTeamEntityFactory.#ctor(GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueValue)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubTeamEntityFactory.CallBase">
@@ -2885,6 +3419,498 @@
             <summary>Gets or sets the instance behavior.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubTeamEntityFactory.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory">
+            <summary>Shim type of GpwEditor.Infrastructure.Factories.CommentaryCatalogueFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.#ctor(GpwEditor.Infrastructure.Factories.CommentaryCatalogueFactory)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.AllInstances.CreateLanguageEnum">
+            <summary>Sets the shim of CommentaryCatalogueFactory.Create(LanguageEnum language)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.Bind(GpwEditor.Infrastructure.Factories.ICommentaryCatalogueFactory)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.ConstructorIEnumerableOfICommentaryCatalogue">
+            <summary>Sets the shim of CommentaryCatalogueFactory.CommentaryCatalogueFactory(IEnumerable`1&lt;ICommentaryCatalogue&gt; commentaryCatalogues)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.CreateLanguageEnum">
+            <summary>Sets the shim of CommentaryCatalogueFactory.Create(LanguageEnum language)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory">
+            <summary>Shim type of GpwEditor.Infrastructure.Factories.LanguageCatalogueFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.#ctor(GpwEditor.Infrastructure.Factories.LanguageCatalogueFactory)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.AllInstances.CreateLanguageEnum">
+            <summary>Sets the shim of LanguageCatalogueFactory.Create(LanguageEnum language)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.Bind(GpwEditor.Infrastructure.Factories.ILanguageCatalogueFactory)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.ConstructorIEnumerableOfILanguageCatalogue">
+            <summary>Sets the shim of LanguageCatalogueFactory.LanguageCatalogueFactory(IEnumerable`1&lt;ILanguageCatalogue&gt; languageCatalogues)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.CreateLanguageEnum">
+            <summary>Sets the shim of LanguageCatalogueFactory.Create(LanguageEnum language)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory">
+            <summary>Shim type of GpwEditor.Infrastructure.Factories.LanguagePhrasesFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.#ctor(GpwEditor.Infrastructure.Factories.LanguagePhrasesFactory)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.AllInstances.CreateLanguageEnum">
+            <summary>Sets the shim of LanguagePhrasesFactory.Create(LanguageEnum language)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.Bind(GpwEditor.Infrastructure.Factories.ILanguagePhrasesFactory)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.ConstructorIEnumerableOfILanguagePhrases">
+            <summary>Sets the shim of LanguagePhrasesFactory.LanguagePhrasesFactory(IEnumerable`1&lt;ILanguagePhrases&gt; languagePhrases)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.CreateLanguageEnum">
+            <summary>Sets the shim of LanguagePhrasesFactory.Create(LanguageEnum language)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory">
+            <summary>Shim type of GpwEditor.Infrastructure.Factories.RepositoryFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.#ctor(GpwEditor.Infrastructure.Factories.RepositoryFactory)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.AllInstances.CreateBaseGameRepositoryEnum">
+            <summary>Sets the shim of RepositoryFactory.Create(BaseGameRepositoryEnum repositoryType)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.Bind(GpwEditor.Infrastructure.Factories.IRepositoryFactory)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.ConstructorIEnumerableOfIBaseGameRepositoryOfIEntity">
+            <summary>Sets the shim of RepositoryFactory.RepositoryFactory(IEnumerable`1&lt;IBaseGameRepository`1&lt;IEntity&gt;&gt; repositories)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.CreateBaseGameRepositoryEnum">
+            <summary>Sets the shim of RepositoryFactory.Create(BaseGameRepositoryEnum repositoryType)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubCommentaryCatalogueFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.CommentaryCatalogueFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubCommentaryCatalogueFactory.#ctor(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Catalogues.Commentary.ICommentaryCatalogue})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubCommentaryCatalogueFactory.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubCommentaryCatalogueFactory.InitializeStub">
+            <summary>Initializes a new instance of type StubCommentaryCatalogueFactory</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubCommentaryCatalogueFactory.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubCommentaryCatalogueFactory.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubICommentaryCatalogueFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.ICommentaryCatalogueFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubICommentaryCatalogueFactory.#ctor">
+            <summary>Initializes a new instance of type StubICommentaryCatalogueFactory</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Factories.Fakes.StubICommentaryCatalogueFactory.CreateLanguageEnum">
+            <summary>Sets the stub of ICommentaryCatalogueFactory.Create(LanguageEnum language)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubICommentaryCatalogueFactory.GpwEditor#Infrastructure#Factories#ICommentaryCatalogueFactory#Create(GpwEditor.Infrastructure.Catalogues.LanguageEnum)">
+            <summary>Sets the stub of ICommentaryCatalogueFactory.Create(LanguageEnum language)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubILanguageCatalogueFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.ILanguageCatalogueFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubILanguageCatalogueFactory.#ctor">
+            <summary>Initializes a new instance of type StubILanguageCatalogueFactory</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Factories.Fakes.StubILanguageCatalogueFactory.CreateLanguageEnum">
+            <summary>Sets the stub of ILanguageCatalogueFactory.Create(LanguageEnum language)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubILanguageCatalogueFactory.GpwEditor#Infrastructure#Factories#ILanguageCatalogueFactory#Create(GpwEditor.Infrastructure.Catalogues.LanguageEnum)">
+            <summary>Sets the stub of ILanguageCatalogueFactory.Create(LanguageEnum language)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubILanguagePhrasesFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.ILanguagePhrasesFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubILanguagePhrasesFactory.#ctor">
+            <summary>Initializes a new instance of type StubILanguagePhrasesFactory</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Factories.Fakes.StubILanguagePhrasesFactory.CreateLanguageEnum">
+            <summary>Sets the stub of ILanguagePhrasesFactory.Create(LanguageEnum language)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubILanguagePhrasesFactory.GpwEditor#Infrastructure#Factories#ILanguagePhrasesFactory#Create(GpwEditor.Infrastructure.Catalogues.LanguageEnum)">
+            <summary>Sets the stub of ILanguagePhrasesFactory.Create(LanguageEnum language)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubIRepositoryFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.IRepositoryFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubIRepositoryFactory.#ctor">
+            <summary>Initializes a new instance of type StubIRepositoryFactory</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Factories.Fakes.StubIRepositoryFactory.CreateBaseGameRepositoryEnum">
+            <summary>Sets the stub of IRepositoryFactory.Create(BaseGameRepositoryEnum repositoryType)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubIRepositoryFactory.GpwEditor#Infrastructure#Factories#IRepositoryFactory#Create(GpwEditor.Infrastructure.Repositories.BaseGame.BaseGameRepositoryEnum)">
+            <summary>Sets the stub of IRepositoryFactory.Create(BaseGameRepositoryEnum repositoryType)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubLanguageCatalogueFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.LanguageCatalogueFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubLanguageCatalogueFactory.#ctor(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Catalogues.Language.ILanguageCatalogue})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubLanguageCatalogueFactory.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubLanguageCatalogueFactory.InitializeStub">
+            <summary>Initializes a new instance of type StubLanguageCatalogueFactory</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubLanguageCatalogueFactory.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubLanguageCatalogueFactory.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubLanguagePhrasesFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.LanguagePhrasesFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubLanguagePhrasesFactory.#ctor(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Catalogues.Commentary.ILanguagePhrases})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubLanguagePhrasesFactory.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubLanguagePhrasesFactory.InitializeStub">
+            <summary>Initializes a new instance of type StubLanguagePhrasesFactory</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubLanguagePhrasesFactory.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubLanguagePhrasesFactory.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubRepositoryFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.RepositoryFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubRepositoryFactory.#ctor(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Repositories.BaseGame.IBaseGameRepository{Common.Editor.Data.Entities.IEntity}})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubRepositoryFactory.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubRepositoryFactory.InitializeStub">
+            <summary>Initializes a new instance of type StubRepositoryFactory</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubRepositoryFactory.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubRepositoryFactory.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository">
+            <summary>Shim type of GpwEditor.Infrastructure.Repositories.BaseGame.CarNumberRepository</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.#ctor(GpwEditor.Infrastructure.Repositories.BaseGame.CarNumberRepository)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.AllInstances.RepositoryTypeGet">
+            <summary>Sets the shim of CarNumberRepository.get_RepositoryType()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.AllInstances.RepositoryTypeSetBaseGameRepositoryEnum">
+            <summary>Sets the shim of CarNumberRepository.set_RepositoryType(BaseGameRepositoryEnum value)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(Common.Editor.Data.Repositories.IRepository{GpwEditor.Infrastructure.Entities.BaseGame.CarNumberEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(GpwEditor.Infrastructure.Repositories.BaseGame.IBaseGameRepository{GpwEditor.Infrastructure.Entities.BaseGame.CarNumberEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Constructor">
+            <summary>Sets the shim of CarNumberRepository.CarNumberRepository()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.RepositoryTypeGet">
+            <summary>Sets the shim of CarNumberRepository.get_RepositoryType()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.RepositoryTypeSetBaseGameRepositoryEnum">
+            <summary>Sets the shim of CarNumberRepository.set_RepositoryType(BaseGameRepositoryEnum value)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository">
+            <summary>Shim type of GpwEditor.Infrastructure.Repositories.BaseGame.ChassisHandlingRepository</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.#ctor(GpwEditor.Infrastructure.Repositories.BaseGame.ChassisHandlingRepository)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.AllInstances.RepositoryTypeGet">
+            <summary>Sets the shim of ChassisHandlingRepository.get_RepositoryType()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.AllInstances.RepositoryTypeSetBaseGameRepositoryEnum">
+            <summary>Sets the shim of ChassisHandlingRepository.set_RepositoryType(BaseGameRepositoryEnum value)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(Common.Editor.Data.Repositories.IRepository{GpwEditor.Infrastructure.Entities.BaseGame.ChassisHandlingEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(GpwEditor.Infrastructure.Repositories.BaseGame.IBaseGameRepository{GpwEditor.Infrastructure.Entities.BaseGame.ChassisHandlingEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Constructor">
+            <summary>Sets the shim of ChassisHandlingRepository.ChassisHandlingRepository()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.RepositoryTypeGet">
+            <summary>Sets the shim of ChassisHandlingRepository.get_RepositoryType()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.RepositoryTypeSetBaseGameRepositoryEnum">
+            <summary>Sets the shim of ChassisHandlingRepository.set_RepositoryType(BaseGameRepositoryEnum value)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository">
+            <summary>Shim type of GpwEditor.Infrastructure.Repositories.BaseGame.TeamRepository</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.#ctor(GpwEditor.Infrastructure.Repositories.BaseGame.TeamRepository)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.AllInstances.RepositoryTypeGet">
+            <summary>Sets the shim of TeamRepository.get_RepositoryType()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.AllInstances.RepositoryTypeSetBaseGameRepositoryEnum">
+            <summary>Sets the shim of TeamRepository.set_RepositoryType(BaseGameRepositoryEnum value)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(Common.Editor.Data.Repositories.IRepository{GpwEditor.Infrastructure.Entities.BaseGame.TeamEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(GpwEditor.Infrastructure.Repositories.BaseGame.IBaseGameRepository{GpwEditor.Infrastructure.Entities.BaseGame.TeamEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Constructor">
+            <summary>Sets the shim of TeamRepository.TeamRepository()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.RepositoryTypeGet">
+            <summary>Sets the shim of TeamRepository.get_RepositoryType()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.RepositoryTypeSetBaseGameRepositoryEnum">
+            <summary>Sets the shim of TeamRepository.set_RepositoryType(BaseGameRepositoryEnum value)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubCarNumberRepository">
+            <summary>Stub type of GpwEditor.Infrastructure.Repositories.BaseGame.CarNumberRepository</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubCarNumberRepository.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubCarNumberRepository.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubCarNumberRepository.InitializeStub">
+            <summary>Initializes a new instance of type StubCarNumberRepository</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubCarNumberRepository.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubCarNumberRepository.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository">
+            <summary>Stub type of GpwEditor.Infrastructure.Repositories.BaseGame.ChassisHandlingRepository</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository.InitializeStub">
+            <summary>Initializes a new instance of type StubChassisHandlingRepository</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1">
+            <summary>Stub type of GpwEditor.Infrastructure.Repositories.BaseGame.IBaseGameRepository`1</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.#ctor">
+            <summary>Initializes a new instance of type StubIBaseGameRepository</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.AttachBackingFieldToCapacity">
+            <summary>Attaches delegates to emulate StubIBaseGameRepository.Capacity as a property with a backing field.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.AttachBackingFieldToRepositoryType">
+            <summary>Attaches delegates to emulate StubIBaseGameRepository.RepositoryType as a property with a backing field.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.Common#Editor#Data#Repositories#IRepository{TEntity}#Capacity">
+            <summary>Sets the stub of IRepository`1.get_Capacity()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.CapacityGet">
+            <summary>Sets the stub of IRepository`1.get_Capacity()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.CapacitySetInt32">
+            <summary>Sets the stub of IRepository`1.set_Capacity(Int32 value)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.Common#Editor#Data#Repositories#IRepository{TEntity}#Get">
+            <summary>Sets the stub of IRepository`1.Get()</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.Common#Editor#Data#Repositories#IRepository{TEntity}#Get(System.Func{`0,System.Boolean})">
+            <summary>Sets the stub of IRepository`1.Get(Func`2&lt;!0,Boolean&gt; predicate)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.Common#Editor#Data#Repositories#IRepository{TEntity}#GetById(System.Int32)">
+            <summary>Sets the stub of IRepository`1.GetById(Int32 id)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.Common#Editor#Data#Repositories#IRepository{TEntity}#Set(System.Collections.Generic.IEnumerable{`0})">
+            <summary>Sets the stub of IRepository`1.Set(IEnumerable`1&lt;!0&gt; list)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.Common#Editor#Data#Repositories#IRepository{TEntity}#SetById(`0)">
+            <summary>Sets the stub of IRepository`1.SetById(!0 item)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.Get">
+            <summary>Sets the stub of IRepository`1.Get()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.GetByIdInt32">
+            <summary>Sets the stub of IRepository`1.GetById(Int32 id)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.GetFuncOfT0Boolean">
+            <summary>Sets the stub of IRepository`1.Get(Func`2&lt;!0,Boolean&gt; predicate)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.GpwEditor#Infrastructure#Repositories#BaseGame#IBaseGameRepository{TEntity}#RepositoryType">
+            <summary>Sets the stub of IBaseGameRepository`1.get_RepositoryType()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.RepositoryTypeGet">
+            <summary>Sets the stub of IBaseGameRepository`1.get_RepositoryType()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.RepositoryTypeSetBaseGameRepositoryEnum">
+            <summary>Sets the stub of IBaseGameRepository`1.set_RepositoryType(BaseGameRepositoryEnum value)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.SetByIdT0">
+            <summary>Sets the stub of IRepository`1.SetById(!0 item)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.SetIEnumerableOfT0">
+            <summary>Sets the stub of IRepository`1.Set(IEnumerable`1&lt;!0&gt; list)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository">
+            <summary>Stub type of GpwEditor.Infrastructure.Repositories.BaseGame.TeamRepository</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository.InitializeStub">
+            <summary>Initializes a new instance of type StubTeamRepository</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
     </members>

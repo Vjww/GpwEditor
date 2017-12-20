@@ -24,6 +24,7 @@ namespace GpwEditor.Application.Managers.BaseGame
 
         public IEnumerable<ITeamModel> GetTeams()
         {
+            // TODO: Shouldn't this map from entity to model?
             return (IEnumerable<ITeamModel>)_dataContext.Teams;
         }
 
@@ -44,7 +45,9 @@ namespace GpwEditor.Application.Managers.BaseGame
                 return validationMessages;
             }
 
-            _dataContext.Teams = (IRepository<TeamEntity>)enumerable;
+            // TODO: Shouldn't this map from model to entity?
+            //_dataContext.Teams = (IEnumerable<TeamEntity>)enumerable;
+            _dataContext.Teams = null;
 
             return validationMessages;
         }

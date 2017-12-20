@@ -20,9 +20,13 @@ namespace GpwEditor.Infrastructure.Catalogues.Language
             if (string.IsNullOrWhiteSpace(filePath))
                 throw new ArgumentException("Value cannot be null or whitespace.", nameof(filePath));
 
-            // TODO: Do export transformation logic here
-            throw new NotImplementedException();
+            var list = new List<string>();
+            foreach (var item in catalogue)
+            {
+                list.Add($"{item.Key} \"{item.Value}\"");
+            }
 
+            _fileResource.WriteStringList(list);
             _fileResource.Export(filePath);
         }
     }

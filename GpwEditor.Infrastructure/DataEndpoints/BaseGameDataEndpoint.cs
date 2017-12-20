@@ -1,43 +1,39 @@
 ﻿using System;
 using Common.Editor.Data.DataEndpoints;
 using Common.Editor.Data.FileResources;
+using GpwEditor.Infrastructure.Catalogues;
 using GpwEditor.Infrastructure.Catalogues.Commentary;
 using GpwEditor.Infrastructure.Catalogues.Language;
 using GpwEditor.Infrastructure.DataConnections;
-using GpwEditor.Infrastructure.Enums;
+using GpwEditor.Infrastructure.Factories;
 
 namespace GpwEditor.Infrastructure.DataEndpoints
 {
     public class BaseGameDataEndpoint : IDataEndpoint<BaseGameDataConnection>
     {
         public IFileResource GameExecutableResource { get; }
-        public LanguageCatalogue EnglishLanguageCatalogue { get; }
-        public LanguageCatalogue FrenchLanguageCatalogue { get; }
-        public LanguageCatalogue GermanLanguageCatalogue { get; }
-        public EnglishCommentaryCatalogue EnglishCommentaryCatalogue { get; }
-        public FrenchCommentaryCatalogue FrenchCommentaryCatalogue { get; }
-        public GermanCommentaryCatalogue GermanCommentaryCatalogue { get; }
+        public ILanguageCatalogue EnglishLanguageCatalogue { get; }
+        public ILanguageCatalogue FrenchLanguageCatalogue { get; }
+        public ILanguageCatalogue GermanLanguageCatalogue { get; }
+        public ICommentaryCatalogue EnglishCommentaryCatalogue { get; }
+        public ICommentaryCatalogue FrenchCommentaryCatalogue { get; }
+        public ICommentaryCatalogue GermanCommentaryCatalogue { get; }
 
         public BaseGameDataEndpoint(
             IFileResource gameExecutableResource,
-            LanguageCatalogue englishLanguageCatalogue,
-            LanguageCatalogue frenchLanguageCatalogue,
-            LanguageCatalogue germanLanguageCatalogue,
-            EnglishCommentaryCatalogue englishCommentaryCatalogue,
-            FrenchCommentaryCatalogue frenchCommentaryCatalogue,
-            GermanCommentaryCatalogue germanCommentaryCatalogue)
+            ILanguageCatalogueFactory languageCatalogueFactory,
+            ICommentaryCatalogueFactory commentaryCatalogueFactory)
         {
             GameExecutableResource = gameExecutableResource ?? throw new ArgumentNullException(nameof(gameExecutableResource));
-            EnglishLanguageCatalogue = englishLanguageCatalogue ?? throw new ArgumentNullException(nameof(englishLanguageCatalogue));
-            FrenchLanguageCatalogue = frenchLanguageCatalogue ?? throw new ArgumentNullException(nameof(frenchLanguageCatalogue));
-            GermanLanguageCatalogue = germanLanguageCatalogue ?? throw new ArgumentNullException(nameof(germanLanguageCatalogue));
-            EnglishCommentaryCatalogue = englishCommentaryCatalogue ?? throw new ArgumentNullException(nameof(englishCommentaryCatalogue));
-            FrenchCommentaryCatalogue = frenchCommentaryCatalogue ?? throw new ArgumentNullException(nameof(frenchCommentaryCatalogue));
-            GermanCommentaryCatalogue = germanCommentaryCatalogue ?? throw new ArgumentNullException(nameof(germanCommentaryCatalogue));
+            if (languageCatalogueFactory == null) throw new ArgumentNullException(nameof(languageCatalogueFactory));
+            if (commentaryCatalogueFactory == null) throw new ArgumentNullException(nameof(commentaryCatalogueFactory));
 
-            EnglishLanguageCatalogue.LanguageType = LanguageType.English;
-            FrenchLanguageCatalogue.LanguageType = LanguageType.French;
-            GermanLanguageCatalogue.LanguageType = LanguageType.German;
+            EnglishLanguageCatalogue = languageCatalogueFactory.Create(LanguageEnum.English);
+            FrenchLanguageCatalogue = languageCatalogueFactory.Create(LanguageEnum.French);
+            GermanLanguageCatalogue = languageCatalogueFactory.Create(LanguageEnum.German);
+            EnglishCommentaryCatalogue = commentaryCatalogueFactory.Create(LanguageEnum.English);
+            FrenchCommentaryCatalogue = commentaryCatalogueFactory.Create(LanguageEnum.French);
+            GermanCommentaryCatalogue = commentaryCatalogueFactory.Create(LanguageEnum.German);
         }
 
         public void Import(BaseGameDataConnection dataConnection)

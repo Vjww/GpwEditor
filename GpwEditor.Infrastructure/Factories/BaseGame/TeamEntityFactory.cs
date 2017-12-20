@@ -5,11 +5,12 @@ using GpwEditor.Infrastructure.Entities.BaseGame;
 
 namespace GpwEditor.Infrastructure.Factories.BaseGame
 {
+    // TODO: Is this required?
     public class TeamEntityFactory : IEntityFactory<TeamEntity>
     {
-        private readonly LanguageCatalogueString _languageCatalogueString;
+        private readonly LanguageCatalogueValue _languageCatalogueString;
 
-        public TeamEntityFactory(LanguageCatalogueString languageCatalogueString)
+        public TeamEntityFactory(LanguageCatalogueValue languageCatalogueString)
         {
             _languageCatalogueString = languageCatalogueString ?? throw new ArgumentNullException(nameof(languageCatalogueString));
         }

@@ -45,5 +45,15 @@
   <ItemGroup>
     <Content Include="readme.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.Editor.Data\Common.Editor.Data.csproj">
+      <Project>{D3A62601-844D-459D-A720-9530CD86A7DE}</Project>
+      <Name>Common.Editor.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GpwEditor.Infrastructure\GpwEditor.Infrastructure.csproj">
+      <Project>{4DE92B03-5B29-4D4E-9657-109854CE4DE4}</Project>
+      <Name>GpwEditor.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

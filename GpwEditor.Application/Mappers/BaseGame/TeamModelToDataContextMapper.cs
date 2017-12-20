@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Linq;
+using Common.Editor.Data.Repositories;
 using GpwEditor.Domain.Models.BaseGame;
 using GpwEditor.Infrastructure.DataContexts;
+using GpwEditor.Infrastructure.Entities.BaseGame;
 
 namespace GpwEditor.Application.Mappers.BaseGame
 {
@@ -16,7 +18,8 @@ namespace GpwEditor.Application.Mappers.BaseGame
 
         public void Map(ITeamModel model)
         {
-            var teamEntity = _dataContext.Teams.Get(x => x.Id == model.Id).Single();
+            var teamRepository = (IRepository<TeamEntity>)_dataContext.Teams;
+            var teamEntity = teamRepository.Get(x => x.Id == model.Id).Single();
             teamEntity.Name.All = model.Name;
             teamEntity.LastPosition = model.LastPosition;
             teamEntity.LastPoints = model.LastPoints;
@@ -30,11 +33,13 @@ namespace GpwEditor.Application.Mappers.BaseGame
             teamEntity.TyreSupplierId = model.TyreSupplierId;
             _dataContext.Teams.SetById(teamEntity);
 
-            var chassisHandlingEntity = _dataContext.ChassisHandlings.Get(x => x.TeamId == model.Id).Single();
+            var chassisHandlingRepository = (IRepository<ChassisHandlingEntity>)_dataContext.ChassisHandlings;
+            var chassisHandlingEntity = chassisHandlingRepository.Get(x => x.TeamId == model.Id).Single();
             chassisHandlingEntity.Value = model.ChassisHandling;
             _dataContext.ChassisHandlings.SetById(chassisHandlingEntity);
 
-            var carNumberEntities = _dataContext.CarNumbers.Get(x => x.TeamId == model.Id).ToList();
+            var carNumberRepository = (IRepository<CarNumberEntity>)_dataContext.CarNumbers;
+            var carNumberEntities = carNumberRepository.Get(x => x.TeamId == model.Id).ToList();
             foreach (var item in carNumberEntities)
             {
                 item.ValueA = item.PositionId == 0 ? model.CarNumberDriver1 : model.CarNumberDriver2;

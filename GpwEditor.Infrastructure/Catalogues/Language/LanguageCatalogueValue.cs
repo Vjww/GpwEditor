@@ -1,6 +1,6 @@
 ﻿namespace GpwEditor.Infrastructure.Catalogues.Language
 {
-    public class LanguageCatalogueString
+    public class LanguageCatalogueValue
     {
         public string All
         {

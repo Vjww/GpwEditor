@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Common.Editor.Data.Entities;
 using GpwEditor.Infrastructure.DataEndpoints;
 using GpwEditor.Infrastructure.DataLocators;
@@ -25,9 +24,9 @@ namespace GpwEditor.Infrastructure.EntityExporters.BaseGame
 
             _dataLocator.Map(teamEntity.Id);
 
-            _dataEndpoint.EnglishLanguageCatalogue.Single(x => x.Id == _dataLocator.Name).Value = teamEntity.Name.English;
-            _dataEndpoint.FrenchLanguageCatalogue.Single(x => x.Id == _dataLocator.Name).Value = teamEntity.Name.French;
-            _dataEndpoint.GermanLanguageCatalogue.Single(x => x.Id == _dataLocator.Name).Value = teamEntity.Name.German;
+            _dataEndpoint.EnglishLanguageCatalogue.Write(_dataLocator.Name, teamEntity.Name.English);
+            _dataEndpoint.FrenchLanguageCatalogue.Write(_dataLocator.Name, teamEntity.Name.French);
+            _dataEndpoint.GermanLanguageCatalogue.Write(_dataLocator.Name, teamEntity.Name.German);
             _dataEndpoint.GameExecutableResource.WriteInteger(_dataLocator.LastPosition, teamEntity.LastPosition);
             _dataEndpoint.GameExecutableResource.WriteInteger(_dataLocator.LastPoints, teamEntity.LastPoints);
             _dataEndpoint.GameExecutableResource.WriteInteger(_dataLocator.FirstGpTrack, teamEntity.FirstGpTrack);

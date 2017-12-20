@@ -7,14 +7,14 @@ namespace GpwEditor.Infrastructure.Catalogues.Commentary
 {
     public class CommentaryCatalogueExporter : ICatalogueExporter<CommentaryCatalogueItem>
     {
-        private readonly CommentaryCatalogueParser _commentaryCatalogueParser;
+        private readonly CommentaryCatalogueParser _catalogueParser;
         private readonly IFileResource _fileResource;
 
         public CommentaryCatalogueExporter(
-            CommentaryCatalogueParser commentaryCatalogueParser,
+            CommentaryCatalogueParser catalogueParser,
             IFileResource fileResource)
         {
-            _commentaryCatalogueParser = commentaryCatalogueParser ?? throw new ArgumentNullException(nameof(commentaryCatalogueParser));
+            _catalogueParser = catalogueParser ?? throw new ArgumentNullException(nameof(catalogueParser));
             _fileResource = fileResource ?? throw new ArgumentNullException(nameof(fileResource));
         }
 
@@ -27,9 +27,9 @@ namespace GpwEditor.Infrastructure.Catalogues.Commentary
             var list = new List<string>();
             foreach (var item in catalogue)
             {
-                var fileName = _commentaryCatalogueParser.BuildFileName(item);
-                var transcript = _commentaryCatalogueParser.BuildTranscript(item);
-                list.Add($"{_commentaryCatalogueParser.GetRightAngleBracket()}{fileName} {transcript}{_commentaryCatalogueParser.GetLeftAngleBracket()}");
+                var fileName = _catalogueParser.BuildFileName(item);
+                var transcript = _catalogueParser.BuildTranscript(item);
+                list.Add($"{_catalogueParser.GetRightAngleBracket()}{fileName} {transcript}{_catalogueParser.GetLeftAngleBracket()}");
             }
 
             _fileResource.WriteStringList(list);

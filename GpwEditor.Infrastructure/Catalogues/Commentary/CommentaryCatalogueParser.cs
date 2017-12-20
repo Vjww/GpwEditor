@@ -2,11 +2,12 @@
 using System.ComponentModel;
 using System.Globalization;
 using System.Threading;
+using Common.Editor.Data.Catalogues;
 using GpwEditor.Infrastructure.Enums;
 
 namespace GpwEditor.Infrastructure.Catalogues.Commentary
 {
-    public class CommentaryCatalogueParser
+    public class CommentaryCatalogueParser : ICatalogueParser<CommentaryCatalogueItem>
     {
         // TODO: remove?
         //private const int FirstLineId = 1;
@@ -23,9 +24,9 @@ namespace GpwEditor.Infrastructure.Catalogues.Commentary
         private const string RightAngleBracket = ">";
         private const string WavFileExtension = ".WAV";
 
-        private readonly ICommentaryCatalogueLanguagePhrases _languagePhrases;
+        private readonly ILanguagePhrases _languagePhrases;
 
-        public CommentaryCatalogueParser(ICommentaryCatalogueLanguagePhrases languagePhrases)
+        public CommentaryCatalogueParser(ILanguagePhrases languagePhrases)
         {
             _languagePhrases = languagePhrases ?? throw new ArgumentNullException(nameof(languagePhrases));
         }
@@ -206,6 +207,7 @@ namespace GpwEditor.Infrastructure.Catalogues.Commentary
             return Thread.CurrentThread.CurrentCulture.CompareInfo.IndexOf(text, value, CompareOptions.IgnoreCase);
         }
 
+        // TODO: Violates DRY, as repeated in LanguageCatalogueParser
         public bool IsValueInText(string text, string value)
         {
             if (text == null) throw new ArgumentNullException(nameof(text));

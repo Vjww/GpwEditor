@@ -35,14 +35,24 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catalogues\Commentary\CommentaryCatalogueWriter.cs" />
+    <Compile Include="Catalogues\Commentary\CommentaryCatalogueReader.cs" />
     <Compile Include="Catalogues\Commentary\CommentaryCatalogueExporter.cs" />
     <Compile Include="Catalogues\Commentary\CommentaryCatalogueParser.cs" />
-    <Compile Include="Catalogues\Commentary\EnglishCommentaryCatalogueLanguagePhrases.cs" />
-    <Compile Include="Catalogues\Commentary\FrenchCommentaryCatalogueLanguagePhrases.cs" />
+    <Compile Include="Catalogues\Commentary\EnglishLanguagePhrases.cs" />
+    <Compile Include="Catalogues\Commentary\FrenchLanguagePhrases.cs" />
     <Compile Include="Catalogues\Commentary\GermanCommentaryCatalogue.cs" />
     <Compile Include="Catalogues\Commentary\FrenchCommentaryCatalogue.cs" />
-    <Compile Include="Catalogues\Commentary\GermanCommentaryCatalogueLanguagePhrases.cs" />
-    <Compile Include="Catalogues\Commentary\ICommentaryCatalogueLanguagePhrases.cs" />
+    <Compile Include="Catalogues\Commentary\GermanLanguagePhrases.cs" />
+    <Compile Include="Catalogues\Commentary\ICommentaryCatalogue.cs" />
+    <Compile Include="Catalogues\Commentary\ILanguagePhrases.cs" />
+    <Compile Include="Catalogues\LanguageEnum.cs" />
+    <Compile Include="Catalogues\Language\GermanLanguageCatalogue.cs" />
+    <Compile Include="Catalogues\Language\FrenchLanguageCatalogue.cs" />
+    <Compile Include="Catalogues\Language\ILanguageCatalogue.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogueParser.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogueReader.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogueWriter.cs" />
     <Compile Include="Catalogues\Language\LanguageCatalogueExporter.cs" />
     <Compile Include="Catalogues\Commentary\CommentaryCatalogueImporter.cs" />
     <Compile Include="Catalogues\Language\LanguageCatalogueImporter.cs" />
@@ -51,11 +61,17 @@
     <Compile Include="Catalogues\Commentary\CommentaryCatalogueItem.cs" />
     <Compile Include="Catalogues\Language\LanguageCatalogueItem.cs" />
     <Compile Include="Catalogues\Commentary\EnglishCommentaryCatalogue.cs" />
-    <Compile Include="Catalogues\Language\LanguageCatalogue.cs" />
+    <Compile Include="Catalogues\Language\EnglishLanguageCatalogue.cs" />
     <Compile Include="DataLocators\ChassisHandlingDataLocator.cs" />
     <Compile Include="DataLocators\CarNumberDataLocator.cs" />
     <Compile Include="Calculators\IdentityCalculator.cs" />
     <Compile Include="DataLocators\TeamDataLocator.cs" />
+    <Compile Include="Repositories\BaseGame\ChassisHandlingRepository.cs" />
+    <Compile Include="Repositories\BaseGame\TeamRepository.cs" />
+    <Compile Include="Repositories\BaseGame\CarNumberRepository.cs" />
+    <Compile Include="Repositories\BaseGame\IBaseGameRepository.cs" />
+    <Compile Include="Repositories\BaseGame\BaseGameRepositoryEnum.cs" />
+    <Compile Include="Entities\IEntityType.cs" />
     <Compile Include="EntityExporters\BaseGame\ChassisHandlingEntityExporter.cs" />
     <Compile Include="EntityExporters\BaseGame\CarNumberEntityExporter.cs" />
     <Compile Include="EntityExporters\BaseGame\TeamEntityExporter.cs" />
@@ -70,10 +86,18 @@
     <Compile Include="DataEndpoints\SaveGameDataEndpoint.cs" />
     <Compile Include="Entities\BaseGame\CarNumberEntity.cs" />
     <Compile Include="Entities\BaseGame\ChassisHandlingEntity.cs" />
-    <Compile Include="Catalogues\Language\LanguageCatalogueString.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogueValue.cs" />
     <Compile Include="Entities\BaseGame\TeamEntity.cs" />
     <Compile Include="Enums\CommentaryType.cs" />
     <Compile Include="Enums\LanguageType.cs" />
+    <Compile Include="Factories\BaseGame\BaseGameRepositoryFactory.cs" />
+    <Compile Include="Factories\BaseGame\IBaseGameRepositoryFactory.cs" />
+    <Compile Include="Factories\LanguageCatalogueFactory.cs" />
+    <Compile Include="Factories\CommentaryCatalogueFactory.cs" />
+    <Compile Include="Factories\ILanguageCatalogueFactory.cs" />
+    <Compile Include="Factories\ICommentaryCatalogueFactory.cs" />
+    <Compile Include="Factories\ILanguagePhrasesFactory.cs" />
+    <Compile Include="Factories\LanguagePhrasesFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Catalogues\MERGE_CommentaryResourceService.cs" />
     <Compile Include="Catalogues\MERGE_LanguageResourceService.cs" />
@@ -86,6 +110,7 @@
     <Folder Include="EntityExporters\SaveGame\" />
     <Folder Include="EntityImporters\SaveGame\" />
     <Folder Include="Factories\SaveGame\" />
+    <Folder Include="Repositories\SaveGame\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.Editor.Data\Common.Editor.Data.csproj">

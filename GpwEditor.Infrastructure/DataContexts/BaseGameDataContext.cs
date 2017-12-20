@@ -3,38 +3,40 @@ using System.Collections.Generic;
 using Common.Editor.Data.DataContexts;
 using Common.Editor.Data.Entities;
 using Common.Editor.Data.Repositories;
-using GpwEditor.Infrastructure.Entities.BaseGame;
+using GpwEditor.Infrastructure.Factories.BaseGame;
+using GpwEditor.Infrastructure.Repositories.BaseGame;
 
 namespace GpwEditor.Infrastructure.DataContexts
 {
     public class BaseGameDataContext : IDataContext
     {
-        private readonly IList<IRepository<IEntity>> _repositories;
+        private readonly IList<IBaseGameRepository<IEntity>> _repositories;
         private readonly IDataContextExporter _dataContextExporter;
         private readonly IDataContextImporter _dataContextImporter;
 
-        public IRepository<CarNumberEntity> CarNumbers { get; set; }
-        public IRepository<ChassisHandlingEntity> ChassisHandlings { get; set; }
-        public IRepository<TeamEntity> Teams { get; set; }
+        public IBaseGameRepository<IEntity> CarNumbers { get; set; }
+        public IBaseGameRepository<IEntity> ChassisHandlings { get; set; }
+        public IBaseGameRepository<IEntity> Teams { get; set; }
 
         public BaseGameDataContext(
             IDataContextExporter dataContextExporter,
             IDataContextImporter dataContextImporter,
-            IRepository<CarNumberEntity> carNumbers,
-            IRepository<ChassisHandlingEntity> chassisHandlings,
-            IRepository<TeamEntity> teams)
+            IBaseGameRepositoryFactory repositoryFactory)
         {
-            _repositories = new List<IRepository<IEntity>>();
             _dataContextExporter = dataContextExporter ?? throw new ArgumentNullException(nameof(dataContextExporter));
             _dataContextImporter = dataContextImporter ?? throw new ArgumentNullException(nameof(dataContextImporter));
-            CarNumbers = carNumbers ?? throw new ArgumentNullException(nameof(carNumbers));
-            ChassisHandlings = chassisHandlings ?? throw new ArgumentNullException(nameof(chassisHandlings));
-            Teams = teams ?? throw new ArgumentNullException(nameof(teams));
+            if (repositoryFactory == null) throw new ArgumentNullException(nameof(repositoryFactory));
+
+            _repositories = new List<IBaseGameRepository<IEntity>>();
+
+            CarNumbers = repositoryFactory.Create(BaseGameRepositoryEnum.CarNumber);
+            ChassisHandlings = repositoryFactory.Create(BaseGameRepositoryEnum.ChassisHandling);
+            Teams = repositoryFactory.Create(BaseGameRepositoryEnum.Team);
         }
 
         public void Export()
         {
-            _dataContextExporter.Export(_repositories);
+            _dataContextExporter.Export((IList<IRepository<IEntity>>)_repositories);
         }
 
         public void Import()
@@ -47,11 +49,11 @@ namespace GpwEditor.Infrastructure.DataContexts
             Teams.Capacity = 11;
 
             // Add each repository to the repository collection
-            _repositories.Add((IRepository<IEntity>)CarNumbers);
-            _repositories.Add((IRepository<IEntity>)ChassisHandlings);
-            _repositories.Add((IRepository<IEntity>)Teams);
+            _repositories.Add(CarNumbers);
+            _repositories.Add(ChassisHandlings);
+            _repositories.Add(Teams);
 
-            _dataContextImporter.Import(_repositories);
+            _dataContextImporter.Import((IList<IRepository<IEntity>>)_repositories);
         }
     }
 }

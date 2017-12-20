@@ -50,7 +50,7 @@ namespace GpwEditor.Application.DataServices
                 frenchCommentaryFilePath,
                 germanCommentaryFilePath);
 
-            _dataServiceExporter.Export(_dataConnection);
+            _dataServiceImporter.Import(_dataConnection);
         }
 
         public void Save(
@@ -73,7 +73,7 @@ namespace GpwEditor.Application.DataServices
                 frenchCommentaryFilePath,
                 germanCommentaryFilePath);
 
-            _dataServiceImporter.Import(_dataConnection);
+            _dataServiceExporter.Export(_dataConnection);
         }
 
         public void SetTeams(IEnumerable<ITeamModel> teams)
