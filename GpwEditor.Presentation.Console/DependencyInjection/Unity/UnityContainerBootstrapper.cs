@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.CodeDom;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Common.Editor.Data.Catalogues;
 using Common.Editor.Data.Entities;
 using Common.Editor.Data.FileResources;
@@ -9,9 +11,9 @@ using GpwEditor.Domain.Validators;
 using GpwEditor.Domain.Validators.BaseGame;
 using GpwEditor.Infrastructure.Catalogues.Commentary;
 using GpwEditor.Infrastructure.Catalogues.Language;
+using GpwEditor.Infrastructure.Entities.BaseGame;
 using GpwEditor.Infrastructure.EntityExporters.BaseGame;
 using GpwEditor.Infrastructure.EntityImporters.BaseGame;
-using GpwEditor.Infrastructure.Repositories.BaseGame;
 using GpwEditor.Presentation.Console.DependencyInjection.Output;
 using Unity;
 using Unity.RegistrationByConvention;
@@ -45,11 +47,17 @@ namespace GpwEditor.Presentation.Console.DependencyInjection.Unity
                 WithLifetime.ContainerControlled);
 
             // TODO: Need to find a way to switch on entity, currently hardcoded
-            _container.RegisterType<IEntityExporter, CarNumberEntityExporter>();
-            _container.RegisterType<IEntityImporter, CarNumberEntityImporter>();
+            _container.RegisterType<IEntityExporter<IEntity>, CarNumberEntityExporter>();
+            _container.RegisterType<IEntityImporter<IEntity>, CarNumberEntityImporter>();
+            _container.RegisterType<IEntityExporter<IEntity>, ChassisHandlingEntityExporter>();
+            _container.RegisterType<IEntityImporter<IEntity>, ChassisHandlingEntityImporter>();
+            _container.RegisterType<IEntityExporter<IEntity>, TeamEntityExporter>();
+            _container.RegisterType<IEntityImporter<IEntity>, TeamEntityImporter>();
 
             // TODO: Need to find a way to switch on language, currently hardcoded
             _container.RegisterType<ILanguagePhrases, EnglishLanguagePhrases>();
+            _container.RegisterType<ILanguagePhrases, FrenchLanguagePhrases>();
+            _container.RegisterType<ILanguagePhrases, GermanLanguagePhrases>();
 
             // TODO: Need to find a way to switch on model, currently hardcoded
             _container.RegisterType<IValidator<ITeamModel>, TeamValidator>();
@@ -59,15 +67,6 @@ namespace GpwEditor.Presentation.Console.DependencyInjection.Unity
 
             // TODO: I guess this is where we decide on what output to use
             _container.RegisterType<IOutput, ConsoleOutput>();
-
-            // Registers types that inherit IBaseGameRepository<IEntity> and register array of types for BaseGameRepositoryFactory
-            // https://stackoverflow.com/a/27624752
-            _container.RegisterTypes(
-                AllClasses.FromLoadedAssemblies().Where(type => typeof(IBaseGameRepository<IEntity>).IsAssignableFrom(type)),
-                WithMappings.FromAllInterfaces,
-                WithName.TypeName,
-                WithLifetime.Transient);
-            _container.RegisterType<IEnumerable<IBaseGameRepository<IEntity>>, IBaseGameRepository<IEntity>[]>();
 
             RegisterLanguageCatalogueTypes();
             RegisterCommentaryCatalogueTypes();

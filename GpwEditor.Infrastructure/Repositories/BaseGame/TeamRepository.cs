@@ -3,8 +3,8 @@ using GpwEditor.Infrastructure.Entities.BaseGame;
 
 namespace GpwEditor.Infrastructure.Repositories.BaseGame
 {
-    public class TeamRepository : Repository<TeamEntity>, IBaseGameRepository<TeamEntity>
+    // TODO: Redundant?
+    public class TeamRepository : Repository<TeamEntity>
     {
-        public BaseGameRepositoryEnum RepositoryType { get; set; } = BaseGameRepositoryEnum.Team;
     }
 }

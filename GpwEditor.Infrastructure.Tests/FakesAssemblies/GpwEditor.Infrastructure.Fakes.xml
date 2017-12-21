@@ -1990,14 +1990,14 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.CarNumbersGet">
             <summary>Sets the shim of BaseGameDataContext.get_CarNumbers()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.CarNumbersSetIBaseGameRepositoryOfIEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IBaseGameRepository`1&lt;IEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.CarNumbersSetIRepositoryOfIEntity">
+            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IRepository`1&lt;IEntity&gt; value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.ChassisHandlingsGet">
             <summary>Sets the shim of BaseGameDataContext.get_ChassisHandlings()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.ChassisHandlingsSetIBaseGameRepositoryOfIEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IBaseGameRepository`1&lt;IEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.ChassisHandlingsSetIRepositoryOfIEntity">
+            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IRepository`1&lt;IEntity&gt; value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.Export">
             <summary>Sets the shim of BaseGameDataContext.Export()</summary>
@@ -2008,8 +2008,8 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.TeamsGet">
             <summary>Sets the shim of BaseGameDataContext.get_Teams()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.TeamsSetIBaseGameRepositoryOfIEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_Teams(IBaseGameRepository`1&lt;IEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.TeamsSetIRepositoryOfIEntity">
+            <summary>Sets the shim of BaseGameDataContext.set_Teams(IRepository`1&lt;IEntity&gt; value)</summary>
         </member>
         <member name="M:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
@@ -2026,17 +2026,17 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.CarNumbersGet">
             <summary>Sets the shim of BaseGameDataContext.get_CarNumbers()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.CarNumbersSetIBaseGameRepositoryOfIEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IBaseGameRepository`1&lt;IEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.CarNumbersSetIRepositoryOfIEntity">
+            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IRepository`1&lt;IEntity&gt; value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ChassisHandlingsGet">
             <summary>Sets the shim of BaseGameDataContext.get_ChassisHandlings()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ChassisHandlingsSetIBaseGameRepositoryOfIEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IBaseGameRepository`1&lt;IEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ChassisHandlingsSetIRepositoryOfIEntity">
+            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IRepository`1&lt;IEntity&gt; value)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ConstructorIDataContextExporterIDataContextImporterIRepositoryFactory">
-            <summary>Sets the shim of BaseGameDataContext.BaseGameDataContext(IDataContextExporter dataContextExporter, IDataContextImporter dataContextImporter, IRepositoryFactory repositoryFactory)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ConstructorIDataContextExporterIDataContextImporter">
+            <summary>Sets the shim of BaseGameDataContext.BaseGameDataContext(IDataContextExporter dataContextExporter, IDataContextImporter dataContextImporter)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.Export">
             <summary>Sets the shim of BaseGameDataContext.Export()</summary>
@@ -2047,13 +2047,13 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.TeamsGet">
             <summary>Sets the shim of BaseGameDataContext.get_Teams()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.TeamsSetIBaseGameRepositoryOfIEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_Teams(IBaseGameRepository`1&lt;IEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.TeamsSetIRepositoryOfIEntity">
+            <summary>Sets the shim of BaseGameDataContext.set_Teams(IRepository`1&lt;IEntity&gt; value)</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.DataContexts.Fakes.StubBaseGameDataContext">
             <summary>Stub type of GpwEditor.Infrastructure.DataContexts.BaseGameDataContext</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.DataContexts.Fakes.StubBaseGameDataContext.#ctor(Common.Editor.Data.DataContexts.IDataContextExporter,Common.Editor.Data.DataContexts.IDataContextImporter,GpwEditor.Infrastructure.Factories.IRepositoryFactory)">
+        <member name="M:GpwEditor.Infrastructure.DataContexts.Fakes.StubBaseGameDataContext.#ctor(Common.Editor.Data.DataContexts.IDataContextExporter,Common.Editor.Data.DataContexts.IDataContextImporter)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.StubBaseGameDataContext.CallBase">
@@ -2197,7 +2197,7 @@
         <member name="T:GpwEditor.Infrastructure.DataEndpoints.Fakes.StubBaseGameDataEndpoint">
             <summary>Stub type of GpwEditor.Infrastructure.DataEndpoints.BaseGameDataEndpoint</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.DataEndpoints.Fakes.StubBaseGameDataEndpoint.#ctor(Common.Editor.Data.FileResources.IFileResource,GpwEditor.Infrastructure.Factories.ILanguageCatalogueFactory,GpwEditor.Infrastructure.Factories.ICommentaryCatalogueFactory)">
+        <member name="M:GpwEditor.Infrastructure.DataEndpoints.Fakes.StubBaseGameDataEndpoint.#ctor(Common.Editor.Data.FileResources.IFileResource,GpwEditor.Infrastructure.Factories.Catalogues.Languages.ILanguageCatalogueFactory,GpwEditor.Infrastructure.Factories.Catalogues.Commentary.ICommentaryCatalogueFactory)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataEndpoints.Fakes.StubBaseGameDataEndpoint.CallBase">
@@ -2950,18 +2950,6 @@
         <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.StubTeamEntity.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Entities.Fakes.StubIEntityType">
-            <summary>Stub type of GpwEditor.Infrastructure.Entities.IEntityType</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Entities.Fakes.StubIEntityType.#ctor">
-            <summary>Initializes a new instance of type StubIEntityType</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Entities.Fakes.StubIEntityType.GpwEditor#Infrastructure#Entities#IEntityType#Type">
-            <summary>Sets the stub of IEntityType.get_Type()</summary>
-        </member>
-        <member name="F:GpwEditor.Infrastructure.Entities.Fakes.StubIEntityType.TypeGet">
-            <summary>Sets the stub of IEntityType.get_Type()</summary>
-        </member>
         <member name="T:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimCarNumberEntityExporter">
             <summary>Shim type of GpwEditor.Infrastructure.EntityExporters.BaseGame.CarNumberEntityExporter</summary>
         </member>
@@ -2986,7 +2974,7 @@
         <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimCarNumberEntityExporter.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimCarNumberEntityExporter.Bind(Common.Editor.Data.Entities.IEntityExporter)">
+        <member name="M:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimCarNumberEntityExporter.Bind(Common.Editor.Data.Entities.IEntityExporter{Common.Editor.Data.Entities.IEntity})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimCarNumberEntityExporter.ConstructorBaseGameDataEndpointCarNumberDataLocator">
@@ -3019,7 +3007,7 @@
         <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimChassisHandlingEntityExporter.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimChassisHandlingEntityExporter.Bind(Common.Editor.Data.Entities.IEntityExporter)">
+        <member name="M:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimChassisHandlingEntityExporter.Bind(Common.Editor.Data.Entities.IEntityExporter{Common.Editor.Data.Entities.IEntity})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimChassisHandlingEntityExporter.ConstructorBaseGameDataEndpointChassisHandlingDataLocator">
@@ -3052,7 +3040,7 @@
         <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter.Bind(Common.Editor.Data.Entities.IEntityExporter)">
+        <member name="M:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter.Bind(Common.Editor.Data.Entities.IEntityExporter{Common.Editor.Data.Entities.IEntity})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter.ConstructorBaseGameDataEndpointTeamDataLocator">
@@ -3139,7 +3127,7 @@
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimCarNumberEntityImporter.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimCarNumberEntityImporter.Bind(Common.Editor.Data.Entities.IEntityImporter)">
+        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimCarNumberEntityImporter.Bind(Common.Editor.Data.Entities.IEntityImporter{Common.Editor.Data.Entities.IEntity})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimCarNumberEntityImporter.ConstructorBaseGameDataEndpointCarNumberDataLocatorCarNumberEntityFactory">
@@ -3172,7 +3160,7 @@
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimChassisHandlingEntityImporter.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimChassisHandlingEntityImporter.Bind(Common.Editor.Data.Entities.IEntityImporter)">
+        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimChassisHandlingEntityImporter.Bind(Common.Editor.Data.Entities.IEntityImporter{Common.Editor.Data.Entities.IEntity})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimChassisHandlingEntityImporter.ConstructorBaseGameDataEndpointChassisHandlingDataLocatorChassisHandlingEntityFactory">
@@ -3205,7 +3193,7 @@
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimTeamEntityImporter.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimTeamEntityImporter.Bind(Common.Editor.Data.Entities.IEntityImporter)">
+        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimTeamEntityImporter.Bind(Common.Editor.Data.Entities.IEntityImporter{Common.Editor.Data.Entities.IEntity})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimTeamEntityImporter.ConstructorBaseGameDataEndpointTeamDataLocatorTeamEntityFactory">
@@ -3217,7 +3205,7 @@
         <member name="T:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.StubCarNumberEntityImporter">
             <summary>Stub type of GpwEditor.Infrastructure.EntityImporters.BaseGame.CarNumberEntityImporter</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.StubCarNumberEntityImporter.#ctor(GpwEditor.Infrastructure.DataEndpoints.BaseGameDataEndpoint,GpwEditor.Infrastructure.DataLocators.CarNumberDataLocator,GpwEditor.Infrastructure.Factories.BaseGame.CarNumberEntityFactory)">
+        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.StubCarNumberEntityImporter.#ctor(GpwEditor.Infrastructure.DataEndpoints.BaseGameDataEndpoint,GpwEditor.Infrastructure.DataLocators.CarNumberDataLocator,GpwEditor.Infrastructure.Factories.Entities.BaseGame.CarNumberEntityFactory)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.StubCarNumberEntityImporter.CallBase">
@@ -3235,7 +3223,7 @@
         <member name="T:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.StubChassisHandlingEntityImporter">
             <summary>Stub type of GpwEditor.Infrastructure.EntityImporters.BaseGame.ChassisHandlingEntityImporter</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.StubChassisHandlingEntityImporter.#ctor(GpwEditor.Infrastructure.DataEndpoints.BaseGameDataEndpoint,GpwEditor.Infrastructure.DataLocators.ChassisHandlingDataLocator,GpwEditor.Infrastructure.Factories.BaseGame.ChassisHandlingEntityFactory)">
+        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.StubChassisHandlingEntityImporter.#ctor(GpwEditor.Infrastructure.DataEndpoints.BaseGameDataEndpoint,GpwEditor.Infrastructure.DataLocators.ChassisHandlingDataLocator,GpwEditor.Infrastructure.Factories.Entities.BaseGame.ChassisHandlingEntityFactory)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.StubChassisHandlingEntityImporter.CallBase">
@@ -3253,7 +3241,7 @@
         <member name="T:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.StubTeamEntityImporter">
             <summary>Stub type of GpwEditor.Infrastructure.EntityImporters.BaseGame.TeamEntityImporter</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.StubTeamEntityImporter.#ctor(GpwEditor.Infrastructure.DataEndpoints.BaseGameDataEndpoint,GpwEditor.Infrastructure.DataLocators.TeamDataLocator,GpwEditor.Infrastructure.Factories.BaseGame.TeamEntityFactory)">
+        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.StubTeamEntityImporter.#ctor(GpwEditor.Infrastructure.DataEndpoints.BaseGameDataEndpoint,GpwEditor.Infrastructure.DataLocators.TeamDataLocator,GpwEditor.Infrastructure.Factories.Entities.BaseGame.TeamEntityFactory)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.StubTeamEntityImporter.CallBase">
@@ -3268,409 +3256,346 @@
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.StubTeamEntityImporter.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimCarNumberEntityFactory">
-            <summary>Shim type of GpwEditor.Infrastructure.Factories.BaseGame.CarNumberEntityFactory</summary>
+        <member name="T:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueFactory">
+            <summary>Shim type of GpwEditor.Infrastructure.Factories.Catalogues.Commentary.CommentaryCatalogueFactory</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimCarNumberEntityFactory.#ctor">
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueFactory.#ctor">
             <summary>Initializes a new shim instance</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimCarNumberEntityFactory.#ctor(GpwEditor.Infrastructure.Factories.BaseGame.CarNumberEntityFactory)">
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueFactory.#ctor(GpwEditor.Infrastructure.Factories.Catalogues.Commentary.CommentaryCatalogueFactory)">
             <summary>Initializes a new shim for the given instance</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimCarNumberEntityFactory.AllInstances">
+        <member name="T:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueFactory.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimCarNumberEntityFactory.AllInstances.CreateInt32">
-            <summary>Sets the shim of CarNumberEntityFactory.Create(Int32 id)</summary>
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueFactory.AllInstances.CreateLanguageType">
+            <summary>Sets the shim of CommentaryCatalogueFactory.Create(LanguageType language)</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimCarNumberEntityFactory.BehaveAsCurrent">
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueFactory.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimCarNumberEntityFactory.BehaveAsNotImplemented">
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueFactory.BehaveAsNotImplemented">
             <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimCarNumberEntityFactory.Behavior">
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueFactory.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimCarNumberEntityFactory.Bind(Common.Editor.Data.Factories.IEntityFactory{GpwEditor.Infrastructure.Entities.BaseGame.CarNumberEntity})">
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueFactory.Bind(GpwEditor.Infrastructure.Factories.Catalogues.Commentary.ICommentaryCatalogueFactory)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimCarNumberEntityFactory.Constructor">
-            <summary>Sets the shim of CarNumberEntityFactory.CarNumberEntityFactory()</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimCarNumberEntityFactory.CreateInt32">
-            <summary>Sets the shim of CarNumberEntityFactory.Create(Int32 id)</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimChassisHandlingEntityFactory">
-            <summary>Shim type of GpwEditor.Infrastructure.Factories.BaseGame.ChassisHandlingEntityFactory</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimChassisHandlingEntityFactory.#ctor">
-            <summary>Initializes a new shim instance</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimChassisHandlingEntityFactory.#ctor(GpwEditor.Infrastructure.Factories.BaseGame.ChassisHandlingEntityFactory)">
-            <summary>Initializes a new shim for the given instance</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimChassisHandlingEntityFactory.AllInstances">
-            <summary>Define shims for all instances members</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimChassisHandlingEntityFactory.AllInstances.CreateInt32">
-            <summary>Sets the shim of ChassisHandlingEntityFactory.Create(Int32 id)</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimChassisHandlingEntityFactory.BehaveAsCurrent">
-            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimChassisHandlingEntityFactory.BehaveAsNotImplemented">
-            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimChassisHandlingEntityFactory.Behavior">
-            <summary>Assigns the behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimChassisHandlingEntityFactory.Bind(Common.Editor.Data.Factories.IEntityFactory{GpwEditor.Infrastructure.Entities.BaseGame.ChassisHandlingEntity})">
-            <summary>Binds the members of the interface to the shim.</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimChassisHandlingEntityFactory.Constructor">
-            <summary>Sets the shim of ChassisHandlingEntityFactory.ChassisHandlingEntityFactory()</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimChassisHandlingEntityFactory.CreateInt32">
-            <summary>Sets the shim of ChassisHandlingEntityFactory.Create(Int32 id)</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimTeamEntityFactory">
-            <summary>Shim type of GpwEditor.Infrastructure.Factories.BaseGame.TeamEntityFactory</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimTeamEntityFactory.#ctor">
-            <summary>Initializes a new shim instance</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimTeamEntityFactory.#ctor(GpwEditor.Infrastructure.Factories.BaseGame.TeamEntityFactory)">
-            <summary>Initializes a new shim for the given instance</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimTeamEntityFactory.AllInstances">
-            <summary>Define shims for all instances members</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimTeamEntityFactory.AllInstances.CreateInt32">
-            <summary>Sets the shim of TeamEntityFactory.Create(Int32 id)</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimTeamEntityFactory.BehaveAsCurrent">
-            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimTeamEntityFactory.BehaveAsNotImplemented">
-            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimTeamEntityFactory.Behavior">
-            <summary>Assigns the behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimTeamEntityFactory.Bind(Common.Editor.Data.Factories.IEntityFactory{GpwEditor.Infrastructure.Entities.BaseGame.TeamEntity})">
-            <summary>Binds the members of the interface to the shim.</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimTeamEntityFactory.ConstructorLanguageCatalogueValue">
-            <summary>Sets the shim of TeamEntityFactory.TeamEntityFactory(LanguageCatalogueValue languageCatalogueString)</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.ShimTeamEntityFactory.CreateInt32">
-            <summary>Sets the shim of TeamEntityFactory.Create(Int32 id)</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubCarNumberEntityFactory">
-            <summary>Stub type of GpwEditor.Infrastructure.Factories.BaseGame.CarNumberEntityFactory</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubCarNumberEntityFactory.#ctor">
-            <summary>Initializes a new instance</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubCarNumberEntityFactory.CallBase">
-            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubCarNumberEntityFactory.InitializeStub">
-            <summary>Initializes a new instance of type StubCarNumberEntityFactory</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubCarNumberEntityFactory.InstanceBehavior">
-            <summary>Gets or sets the instance behavior.</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubCarNumberEntityFactory.InstanceObserver">
-            <summary>Gets or sets the instance observer.</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubChassisHandlingEntityFactory">
-            <summary>Stub type of GpwEditor.Infrastructure.Factories.BaseGame.ChassisHandlingEntityFactory</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubChassisHandlingEntityFactory.#ctor">
-            <summary>Initializes a new instance</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubChassisHandlingEntityFactory.CallBase">
-            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubChassisHandlingEntityFactory.InitializeStub">
-            <summary>Initializes a new instance of type StubChassisHandlingEntityFactory</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubChassisHandlingEntityFactory.InstanceBehavior">
-            <summary>Gets or sets the instance behavior.</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubChassisHandlingEntityFactory.InstanceObserver">
-            <summary>Gets or sets the instance observer.</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubTeamEntityFactory">
-            <summary>Stub type of GpwEditor.Infrastructure.Factories.BaseGame.TeamEntityFactory</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubTeamEntityFactory.#ctor(GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueValue)">
-            <summary>Initializes a new instance</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubTeamEntityFactory.CallBase">
-            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubTeamEntityFactory.InitializeStub">
-            <summary>Initializes a new instance of type StubTeamEntityFactory</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubTeamEntityFactory.InstanceBehavior">
-            <summary>Gets or sets the instance behavior.</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.BaseGame.Fakes.StubTeamEntityFactory.InstanceObserver">
-            <summary>Gets or sets the instance observer.</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory">
-            <summary>Shim type of GpwEditor.Infrastructure.Factories.CommentaryCatalogueFactory</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.#ctor">
-            <summary>Initializes a new shim instance</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.#ctor(GpwEditor.Infrastructure.Factories.CommentaryCatalogueFactory)">
-            <summary>Initializes a new shim for the given instance</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.AllInstances">
-            <summary>Define shims for all instances members</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.AllInstances.CreateLanguageEnum">
-            <summary>Sets the shim of CommentaryCatalogueFactory.Create(LanguageEnum language)</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.BehaveAsCurrent">
-            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.BehaveAsNotImplemented">
-            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.Behavior">
-            <summary>Assigns the behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.Bind(GpwEditor.Infrastructure.Factories.ICommentaryCatalogueFactory)">
-            <summary>Binds the members of the interface to the shim.</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.ConstructorIEnumerableOfICommentaryCatalogue">
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueFactory.ConstructorIEnumerableOfICommentaryCatalogue">
             <summary>Sets the shim of CommentaryCatalogueFactory.CommentaryCatalogueFactory(IEnumerable`1&lt;ICommentaryCatalogue&gt; commentaryCatalogues)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimCommentaryCatalogueFactory.CreateLanguageEnum">
-            <summary>Sets the shim of CommentaryCatalogueFactory.Create(LanguageEnum language)</summary>
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueFactory.CreateLanguageType">
+            <summary>Sets the shim of CommentaryCatalogueFactory.Create(LanguageType language)</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory">
-            <summary>Shim type of GpwEditor.Infrastructure.Factories.LanguageCatalogueFactory</summary>
+        <member name="T:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.StubCommentaryCatalogueFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.Catalogues.Commentary.CommentaryCatalogueFactory</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.#ctor">
-            <summary>Initializes a new shim instance</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.#ctor(GpwEditor.Infrastructure.Factories.LanguageCatalogueFactory)">
-            <summary>Initializes a new shim for the given instance</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.AllInstances">
-            <summary>Define shims for all instances members</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.AllInstances.CreateLanguageEnum">
-            <summary>Sets the shim of LanguageCatalogueFactory.Create(LanguageEnum language)</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.BehaveAsCurrent">
-            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.BehaveAsNotImplemented">
-            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.Behavior">
-            <summary>Assigns the behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.Bind(GpwEditor.Infrastructure.Factories.ILanguageCatalogueFactory)">
-            <summary>Binds the members of the interface to the shim.</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.ConstructorIEnumerableOfILanguageCatalogue">
-            <summary>Sets the shim of LanguageCatalogueFactory.LanguageCatalogueFactory(IEnumerable`1&lt;ILanguageCatalogue&gt; languageCatalogues)</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguageCatalogueFactory.CreateLanguageEnum">
-            <summary>Sets the shim of LanguageCatalogueFactory.Create(LanguageEnum language)</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory">
-            <summary>Shim type of GpwEditor.Infrastructure.Factories.LanguagePhrasesFactory</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.#ctor">
-            <summary>Initializes a new shim instance</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.#ctor(GpwEditor.Infrastructure.Factories.LanguagePhrasesFactory)">
-            <summary>Initializes a new shim for the given instance</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.AllInstances">
-            <summary>Define shims for all instances members</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.AllInstances.CreateLanguageEnum">
-            <summary>Sets the shim of LanguagePhrasesFactory.Create(LanguageEnum language)</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.BehaveAsCurrent">
-            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.BehaveAsNotImplemented">
-            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.Behavior">
-            <summary>Assigns the behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.Bind(GpwEditor.Infrastructure.Factories.ILanguagePhrasesFactory)">
-            <summary>Binds the members of the interface to the shim.</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.ConstructorIEnumerableOfILanguagePhrases">
-            <summary>Sets the shim of LanguagePhrasesFactory.LanguagePhrasesFactory(IEnumerable`1&lt;ILanguagePhrases&gt; languagePhrases)</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimLanguagePhrasesFactory.CreateLanguageEnum">
-            <summary>Sets the shim of LanguagePhrasesFactory.Create(LanguageEnum language)</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory">
-            <summary>Shim type of GpwEditor.Infrastructure.Factories.RepositoryFactory</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.#ctor">
-            <summary>Initializes a new shim instance</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.#ctor(GpwEditor.Infrastructure.Factories.RepositoryFactory)">
-            <summary>Initializes a new shim for the given instance</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.AllInstances">
-            <summary>Define shims for all instances members</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.AllInstances.CreateBaseGameRepositoryEnum">
-            <summary>Sets the shim of RepositoryFactory.Create(BaseGameRepositoryEnum repositoryType)</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.BehaveAsCurrent">
-            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.BehaveAsNotImplemented">
-            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.Behavior">
-            <summary>Assigns the behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.Bind(GpwEditor.Infrastructure.Factories.IRepositoryFactory)">
-            <summary>Binds the members of the interface to the shim.</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.ConstructorIEnumerableOfIBaseGameRepositoryOfIEntity">
-            <summary>Sets the shim of RepositoryFactory.RepositoryFactory(IEnumerable`1&lt;IBaseGameRepository`1&lt;IEntity&gt;&gt; repositories)</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.ShimRepositoryFactory.CreateBaseGameRepositoryEnum">
-            <summary>Sets the shim of RepositoryFactory.Create(BaseGameRepositoryEnum repositoryType)</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubCommentaryCatalogueFactory">
-            <summary>Stub type of GpwEditor.Infrastructure.Factories.CommentaryCatalogueFactory</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubCommentaryCatalogueFactory.#ctor(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Catalogues.Commentary.ICommentaryCatalogue})">
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.StubCommentaryCatalogueFactory.#ctor(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Catalogues.Commentary.ICommentaryCatalogue})">
             <summary>Initializes a new instance</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubCommentaryCatalogueFactory.CallBase">
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.StubCommentaryCatalogueFactory.CallBase">
             <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubCommentaryCatalogueFactory.InitializeStub">
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.StubCommentaryCatalogueFactory.InitializeStub">
             <summary>Initializes a new instance of type StubCommentaryCatalogueFactory</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubCommentaryCatalogueFactory.InstanceBehavior">
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.StubCommentaryCatalogueFactory.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubCommentaryCatalogueFactory.InstanceObserver">
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.StubCommentaryCatalogueFactory.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubICommentaryCatalogueFactory">
-            <summary>Stub type of GpwEditor.Infrastructure.Factories.ICommentaryCatalogueFactory</summary>
+        <member name="T:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.StubICommentaryCatalogueFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.Catalogues.Commentary.ICommentaryCatalogueFactory</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubICommentaryCatalogueFactory.#ctor">
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.StubICommentaryCatalogueFactory.#ctor">
             <summary>Initializes a new instance of type StubICommentaryCatalogueFactory</summary>
         </member>
-        <member name="F:GpwEditor.Infrastructure.Factories.Fakes.StubICommentaryCatalogueFactory.CreateLanguageEnum">
-            <summary>Sets the stub of ICommentaryCatalogueFactory.Create(LanguageEnum language)</summary>
+        <member name="F:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.StubICommentaryCatalogueFactory.CreateLanguageType">
+            <summary>Sets the stub of ICommentaryCatalogueFactory.Create(LanguageType language)</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubICommentaryCatalogueFactory.GpwEditor#Infrastructure#Factories#ICommentaryCatalogueFactory#Create(GpwEditor.Infrastructure.Catalogues.LanguageEnum)">
-            <summary>Sets the stub of ICommentaryCatalogueFactory.Create(LanguageEnum language)</summary>
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Commentary.Fakes.StubICommentaryCatalogueFactory.GpwEditor#Infrastructure#Factories#Catalogues#Commentary#ICommentaryCatalogueFactory#Create(GpwEditor.Infrastructure.Enums.LanguageType)">
+            <summary>Sets the stub of ICommentaryCatalogueFactory.Create(LanguageType language)</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubILanguageCatalogueFactory">
-            <summary>Stub type of GpwEditor.Infrastructure.Factories.ILanguageCatalogueFactory</summary>
+        <member name="T:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguageCatalogueFactory">
+            <summary>Shim type of GpwEditor.Infrastructure.Factories.Catalogues.Languages.LanguageCatalogueFactory</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubILanguageCatalogueFactory.#ctor">
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguageCatalogueFactory.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguageCatalogueFactory.#ctor(GpwEditor.Infrastructure.Factories.Catalogues.Languages.LanguageCatalogueFactory)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguageCatalogueFactory.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguageCatalogueFactory.AllInstances.CreateLanguageType">
+            <summary>Sets the shim of LanguageCatalogueFactory.Create(LanguageType language)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguageCatalogueFactory.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguageCatalogueFactory.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguageCatalogueFactory.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguageCatalogueFactory.Bind(GpwEditor.Infrastructure.Factories.Catalogues.Languages.ILanguageCatalogueFactory)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguageCatalogueFactory.ConstructorIEnumerableOfILanguageCatalogue">
+            <summary>Sets the shim of LanguageCatalogueFactory.LanguageCatalogueFactory(IEnumerable`1&lt;ILanguageCatalogue&gt; languageCatalogues)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguageCatalogueFactory.CreateLanguageType">
+            <summary>Sets the shim of LanguageCatalogueFactory.Create(LanguageType language)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguagePhrasesFactory">
+            <summary>Shim type of GpwEditor.Infrastructure.Factories.Catalogues.Languages.LanguagePhrasesFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguagePhrasesFactory.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguagePhrasesFactory.#ctor(GpwEditor.Infrastructure.Factories.Catalogues.Languages.LanguagePhrasesFactory)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguagePhrasesFactory.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguagePhrasesFactory.AllInstances.CreateLanguageType">
+            <summary>Sets the shim of LanguagePhrasesFactory.Create(LanguageType language)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguagePhrasesFactory.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguagePhrasesFactory.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguagePhrasesFactory.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguagePhrasesFactory.Bind(GpwEditor.Infrastructure.Factories.Catalogues.Languages.ILanguagePhrasesFactory)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguagePhrasesFactory.ConstructorIEnumerableOfILanguagePhrases">
+            <summary>Sets the shim of LanguagePhrasesFactory.LanguagePhrasesFactory(IEnumerable`1&lt;ILanguagePhrases&gt; languagePhrases)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.ShimLanguagePhrasesFactory.CreateLanguageType">
+            <summary>Sets the shim of LanguagePhrasesFactory.Create(LanguageType language)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubILanguageCatalogueFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.Catalogues.Languages.ILanguageCatalogueFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubILanguageCatalogueFactory.#ctor">
             <summary>Initializes a new instance of type StubILanguageCatalogueFactory</summary>
         </member>
-        <member name="F:GpwEditor.Infrastructure.Factories.Fakes.StubILanguageCatalogueFactory.CreateLanguageEnum">
-            <summary>Sets the stub of ILanguageCatalogueFactory.Create(LanguageEnum language)</summary>
+        <member name="F:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubILanguageCatalogueFactory.CreateLanguageType">
+            <summary>Sets the stub of ILanguageCatalogueFactory.Create(LanguageType language)</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubILanguageCatalogueFactory.GpwEditor#Infrastructure#Factories#ILanguageCatalogueFactory#Create(GpwEditor.Infrastructure.Catalogues.LanguageEnum)">
-            <summary>Sets the stub of ILanguageCatalogueFactory.Create(LanguageEnum language)</summary>
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubILanguageCatalogueFactory.GpwEditor#Infrastructure#Factories#Catalogues#Languages#ILanguageCatalogueFactory#Create(GpwEditor.Infrastructure.Enums.LanguageType)">
+            <summary>Sets the stub of ILanguageCatalogueFactory.Create(LanguageType language)</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubILanguagePhrasesFactory">
-            <summary>Stub type of GpwEditor.Infrastructure.Factories.ILanguagePhrasesFactory</summary>
+        <member name="T:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubILanguagePhrasesFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.Catalogues.Languages.ILanguagePhrasesFactory</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubILanguagePhrasesFactory.#ctor">
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubILanguagePhrasesFactory.#ctor">
             <summary>Initializes a new instance of type StubILanguagePhrasesFactory</summary>
         </member>
-        <member name="F:GpwEditor.Infrastructure.Factories.Fakes.StubILanguagePhrasesFactory.CreateLanguageEnum">
-            <summary>Sets the stub of ILanguagePhrasesFactory.Create(LanguageEnum language)</summary>
+        <member name="F:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubILanguagePhrasesFactory.CreateLanguageType">
+            <summary>Sets the stub of ILanguagePhrasesFactory.Create(LanguageType language)</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubILanguagePhrasesFactory.GpwEditor#Infrastructure#Factories#ILanguagePhrasesFactory#Create(GpwEditor.Infrastructure.Catalogues.LanguageEnum)">
-            <summary>Sets the stub of ILanguagePhrasesFactory.Create(LanguageEnum language)</summary>
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubILanguagePhrasesFactory.GpwEditor#Infrastructure#Factories#Catalogues#Languages#ILanguagePhrasesFactory#Create(GpwEditor.Infrastructure.Enums.LanguageType)">
+            <summary>Sets the stub of ILanguagePhrasesFactory.Create(LanguageType language)</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubIRepositoryFactory">
-            <summary>Stub type of GpwEditor.Infrastructure.Factories.IRepositoryFactory</summary>
+        <member name="T:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubLanguageCatalogueFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.Catalogues.Languages.LanguageCatalogueFactory</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubIRepositoryFactory.#ctor">
-            <summary>Initializes a new instance of type StubIRepositoryFactory</summary>
-        </member>
-        <member name="F:GpwEditor.Infrastructure.Factories.Fakes.StubIRepositoryFactory.CreateBaseGameRepositoryEnum">
-            <summary>Sets the stub of IRepositoryFactory.Create(BaseGameRepositoryEnum repositoryType)</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubIRepositoryFactory.GpwEditor#Infrastructure#Factories#IRepositoryFactory#Create(GpwEditor.Infrastructure.Repositories.BaseGame.BaseGameRepositoryEnum)">
-            <summary>Sets the stub of IRepositoryFactory.Create(BaseGameRepositoryEnum repositoryType)</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubLanguageCatalogueFactory">
-            <summary>Stub type of GpwEditor.Infrastructure.Factories.LanguageCatalogueFactory</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubLanguageCatalogueFactory.#ctor(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Catalogues.Language.ILanguageCatalogue})">
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubLanguageCatalogueFactory.#ctor(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Catalogues.Language.ILanguageCatalogue})">
             <summary>Initializes a new instance</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubLanguageCatalogueFactory.CallBase">
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubLanguageCatalogueFactory.CallBase">
             <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubLanguageCatalogueFactory.InitializeStub">
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubLanguageCatalogueFactory.InitializeStub">
             <summary>Initializes a new instance of type StubLanguageCatalogueFactory</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubLanguageCatalogueFactory.InstanceBehavior">
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubLanguageCatalogueFactory.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubLanguageCatalogueFactory.InstanceObserver">
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubLanguageCatalogueFactory.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubLanguagePhrasesFactory">
-            <summary>Stub type of GpwEditor.Infrastructure.Factories.LanguagePhrasesFactory</summary>
+        <member name="T:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubLanguagePhrasesFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.Catalogues.Languages.LanguagePhrasesFactory</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubLanguagePhrasesFactory.#ctor(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Catalogues.Commentary.ILanguagePhrases})">
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubLanguagePhrasesFactory.#ctor(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Catalogues.Commentary.ILanguagePhrases})">
             <summary>Initializes a new instance</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubLanguagePhrasesFactory.CallBase">
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubLanguagePhrasesFactory.CallBase">
             <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubLanguagePhrasesFactory.InitializeStub">
+        <member name="M:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubLanguagePhrasesFactory.InitializeStub">
             <summary>Initializes a new instance of type StubLanguagePhrasesFactory</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubLanguagePhrasesFactory.InstanceBehavior">
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubLanguagePhrasesFactory.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubLanguagePhrasesFactory.InstanceObserver">
+        <member name="P:GpwEditor.Infrastructure.Factories.Catalogues.Languages.Fakes.StubLanguagePhrasesFactory.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
-        <member name="T:GpwEditor.Infrastructure.Factories.Fakes.StubRepositoryFactory">
-            <summary>Stub type of GpwEditor.Infrastructure.Factories.RepositoryFactory</summary>
+        <member name="T:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimCarNumberEntityFactory">
+            <summary>Shim type of GpwEditor.Infrastructure.Factories.Entities.BaseGame.CarNumberEntityFactory</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubRepositoryFactory.#ctor(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Repositories.BaseGame.IBaseGameRepository{Common.Editor.Data.Entities.IEntity}})">
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimCarNumberEntityFactory.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimCarNumberEntityFactory.#ctor(GpwEditor.Infrastructure.Factories.Entities.BaseGame.CarNumberEntityFactory)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimCarNumberEntityFactory.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimCarNumberEntityFactory.AllInstances.CreateInt32">
+            <summary>Sets the shim of CarNumberEntityFactory.Create(Int32 id)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimCarNumberEntityFactory.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimCarNumberEntityFactory.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimCarNumberEntityFactory.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimCarNumberEntityFactory.Bind(Common.Editor.Data.Factories.IEntityFactory{GpwEditor.Infrastructure.Entities.BaseGame.CarNumberEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimCarNumberEntityFactory.Constructor">
+            <summary>Sets the shim of CarNumberEntityFactory.CarNumberEntityFactory()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimCarNumberEntityFactory.CreateInt32">
+            <summary>Sets the shim of CarNumberEntityFactory.Create(Int32 id)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimChassisHandlingEntityFactory">
+            <summary>Shim type of GpwEditor.Infrastructure.Factories.Entities.BaseGame.ChassisHandlingEntityFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimChassisHandlingEntityFactory.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimChassisHandlingEntityFactory.#ctor(GpwEditor.Infrastructure.Factories.Entities.BaseGame.ChassisHandlingEntityFactory)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimChassisHandlingEntityFactory.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimChassisHandlingEntityFactory.AllInstances.CreateInt32">
+            <summary>Sets the shim of ChassisHandlingEntityFactory.Create(Int32 id)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimChassisHandlingEntityFactory.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimChassisHandlingEntityFactory.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimChassisHandlingEntityFactory.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimChassisHandlingEntityFactory.Bind(Common.Editor.Data.Factories.IEntityFactory{GpwEditor.Infrastructure.Entities.BaseGame.ChassisHandlingEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimChassisHandlingEntityFactory.Constructor">
+            <summary>Sets the shim of ChassisHandlingEntityFactory.ChassisHandlingEntityFactory()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimChassisHandlingEntityFactory.CreateInt32">
+            <summary>Sets the shim of ChassisHandlingEntityFactory.Create(Int32 id)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimTeamEntityFactory">
+            <summary>Shim type of GpwEditor.Infrastructure.Factories.Entities.BaseGame.TeamEntityFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimTeamEntityFactory.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimTeamEntityFactory.#ctor(GpwEditor.Infrastructure.Factories.Entities.BaseGame.TeamEntityFactory)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimTeamEntityFactory.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimTeamEntityFactory.AllInstances.CreateInt32">
+            <summary>Sets the shim of TeamEntityFactory.Create(Int32 id)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimTeamEntityFactory.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimTeamEntityFactory.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimTeamEntityFactory.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimTeamEntityFactory.Bind(Common.Editor.Data.Factories.IEntityFactory{GpwEditor.Infrastructure.Entities.BaseGame.TeamEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimTeamEntityFactory.ConstructorLanguageCatalogueValue">
+            <summary>Sets the shim of TeamEntityFactory.TeamEntityFactory(LanguageCatalogueValue languageCatalogueString)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimTeamEntityFactory.CreateInt32">
+            <summary>Sets the shim of TeamEntityFactory.Create(Int32 id)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubCarNumberEntityFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.Entities.BaseGame.CarNumberEntityFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubCarNumberEntityFactory.#ctor">
             <summary>Initializes a new instance</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubRepositoryFactory.CallBase">
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubCarNumberEntityFactory.CallBase">
             <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Fakes.StubRepositoryFactory.InitializeStub">
-            <summary>Initializes a new instance of type StubRepositoryFactory</summary>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubCarNumberEntityFactory.InitializeStub">
+            <summary>Initializes a new instance of type StubCarNumberEntityFactory</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubRepositoryFactory.InstanceBehavior">
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubCarNumberEntityFactory.InstanceBehavior">
             <summary>Gets or sets the instance behavior.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Fakes.StubRepositoryFactory.InstanceObserver">
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubCarNumberEntityFactory.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubChassisHandlingEntityFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.Entities.BaseGame.ChassisHandlingEntityFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubChassisHandlingEntityFactory.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubChassisHandlingEntityFactory.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubChassisHandlingEntityFactory.InitializeStub">
+            <summary>Initializes a new instance of type StubChassisHandlingEntityFactory</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubChassisHandlingEntityFactory.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubChassisHandlingEntityFactory.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubTeamEntityFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.Entities.BaseGame.TeamEntityFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubTeamEntityFactory.#ctor(GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueValue)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubTeamEntityFactory.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubTeamEntityFactory.InitializeStub">
+            <summary>Initializes a new instance of type StubTeamEntityFactory</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubTeamEntityFactory.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubTeamEntityFactory.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository">
@@ -3685,12 +3610,6 @@
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.AllInstances.RepositoryTypeGet">
-            <summary>Sets the shim of CarNumberRepository.get_RepositoryType()</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.AllInstances.RepositoryTypeSetBaseGameRepositoryEnum">
-            <summary>Sets the shim of CarNumberRepository.set_RepositoryType(BaseGameRepositoryEnum value)</summary>
-        </member>
         <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
@@ -3703,17 +3622,8 @@
         <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(Common.Editor.Data.Repositories.IRepository{GpwEditor.Infrastructure.Entities.BaseGame.CarNumberEntity})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(GpwEditor.Infrastructure.Repositories.BaseGame.IBaseGameRepository{GpwEditor.Infrastructure.Entities.BaseGame.CarNumberEntity})">
-            <summary>Binds the members of the interface to the shim.</summary>
-        </member>
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Constructor">
             <summary>Sets the shim of CarNumberRepository.CarNumberRepository()</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.RepositoryTypeGet">
-            <summary>Sets the shim of CarNumberRepository.get_RepositoryType()</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.RepositoryTypeSetBaseGameRepositoryEnum">
-            <summary>Sets the shim of CarNumberRepository.set_RepositoryType(BaseGameRepositoryEnum value)</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository">
             <summary>Shim type of GpwEditor.Infrastructure.Repositories.BaseGame.ChassisHandlingRepository</summary>
@@ -3727,12 +3637,6 @@
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.AllInstances.RepositoryTypeGet">
-            <summary>Sets the shim of ChassisHandlingRepository.get_RepositoryType()</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.AllInstances.RepositoryTypeSetBaseGameRepositoryEnum">
-            <summary>Sets the shim of ChassisHandlingRepository.set_RepositoryType(BaseGameRepositoryEnum value)</summary>
-        </member>
         <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
@@ -3745,17 +3649,8 @@
         <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(Common.Editor.Data.Repositories.IRepository{GpwEditor.Infrastructure.Entities.BaseGame.ChassisHandlingEntity})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(GpwEditor.Infrastructure.Repositories.BaseGame.IBaseGameRepository{GpwEditor.Infrastructure.Entities.BaseGame.ChassisHandlingEntity})">
-            <summary>Binds the members of the interface to the shim.</summary>
-        </member>
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Constructor">
             <summary>Sets the shim of ChassisHandlingRepository.ChassisHandlingRepository()</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.RepositoryTypeGet">
-            <summary>Sets the shim of ChassisHandlingRepository.get_RepositoryType()</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.RepositoryTypeSetBaseGameRepositoryEnum">
-            <summary>Sets the shim of ChassisHandlingRepository.set_RepositoryType(BaseGameRepositoryEnum value)</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository">
             <summary>Shim type of GpwEditor.Infrastructure.Repositories.BaseGame.TeamRepository</summary>
@@ -3769,12 +3664,6 @@
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.AllInstances.RepositoryTypeGet">
-            <summary>Sets the shim of TeamRepository.get_RepositoryType()</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.AllInstances.RepositoryTypeSetBaseGameRepositoryEnum">
-            <summary>Sets the shim of TeamRepository.set_RepositoryType(BaseGameRepositoryEnum value)</summary>
-        </member>
         <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
@@ -3787,17 +3676,8 @@
         <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(Common.Editor.Data.Repositories.IRepository{GpwEditor.Infrastructure.Entities.BaseGame.TeamEntity})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(GpwEditor.Infrastructure.Repositories.BaseGame.IBaseGameRepository{GpwEditor.Infrastructure.Entities.BaseGame.TeamEntity})">
-            <summary>Binds the members of the interface to the shim.</summary>
-        </member>
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Constructor">
             <summary>Sets the shim of TeamRepository.TeamRepository()</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.RepositoryTypeGet">
-            <summary>Sets the shim of TeamRepository.get_RepositoryType()</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.RepositoryTypeSetBaseGameRepositoryEnum">
-            <summary>Sets the shim of TeamRepository.set_RepositoryType(BaseGameRepositoryEnum value)</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubCarNumberRepository">
             <summary>Stub type of GpwEditor.Infrastructure.Repositories.BaseGame.CarNumberRepository</summary>
@@ -3834,66 +3714,6 @@
         </member>
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
-        </member>
-        <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1">
-            <summary>Stub type of GpwEditor.Infrastructure.Repositories.BaseGame.IBaseGameRepository`1</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.#ctor">
-            <summary>Initializes a new instance of type StubIBaseGameRepository</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.AttachBackingFieldToCapacity">
-            <summary>Attaches delegates to emulate StubIBaseGameRepository.Capacity as a property with a backing field.</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.AttachBackingFieldToRepositoryType">
-            <summary>Attaches delegates to emulate StubIBaseGameRepository.RepositoryType as a property with a backing field.</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.Common#Editor#Data#Repositories#IRepository{TEntity}#Capacity">
-            <summary>Sets the stub of IRepository`1.get_Capacity()</summary>
-        </member>
-        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.CapacityGet">
-            <summary>Sets the stub of IRepository`1.get_Capacity()</summary>
-        </member>
-        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.CapacitySetInt32">
-            <summary>Sets the stub of IRepository`1.set_Capacity(Int32 value)</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.Common#Editor#Data#Repositories#IRepository{TEntity}#Get">
-            <summary>Sets the stub of IRepository`1.Get()</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.Common#Editor#Data#Repositories#IRepository{TEntity}#Get(System.Func{`0,System.Boolean})">
-            <summary>Sets the stub of IRepository`1.Get(Func`2&lt;!0,Boolean&gt; predicate)</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.Common#Editor#Data#Repositories#IRepository{TEntity}#GetById(System.Int32)">
-            <summary>Sets the stub of IRepository`1.GetById(Int32 id)</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.Common#Editor#Data#Repositories#IRepository{TEntity}#Set(System.Collections.Generic.IEnumerable{`0})">
-            <summary>Sets the stub of IRepository`1.Set(IEnumerable`1&lt;!0&gt; list)</summary>
-        </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.Common#Editor#Data#Repositories#IRepository{TEntity}#SetById(`0)">
-            <summary>Sets the stub of IRepository`1.SetById(!0 item)</summary>
-        </member>
-        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.Get">
-            <summary>Sets the stub of IRepository`1.Get()</summary>
-        </member>
-        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.GetByIdInt32">
-            <summary>Sets the stub of IRepository`1.GetById(Int32 id)</summary>
-        </member>
-        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.GetFuncOfT0Boolean">
-            <summary>Sets the stub of IRepository`1.Get(Func`2&lt;!0,Boolean&gt; predicate)</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.GpwEditor#Infrastructure#Repositories#BaseGame#IBaseGameRepository{TEntity}#RepositoryType">
-            <summary>Sets the stub of IBaseGameRepository`1.get_RepositoryType()</summary>
-        </member>
-        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.RepositoryTypeGet">
-            <summary>Sets the stub of IBaseGameRepository`1.get_RepositoryType()</summary>
-        </member>
-        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.RepositoryTypeSetBaseGameRepositoryEnum">
-            <summary>Sets the stub of IBaseGameRepository`1.set_RepositoryType(BaseGameRepositoryEnum value)</summary>
-        </member>
-        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.SetByIdT0">
-            <summary>Sets the stub of IRepository`1.SetById(!0 item)</summary>
-        </member>
-        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository`1.SetIEnumerableOfT0">
-            <summary>Sets the stub of IRepository`1.Set(IEnumerable`1&lt;!0&gt; list)</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository">
             <summary>Stub type of GpwEditor.Infrastructure.Repositories.BaseGame.TeamRepository</summary>

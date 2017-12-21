@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using GpwEditor.Infrastructure.Catalogues;
 using GpwEditor.Infrastructure.Catalogues.Commentary;
+using GpwEditor.Infrastructure.Enums;
 
-namespace GpwEditor.Infrastructure.Factories
+namespace GpwEditor.Infrastructure.Factories.Catalogues.Languages
 {
     public class LanguagePhrasesFactory : ILanguagePhrasesFactory
     {
@@ -16,10 +16,10 @@ namespace GpwEditor.Infrastructure.Factories
             _languagePhrases = languagePhrases ?? throw new ArgumentNullException(nameof(languagePhrases));
         }
 
-        public ILanguagePhrases Create(LanguageEnum language)
+        public ILanguagePhrases Create(LanguageType language)
         {
-            if (!Enum.IsDefined(typeof(LanguageEnum), language))
-                throw new InvalidEnumArgumentException(nameof(language), (int)language, typeof(LanguageEnum));
+            if (!Enum.IsDefined(typeof(LanguageType), language))
+                throw new InvalidEnumArgumentException(nameof(language), (int)language, typeof(LanguageType));
 
             var languagePhrasesName = $"{language}LanguagePhrases";
             var languagePhrases = _languagePhrases.SingleOrDefault(x => x.Language == language);

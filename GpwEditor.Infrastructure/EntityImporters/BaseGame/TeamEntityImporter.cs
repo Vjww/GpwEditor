@@ -2,11 +2,11 @@
 using Common.Editor.Data.Entities;
 using GpwEditor.Infrastructure.DataEndpoints;
 using GpwEditor.Infrastructure.DataLocators;
-using GpwEditor.Infrastructure.Factories.BaseGame;
+using GpwEditor.Infrastructure.Factories.Entities.BaseGame;
 
 namespace GpwEditor.Infrastructure.EntityImporters.BaseGame
 {
-    public class TeamEntityImporter : IEntityImporter
+    public class TeamEntityImporter : IEntityImporter<IEntity>
     {
         private readonly BaseGameDataEndpoint _dataEndpoint;
         private readonly TeamDataLocator _dataLocator;

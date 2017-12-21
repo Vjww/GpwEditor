@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Common.Editor.Data.Repositories;
 using GpwEditor.Domain.Models.BaseGame;
 using GpwEditor.Domain.Validators;
 using GpwEditor.Infrastructure.DataContexts;
@@ -24,8 +23,8 @@ namespace GpwEditor.Application.Managers.BaseGame
 
         public IEnumerable<ITeamModel> GetTeams()
         {
-            // TODO: Shouldn't this map from entity to model?
-            return (IEnumerable<ITeamModel>)_dataContext.Teams;
+            var teams = (IEnumerable<TeamEntity>)_dataContext.Teams.Get();
+            return AutoMapper.Mapper.Map<IEnumerable<TeamEntity>, IEnumerable<ITeamModel>>(teams);
         }
 
         public IEnumerable<string> SetTeams(IEnumerable<ITeamModel> models)

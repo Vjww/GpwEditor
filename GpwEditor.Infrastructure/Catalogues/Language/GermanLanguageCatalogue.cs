@@ -1,8 +1,9 @@
 ﻿using Common.Editor.Data.Catalogues;
+using GpwEditor.Infrastructure.Enums;
 
 namespace GpwEditor.Infrastructure.Catalogues.Language
 {
-    public class GermanLanguageCatalogue : Catalogue<LanguageCatalogueItem>, ILanguageCatalogue
+    public class GermanLanguageCatalogue : CatalogueBase<LanguageCatalogueItem>, ILanguageCatalogue
     {
         public GermanLanguageCatalogue(
             ICatalogueExporter<LanguageCatalogueItem> catalogueExporter,
@@ -13,6 +14,6 @@ namespace GpwEditor.Infrastructure.Catalogues.Language
         {
         }
 
-        public LanguageEnum Language { get; } = LanguageEnum.German;
+        public LanguageType Language { get; } = LanguageType.German;
     }
 }

@@ -46,7 +46,7 @@
     <Compile Include="Catalogues\Commentary\GermanLanguagePhrases.cs" />
     <Compile Include="Catalogues\Commentary\ICommentaryCatalogue.cs" />
     <Compile Include="Catalogues\Commentary\ILanguagePhrases.cs" />
-    <Compile Include="Catalogues\LanguageEnum.cs" />
+    <Compile Include="Enums\LanguageType.cs" />
     <Compile Include="Catalogues\Language\GermanLanguageCatalogue.cs" />
     <Compile Include="Catalogues\Language\FrenchLanguageCatalogue.cs" />
     <Compile Include="Catalogues\Language\ILanguageCatalogue.cs" />
@@ -69,17 +69,14 @@
     <Compile Include="Repositories\BaseGame\ChassisHandlingRepository.cs" />
     <Compile Include="Repositories\BaseGame\TeamRepository.cs" />
     <Compile Include="Repositories\BaseGame\CarNumberRepository.cs" />
-    <Compile Include="Repositories\BaseGame\IBaseGameRepository.cs" />
-    <Compile Include="Repositories\BaseGame\BaseGameRepositoryEnum.cs" />
-    <Compile Include="Entities\IEntityType.cs" />
     <Compile Include="EntityExporters\BaseGame\ChassisHandlingEntityExporter.cs" />
     <Compile Include="EntityExporters\BaseGame\CarNumberEntityExporter.cs" />
     <Compile Include="EntityExporters\BaseGame\TeamEntityExporter.cs" />
     <Compile Include="EntityImporters\BaseGame\ChassisHandlingEntityImporter.cs" />
     <Compile Include="EntityImporters\BaseGame\CarNumberEntityImporter.cs" />
-    <Compile Include="Factories\BaseGame\CarNumberEntityFactory.cs" />
-    <Compile Include="Factories\BaseGame\ChassisHandlingEntityFactory.cs" />
-    <Compile Include="Factories\BaseGame\TeamEntityFactory.cs" />
+    <Compile Include="Factories\Entities\BaseGame\CarNumberEntityFactory.cs" />
+    <Compile Include="Factories\Entities\BaseGame\ChassisHandlingEntityFactory.cs" />
+    <Compile Include="Factories\Entities\BaseGame\TeamEntityFactory.cs" />
     <Compile Include="EntityImporters\BaseGame\TeamEntityImporter.cs" />
     <Compile Include="DataContexts\BaseGameDataContext.cs" />
     <Compile Include="DataEndpoints\BaseGameDataEndpoint.cs" />
@@ -89,15 +86,12 @@
     <Compile Include="Catalogues\Language\LanguageCatalogueValue.cs" />
     <Compile Include="Entities\BaseGame\TeamEntity.cs" />
     <Compile Include="Enums\CommentaryType.cs" />
-    <Compile Include="Enums\LanguageType.cs" />
-    <Compile Include="Factories\BaseGame\BaseGameRepositoryFactory.cs" />
-    <Compile Include="Factories\BaseGame\IBaseGameRepositoryFactory.cs" />
-    <Compile Include="Factories\LanguageCatalogueFactory.cs" />
-    <Compile Include="Factories\CommentaryCatalogueFactory.cs" />
-    <Compile Include="Factories\ILanguageCatalogueFactory.cs" />
-    <Compile Include="Factories\ICommentaryCatalogueFactory.cs" />
-    <Compile Include="Factories\ILanguagePhrasesFactory.cs" />
-    <Compile Include="Factories\LanguagePhrasesFactory.cs" />
+    <Compile Include="Factories\Catalogues\Languages\LanguageCatalogueFactory.cs" />
+    <Compile Include="Factories\Catalogues\Commentary\CommentaryCatalogueFactory.cs" />
+    <Compile Include="Factories\Catalogues\Languages\ILanguageCatalogueFactory.cs" />
+    <Compile Include="Factories\Catalogues\Commentary\ICommentaryCatalogueFactory.cs" />
+    <Compile Include="Factories\Catalogues\Languages\ILanguagePhrasesFactory.cs" />
+    <Compile Include="Factories\Catalogues\Languages\LanguagePhrasesFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Catalogues\MERGE_CommentaryResourceService.cs" />
     <Compile Include="Catalogues\MERGE_LanguageResourceService.cs" />
@@ -109,7 +103,7 @@
     <Folder Include="Entities\SaveGame\" />
     <Folder Include="EntityExporters\SaveGame\" />
     <Folder Include="EntityImporters\SaveGame\" />
-    <Folder Include="Factories\SaveGame\" />
+    <Folder Include="Factories\Entities\SaveGame\" />
     <Folder Include="Repositories\SaveGame\" />
   </ItemGroup>
   <ItemGroup>

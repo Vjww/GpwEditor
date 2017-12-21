@@ -1,4 +1,4 @@
-﻿namespace GpwEditor.Infrastructure.Enums
+namespace GpwEditor.Infrastructure.Enums
 {
     public enum LanguageType
     {

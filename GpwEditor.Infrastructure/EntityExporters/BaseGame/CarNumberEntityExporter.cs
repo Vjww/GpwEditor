@@ -6,7 +6,7 @@ using GpwEditor.Infrastructure.Entities.BaseGame;
 
 namespace GpwEditor.Infrastructure.EntityExporters.BaseGame
 {
-    public class CarNumberEntityExporter : IEntityExporter
+    public class CarNumberEntityExporter : IEntityExporter<IEntity>
     {
         private readonly BaseGameDataEndpoint _dataEndpoint;
         private readonly CarNumberDataLocator _dataLocator;

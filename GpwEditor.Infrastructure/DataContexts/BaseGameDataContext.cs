@@ -3,40 +3,38 @@ using System.Collections.Generic;
 using Common.Editor.Data.DataContexts;
 using Common.Editor.Data.Entities;
 using Common.Editor.Data.Repositories;
-using GpwEditor.Infrastructure.Factories.BaseGame;
-using GpwEditor.Infrastructure.Repositories.BaseGame;
 
 namespace GpwEditor.Infrastructure.DataContexts
 {
     public class BaseGameDataContext : IDataContext
     {
-        private readonly IList<IBaseGameRepository<IEntity>> _repositories;
+        private readonly IList<IRepository<IEntity>> _repositories;
         private readonly IDataContextExporter _dataContextExporter;
         private readonly IDataContextImporter _dataContextImporter;
 
-        public IBaseGameRepository<IEntity> CarNumbers { get; set; }
-        public IBaseGameRepository<IEntity> ChassisHandlings { get; set; }
-        public IBaseGameRepository<IEntity> Teams { get; set; }
+        public IRepository<IEntity> CarNumbers { get; set; }
+        public IRepository<IEntity> ChassisHandlings { get; set; }
+        public IRepository<IEntity> Teams { get; set; }
 
         public BaseGameDataContext(
             IDataContextExporter dataContextExporter,
-            IDataContextImporter dataContextImporter,
-            IBaseGameRepositoryFactory repositoryFactory)
+            IDataContextImporter dataContextImporter)//,
+            //IRepositoryFactory repositoryFactory)
         {
             _dataContextExporter = dataContextExporter ?? throw new ArgumentNullException(nameof(dataContextExporter));
             _dataContextImporter = dataContextImporter ?? throw new ArgumentNullException(nameof(dataContextImporter));
-            if (repositoryFactory == null) throw new ArgumentNullException(nameof(repositoryFactory));
+            //if (repositoryFactory == null) throw new ArgumentNullException(nameof(repositoryFactory));
 
-            _repositories = new List<IBaseGameRepository<IEntity>>();
+            _repositories = new List<IRepository<IEntity>>();
 
-            CarNumbers = repositoryFactory.Create(BaseGameRepositoryEnum.CarNumber);
-            ChassisHandlings = repositoryFactory.Create(BaseGameRepositoryEnum.ChassisHandling);
-            Teams = repositoryFactory.Create(BaseGameRepositoryEnum.Team);
+            CarNumbers = new Repository<IEntity>(); //repositoryFactory.Create(BaseGameRepositoryEnum.CarNumber);
+            ChassisHandlings = new Repository<IEntity>(); //repositoryFactory.Create(BaseGameRepositoryEnum.ChassisHandling);
+            Teams = new Repository<IEntity>(); //repositoryFactory.Create(BaseGameRepositoryEnum.Team);
         }
 
         public void Export()
         {
-            _dataContextExporter.Export((IList<IRepository<IEntity>>)_repositories);
+            _dataContextExporter.Export(_repositories);
         }
 
         public void Import()
@@ -53,7 +51,7 @@ namespace GpwEditor.Infrastructure.DataContexts
             _repositories.Add(ChassisHandlings);
             _repositories.Add(Teams);
 
-            _dataContextImporter.Import((IList<IRepository<IEntity>>)_repositories);
+            _dataContextImporter.Import(_repositories);
         }
     }
 }

@@ -3,8 +3,8 @@ using GpwEditor.Infrastructure.Entities.BaseGame;
 
 namespace GpwEditor.Infrastructure.Repositories.BaseGame
 {
-    public class ChassisHandlingRepository : Repository<ChassisHandlingEntity>, IBaseGameRepository<ChassisHandlingEntity>
+    // TODO: Redundant?
+    public class ChassisHandlingRepository : Repository<ChassisHandlingEntity>
     {
-        public BaseGameRepositoryEnum RepositoryType { get; set; } = BaseGameRepositoryEnum.ChassisHandling;
     }
 }

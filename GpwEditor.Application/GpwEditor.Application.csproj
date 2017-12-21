@@ -58,6 +58,7 @@
     <Compile Include="Mappers\BaseGame\TeamModelToDataContextMapper.cs" />
     <Compile Include="Mappers\BaseGame\DataContextToTeamModelMapper.cs" />
     <Compile Include="Mappers\IModelToDataContextMapper.cs" />
+    <Compile Include="Maps\TeamEntityOnTeamModelMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Managers\BaseGame\TeamManager.cs" />
     <Compile Include="Startup.cs" />

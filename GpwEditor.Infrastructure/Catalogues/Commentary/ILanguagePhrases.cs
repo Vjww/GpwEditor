@@ -1,8 +1,10 @@
-﻿namespace GpwEditor.Infrastructure.Catalogues.Commentary
+﻿using GpwEditor.Infrastructure.Enums;
+
+namespace GpwEditor.Infrastructure.Catalogues.Commentary
 {
     public interface ILanguagePhrases
     {
-        LanguageEnum Language { get; }
+        LanguageType Language { get; }
         string DriverInPitsSuffix { get; }
         string DriverP1Suffix { get; }
         string DriverP2Suffix { get; }

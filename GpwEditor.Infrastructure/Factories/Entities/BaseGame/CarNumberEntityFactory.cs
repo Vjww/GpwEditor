@@ -1,9 +1,8 @@
 ﻿using Common.Editor.Data.Factories;
 using GpwEditor.Infrastructure.Entities.BaseGame;
 
-namespace GpwEditor.Infrastructure.Factories.BaseGame
+namespace GpwEditor.Infrastructure.Factories.Entities.BaseGame
 {
-    // TODO: Is this required?
     public class CarNumberEntityFactory : IEntityFactory<CarNumberEntity>
     {
         public CarNumberEntity Create(int id)

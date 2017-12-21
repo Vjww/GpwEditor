@@ -3,9 +3,8 @@ using Common.Editor.Data.Factories;
 using GpwEditor.Infrastructure.Catalogues.Language;
 using GpwEditor.Infrastructure.Entities.BaseGame;
 
-namespace GpwEditor.Infrastructure.Factories.BaseGame
+namespace GpwEditor.Infrastructure.Factories.Entities.BaseGame
 {
-    // TODO: Is this required?
     public class TeamEntityFactory : IEntityFactory<TeamEntity>
     {
         private readonly LanguageCatalogueValue _languageCatalogueString;

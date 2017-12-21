@@ -1,11 +1,12 @@
 ﻿using System;
 using Common.Editor.Data.DataEndpoints;
 using Common.Editor.Data.FileResources;
-using GpwEditor.Infrastructure.Catalogues;
 using GpwEditor.Infrastructure.Catalogues.Commentary;
 using GpwEditor.Infrastructure.Catalogues.Language;
 using GpwEditor.Infrastructure.DataConnections;
-using GpwEditor.Infrastructure.Factories;
+using GpwEditor.Infrastructure.Enums;
+using GpwEditor.Infrastructure.Factories.Catalogues.Commentary;
+using GpwEditor.Infrastructure.Factories.Catalogues.Languages;
 
 namespace GpwEditor.Infrastructure.DataEndpoints
 {
@@ -28,12 +29,12 @@ namespace GpwEditor.Infrastructure.DataEndpoints
             if (languageCatalogueFactory == null) throw new ArgumentNullException(nameof(languageCatalogueFactory));
             if (commentaryCatalogueFactory == null) throw new ArgumentNullException(nameof(commentaryCatalogueFactory));
 
-            EnglishLanguageCatalogue = languageCatalogueFactory.Create(LanguageEnum.English);
-            FrenchLanguageCatalogue = languageCatalogueFactory.Create(LanguageEnum.French);
-            GermanLanguageCatalogue = languageCatalogueFactory.Create(LanguageEnum.German);
-            EnglishCommentaryCatalogue = commentaryCatalogueFactory.Create(LanguageEnum.English);
-            FrenchCommentaryCatalogue = commentaryCatalogueFactory.Create(LanguageEnum.French);
-            GermanCommentaryCatalogue = commentaryCatalogueFactory.Create(LanguageEnum.German);
+            EnglishLanguageCatalogue = languageCatalogueFactory.Create(LanguageType.English);
+            FrenchLanguageCatalogue = languageCatalogueFactory.Create(LanguageType.French);
+            GermanLanguageCatalogue = languageCatalogueFactory.Create(LanguageType.German);
+            EnglishCommentaryCatalogue = commentaryCatalogueFactory.Create(LanguageType.English);
+            FrenchCommentaryCatalogue = commentaryCatalogueFactory.Create(LanguageType.French);
+            GermanCommentaryCatalogue = commentaryCatalogueFactory.Create(LanguageType.German);
         }
 
         public void Import(BaseGameDataConnection dataConnection)
