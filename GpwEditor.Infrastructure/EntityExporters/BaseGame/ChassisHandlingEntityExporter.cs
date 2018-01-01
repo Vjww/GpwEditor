@@ -6,7 +6,7 @@ using GpwEditor.Infrastructure.Entities.BaseGame;
 
 namespace GpwEditor.Infrastructure.EntityExporters.BaseGame
 {
-    public class ChassisHandlingEntityExporter : IEntityExporter<IEntity>
+    public class ChassisHandlingEntityExporter : IEntityExporter
     {
         private readonly BaseGameDataEndpoint _dataEndpoint;
         private readonly ChassisHandlingDataLocator _dataLocator;

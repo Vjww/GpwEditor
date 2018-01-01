@@ -21,16 +21,15 @@ namespace GpwEditor.Infrastructure.Factories.Catalogues.Languages
             if (!Enum.IsDefined(typeof(LanguageType), language))
                 throw new InvalidEnumArgumentException(nameof(language), (int)language, typeof(LanguageType));
 
-            var languageCatalogueName = $"{language}LanguageCatalogue";
-            var languageCatalogue = _languageCatalogues.SingleOrDefault(x => x.Language == language);
+            var name = $"{language}LanguageCatalogue";
+            var result = _languageCatalogues.SingleOrDefault(x => x.Language == language);
 
-            if (languageCatalogue == null)
+            if (result == null)
             {
-                throw new InvalidOperationException(
-                    $"Unable to resolve '{languageCatalogueName}'. Make sure the type is registered with the dependency injection container.");
+                throw new InvalidOperationException($"Unable to resolve '{name}'. Make sure the type is registered with the dependency injection container.");
             }
 
-            return languageCatalogue;
+            return result;
         }
     }
 }

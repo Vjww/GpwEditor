@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using GpwEditor.Domain.Models.BaseGame;
 using GpwEditor.Domain.Validators;
 using GpwEditor.Infrastructure.DataContexts;
@@ -23,8 +24,15 @@ namespace GpwEditor.Application.Managers.BaseGame
 
         public IEnumerable<ITeamModel> GetTeams()
         {
-            var teams = (IEnumerable<TeamEntity>)_dataContext.Teams.Get();
-            return AutoMapper.Mapper.Map<IEnumerable<TeamEntity>, IEnumerable<ITeamModel>>(teams);
+            // TODO: Crude but works, as assumes all items are of type TeamEntity
+            var newList = new List<TeamEntity>();
+            var teams = _dataContext.Teams.Get();
+            foreach (var entity in teams)
+            {
+                newList.Add((TeamEntity)entity);
+            }
+            var newTeams = teams as IEnumerable<TeamEntity>;
+            return Mapper.Map<IEnumerable<TeamEntity>, IEnumerable<ITeamModel>>(newList);
         }
 
         public IEnumerable<string> SetTeams(IEnumerable<ITeamModel> models)

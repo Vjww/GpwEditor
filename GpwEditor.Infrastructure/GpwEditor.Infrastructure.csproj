@@ -46,6 +46,7 @@
     <Compile Include="Catalogues\Commentary\GermanLanguagePhrases.cs" />
     <Compile Include="Catalogues\Commentary\ICommentaryCatalogue.cs" />
     <Compile Include="Catalogues\Commentary\ILanguagePhrases.cs" />
+    <Compile Include="Enums\BaseGameRepositoryType.cs" />
     <Compile Include="Enums\LanguageType.cs" />
     <Compile Include="Catalogues\Language\GermanLanguageCatalogue.cs" />
     <Compile Include="Catalogues\Language\FrenchLanguageCatalogue.cs" />
@@ -66,6 +67,9 @@
     <Compile Include="DataLocators\CarNumberDataLocator.cs" />
     <Compile Include="Calculators\IdentityCalculator.cs" />
     <Compile Include="DataLocators\TeamDataLocator.cs" />
+    <Compile Include="Factories\Repositories\IBaseGameRepositoryFactory.cs" />
+    <Compile Include="Factories\Repositories\BaseGameRepositoryFactory.cs" />
+    <Compile Include="Repositories\BaseGame\IBaseGameRepository.cs" />
     <Compile Include="Repositories\BaseGame\ChassisHandlingRepository.cs" />
     <Compile Include="Repositories\BaseGame\TeamRepository.cs" />
     <Compile Include="Repositories\BaseGame\CarNumberRepository.cs" />

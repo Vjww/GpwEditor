@@ -2,6 +2,7 @@
 using System.Linq;
 using GpwEditor.Presentation.Console.DependencyInjection.Output;
 using Unity;
+using Unity.Container.Registration;
 
 namespace GpwEditor.Presentation.Console.DependencyInjection.Unity
 {
@@ -42,13 +43,13 @@ namespace GpwEditor.Presentation.Console.DependencyInjection.Unity
 
             foreach (var item in _container.Registrations)
             {
-                //var registration = (ContainerRegistration)item;
-                //_outputDevice.WriteLine(registration.GetMappingAsString());
+                var registration = (ContainerRegistration)item;
+                _outputDevice.WriteLine(registration.GetMappingAsString());
 
-                _outputDevice.WriteLine($"{item.Name}");
-                _outputDevice.WriteLine($"{item.RegisteredType}");
-                _outputDevice.WriteLine($"{item.MappedToType}");
-                _outputDevice.WriteLine($"{item.LifetimeManager}");
+                //_outputDevice.WriteLine($"{item.Name}");
+                //_outputDevice.WriteLine($"{item.RegisteredType}");
+                //_outputDevice.WriteLine($"{item.MappedToType}");
+                //_outputDevice.WriteLine($"{item.LifetimeManager}");
             }
 
             _outputDevice.WriteLine();

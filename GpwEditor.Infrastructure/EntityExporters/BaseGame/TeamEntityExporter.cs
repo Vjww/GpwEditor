@@ -6,7 +6,7 @@ using GpwEditor.Infrastructure.Entities.BaseGame;
 
 namespace GpwEditor.Infrastructure.EntityExporters.BaseGame
 {
-    public class TeamEntityExporter : IEntityExporter<IEntity>
+    public class TeamEntityExporter : IEntityExporter
     {
         private readonly BaseGameDataEndpoint _dataEndpoint;
         private readonly TeamDataLocator _dataLocator;

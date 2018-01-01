@@ -21,16 +21,15 @@ namespace GpwEditor.Infrastructure.Factories.Catalogues.Commentary
             if (!Enum.IsDefined(typeof(LanguageType), language))
                 throw new InvalidEnumArgumentException(nameof(language), (int)language, typeof(LanguageType));
 
-            var commentaryCatalogueName = $"{language}CommentaryCatalogue";
-            var commentaryCatalogue = _commentaryCatalogues.SingleOrDefault(x => x.Language == language);
+            var name = $"{language}CommentaryCatalogue";
+            var result = _commentaryCatalogues.SingleOrDefault(x => x.Language == language);
 
-            if (commentaryCatalogue == null)
+            if (result == null)
             {
-                throw new InvalidOperationException(
-                    $"Unable to resolve '{commentaryCatalogueName}'. Make sure the type is registered with the dependency injection container.");
+                throw new InvalidOperationException($"Unable to resolve '{name}'. Make sure the type is registered with the dependency injection container.");
             }
 
-            return commentaryCatalogue;
+            return result;
         }
     }
 }

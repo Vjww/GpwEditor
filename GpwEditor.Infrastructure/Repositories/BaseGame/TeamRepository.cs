@@ -1,10 +1,17 @@
 ﻿using Common.Editor.Data.Repositories;
-using GpwEditor.Infrastructure.Entities.BaseGame;
+using GpwEditor.Infrastructure.Enums;
 
 namespace GpwEditor.Infrastructure.Repositories.BaseGame
 {
-    // TODO: Redundant?
-    public class TeamRepository : Repository<TeamEntity>
+    public class TeamRepository : RepositoryBase, IBaseGameRepository
     {
+        public TeamRepository(
+            IRepositoryExporter repositoryExporter,
+            IRepositoryImporter repositoryImporter)
+            : base(repositoryExporter, repositoryImporter)
+        {
+        }
+
+        public BaseGameRepositoryType Type { get; } = BaseGameRepositoryType.Team;
     }
 }

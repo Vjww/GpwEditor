@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using Common.Editor.Data.Repositories;
 using GpwEditor.Application.Factories;
 using GpwEditor.Domain.Models.BaseGame;
 using GpwEditor.Infrastructure.DataContexts;
@@ -25,8 +25,7 @@ namespace GpwEditor.Application.Mappers.BaseGame
         {
             var result = _factory.Create(id);
 
-            var teamRepository = (IRepository<TeamEntity>)_dataContext.Teams;
-            var teamEntity = teamRepository.Get(x => x.Id == id).Single();
+            var teamEntity = (TeamEntity)_dataContext.Teams.Get(x => x.Id == id).Single();
             result.TeamId = teamEntity.Id + 1;
             result.Name = teamEntity.Name.All;
             result.LastPosition = teamEntity.LastPosition;
@@ -40,12 +39,11 @@ namespace GpwEditor.Application.Mappers.BaseGame
             result.LocationPointerY = teamEntity.LocationPointerY;
             result.TyreSupplierId = teamEntity.TyreSupplierId;
 
-            var chassisHandlingRepository = (IRepository<ChassisHandlingEntity>)_dataContext.ChassisHandlings;
-            var chassisHandlingEntity = chassisHandlingRepository.Get(x => x.TeamId == id).Single();
+            var chassisHandlingEntities = (IEnumerable<ChassisHandlingEntity>)_dataContext.ChassisHandlings.Get();
+            var chassisHandlingEntity = chassisHandlingEntities.Single(x => x.TeamId == id);
             result.ChassisHandling = chassisHandlingEntity.Value;
 
-            var carNumberRepository = (IRepository<CarNumberEntity>)_dataContext.CarNumbers;
-            var carNumberEntities = carNumberRepository.Get(x => x.TeamId == id).ToList();
+            var carNumberEntities = ((IEnumerable<CarNumberEntity>)_dataContext.CarNumbers.Get()).Where(x => x.TeamId == id).ToList();
             result.CarNumberDriver1 = carNumberEntities.Single(x => x.PositionId == 0).ValueA;
             result.CarNumberDriver2 = carNumberEntities.Single(x => x.PositionId == 1).ValueA;
 

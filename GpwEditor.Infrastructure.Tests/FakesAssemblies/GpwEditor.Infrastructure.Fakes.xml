@@ -1990,14 +1990,14 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.CarNumbersGet">
             <summary>Sets the shim of BaseGameDataContext.get_CarNumbers()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.CarNumbersSetIRepositoryOfIEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IRepository`1&lt;IEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.CarNumbersSetIRepository">
+            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IRepository value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.ChassisHandlingsGet">
             <summary>Sets the shim of BaseGameDataContext.get_ChassisHandlings()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.ChassisHandlingsSetIRepositoryOfIEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IRepository`1&lt;IEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.ChassisHandlingsSetIRepository">
+            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IRepository value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.Export">
             <summary>Sets the shim of BaseGameDataContext.Export()</summary>
@@ -2008,8 +2008,8 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.TeamsGet">
             <summary>Sets the shim of BaseGameDataContext.get_Teams()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.TeamsSetIRepositoryOfIEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_Teams(IRepository`1&lt;IEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.TeamsSetIRepository">
+            <summary>Sets the shim of BaseGameDataContext.set_Teams(IRepository value)</summary>
         </member>
         <member name="M:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
@@ -2026,17 +2026,17 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.CarNumbersGet">
             <summary>Sets the shim of BaseGameDataContext.get_CarNumbers()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.CarNumbersSetIRepositoryOfIEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IRepository`1&lt;IEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.CarNumbersSetIRepository">
+            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IRepository value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ChassisHandlingsGet">
             <summary>Sets the shim of BaseGameDataContext.get_ChassisHandlings()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ChassisHandlingsSetIRepositoryOfIEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IRepository`1&lt;IEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ChassisHandlingsSetIRepository">
+            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IRepository value)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ConstructorIDataContextExporterIDataContextImporter">
-            <summary>Sets the shim of BaseGameDataContext.BaseGameDataContext(IDataContextExporter dataContextExporter, IDataContextImporter dataContextImporter)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ConstructorIBaseGameRepositoryFactory">
+            <summary>Sets the shim of BaseGameDataContext.BaseGameDataContext(IBaseGameRepositoryFactory repositoryFactory)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.Export">
             <summary>Sets the shim of BaseGameDataContext.Export()</summary>
@@ -2047,13 +2047,13 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.TeamsGet">
             <summary>Sets the shim of BaseGameDataContext.get_Teams()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.TeamsSetIRepositoryOfIEntity">
-            <summary>Sets the shim of BaseGameDataContext.set_Teams(IRepository`1&lt;IEntity&gt; value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.TeamsSetIRepository">
+            <summary>Sets the shim of BaseGameDataContext.set_Teams(IRepository value)</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.DataContexts.Fakes.StubBaseGameDataContext">
             <summary>Stub type of GpwEditor.Infrastructure.DataContexts.BaseGameDataContext</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.DataContexts.Fakes.StubBaseGameDataContext.#ctor(Common.Editor.Data.DataContexts.IDataContextExporter,Common.Editor.Data.DataContexts.IDataContextImporter)">
+        <member name="M:GpwEditor.Infrastructure.DataContexts.Fakes.StubBaseGameDataContext.#ctor(GpwEditor.Infrastructure.Factories.Repositories.IBaseGameRepositoryFactory)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.StubBaseGameDataContext.CallBase">
@@ -2974,7 +2974,7 @@
         <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimCarNumberEntityExporter.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimCarNumberEntityExporter.Bind(Common.Editor.Data.Entities.IEntityExporter{Common.Editor.Data.Entities.IEntity})">
+        <member name="M:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimCarNumberEntityExporter.Bind(Common.Editor.Data.Entities.IEntityExporter)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimCarNumberEntityExporter.ConstructorBaseGameDataEndpointCarNumberDataLocator">
@@ -3007,7 +3007,7 @@
         <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimChassisHandlingEntityExporter.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimChassisHandlingEntityExporter.Bind(Common.Editor.Data.Entities.IEntityExporter{Common.Editor.Data.Entities.IEntity})">
+        <member name="M:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimChassisHandlingEntityExporter.Bind(Common.Editor.Data.Entities.IEntityExporter)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimChassisHandlingEntityExporter.ConstructorBaseGameDataEndpointChassisHandlingDataLocator">
@@ -3040,7 +3040,7 @@
         <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter.Bind(Common.Editor.Data.Entities.IEntityExporter{Common.Editor.Data.Entities.IEntity})">
+        <member name="M:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter.Bind(Common.Editor.Data.Entities.IEntityExporter)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityExporters.BaseGame.Fakes.ShimTeamEntityExporter.ConstructorBaseGameDataEndpointTeamDataLocator">
@@ -3127,7 +3127,7 @@
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimCarNumberEntityImporter.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimCarNumberEntityImporter.Bind(Common.Editor.Data.Entities.IEntityImporter{Common.Editor.Data.Entities.IEntity})">
+        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimCarNumberEntityImporter.Bind(Common.Editor.Data.Entities.IEntityImporter)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimCarNumberEntityImporter.ConstructorBaseGameDataEndpointCarNumberDataLocatorCarNumberEntityFactory">
@@ -3160,7 +3160,7 @@
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimChassisHandlingEntityImporter.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimChassisHandlingEntityImporter.Bind(Common.Editor.Data.Entities.IEntityImporter{Common.Editor.Data.Entities.IEntity})">
+        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimChassisHandlingEntityImporter.Bind(Common.Editor.Data.Entities.IEntityImporter)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimChassisHandlingEntityImporter.ConstructorBaseGameDataEndpointChassisHandlingDataLocatorChassisHandlingEntityFactory">
@@ -3193,7 +3193,7 @@
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimTeamEntityImporter.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimTeamEntityImporter.Bind(Common.Editor.Data.Entities.IEntityImporter{Common.Editor.Data.Entities.IEntity})">
+        <member name="M:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimTeamEntityImporter.Bind(Common.Editor.Data.Entities.IEntityImporter)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.EntityImporters.BaseGame.Fakes.ShimTeamEntityImporter.ConstructorBaseGameDataEndpointTeamDataLocatorTeamEntityFactory">
@@ -3598,6 +3598,69 @@
         <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubTeamEntityFactory.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Repositories.Fakes.ShimBaseGameRepositoryFactory">
+            <summary>Shim type of GpwEditor.Infrastructure.Factories.Repositories.BaseGameRepositoryFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Repositories.Fakes.ShimBaseGameRepositoryFactory.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Repositories.Fakes.ShimBaseGameRepositoryFactory.#ctor(GpwEditor.Infrastructure.Factories.Repositories.BaseGameRepositoryFactory)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Repositories.Fakes.ShimBaseGameRepositoryFactory.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Repositories.Fakes.ShimBaseGameRepositoryFactory.AllInstances.CreateBaseGameRepositoryType">
+            <summary>Sets the shim of BaseGameRepositoryFactory.Create(BaseGameRepositoryType repository)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Repositories.Fakes.ShimBaseGameRepositoryFactory.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Repositories.Fakes.ShimBaseGameRepositoryFactory.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Repositories.Fakes.ShimBaseGameRepositoryFactory.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Repositories.Fakes.ShimBaseGameRepositoryFactory.Bind(GpwEditor.Infrastructure.Factories.Repositories.IBaseGameRepositoryFactory)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Repositories.Fakes.ShimBaseGameRepositoryFactory.ConstructorIEnumerableOfIBaseGameRepository">
+            <summary>Sets the shim of BaseGameRepositoryFactory.BaseGameRepositoryFactory(IEnumerable`1&lt;IBaseGameRepository&gt; baseGameRepositories)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Repositories.Fakes.ShimBaseGameRepositoryFactory.CreateBaseGameRepositoryType">
+            <summary>Sets the shim of BaseGameRepositoryFactory.Create(BaseGameRepositoryType repository)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Repositories.Fakes.StubBaseGameRepositoryFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.Repositories.BaseGameRepositoryFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Repositories.Fakes.StubBaseGameRepositoryFactory.#ctor(System.Collections.Generic.IEnumerable{GpwEditor.Infrastructure.Repositories.BaseGame.IBaseGameRepository})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Repositories.Fakes.StubBaseGameRepositoryFactory.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Repositories.Fakes.StubBaseGameRepositoryFactory.InitializeStub">
+            <summary>Initializes a new instance of type StubBaseGameRepositoryFactory</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Repositories.Fakes.StubBaseGameRepositoryFactory.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Factories.Repositories.Fakes.StubBaseGameRepositoryFactory.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Factories.Repositories.Fakes.StubIBaseGameRepositoryFactory">
+            <summary>Stub type of GpwEditor.Infrastructure.Factories.Repositories.IBaseGameRepositoryFactory</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Repositories.Fakes.StubIBaseGameRepositoryFactory.#ctor">
+            <summary>Initializes a new instance of type StubIBaseGameRepositoryFactory</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Factories.Repositories.Fakes.StubIBaseGameRepositoryFactory.CreateBaseGameRepositoryType">
+            <summary>Sets the stub of IBaseGameRepositoryFactory.Create(BaseGameRepositoryType repository)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Factories.Repositories.Fakes.StubIBaseGameRepositoryFactory.GpwEditor#Infrastructure#Factories#Repositories#IBaseGameRepositoryFactory#Create(GpwEditor.Infrastructure.Enums.BaseGameRepositoryType)">
+            <summary>Sets the stub of IBaseGameRepositoryFactory.Create(BaseGameRepositoryType repository)</summary>
+        </member>
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository">
             <summary>Shim type of GpwEditor.Infrastructure.Repositories.BaseGame.CarNumberRepository</summary>
         </member>
@@ -3610,6 +3673,9 @@
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.AllInstances.TypeGet">
+            <summary>Sets the shim of CarNumberRepository.get_Type()</summary>
+        </member>
         <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
@@ -3619,11 +3685,41 @@
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(Common.Editor.Data.Repositories.IRepository{GpwEditor.Infrastructure.Entities.BaseGame.CarNumberEntity})">
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(Common.Editor.Data.Repositories.IRepository)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Constructor">
-            <summary>Sets the shim of CarNumberRepository.CarNumberRepository()</summary>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(GpwEditor.Infrastructure.Repositories.BaseGame.IBaseGameRepository)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(System.Collections.ICollection)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(System.Collections.IEnumerable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(System.Collections.IList)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(System.Collections.Generic.ICollection{Common.Editor.Data.Entities.IEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(System.Collections.Generic.IEnumerable{Common.Editor.Data.Entities.IEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(System.Collections.Generic.IList{Common.Editor.Data.Entities.IEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(System.Collections.Generic.IReadOnlyCollection{Common.Editor.Data.Entities.IEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(System.Collections.Generic.IReadOnlyList{Common.Editor.Data.Entities.IEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.ConstructorIRepositoryExporterIRepositoryImporter">
+            <summary>Sets the shim of CarNumberRepository.CarNumberRepository(IRepositoryExporter repositoryExporter, IRepositoryImporter repositoryImporter)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.TypeGet">
+            <summary>Sets the shim of CarNumberRepository.get_Type()</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository">
             <summary>Shim type of GpwEditor.Infrastructure.Repositories.BaseGame.ChassisHandlingRepository</summary>
@@ -3637,6 +3733,9 @@
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.AllInstances.TypeGet">
+            <summary>Sets the shim of ChassisHandlingRepository.get_Type()</summary>
+        </member>
         <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
@@ -3646,11 +3745,41 @@
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(Common.Editor.Data.Repositories.IRepository{GpwEditor.Infrastructure.Entities.BaseGame.ChassisHandlingEntity})">
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(Common.Editor.Data.Repositories.IRepository)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Constructor">
-            <summary>Sets the shim of ChassisHandlingRepository.ChassisHandlingRepository()</summary>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(GpwEditor.Infrastructure.Repositories.BaseGame.IBaseGameRepository)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(System.Collections.ICollection)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(System.Collections.IEnumerable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(System.Collections.IList)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(System.Collections.Generic.ICollection{Common.Editor.Data.Entities.IEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(System.Collections.Generic.IEnumerable{Common.Editor.Data.Entities.IEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(System.Collections.Generic.IList{Common.Editor.Data.Entities.IEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(System.Collections.Generic.IReadOnlyCollection{Common.Editor.Data.Entities.IEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(System.Collections.Generic.IReadOnlyList{Common.Editor.Data.Entities.IEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.ConstructorIRepositoryExporterIRepositoryImporter">
+            <summary>Sets the shim of ChassisHandlingRepository.ChassisHandlingRepository(IRepositoryExporter repositoryExporter, IRepositoryImporter repositoryImporter)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.TypeGet">
+            <summary>Sets the shim of ChassisHandlingRepository.get_Type()</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository">
             <summary>Shim type of GpwEditor.Infrastructure.Repositories.BaseGame.TeamRepository</summary>
@@ -3664,6 +3793,9 @@
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.AllInstances">
             <summary>Define shims for all instances members</summary>
         </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.AllInstances.TypeGet">
+            <summary>Sets the shim of TeamRepository.get_Type()</summary>
+        </member>
         <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
         </member>
@@ -3673,16 +3805,46 @@
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(Common.Editor.Data.Repositories.IRepository{GpwEditor.Infrastructure.Entities.BaseGame.TeamEntity})">
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(Common.Editor.Data.Repositories.IRepository)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Constructor">
-            <summary>Sets the shim of TeamRepository.TeamRepository()</summary>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(GpwEditor.Infrastructure.Repositories.BaseGame.IBaseGameRepository)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(System.Collections.ICollection)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(System.Collections.IEnumerable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(System.Collections.IList)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(System.Collections.Generic.ICollection{Common.Editor.Data.Entities.IEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(System.Collections.Generic.IEnumerable{Common.Editor.Data.Entities.IEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(System.Collections.Generic.IList{Common.Editor.Data.Entities.IEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(System.Collections.Generic.IReadOnlyCollection{Common.Editor.Data.Entities.IEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(System.Collections.Generic.IReadOnlyList{Common.Editor.Data.Entities.IEntity})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.ConstructorIRepositoryExporterIRepositoryImporter">
+            <summary>Sets the shim of TeamRepository.TeamRepository(IRepositoryExporter repositoryExporter, IRepositoryImporter repositoryImporter)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.TypeGet">
+            <summary>Sets the shim of TeamRepository.get_Type()</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubCarNumberRepository">
             <summary>Stub type of GpwEditor.Infrastructure.Repositories.BaseGame.CarNumberRepository</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubCarNumberRepository.#ctor">
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubCarNumberRepository.#ctor(Common.Editor.Data.Repositories.IRepositoryExporter,Common.Editor.Data.Repositories.IRepositoryImporter)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubCarNumberRepository.CallBase">
@@ -3700,7 +3862,7 @@
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository">
             <summary>Stub type of GpwEditor.Infrastructure.Repositories.BaseGame.ChassisHandlingRepository</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository.#ctor">
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository.#ctor(Common.Editor.Data.Repositories.IRepositoryExporter,Common.Editor.Data.Repositories.IRepositoryImporter)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository.CallBase">
@@ -3715,10 +3877,76 @@
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
+        <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository">
+            <summary>Stub type of GpwEditor.Infrastructure.Repositories.BaseGame.IBaseGameRepository</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.#ctor">
+            <summary>Initializes a new instance of type StubIBaseGameRepository</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.AttachBackingFieldToRepositoryCapacity">
+            <summary>Attaches delegates to emulate StubIBaseGameRepository.RepositoryCapacity as a property with a backing field.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.Common#Editor#Data#Repositories#IRepository#Export">
+            <summary>Sets the stub of IRepository.Export()</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.Common#Editor#Data#Repositories#IRepository#Get">
+            <summary>Sets the stub of IRepository.Get()</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.Common#Editor#Data#Repositories#IRepository#Get(System.Func{Common.Editor.Data.Entities.IEntity,System.Boolean})">
+            <summary>Sets the stub of IRepository.Get(Func`2&lt;IEntity,Boolean&gt; predicate)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.Common#Editor#Data#Repositories#IRepository#GetById(System.Int32)">
+            <summary>Sets the stub of IRepository.GetById(Int32 id)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.Common#Editor#Data#Repositories#IRepository#Import">
+            <summary>Sets the stub of IRepository.Import()</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.Common#Editor#Data#Repositories#IRepository#Set(System.Collections.Generic.IEnumerable{Common.Editor.Data.Entities.IEntity})">
+            <summary>Sets the stub of IRepository.Set(IEnumerable`1&lt;IEntity&gt; list)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.Common#Editor#Data#Repositories#IRepository#SetById(Common.Editor.Data.Entities.IEntity)">
+            <summary>Sets the stub of IRepository.SetById(IEntity item)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.Export">
+            <summary>Sets the stub of IRepository.Export()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.Get">
+            <summary>Sets the stub of IRepository.Get()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.GetByIdInt32">
+            <summary>Sets the stub of IRepository.GetById(Int32 id)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.GetFuncOfIEntityBoolean">
+            <summary>Sets the stub of IRepository.Get(Func`2&lt;IEntity,Boolean&gt; predicate)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.Import">
+            <summary>Sets the stub of IRepository.Import()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.Common#Editor#Data#Repositories#IRepository#RepositoryCapacity">
+            <summary>Sets the stub of IRepository.get_RepositoryCapacity()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.RepositoryCapacityGet">
+            <summary>Sets the stub of IRepository.get_RepositoryCapacity()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.RepositoryCapacitySetInt32">
+            <summary>Sets the stub of IRepository.set_RepositoryCapacity(Int32 value)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.SetByIdIEntity">
+            <summary>Sets the stub of IRepository.SetById(IEntity item)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.SetIEnumerableOfIEntity">
+            <summary>Sets the stub of IRepository.Set(IEnumerable`1&lt;IEntity&gt; list)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.GpwEditor#Infrastructure#Repositories#BaseGame#IBaseGameRepository#Type">
+            <summary>Sets the stub of IBaseGameRepository.get_Type()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.TypeGet">
+            <summary>Sets the stub of IBaseGameRepository.get_Type()</summary>
+        </member>
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository">
             <summary>Stub type of GpwEditor.Infrastructure.Repositories.BaseGame.TeamRepository</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository.#ctor">
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository.#ctor(Common.Editor.Data.Repositories.IRepositoryExporter,Common.Editor.Data.Repositories.IRepositoryImporter)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository.CallBase">

@@ -1,10 +1,17 @@
 ﻿using Common.Editor.Data.Repositories;
-using GpwEditor.Infrastructure.Entities.BaseGame;
+using GpwEditor.Infrastructure.Enums;
 
 namespace GpwEditor.Infrastructure.Repositories.BaseGame
 {
-    // TODO: Redundant?
-    public class ChassisHandlingRepository : Repository<ChassisHandlingEntity>
+    public class ChassisHandlingRepository : RepositoryBase, IBaseGameRepository
     {
+        public ChassisHandlingRepository(
+            IRepositoryExporter repositoryExporter,
+            IRepositoryImporter repositoryImporter)
+            : base(repositoryExporter, repositoryImporter)
+        {
+        }
+
+        public BaseGameRepositoryType Type { get; } = BaseGameRepositoryType.ChassisHandling;
     }
 }

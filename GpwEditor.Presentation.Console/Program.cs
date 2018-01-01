@@ -1,7 +1,7 @@
 ﻿using System;
+using GpwEditor.Application;
 using GpwEditor.Application.DataServices;
 using GpwEditor.Presentation.Console.Controllers;
-using GpwEditor.Presentation.Console.DependencyInjection.Autofac;
 using GpwEditor.Presentation.Console.DependencyInjection.Output;
 using GpwEditor.Presentation.Console.DependencyInjection.Unity;
 
@@ -11,6 +11,8 @@ namespace GpwEditor.Presentation.Console
     {
         private static void Main(string[] args)
         {
+            AutoMapperConfig.RegisterMappings();
+
             var outputDevice = new ConsoleOutput();
 
             // TODO: Pick a dependency injection container to match your taste

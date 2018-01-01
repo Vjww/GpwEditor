@@ -6,7 +6,7 @@ using GpwEditor.Infrastructure.Factories.Entities.BaseGame;
 
 namespace GpwEditor.Infrastructure.EntityImporters.BaseGame
 {
-    public class CarNumberEntityImporter : IEntityImporter<IEntity>
+    public class CarNumberEntityImporter : IEntityImporter
     {
         private readonly BaseGameDataEndpoint _dataEndpoint;
         private readonly CarNumberDataLocator _dataLocator;
@@ -25,6 +25,8 @@ namespace GpwEditor.Infrastructure.EntityImporters.BaseGame
         public IEntity Import(int id)
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
+
+            _dataLocator.Map(id);
 
             var entity = _entityFactory.Create(id);
 
