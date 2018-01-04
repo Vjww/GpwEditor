@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
+using GpwEditor.Application.Factories;
+using GpwEditor.Application.Mappers.BaseGame;
 using GpwEditor.Domain.Models.BaseGame;
 using GpwEditor.Domain.Validators;
 using GpwEditor.Infrastructure.DataContexts;
-using GpwEditor.Infrastructure.Entities.BaseGame;
 
 namespace GpwEditor.Application.Managers.BaseGame
 {
@@ -24,15 +24,32 @@ namespace GpwEditor.Application.Managers.BaseGame
 
         public IEnumerable<ITeamModel> GetTeams()
         {
-            // TODO: Crude but works, as assumes all items are of type TeamEntity
-            var newList = new List<TeamEntity>();
-            var teams = _dataContext.Teams.Get();
-            foreach (var entity in teams)
+            // TODO: Alternative to Automapper, as need to merge three entities into a single model
+            var myTeamModel = new DataContextToTeamModelMapper(_dataContext, new ModelFactory<TeamModel>());
+            return new List<ITeamModel>
             {
-                newList.Add((TeamEntity)entity);
-            }
-            var newTeams = teams as IEnumerable<TeamEntity>;
-            return Mapper.Map<IEnumerable<TeamEntity>, IEnumerable<ITeamModel>>(newList);
+                myTeamModel.Map(0),
+                myTeamModel.Map(1),
+                myTeamModel.Map(2),
+                myTeamModel.Map(3),
+                myTeamModel.Map(4),
+                myTeamModel.Map(5),
+                myTeamModel.Map(6),
+                myTeamModel.Map(7),
+                myTeamModel.Map(8),
+                myTeamModel.Map(9),
+                myTeamModel.Map(10)
+            };
+
+            //// TODO: Crude but works, as assumes all items are of type TeamEntity
+            //var newList = new List<TeamEntity>();
+            //var teams = _dataContext.Teams.Get();
+            //foreach (var entity in teams)
+            //{
+            //    newList.Add((TeamEntity)entity);
+            //}
+            //var newTeams = teams as IEnumerable<TeamEntity>;
+            //return Mapper.Map<IEnumerable<TeamEntity>, IEnumerable<ITeamModel>>(newList);
         }
 
         public IEnumerable<string> SetTeams(IEnumerable<ITeamModel> models)

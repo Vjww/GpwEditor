@@ -1,16 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Common.Editor.Data.Catalogues;
-using Common.Editor.Data.Entities;
 using Common.Editor.Data.FileResources;
 using GpwEditor.Domain.Models.BaseGame;
 using GpwEditor.Domain.Validators;
 using GpwEditor.Domain.Validators.BaseGame;
 using GpwEditor.Infrastructure.Catalogues.Commentary;
 using GpwEditor.Infrastructure.Catalogues.Language;
-using GpwEditor.Infrastructure.EntityExporters.BaseGame;
-using GpwEditor.Infrastructure.EntityImporters.BaseGame;
 using GpwEditor.Infrastructure.Repositories.BaseGame;
 using GpwEditor.Presentation.Console.DependencyInjection.Output;
 using Unity;
@@ -30,6 +26,7 @@ namespace GpwEditor.Presentation.Console.DependencyInjection.Unity
 
         public IUnityContainer Register()
         {
+            // Automatic registration
             _container.RegisterTypes(
                 AllClasses.FromLoadedAssemblies().Where(
                     x => x.Namespace != null &&
@@ -42,58 +39,53 @@ namespace GpwEditor.Presentation.Console.DependencyInjection.Unity
                              x.Namespace.StartsWith("Common.Editor.Data")
                          )),                        // Get all types in namespaces that are to be registered
                 WithMappings.FromMatchingInterface, // Where the types implement interfaces of the same name (Class : IClass)
-                WithName.Default,                   // Type mappings will be unnamed in the container
-                WithLifetime.ContainerControlled);  // Container lifetime
+                WithName.Default,                   // And mappings will be left unnamed when registering in the container
+                WithLifetime.ContainerControlled);  // And mappings will have container controlled lifetimes
 
-            // Registers types that inherit IBaseGameRepository and register array of types for BaseGameRepositoryFactory
-            // https://stackoverflow.com/a/27624752
-            _container.RegisterTypes(
-                AllClasses.FromLoadedAssemblies().Where(type => typeof(IBaseGameRepository).IsAssignableFrom(type)),
-                WithMappings.FromAllInterfaces,
-                WithName.TypeName,
-                WithLifetime.ContainerControlled); // TODO: Verify change from transient to container
-            _container.RegisterType<IEnumerable<IBaseGameRepository>, IBaseGameRepository[]>();
+            // Change automatic registrations to have transient lifetimes
+            _container.RegisterType<IFileResource, FileResource>(new TransientLifetimeManager());
+            _container.RegisterType<ILanguageCatalogueValue, LanguageCatalogueValue>(new TransientLifetimeManager());
 
-            _container.RegisterType<IEntityExporter, CarNumberEntityExporter>();
-            _container.RegisterType<IEntityExporter, ChassisHandlingEntityExporter>();
-            _container.RegisterType<IEntityExporter, TeamEntityExporter>();
-
-            _container.RegisterType<IEntityImporter, CarNumberEntityImporter>();
-            _container.RegisterType<IEntityImporter, ChassisHandlingEntityImporter>();
-            _container.RegisterType<IEntityImporter, TeamEntityImporter>();
+            // Manual registrations
+            _container.RegisterType<IOutput, ConsoleOutput>();
+            RegisterLanguageCatalogueTypes();
+            RegisterCommentaryCatalogueTypes();
+            RegisterBaseGameRepositoryTypes();
 
             // TODO: Need to find a way to switch on language, currently hardcoded
             _container.RegisterType<ILanguagePhrases, EnglishLanguagePhrases>();
             _container.RegisterType<ILanguagePhrases, FrenchLanguagePhrases>();
             _container.RegisterType<ILanguagePhrases, GermanLanguagePhrases>();
 
-            // TODO: Need to find a way to switch on model, currently hardcoded
             _container.RegisterType<IValidator<ITeamModel>, TeamValidator>();
-
-            // TODO: I guess this is where we decide on what stream to use
-            _container.RegisterType<IFileResource, FileResource<MemoryStream>>();
-
-            // TODO: I guess this is where we decide on what output to use
-            _container.RegisterType<IOutput, ConsoleOutput>();
-
-            RegisterLanguageCatalogueTypes();
-            RegisterCommentaryCatalogueTypes();
 
             return _container;
         }
 
+        private void RegisterBaseGameRepositoryTypes()
+        {
+            // Registers types that inherit IBaseGameRepository as an array of types for BaseGameRepositoryFactory to consume
+            // https://stackoverflow.com/a/27624752
+            _container.RegisterTypes(
+                AllClasses.FromLoadedAssemblies().Where(type => typeof(IBaseGameRepository).IsAssignableFrom(type)),
+                WithMappings.FromAllInterfaces,
+                WithName.TypeName,
+                WithLifetime.ContainerControlled);
+            _container.RegisterType<IEnumerable<IBaseGameRepository>, IBaseGameRepository[]>();
+        }
+
         private void RegisterLanguageCatalogueTypes()
         {
-            // Registers types that inherit ILanguageCatalogue and register array of types for LanguageCatalogueFactory
+            // Registers types that inherit ILanguageCatalogue as an array of types for LanguageCatalogueFactory to consume
             // https://stackoverflow.com/a/27624752
             _container.RegisterTypes(
                 AllClasses.FromLoadedAssemblies().Where(type => typeof(ILanguageCatalogue).IsAssignableFrom(type)),
                 WithMappings.FromAllInterfaces,
                 WithName.TypeName,
-                WithLifetime.ContainerControlled); // TODO: Verify change from transient to container
+                WithLifetime.ContainerControlled);
             _container.RegisterType<IEnumerable<ILanguageCatalogue>, ILanguageCatalogue[]>();
 
-            // Register remaining LanguageCatalogue types
+            // Register remaining LanguageCatalogue related types
             _container.RegisterType<ICatalogueExporter<LanguageCatalogueItem>, LanguageCatalogueExporter>();
             _container.RegisterType<ICatalogueImporter<LanguageCatalogueItem>, LanguageCatalogueImporter>();
             _container.RegisterType<ICatalogueReader<LanguageCatalogueItem>, LanguageCatalogueReader>();
@@ -102,16 +94,16 @@ namespace GpwEditor.Presentation.Console.DependencyInjection.Unity
 
         private void RegisterCommentaryCatalogueTypes()
         {
-            // Registers types that inherit ICommentaryCatalogue and register array of types for CommentaryCatalogueFactory
+            // Registers types that inherit ICommentaryCatalogue as an array of types for CommentaryCatalogueFactory to consume
             // https://stackoverflow.com/a/27624752
             _container.RegisterTypes(
                 AllClasses.FromLoadedAssemblies().Where(type => typeof(ICommentaryCatalogue).IsAssignableFrom(type)),
                 WithMappings.FromAllInterfaces,
                 WithName.TypeName,
-                WithLifetime.ContainerControlled); // TODO: Verify change from transient to container
+                WithLifetime.ContainerControlled);
             _container.RegisterType<IEnumerable<ICommentaryCatalogue>, ICommentaryCatalogue[]>();
 
-            // Register remaining CommentaryCatalogue types
+            // Register remaining CommentaryCatalogue related types
             _container.RegisterType<ICatalogueExporter<CommentaryCatalogueItem>, CommentaryCatalogueExporter>();
             _container.RegisterType<ICatalogueImporter<CommentaryCatalogueItem>, CommentaryCatalogueImporter>();
             _container.RegisterType<ICatalogueReader<CommentaryCatalogueItem>, CommentaryCatalogueReader>();

@@ -6,12 +6,12 @@ namespace GpwEditor.Infrastructure.Entities.BaseGame
 {
     public class TeamEntity : EntityBase
     {
-        public TeamEntity(LanguageCatalogueValue languageCatalogueValue)
+        public TeamEntity(ILanguageCatalogueValue languageCatalogueValue)
         {
             Name = languageCatalogueValue ?? throw new ArgumentNullException(nameof(languageCatalogueValue));
         }
 
-        public LanguageCatalogueValue Name { get; set; }
+        public ILanguageCatalogueValue Name { get; set; }
         public int LastPosition { get; set; }
         public int LastPoints { get; set; }
         public int FirstGpTrack { get; set; }

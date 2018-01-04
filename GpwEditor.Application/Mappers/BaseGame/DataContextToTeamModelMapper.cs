@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using GpwEditor.Application.Factories;
 using GpwEditor.Domain.Models.BaseGame;
@@ -39,13 +38,26 @@ namespace GpwEditor.Application.Mappers.BaseGame
             result.LocationPointerY = teamEntity.LocationPointerY;
             result.TyreSupplierId = teamEntity.TyreSupplierId;
 
-            var chassisHandlingEntities = (IEnumerable<ChassisHandlingEntity>)_dataContext.ChassisHandlings.Get();
-            var chassisHandlingEntity = chassisHandlingEntities.Single(x => x.TeamId == id);
-            result.ChassisHandling = chassisHandlingEntity.Value;
+            foreach (var item in _dataContext.ChassisHandlings.Get())
+            {
+                if (!(item is ChassisHandlingEntity entity) || entity.TeamId != id) continue;
+                result.ChassisHandling = entity.Value;
+                break;
+            }
 
-            var carNumberEntities = ((IEnumerable<CarNumberEntity>)_dataContext.CarNumbers.Get()).Where(x => x.TeamId == id).ToList();
-            result.CarNumberDriver1 = carNumberEntities.Single(x => x.PositionId == 0).ValueA;
-            result.CarNumberDriver2 = carNumberEntities.Single(x => x.PositionId == 1).ValueA;
+            foreach (var item in _dataContext.CarNumbers.Get())
+            {
+                if (!(item is CarNumberEntity entity) || entity.TeamId != id) continue;
+                switch (entity.PositionId)
+                {
+                    case 0:
+                        result.CarNumberDriver1 = entity.ValueA;
+                        break;
+                    case 1:
+                        result.CarNumberDriver2 = entity.ValueA;
+                        break;
+                }
+            }
 
             return result;
         }

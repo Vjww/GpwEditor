@@ -310,7 +310,7 @@
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueParser.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueParser.Bind(Common.Editor.Data.Catalogues.ICatalogueParser{GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem})">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueParser.Bind(GpwEditor.Infrastructure.Catalogues.Commentary.ICommentaryCatalogueParser)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.ShimCommentaryCatalogueParser.BuildFileNameCommentaryCatalogueItem">
@@ -1063,6 +1063,96 @@
         <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogue.WriteInt32String">
             <summary>Sets the stub of ICatalogue.Write(Int32 id, String value)</summary>
         </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.ICommentaryCatalogueParser</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.#ctor">
+            <summary>Initializes a new instance of type StubICommentaryCatalogueParser</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.BuildFileNameCommentaryCatalogueItem">
+            <summary>Sets the stub of ICommentaryCatalogueParser.BuildFileName(CommentaryCatalogueItem catalogueItem)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.BuildTranscriptCommentaryCatalogueItem">
+            <summary>Sets the stub of ICommentaryCatalogueParser.BuildTranscript(CommentaryCatalogueItem catalogueItem)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.ExtractFileNamePrefixStringCommentaryType">
+            <summary>Sets the stub of ICommentaryCatalogueParser.ExtractFileNamePrefix(String fileName, CommentaryType commentaryType)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.ExtractFileNameString">
+            <summary>Sets the stub of ICommentaryCatalogueParser.ExtractFileName(String text)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.ExtractFileNameSuffixCommentaryType">
+            <summary>Sets the stub of ICommentaryCatalogueParser.ExtractFileNameSuffix(CommentaryType commentaryType)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.ExtractTranscriptPrefixStringCommentaryType">
+            <summary>Sets the stub of ICommentaryCatalogueParser.ExtractTranscriptPrefix(String transcript, CommentaryType commentaryType)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.ExtractTranscriptString">
+            <summary>Sets the stub of ICommentaryCatalogueParser.ExtractTranscript(String text)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.ExtractTranscriptSuffixCommentaryType">
+            <summary>Sets the stub of ICommentaryCatalogueParser.ExtractTranscriptSuffix(CommentaryType commentaryType)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GetCommentaryTypeInt32">
+            <summary>Sets the stub of ICommentaryCatalogueParser.GetCommentaryType(Int32 id)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GetLeftAngleBracket">
+            <summary>Sets the stub of ICommentaryCatalogueParser.GetLeftAngleBracket()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GetRightAngleBracket">
+            <summary>Sets the stub of ICommentaryCatalogueParser.GetRightAngleBracket()</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueParser#BuildFileName(GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem)">
+            <summary>Sets the stub of ICommentaryCatalogueParser.BuildFileName(CommentaryCatalogueItem catalogueItem)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueParser#BuildTranscript(GpwEditor.Infrastructure.Catalogues.Commentary.CommentaryCatalogueItem)">
+            <summary>Sets the stub of ICommentaryCatalogueParser.BuildTranscript(CommentaryCatalogueItem catalogueItem)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueParser#ExtractFileName(System.String)">
+            <summary>Sets the stub of ICommentaryCatalogueParser.ExtractFileName(String text)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueParser#ExtractFileNamePrefix(System.String,GpwEditor.Infrastructure.Enums.CommentaryType)">
+            <summary>Sets the stub of ICommentaryCatalogueParser.ExtractFileNamePrefix(String fileName, CommentaryType commentaryType)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueParser#ExtractFileNameSuffix(GpwEditor.Infrastructure.Enums.CommentaryType)">
+            <summary>Sets the stub of ICommentaryCatalogueParser.ExtractFileNameSuffix(CommentaryType commentaryType)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueParser#ExtractTranscript(System.String)">
+            <summary>Sets the stub of ICommentaryCatalogueParser.ExtractTranscript(String text)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueParser#ExtractTranscriptPrefix(System.String,GpwEditor.Infrastructure.Enums.CommentaryType)">
+            <summary>Sets the stub of ICommentaryCatalogueParser.ExtractTranscriptPrefix(String transcript, CommentaryType commentaryType)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueParser#ExtractTranscriptSuffix(GpwEditor.Infrastructure.Enums.CommentaryType)">
+            <summary>Sets the stub of ICommentaryCatalogueParser.ExtractTranscriptSuffix(CommentaryType commentaryType)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueParser#GetCommentaryType(System.Int32)">
+            <summary>Sets the stub of ICommentaryCatalogueParser.GetCommentaryType(Int32 id)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueParser#GetLeftAngleBracket">
+            <summary>Sets the stub of ICommentaryCatalogueParser.GetLeftAngleBracket()</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueParser#GetRightAngleBracket">
+            <summary>Sets the stub of ICommentaryCatalogueParser.GetRightAngleBracket()</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueParser#IndexOfValueInText(System.String,System.String)">
+            <summary>Sets the stub of ICommentaryCatalogueParser.IndexOfValueInText(String text, String value)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueParser#IsValueInText(System.String,System.String)">
+            <summary>Sets the stub of ICommentaryCatalogueParser.IsValueInText(String text, String value)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.GpwEditor#Infrastructure#Catalogues#Commentary#ICommentaryCatalogueParser#Validate(System.String,System.Int32,System.String@)">
+            <summary>Sets the stub of ICommentaryCatalogueParser.Validate(String text, Int32 lineNumber, String&amp; validationMessage)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.IndexOfValueInTextStringString">
+            <summary>Sets the stub of ICommentaryCatalogueParser.IndexOfValueInText(String text, String value)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.IsValueInTextStringString">
+            <summary>Sets the stub of ICommentaryCatalogueParser.IsValueInText(String text, String value)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubICommentaryCatalogueParser.ValidateStringInt32StringOut">
+            <summary>Sets the stub of ICommentaryCatalogueParser.Validate(String text, Int32 lineNumber, String&amp; validationMessage)</summary>
+        </member>
         <member name="T:GpwEditor.Infrastructure.Catalogues.Commentary.Fakes.StubILanguagePhrases">
             <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Commentary.ILanguagePhrases</summary>
         </member>
@@ -1447,7 +1537,7 @@
         <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.Bind(Common.Editor.Data.Catalogues.ICatalogueParser{GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueItem})">
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.Bind(GpwEditor.Infrastructure.Catalogues.Language.ILanguageCatalogueParser)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueParser.BuildResourceIdInt32">
@@ -1513,6 +1603,24 @@
         <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.AllInstances.AllSetString">
             <summary>Sets the shim of LanguageCatalogueValue.set_All(String value)</summary>
         </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.AllInstances.EnglishGet">
+            <summary>Sets the shim of LanguageCatalogueValue.get_English()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.AllInstances.EnglishSetString">
+            <summary>Sets the shim of LanguageCatalogueValue.set_English(String value)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.AllInstances.FrenchGet">
+            <summary>Sets the shim of LanguageCatalogueValue.get_French()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.AllInstances.FrenchSetString">
+            <summary>Sets the shim of LanguageCatalogueValue.set_French(String value)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.AllInstances.GermanGet">
+            <summary>Sets the shim of LanguageCatalogueValue.get_German()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.AllInstances.GermanSetString">
+            <summary>Sets the shim of LanguageCatalogueValue.set_German(String value)</summary>
+        </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.AllSetString">
             <summary>Sets the shim of LanguageCatalogueValue.set_All(String value)</summary>
         </member>
@@ -1525,8 +1633,29 @@
         <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.Behavior">
             <summary>Assigns the behavior for all methods of the shimmed type</summary>
         </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.Bind(GpwEditor.Infrastructure.Catalogues.Language.ILanguageCatalogueValue)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
         <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.Constructor">
             <summary>Sets the shim of LanguageCatalogueValue.LanguageCatalogueValue()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.EnglishGet">
+            <summary>Sets the shim of LanguageCatalogueValue.get_English()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.EnglishSetString">
+            <summary>Sets the shim of LanguageCatalogueValue.set_English(String value)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.FrenchGet">
+            <summary>Sets the shim of LanguageCatalogueValue.get_French()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.FrenchSetString">
+            <summary>Sets the shim of LanguageCatalogueValue.set_French(String value)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.GermanGet">
+            <summary>Sets the shim of LanguageCatalogueValue.get_German()</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueValue.GermanSetString">
+            <summary>Sets the shim of LanguageCatalogueValue.set_German(String value)</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.ShimLanguageCatalogueWriter">
             <summary>Shim type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueWriter</summary>
@@ -1650,6 +1779,78 @@
         </member>
         <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogue.WriteInt32String">
             <summary>Sets the stub of ICatalogue.Write(Int32 id, String value)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueParser">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Language.ILanguageCatalogueParser</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueParser.#ctor">
+            <summary>Initializes a new instance of type StubILanguageCatalogueParser</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueParser.BuildResourceIdInt32">
+            <summary>Sets the stub of ILanguageCatalogueParser.BuildResourceId(Int32 id)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueParser.GpwEditor#Infrastructure#Catalogues#Language#ILanguageCatalogueParser#BuildResourceId(System.Int32)">
+            <summary>Sets the stub of ILanguageCatalogueParser.BuildResourceId(Int32 id)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueParser.GpwEditor#Infrastructure#Catalogues#Language#ILanguageCatalogueParser#IsValueInText(System.String,System.String)">
+            <summary>Sets the stub of ILanguageCatalogueParser.IsValueInText(String text, String value)</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueParser.IsValueInTextStringString">
+            <summary>Sets the stub of ILanguageCatalogueParser.IsValueInText(String text, String value)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue">
+            <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Language.ILanguageCatalogueValue</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.#ctor">
+            <summary>Initializes a new instance of type StubILanguageCatalogueValue</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.GpwEditor#Infrastructure#Catalogues#Language#ILanguageCatalogueValue#All">
+            <summary>Sets the stub of ILanguageCatalogueValue.get_All()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.AllGet">
+            <summary>Sets the stub of ILanguageCatalogueValue.get_All()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.AllSetString">
+            <summary>Sets the stub of ILanguageCatalogueValue.set_All(String value)</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.AttachBackingFieldToAll">
+            <summary>Attaches delegates to emulate StubILanguageCatalogueValue.All as a property with a backing field.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.AttachBackingFieldToEnglish">
+            <summary>Attaches delegates to emulate StubILanguageCatalogueValue.English as a property with a backing field.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.AttachBackingFieldToFrench">
+            <summary>Attaches delegates to emulate StubILanguageCatalogueValue.French as a property with a backing field.</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.AttachBackingFieldToGerman">
+            <summary>Attaches delegates to emulate StubILanguageCatalogueValue.German as a property with a backing field.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.GpwEditor#Infrastructure#Catalogues#Language#ILanguageCatalogueValue#English">
+            <summary>Sets the stub of ILanguageCatalogueValue.get_English()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.EnglishGet">
+            <summary>Sets the stub of ILanguageCatalogueValue.get_English()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.EnglishSetString">
+            <summary>Sets the stub of ILanguageCatalogueValue.set_English(String value)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.GpwEditor#Infrastructure#Catalogues#Language#ILanguageCatalogueValue#French">
+            <summary>Sets the stub of ILanguageCatalogueValue.get_French()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.FrenchGet">
+            <summary>Sets the stub of ILanguageCatalogueValue.get_French()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.FrenchSetString">
+            <summary>Sets the stub of ILanguageCatalogueValue.set_French(String value)</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.GpwEditor#Infrastructure#Catalogues#Language#ILanguageCatalogueValue#German">
+            <summary>Sets the stub of ILanguageCatalogueValue.get_German()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.GermanGet">
+            <summary>Sets the stub of ILanguageCatalogueValue.get_German()</summary>
+        </member>
+        <member name="F:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubILanguageCatalogueValue.GermanSetString">
+            <summary>Sets the stub of ILanguageCatalogueValue.set_German(String value)</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.Catalogues.Language.Fakes.StubLanguageCatalogueExporter">
             <summary>Stub type of GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueExporter</summary>
@@ -1990,14 +2191,14 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.CarNumbersGet">
             <summary>Sets the shim of BaseGameDataContext.get_CarNumbers()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.CarNumbersSetIRepository">
-            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IRepository value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.CarNumbersSetIBaseGameRepository">
+            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IBaseGameRepository value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.ChassisHandlingsGet">
             <summary>Sets the shim of BaseGameDataContext.get_ChassisHandlings()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.ChassisHandlingsSetIRepository">
-            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IRepository value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.ChassisHandlingsSetIBaseGameRepository">
+            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IBaseGameRepository value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.Export">
             <summary>Sets the shim of BaseGameDataContext.Export()</summary>
@@ -2008,8 +2209,8 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.TeamsGet">
             <summary>Sets the shim of BaseGameDataContext.get_Teams()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.TeamsSetIRepository">
-            <summary>Sets the shim of BaseGameDataContext.set_Teams(IRepository value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.AllInstances.TeamsSetIBaseGameRepository">
+            <summary>Sets the shim of BaseGameDataContext.set_Teams(IBaseGameRepository value)</summary>
         </member>
         <member name="M:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.BehaveAsCurrent">
             <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
@@ -2026,14 +2227,14 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.CarNumbersGet">
             <summary>Sets the shim of BaseGameDataContext.get_CarNumbers()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.CarNumbersSetIRepository">
-            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IRepository value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.CarNumbersSetIBaseGameRepository">
+            <summary>Sets the shim of BaseGameDataContext.set_CarNumbers(IBaseGameRepository value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ChassisHandlingsGet">
             <summary>Sets the shim of BaseGameDataContext.get_ChassisHandlings()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ChassisHandlingsSetIRepository">
-            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IRepository value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ChassisHandlingsSetIBaseGameRepository">
+            <summary>Sets the shim of BaseGameDataContext.set_ChassisHandlings(IBaseGameRepository value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.ConstructorIBaseGameRepositoryFactory">
             <summary>Sets the shim of BaseGameDataContext.BaseGameDataContext(IBaseGameRepositoryFactory repositoryFactory)</summary>
@@ -2047,8 +2248,8 @@
         <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.TeamsGet">
             <summary>Sets the shim of BaseGameDataContext.get_Teams()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.TeamsSetIRepository">
-            <summary>Sets the shim of BaseGameDataContext.set_Teams(IRepository value)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataContexts.Fakes.ShimBaseGameDataContext.TeamsSetIBaseGameRepository">
+            <summary>Sets the shim of BaseGameDataContext.set_Teams(IBaseGameRepository value)</summary>
         </member>
         <member name="T:GpwEditor.Infrastructure.DataContexts.Fakes.StubBaseGameDataContext">
             <summary>Stub type of GpwEditor.Infrastructure.DataContexts.BaseGameDataContext</summary>
@@ -2248,8 +2449,8 @@
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimCarNumberDataLocator.AllInstances.IdSetInt32">
             <summary>Sets the shim of CarNumberDataLocator.set_Id(Int32 value)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimCarNumberDataLocator.AllInstances.MapInt32">
-            <summary>Sets the shim of CarNumberDataLocator.Map(Int32 id)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimCarNumberDataLocator.AllInstances.InitialiseInt32">
+            <summary>Sets the shim of CarNumberDataLocator.Initialise(Int32 id)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimCarNumberDataLocator.AllInstances.ValueAGet">
             <summary>Sets the shim of CarNumberDataLocator.get_ValueA()</summary>
@@ -2284,8 +2485,8 @@
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimCarNumberDataLocator.IdSetInt32">
             <summary>Sets the shim of CarNumberDataLocator.set_Id(Int32 value)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimCarNumberDataLocator.MapInt32">
-            <summary>Sets the shim of CarNumberDataLocator.Map(Int32 id)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimCarNumberDataLocator.InitialiseInt32">
+            <summary>Sets the shim of CarNumberDataLocator.Initialise(Int32 id)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimCarNumberDataLocator.ValueAGet">
             <summary>Sets the shim of CarNumberDataLocator.get_ValueA()</summary>
@@ -2317,8 +2518,8 @@
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimChassisHandlingDataLocator.AllInstances.IdSetInt32">
             <summary>Sets the shim of ChassisHandlingDataLocator.set_Id(Int32 value)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimChassisHandlingDataLocator.AllInstances.MapInt32">
-            <summary>Sets the shim of ChassisHandlingDataLocator.Map(Int32 id)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimChassisHandlingDataLocator.AllInstances.InitialiseInt32">
+            <summary>Sets the shim of ChassisHandlingDataLocator.Initialise(Int32 id)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimChassisHandlingDataLocator.AllInstances.ValueGet">
             <summary>Sets the shim of ChassisHandlingDataLocator.get_Value()</summary>
@@ -2347,8 +2548,8 @@
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimChassisHandlingDataLocator.IdSetInt32">
             <summary>Sets the shim of ChassisHandlingDataLocator.set_Id(Int32 value)</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimChassisHandlingDataLocator.MapInt32">
-            <summary>Sets the shim of ChassisHandlingDataLocator.Map(Int32 id)</summary>
+        <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimChassisHandlingDataLocator.InitialiseInt32">
+            <summary>Sets the shim of ChassisHandlingDataLocator.Initialise(Int32 id)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimChassisHandlingDataLocator.ValueGet">
             <summary>Sets the shim of ChassisHandlingDataLocator.get_Value()</summary>
@@ -2392,6 +2593,9 @@
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimTeamDataLocator.AllInstances.IdSetInt32">
             <summary>Sets the shim of TeamDataLocator.set_Id(Int32 value)</summary>
         </member>
+        <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimTeamDataLocator.AllInstances.InitialiseInt32">
+            <summary>Sets the shim of TeamDataLocator.Initialise(Int32 id)</summary>
+        </member>
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimTeamDataLocator.AllInstances.LastPointsGet">
             <summary>Sets the shim of TeamDataLocator.get_LastPoints()</summary>
         </member>
@@ -2415,9 +2619,6 @@
         </member>
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimTeamDataLocator.AllInstances.LocationPointerYSetInt32">
             <summary>Sets the shim of TeamDataLocator.set_LocationPointerY(Int32 value)</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimTeamDataLocator.AllInstances.MapInt32">
-            <summary>Sets the shim of TeamDataLocator.Map(Int32 id)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimTeamDataLocator.AllInstances.NameGet">
             <summary>Sets the shim of TeamDataLocator.get_Name()</summary>
@@ -2488,6 +2689,9 @@
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimTeamDataLocator.IdSetInt32">
             <summary>Sets the shim of TeamDataLocator.set_Id(Int32 value)</summary>
         </member>
+        <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimTeamDataLocator.InitialiseInt32">
+            <summary>Sets the shim of TeamDataLocator.Initialise(Int32 id)</summary>
+        </member>
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimTeamDataLocator.LastPointsGet">
             <summary>Sets the shim of TeamDataLocator.get_LastPoints()</summary>
         </member>
@@ -2511,9 +2715,6 @@
         </member>
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimTeamDataLocator.LocationPointerYSetInt32">
             <summary>Sets the shim of TeamDataLocator.set_LocationPointerY(Int32 value)</summary>
-        </member>
-        <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimTeamDataLocator.MapInt32">
-            <summary>Sets the shim of TeamDataLocator.Map(Int32 id)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.DataLocators.Fakes.ShimTeamDataLocator.NameGet">
             <summary>Sets the shim of TeamDataLocator.get_Name()</summary>
@@ -2782,8 +2983,8 @@
         <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.AllInstances.NameGet">
             <summary>Sets the shim of TeamEntity.get_Name()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.AllInstances.NameSetLanguageCatalogueValue">
-            <summary>Sets the shim of TeamEntity.set_Name(LanguageCatalogueValue value)</summary>
+        <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.AllInstances.NameSetILanguageCatalogueValue">
+            <summary>Sets the shim of TeamEntity.set_Name(ILanguageCatalogueValue value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.AllInstances.TyreSupplierIdGet">
             <summary>Sets the shim of TeamEntity.get_TyreSupplierId()</summary>
@@ -2821,8 +3022,8 @@
         <member name="M:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.Bind(Common.Editor.Data.Entities.IEntity)">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.ConstructorLanguageCatalogueValue">
-            <summary>Sets the shim of TeamEntity.TeamEntity(LanguageCatalogueValue languageCatalogueValue)</summary>
+        <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.ConstructorILanguageCatalogueValue">
+            <summary>Sets the shim of TeamEntity.TeamEntity(ILanguageCatalogueValue languageCatalogueValue)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.CountryMapIdGet">
             <summary>Sets the shim of TeamEntity.get_CountryMapId()</summary>
@@ -2869,8 +3070,8 @@
         <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.NameGet">
             <summary>Sets the shim of TeamEntity.get_Name()</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.NameSetLanguageCatalogueValue">
-            <summary>Sets the shim of TeamEntity.set_Name(LanguageCatalogueValue value)</summary>
+        <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.NameSetILanguageCatalogueValue">
+            <summary>Sets the shim of TeamEntity.set_Name(ILanguageCatalogueValue value)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.ShimTeamEntity.TyreSupplierIdGet">
             <summary>Sets the shim of TeamEntity.get_TyreSupplierId()</summary>
@@ -2935,7 +3136,7 @@
         <member name="T:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.StubTeamEntity">
             <summary>Stub type of GpwEditor.Infrastructure.Entities.BaseGame.TeamEntity</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.StubTeamEntity.#ctor(GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueValue)">
+        <member name="M:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.StubTeamEntity.#ctor(GpwEditor.Infrastructure.Catalogues.Language.ILanguageCatalogueValue)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Entities.BaseGame.Fakes.StubTeamEntity.CallBase">
@@ -3538,8 +3739,8 @@
         <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimTeamEntityFactory.Bind(Common.Editor.Data.Factories.IEntityFactory{GpwEditor.Infrastructure.Entities.BaseGame.TeamEntity})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimTeamEntityFactory.ConstructorLanguageCatalogueValue">
-            <summary>Sets the shim of TeamEntityFactory.TeamEntityFactory(LanguageCatalogueValue languageCatalogueString)</summary>
+        <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimTeamEntityFactory.Constructor">
+            <summary>Sets the shim of TeamEntityFactory.TeamEntityFactory()</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.ShimTeamEntityFactory.CreateInt32">
             <summary>Sets the shim of TeamEntityFactory.Create(Int32 id)</summary>
@@ -3583,7 +3784,7 @@
         <member name="T:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubTeamEntityFactory">
             <summary>Stub type of GpwEditor.Infrastructure.Factories.Entities.BaseGame.TeamEntityFactory</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubTeamEntityFactory.#ctor(GpwEditor.Infrastructure.Catalogues.Language.LanguageCatalogueValue)">
+        <member name="M:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubTeamEntityFactory.#ctor">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Factories.Entities.BaseGame.Fakes.StubTeamEntityFactory.CallBase">
@@ -3902,7 +4103,7 @@
             <summary>Sets the stub of IRepository.Import()</summary>
         </member>
         <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.Common#Editor#Data#Repositories#IRepository#Set(System.Collections.Generic.IEnumerable{Common.Editor.Data.Entities.IEntity})">
-            <summary>Sets the stub of IRepository.Set(IEnumerable`1&lt;IEntity&gt; list)</summary>
+            <summary>Sets the stub of IRepository.Set(IEnumerable`1&lt;IEntity&gt; entities)</summary>
         </member>
         <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.Common#Editor#Data#Repositories#IRepository#SetById(Common.Editor.Data.Entities.IEntity)">
             <summary>Sets the stub of IRepository.SetById(IEntity item)</summary>
@@ -3935,7 +4136,7 @@
             <summary>Sets the stub of IRepository.SetById(IEntity item)</summary>
         </member>
         <member name="F:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.SetIEnumerableOfIEntity">
-            <summary>Sets the stub of IRepository.Set(IEnumerable`1&lt;IEntity&gt; list)</summary>
+            <summary>Sets the stub of IRepository.Set(IEnumerable`1&lt;IEntity&gt; entities)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubIBaseGameRepository.GpwEditor#Infrastructure#Repositories#BaseGame#IBaseGameRepository#Type">
             <summary>Sets the stub of IBaseGameRepository.get_Type()</summary>

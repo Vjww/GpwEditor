@@ -1,6 +1,6 @@
 ﻿namespace GpwEditor.Infrastructure.Catalogues.Language
 {
-    public class LanguageCatalogueValue
+    public class LanguageCatalogueValue : ILanguageCatalogueValue
     {
         public string All
         {
@@ -12,8 +12,8 @@
                 German = value;
             }
         }
-        public string English;
-        public string French;
-        public string German;
+        public string English { get; set; }
+        public string French { get; set; }
+        public string German { get; set; }
     }
 }

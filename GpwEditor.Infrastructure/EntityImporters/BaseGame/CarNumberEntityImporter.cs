@@ -26,7 +26,7 @@ namespace GpwEditor.Infrastructure.EntityImporters.BaseGame
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
 
-            _dataLocator.Map(id);
+            _dataLocator.Initialise(id);
 
             var entity = _entityFactory.Create(id);
 

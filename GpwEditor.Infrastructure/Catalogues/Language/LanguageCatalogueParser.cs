@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading;
-using Common.Editor.Data.Catalogues;
 
 namespace GpwEditor.Infrastructure.Catalogues.Language
 {
-    public class LanguageCatalogueParser : ICatalogueParser<LanguageCatalogueItem>
+    public class LanguageCatalogueParser : ILanguageCatalogueParser
     {
         // TODO: remove?
         //private const int FirstLineId = 0;

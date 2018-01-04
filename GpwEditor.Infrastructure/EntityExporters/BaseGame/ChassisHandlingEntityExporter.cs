@@ -22,7 +22,7 @@ namespace GpwEditor.Infrastructure.EntityExporters.BaseGame
             if (entity == null) throw new ArgumentNullException(nameof(entity));
             if (!(entity is ChassisHandlingEntity chassisHandlingEntity)) throw new ArgumentNullException(nameof(chassisHandlingEntity));
 
-            _dataLocator.Map(chassisHandlingEntity.Id);
+            _dataLocator.Initialise(chassisHandlingEntity.Id);
 
             _dataEndpoint.GameExecutableResource.WriteInteger(_dataLocator.Value, chassisHandlingEntity.Value);
         }

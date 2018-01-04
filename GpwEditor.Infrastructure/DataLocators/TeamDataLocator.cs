@@ -38,7 +38,7 @@ namespace GpwEditor.Infrastructure.DataLocators
         public int LocationPointerY { get; set; }
         public int TyreSupplierId { get; set; }
 
-        public void Map(int id)
+        public void Initialise(int id)
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
 

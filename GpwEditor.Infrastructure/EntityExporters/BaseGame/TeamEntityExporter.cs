@@ -22,7 +22,7 @@ namespace GpwEditor.Infrastructure.EntityExporters.BaseGame
             if (entity == null) throw new ArgumentNullException(nameof(entity));
             if (!(entity is TeamEntity teamEntity)) throw new ArgumentNullException(nameof(teamEntity));
 
-            _dataLocator.Map(teamEntity.Id);
+            _dataLocator.Initialise(teamEntity.Id);
 
             _dataEndpoint.EnglishLanguageCatalogue.Write(_dataLocator.Name, teamEntity.Name.English);
             _dataEndpoint.FrenchLanguageCatalogue.Write(_dataLocator.Name, teamEntity.Name.French);

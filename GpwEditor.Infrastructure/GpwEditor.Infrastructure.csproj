@@ -45,7 +45,10 @@
     <Compile Include="Catalogues\Commentary\FrenchCommentaryCatalogue.cs" />
     <Compile Include="Catalogues\Commentary\GermanLanguagePhrases.cs" />
     <Compile Include="Catalogues\Commentary\ICommentaryCatalogue.cs" />
+    <Compile Include="Catalogues\Commentary\ICommentaryCatalogueParser.cs" />
     <Compile Include="Catalogues\Commentary\ILanguagePhrases.cs" />
+    <Compile Include="Catalogues\Language\ILanguageCatalogueParser.cs" />
+    <Compile Include="Catalogues\Language\ILanguageCatalogueValue.cs" />
     <Compile Include="Enums\BaseGameRepositoryType.cs" />
     <Compile Include="Enums\LanguageType.cs" />
     <Compile Include="Catalogues\Language\GermanLanguageCatalogue.cs" />
@@ -69,6 +72,12 @@
     <Compile Include="DataLocators\TeamDataLocator.cs" />
     <Compile Include="Factories\Repositories\IBaseGameRepositoryFactory.cs" />
     <Compile Include="Factories\Repositories\BaseGameRepositoryFactory.cs" />
+    <Compile Include="RepositoryExporters\BaseGame\TeamRepositoryExporter.cs" />
+    <Compile Include="RepositoryImporters\BaseGame\TeamRepositoryImporter.cs" />
+    <Compile Include="RepositoryExporters\BaseGame\ChassisHandlingRepositoryExporter.cs" />
+    <Compile Include="RepositoryImporters\BaseGame\ChassisHandlingRepositoryImporter.cs" />
+    <Compile Include="RepositoryExporters\BaseGame\CarNumberRepositoryExporter.cs" />
+    <Compile Include="RepositoryImporters\BaseGame\CarNumberRepositoryImporter.cs" />
     <Compile Include="Repositories\BaseGame\IBaseGameRepository.cs" />
     <Compile Include="Repositories\BaseGame\ChassisHandlingRepository.cs" />
     <Compile Include="Repositories\BaseGame\TeamRepository.cs" />
@@ -109,6 +118,8 @@
     <Folder Include="EntityImporters\SaveGame\" />
     <Folder Include="Factories\Entities\SaveGame\" />
     <Folder Include="Repositories\SaveGame\" />
+    <Folder Include="RepositoryExporters\SaveGame\" />
+    <Folder Include="RepositoryImporters\SaveGame\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.Editor.Data\Common.Editor.Data.csproj">

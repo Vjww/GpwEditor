@@ -19,10 +19,6 @@ namespace GpwEditor.Infrastructure.DataContexts
             CarNumbers = repositoryFactory.Create(BaseGameRepositoryType.CarNumber);
             ChassisHandlings = repositoryFactory.Create(BaseGameRepositoryType.ChassisHandling);
             Teams = repositoryFactory.Create(BaseGameRepositoryType.Team);
-
-            CarNumbers.RepositoryCapacity = 22;
-            ChassisHandlings.RepositoryCapacity = 11;
-            Teams.RepositoryCapacity = 11;
         }
 
         public void Export()

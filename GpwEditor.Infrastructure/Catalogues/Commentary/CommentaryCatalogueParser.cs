@@ -7,7 +7,7 @@ using GpwEditor.Infrastructure.Enums;
 
 namespace GpwEditor.Infrastructure.Catalogues.Commentary
 {
-    public class CommentaryCatalogueParser : ICatalogueParser<CommentaryCatalogueItem>
+    public class CommentaryCatalogueParser : ICommentaryCatalogueParser
     {
         // TODO: remove?
         //private const int FirstLineId = 1;

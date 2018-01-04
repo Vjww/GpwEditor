@@ -22,7 +22,7 @@ namespace GpwEditor.Infrastructure.EntityExporters.BaseGame
             if (entity == null) throw new ArgumentNullException(nameof(entity));
             if (!(entity is CarNumberEntity carNumberEntity)) throw new ArgumentNullException(nameof(carNumberEntity));
 
-            _dataLocator.Map(carNumberEntity.Id);
+            _dataLocator.Initialise(carNumberEntity.Id);
 
             _dataEndpoint.GameExecutableResource.WriteInteger(_dataLocator.ValueA, carNumberEntity.ValueA);
             _dataEndpoint.GameExecutableResource.WriteInteger(_dataLocator.ValueB, carNumberEntity.ValueB);
