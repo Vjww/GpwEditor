@@ -3916,8 +3916,8 @@
         <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.Bind(System.Collections.Generic.IReadOnlyList{Common.Editor.Data.Entities.IEntity})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.ConstructorIRepositoryExporterIRepositoryImporter">
-            <summary>Sets the shim of CarNumberRepository.CarNumberRepository(IRepositoryExporter repositoryExporter, IRepositoryImporter repositoryImporter)</summary>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.ConstructorCarNumberRepositoryExporterCarNumberRepositoryImporter">
+            <summary>Sets the shim of CarNumberRepository.CarNumberRepository(CarNumberRepositoryExporter repositoryExporter, CarNumberRepositoryImporter repositoryImporter)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimCarNumberRepository.TypeGet">
             <summary>Sets the shim of CarNumberRepository.get_Type()</summary>
@@ -3976,8 +3976,8 @@
         <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.Bind(System.Collections.Generic.IReadOnlyList{Common.Editor.Data.Entities.IEntity})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.ConstructorIRepositoryExporterIRepositoryImporter">
-            <summary>Sets the shim of ChassisHandlingRepository.ChassisHandlingRepository(IRepositoryExporter repositoryExporter, IRepositoryImporter repositoryImporter)</summary>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.ConstructorChassisHandlingRepositoryExporterChassisHandlingRepositoryImporter">
+            <summary>Sets the shim of ChassisHandlingRepository.ChassisHandlingRepository(ChassisHandlingRepositoryExporter repositoryExporter, ChassisHandlingRepositoryImporter repositoryImporter)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimChassisHandlingRepository.TypeGet">
             <summary>Sets the shim of ChassisHandlingRepository.get_Type()</summary>
@@ -4036,8 +4036,8 @@
         <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.Bind(System.Collections.Generic.IReadOnlyList{Common.Editor.Data.Entities.IEntity})">
             <summary>Binds the members of the interface to the shim.</summary>
         </member>
-        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.ConstructorIRepositoryExporterIRepositoryImporter">
-            <summary>Sets the shim of TeamRepository.TeamRepository(IRepositoryExporter repositoryExporter, IRepositoryImporter repositoryImporter)</summary>
+        <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.ConstructorTeamRepositoryExporterTeamRepositoryImporter">
+            <summary>Sets the shim of TeamRepository.TeamRepository(TeamRepositoryExporter repositoryExporter, TeamRepositoryImporter repositoryImporter)</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.ShimTeamRepository.TypeGet">
             <summary>Sets the shim of TeamRepository.get_Type()</summary>
@@ -4045,7 +4045,7 @@
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubCarNumberRepository">
             <summary>Stub type of GpwEditor.Infrastructure.Repositories.BaseGame.CarNumberRepository</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubCarNumberRepository.#ctor(Common.Editor.Data.Repositories.IRepositoryExporter,Common.Editor.Data.Repositories.IRepositoryImporter)">
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubCarNumberRepository.#ctor(GpwEditor.Infrastructure.RepositoryExporters.BaseGame.CarNumberRepositoryExporter,GpwEditor.Infrastructure.RepositoryImporters.BaseGame.CarNumberRepositoryImporter)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubCarNumberRepository.CallBase">
@@ -4063,7 +4063,7 @@
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository">
             <summary>Stub type of GpwEditor.Infrastructure.Repositories.BaseGame.ChassisHandlingRepository</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository.#ctor(Common.Editor.Data.Repositories.IRepositoryExporter,Common.Editor.Data.Repositories.IRepositoryImporter)">
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository.#ctor(GpwEditor.Infrastructure.RepositoryExporters.BaseGame.ChassisHandlingRepositoryExporter,GpwEditor.Infrastructure.RepositoryImporters.BaseGame.ChassisHandlingRepositoryImporter)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubChassisHandlingRepository.CallBase">
@@ -4147,7 +4147,7 @@
         <member name="T:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository">
             <summary>Stub type of GpwEditor.Infrastructure.Repositories.BaseGame.TeamRepository</summary>
         </member>
-        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository.#ctor(Common.Editor.Data.Repositories.IRepositoryExporter,Common.Editor.Data.Repositories.IRepositoryImporter)">
+        <member name="M:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository.#ctor(GpwEditor.Infrastructure.RepositoryExporters.BaseGame.TeamRepositoryExporter,GpwEditor.Infrastructure.RepositoryImporters.BaseGame.TeamRepositoryImporter)">
             <summary>Initializes a new instance</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository.CallBase">
@@ -4160,6 +4160,276 @@
             <summary>Gets or sets the instance behavior.</summary>
         </member>
         <member name="P:GpwEditor.Infrastructure.Repositories.BaseGame.Fakes.StubTeamRepository.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimCarNumberRepositoryExporter">
+            <summary>Shim type of GpwEditor.Infrastructure.RepositoryExporters.BaseGame.CarNumberRepositoryExporter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimCarNumberRepositoryExporter.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimCarNumberRepositoryExporter.#ctor(GpwEditor.Infrastructure.RepositoryExporters.BaseGame.CarNumberRepositoryExporter)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimCarNumberRepositoryExporter.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimCarNumberRepositoryExporter.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimCarNumberRepositoryExporter.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimCarNumberRepositoryExporter.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimCarNumberRepositoryExporter.Bind(Common.Editor.Data.Repositories.IRepositoryExporter)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimCarNumberRepositoryExporter.ConstructorCarNumberEntityExporter">
+            <summary>Sets the shim of CarNumberRepositoryExporter.CarNumberRepositoryExporter(CarNumberEntityExporter entityExporter)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimChassisHandlingRepositoryExporter">
+            <summary>Shim type of GpwEditor.Infrastructure.RepositoryExporters.BaseGame.ChassisHandlingRepositoryExporter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimChassisHandlingRepositoryExporter.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimChassisHandlingRepositoryExporter.#ctor(GpwEditor.Infrastructure.RepositoryExporters.BaseGame.ChassisHandlingRepositoryExporter)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimChassisHandlingRepositoryExporter.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimChassisHandlingRepositoryExporter.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimChassisHandlingRepositoryExporter.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimChassisHandlingRepositoryExporter.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimChassisHandlingRepositoryExporter.Bind(Common.Editor.Data.Repositories.IRepositoryExporter)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimChassisHandlingRepositoryExporter.ConstructorChassisHandlingEntityExporter">
+            <summary>Sets the shim of ChassisHandlingRepositoryExporter.ChassisHandlingRepositoryExporter(ChassisHandlingEntityExporter entityExporter)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimTeamRepositoryExporter">
+            <summary>Shim type of GpwEditor.Infrastructure.RepositoryExporters.BaseGame.TeamRepositoryExporter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimTeamRepositoryExporter.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimTeamRepositoryExporter.#ctor(GpwEditor.Infrastructure.RepositoryExporters.BaseGame.TeamRepositoryExporter)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimTeamRepositoryExporter.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimTeamRepositoryExporter.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimTeamRepositoryExporter.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimTeamRepositoryExporter.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimTeamRepositoryExporter.Bind(Common.Editor.Data.Repositories.IRepositoryExporter)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.ShimTeamRepositoryExporter.ConstructorTeamEntityExporter">
+            <summary>Sets the shim of TeamRepositoryExporter.TeamRepositoryExporter(TeamEntityExporter entityExporter)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubCarNumberRepositoryExporter">
+            <summary>Stub type of GpwEditor.Infrastructure.RepositoryExporters.BaseGame.CarNumberRepositoryExporter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubCarNumberRepositoryExporter.#ctor(GpwEditor.Infrastructure.EntityExporters.BaseGame.CarNumberEntityExporter)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubCarNumberRepositoryExporter.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubCarNumberRepositoryExporter.InitializeStub">
+            <summary>Initializes a new instance of type StubCarNumberRepositoryExporter</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubCarNumberRepositoryExporter.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubCarNumberRepositoryExporter.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubChassisHandlingRepositoryExporter">
+            <summary>Stub type of GpwEditor.Infrastructure.RepositoryExporters.BaseGame.ChassisHandlingRepositoryExporter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubChassisHandlingRepositoryExporter.#ctor(GpwEditor.Infrastructure.EntityExporters.BaseGame.ChassisHandlingEntityExporter)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubChassisHandlingRepositoryExporter.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubChassisHandlingRepositoryExporter.InitializeStub">
+            <summary>Initializes a new instance of type StubChassisHandlingRepositoryExporter</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubChassisHandlingRepositoryExporter.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubChassisHandlingRepositoryExporter.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubTeamRepositoryExporter">
+            <summary>Stub type of GpwEditor.Infrastructure.RepositoryExporters.BaseGame.TeamRepositoryExporter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubTeamRepositoryExporter.#ctor(GpwEditor.Infrastructure.EntityExporters.BaseGame.TeamEntityExporter)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubTeamRepositoryExporter.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubTeamRepositoryExporter.InitializeStub">
+            <summary>Initializes a new instance of type StubTeamRepositoryExporter</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubTeamRepositoryExporter.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryExporters.BaseGame.Fakes.StubTeamRepositoryExporter.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimCarNumberRepositoryImporter">
+            <summary>Shim type of GpwEditor.Infrastructure.RepositoryImporters.BaseGame.CarNumberRepositoryImporter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimCarNumberRepositoryImporter.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimCarNumberRepositoryImporter.#ctor(GpwEditor.Infrastructure.RepositoryImporters.BaseGame.CarNumberRepositoryImporter)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimCarNumberRepositoryImporter.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimCarNumberRepositoryImporter.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimCarNumberRepositoryImporter.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimCarNumberRepositoryImporter.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimCarNumberRepositoryImporter.Bind(Common.Editor.Data.Repositories.IRepositoryImporter)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimCarNumberRepositoryImporter.ConstructorCarNumberEntityImporter">
+            <summary>Sets the shim of CarNumberRepositoryImporter.CarNumberRepositoryImporter(CarNumberEntityImporter entityImporter)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimChassisHandlingRepositoryImporter">
+            <summary>Shim type of GpwEditor.Infrastructure.RepositoryImporters.BaseGame.ChassisHandlingRepositoryImporter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimChassisHandlingRepositoryImporter.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimChassisHandlingRepositoryImporter.#ctor(GpwEditor.Infrastructure.RepositoryImporters.BaseGame.ChassisHandlingRepositoryImporter)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimChassisHandlingRepositoryImporter.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimChassisHandlingRepositoryImporter.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimChassisHandlingRepositoryImporter.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimChassisHandlingRepositoryImporter.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimChassisHandlingRepositoryImporter.Bind(Common.Editor.Data.Repositories.IRepositoryImporter)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimChassisHandlingRepositoryImporter.ConstructorChassisHandlingEntityImporter">
+            <summary>Sets the shim of ChassisHandlingRepositoryImporter.ChassisHandlingRepositoryImporter(ChassisHandlingEntityImporter entityImporter)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimTeamRepositoryImporter">
+            <summary>Shim type of GpwEditor.Infrastructure.RepositoryImporters.BaseGame.TeamRepositoryImporter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimTeamRepositoryImporter.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimTeamRepositoryImporter.#ctor(GpwEditor.Infrastructure.RepositoryImporters.BaseGame.TeamRepositoryImporter)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimTeamRepositoryImporter.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimTeamRepositoryImporter.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimTeamRepositoryImporter.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimTeamRepositoryImporter.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimTeamRepositoryImporter.Bind(Common.Editor.Data.Repositories.IRepositoryImporter)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.ShimTeamRepositoryImporter.ConstructorTeamEntityImporter">
+            <summary>Sets the shim of TeamRepositoryImporter.TeamRepositoryImporter(TeamEntityImporter entityImporter)</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubCarNumberRepositoryImporter">
+            <summary>Stub type of GpwEditor.Infrastructure.RepositoryImporters.BaseGame.CarNumberRepositoryImporter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubCarNumberRepositoryImporter.#ctor(GpwEditor.Infrastructure.EntityImporters.BaseGame.CarNumberEntityImporter)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubCarNumberRepositoryImporter.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubCarNumberRepositoryImporter.InitializeStub">
+            <summary>Initializes a new instance of type StubCarNumberRepositoryImporter</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubCarNumberRepositoryImporter.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubCarNumberRepositoryImporter.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubChassisHandlingRepositoryImporter">
+            <summary>Stub type of GpwEditor.Infrastructure.RepositoryImporters.BaseGame.ChassisHandlingRepositoryImporter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubChassisHandlingRepositoryImporter.#ctor(GpwEditor.Infrastructure.EntityImporters.BaseGame.ChassisHandlingEntityImporter)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubChassisHandlingRepositoryImporter.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubChassisHandlingRepositoryImporter.InitializeStub">
+            <summary>Initializes a new instance of type StubChassisHandlingRepositoryImporter</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubChassisHandlingRepositoryImporter.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubChassisHandlingRepositoryImporter.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubTeamRepositoryImporter">
+            <summary>Stub type of GpwEditor.Infrastructure.RepositoryImporters.BaseGame.TeamRepositoryImporter</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubTeamRepositoryImporter.#ctor(GpwEditor.Infrastructure.EntityImporters.BaseGame.TeamEntityImporter)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubTeamRepositoryImporter.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubTeamRepositoryImporter.InitializeStub">
+            <summary>Initializes a new instance of type StubTeamRepositoryImporter</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubTeamRepositoryImporter.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:GpwEditor.Infrastructure.RepositoryImporters.BaseGame.Fakes.StubTeamRepositoryImporter.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
     </members>

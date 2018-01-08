@@ -2,6 +2,7 @@
 using System.Linq;
 using Autofac;
 using GpwEditor.Presentation.Console.DependencyInjection.Output;
+using IContainer = Autofac.IContainer;
 
 namespace GpwEditor.Presentation.Console.DependencyInjection.Autofac
 {

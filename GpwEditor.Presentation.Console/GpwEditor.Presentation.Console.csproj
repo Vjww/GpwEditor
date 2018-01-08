@@ -35,43 +35,41 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\Users\Vincent\Documents\Visual Studio 2017\Projects\UnityDiTest\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.4.0\lib\net45\CommonServiceLocator.dll</HintPath>
+    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.4\lib\net45\CommonServiceLocator.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Unity.Abstractions, Version=2.4.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.4.0\lib\net45\Unity.Abstractions.dll</HintPath>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Unity.Abstractions, Version=3.1.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.4\lib\net45\Unity.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Configuration, Version=5.1.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.4.0\lib\net45\Unity.Configuration.dll</HintPath>
+    <Reference Include="Unity.Configuration, Version=5.1.3.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.4\lib\net45\Unity.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Container, Version=5.4.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.4.0\lib\net45\Unity.Container.dll</HintPath>
+    <Reference Include="Unity.Container, Version=5.5.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.4\lib\net45\Unity.Container.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Interception, Version=5.2.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.4.0\lib\net45\Unity.Interception.dll</HintPath>
+    <Reference Include="Unity.Interception, Version=5.3.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.4\lib\net45\Unity.Interception.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Interception.Configuration, Version=5.1.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.4.0\lib\net45\Unity.Interception.Configuration.dll</HintPath>
+    <Reference Include="Unity.Interception.Configuration, Version=5.1.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.4\lib\net45\Unity.Interception.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RegistrationByConvention, Version=2.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.4.0\lib\net45\Unity.RegistrationByConvention.dll</HintPath>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.1.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.4\lib\net45\Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.ServiceLocation, Version=2.0.9.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.4.0\lib\net45\Unity.ServiceLocation.dll</HintPath>
+    <Reference Include="Unity.ServiceLocation, Version=2.1.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.4\lib\net45\Unity.ServiceLocation.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -86,34 +84,32 @@
     <Compile Include="DependencyInjection\Unity\UnityDependencyInjectionContainer.cs" />
     <Compile Include="DependencyInjection\Unity\UnityContainerBootstrapper.cs" />
     <Compile Include="DependencyInjection\Unity\UnityContainerRegistrationExtension.cs" />
-    <Compile Include="Controllers\BaseGameController.cs" />
-    <Compile Include="Controllers\IController.cs" />
     <Compile Include="Models\BaseGameModel.cs" />
     <Compile Include="Models\IModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\IView.cs" />
-    <Compile Include="Views\BaseGame\TeamView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\SaveGame\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.Editor.Data\Common.Editor.Data.csproj">
       <Project>{D3A62601-844D-459D-A720-9530CD86A7DE}</Project>
       <Name>Common.Editor.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GpwEditor.Application\GpwEditor.Application.csproj">
-      <Project>{e53d32de-3ae8-4c74-bc88-9b8119d5d116}</Project>
-      <Name>GpwEditor.Application</Name>
+    <ProjectReference Include="..\App.BaseGameEditor.Application\App.BaseGameEditor.Application.csproj">
+      <Project>{4538da14-275a-4711-b4bf-6a4dd806189d}</Project>
+      <Name>App.BaseGameEditor.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GpwEditor.Domain\GpwEditor.Domain.csproj">
-      <Project>{6f5104e8-377b-4e0a-af55-c4c76a226acd}</Project>
-      <Name>GpwEditor.Domain</Name>
+    <ProjectReference Include="..\App.BaseGameEditor.Domain\App.BaseGameEditor.Domain.csproj">
+      <Project>{26383D7C-AAF3-43B9-AD71-FD795387B59F}</Project>
+      <Name>App.BaseGameEditor.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.BaseGameEditor.Infrastructure\App.BaseGameEditor.Infrastructure.csproj">
+      <Project>{360ab367-9cb7-4fdf-9580-984962f76616}</Project>
+      <Name>App.BaseGameEditor.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\GpwEditor.Infrastructure\GpwEditor.Infrastructure.csproj">
       <Project>{4DE92B03-5B29-4D4E-9657-109854CE4DE4}</Project>

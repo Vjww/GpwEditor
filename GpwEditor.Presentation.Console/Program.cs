@@ -1,6 +1,6 @@
 ﻿using System;
-using GpwEditor.Application;
-using GpwEditor.Application.DataServices;
+using App.BaseGameEditor.Application;
+using App.BaseGameEditor.Infrastructure.DataServices;
 using GpwEditor.Presentation.Console.Controllers;
 using GpwEditor.Presentation.Console.DependencyInjection.Output;
 using GpwEditor.Presentation.Console.DependencyInjection.Unity;

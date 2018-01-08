@@ -44,10 +44,6 @@
     <Content Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\App.Core\App.Core.csproj">
-      <Project>{f3ce8598-63b2-4526-b637-65a6bbe5c8a2}</Project>
-      <Name>App.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\App.Data\App.Data.csproj">
       <Project>{7b849204-9113-48d5-9dc1-9562e2ac522b}</Project>
       <Name>App.Data</Name>

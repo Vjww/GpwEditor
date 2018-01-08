@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using App.BaseGameEditor.Application.Validators;
+using App.BaseGameEditor.Domain.Models;
+using App.BaseGameEditor.Domain.Validators;
 using Common.Editor.Data.Catalogues;
 using Common.Editor.Data.FileResources;
-using GpwEditor.Domain.Models.BaseGame;
-using GpwEditor.Domain.Validators;
-using GpwEditor.Domain.Validators.BaseGame;
 using GpwEditor.Infrastructure.Catalogues.Commentary;
 using GpwEditor.Infrastructure.Catalogues.Language;
 using GpwEditor.Infrastructure.Repositories.BaseGame;
@@ -57,7 +57,8 @@ namespace GpwEditor.Presentation.Console.DependencyInjection.Unity
             _container.RegisterType<ILanguagePhrases, FrenchLanguagePhrases>();
             _container.RegisterType<ILanguagePhrases, GermanLanguagePhrases>();
 
-            _container.RegisterType<IValidator<ITeamModel>, TeamValidator>();
+            // TODO:
+            //_container.RegisterType<IModelValidator<ITeamModel>, TeamValidator>();
 
             return _container;
         }

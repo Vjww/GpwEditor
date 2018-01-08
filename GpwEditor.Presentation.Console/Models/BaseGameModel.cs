@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GpwEditor.Domain.Models.BaseGame;
+using App.BaseGameEditor.Domain.Models;
 
 namespace GpwEditor.Presentation.Console.Models
 {

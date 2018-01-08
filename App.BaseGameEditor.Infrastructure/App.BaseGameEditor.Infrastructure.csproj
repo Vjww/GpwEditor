@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{360AB367-9CB7-4FDF-9580-984962F76616}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>App.BaseGameEditor.Infrastructure</RootNamespace>
+    <AssemblyName>App.BaseGameEditor.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataConnections\BaseGameDataConnectionValidator.cs" />
+    <Compile Include="DataConnections\IDataConnectionValidator.cs" />
+    <Compile Include="DataServices\BaseGameDataService.cs" />
+    <Compile Include="DataServices\BaseGameDataServiceExporter.cs" />
+    <Compile Include="DataServices\BaseGameDataServiceImporter.cs" />
+    <Compile Include="DataServices\IDataServiceExporter.cs" />
+    <Compile Include="DataServices\IDataServiceImporter.cs" />
+    <Compile Include="Factories\IModelFactory.cs" />
+    <Compile Include="Factories\ModelFactory.cs" />
+    <Compile Include="Managers\TeamManager.cs" />
+    <Compile Include="Mappers\DataContextToTeamModelMapper.cs" />
+    <Compile Include="Mappers\TeamModelToDataContextMapper.cs" />
+    <Compile Include="Mappers\IDataContextToModelMapper.cs" />
+    <Compile Include="Mappers\IModelToDataContextMapper.cs" />
+    <Compile Include="Maps\TeamEntityOnTeamModelMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.Editor.Data\Common.Editor.Data.csproj">
+      <Project>{D3A62601-844D-459D-A720-9530CD86A7DE}</Project>
+      <Name>Common.Editor.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.BaseGameEditor.Domain\App.BaseGameEditor.Domain.csproj">
+      <Project>{26383d7c-aaf3-43b9-ad71-fd795387b59f}</Project>
+      <Name>App.BaseGameEditor.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GpwEditor.Infrastructure\GpwEditor.Infrastructure.csproj">
+      <Project>{4de92b03-5b29-4d4e-9657-109854ce4de4}</Project>
+      <Name>GpwEditor.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Factories\Catalogues\Commentary\" />
+    <Folder Include="Factories\Catalogues\Languages\" />
+    <Folder Include="Factories\Entities\BaseGame\" />
+    <Folder Include="Factories\Entities\SaveGame\" />
+    <Folder Include="Factories\Repositories\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
