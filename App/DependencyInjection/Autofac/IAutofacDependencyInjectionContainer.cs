@@ -6,7 +6,7 @@ namespace App.DependencyInjection.Autofac
     {
         void DisplayContainerName();
         void DisplayRegistrations();
-        T GetApplicationInstance<T>();
+        T GetInstance<T>();
         void PerformRegistrations();
     }
 }

@@ -1,9 +1,10 @@
-﻿using App.BaseGameEditor.Domain.Models;
+﻿using App.BaseGameEditor.Data.Entities.BaseGame;
+using App.BaseGameEditor.Domain.Models;
 using AutoMapper;
-using GpwEditor.Infrastructure.Entities.BaseGame;
 
 namespace App.BaseGameEditor.Infrastructure.Maps
 {
+    // TODO: Redundant? As there are classes that perform the aggregation/parting instead
     public class TeamEntityOnTeamModelMap : Profile
     {
         public TeamEntityOnTeamModelMap()

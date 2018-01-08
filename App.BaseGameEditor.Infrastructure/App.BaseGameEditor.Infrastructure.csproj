@@ -66,13 +66,13 @@
       <Project>{D3A62601-844D-459D-A720-9530CD86A7DE}</Project>
       <Name>Common.Editor.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.BaseGameEditor.Data\App.BaseGameEditor.Data.csproj">
+      <Project>{d338afef-dc6d-4325-aff8-ce03b7820c51}</Project>
+      <Name>App.BaseGameEditor.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.BaseGameEditor.Domain\App.BaseGameEditor.Domain.csproj">
       <Project>{26383d7c-aaf3-43b9-ad71-fd795387b59f}</Project>
       <Name>App.BaseGameEditor.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GpwEditor.Infrastructure\GpwEditor.Infrastructure.csproj">
-      <Project>{4de92b03-5b29-4d4e-9657-109854ce4de4}</Project>
-      <Name>GpwEditor.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

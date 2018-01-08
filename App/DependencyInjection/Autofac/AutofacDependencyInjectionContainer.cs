@@ -46,7 +46,7 @@ namespace App.DependencyInjection.Autofac
             _output.WriteLine();
         }
 
-        public T GetApplicationInstance<T>()
+        public T GetInstance<T>()
         {
             return _container.Resolve<T>();
         }

@@ -43,16 +43,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.IO.Compression.FileSystem" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
     <Reference Include="Unity.Abstractions, Version=3.1.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.5.4\lib\net45\Unity.Abstractions.dll</HintPath>
     </Reference>
@@ -105,21 +95,13 @@
       <Project>{4538da14-275a-4711-b4bf-6a4dd806189d}</Project>
       <Name>App.BaseGameEditor.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\App.BaseGameEditor.Domain\App.BaseGameEditor.Domain.csproj">
-      <Project>{26383d7c-aaf3-43b9-ad71-fd795387b59f}</Project>
-      <Name>App.BaseGameEditor.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\App.BaseGameEditor.Infrastructure\App.BaseGameEditor.Infrastructure.csproj">
-      <Project>{360ab367-9cb7-4fdf-9580-984962f76616}</Project>
-      <Name>App.BaseGameEditor.Infrastructure</Name>
+    <ProjectReference Include="..\App.BaseGameEditor.Data\App.BaseGameEditor.Data.csproj">
+      <Project>{d338afef-dc6d-4325-aff8-ce03b7820c51}</Project>
+      <Name>App.BaseGameEditor.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\App.BaseGameEditor.Presentation\App.BaseGameEditor.Presentation.csproj">
       <Project>{409fe1b2-4faa-4a3a-b131-20e0e4b675b2}</Project>
       <Name>App.BaseGameEditor.Presentation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GpwEditor.Infrastructure\GpwEditor.Infrastructure.csproj">
-      <Project>{4de92b03-5b29-4d4e-9657-109854ce4de4}</Project>
-      <Name>GpwEditor.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

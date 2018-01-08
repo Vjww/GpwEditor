@@ -1,8 +1,8 @@
 using System;
+using App.BaseGameEditor.Data.DataConnections;
+using App.BaseGameEditor.Data.DataContexts;
+using App.BaseGameEditor.Data.DataEndpoints;
 using App.BaseGameEditor.Infrastructure.DataConnections;
-using GpwEditor.Infrastructure.DataConnections;
-using GpwEditor.Infrastructure.DataContexts;
-using GpwEditor.Infrastructure.DataEndpoints;
 
 namespace App.BaseGameEditor.Infrastructure.DataServices
 {

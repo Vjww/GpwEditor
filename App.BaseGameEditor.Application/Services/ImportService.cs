@@ -1,8 +1,6 @@
 ﻿using System;
-using App.BaseGameEditor.Domain.Repositories;
 using App.BaseGameEditor.Infrastructure.DataServices;
-using App.BaseGameEditor.Infrastructure.Mappers;
-using GpwEditor.Infrastructure.DataConnections;
+using App.BaseGameEditor.Data.DataConnections;
 
 namespace App.BaseGameEditor.Application.Services
 {
@@ -46,29 +44,6 @@ namespace App.BaseGameEditor.Application.Services
 
             // TODO: I think here we need to load domain repositories
             _repositoryImporter.Import();
-        }
-    }
-
-    public class DomainRepositoryImporter
-    {
-        private readonly DataContextToTeamModelMapper _mapper;
-        private readonly TeamRepository _teamRepository;
-
-        public DomainRepositoryImporter(
-            DataContextToTeamModelMapper mapper,
-            TeamRepository teamRepository)
-        {
-            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-            _teamRepository = teamRepository ?? throw new ArgumentNullException(nameof(teamRepository));
-        }
-
-        public void Import()
-        {
-            for (var i = 0; i < 11; i++)
-            {
-                var model = _mapper.Map(i);
-                _teamRepository.Add(model);
-            }
         }
     }
 }

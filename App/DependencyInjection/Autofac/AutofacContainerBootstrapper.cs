@@ -14,13 +14,20 @@ namespace App.DependencyInjection.Autofac
 
         public IContainer Register()
         {
-            _containerBuilder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).Where(x =>
-                x.Namespace != null &&
-                x.Namespace.StartsWith("GpwEditor.Presentation.Console") &&
-                !x.Namespace.StartsWith("GpwEditor.Presentation.Console.DependencyInjection"))
-                //x.Namespace.StartsWith("GpwEditor.Application") &&
-                //x.Namespace.StartsWith("GpwEditor.Domain") &&
-                //x.Namespace.StartsWith("GpwEditor.Infrastructure"));
+            _containerBuilder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).Where(
+                x => x.Namespace != null &&
+                     !x.Namespace.StartsWith("App.AutoMapper") &&
+                     !x.Namespace.StartsWith("App.DependencyInjection") &&
+                     !x.Namespace.StartsWith("App.Output") &&
+                     (
+                         x.Namespace.StartsWith("App") ||
+                         x.Namespace.StartsWith("App.BaseGameEditor.Presentation") ||
+                         x.Namespace.StartsWith("App.BaseGameEditor.Application") ||
+                         x.Namespace.StartsWith("App.BaseGameEditor.Domain") ||
+                         x.Namespace.StartsWith("App.BaseGameEditor.Infrastructure") ||
+                         x.Namespace.StartsWith("GpwEditor.Infrastructure") ||
+                         x.Namespace.StartsWith("Common.Editor.Data")
+                    ))
                 .AsImplementedInterfaces();
             return _containerBuilder.Build();
         }

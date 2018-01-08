@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D338AFEF-DC6D-4325-AFF8-CE03B7820C51}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>App.BaseGameEditor.Data</RootNamespace>
+    <AssemblyName>App.BaseGameEditor.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Calculators\IdentityCalculator.cs" />
+    <Compile Include="Catalogues\Commentary\CommentaryCatalogueExporter.cs" />
+    <Compile Include="Catalogues\Commentary\CommentaryCatalogueImporter.cs" />
+    <Compile Include="Catalogues\Commentary\CommentaryCatalogueItem.cs" />
+    <Compile Include="Catalogues\Commentary\CommentaryCatalogueParser.cs" />
+    <Compile Include="Catalogues\Commentary\CommentaryCatalogueReader.cs" />
+    <Compile Include="Catalogues\Commentary\CommentaryCatalogueWriter.cs" />
+    <Compile Include="Catalogues\Commentary\EnglishCommentaryCatalogue.cs" />
+    <Compile Include="Catalogues\Commentary\EnglishLanguagePhrases.cs" />
+    <Compile Include="Catalogues\Commentary\FrenchCommentaryCatalogue.cs" />
+    <Compile Include="Catalogues\Commentary\FrenchLanguagePhrases.cs" />
+    <Compile Include="Catalogues\Commentary\GermanCommentaryCatalogue.cs" />
+    <Compile Include="Catalogues\Commentary\GermanLanguagePhrases.cs" />
+    <Compile Include="Catalogues\Commentary\ICommentaryCatalogue.cs" />
+    <Compile Include="Catalogues\Commentary\ICommentaryCatalogueParser.cs" />
+    <Compile Include="Catalogues\Commentary\ILanguagePhrases.cs" />
+    <Compile Include="Catalogues\Language\EnglishLanguageCatalogue.cs" />
+    <Compile Include="Catalogues\Language\FrenchLanguageCatalogue.cs" />
+    <Compile Include="Catalogues\Language\GermanLanguageCatalogue.cs" />
+    <Compile Include="Catalogues\Language\ILanguageCatalogue.cs" />
+    <Compile Include="Catalogues\Language\ILanguageCatalogueParser.cs" />
+    <Compile Include="Catalogues\Language\ILanguageCatalogueValue.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogueExporter.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogueImporter.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogueItem.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogueParser.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogueReader.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogueValue.cs" />
+    <Compile Include="Catalogues\Language\LanguageCatalogueWriter.cs" />
+    <Compile Include="Catalogues\MERGE_CommentaryResourceService.cs" />
+    <Compile Include="Catalogues\MERGE_LanguageResourceService.cs" />
+    <Compile Include="DataConnections\BaseGameDataConnection.cs" />
+    <Compile Include="DataConnections\SaveGameDataConnection.cs" />
+    <Compile Include="DataContexts\BaseGameDataContext.cs" />
+    <Compile Include="DataEndpoints\BaseGameDataEndpoint.cs" />
+    <Compile Include="DataEndpoints\SaveGameDataEndpoint.cs" />
+    <Compile Include="DataLocators\CarNumberDataLocator.cs" />
+    <Compile Include="DataLocators\ChassisHandlingDataLocator.cs" />
+    <Compile Include="DataLocators\TeamDataLocator.cs" />
+    <Compile Include="Entities\BaseGame\CarNumberEntity.cs" />
+    <Compile Include="Entities\BaseGame\ChassisHandlingEntity.cs" />
+    <Compile Include="Entities\BaseGame\TeamEntity.cs" />
+    <Compile Include="EntityExporters\BaseGame\CarNumberEntityExporter.cs" />
+    <Compile Include="EntityExporters\BaseGame\ChassisHandlingEntityExporter.cs" />
+    <Compile Include="EntityExporters\BaseGame\TeamEntityExporter.cs" />
+    <Compile Include="EntityImporters\BaseGame\CarNumberEntityImporter.cs" />
+    <Compile Include="EntityImporters\BaseGame\ChassisHandlingEntityImporter.cs" />
+    <Compile Include="EntityImporters\BaseGame\TeamEntityImporter.cs" />
+    <Compile Include="Enums\BaseGameRepositoryType.cs" />
+    <Compile Include="Enums\CommentaryType.cs" />
+    <Compile Include="Enums\LanguageType.cs" />
+    <Compile Include="Factories\Catalogues\Commentary\CommentaryCatalogueFactory.cs" />
+    <Compile Include="Factories\Catalogues\Commentary\ICommentaryCatalogueFactory.cs" />
+    <Compile Include="Factories\Catalogues\Languages\ILanguageCatalogueFactory.cs" />
+    <Compile Include="Factories\Catalogues\Languages\ILanguagePhrasesFactory.cs" />
+    <Compile Include="Factories\Catalogues\Languages\LanguageCatalogueFactory.cs" />
+    <Compile Include="Factories\Catalogues\Languages\LanguagePhrasesFactory.cs" />
+    <Compile Include="Factories\Entities\BaseGame\CarNumberEntityFactory.cs" />
+    <Compile Include="Factories\Entities\BaseGame\ChassisHandlingEntityFactory.cs" />
+    <Compile Include="Factories\Entities\BaseGame\TeamEntityFactory.cs" />
+    <Compile Include="Factories\Repositories\BaseGameRepositoryFactory.cs" />
+    <Compile Include="Factories\Repositories\IBaseGameRepositoryFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BaseGame\CarNumberRepository.cs" />
+    <Compile Include="Repositories\BaseGame\ChassisHandlingRepository.cs" />
+    <Compile Include="Repositories\BaseGame\IBaseGameRepository.cs" />
+    <Compile Include="Repositories\BaseGame\TeamRepository.cs" />
+    <Compile Include="RepositoryExporters\BaseGame\CarNumberRepositoryExporter.cs" />
+    <Compile Include="RepositoryExporters\BaseGame\ChassisHandlingRepositoryExporter.cs" />
+    <Compile Include="RepositoryExporters\BaseGame\TeamRepositoryExporter.cs" />
+    <Compile Include="RepositoryImporters\BaseGame\CarNumberRepositoryImporter.cs" />
+    <Compile Include="RepositoryImporters\BaseGame\ChassisHandlingRepositoryImporter.cs" />
+    <Compile Include="RepositoryImporters\BaseGame\TeamRepositoryImporter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\SaveGame\" />
+    <Folder Include="EntityExporters\SaveGame\" />
+    <Folder Include="EntityImporters\SaveGame\" />
+    <Folder Include="Factories\Entities\SaveGame\" />
+    <Folder Include="Repositories\SaveGame\" />
+    <Folder Include="RepositoryExporters\SaveGame\" />
+    <Folder Include="RepositoryImporters\SaveGame\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.Editor.Data\Common.Editor.Data.csproj">
+      <Project>{d3a62601-844d-459d-a720-9530cd86a7de}</Project>
+      <Name>Common.Editor.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

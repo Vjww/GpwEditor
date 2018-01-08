@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using App.BaseGameEditor.Data.DataContexts;
+using App.BaseGameEditor.Data.Entities.BaseGame;
 using App.BaseGameEditor.Domain.Models;
-using GpwEditor.Infrastructure.DataContexts;
-using GpwEditor.Infrastructure.Entities.BaseGame;
 
 namespace App.BaseGameEditor.Infrastructure.Mappers
 {

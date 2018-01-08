@@ -41,7 +41,9 @@ namespace App.DependencyInjection.Unity
             _output.WriteLine($"# Container has {_container.Registrations.Count()} registrations:");
             _output.WriteLine();
 
-            foreach (var item in _container.Registrations)
+            foreach (var item in _container.Registrations
+                .OrderBy(x => x.LifetimeManager.ToString())
+                .ThenBy(x => x.MappedToType.Namespace))
             {
                 var registration = (ContainerRegistration)item;
                 _output.WriteLine(registration.GetMappingAsString());

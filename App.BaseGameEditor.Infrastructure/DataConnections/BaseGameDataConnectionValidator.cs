@@ -1,4 +1,4 @@
-﻿using GpwEditor.Infrastructure.DataConnections;
+﻿using App.BaseGameEditor.Data.DataConnections;
 
 namespace App.BaseGameEditor.Infrastructure.DataConnections
 {
