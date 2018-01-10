@@ -3,7 +3,7 @@ using Autofac;
 
 namespace App.DependencyInjection.Autofac
 {
-    public class AutofacContainerBootstrapper : IAutofacContainerBootstrapper
+    public class AutofacContainerBootstrapper
     {
         private readonly ContainerBuilder _containerBuilder;
 
@@ -14,19 +14,19 @@ namespace App.DependencyInjection.Autofac
 
         public IContainer Register()
         {
-            _containerBuilder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).Where(
-                x => x.Namespace != null &&
-                     !x.Namespace.StartsWith("App.AutoMapper") &&
-                     !x.Namespace.StartsWith("App.DependencyInjection") &&
-                     !x.Namespace.StartsWith("App.Output") &&
+            _containerBuilder.RegisterAssemblyTypes(
+                AppDomain.CurrentDomain.GetAssemblies()).Where(
+                type => type.Namespace != null &&
+                     !type.Namespace.StartsWith("App.AutoMapper") &&
+                     !type.Namespace.StartsWith("App.DependencyInjection") &&
+                     !type.Namespace.StartsWith("App.Outputs") &&
                      (
-                         x.Namespace.StartsWith("App") ||
-                         x.Namespace.StartsWith("App.BaseGameEditor.Presentation") ||
-                         x.Namespace.StartsWith("App.BaseGameEditor.Application") ||
-                         x.Namespace.StartsWith("App.BaseGameEditor.Domain") ||
-                         x.Namespace.StartsWith("App.BaseGameEditor.Infrastructure") ||
-                         x.Namespace.StartsWith("GpwEditor.Infrastructure") ||
-                         x.Namespace.StartsWith("Common.Editor.Data")
+                        type.Namespace.StartsWith("App") ||
+                        type.Namespace.StartsWith("App.BaseGameEditor.Presentation") ||
+                        type.Namespace.StartsWith("App.BaseGameEditor.Application") ||
+                        type.Namespace.StartsWith("App.BaseGameEditor.Domain") ||
+                        type.Namespace.StartsWith("App.BaseGameEditor.Infrastructure") ||
+                        type.Namespace.StartsWith("App.BaseGameEditor.Data")
                     ))
                 .AsImplementedInterfaces();
             return _containerBuilder.Build();

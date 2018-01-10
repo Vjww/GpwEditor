@@ -15,7 +15,7 @@ using Unity.RegistrationByConvention;
 
 namespace App.DependencyInjection.Unity
 {
-    public class UnityContainerBootstrapper : IUnityContainerBootstrapper
+    public class UnityContainerBootstrapper
     {
         private readonly IUnityContainer _container;
 
@@ -29,18 +29,17 @@ namespace App.DependencyInjection.Unity
             // Automatic registration
             _container.RegisterTypes(
                 AllClasses.FromLoadedAssemblies().Where(
-                    x => x.Namespace != null &&
-                         !x.Namespace.StartsWith("App.AutoMapper") &&
-                         !x.Namespace.StartsWith("App.DependencyInjection") &&
-                         !x.Namespace.StartsWith("App.Output") &&
+                    type => type.Namespace != null &&
+                         !type.Namespace.StartsWith("App.AutoMapper") &&
+                         !type.Namespace.StartsWith("App.DependencyInjection") &&
+                         !type.Namespace.StartsWith("App.Outputs") &&
                          (
-                             x.Namespace.StartsWith("App") ||
-                             x.Namespace.StartsWith("App.BaseGameEditor.Presentation") ||
-                             x.Namespace.StartsWith("App.BaseGameEditor.Application") ||
-                             x.Namespace.StartsWith("App.BaseGameEditor.Domain") ||
-                             x.Namespace.StartsWith("App.BaseGameEditor.Infrastructure") ||
-                             x.Namespace.StartsWith("GpwEditor.Infrastructure") ||
-                             x.Namespace.StartsWith("Common.Editor.Data")
+                             type.Namespace.StartsWith("App") ||
+                             type.Namespace.StartsWith("App.BaseGameEditor.Presentation") ||
+                             type.Namespace.StartsWith("App.BaseGameEditor.Application") ||
+                             type.Namespace.StartsWith("App.BaseGameEditor.Domain") ||
+                             type.Namespace.StartsWith("App.BaseGameEditor.Infrastructure") ||
+                             type.Namespace.StartsWith("App.BaseGameEditor.Data")
                          )),                        // Get all types in namespaces that are to be registered
                 WithMappings.FromMatchingInterface, // Where the types implement interfaces of the same name (Class : IClass)
                 WithName.Default,                   // And mappings will be left unnamed when registering in the container
@@ -51,14 +50,14 @@ namespace App.DependencyInjection.Unity
             _container.RegisterType<ILanguageCatalogueValue, LanguageCatalogueValue>(new TransientLifetimeManager());
 
             // Manual registrations
-            _container.RegisterType<IOutput, ConsoleOutput>();
+            _container.RegisterType<BaseGameEditor.Presentation.Outputs.IOutput, ConsoleOutput>();
             RegisterLanguageCatalogueTypes();
             RegisterCommentaryCatalogueTypes();
             RegisterBaseGameRepositoryTypes();
 
             // TODO: These were added for integration test to succeed
             _container.RegisterType<IBaseGameRepositoryFactory, BaseGameRepositoryFactory>();
-            _container.RegisterType<IModelFactory<TeamEntity>, ModelFactory<TeamEntity>>();
+            _container.RegisterType<IEntityFactory<TeamEntity>, EntityFactory<TeamEntity>>();
 
             // TODO: Need to find a way to switch on language, currently hardcoded
             _container.RegisterType<ILanguagePhrases, EnglishLanguagePhrases>();

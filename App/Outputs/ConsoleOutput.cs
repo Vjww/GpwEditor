@@ -1,4 +1,6 @@
-﻿namespace App.Output
+﻿using App.DependencyInjection;
+
+namespace App.Outputs
 {
     public class ConsoleOutput : IOutput
     {

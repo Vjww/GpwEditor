@@ -4,9 +4,9 @@ using AutoMapper;
 
 namespace App.BaseGameEditor.Presentation.Maps
 {
-    public class TeamModelOnTeamViewModelMap : Profile
+    public class TeamEntityOnTeamViewModelMap : Profile
     {
-        public TeamModelOnTeamViewModelMap()
+        public TeamEntityOnTeamViewModelMap()
         {
             CreateMap<TeamEntity, TeamViewModel>()
                 .ReverseMap();

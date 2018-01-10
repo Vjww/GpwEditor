@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using App.BaseGameEditor.Application.DomainServices;
+using App.BaseGameEditor.Application.Services;
 using App.DependencyInjection.Unity;
-using App.Output;
+using App.Outputs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.BaseGameEditor.Application.Tests
@@ -14,14 +14,14 @@ namespace App.BaseGameEditor.Application.Tests
         [TestMethod]
         public void QuickIntegrationTest_WhenGettingTeamModels_ExpectSelectedModelIsPopulatedWithData()
         {
-            var outputDevice = new ConsoleOutput();
-            using (var container = new UnityDependencyInjectionContainer(outputDevice))
+            var output = new ConsoleOutput();
+            using (var container = new UnityDependencyInjectionContainer(output))
             {
                 container.PerformRegistrations();
 
-                var dataService = container.GetInstance<DomainService>();
+                var service = container.GetInstance<ApplicationService>();
 
-                dataService.Import(
+                service.Import(
                     $@"{GameFolder}",
                     $@"{GameFolder}\gpw.exe",
                     $@"{GameFolder}\english.txt",
@@ -31,24 +31,24 @@ namespace App.BaseGameEditor.Application.Tests
                     $@"{GameFolder}\textf\commf.txt",
                     $@"{GameFolder}\textg\commg.txt");
 
-                var models = dataService.DomainModelService.Teams.GetTeams();
-                var model = models.Single(x => x.TeamId == 10);
+                var models = service.DomainModel.Teams.GetTeams();
+                var sut = models.Single(x => x.TeamId == 10);
 
-                Assert.IsTrue(model.TeamId == 10);
-                Assert.IsTrue(model.Name == "Tyrrell");
-                Assert.IsTrue(model.LastPosition == 10);
-                Assert.IsTrue(model.LastPoints == 2);
-                Assert.IsTrue(model.FirstGpTrack == 7);
-                Assert.IsTrue(model.FirstGpYear == 1970);
-                Assert.IsTrue(model.Wins == 23);
-                Assert.IsTrue(model.YearlyBudget == 25000000);
-                Assert.IsTrue(model.CountryMapId == 1);
-                Assert.IsTrue(model.LocationPointerX == 128);
-                Assert.IsTrue(model.LocationPointerY == 120);
-                Assert.IsTrue(model.TyreSupplierId == 9);
-                Assert.IsTrue(model.ChassisHandling == 25);
-                Assert.IsTrue(model.CarNumberDriver1 == 20);
-                Assert.IsTrue(model.CarNumberDriver2 == 21);
+                Assert.IsTrue(sut.TeamId == 10);
+                Assert.IsTrue(sut.Name == "Tyrrell");
+                Assert.IsTrue(sut.LastPosition == 10);
+                Assert.IsTrue(sut.LastPoints == 2);
+                Assert.IsTrue(sut.FirstGpTrack == 7);
+                Assert.IsTrue(sut.FirstGpYear == 1970);
+                Assert.IsTrue(sut.Wins == 23);
+                Assert.IsTrue(sut.YearlyBudget == 25000000);
+                Assert.IsTrue(sut.CountryMapId == 1);
+                Assert.IsTrue(sut.LocationPointerX == 128);
+                Assert.IsTrue(sut.LocationPointerY == 120);
+                Assert.IsTrue(sut.TyreSupplierId == 9);
+                Assert.IsTrue(sut.ChassisHandling == 25);
+                Assert.IsTrue(sut.CarNumberDriver1 == 20);
+                Assert.IsTrue(sut.CarNumberDriver2 == 21);
             }
         }
     }

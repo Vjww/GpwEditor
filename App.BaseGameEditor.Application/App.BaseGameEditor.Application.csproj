@@ -38,11 +38,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
-    <Compile Include="DomainServices\DomainService.cs" />
+    <Compile Include="DataServiceExporters\TeamDomainServiceExporter.cs" />
+    <Compile Include="DataServiceImporters\DomainServiceImporter.cs" />
+    <Compile Include="Services\ApplicationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataServices\TeamDataService.cs" />
-    <Compile Include="DataServiceExporters\TeamServiceExporter.cs" />
-    <Compile Include="DataServiceImporters\TeamServiceImporter.cs" />
+    <Compile Include="DataServiceExporters\DomainServiceExporter.cs" />
+    <Compile Include="DataServiceImporters\TeamDomainServiceImporter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App.BaseGameEditor.Data\App.BaseGameEditor.Data.csproj">

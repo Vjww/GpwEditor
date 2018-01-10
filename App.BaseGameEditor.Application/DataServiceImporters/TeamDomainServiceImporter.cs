@@ -6,16 +6,16 @@ using App.BaseGameEditor.Infrastructure.Mappers;
 
 namespace App.BaseGameEditor.Application.DataServiceImporters
 {
-    public class TeamServiceImporter
+    public class TeamDomainServiceImporter
     {
         private const int ItemCount = 11;
 
         private readonly TeamService _service;
-        private readonly DataContextToTeamModelMapper _mapper;
+        private readonly DataContextToTeamEntityMapper _mapper;
 
-        public TeamServiceImporter(
+        public TeamDomainServiceImporter(
             TeamService service,
-            DataContextToTeamModelMapper mapper)
+            DataContextToTeamEntityMapper mapper)
         {
             _service = service ?? throw new ArgumentNullException(nameof(service));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace App.DependencyInjection.Autofac
+namespace App.DependencyInjection
 {
-    public interface IAutofacDependencyInjectionContainer : IDisposable
+    public interface IDependencyInjectionContainer : IDisposable
     {
         void DisplayContainerName();
         void DisplayRegistrations();

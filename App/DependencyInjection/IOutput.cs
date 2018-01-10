@@ -1,4 +1,4 @@
-﻿namespace App.Output
+﻿namespace App.DependencyInjection
 {
     public interface IOutput
     {

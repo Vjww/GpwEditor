@@ -5,33 +5,33 @@ using App.BaseGameEditor.Data.DataConnections;
 using App.BaseGameEditor.Domain;
 using App.BaseGameEditor.Infrastructure.DataServices;
 
-namespace App.BaseGameEditor.Application.DomainServices
+namespace App.BaseGameEditor.Application.Services
 {
-    public class DomainService
+    public class ApplicationService
     {
         private readonly DataConnection _dataConnection;
         private readonly BaseGameDataServiceExporter _baseGameDataServiceExporter;
         private readonly BaseGameDataServiceImporter _baseGameDataServiceImporter;
-        private readonly TeamServiceExporter _teamServiceExporter;
-        private readonly TeamServiceImporter _teamServiceImporter;
+        private readonly DomainServiceExporter _domainServicesExporter;
+        private readonly DomainServiceImporter _domainServiceImporter;
 
-        public DomainModelService DomainModelService { get; }
+        public DomainModelService DomainModel { get; }
 
-        public DomainService(
+        public ApplicationService(
             DataConnection dataConnection,
             BaseGameDataServiceExporter baseGameDataServiceExporter,
             BaseGameDataServiceImporter baseGameDataServiceImporter,
             DomainModelService domainModelService,
-            TeamServiceExporter teamServiceExporter,
-            TeamServiceImporter teamServiceImporter)
+            DomainServiceExporter domainServiceExporter,
+            DomainServiceImporter domainServiceImporter)
         {
             _dataConnection = dataConnection ?? throw new ArgumentNullException(nameof(dataConnection));
             _baseGameDataServiceExporter = baseGameDataServiceExporter ?? throw new ArgumentNullException(nameof(baseGameDataServiceExporter));
             _baseGameDataServiceImporter = baseGameDataServiceImporter ?? throw new ArgumentNullException(nameof(baseGameDataServiceImporter));
-            _teamServiceExporter = teamServiceExporter ?? throw new ArgumentNullException(nameof(teamServiceExporter));
-            _teamServiceImporter = teamServiceImporter ?? throw new ArgumentNullException(nameof(teamServiceImporter));
+            _domainServicesExporter = domainServiceExporter ?? throw new ArgumentNullException(nameof(domainServiceExporter));
+            _domainServiceImporter = domainServiceImporter ?? throw new ArgumentNullException(nameof(domainServiceImporter));
 
-            DomainModelService = domainModelService ?? throw new ArgumentNullException(nameof(domainModelService));
+            DomainModel = domainModelService ?? throw new ArgumentNullException(nameof(domainModelService));
         }
 
         public void Export(
@@ -56,11 +56,11 @@ namespace App.BaseGameEditor.Application.DomainServices
 
             // TODO: Validation of file paths in application layer?
 
-            // TODO: We want to export everything from domain layer into data layer
-            _baseGameDataServiceExporter.Export(_dataConnection);
+            // Export from domain layer into data layer
+            _domainServicesExporter.Export();
 
-            // TODO: and then export everything from data layer into file
-            _teamServiceExporter.Export();
+            // Export from data layer into files
+            _baseGameDataServiceExporter.Export(_dataConnection);
         }
 
         public void Import(
@@ -85,11 +85,11 @@ namespace App.BaseGameEditor.Application.DomainServices
 
             // TODO: Validation of file paths in application layer?
 
-            // TODO: We want to import everything from file into data layer
+            // Import from files into data layer
             _baseGameDataServiceImporter.Import(_dataConnection);
 
-            // TODO: and then import everything from data layer into domain layer.
-            _teamServiceImporter.Import();
+            // Import from data layer into domain layer
+            _domainServiceImporter.Import();
         }
     }
 }

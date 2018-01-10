@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Linq;
-using App.Output;
 using Autofac;
 
 namespace App.DependencyInjection.Autofac
 {
-    public class AutofacDependencyInjectionContainer : IAutofacDependencyInjectionContainer
+    public class AutofacDependencyInjectionContainer : IDependencyInjectionContainer
     {
         private const string ContainerName = "Autofac";
         private IContainer _container;
         private readonly IOutput _output;
-        private readonly IAutofacContainerBootstrapper _containerBootstrapper;
+        private readonly AutofacContainerBootstrapper _containerBootstrapper;
 
         public AutofacDependencyInjectionContainer(IOutput output)
         {

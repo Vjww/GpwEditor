@@ -2,21 +2,19 @@
 using System.Linq;
 using App.BaseGameEditor.Data.DataContexts;
 using App.BaseGameEditor.Data.Entities;
-using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Factories;
 using TeamEntity = App.BaseGameEditor.Domain.Entities.TeamEntity;
 
 namespace App.BaseGameEditor.Infrastructure.Mappers
 {
-    // TODO: Rename from model to entity
-    public class DataContextToTeamModelMapper : IDataContextToModelMapper<TeamEntity>
+    public class DataContextToTeamEntityMapper : IDataContextToEntityMapper<TeamEntity>
     {
         private readonly BaseGameDataContext _dataContext;
-        private readonly IModelFactory<TeamEntity> _factory;
+        private readonly IEntityFactory<TeamEntity> _factory;
 
-        public DataContextToTeamModelMapper(
+        public DataContextToTeamEntityMapper(
             BaseGameDataContext dataContext,
-            IModelFactory<TeamEntity> factory)
+            IEntityFactory<TeamEntity> factory)
         {
             _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
             _factory = factory ?? throw new ArgumentNullException(nameof(factory));

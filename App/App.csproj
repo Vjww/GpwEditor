@@ -70,15 +70,12 @@
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="DependencyInjection\Autofac\AutofacContainerBootstrapper.cs" />
     <Compile Include="DependencyInjection\Autofac\AutofacDependencyInjectionContainer.cs" />
-    <Compile Include="DependencyInjection\Autofac\IAutofacContainerBootstrapper.cs" />
-    <Compile Include="DependencyInjection\Autofac\IAutofacDependencyInjectionContainer.cs" />
-    <Compile Include="Output\IOutput.cs" />
-    <Compile Include="DependencyInjection\Unity\IUnityContainerBootstrapper.cs" />
-    <Compile Include="DependencyInjection\Unity\IUnityDependencyInjectionContainer.cs" />
+    <Compile Include="DependencyInjection\IOutput.cs" />
+    <Compile Include="DependencyInjection\IDependencyInjectionContainer.cs" />
     <Compile Include="DependencyInjection\Unity\UnityContainerBootstrapper.cs" />
     <Compile Include="DependencyInjection\Unity\UnityContainerRegistrationExtension.cs" />
     <Compile Include="DependencyInjection\Unity\UnityDependencyInjectionContainer.cs" />
-    <Compile Include="Output\ConsoleOutput.cs" />
+    <Compile Include="Outputs\ConsoleOutput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

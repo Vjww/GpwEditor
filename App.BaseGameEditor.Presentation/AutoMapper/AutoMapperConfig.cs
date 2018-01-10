@@ -7,7 +7,7 @@ namespace App.BaseGameEditor.Presentation.AutoMapper
     {
         public static void RegisterMappings(IMapperConfigurationExpression mapperConfigurationExpression)
         {
-            mapperConfigurationExpression.AddProfile<TeamModelOnTeamViewModelMap>();
+            mapperConfigurationExpression.AddProfile<TeamEntityOnTeamViewModelMap>();
         }
     }
 }

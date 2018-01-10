@@ -1,15 +1,15 @@
 ﻿using System;
-using App.BaseGameEditor.Application.DomainServices;
+using App.BaseGameEditor.Application.Services;
 
 namespace App.BaseGameEditor.Presentation.Controllers
 {
     public class BaseGameController : IController
     {
-        private readonly DomainService _dataService;
+        private readonly ApplicationService _service;
 
-        public BaseGameController(DomainService dataService)
+        public BaseGameController(ApplicationService service)
         {
-            _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
+            _service = service ?? throw new ArgumentNullException(nameof(service));
         }
 
         public void Export(
@@ -24,7 +24,7 @@ namespace App.BaseGameEditor.Presentation.Controllers
         {
             // TODO: Validation of file paths in presentation layer?
 
-            _dataService.Export(
+            _service.Export(
                 gameFolderPath,
                 gameExecutableFilePath,
                 englishLanguageFilePath,
@@ -47,7 +47,7 @@ namespace App.BaseGameEditor.Presentation.Controllers
         {
             // TODO: Validation of file paths in presentation layer?
 
-            _dataService.Import(
+            _service.Import(
                 gameFolderPath,
                 gameExecutableFilePath,
                 englishLanguageFilePath,

@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Linq;
-using App.Output;
 using Unity;
 using Unity.Container.Registration;
 
 namespace App.DependencyInjection.Unity
 {
-    public class UnityDependencyInjectionContainer : IUnityDependencyInjectionContainer
+    public class UnityDependencyInjectionContainer : IDependencyInjectionContainer
     {
         private const string ContainerName = "Unity";
         private IUnityContainer _container;
         private readonly IOutput _output;
-        private readonly IUnityContainerBootstrapper _containerBootstrapper;
+        private readonly UnityContainerBootstrapper _containerBootstrapper;
 
         public UnityDependencyInjectionContainer(IOutput output)
         {

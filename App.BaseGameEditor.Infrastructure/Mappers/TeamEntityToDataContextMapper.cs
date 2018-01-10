@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using App.BaseGameEditor.Data.DataContexts;
 using App.BaseGameEditor.Data.Entities;
-using App.BaseGameEditor.Domain.Entities;
 using TeamEntity = App.BaseGameEditor.Domain.Entities.TeamEntity;
 
 namespace App.BaseGameEditor.Infrastructure.Mappers
 {
-    // TODO: Rename from Model to Entity
-    public class TeamModelToDataContextMapper : IModelToDataContextMapper<TeamEntity>
+    public class TeamEntityToDataContextMapper : IEntityToDataContextMapper<TeamEntity>
     {
         private readonly BaseGameDataContext _dataContext;
 
-        public TeamModelToDataContextMapper(BaseGameDataContext dataContext)
+        public TeamEntityToDataContextMapper(BaseGameDataContext dataContext)
         {
             _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
         }

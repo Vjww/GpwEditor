@@ -1,7 +1,7 @@
 ﻿using System;
 using App.AutoMapper;
 using App.DependencyInjection.Unity;
-using App.Output;
+using App.Outputs;
 
 namespace App
 {
@@ -9,13 +9,13 @@ namespace App
     {
         internal static void Main(string[] args)
         {
-            var outputDevice = new ConsoleOutput();
+            var output = new ConsoleOutput();
 
             AutoMapperConfig.RegisterMappings();
 
             // TODO: Pick a dependency injection container to match your taste
             //using (var container = new AutofacDependencyInjectionContainer(outputDevice))
-            using (var container = new UnityDependencyInjectionContainer(outputDevice))
+            using (var container = new UnityDependencyInjectionContainer(output))
             {
                 container.DisplayContainerName();
                 container.PerformRegistrations();
