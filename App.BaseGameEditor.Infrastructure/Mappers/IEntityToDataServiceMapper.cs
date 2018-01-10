@@ -2,9 +2,9 @@
 
 namespace App.BaseGameEditor.Infrastructure.Mappers
 {
-    public interface IDataContextToEntityMapper<out TEntity>
+    public interface IEntityToDataServiceMapper<in TEntity>
         where TEntity : class, IEntity
     {
-        TEntity Map(int id);
+        void Map(TEntity entity);
     }
 }

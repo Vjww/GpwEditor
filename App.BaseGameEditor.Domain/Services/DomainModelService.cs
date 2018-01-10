@@ -1,7 +1,6 @@
 ﻿using System;
-using App.BaseGameEditor.Domain.Services;
 
-namespace App.BaseGameEditor.Domain
+namespace App.BaseGameEditor.Domain.Services
 {
     public class DomainModelService
     {

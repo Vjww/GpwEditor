@@ -1,28 +1,28 @@
 using System;
 using App.BaseGameEditor.Data.DataConnections;
-using App.BaseGameEditor.Data.DataContexts;
 using App.BaseGameEditor.Data.DataEndpoints;
+using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Infrastructure.DataConnections;
 
-namespace App.BaseGameEditor.Infrastructure.DataServices
+namespace App.BaseGameEditor.Application.Services
 {
-    public class BaseGameDataServiceImporter : IDataServiceImporter<DataConnection>
+    public class DataExportService// TODO: remove interface : IDataExportService<DataConnection>
     {
-        private readonly BaseGameDataConnectionValidator _dataConnectionValidator;
-        private readonly BaseGameDataContext _dataContext;
+        private readonly DataConnectionValidator _dataConnectionValidator;
+        private readonly DataService _dataService;
         private readonly BaseGameDataEndpoint _dataEndpoint;
 
-        public BaseGameDataServiceImporter(
-            BaseGameDataConnectionValidator dataConnectionValidator,
-            BaseGameDataContext dataContext,
+        public DataExportService(
+            DataConnectionValidator dataConnectionValidator,
+            DataService dataService,
             BaseGameDataEndpoint dataEndpoint)
         {
             _dataConnectionValidator = dataConnectionValidator ?? throw new ArgumentNullException(nameof(dataConnectionValidator));
-            _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
+            _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
         }
 
-        public void Import(DataConnection dataConnection)
+        public void Export(DataConnection dataConnection)
         {
             if (dataConnection == null) throw new ArgumentNullException(nameof(dataConnection));
 
@@ -30,8 +30,8 @@ namespace App.BaseGameEditor.Infrastructure.DataServices
             {
                 throw new Exception("Failed to validate data connection.");
             }
-            _dataEndpoint.Import(dataConnection);
-            _dataContext.Import();
+            _dataService.Export();
+            _dataEndpoint.Export(dataConnection);
         }
     }
 }

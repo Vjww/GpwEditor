@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Linq;
-using App.BaseGameEditor.Data.DataContexts;
 using App.BaseGameEditor.Data.Entities;
+using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Infrastructure.Factories;
 using TeamEntity = App.BaseGameEditor.Domain.Entities.TeamEntity;
 
 namespace App.BaseGameEditor.Infrastructure.Mappers
 {
-    public class DataContextToTeamEntityMapper : IDataContextToEntityMapper<TeamEntity>
+    public class DataServiceToTeamEntityMapper : IDataServiceToEntityMapper<TeamEntity>
     {
-        private readonly BaseGameDataContext _dataContext;
+        private readonly DataService _dataService;
         private readonly IEntityFactory<TeamEntity> _factory;
 
-        public DataContextToTeamEntityMapper(
-            BaseGameDataContext dataContext,
+        public DataServiceToTeamEntityMapper(
+            DataService dataService,
             IEntityFactory<TeamEntity> factory)
         {
-            _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
+            _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
             _factory = factory ?? throw new ArgumentNullException(nameof(factory));
         }
 
@@ -24,7 +24,7 @@ namespace App.BaseGameEditor.Infrastructure.Mappers
         {
             var result = _factory.Create(id);
 
-            var teamEntity = (Data.Entities.TeamEntity)_dataContext.Teams.Get(x => x.Id == id).Single();
+            var teamEntity = (Data.Entities.TeamEntity)_dataService.Teams.Get(x => x.Id == id).Single();
             result.TeamId = teamEntity.Id + 1;
             result.Name = teamEntity.Name.All;
             result.LastPosition = teamEntity.LastPosition;
@@ -38,14 +38,14 @@ namespace App.BaseGameEditor.Infrastructure.Mappers
             result.LocationPointerY = teamEntity.LocationPointerY;
             result.TyreSupplierId = teamEntity.TyreSupplierId;
 
-            foreach (var item in _dataContext.ChassisHandlings.Get())
+            foreach (var item in _dataService.ChassisHandlings.Get())
             {
                 if (!(item is ChassisHandlingEntity entity) || entity.TeamId != id) continue;
                 result.ChassisHandling = entity.Value;
                 break;
             }
 
-            foreach (var item in _dataContext.CarNumbers.Get())
+            foreach (var item in _dataService.CarNumbers.Get())
             {
                 if (!(item is CarNumberEntity entity) || entity.TeamId != id) continue;
                 switch (entity.PositionId)

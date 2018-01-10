@@ -4,18 +4,18 @@ using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Domain.Services;
 using App.BaseGameEditor.Infrastructure.Mappers;
 
-namespace App.BaseGameEditor.Application.DataServiceImporters
+namespace App.BaseGameEditor.Application.Services
 {
-    public class TeamDomainServiceImporter
+    public class TeamDomainModelImportService
     {
         private const int ItemCount = 11;
 
         private readonly TeamService _service;
-        private readonly DataContextToTeamEntityMapper _mapper;
+        private readonly DataServiceToTeamEntityMapper _mapper;
 
-        public TeamDomainServiceImporter(
+        public TeamDomainModelImportService(
             TeamService service,
-            DataContextToTeamEntityMapper mapper)
+            DataServiceToTeamEntityMapper mapper)
         {
             _service = service ?? throw new ArgumentNullException(nameof(service));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));

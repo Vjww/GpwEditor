@@ -3,15 +3,15 @@ using App.BaseGameEditor.Data.Enums;
 using App.BaseGameEditor.Data.Factories.Repositories;
 using App.BaseGameEditor.Data.Repositories;
 
-namespace App.BaseGameEditor.Data.DataContexts
+namespace App.BaseGameEditor.Data.Services
 {
-    public class BaseGameDataContext : IDataContext
+    public class DataService : IDataService
     {
         public IBaseGameRepository CarNumbers { get; set; }
         public IBaseGameRepository ChassisHandlings { get; set; }
         public IBaseGameRepository Teams { get; set; }
 
-        public BaseGameDataContext(IBaseGameRepositoryFactory repositoryFactory)
+        public DataService(IBaseGameRepositoryFactory repositoryFactory)
         {
             if (repositoryFactory == null) throw new ArgumentNullException(nameof(repositoryFactory));
 

@@ -44,21 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataConnections\BaseGameDataConnectionValidator.cs" />
+    <Compile Include="DataConnections\DataConnectionValidator.cs" />
     <Compile Include="DataConnections\IDataConnectionValidator.cs" />
-    <Compile Include="DataServices\BaseGameDataService.cs" />
-    <Compile Include="DataServices\BaseGameDataServiceExporter.cs" />
-    <Compile Include="DataServices\BaseGameDataServiceImporter.cs" />
-    <Compile Include="DataServices\IDataServiceExporter.cs" />
-    <Compile Include="DataServices\IDataServiceImporter.cs" />
+    <Compile Include="DataServices\IDataExportService.cs" />
+    <Compile Include="DataServices\IDataImportService.cs" />
     <Compile Include="Factories\IEntityFactory.cs" />
     <Compile Include="Factories\EntityFactory.cs" />
-    <Compile Include="IDomainService.cs" />
-    <Compile Include="Mappers\DataContextToTeamEntityMapper.cs" />
-    <Compile Include="Mappers\TeamEntityToDataContextMapper.cs" />
-    <Compile Include="Mappers\IDataContextToEntityMapper.cs" />
-    <Compile Include="Mappers\IEntityToDataContextMapper.cs" />
-    <Compile Include="Maps\TeamEntityOnTeamModelMap.cs" />
+    <Compile Include="Mappers\DataServiceToTeamEntityMapper.cs" />
+    <Compile Include="Mappers\TeamEntityToDataServiceMapper.cs" />
+    <Compile Include="Mappers\IDataServiceToEntityMapper.cs" />
+    <Compile Include="Mappers\IEntityToDataServiceMapper.cs" />
+    <Compile Include="Maps\TeamEntityOnTeamEntityMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\TeamRepository.cs" />

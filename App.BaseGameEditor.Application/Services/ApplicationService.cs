@@ -1,8 +1,6 @@
 ﻿using System;
-using App.BaseGameEditor.Application.DataServiceExporters;
-using App.BaseGameEditor.Application.DataServiceImporters;
 using App.BaseGameEditor.Data.DataConnections;
-using App.BaseGameEditor.Domain;
+using App.BaseGameEditor.Domain.Services;
 using App.BaseGameEditor.Infrastructure.DataServices;
 
 namespace App.BaseGameEditor.Application.Services
@@ -10,26 +8,26 @@ namespace App.BaseGameEditor.Application.Services
     public class ApplicationService
     {
         private readonly DataConnection _dataConnection;
-        private readonly BaseGameDataServiceExporter _baseGameDataServiceExporter;
-        private readonly BaseGameDataServiceImporter _baseGameDataServiceImporter;
-        private readonly DomainServiceExporter _domainServicesExporter;
-        private readonly DomainServiceImporter _domainServiceImporter;
+        private readonly DataExportService _dataExportService;
+        private readonly DataImportService _dataImportService;
+        private readonly DomainModelExportService _domainModelExportService;
+        private readonly DomainModelImportService _domainModelImportService;
 
         public DomainModelService DomainModel { get; }
 
         public ApplicationService(
             DataConnection dataConnection,
-            BaseGameDataServiceExporter baseGameDataServiceExporter,
-            BaseGameDataServiceImporter baseGameDataServiceImporter,
+            DataExportService dataExportService,
+            DataImportService dataImportService,
             DomainModelService domainModelService,
-            DomainServiceExporter domainServiceExporter,
-            DomainServiceImporter domainServiceImporter)
+            DomainModelExportService domainModelExportService,
+            DomainModelImportService domainModelImportService)
         {
             _dataConnection = dataConnection ?? throw new ArgumentNullException(nameof(dataConnection));
-            _baseGameDataServiceExporter = baseGameDataServiceExporter ?? throw new ArgumentNullException(nameof(baseGameDataServiceExporter));
-            _baseGameDataServiceImporter = baseGameDataServiceImporter ?? throw new ArgumentNullException(nameof(baseGameDataServiceImporter));
-            _domainServicesExporter = domainServiceExporter ?? throw new ArgumentNullException(nameof(domainServiceExporter));
-            _domainServiceImporter = domainServiceImporter ?? throw new ArgumentNullException(nameof(domainServiceImporter));
+            _dataExportService = dataExportService ?? throw new ArgumentNullException(nameof(dataExportService));
+            _dataImportService = dataImportService ?? throw new ArgumentNullException(nameof(dataImportService));
+            _domainModelExportService = domainModelExportService ?? throw new ArgumentNullException(nameof(domainModelExportService));
+            _domainModelImportService = domainModelImportService ?? throw new ArgumentNullException(nameof(domainModelImportService));
 
             DomainModel = domainModelService ?? throw new ArgumentNullException(nameof(domainModelService));
         }
@@ -57,10 +55,10 @@ namespace App.BaseGameEditor.Application.Services
             // TODO: Validation of file paths in application layer?
 
             // Export from domain layer into data layer
-            _domainServicesExporter.Export();
+            _domainModelExportService.Export();
 
             // Export from data layer into files
-            _baseGameDataServiceExporter.Export(_dataConnection);
+            _dataExportService.Export(_dataConnection);
         }
 
         public void Import(
@@ -86,10 +84,10 @@ namespace App.BaseGameEditor.Application.Services
             // TODO: Validation of file paths in application layer?
 
             // Import from files into data layer
-            _baseGameDataServiceImporter.Import(_dataConnection);
+            _dataImportService.Import(_dataConnection);
 
             // Import from data layer into domain layer
-            _domainServiceImporter.Import();
+            _domainModelImportService.Import();
         }
     }
 }

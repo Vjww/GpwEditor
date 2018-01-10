@@ -2,16 +2,16 @@ using System;
 using App.BaseGameEditor.Domain.Services;
 using App.BaseGameEditor.Infrastructure.Mappers;
 
-namespace App.BaseGameEditor.Application.DataServiceExporters
+namespace App.BaseGameEditor.Application.Services
 {
-    public class TeamDomainServiceExporter
+    public class TeamDomainModelExportService
     {
         private readonly TeamService _service;
-        private readonly TeamEntityToDataContextMapper _mapper;
+        private readonly TeamEntityToDataServiceMapper _mapper;
 
-        public TeamDomainServiceExporter(
+        public TeamDomainModelExportService(
             TeamService service,
-            TeamEntityToDataContextMapper mapper)
+            TeamEntityToDataServiceMapper mapper)
         {
             _service = service ?? throw new ArgumentNullException(nameof(service));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));

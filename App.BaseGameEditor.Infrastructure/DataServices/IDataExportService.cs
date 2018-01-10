@@ -2,9 +2,10 @@
 
 namespace App.BaseGameEditor.Infrastructure.DataServices
 {
-    public interface IDataServiceImporter<in TDataConnection>
+    // TODO: Possibly redundant
+    public interface IDataExportService<in TDataConnection>
         where TDataConnection : class, IDataConnection
     {
-        void Import(TDataConnection dataConnection);
+        void Export(TDataConnection dataConnection);
     }
 }

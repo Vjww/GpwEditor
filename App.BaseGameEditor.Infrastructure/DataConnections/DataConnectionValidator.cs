@@ -2,7 +2,7 @@
 
 namespace App.BaseGameEditor.Infrastructure.DataConnections
 {
-    public class BaseGameDataConnectionValidator : IDataConnectionValidator<DataConnection>
+    public class DataConnectionValidator : IDataConnectionValidator<DataConnection>
     {
         public bool Validate(DataConnection dataConnection)
         {

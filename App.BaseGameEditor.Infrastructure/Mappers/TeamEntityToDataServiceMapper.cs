@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using App.BaseGameEditor.Data.DataContexts;
 using App.BaseGameEditor.Data.Entities;
+using App.BaseGameEditor.Data.Services;
 using TeamEntity = App.BaseGameEditor.Domain.Entities.TeamEntity;
 
 namespace App.BaseGameEditor.Infrastructure.Mappers
 {
-    public class TeamEntityToDataContextMapper : IEntityToDataContextMapper<TeamEntity>
+    public class TeamEntityToDataServiceMapper : IEntityToDataServiceMapper<TeamEntity>
     {
-        private readonly BaseGameDataContext _dataContext;
+        private readonly DataService _dataService;
 
-        public TeamEntityToDataContextMapper(BaseGameDataContext dataContext)
+        public TeamEntityToDataServiceMapper(DataService dataService)
         {
-            _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
+            _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
         }
 
         public void Map(TeamEntity entity)
         {
-            var teamEntity = (Data.Entities.TeamEntity)_dataContext.Teams.Get(x => x.Id == entity.Id).Single();
+            var teamEntity = (Data.Entities.TeamEntity)_dataService.Teams.Get(x => x.Id == entity.Id).Single();
             teamEntity.Name.All = entity.Name;
             teamEntity.LastPosition = entity.LastPosition;
             teamEntity.LastPoints = entity.LastPoints;
@@ -30,20 +30,20 @@ namespace App.BaseGameEditor.Infrastructure.Mappers
             teamEntity.LocationPointerX = entity.LocationPointerX;
             teamEntity.LocationPointerY = entity.LocationPointerY;
             teamEntity.TyreSupplierId = entity.TyreSupplierId;
-            _dataContext.Teams.SetById(teamEntity);
+            _dataService.Teams.SetById(teamEntity);
 
             // TODO: An exception throws here on export.
-            var chassisHandlingEntities = (IEnumerable<ChassisHandlingEntity>)_dataContext.ChassisHandlings.Get();
+            var chassisHandlingEntities = (IEnumerable<ChassisHandlingEntity>)_dataService.ChassisHandlings.Get();
             var chassisHandlingEntity = chassisHandlingEntities.Single(x => x.TeamId == entity.Id);
             chassisHandlingEntity.Value = entity.ChassisHandling;
-            _dataContext.ChassisHandlings.SetById(chassisHandlingEntity);
+            _dataService.ChassisHandlings.SetById(chassisHandlingEntity);
 
-            var carNumberEntities = ((IEnumerable<CarNumberEntity>)_dataContext.CarNumbers.Get()).Where(x => x.TeamId == entity.Id).ToList();
+            var carNumberEntities = ((IEnumerable<CarNumberEntity>)_dataService.CarNumbers.Get()).Where(x => x.TeamId == entity.Id).ToList();
             foreach (var item in carNumberEntities)
             {
                 item.ValueA = item.PositionId == 0 ? entity.CarNumberDriver1 : entity.CarNumberDriver2;
                 item.ValueB = item.PositionId == 0 ? entity.CarNumberDriver1 : entity.CarNumberDriver2;
-                _dataContext.CarNumbers.SetById(item);
+                _dataService.CarNumbers.SetById(item);
             }
         }
     }

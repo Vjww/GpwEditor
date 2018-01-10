@@ -72,12 +72,8 @@
     <Compile Include="Catalogues\Language\LanguageCatalogueWriter.cs" />
     <Compile Include="DataConnections\DataConnection.cs" />
     <Compile Include="DataConnections\IDataConnection.cs" />
-    <Compile Include="DataContexts\BaseGameDataContext.cs" />
-    <Compile Include="DataContexts\DataContextExporter.cs" />
-    <Compile Include="DataContexts\DataContextImporter.cs" />
-    <Compile Include="DataContexts\IDataContext.cs" />
-    <Compile Include="DataContexts\IDataContextExporter.cs" />
-    <Compile Include="DataContexts\IDataContextImporter.cs" />
+    <Compile Include="Services\DataService.cs" />
+    <Compile Include="Services\IDataService.cs" />
     <Compile Include="DataEndpoints\BaseGameDataEndpoint.cs" />
     <Compile Include="DataEndpoints\IDataEndpoint.cs" />
     <Compile Include="DataLocators\CarNumberDataLocator.cs" />
