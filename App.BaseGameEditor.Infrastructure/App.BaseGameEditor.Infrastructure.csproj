@@ -44,8 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataConnections\DataConnectionValidator.cs" />
-    <Compile Include="DataConnections\IDataConnectionValidator.cs" />
+    <Compile Include="DataConnections\DataConnectionValidationService.cs" />
+    <Compile Include="DataConnections\IDataConnectionValidationService.cs" />
     <Compile Include="DataServices\IDataExportService.cs" />
     <Compile Include="DataServices\IDataImportService.cs" />
     <Compile Include="Factories\IEntityFactory.cs" />

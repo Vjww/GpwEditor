@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Linq;
 using App.BaseGameEditor.Data.DataConnections;
 using App.BaseGameEditor.Domain.Services;
-using App.BaseGameEditor.Infrastructure.DataServices;
+using App.BaseGameEditor.Infrastructure.DataConnections;
 
 namespace App.BaseGameEditor.Application.Services
 {
     public class ApplicationService
     {
         private readonly DataConnection _dataConnection;
+        private readonly DataConnectionValidationService _dataConnectionValidationService;
         private readonly DataExportService _dataExportService;
         private readonly DataImportService _dataImportService;
         private readonly DomainModelExportService _domainModelExportService;
@@ -17,6 +19,7 @@ namespace App.BaseGameEditor.Application.Services
 
         public ApplicationService(
             DataConnection dataConnection,
+            DataConnectionValidationService dataConnectionValidationService,
             DataExportService dataExportService,
             DataImportService dataImportService,
             DomainModelService domainModelService,
@@ -24,6 +27,7 @@ namespace App.BaseGameEditor.Application.Services
             DomainModelImportService domainModelImportService)
         {
             _dataConnection = dataConnection ?? throw new ArgumentNullException(nameof(dataConnection));
+            _dataConnectionValidationService = dataConnectionValidationService ?? throw new ArgumentNullException(nameof(dataConnectionValidationService));
             _dataExportService = dataExportService ?? throw new ArgumentNullException(nameof(dataExportService));
             _dataImportService = dataImportService ?? throw new ArgumentNullException(nameof(dataImportService));
             _domainModelExportService = domainModelExportService ?? throw new ArgumentNullException(nameof(domainModelExportService));
@@ -52,7 +56,12 @@ namespace App.BaseGameEditor.Application.Services
                 frenchCommentaryFilePath,
                 germanCommentaryFilePath);
 
-            // TODO: Validation of file paths in application layer?
+            // Validate connection prior to export
+            var validationFailedMessages = _dataConnectionValidationService.Validate(_dataConnection);
+            if (validationFailedMessages.Any())
+            {
+                throw new Exception("Failed to validate data connection.");
+            }
 
             // Export from domain layer into data layer
             _domainModelExportService.Export();
@@ -81,7 +90,12 @@ namespace App.BaseGameEditor.Application.Services
                 frenchCommentaryFilePath,
                 germanCommentaryFilePath);
 
-            // TODO: Validation of file paths in application layer?
+            // Validate connection prior to import
+            var validationFailedMessages = _dataConnectionValidationService.Validate(_dataConnection);
+            if (validationFailedMessages.Any())
+            {
+                throw new Exception("Failed to validate data connection.");
+            }
 
             // Import from files into data layer
             _dataImportService.Import(_dataConnection);
