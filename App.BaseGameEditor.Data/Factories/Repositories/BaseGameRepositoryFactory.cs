@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using App.BaseGameEditor.Data.Enums;
-using App.BaseGameEditor.Data.Repositories.BaseGame;
+using App.BaseGameEditor.Data.Repositories;
 
 namespace App.BaseGameEditor.Data.Factories.Repositories
 {

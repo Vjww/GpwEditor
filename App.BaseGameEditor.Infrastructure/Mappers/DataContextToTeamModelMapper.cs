@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using App.BaseGameEditor.Data.DataContexts;
-using App.BaseGameEditor.Data.Entities.BaseGame;
+using App.BaseGameEditor.Data.Entities;
 using App.BaseGameEditor.Domain.Models;
 using App.BaseGameEditor.Infrastructure.Factories;
 

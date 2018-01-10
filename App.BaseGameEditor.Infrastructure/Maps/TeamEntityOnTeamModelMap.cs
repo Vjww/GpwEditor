@@ -1,4 +1,4 @@
-﻿using App.BaseGameEditor.Data.Entities.BaseGame;
+﻿using App.BaseGameEditor.Data.Entities;
 using App.BaseGameEditor.Domain.Models;
 using AutoMapper;
 

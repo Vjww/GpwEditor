@@ -1,10 +1,11 @@
 ﻿using System;
-using App.BaseGameEditor.Data.Catalogues.Commentary;
-using App.BaseGameEditor.Data.Catalogues.Language;
 using App.BaseGameEditor.Data.DataConnections;
 using App.BaseGameEditor.Data.Enums;
-using App.BaseGameEditor.Data.Factories.Catalogues.Commentary;
-using App.BaseGameEditor.Data.Factories.Catalogues.Languages;
+using App.Shared.Data.Catalogues.Commentary;
+using App.Shared.Data.Catalogues.Language;
+using App.Shared.Data.Enums;
+using App.Shared.Data.Factories.Catalogues.Commentary;
+using App.Shared.Data.Factories.Catalogues.Languages;
 using Common.Editor.Data.DataEndpoints;
 using Common.Editor.Data.FileResources;
 
@@ -12,7 +13,7 @@ namespace App.BaseGameEditor.Data.DataEndpoints
 {
     public class BaseGameDataEndpoint : IDataEndpoint<BaseGameDataConnection>
     {
-        public IFileResource GameExecutableResource { get; }
+        public IFileResource GameExecutableFileResource { get; }
         public ILanguageCatalogue EnglishLanguageCatalogue { get; }
         public ILanguageCatalogue FrenchLanguageCatalogue { get; }
         public ILanguageCatalogue GermanLanguageCatalogue { get; }
@@ -21,11 +22,11 @@ namespace App.BaseGameEditor.Data.DataEndpoints
         public ICommentaryCatalogue GermanCommentaryCatalogue { get; }
 
         public BaseGameDataEndpoint(
-            IFileResource gameExecutableResource,
+            IFileResource gameExecutableFileResource,
             ILanguageCatalogueFactory languageCatalogueFactory,
             ICommentaryCatalogueFactory commentaryCatalogueFactory)
         {
-            GameExecutableResource = gameExecutableResource ?? throw new ArgumentNullException(nameof(gameExecutableResource));
+            GameExecutableFileResource = gameExecutableFileResource ?? throw new ArgumentNullException(nameof(gameExecutableFileResource));
             if (languageCatalogueFactory == null) throw new ArgumentNullException(nameof(languageCatalogueFactory));
             if (commentaryCatalogueFactory == null) throw new ArgumentNullException(nameof(commentaryCatalogueFactory));
 
@@ -41,7 +42,7 @@ namespace App.BaseGameEditor.Data.DataEndpoints
         {
             if (dataConnection == null) throw new ArgumentNullException(nameof(dataConnection));
 
-            GameExecutableResource.Import(dataConnection.GameExecutableFilePath);
+            GameExecutableFileResource.Import(dataConnection.GameExecutableFilePath);
             EnglishLanguageCatalogue.Import(dataConnection.EnglishLanguageFilePath);
             FrenchLanguageCatalogue.Import(dataConnection.FrenchLanguageFilePath);
             GermanLanguageCatalogue.Import(dataConnection.GermanLanguageFilePath);
@@ -54,7 +55,7 @@ namespace App.BaseGameEditor.Data.DataEndpoints
         {
             if (dataConnection == null) throw new ArgumentNullException(nameof(dataConnection));
 
-            GameExecutableResource.Export(dataConnection.GameExecutableFilePath);
+            GameExecutableFileResource.Export(dataConnection.GameExecutableFilePath);
             EnglishLanguageCatalogue.Export(dataConnection.EnglishLanguageFilePath);
             FrenchLanguageCatalogue.Export(dataConnection.FrenchLanguageFilePath);
             GermanLanguageCatalogue.Export(dataConnection.GermanLanguageFilePath);

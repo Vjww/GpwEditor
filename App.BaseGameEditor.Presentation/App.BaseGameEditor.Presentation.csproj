@@ -62,6 +62,10 @@
       <Project>{26383d7c-aaf3-43b9-ad71-fd795387b59f}</Project>
       <Name>App.BaseGameEditor.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common.Editor.Domain\Common.Editor.Domain.csproj">
+      <Project>{182922c5-bdca-490f-b963-a454685448c5}</Project>
+      <Name>Common.Editor.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

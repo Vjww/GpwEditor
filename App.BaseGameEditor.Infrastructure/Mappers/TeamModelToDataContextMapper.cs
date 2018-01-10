@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using App.BaseGameEditor.Data.DataContexts;
-using App.BaseGameEditor.Data.Entities.BaseGame;
+using App.BaseGameEditor.Data.Entities;
 using App.BaseGameEditor.Domain.Models;
 
 namespace App.BaseGameEditor.Infrastructure.Mappers
@@ -32,6 +32,7 @@ namespace App.BaseGameEditor.Infrastructure.Mappers
             teamEntity.TyreSupplierId = model.TyreSupplierId;
             _dataContext.Teams.SetById(teamEntity);
 
+            // TODO: An exception throws here on export.
             var chassisHandlingEntities = (IEnumerable<ChassisHandlingEntity>)_dataContext.ChassisHandlings.Get();
             var chassisHandlingEntity = chassisHandlingEntities.Single(x => x.TeamId == model.Id);
             chassisHandlingEntity.Value = model.ChassisHandling;

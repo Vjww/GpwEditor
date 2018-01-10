@@ -1,5 +1,5 @@
 using App.BaseGameEditor.Data.Enums;
-using App.BaseGameEditor.Data.Repositories.BaseGame;
+using App.BaseGameEditor.Data.Repositories;
 
 namespace App.BaseGameEditor.Data.Factories.Repositories
 {

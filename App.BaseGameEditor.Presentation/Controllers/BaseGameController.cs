@@ -1,19 +1,15 @@
 ﻿using System;
-using App.BaseGameEditor.Application.Services;
+using App.BaseGameEditor.Application.DataServices;
 
 namespace App.BaseGameEditor.Presentation.Controllers
 {
     public class BaseGameController : IController
     {
-        private readonly ExportService _exportService;
-        private readonly ImportService _importService;
+        private readonly DataService _dataService;
 
-        public BaseGameController(
-            ExportService exportService,
-            ImportService importService)
+        public BaseGameController(DataService dataService)
         {
-            _exportService = exportService ?? throw new ArgumentNullException(nameof(exportService));
-            _importService = importService ?? throw new ArgumentNullException(nameof(importService));
+            _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
         }
 
         public void Export(
@@ -26,7 +22,9 @@ namespace App.BaseGameEditor.Presentation.Controllers
             string frenchCommentaryFilePath,
             string germanCommentaryFilePath)
         {
-            _exportService.Export(
+            // TODO: Validation of file paths in presentation layer?
+
+            _dataService.Export(
                 gameFolderPath,
                 gameExecutableFilePath,
                 englishLanguageFilePath,
@@ -47,7 +45,9 @@ namespace App.BaseGameEditor.Presentation.Controllers
             string frenchCommentaryFilePath,
             string germanCommentaryFilePath)
         {
-            _importService.Import(
+            // TODO: Validation of file paths in presentation layer?
+
+            _dataService.Import(
                 gameFolderPath,
                 gameExecutableFilePath,
                 englishLanguageFilePath,

@@ -1,7 +1,7 @@
 ﻿using System;
 using App.BaseGameEditor.Data.Enums;
 using App.BaseGameEditor.Data.Factories.Repositories;
-using App.BaseGameEditor.Data.Repositories.BaseGame;
+using App.BaseGameEditor.Data.Repositories;
 using Common.Editor.Data.DataContexts;
 
 namespace App.BaseGameEditor.Data.DataContexts

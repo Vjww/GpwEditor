@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Common.Editor.Domain.Models;
 
 namespace App.BaseGameEditor.Domain.Models
 {

@@ -74,6 +74,14 @@
       <Project>{26383d7c-aaf3-43b9-ad71-fd795387b59f}</Project>
       <Name>App.BaseGameEditor.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.Shared.Data\App.Shared.Data.csproj">
+      <Project>{f4eb2471-981f-48d1-aa4c-b4cd165e439f}</Project>
+      <Name>App.Shared.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Editor.Domain\Common.Editor.Domain.csproj">
+      <Project>{182922C5-BDCA-490F-B963-A454685448C5}</Project>
+      <Name>Common.Editor.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

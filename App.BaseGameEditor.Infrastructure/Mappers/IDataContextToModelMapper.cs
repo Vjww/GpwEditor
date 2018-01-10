@@ -1,4 +1,4 @@
-﻿using App.BaseGameEditor.Domain.Models;
+﻿using Common.Editor.Domain.Models;
 
 namespace App.BaseGameEditor.Infrastructure.Mappers
 {
