@@ -1,7 +1,6 @@
 ﻿using App.BaseGameEditor.Data.Enums;
 using App.BaseGameEditor.Data.RepositoryExporters;
 using App.BaseGameEditor.Data.RepositoryImporters;
-using Common.Editor.Data.Repositories;
 
 namespace App.BaseGameEditor.Data.Repositories
 {

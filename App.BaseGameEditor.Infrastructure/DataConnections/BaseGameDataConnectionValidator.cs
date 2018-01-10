@@ -2,9 +2,9 @@
 
 namespace App.BaseGameEditor.Infrastructure.DataConnections
 {
-    public class BaseGameDataConnectionValidator : IDataConnectionValidator<BaseGameDataConnection>
+    public class BaseGameDataConnectionValidator : IDataConnectionValidator<DataConnection>
     {
-        public bool Validate(BaseGameDataConnection dataConnection)
+        public bool Validate(DataConnection dataConnection)
         {
             if (string.IsNullOrWhiteSpace(dataConnection.GameFolderPath)) return false;
             if (string.IsNullOrWhiteSpace(dataConnection.GameExecutableFilePath)) return false;

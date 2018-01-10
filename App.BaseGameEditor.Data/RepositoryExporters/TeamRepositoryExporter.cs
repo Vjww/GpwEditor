@@ -1,5 +1,5 @@
 ﻿using App.BaseGameEditor.Data.EntityExporters;
-using Common.Editor.Data.Repositories;
+using App.BaseGameEditor.Data.Repositories;
 
 namespace App.BaseGameEditor.Data.RepositoryExporters
 {

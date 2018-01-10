@@ -12,21 +12,21 @@
 //    public class TeamManager
 //    {
 //        private readonly BaseGameDataContext _dataContext;
-//        private readonly IModelValidator<TeamModel> _validator;
+//        private readonly IModelValidator<TeamEntity> _validator;
 
 //        public TeamManager(
 //            BaseGameDataContext dataContext,
-//            IModelValidator<TeamModel> validator)
+//            IModelValidator<TeamEntity> validator)
 //        {
 //            _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
 //            _validator = validator ?? throw new ArgumentNullException(nameof(validator));
 //        }
 
-//        public IEnumerable<TeamModel> GetTeams()
+//        public IEnumerable<TeamEntity> GetTeams()
 //        {
 //            // TODO: Alternative to Automapper, as need to merge three entities into a single model
-//            var myTeamModel = new DataContextToTeamModelMapper(_dataContext, new ModelFactory<TeamModel>());
-//            return new List<TeamModel>
+//            var myTeamModel = new DataContextToTeamModelMapper(_dataContext, new ModelFactory<TeamEntity>());
+//            return new List<TeamEntity>
 //            {
 //                myTeamModel.Map(0),
 //                myTeamModel.Map(1),
@@ -52,13 +52,13 @@
 //            //return Mapper.Map<IEnumerable<TeamEntity>, IEnumerable<ITeamModel>>(newList);
 //        }
 
-//        public IEnumerable<string> SetTeams(IEnumerable<TeamModel> models)
+//        public IEnumerable<string> SetTeams(IEnumerable<TeamEntity> models)
 //        {
 //            if (models == null) throw new ArgumentNullException(nameof(models));
 
 //            var validationMessages = new List<string>();
 
-//            var enumerable = models as IList<TeamModel> ?? models.ToList();
+//            var enumerable = models as IList<TeamEntity> ?? models.ToList();
 //            foreach (var item in enumerable)
 //            {
 //                validationMessages.AddRange(item.Validate());

@@ -6,7 +6,7 @@ using App.BaseGameEditor.Infrastructure.DataConnections;
 
 namespace App.BaseGameEditor.Infrastructure.DataServices
 {
-    public class BaseGameDataServiceImporter : IDataServiceImporter<BaseGameDataConnection>
+    public class BaseGameDataServiceImporter : IDataServiceImporter<DataConnection>
     {
         private readonly BaseGameDataConnectionValidator _dataConnectionValidator;
         private readonly BaseGameDataContext _dataContext;
@@ -22,7 +22,7 @@ namespace App.BaseGameEditor.Infrastructure.DataServices
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
         }
 
-        public void Import(BaseGameDataConnection dataConnection)
+        public void Import(DataConnection dataConnection)
         {
             if (dataConnection == null) throw new ArgumentNullException(nameof(dataConnection));
 

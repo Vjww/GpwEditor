@@ -1,5 +1,4 @@
 ﻿using System;
-using Common.Editor.Data.DataLocators;
 
 namespace App.BaseGameEditor.Data.DataLocators
 {

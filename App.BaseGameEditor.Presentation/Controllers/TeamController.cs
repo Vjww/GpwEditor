@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using App.BaseGameEditor.Application.DataServices;
-using App.BaseGameEditor.Domain.Models;
+using App.BaseGameEditor.Application.DomainServices;
+using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Presentation.ViewModels;
 using App.BaseGameEditor.Presentation.Views;
 using AutoMapper;
@@ -10,11 +10,11 @@ namespace App.BaseGameEditor.Presentation.Controllers
 {
     public class TeamController : IController
     {
-        private readonly DataService _dataService;
+        private readonly DomainService _dataService;
         private readonly TeamView _view;
 
         public TeamController(
-            DataService dataService,
+            DomainService dataService,
             TeamView view)
         {
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
@@ -23,8 +23,8 @@ namespace App.BaseGameEditor.Presentation.Controllers
 
         public void DisplayTeams()
         {
-            var teams = _dataService.Teams.Get();
-            var teamViewModels = Mapper.Map<IEnumerable<TeamModel>, IEnumerable<TeamViewModel>>(teams);
+            var teams = _dataService.DomainModelService.Teams.GetTeams();
+            var teamViewModels = Mapper.Map<IEnumerable<TeamEntity>, IEnumerable<TeamViewModel>>(teams);
             _view.Display(teamViewModels);
         }
     }

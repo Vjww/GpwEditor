@@ -1,6 +1,4 @@
-﻿using Common.Editor.Data.Entities;
-
-namespace App.BaseGameEditor.Data.Entities
+﻿namespace App.BaseGameEditor.Data.Entities
 {
     public class CarNumberEntity : EntityBase
     {

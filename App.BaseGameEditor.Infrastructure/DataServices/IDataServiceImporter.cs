@@ -1,4 +1,4 @@
-﻿using Common.Editor.Data.DataConnections;
+﻿using App.BaseGameEditor.Data.DataConnections;
 
 namespace App.BaseGameEditor.Infrastructure.DataServices
 {

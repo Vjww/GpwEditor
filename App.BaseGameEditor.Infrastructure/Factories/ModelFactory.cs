@@ -1,9 +1,9 @@
-﻿using Common.Editor.Domain.Models;
+﻿using App.BaseGameEditor.Domain.Entities;
 
 namespace App.BaseGameEditor.Infrastructure.Factories
 {
     public class ModelFactory<TModel> : IModelFactory<TModel>
-        where TModel : class, IModel, new()
+        where TModel : class, IEntity, new()
     {
         public TModel Create(int id)
         {

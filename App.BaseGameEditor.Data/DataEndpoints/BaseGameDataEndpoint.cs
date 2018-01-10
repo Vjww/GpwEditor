@@ -1,17 +1,15 @@
 ﻿using System;
+using App.BaseGameEditor.Data.Catalogues.Commentary;
+using App.BaseGameEditor.Data.Catalogues.Language;
 using App.BaseGameEditor.Data.DataConnections;
 using App.BaseGameEditor.Data.Enums;
-using App.Shared.Data.Catalogues.Commentary;
-using App.Shared.Data.Catalogues.Language;
-using App.Shared.Data.Enums;
-using App.Shared.Data.Factories.Catalogues.Commentary;
-using App.Shared.Data.Factories.Catalogues.Languages;
-using Common.Editor.Data.DataEndpoints;
-using Common.Editor.Data.FileResources;
+using App.BaseGameEditor.Data.Factories.Catalogues.Commentary;
+using App.BaseGameEditor.Data.Factories.Catalogues.Languages;
+using App.BaseGameEditor.Data.FileResources;
 
 namespace App.BaseGameEditor.Data.DataEndpoints
 {
-    public class BaseGameDataEndpoint : IDataEndpoint<BaseGameDataConnection>
+    public class BaseGameDataEndpoint : IDataEndpoint<DataConnection>
     {
         public IFileResource GameExecutableFileResource { get; }
         public ILanguageCatalogue EnglishLanguageCatalogue { get; }
@@ -38,7 +36,7 @@ namespace App.BaseGameEditor.Data.DataEndpoints
             GermanCommentaryCatalogue = commentaryCatalogueFactory.Create(LanguageType.German);
         }
 
-        public void Import(BaseGameDataConnection dataConnection)
+        public void Import(DataConnection dataConnection)
         {
             if (dataConnection == null) throw new ArgumentNullException(nameof(dataConnection));
 
@@ -51,7 +49,7 @@ namespace App.BaseGameEditor.Data.DataEndpoints
             GermanCommentaryCatalogue.Import(dataConnection.GermanCommentaryFilePath);
         }
 
-        public void Export(BaseGameDataConnection dataConnection)
+        public void Export(DataConnection dataConnection)
         {
             if (dataConnection == null) throw new ArgumentNullException(nameof(dataConnection));
 

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using App.BaseGameEditor.Application.DataServices;
+using App.BaseGameEditor.Application.DomainServices;
 using App.DependencyInjection.Unity;
 using App.Output;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -19,7 +19,7 @@ namespace App.BaseGameEditor.Application.Tests
             {
                 container.PerformRegistrations();
 
-                var dataService = container.GetInstance<DataService>();
+                var dataService = container.GetInstance<DomainService>();
 
                 dataService.Import(
                     $@"{GameFolder}",
@@ -31,7 +31,7 @@ namespace App.BaseGameEditor.Application.Tests
                     $@"{GameFolder}\textf\commf.txt",
                     $@"{GameFolder}\textg\commg.txt");
 
-                var models = dataService.Teams.Get();
+                var models = dataService.DomainModelService.Teams.GetTeams();
                 var model = models.Single(x => x.TeamId == 10);
 
                 Assert.IsTrue(model.TeamId == 10);

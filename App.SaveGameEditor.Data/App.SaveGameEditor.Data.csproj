@@ -39,15 +39,5 @@
     <Compile Include="DataEndpoints\SaveGameDataEndpoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\Common.Editor.Data\Common.Editor.Data.csproj">
-      <Project>{d3a62601-844d-459d-a720-9530cd86a7de}</Project>
-      <Name>Common.Editor.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\App.Shared.Data\App.Shared.Data.csproj">
-      <Project>{f4eb2471-981f-48d1-aa4c-b4cd165e439f}</Project>
-      <Name>App.Shared.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

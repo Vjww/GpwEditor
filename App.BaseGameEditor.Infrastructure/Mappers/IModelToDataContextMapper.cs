@@ -1,9 +1,9 @@
-﻿using Common.Editor.Domain.Models;
+﻿using App.BaseGameEditor.Domain.Entities;
 
 namespace App.BaseGameEditor.Infrastructure.Mappers
 {
     public interface IModelToDataContextMapper<in T>
-        where T : class, IModel
+        where T : class, IEntity
     {
         void Map(T model);
     }

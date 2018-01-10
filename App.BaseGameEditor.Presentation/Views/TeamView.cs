@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using App.BaseGameEditor.Application.Output;
+using App.BaseGameEditor.Presentation.Outputs;
 using App.BaseGameEditor.Presentation.ViewModels;
 
 namespace App.BaseGameEditor.Presentation.Views

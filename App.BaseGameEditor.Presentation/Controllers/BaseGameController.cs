@@ -1,13 +1,13 @@
 ﻿using System;
-using App.BaseGameEditor.Application.DataServices;
+using App.BaseGameEditor.Application.DomainServices;
 
 namespace App.BaseGameEditor.Presentation.Controllers
 {
     public class BaseGameController : IController
     {
-        private readonly DataService _dataService;
+        private readonly DomainService _dataService;
 
-        public BaseGameController(DataService dataService)
+        public BaseGameController(DomainService dataService)
         {
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
         }

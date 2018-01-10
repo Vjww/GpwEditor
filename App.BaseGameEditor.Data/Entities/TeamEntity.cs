@@ -1,6 +1,5 @@
 ﻿using System;
-using App.Shared.Data.Catalogues.Language;
-using Common.Editor.Data.Entities;
+using App.BaseGameEditor.Data.Catalogues.Language;
 
 namespace App.BaseGameEditor.Data.Entities
 {

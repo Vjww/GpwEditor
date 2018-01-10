@@ -1,6 +1,5 @@
 ﻿using System;
-using App.Shared.Data.Calculators;
-using Common.Editor.Data.DataLocators;
+using App.BaseGameEditor.Data.Calculators;
 
 namespace App.BaseGameEditor.Data.DataLocators
 {

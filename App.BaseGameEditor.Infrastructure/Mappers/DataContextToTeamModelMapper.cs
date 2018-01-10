@@ -2,29 +2,31 @@
 using System.Linq;
 using App.BaseGameEditor.Data.DataContexts;
 using App.BaseGameEditor.Data.Entities;
-using App.BaseGameEditor.Domain.Models;
+using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Factories;
+using TeamEntity = App.BaseGameEditor.Domain.Entities.TeamEntity;
 
 namespace App.BaseGameEditor.Infrastructure.Mappers
 {
-    public class DataContextToTeamModelMapper : IDataContextToModelMapper<TeamModel>
+    // TODO: Rename from model to entity
+    public class DataContextToTeamModelMapper : IDataContextToModelMapper<TeamEntity>
     {
         private readonly BaseGameDataContext _dataContext;
-        private readonly IModelFactory<TeamModel> _factory;
+        private readonly IModelFactory<TeamEntity> _factory;
 
         public DataContextToTeamModelMapper(
             BaseGameDataContext dataContext,
-            IModelFactory<TeamModel> factory)
+            IModelFactory<TeamEntity> factory)
         {
             _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
             _factory = factory ?? throw new ArgumentNullException(nameof(factory));
         }
 
-        public TeamModel Map(int id)
+        public TeamEntity Map(int id)
         {
             var result = _factory.Create(id);
 
-            var teamEntity = (TeamEntity)_dataContext.Teams.Get(x => x.Id == id).Single();
+            var teamEntity = (Data.Entities.TeamEntity)_dataContext.Teams.Get(x => x.Id == id).Single();
             result.TeamId = teamEntity.Id + 1;
             result.Name = teamEntity.Name.All;
             result.LastPosition = teamEntity.LastPosition;

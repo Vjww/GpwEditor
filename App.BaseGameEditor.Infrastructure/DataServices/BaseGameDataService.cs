@@ -25,7 +25,7 @@
 //            _teamManager = teamManager ?? throw new ArgumentNullException(nameof(teamManager));
 //        }
 
-//        public IEnumerable<TeamModel> GetTeams()
+//        public IEnumerable<TeamEntity> GetTeams()
 //        {
 //            return _teamManager.GetTeams();
 //        }
@@ -76,7 +76,7 @@
 //            _dataServiceExporter.Export(_dataConnection);
 //        }
 
-//        public void SetTeams(IEnumerable<TeamModel> teams)
+//        public void SetTeams(IEnumerable<TeamEntity> teams)
 //        {
 //            _teamManager.SetTeams(teams);
 //        }

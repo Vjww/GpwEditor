@@ -1,5 +1,5 @@
 ﻿using App.BaseGameEditor.Data.EntityImporters;
-using Common.Editor.Data.Repositories;
+using App.BaseGameEditor.Data.Repositories;
 
 namespace App.BaseGameEditor.Data.RepositoryImporters
 {

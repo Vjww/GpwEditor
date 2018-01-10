@@ -87,10 +87,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Common.Editor.Data\Common.Editor.Data.csproj">
-      <Project>{d3a62601-844d-459d-a720-9530cd86a7de}</Project>
-      <Name>Common.Editor.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\App.BaseGameEditor.Application\App.BaseGameEditor.Application.csproj">
       <Project>{4538da14-275a-4711-b4bf-6a4dd806189d}</Project>
       <Name>App.BaseGameEditor.Application</Name>
@@ -110,18 +106,6 @@
     <ProjectReference Include="..\App.BaseGameEditor.Presentation\App.BaseGameEditor.Presentation.csproj">
       <Project>{409fe1b2-4faa-4a3a-b131-20e0e4b675b2}</Project>
       <Name>App.BaseGameEditor.Presentation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\App.SaveGameEditor.Data\App.SaveGameEditor.Data.csproj">
-      <Project>{d503f7b5-5fc7-4b90-90e5-c71f9364cbe3}</Project>
-      <Name>App.SaveGameEditor.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\App.Shared.Data\App.Shared.Data.csproj">
-      <Project>{f4eb2471-981f-48d1-aa4c-b4cd165e439f}</Project>
-      <Name>App.Shared.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common.Editor.Domain\Common.Editor.Domain.csproj">
-      <Project>{182922c5-bdca-490f-b963-a454685448c5}</Project>
-      <Name>Common.Editor.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

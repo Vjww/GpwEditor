@@ -34,53 +34,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculators\IdentityCalculator.cs" />
-    <Compile Include="Catalogues\Commentary\CommentaryCatalogueExporter.cs" />
-    <Compile Include="Catalogues\Commentary\CommentaryCatalogueImporter.cs" />
-    <Compile Include="Catalogues\Commentary\CommentaryCatalogueItem.cs" />
-    <Compile Include="Catalogues\Commentary\CommentaryCatalogueParser.cs" />
-    <Compile Include="Catalogues\Commentary\CommentaryCatalogueReader.cs" />
-    <Compile Include="Catalogues\Commentary\CommentaryCatalogueWriter.cs" />
-    <Compile Include="Catalogues\Commentary\EnglishCommentaryCatalogue.cs" />
-    <Compile Include="Catalogues\Commentary\EnglishLanguagePhrases.cs" />
-    <Compile Include="Catalogues\Commentary\FrenchCommentaryCatalogue.cs" />
-    <Compile Include="Catalogues\Commentary\FrenchLanguagePhrases.cs" />
-    <Compile Include="Catalogues\Commentary\GermanCommentaryCatalogue.cs" />
-    <Compile Include="Catalogues\Commentary\GermanLanguagePhrases.cs" />
-    <Compile Include="Catalogues\Commentary\ICommentaryCatalogue.cs" />
-    <Compile Include="Catalogues\Commentary\ICommentaryCatalogueParser.cs" />
-    <Compile Include="Catalogues\Commentary\ILanguagePhrases.cs" />
-    <Compile Include="Catalogues\Language\EnglishLanguageCatalogue.cs" />
-    <Compile Include="Catalogues\Language\FrenchLanguageCatalogue.cs" />
-    <Compile Include="Catalogues\Language\GermanLanguageCatalogue.cs" />
-    <Compile Include="Catalogues\Language\ILanguageCatalogue.cs" />
-    <Compile Include="Catalogues\Language\ILanguageCatalogueParser.cs" />
-    <Compile Include="Catalogues\Language\ILanguageCatalogueValue.cs" />
-    <Compile Include="Catalogues\Language\LanguageCatalogueExporter.cs" />
-    <Compile Include="Catalogues\Language\LanguageCatalogueImporter.cs" />
-    <Compile Include="Catalogues\Language\LanguageCatalogueItem.cs" />
-    <Compile Include="Catalogues\Language\LanguageCatalogueParser.cs" />
-    <Compile Include="Catalogues\Language\LanguageCatalogueReader.cs" />
-    <Compile Include="Catalogues\Language\LanguageCatalogueValue.cs" />
-    <Compile Include="Catalogues\Language\LanguageCatalogueWriter.cs" />
-    <Compile Include="Enums\CommentaryType.cs" />
-    <Compile Include="Enums\LanguageType.cs" />
-    <Compile Include="Factories\Catalogues\Commentary\CommentaryCatalogueFactory.cs" />
-    <Compile Include="Factories\Catalogues\Commentary\ICommentaryCatalogueFactory.cs" />
-    <Compile Include="Factories\Catalogues\Languages\ILanguageCatalogueFactory.cs" />
-    <Compile Include="Factories\Catalogues\Languages\ILanguagePhrasesFactory.cs" />
-    <Compile Include="Factories\Catalogues\Languages\LanguageCatalogueFactory.cs" />
-    <Compile Include="Factories\Catalogues\Languages\LanguagePhrasesFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\Common.Editor.Data\Common.Editor.Data.csproj">
-      <Project>{d3a62601-844d-459d-a720-9530cd86a7de}</Project>
-      <Name>Common.Editor.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

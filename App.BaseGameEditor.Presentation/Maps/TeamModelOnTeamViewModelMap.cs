@@ -1,4 +1,4 @@
-﻿using App.BaseGameEditor.Domain.Models;
+﻿using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Presentation.ViewModels;
 using AutoMapper;
 
@@ -8,7 +8,7 @@ namespace App.BaseGameEditor.Presentation.Maps
     {
         public TeamModelOnTeamViewModelMap()
         {
-            CreateMap<TeamModel, TeamViewModel>()
+            CreateMap<TeamEntity, TeamViewModel>()
                 .ReverseMap();
         }
     }

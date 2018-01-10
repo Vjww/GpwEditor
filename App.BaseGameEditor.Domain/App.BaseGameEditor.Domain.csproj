@@ -34,15 +34,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\TeamModel.cs" />
+    <Compile Include="DomainModelService.cs" />
+    <Compile Include="Identities\IIntegerIdentity.cs" />
+    <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Entities\TeamEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\TeamRepository.cs" />
+    <Compile Include="Repositories\ITeamRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Services\TeamService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common.Editor.Domain\Common.Editor.Domain.csproj">
-      <Project>{182922c5-bdca-490f-b963-a454685448c5}</Project>
-      <Name>Common.Editor.Domain</Name>
-    </ProjectReference>
+    <Folder Include="ValueObjects\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

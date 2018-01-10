@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using App.BaseGameEditor.Application.Output;
+using App.BaseGameEditor.Data.Catalogues;
+using App.BaseGameEditor.Data.Catalogues.Commentary;
+using App.BaseGameEditor.Data.Catalogues.Language;
 using App.BaseGameEditor.Data.Factories.Repositories;
-using Common.Editor.Data.Catalogues;
-using Common.Editor.Data.FileResources;
+using App.BaseGameEditor.Data.FileResources;
 using App.BaseGameEditor.Data.Repositories;
-using App.BaseGameEditor.Domain.Models;
+using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Factories;
-using App.Shared.Data.Catalogues.Commentary;
-using App.Shared.Data.Catalogues.Language;
+using App.BaseGameEditor.Presentation.Outputs;
 using Unity;
 using Unity.Lifetime;
 using Unity.RegistrationByConvention;
@@ -58,7 +58,7 @@ namespace App.DependencyInjection.Unity
 
             // TODO: These were added for integration test to succeed
             _container.RegisterType<IBaseGameRepositoryFactory, BaseGameRepositoryFactory>();
-            _container.RegisterType<IModelFactory<TeamModel>, ModelFactory<TeamModel>>();
+            _container.RegisterType<IModelFactory<TeamEntity>, ModelFactory<TeamEntity>>();
 
             // TODO: Need to find a way to switch on language, currently hardcoded
             _container.RegisterType<ILanguagePhrases, EnglishLanguagePhrases>();
