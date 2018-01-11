@@ -3,9 +3,7 @@ using System.Linq;
 using App.BaseGameEditor.Data.Catalogues;
 using App.BaseGameEditor.Data.Catalogues.Commentary;
 using App.BaseGameEditor.Data.Catalogues.Language;
-using App.BaseGameEditor.Data.Factories.Repositories;
 using App.BaseGameEditor.Data.FileResources;
-using App.BaseGameEditor.Data.Repositories;
 using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Factories;
 using App.BaseGameEditor.Presentation.Outputs;
@@ -53,10 +51,10 @@ namespace App.DependencyInjection.Unity
             _container.RegisterType<BaseGameEditor.Presentation.Outputs.IOutput, ConsoleOutput>();
             RegisterLanguageCatalogueTypes();
             RegisterCommentaryCatalogueTypes();
-            RegisterBaseGameRepositoryTypes();
+            //RegisterBaseGameRepositoryTypes();
 
             // TODO: These were added for integration test to succeed
-            _container.RegisterType<IBaseGameRepositoryFactory, BaseGameRepositoryFactory>();
+            //_container.RegisterType<IBaseGameRepositoryFactory, BaseGameRepositoryFactory>();
             _container.RegisterType<IEntityFactory<TeamEntity>, EntityFactory<TeamEntity>>();
 
             // TODO: Need to find a way to switch on language, currently hardcoded
@@ -67,17 +65,17 @@ namespace App.DependencyInjection.Unity
             return _container;
         }
 
-        private void RegisterBaseGameRepositoryTypes()
-        {
-            // Registers types that inherit IBaseGameRepository as an array of types for BaseGameRepositoryFactory to consume
-            // https://stackoverflow.com/a/27624752
-            _container.RegisterTypes(
-                AllClasses.FromLoadedAssemblies().Where(type => typeof(IBaseGameRepository).IsAssignableFrom(type)),
-                WithMappings.FromAllInterfaces,
-                WithName.TypeName,
-                WithLifetime.ContainerControlled);
-            _container.RegisterType<IEnumerable<IBaseGameRepository>, IBaseGameRepository[]>();
-        }
+        //private void RegisterBaseGameRepositoryTypes()
+        //{
+        //    // Registers types that inherit IBaseGameRepository as an array of types for BaseGameRepositoryFactory to consume
+        //    // https://stackoverflow.com/a/27624752
+        //    _container.RegisterTypes(
+        //        AllClasses.FromLoadedAssemblies().Where(type => typeof(IBaseGameRepository).IsAssignableFrom(type)),
+        //        WithMappings.FromAllInterfaces,
+        //        WithName.TypeName,
+        //        WithLifetime.ContainerControlled);
+        //    _container.RegisterType<IEnumerable<IBaseGameRepository>, IBaseGameRepository[]>();
+        //}
 
         private void RegisterLanguageCatalogueTypes()
         {

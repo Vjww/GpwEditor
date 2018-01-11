@@ -5,14 +5,14 @@ using App.BaseGameEditor.Data.Services;
 
 namespace App.BaseGameEditor.Application.Services
 {
-    public class DataExportService// TODO: remove interface : IDataExportService<DataConnection>
+    public class DataExportService
     {
         private readonly DataService _dataService;
-        private readonly BaseGameDataEndpoint _dataEndpoint;
+        private readonly DataEndpoint _dataEndpoint;
 
         public DataExportService(
             DataService dataService,
-            BaseGameDataEndpoint dataEndpoint)
+            DataEndpoint dataEndpoint)
         {
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));

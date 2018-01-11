@@ -4,16 +4,16 @@ namespace App.BaseGameEditor.Application.Services
 {
     public class DomainModelExportService
     {
-        private readonly TeamDomainModelExportService _service;
+        private readonly TeamDomainModelExportService _teamDomainModelExportService;
 
-        public DomainModelExportService(TeamDomainModelExportService service)
+        public DomainModelExportService(TeamDomainModelExportService teamDomainModelExportService)
         {
-            _service = service ?? throw new ArgumentNullException(nameof(service));
+            _teamDomainModelExportService = teamDomainModelExportService ?? throw new ArgumentNullException(nameof(teamDomainModelExportService));
         }
 
         public void Export()
         {
-            _service.Export();
+            _teamDomainModelExportService.Export();
         }
     }
 }

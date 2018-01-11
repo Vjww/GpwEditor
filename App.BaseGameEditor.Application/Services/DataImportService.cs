@@ -8,11 +8,11 @@ namespace App.BaseGameEditor.Application.Services
     public class DataImportService// TODO: remove interface : IDataImportService<DataConnection>
     {
         private readonly DataService _dataService;
-        private readonly BaseGameDataEndpoint _dataEndpoint;
+        private readonly DataEndpoint _dataEndpoint;
 
         public DataImportService(
             DataService dataService,
-            BaseGameDataEndpoint dataEndpoint)
+            DataEndpoint dataEndpoint)
         {
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));

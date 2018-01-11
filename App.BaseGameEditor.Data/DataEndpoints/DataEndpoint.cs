@@ -9,7 +9,7 @@ using App.BaseGameEditor.Data.FileResources;
 
 namespace App.BaseGameEditor.Data.DataEndpoints
 {
-    public class BaseGameDataEndpoint : IDataEndpoint<DataConnection>
+    public class DataEndpoint
     {
         public IFileResource GameExecutableFileResource { get; }
         public ILanguageCatalogue EnglishLanguageCatalogue { get; }
@@ -19,7 +19,7 @@ namespace App.BaseGameEditor.Data.DataEndpoints
         public ICommentaryCatalogue FrenchCommentaryCatalogue { get; }
         public ICommentaryCatalogue GermanCommentaryCatalogue { get; }
 
-        public BaseGameDataEndpoint(
+        public DataEndpoint(
             IFileResource gameExecutableFileResource,
             ILanguageCatalogueFactory languageCatalogueFactory,
             ICommentaryCatalogueFactory commentaryCatalogueFactory)

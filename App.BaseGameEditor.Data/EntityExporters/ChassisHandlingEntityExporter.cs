@@ -7,10 +7,10 @@ namespace App.BaseGameEditor.Data.EntityExporters
 {
     public class ChassisHandlingEntityExporter : IEntityExporter
     {
-        private readonly BaseGameDataEndpoint _dataEndpoint;
+        private readonly DataEndpoint _dataEndpoint;
         private readonly ChassisHandlingDataLocator _dataLocator;
 
-        public ChassisHandlingEntityExporter(BaseGameDataEndpoint dataEndpoint, ChassisHandlingDataLocator dataLocator)
+        public ChassisHandlingEntityExporter(DataEndpoint dataEndpoint, ChassisHandlingDataLocator dataLocator)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataLocator = dataLocator ?? throw new ArgumentNullException(nameof(dataLocator));

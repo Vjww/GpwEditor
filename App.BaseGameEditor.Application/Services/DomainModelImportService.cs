@@ -4,16 +4,16 @@ namespace App.BaseGameEditor.Application.Services
 {
     public class DomainModelImportService
     {
-        private readonly TeamDomainModelImportService _service;
+        private readonly TeamDomainModelImportService _teamDomainModelImportService;
 
-        public DomainModelImportService(TeamDomainModelImportService service)
+        public DomainModelImportService(TeamDomainModelImportService teamDomainModelImportService)
         {
-            _service = service ?? throw new ArgumentNullException(nameof(service));
+            _teamDomainModelImportService = teamDomainModelImportService ?? throw new ArgumentNullException(nameof(teamDomainModelImportService));
         }
 
         public void Import()
         {
-            _service.Import();
+            _teamDomainModelImportService.Import();
         }
     }
 }

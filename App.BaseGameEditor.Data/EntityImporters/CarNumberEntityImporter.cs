@@ -8,12 +8,12 @@ namespace App.BaseGameEditor.Data.EntityImporters
 {
     public class CarNumberEntityImporter : IEntityImporter
     {
-        private readonly BaseGameDataEndpoint _dataEndpoint;
+        private readonly DataEndpoint _dataEndpoint;
         private readonly CarNumberDataLocator _dataLocator;
         private readonly CarNumberEntityFactory _entityFactory;
 
         public CarNumberEntityImporter(
-            BaseGameDataEndpoint dataEndpoint,
+            DataEndpoint dataEndpoint,
             CarNumberDataLocator dataLocator,
             CarNumberEntityFactory entityFactory)
         {

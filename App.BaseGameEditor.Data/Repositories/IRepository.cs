@@ -4,15 +4,13 @@ using App.BaseGameEditor.Data.Entities;
 
 namespace App.BaseGameEditor.Data.Repositories
 {
-    public interface IRepository
+    public interface IRepository<TEntity>
+        where TEntity : class, IEntity
     {
-        int RepositoryCapacity { get; set; }
-        void Export();
-        IEntity GetById(int id);
-        IEnumerable<IEntity> Get();
-        IEnumerable<IEntity> Get(Func<IEntity, bool> predicate);
-        void Import();
-        void SetById(IEntity item);
-        void Set(IEnumerable<IEntity> entities);
+        IEnumerable<TEntity> Get();
+        IEnumerable<TEntity> Get(Func<TEntity, bool> predicate);
+        TEntity GetById(int id);
+        void Set(IEnumerable<TEntity> items);
+        void SetById(TEntity item);
     }
 }

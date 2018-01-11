@@ -7,10 +7,10 @@ namespace App.BaseGameEditor.Data.EntityExporters
 {
     public class TeamEntityExporter : IEntityExporter
     {
-        private readonly BaseGameDataEndpoint _dataEndpoint;
+        private readonly DataEndpoint _dataEndpoint;
         private readonly TeamDataLocator _dataLocator;
 
-        public TeamEntityExporter(BaseGameDataEndpoint dataEndpoint, TeamDataLocator dataLocator)
+        public TeamEntityExporter(DataEndpoint dataEndpoint, TeamDataLocator dataLocator)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataLocator = dataLocator ?? throw new ArgumentNullException(nameof(dataLocator));

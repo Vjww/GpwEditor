@@ -8,12 +8,12 @@ namespace App.BaseGameEditor.Data.EntityImporters
 {
     public class ChassisHandlingEntityImporter : IEntityImporter
     {
-        private readonly BaseGameDataEndpoint _dataEndpoint;
+        private readonly DataEndpoint _dataEndpoint;
         private readonly ChassisHandlingDataLocator _dataLocator;
         private readonly ChassisHandlingEntityFactory _entityFactory;
 
         public ChassisHandlingEntityImporter(
-            BaseGameDataEndpoint dataEndpoint,
+            DataEndpoint dataEndpoint,
             ChassisHandlingDataLocator dataLocator,
             ChassisHandlingEntityFactory entityFactory)
         {

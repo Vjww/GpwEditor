@@ -7,10 +7,10 @@ namespace App.BaseGameEditor.Data.EntityExporters
 {
     public class CarNumberEntityExporter : IEntityExporter
     {
-        private readonly BaseGameDataEndpoint _dataEndpoint;
+        private readonly DataEndpoint _dataEndpoint;
         private readonly CarNumberDataLocator _dataLocator;
 
-        public CarNumberEntityExporter(BaseGameDataEndpoint dataEndpoint, CarNumberDataLocator dataLocator)
+        public CarNumberEntityExporter(DataEndpoint dataEndpoint, CarNumberDataLocator dataLocator)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataLocator = dataLocator ?? throw new ArgumentNullException(nameof(dataLocator));

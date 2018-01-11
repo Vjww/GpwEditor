@@ -8,12 +8,12 @@ namespace App.BaseGameEditor.Data.EntityImporters
 {
     public class TeamEntityImporter : IEntityImporter
     {
-        private readonly BaseGameDataEndpoint _dataEndpoint;
+        private readonly DataEndpoint _dataEndpoint;
         private readonly TeamDataLocator _dataLocator;
         private readonly TeamEntityFactory _entityFactory;
 
         public TeamEntityImporter(
-            BaseGameDataEndpoint dataEndpoint,
+            DataEndpoint dataEndpoint,
             TeamDataLocator dataLocator,
             TeamEntityFactory entityFactory)
         {

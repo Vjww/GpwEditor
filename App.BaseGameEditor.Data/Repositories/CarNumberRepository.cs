@@ -1,19 +1,8 @@
-﻿using App.BaseGameEditor.Data.Enums;
-using App.BaseGameEditor.Data.RepositoryExporters;
-using App.BaseGameEditor.Data.RepositoryImporters;
+﻿using App.BaseGameEditor.Data.Entities;
 
 namespace App.BaseGameEditor.Data.Repositories
 {
-    public class CarNumberRepository : RepositoryBase, IBaseGameRepository
+    public class CarNumberRepository : RepositoryBase<CarNumberEntity>
     {
-        public CarNumberRepository(
-            CarNumberRepositoryExporter repositoryExporter,
-            CarNumberRepositoryImporter repositoryImporter)
-            : base(repositoryExporter, repositoryImporter)
-        {
-            RepositoryCapacity = 22;
-        }
-
-        public BaseGameRepositoryType Type { get; } = BaseGameRepositoryType.CarNumber;
     }
 }

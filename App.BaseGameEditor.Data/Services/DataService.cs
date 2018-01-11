@@ -1,37 +1,56 @@
 ﻿using System;
-using App.BaseGameEditor.Data.Enums;
-using App.BaseGameEditor.Data.Factories.Repositories;
 using App.BaseGameEditor.Data.Repositories;
 
 namespace App.BaseGameEditor.Data.Services
 {
-    public class DataService : IDataService
+    public class DataService
     {
-        public IBaseGameRepository CarNumbers { get; set; }
-        public IBaseGameRepository ChassisHandlings { get; set; }
-        public IBaseGameRepository Teams { get; set; }
+        private readonly CarNumberDataExportService _carNumberDataExportService;
+        private readonly CarNumberDataImportService _carNumberDataImportService;
+        private readonly ChassisHandlingDataExportService _chassisHandlingDataExportService;
+        private readonly ChassisHandlingDataImportService _chassisHandlingDataImportService;
+        private readonly TeamDataExportService _teamDataExportService;
+        private readonly TeamDataImportService _teamDataImportService;
 
-        public DataService(IBaseGameRepositoryFactory repositoryFactory)
+        public CarNumberRepository CarNumbers { get; }
+        public ChassisHandlingRepository ChassisHandlings { get; }
+        public TeamRepository Teams { get; }
+
+        public DataService(
+            CarNumberDataExportService carNumberDataExportService,
+            CarNumberDataImportService carNumberDataImportService,
+            ChassisHandlingDataExportService chassisHandlingDataExportService,
+            ChassisHandlingDataImportService chassisHandlingDataImportService,
+            TeamDataExportService teamDataExportService,
+            TeamDataImportService teamDataImportService,
+            CarNumberRepository carNumberRepository,
+            ChassisHandlingRepository chassisHandlingRepository,
+            TeamRepository teamRepository)
         {
-            if (repositoryFactory == null) throw new ArgumentNullException(nameof(repositoryFactory));
+            _carNumberDataExportService = carNumberDataExportService ?? throw new ArgumentNullException(nameof(carNumberDataExportService));
+            _carNumberDataImportService = carNumberDataImportService ?? throw new ArgumentNullException(nameof(carNumberDataImportService));
+            _chassisHandlingDataExportService = chassisHandlingDataExportService ?? throw new ArgumentNullException(nameof(chassisHandlingDataExportService));
+            _chassisHandlingDataImportService = chassisHandlingDataImportService ?? throw new ArgumentNullException(nameof(chassisHandlingDataImportService));
+            _teamDataExportService = teamDataExportService ?? throw new ArgumentNullException(nameof(teamDataExportService));
+            _teamDataImportService = teamDataImportService ?? throw new ArgumentNullException(nameof(teamDataImportService));
 
-            CarNumbers = repositoryFactory.Create(BaseGameRepositoryType.CarNumber);
-            ChassisHandlings = repositoryFactory.Create(BaseGameRepositoryType.ChassisHandling);
-            Teams = repositoryFactory.Create(BaseGameRepositoryType.Team);
+            CarNumbers = carNumberRepository ?? throw new ArgumentNullException(nameof(carNumberRepository));
+            ChassisHandlings = chassisHandlingRepository ?? throw new ArgumentNullException(nameof(chassisHandlingRepository));
+            Teams = teamRepository ?? throw new ArgumentNullException(nameof(teamRepository));
         }
 
         public void Export()
         {
-            CarNumbers.Export();
-            ChassisHandlings.Export();
-            Teams.Export();
+            _carNumberDataExportService.Export();
+            _chassisHandlingDataExportService.Export();
+            _teamDataExportService.Export();
         }
 
         public void Import()
         {
-            CarNumbers.Import();
-            ChassisHandlings.Import();
-            Teams.Import();
+            _carNumberDataImportService.Import();
+            _chassisHandlingDataImportService.Import();
+            _teamDataImportService.Import();
         }
     }
 }
