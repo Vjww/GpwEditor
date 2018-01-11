@@ -5,7 +5,9 @@ using App.BaseGameEditor.Data.Catalogues.Commentary;
 using App.BaseGameEditor.Data.Catalogues.Language;
 using App.BaseGameEditor.Data.FileResources;
 using App.BaseGameEditor.Domain.Entities;
+using App.BaseGameEditor.Domain.Repositories;
 using App.BaseGameEditor.Infrastructure.Factories;
+using App.BaseGameEditor.Infrastructure.Repositories;
 using App.BaseGameEditor.Presentation.Outputs;
 using Unity;
 using Unity.Lifetime;
@@ -55,7 +57,8 @@ namespace App.DependencyInjection.Unity
 
             // TODO: These were added for integration test to succeed
             //_container.RegisterType<IBaseGameRepositoryFactory, BaseGameRepositoryFactory>();
-            _container.RegisterType<IEntityFactory<TeamEntity>, EntityFactory<TeamEntity>>();
+            //_container.RegisterType<IEntityFactory<TeamEntity>, EntityFactory<TeamEntity>>();
+            _container.RegisterType<ITeamRepository, TeamRepository>(); // TODO: Maybe a clash domain/data layer
 
             // TODO: Need to find a way to switch on language, currently hardcoded
             _container.RegisterType<ILanguagePhrases, EnglishLanguagePhrases>();

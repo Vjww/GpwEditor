@@ -7,7 +7,7 @@ using TeamEntity = App.BaseGameEditor.Domain.Entities.TeamEntity;
 
 namespace App.BaseGameEditor.Infrastructure.Mappers
 {
-    public class TeamEntityToDataServiceMapper : IEntityToDataServiceMapper<TeamEntity>
+    public class TeamEntityToDataServiceMapper
     {
         private readonly DataService _dataService;
 

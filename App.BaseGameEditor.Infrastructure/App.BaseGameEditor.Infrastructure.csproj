@@ -44,16 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataConnections\DataConnectionValidationService.cs" />
-    <Compile Include="DataConnections\IDataConnectionValidationService.cs" />
-    <Compile Include="DataServices\IDataExportService.cs" />
-    <Compile Include="DataServices\IDataImportService.cs" />
-    <Compile Include="Factories\IEntityFactory.cs" />
     <Compile Include="Factories\EntityFactory.cs" />
     <Compile Include="Mappers\DataServiceToTeamEntityMapper.cs" />
     <Compile Include="Mappers\TeamEntityToDataServiceMapper.cs" />
-    <Compile Include="Mappers\IDataServiceToEntityMapper.cs" />
-    <Compile Include="Mappers\IEntityToDataServiceMapper.cs" />
     <Compile Include="Maps\TeamEntityOnTeamEntityMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />

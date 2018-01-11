@@ -2,7 +2,7 @@
 
 namespace App.BaseGameEditor.Infrastructure.Factories
 {
-    public class EntityFactory<TEntity> : IEntityFactory<TEntity>
+    public class EntityFactory<TEntity>
         where TEntity : class, IEntity, new()
     {
         public TEntity Create(int id)
@@ -12,6 +12,7 @@ namespace App.BaseGameEditor.Infrastructure.Factories
             // TODO: if it is going to resolve from the DI Container, as the domain
             // TODO: should not reference the DI tool.
             // TODO: Alternatively a solution could be implemented by the DI Container.
+            // TODO: Refer to http://www.wiktorzychla.com/2016/01/di-factories-and-composition-root.html
             return new TEntity { Id = id };
         }
     }

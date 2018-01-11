@@ -7,14 +7,14 @@ using TeamEntity = App.BaseGameEditor.Domain.Entities.TeamEntity;
 
 namespace App.BaseGameEditor.Infrastructure.Mappers
 {
-    public class DataServiceToTeamEntityMapper : IDataServiceToEntityMapper<TeamEntity>
+    public class DataServiceToTeamEntityMapper
     {
         private readonly DataService _dataService;
-        private readonly IEntityFactory<TeamEntity> _factory;
+        private readonly EntityFactory<TeamEntity> _factory;
 
         public DataServiceToTeamEntityMapper(
             DataService dataService,
-            IEntityFactory<TeamEntity> factory)
+            EntityFactory<TeamEntity> factory)
         {
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
             _factory = factory ?? throw new ArgumentNullException(nameof(factory));

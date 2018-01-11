@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using App.BaseGameEditor.Data.DataConnections;
 
-namespace App.BaseGameEditor.Infrastructure.DataConnections
+namespace App.BaseGameEditor.Data.Services
 {
-    public class DataConnectionValidationService : IDataConnectionValidationService<DataConnection>
+    public class DataConnectionValidationService
     {
         public IEnumerable<string> Validate(DataConnection dataConnection)
         {
