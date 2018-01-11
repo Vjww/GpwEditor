@@ -71,7 +71,7 @@
     <Compile Include="Catalogues\Language\LanguageCatalogueValue.cs" />
     <Compile Include="Catalogues\Language\LanguageCatalogueWriter.cs" />
     <Compile Include="DataConnections\DataConnection.cs" />
-    <Compile Include="DataConnections\IDataConnection.cs" />
+    <Compile Include="_RedundantInterfaces\IDataConnection.cs" />
     <Compile Include="Services\DataConnectionValidationService.cs" />
     <Compile Include="Services\TeamDataExportService.cs" />
     <Compile Include="Services\ChassisHandlingDataExportService.cs" />
@@ -80,12 +80,12 @@
     <Compile Include="Services\ChassisHandlingDataImportService.cs" />
     <Compile Include="Services\CarNumberDataImportService.cs" />
     <Compile Include="Services\DataService.cs" />
-    <Compile Include="Services\IDataService.cs" />
+    <Compile Include="_RedundantInterfaces\IDataService.cs" />
     <Compile Include="DataEndpoints\DataEndpoint.cs" />
-    <Compile Include="DataEndpoints\IDataEndpoint.cs" />
+    <Compile Include="_RedundantInterfaces\IDataEndpoint.cs" />
     <Compile Include="DataLocators\CarNumberDataLocator.cs" />
     <Compile Include="DataLocators\ChassisHandlingDataLocator.cs" />
-    <Compile Include="DataLocators\IDataLocator.cs" />
+    <Compile Include="_RedundantInterfaces\IDataLocator.cs" />
     <Compile Include="DataLocators\TeamDataLocator.cs" />
     <Compile Include="Entities\CarNumberEntity.cs" />
     <Compile Include="Entities\ChassisHandlingEntity.cs" />
@@ -100,22 +100,21 @@
     <Compile Include="EntityImporters\CarNumberEntityImporter.cs" />
     <Compile Include="EntityImporters\ChassisHandlingEntityImporter.cs" />
     <Compile Include="EntityImporters\TeamEntityImporter.cs" />
-    <Compile Include="Enums\BaseGameRepositoryType.cs" />
     <Compile Include="Enums\CommentaryType.cs" />
     <Compile Include="Enums\LanguageType.cs" />
-    <Compile Include="Factories\Catalogues\Commentary\CommentaryCatalogueFactory.cs" />
-    <Compile Include="Factories\Catalogues\Commentary\ICommentaryCatalogueFactory.cs" />
-    <Compile Include="Factories\Catalogues\Languages\ILanguageCatalogueFactory.cs" />
-    <Compile Include="Factories\Catalogues\Languages\ILanguagePhrasesFactory.cs" />
-    <Compile Include="Factories\Catalogues\Languages\LanguageCatalogueFactory.cs" />
-    <Compile Include="Factories\Catalogues\Languages\LanguagePhrasesFactory.cs" />
-    <Compile Include="Factories\Entities\CarNumberEntityFactory.cs" />
-    <Compile Include="Factories\Entities\ChassisHandlingEntityFactory.cs" />
-    <Compile Include="Factories\Entities\TeamEntityFactory.cs" />
+    <Compile Include="Factories\CommentaryCatalogueFactory.cs" />
+    <Compile Include="_RedundantInterfaces\ICommentaryCatalogueFactory.cs" />
+    <Compile Include="_RedundantInterfaces\ILanguageCatalogueFactory.cs" />
+    <Compile Include="_RedundantInterfaces\ILanguagePhrasesFactory.cs" />
+    <Compile Include="Factories\LanguageCatalogueFactory.cs" />
+    <Compile Include="Factories\LanguagePhrasesFactory.cs" />
+    <Compile Include="Factories\CarNumberEntityFactory.cs" />
+    <Compile Include="Factories\ChassisHandlingEntityFactory.cs" />
+    <Compile Include="Factories\TeamEntityFactory.cs" />
     <Compile Include="Factories\EntityFactory.cs" />
-    <Compile Include="Factories\IEntityFactory.cs" />
+    <Compile Include="_RedundantInterfaces\IEntityFactory2.cs" />
     <Compile Include="Factories\IStreamFactory.cs" />
-    <Compile Include="Factories\StreamFactory.cs" />
+    <Compile Include="Factories\MemoryStreamFactory.cs" />
     <Compile Include="FileResources\File.cs" />
     <Compile Include="FileResources\FileResource.cs" />
     <Compile Include="FileResources\FileResourceExporter.cs" />
@@ -144,10 +143,10 @@
     <Compile Include="RepositoryImporters\CarNumberRepositoryImporter.cs" />
     <Compile Include="RepositoryImporters\ChassisHandlingRepositoryImporter.cs" />
     <Compile Include="RepositoryImporters\TeamRepositoryImporter.cs" />
-    <Compile Include="Streams\IStreamReader.cs" />
-    <Compile Include="Streams\IStreamWriter.cs" />
-    <Compile Include="Streams\StreamReader.cs" />
-    <Compile Include="Streams\StreamWriter.cs" />
+    <Compile Include="_RedundantInterfaces\IStreamReader.cs" />
+    <Compile Include="_RedundantInterfaces\IStreamWriter.cs" />
+    <Compile Include="Streams\StreamReadService.cs" />
+    <Compile Include="Streams\StreamWriteService.cs" />
     <Compile Include="_RedundantInterfaces\IDataConnectionValidationService.cs" />
     <Compile Include="_RedundantInterfaces\IDataExportService.cs" />
     <Compile Include="_RedundantInterfaces\IDataImportService.cs" />
@@ -156,7 +155,8 @@
     <Compile Include="_RedundantInterfaces\IEntityToDataServiceMapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="readme.txt" />
+    <Content Include="_RedundantInterfaces\readme.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

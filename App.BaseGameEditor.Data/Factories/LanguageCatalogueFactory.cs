@@ -5,9 +5,9 @@ using System.Linq;
 using App.BaseGameEditor.Data.Catalogues.Language;
 using App.BaseGameEditor.Data.Enums;
 
-namespace App.BaseGameEditor.Data.Factories.Catalogues.Languages
+namespace App.BaseGameEditor.Data.Factories
 {
-    public class LanguageCatalogueFactory : ILanguageCatalogueFactory
+    public class LanguageCatalogueFactory
     {
         private readonly IEnumerable<ILanguageCatalogue> _languageCatalogues;
 

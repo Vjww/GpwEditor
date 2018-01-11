@@ -3,6 +3,7 @@ using System.Linq;
 using App.BaseGameEditor.Data.Catalogues;
 using App.BaseGameEditor.Data.Catalogues.Commentary;
 using App.BaseGameEditor.Data.Catalogues.Language;
+using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.FileResources;
 using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Domain.Repositories;
@@ -51,6 +52,7 @@ namespace App.DependencyInjection.Unity
 
             // Manual registrations
             _container.RegisterType<BaseGameEditor.Presentation.Outputs.IOutput, ConsoleOutput>();
+            _container.RegisterType<IStreamFactory, MemoryStreamFactory>();
             RegisterLanguageCatalogueTypes();
             RegisterCommentaryCatalogueTypes();
             //RegisterBaseGameRepositoryTypes();

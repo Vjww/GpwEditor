@@ -7,11 +7,11 @@ using App.BaseGameEditor.Data.Factories;
 
 namespace App.BaseGameEditor.Data.Streams
 {
-    public class StreamWriter : IStreamWriter
+    public class StreamWriteService
     {
         private readonly IStreamFactory _streamFactory;
 
-        public StreamWriter(IStreamFactory streamFactory)
+        public StreamWriteService(IStreamFactory streamFactory)
         {
             _streamFactory = streamFactory ?? throw new ArgumentNullException(nameof(streamFactory));
         }
@@ -47,7 +47,7 @@ namespace App.BaseGameEditor.Data.Streams
             stream.Seek(0, SeekOrigin.Begin);
 
             // TODO: Remove the dependancy on the CLI StreamWriter class
-            using (var streamWriter = new System.IO.StreamWriter(streamCopy, Encoding.Default))
+            using (var streamWriter = new StreamWriter(streamCopy, Encoding.Default))
             {
                 foreach (var item in list)
                 {

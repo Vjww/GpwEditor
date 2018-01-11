@@ -3,7 +3,7 @@ using App.BaseGameEditor.Data.Calculators;
 
 namespace App.BaseGameEditor.Data.DataLocators
 {
-    public class ChassisHandlingDataLocator : IDataLocator
+    public class ChassisHandlingDataLocator
     {
         private const int BaseOffset = 1094126;
         private const int LocalOffset = 30;

@@ -2,7 +2,7 @@
 
 namespace App.BaseGameEditor.Data.Factories
 {
-    public class StreamFactory : IStreamFactory
+    public class MemoryStreamFactory : IStreamFactory
     {
         public Stream Create()
         {

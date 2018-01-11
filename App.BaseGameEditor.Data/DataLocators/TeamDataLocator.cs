@@ -2,7 +2,7 @@
 
 namespace App.BaseGameEditor.Data.DataLocators
 {
-    public class TeamDataLocator : IDataLocator
+    public class TeamDataLocator
     {
         private const int NameOffset = 5696 + 1; // "No Team" -> "Williams"
 

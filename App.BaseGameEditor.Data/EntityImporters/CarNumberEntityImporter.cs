@@ -2,7 +2,7 @@
 using App.BaseGameEditor.Data.DataEndpoints;
 using App.BaseGameEditor.Data.DataLocators;
 using App.BaseGameEditor.Data.Entities;
-using App.BaseGameEditor.Data.Factories.Entities;
+using App.BaseGameEditor.Data.Factories;
 
 namespace App.BaseGameEditor.Data.EntityImporters
 {

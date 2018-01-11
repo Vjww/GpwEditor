@@ -7,11 +7,11 @@ namespace App.BaseGameEditor.Data.FileResources
 {
     public class FileResourceWriter : IFileResourceWriter
     {
-        private readonly IStreamWriter _streamWriter;
+        private readonly StreamWriteService _streamWriteService;
 
-        public FileResourceWriter(IStreamWriter streamWriter)
+        public FileResourceWriter(StreamWriteService streamWriteService)
         {
-            _streamWriter = streamWriter ?? throw new ArgumentNullException(nameof(streamWriter));
+            _streamWriteService = streamWriteService ?? throw new ArgumentNullException(nameof(streamWriteService));
         }
 
         public void WriteInteger(Stream stream, int offset, int value)
@@ -20,7 +20,7 @@ namespace App.BaseGameEditor.Data.FileResources
             if (offset < 0) throw new ArgumentOutOfRangeException(nameof(offset));
 
             var bytes = BitConverter.GetBytes(value);
-            _streamWriter.Write(stream, offset, bytes, SeekOrigin.Begin);
+            _streamWriteService.Write(stream, offset, bytes, SeekOrigin.Begin);
         }
 
         public void WriteStringList(Stream stream, IEnumerable list)
@@ -28,7 +28,7 @@ namespace App.BaseGameEditor.Data.FileResources
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             if (list == null) throw new ArgumentNullException(nameof(list));
 
-            _streamWriter.WriteStringList(stream, list);
+            _streamWriteService.WriteStringList(stream, list);
         }
     }
 }

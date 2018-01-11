@@ -7,11 +7,11 @@ namespace App.BaseGameEditor.Data.FileResources
 {
     public class FileResourceReader : IFileResourceReader
     {
-        private readonly IStreamReader _streamReader;
+        private readonly StreamReadService _streamReadService;
 
-        public FileResourceReader(IStreamReader streamReader)
+        public FileResourceReader(StreamReadService streamReadService)
         {
-            _streamReader = streamReader ?? throw new ArgumentNullException(nameof(streamReader));
+            _streamReadService = streamReadService ?? throw new ArgumentNullException(nameof(streamReadService));
         }
 
         public int ReadInteger(Stream stream, int offset)
@@ -19,7 +19,7 @@ namespace App.BaseGameEditor.Data.FileResources
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             if (offset < 0) throw new ArgumentOutOfRangeException(nameof(offset));
 
-            var bytes = _streamReader.Read(stream, offset, 4, SeekOrigin.Begin);
+            var bytes = _streamReadService.Read(stream, offset, 4);
             return BitConverter.ToInt32(bytes, 0);
         }
 
@@ -27,7 +27,7 @@ namespace App.BaseGameEditor.Data.FileResources
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
 
-            return _streamReader.ReadStringList(stream);
+            return _streamReadService.ReadStringList(stream);
         }
     }
 }

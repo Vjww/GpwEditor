@@ -2,7 +2,7 @@
 
 namespace App.BaseGameEditor.Data.DataConnections
 {
-    public class DataConnection : IDataConnection
+    public class DataConnection
     {
         public string GameFolderPath { get; private set; }
         public string GameExecutableFilePath { get; private set; }

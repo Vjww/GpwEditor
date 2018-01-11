@@ -1,30 +1,29 @@
 ﻿using System;
 using System.Linq;
-using App.BaseGameEditor.Data.Entities;
 using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Infrastructure.Factories;
-using TeamEntity = App.BaseGameEditor.Domain.Entities.TeamEntity;
+using TeamDomainEntity = App.BaseGameEditor.Domain.Entities.TeamEntity;
 
 namespace App.BaseGameEditor.Infrastructure.Mappers
 {
     public class DataServiceToTeamEntityMapper
     {
         private readonly DataService _dataService;
-        private readonly EntityFactory<TeamEntity> _factory;
+        private readonly EntityFactory<TeamDomainEntity> _factory;
 
         public DataServiceToTeamEntityMapper(
             DataService dataService,
-            EntityFactory<TeamEntity> factory)
+            EntityFactory<TeamDomainEntity> factory)
         {
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
             _factory = factory ?? throw new ArgumentNullException(nameof(factory));
         }
 
-        public TeamEntity Map(int id)
+        public TeamDomainEntity Map(int id)
         {
             var result = _factory.Create(id);
 
-            var teamEntity = (Data.Entities.TeamEntity)_dataService.Teams.Get(x => x.Id == id).Single();
+            var teamEntity = _dataService.Teams.Get(x => x.Id == id).Single();
             result.TeamId = teamEntity.Id + 1;
             result.Name = teamEntity.Name.All;
             result.LastPosition = teamEntity.LastPosition;
@@ -38,26 +37,13 @@ namespace App.BaseGameEditor.Infrastructure.Mappers
             result.LocationPointerY = teamEntity.LocationPointerY;
             result.TyreSupplierId = teamEntity.TyreSupplierId;
 
-            foreach (var item in _dataService.ChassisHandlings.Get())
-            {
-                if (!(item is ChassisHandlingEntity entity) || entity.TeamId != id) continue;
-                result.ChassisHandling = entity.Value;
-                break;
-            }
+            var chassisHandlingEntities = _dataService.ChassisHandlings.Get();
+            var chassisHandlingEntity = chassisHandlingEntities.Single(x => x.TeamId == id);
+            result.ChassisHandling = chassisHandlingEntity.Value;
 
-            foreach (var item in _dataService.CarNumbers.Get())
-            {
-                if (!(item is CarNumberEntity entity) || entity.TeamId != id) continue;
-                switch (entity.PositionId)
-                {
-                    case 0:
-                        result.CarNumberDriver1 = entity.ValueA;
-                        break;
-                    case 1:
-                        result.CarNumberDriver2 = entity.ValueA;
-                        break;
-                }
-            }
+            var carNumberEntities = _dataService.CarNumbers.Get().Where(x => x.TeamId == id).ToList();
+            result.CarNumberDriver1 = carNumberEntities.Single(x => x.PositionId == 0).ValueA;
+            result.CarNumberDriver2 = carNumberEntities.Single(x => x.PositionId == 1).ValueA;
 
             return result;
         }

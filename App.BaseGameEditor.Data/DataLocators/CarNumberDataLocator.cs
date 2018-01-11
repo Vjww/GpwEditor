@@ -3,7 +3,7 @@ using App.BaseGameEditor.Data.Calculators;
 
 namespace App.BaseGameEditor.Data.DataLocators
 {
-    public class CarNumberDataLocator : IDataLocator
+    public class CarNumberDataLocator
     {
         private readonly IdentityCalculator _identityCalculator;
 

@@ -5,9 +5,9 @@ using System.Linq;
 using App.BaseGameEditor.Data.Catalogues.Commentary;
 using App.BaseGameEditor.Data.Enums;
 
-namespace App.BaseGameEditor.Data.Factories.Catalogues.Commentary
+namespace App.BaseGameEditor.Data.Factories
 {
-    public class CommentaryCatalogueFactory : ICommentaryCatalogueFactory
+    public class CommentaryCatalogueFactory
     {
         private readonly IEnumerable<ICommentaryCatalogue> _commentaryCatalogues;
 

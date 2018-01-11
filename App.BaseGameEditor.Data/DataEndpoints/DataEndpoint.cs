@@ -3,8 +3,7 @@ using App.BaseGameEditor.Data.Catalogues.Commentary;
 using App.BaseGameEditor.Data.Catalogues.Language;
 using App.BaseGameEditor.Data.DataConnections;
 using App.BaseGameEditor.Data.Enums;
-using App.BaseGameEditor.Data.Factories.Catalogues.Commentary;
-using App.BaseGameEditor.Data.Factories.Catalogues.Languages;
+using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.FileResources;
 
 namespace App.BaseGameEditor.Data.DataEndpoints
@@ -21,8 +20,8 @@ namespace App.BaseGameEditor.Data.DataEndpoints
 
         public DataEndpoint(
             IFileResource gameExecutableFileResource,
-            ILanguageCatalogueFactory languageCatalogueFactory,
-            ICommentaryCatalogueFactory commentaryCatalogueFactory)
+            LanguageCatalogueFactory languageCatalogueFactory,
+            CommentaryCatalogueFactory commentaryCatalogueFactory)
         {
             GameExecutableFileResource = gameExecutableFileResource ?? throw new ArgumentNullException(nameof(gameExecutableFileResource));
             if (languageCatalogueFactory == null) throw new ArgumentNullException(nameof(languageCatalogueFactory));
