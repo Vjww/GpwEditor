@@ -5,12 +5,12 @@ namespace App.BaseGameEditor.Data.Entities
 {
     public class TeamEntity : EntityBase
     {
-        public TeamEntity(ILanguageCatalogueValue languageCatalogueValue)
+        public TeamEntity(LanguageCatalogueValue languageCatalogueValue)
         {
             Name = languageCatalogueValue ?? throw new ArgumentNullException(nameof(languageCatalogueValue));
         }
 
-        public ILanguageCatalogueValue Name { get; set; }
+        public LanguageCatalogueValue Name { get; set; }
         public int LastPosition { get; set; }
         public int LastPoints { get; set; }
         public int FirstGpTrack { get; set; }

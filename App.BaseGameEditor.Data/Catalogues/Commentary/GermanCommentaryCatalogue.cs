@@ -2,13 +2,15 @@
 
 namespace App.BaseGameEditor.Data.Catalogues.Commentary
 {
-    public class GermanCommentaryCatalogue : CatalogueBase<CommentaryCatalogueItem>, ICommentaryCatalogue
+    public class GermanCommentaryCatalogue : CatalogueBase<CommentaryCatalogueItem>, ICatalogueLanguage
     {
         public GermanCommentaryCatalogue(
-            ICatalogueExporter<CommentaryCatalogueItem> catalogueExporter,
-            ICatalogueImporter<CommentaryCatalogueItem> catalogueImporter,
-            ICatalogueReader<CommentaryCatalogueItem> catalogueReader,
-            ICatalogueWriter<CommentaryCatalogueItem> catalogueWriter)
+            // ReSharper disable once SuggestBaseTypeForParameter
+            CommentaryCatalogueExporter<GermanLanguagePhrases> catalogueExporter,
+            // ReSharper disable once SuggestBaseTypeForParameter
+            CommentaryCatalogueImporter<GermanLanguagePhrases> catalogueImporter,
+            CommentaryCatalogueReader catalogueReader,
+            CommentaryCatalogueWriter catalogueWriter)
             : base(catalogueExporter, catalogueImporter, catalogueReader, catalogueWriter)
         {
         }

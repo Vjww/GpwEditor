@@ -1,19 +1,20 @@
 ﻿using System;
 using System.IO;
 using App.BaseGameEditor.Data.Factories;
+using App.BaseGameEditor.Data.Services;
 
 namespace App.BaseGameEditor.Data.FileResources
 {
-    public class FileResourceImporter : IFileResourceImporter
+    public class FileResourceImporter
     {
-        private readonly IFile _fileResourceService;
+        private readonly FileService _fileService;
         private readonly IStreamFactory _streamFactory;
 
         public FileResourceImporter(
-            IFile fileResourceService,
+            FileService fileService,
             IStreamFactory streamFactory)
         {
-            _fileResourceService = fileResourceService ?? throw new ArgumentNullException(nameof(fileResourceService));
+            _fileService = fileService ?? throw new ArgumentNullException(nameof(fileService));
             _streamFactory = streamFactory ?? throw new ArgumentNullException(nameof(streamFactory));
         }
 
@@ -23,7 +24,7 @@ namespace App.BaseGameEditor.Data.FileResources
                 throw new ArgumentException("Value cannot be null or whitespace.", nameof(filePath));
 
             var stream = _streamFactory.Create();
-            using (var fileStream = _fileResourceService.Open(filePath, FileMode.Open, FileAccess.Read))
+            using (var fileStream = _fileService.Open(filePath, FileMode.Open, FileAccess.Read))
             {
                 fileStream.Seek(0, SeekOrigin.Begin);
                 fileStream.CopyTo(stream);

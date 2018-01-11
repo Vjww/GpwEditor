@@ -6,7 +6,8 @@ using App.BaseGameEditor.Data.Enums;
 
 namespace App.BaseGameEditor.Data.Catalogues.Commentary
 {
-    public class CommentaryCatalogueParser : ICommentaryCatalogueParser
+    public class CommentaryCatalogueParser<TLanguagePhrases>
+        where TLanguagePhrases : class, ILanguagePhrases
     {
         // TODO: remove?
         //private const int FirstLineId = 1;
@@ -23,13 +24,13 @@ namespace App.BaseGameEditor.Data.Catalogues.Commentary
         private const string RightAngleBracket = ">";
         private const string WavFileExtension = ".WAV";
 
-        private readonly ILanguagePhrases _languagePhrases;
+        private readonly TLanguagePhrases _languagePhrases;
 
-        public CommentaryCatalogueParser(ILanguagePhrases languagePhrases)
+        public CommentaryCatalogueParser(TLanguagePhrases languagePhrases)
         {
             _languagePhrases = languagePhrases ?? throw new ArgumentNullException(nameof(languagePhrases));
         }
-
+        
         public string BuildFileName(CommentaryCatalogueItem catalogueItem)
         {
             if (catalogueItem == null) throw new ArgumentNullException(nameof(catalogueItem));

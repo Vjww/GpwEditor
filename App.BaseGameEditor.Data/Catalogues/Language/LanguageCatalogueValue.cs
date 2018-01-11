@@ -1,6 +1,6 @@
 ﻿namespace App.BaseGameEditor.Data.Catalogues.Language
 {
-    public class LanguageCatalogueValue : ILanguageCatalogueValue
+    public class LanguageCatalogueValue
     {
         public string All
         {

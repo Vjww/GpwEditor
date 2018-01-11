@@ -2,13 +2,13 @@
 
 namespace App.BaseGameEditor.Data.Catalogues.Language
 {
-    public class FrenchLanguageCatalogue : CatalogueBase<LanguageCatalogueItem>, ILanguageCatalogue
+    public class FrenchLanguageCatalogue : CatalogueBase<LanguageCatalogueItem>, ICatalogueLanguage
     {
         public FrenchLanguageCatalogue(
-            ICatalogueExporter<LanguageCatalogueItem> catalogueExporter,
-            ICatalogueImporter<LanguageCatalogueItem> catalogueImporter,
-            ICatalogueReader<LanguageCatalogueItem> catalogueReader,
-            ICatalogueWriter<LanguageCatalogueItem> catalogueWriter)
+            LanguageCatalogueExporter catalogueExporter,
+            LanguageCatalogueImporter catalogueImporter,
+            LanguageCatalogueReader catalogueReader,
+            LanguageCatalogueWriter catalogueWriter)
             : base(catalogueExporter, catalogueImporter, catalogueReader, catalogueWriter)
         {
         }

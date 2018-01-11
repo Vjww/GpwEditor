@@ -6,9 +6,9 @@ namespace App.BaseGameEditor.Data.Catalogues.Language
 {
     public class LanguageCatalogueExporter : ICatalogueExporter<LanguageCatalogueItem>
     {
-        private readonly IFileResource _fileResource;
+        private readonly FileResource _fileResource;
 
-        public LanguageCatalogueExporter(IFileResource fileResource)
+        public LanguageCatalogueExporter(FileResource fileResource)
         {
             _fileResource = fileResource ?? throw new ArgumentNullException(nameof(fileResource));
         }

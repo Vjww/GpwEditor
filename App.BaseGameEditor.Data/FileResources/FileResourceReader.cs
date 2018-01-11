@@ -5,7 +5,7 @@ using App.BaseGameEditor.Data.Streams;
 
 namespace App.BaseGameEditor.Data.FileResources
 {
-    public class FileResourceReader : IFileResourceReader
+    public class FileResourceReader
     {
         private readonly StreamReadService _streamReadService;
 

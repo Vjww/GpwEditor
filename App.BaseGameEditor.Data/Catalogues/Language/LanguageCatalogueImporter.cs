@@ -8,11 +8,11 @@ namespace App.BaseGameEditor.Data.Catalogues.Language
     public class LanguageCatalogueImporter : ICatalogueImporter<LanguageCatalogueItem>
     {
         private readonly LanguageCatalogueParser _catalogueParser;
-        private readonly IFileResource _fileResource;
+        private readonly FileResource _fileResource;
 
         public LanguageCatalogueImporter(
             LanguageCatalogueParser catalogueParser,
-            IFileResource fileResource)
+            FileResource fileResource)
         {
             _catalogueParser = catalogueParser ?? throw new ArgumentNullException(nameof(catalogueParser));
             _fileResource = fileResource ?? throw new ArgumentNullException(nameof(fileResource));

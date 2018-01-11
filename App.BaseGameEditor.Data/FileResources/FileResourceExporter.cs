@@ -1,15 +1,16 @@
 ﻿using System;
 using System.IO;
+using App.BaseGameEditor.Data.Services;
 
 namespace App.BaseGameEditor.Data.FileResources
 {
-    public class FileResourceExporter : IFileResourceExporter
+    public class FileResourceExporter
     {
-        private readonly IFile _fileResourceService;
+        private readonly FileService _fileService;
 
-        public FileResourceExporter(IFile fileResourceService)
+        public FileResourceExporter(FileService fileService)
         {
-            _fileResourceService = fileResourceService ?? throw new ArgumentNullException(nameof(fileResourceService));
+            _fileService = fileService ?? throw new ArgumentNullException(nameof(fileService));
         }
 
         public void Export(Stream stream, string filePath)
@@ -18,7 +19,7 @@ namespace App.BaseGameEditor.Data.FileResources
             if (string.IsNullOrWhiteSpace(filePath))
                 throw new ArgumentException("Value cannot be null or whitespace.", nameof(filePath));
 
-            using (var fileStream = _fileResourceService.Open(filePath, FileMode.Truncate, FileAccess.Write))
+            using (var fileStream = _fileService.Open(filePath, FileMode.Truncate, FileAccess.Write))
             {
                 stream.Seek(0, SeekOrigin.Begin);
                 stream.CopyTo(fileStream);

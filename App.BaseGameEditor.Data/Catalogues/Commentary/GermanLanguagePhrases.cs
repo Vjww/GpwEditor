@@ -1,10 +1,7 @@
-﻿using App.BaseGameEditor.Data.Enums;
-
-namespace App.BaseGameEditor.Data.Catalogues.Commentary
+﻿namespace App.BaseGameEditor.Data.Catalogues.Commentary
 {
     public class GermanLanguagePhrases : ILanguagePhrases
     {
-        public LanguageType Language { get; } = LanguageType.German;
         public string DriverInPitsSuffix { get; } = "an der Box.";
         public string DriverP1Suffix { get; } = "Platz 1";
         public string DriverP2Suffix { get; } = "Platz 2";

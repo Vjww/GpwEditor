@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace App.BaseGameEditor.Data.Catalogues.Language
 {
-    public class LanguageCatalogueParser : ILanguageCatalogueParser
+    public class LanguageCatalogueParser
     {
         // TODO: remove?
         //private const int FirstLineId = 0;

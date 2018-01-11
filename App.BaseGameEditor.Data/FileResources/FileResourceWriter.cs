@@ -5,7 +5,7 @@ using App.BaseGameEditor.Data.Streams;
 
 namespace App.BaseGameEditor.Data.FileResources
 {
-    public class FileResourceWriter : IFileResourceWriter
+    public class FileResourceWriter
     {
         private readonly StreamWriteService _streamWriteService;
 

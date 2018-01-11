@@ -2,37 +2,36 @@
 using App.BaseGameEditor.Data.Catalogues.Commentary;
 using App.BaseGameEditor.Data.Catalogues.Language;
 using App.BaseGameEditor.Data.DataConnections;
-using App.BaseGameEditor.Data.Enums;
-using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.FileResources;
 
 namespace App.BaseGameEditor.Data.DataEndpoints
 {
     public class DataEndpoint
     {
-        public IFileResource GameExecutableFileResource { get; }
-        public ILanguageCatalogue EnglishLanguageCatalogue { get; }
-        public ILanguageCatalogue FrenchLanguageCatalogue { get; }
-        public ILanguageCatalogue GermanLanguageCatalogue { get; }
-        public ICommentaryCatalogue EnglishCommentaryCatalogue { get; }
-        public ICommentaryCatalogue FrenchCommentaryCatalogue { get; }
-        public ICommentaryCatalogue GermanCommentaryCatalogue { get; }
+        public FileResource GameExecutableFileResource { get; }
+        public EnglishLanguageCatalogue EnglishLanguageCatalogue { get; }
+        public FrenchLanguageCatalogue FrenchLanguageCatalogue { get; }
+        public GermanLanguageCatalogue GermanLanguageCatalogue { get; }
+        public EnglishCommentaryCatalogue EnglishCommentaryCatalogue { get; }
+        public FrenchCommentaryCatalogue FrenchCommentaryCatalogue { get; }
+        public GermanCommentaryCatalogue GermanCommentaryCatalogue { get; }
 
         public DataEndpoint(
-            IFileResource gameExecutableFileResource,
-            LanguageCatalogueFactory languageCatalogueFactory,
-            CommentaryCatalogueFactory commentaryCatalogueFactory)
+            FileResource gameExecutableFileResource,
+            EnglishLanguageCatalogue englishLanguageCatalogue,
+            FrenchLanguageCatalogue frenchLanguageCatalogue,
+            GermanLanguageCatalogue germanLanguageCatalogue,
+            EnglishCommentaryCatalogue englishCommentaryCatalogue,
+            FrenchCommentaryCatalogue frenchCommentaryCatalogue,
+            GermanCommentaryCatalogue germanCommentaryCatalogue)
         {
+            EnglishLanguageCatalogue = englishLanguageCatalogue ?? throw new ArgumentNullException(nameof(englishLanguageCatalogue));
+            FrenchLanguageCatalogue = frenchLanguageCatalogue ?? throw new ArgumentNullException(nameof(frenchLanguageCatalogue));
+            GermanLanguageCatalogue = germanLanguageCatalogue ?? throw new ArgumentNullException(nameof(germanLanguageCatalogue));
+            EnglishCommentaryCatalogue = englishCommentaryCatalogue ?? throw new ArgumentNullException(nameof(englishCommentaryCatalogue));
+            FrenchCommentaryCatalogue = frenchCommentaryCatalogue ?? throw new ArgumentNullException(nameof(frenchCommentaryCatalogue));
+            GermanCommentaryCatalogue = germanCommentaryCatalogue ?? throw new ArgumentNullException(nameof(germanCommentaryCatalogue));
             GameExecutableFileResource = gameExecutableFileResource ?? throw new ArgumentNullException(nameof(gameExecutableFileResource));
-            if (languageCatalogueFactory == null) throw new ArgumentNullException(nameof(languageCatalogueFactory));
-            if (commentaryCatalogueFactory == null) throw new ArgumentNullException(nameof(commentaryCatalogueFactory));
-
-            EnglishLanguageCatalogue = languageCatalogueFactory.Create(LanguageType.English);
-            FrenchLanguageCatalogue = languageCatalogueFactory.Create(LanguageType.French);
-            GermanLanguageCatalogue = languageCatalogueFactory.Create(LanguageType.German);
-            EnglishCommentaryCatalogue = commentaryCatalogueFactory.Create(LanguageType.English);
-            FrenchCommentaryCatalogue = commentaryCatalogueFactory.Create(LanguageType.French);
-            GermanCommentaryCatalogue = commentaryCatalogueFactory.Create(LanguageType.German);
         }
 
         public void Import(DataConnection dataConnection)

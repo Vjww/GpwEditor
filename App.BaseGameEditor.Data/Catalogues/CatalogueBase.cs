@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace App.BaseGameEditor.Data.Catalogues
 {
-    public class CatalogueBase<TCatalogueItem> : List<TCatalogueItem>, ICatalogue
+    public class CatalogueBase<TCatalogueItem> : List<TCatalogueItem>
         where TCatalogueItem : class, ICatalogueItem
     {
         private readonly ICatalogueExporter<TCatalogueItem> _catalogueExporter;

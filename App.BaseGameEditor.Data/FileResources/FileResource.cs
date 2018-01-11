@@ -5,20 +5,20 @@ using App.BaseGameEditor.Data.Factories;
 
 namespace App.BaseGameEditor.Data.FileResources
 {
-    public class FileResource : IFileResource
+    public class FileResource
     {
         private Stream _stream;
 
-        private readonly IFileResourceExporter _fileResourceExporter;
-        private readonly IFileResourceImporter _fileResourceImporter;
-        private readonly IFileResourceReader _fileResourceReader;
-        private readonly IFileResourceWriter _fileResourceWriter;
+        private readonly FileResourceExporter _fileResourceExporter;
+        private readonly FileResourceImporter _fileResourceImporter;
+        private readonly FileResourceReader _fileResourceReader;
+        private readonly FileResourceWriter _fileResourceWriter;
 
         public FileResource(
-            IFileResourceExporter fileResourceExporter,
-            IFileResourceImporter fileResourceImporter,
-            IFileResourceReader fileResourceReader,
-            IFileResourceWriter fileResourceWriter,
+            FileResourceExporter fileResourceExporter,
+            FileResourceImporter fileResourceImporter,
+            FileResourceReader fileResourceReader,
+            FileResourceWriter fileResourceWriter,
             IStreamFactory streamFactory)
         {
             _fileResourceExporter = fileResourceExporter ?? throw new ArgumentNullException(nameof(fileResourceExporter));

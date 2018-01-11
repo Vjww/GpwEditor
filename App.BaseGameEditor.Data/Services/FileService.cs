@@ -2,9 +2,9 @@ using System;
 using System.ComponentModel;
 using System.IO;
 
-namespace App.BaseGameEditor.Data.FileResources
+namespace App.BaseGameEditor.Data.Services
 {
-    public class File : IFile
+    public class FileService
     {
         public Stream Open(string filePath, FileMode fileMode, FileAccess fileAccess)
         {
@@ -15,7 +15,7 @@ namespace App.BaseGameEditor.Data.FileResources
             if (!Enum.IsDefined(typeof(FileAccess), fileAccess))
                 throw new InvalidEnumArgumentException(nameof(fileAccess), (int)fileAccess, typeof(FileAccess));
 
-            return System.IO.File.Open(filePath, fileMode, fileAccess);
+            return File.Open(filePath, fileMode, fileAccess);
         }
     }
 }

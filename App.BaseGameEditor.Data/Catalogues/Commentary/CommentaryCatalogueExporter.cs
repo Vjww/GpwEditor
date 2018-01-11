@@ -4,14 +4,15 @@ using App.BaseGameEditor.Data.FileResources;
 
 namespace App.BaseGameEditor.Data.Catalogues.Commentary
 {
-    public class CommentaryCatalogueExporter : ICatalogueExporter<CommentaryCatalogueItem>
+    public class CommentaryCatalogueExporter<TLanguagePhrases> : ICatalogueExporter<CommentaryCatalogueItem>
+        where TLanguagePhrases : class, ILanguagePhrases
     {
-        private readonly CommentaryCatalogueParser _catalogueParser;
-        private readonly IFileResource _fileResource;
+        private readonly CommentaryCatalogueParser<TLanguagePhrases> _catalogueParser;
+        private readonly FileResource _fileResource;
 
         public CommentaryCatalogueExporter(
-            CommentaryCatalogueParser catalogueParser,
-            IFileResource fileResource)
+            CommentaryCatalogueParser<TLanguagePhrases> catalogueParser,
+            FileResource fileResource)
         {
             _catalogueParser = catalogueParser ?? throw new ArgumentNullException(nameof(catalogueParser));
             _fileResource = fileResource ?? throw new ArgumentNullException(nameof(fileResource));
