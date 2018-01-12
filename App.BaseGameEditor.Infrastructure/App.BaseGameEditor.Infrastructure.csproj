@@ -47,8 +47,6 @@
     <Compile Include="AutoMapperMaps\CarNumberEntitiesToCarNumbersObjectMapper.cs" />
     <Compile Include="AutoMapperMaps\CarNumbersObjectToCarNumberEntitiesMapper.cs" />
     <Compile Include="Factories\EntityFactory.cs" />
-    <Compile Include="ManualMaps\DataServiceToTeamEntityMapper.cs" />
-    <Compile Include="ManualMaps\TeamEntityToDataServiceMapper.cs" />
     <Compile Include="AutoMapperMaps\CarNumbersObject.cs" />
     <Compile Include="AutoMapperMaps\DataEntitiesOnTeamEntityMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
