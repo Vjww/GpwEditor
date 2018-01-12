@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using App.AutoMapper;
 using App.BaseGameEditor.Application.Services;
 using App.DependencyInjection.Unity;
 using App.Outputs;
@@ -15,6 +16,9 @@ namespace App.BaseGameEditor.Application.Tests
         public void QuickIntegrationTest_WhenGettingTeamModels_ExpectSelectedModelIsPopulatedWithData()
         {
             var output = new ConsoleOutput();
+
+            AutoMapperConfig.RegisterMappings();
+
             using (var container = new UnityDependencyInjectionContainer(output))
             {
                 container.PerformRegistrations();

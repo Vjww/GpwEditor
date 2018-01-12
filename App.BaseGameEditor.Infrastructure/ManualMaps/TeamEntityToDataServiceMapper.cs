@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using App.BaseGameEditor.Data.Entities;
 using App.BaseGameEditor.Data.Services;
 using TeamEntity = App.BaseGameEditor.Domain.Entities.TeamEntity;
 
-namespace App.BaseGameEditor.Infrastructure.Mappers
+namespace App.BaseGameEditor.Infrastructure.ManualMaps
 {
     public class TeamEntityToDataServiceMapper
     {
@@ -18,7 +16,7 @@ namespace App.BaseGameEditor.Infrastructure.Mappers
 
         public void Map(TeamEntity entity)
         {
-            var teamEntity = (Data.Entities.TeamEntity)_dataService.Teams.Get(x => x.Id == entity.Id).Single();
+            var teamEntity = _dataService.Teams.Get(x => x.Id == entity.Id).Single();
             teamEntity.Name.All = entity.Name;
             teamEntity.LastPosition = entity.LastPosition;
             teamEntity.LastPoints = entity.LastPoints;
@@ -32,19 +30,19 @@ namespace App.BaseGameEditor.Infrastructure.Mappers
             teamEntity.TyreSupplierId = entity.TyreSupplierId;
             _dataService.Teams.SetById(teamEntity);
 
-            // TODO: An exception throws here on export.
-            var chassisHandlingEntities = (IEnumerable<ChassisHandlingEntity>)_dataService.ChassisHandlings.Get();
-            var chassisHandlingEntity = chassisHandlingEntities.Single(x => x.TeamId == entity.Id);
+            var chassisHandlingEntity = _dataService.ChassisHandlings.Get(x => x.TeamId == entity.Id).Single();
             chassisHandlingEntity.Value = entity.ChassisHandling;
             _dataService.ChassisHandlings.SetById(chassisHandlingEntity);
 
-            var carNumberEntities = ((IEnumerable<CarNumberEntity>)_dataService.CarNumbers.Get()).Where(x => x.TeamId == entity.Id).ToList();
+            var carNumberEntities = _dataService.CarNumbers.Get(x => x.TeamId == entity.Id).ToList();
+            if (carNumberEntities.Count != 2) throw new ArgumentOutOfRangeException();
             foreach (var item in carNumberEntities)
             {
                 item.ValueA = item.PositionId == 0 ? entity.CarNumberDriver1 : entity.CarNumberDriver2;
                 item.ValueB = item.PositionId == 0 ? entity.CarNumberDriver1 : entity.CarNumberDriver2;
-                _dataService.CarNumbers.SetById(item);
             }
+            _dataService.CarNumbers.SetById(carNumberEntities.Single(x => x.PositionId == 0));
+            _dataService.CarNumbers.SetById(carNumberEntities.Single(x => x.PositionId == 1));
         }
     }
 }

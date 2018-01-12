@@ -4,7 +4,7 @@ using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Infrastructure.Factories;
 using TeamDomainEntity = App.BaseGameEditor.Domain.Entities.TeamEntity;
 
-namespace App.BaseGameEditor.Infrastructure.Mappers
+namespace App.BaseGameEditor.Infrastructure.ManualMaps
 {
     public class DataServiceToTeamEntityMapper
     {
@@ -37,11 +37,10 @@ namespace App.BaseGameEditor.Infrastructure.Mappers
             result.LocationPointerY = teamEntity.LocationPointerY;
             result.TyreSupplierId = teamEntity.TyreSupplierId;
 
-            var chassisHandlingEntities = _dataService.ChassisHandlings.Get();
-            var chassisHandlingEntity = chassisHandlingEntities.Single(x => x.TeamId == id);
+            var chassisHandlingEntity = _dataService.ChassisHandlings.Get(x => x.TeamId == id).Single();
             result.ChassisHandling = chassisHandlingEntity.Value;
 
-            var carNumberEntities = _dataService.CarNumbers.Get().Where(x => x.TeamId == id).ToList();
+            var carNumberEntities = _dataService.CarNumbers.Get(x => x.TeamId == id).ToList();
             result.CarNumberDriver1 = carNumberEntities.Single(x => x.PositionId == 0).ValueA;
             result.CarNumberDriver2 = carNumberEntities.Single(x => x.PositionId == 1).ValueA;
 
