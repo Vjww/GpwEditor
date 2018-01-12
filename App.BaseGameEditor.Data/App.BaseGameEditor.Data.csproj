@@ -48,9 +48,7 @@
     <Compile Include="Catalogues\Commentary\FrenchLanguagePhrases.cs" />
     <Compile Include="Catalogues\Commentary\GermanCommentaryCatalogue.cs" />
     <Compile Include="Catalogues\Commentary\GermanLanguagePhrases.cs" />
-    <Compile Include="_Redundant\ICommentaryCatalogueParser.cs" />
     <Compile Include="Catalogues\Commentary\ILanguagePhrases.cs" />
-    <Compile Include="_Redundant\ICatalogue.cs" />
     <Compile Include="Catalogues\ICatalogueExporter.cs" />
     <Compile Include="Catalogues\ICatalogueImporter.cs" />
     <Compile Include="Catalogues\ICatalogueItem.cs" />
@@ -60,8 +58,6 @@
     <Compile Include="Catalogues\Language\FrenchLanguageCatalogue.cs" />
     <Compile Include="Catalogues\Language\GermanLanguageCatalogue.cs" />
     <Compile Include="Catalogues\ICatalogueLanguage.cs" />
-    <Compile Include="_Redundant\ILanguageCatalogueParser.cs" />
-    <Compile Include="_Redundant\ILanguageCatalogueValue.cs" />
     <Compile Include="Catalogues\Language\LanguageCatalogueExporter.cs" />
     <Compile Include="Catalogues\Language\LanguageCatalogueImporter.cs" />
     <Compile Include="Catalogues\Language\LanguageCatalogueItem.cs" />
@@ -70,7 +66,6 @@
     <Compile Include="Catalogues\Language\LanguageCatalogueValue.cs" />
     <Compile Include="Catalogues\Language\LanguageCatalogueWriter.cs" />
     <Compile Include="DataConnections\DataConnection.cs" />
-    <Compile Include="_Redundant\IDataConnection.cs" />
     <Compile Include="Services\DataConnectionValidationService.cs" />
     <Compile Include="Services\TeamDataExportService.cs" />
     <Compile Include="Services\ChassisHandlingDataExportService.cs" />
@@ -79,12 +74,9 @@
     <Compile Include="Services\ChassisHandlingDataImportService.cs" />
     <Compile Include="Services\CarNumberDataImportService.cs" />
     <Compile Include="Services\DataService.cs" />
-    <Compile Include="_Redundant\IDataService.cs" />
     <Compile Include="DataEndpoints\DataEndpoint.cs" />
-    <Compile Include="_Redundant\IDataEndpoint.cs" />
     <Compile Include="DataLocators\CarNumberDataLocator.cs" />
     <Compile Include="DataLocators\ChassisHandlingDataLocator.cs" />
-    <Compile Include="_Redundant\IDataLocator.cs" />
     <Compile Include="DataLocators\TeamDataLocator.cs" />
     <Compile Include="Entities\CarNumberEntity.cs" />
     <Compile Include="Entities\ChassisHandlingEntity.cs" />
@@ -101,17 +93,10 @@
     <Compile Include="EntityImporters\TeamEntityImporter.cs" />
     <Compile Include="Enums\CommentaryType.cs" />
     <Compile Include="Enums\LanguageType.cs" />
-    <Compile Include="_Redundant\CommentaryCatalogueFactory.cs" />
-    <Compile Include="_Redundant\ICommentaryCatalogueFactory.cs" />
-    <Compile Include="_Redundant\ILanguageCatalogueFactory.cs" />
-    <Compile Include="_Redundant\ILanguagePhrasesFactory.cs" />
-    <Compile Include="_Redundant\LanguageCatalogueFactory.cs" />
-    <Compile Include="_Redundant\LanguagePhrasesFactory.cs" />
     <Compile Include="Factories\CarNumberEntityFactory.cs" />
     <Compile Include="Factories\ChassisHandlingEntityFactory.cs" />
     <Compile Include="Factories\TeamEntityFactory.cs" />
     <Compile Include="Factories\EntityFactory.cs" />
-    <Compile Include="_Redundant\IEntityFactory2.cs" />
     <Compile Include="Factories\IStreamFactory.cs" />
     <Compile Include="Factories\MemoryStreamFactory.cs" />
     <Compile Include="Services\FileService.cs" />
@@ -120,12 +105,6 @@
     <Compile Include="FileResources\FileResourceImporter.cs" />
     <Compile Include="FileResources\FileResourceReader.cs" />
     <Compile Include="FileResources\FileResourceWriter.cs" />
-    <Compile Include="_Redundant\IFile.cs" />
-    <Compile Include="_Redundant\IFileResource.cs" />
-    <Compile Include="_Redundant\IFileResourceExporter.cs" />
-    <Compile Include="_Redundant\IFileResourceImporter.cs" />
-    <Compile Include="_Redundant\IFileResourceReader.cs" />
-    <Compile Include="_Redundant\IFileResourceWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CarNumberRepository.cs" />
     <Compile Include="Repositories\ChassisHandlingRepository.cs" />
@@ -142,19 +121,8 @@
     <Compile Include="RepositoryImporters\CarNumberRepositoryImporter.cs" />
     <Compile Include="RepositoryImporters\ChassisHandlingRepositoryImporter.cs" />
     <Compile Include="RepositoryImporters\TeamRepositoryImporter.cs" />
-    <Compile Include="_Redundant\IStreamReader.cs" />
-    <Compile Include="_Redundant\IStreamWriter.cs" />
     <Compile Include="Streams\StreamReadService.cs" />
     <Compile Include="Streams\StreamWriteService.cs" />
-    <Compile Include="_Redundant\IDataConnectionValidationService.cs" />
-    <Compile Include="_Redundant\IDataExportService.cs" />
-    <Compile Include="_Redundant\IDataImportService.cs" />
-    <Compile Include="_Redundant\IDataServiceToEntityMapper.cs" />
-    <Compile Include="_Redundant\IEntityFactory.cs" />
-    <Compile Include="_Redundant\IEntityToDataServiceMapper.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="_Redundant\readme.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
