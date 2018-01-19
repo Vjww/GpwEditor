@@ -44,11 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoMapperMaps\CarNumberEntitiesToCarNumbersObjectMapper.cs" />
-    <Compile Include="AutoMapperMaps\CarNumbersObjectToCarNumberEntitiesMapper.cs" />
+    <Compile Include="Factories\CarNumbersObjectFactory.cs" />
+    <Compile Include="Maps\CarNumberEntitiesToCarNumbersObjectMapper.cs" />
+    <Compile Include="Maps\CarNumbersObjectToCarNumberEntitiesMapper.cs" />
     <Compile Include="Factories\EntityFactory.cs" />
-    <Compile Include="AutoMapperMaps\CarNumbersObject.cs" />
-    <Compile Include="AutoMapperMaps\DataEntitiesOnTeamEntityMap.cs" />
+    <Compile Include="Maps\CarNumbersObject.cs" />
+    <Compile Include="Services\IMapperService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\TeamRepository.cs" />

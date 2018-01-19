@@ -8,5 +8,6 @@ namespace App.DependencyInjection
         void DisplayRegistrations();
         T GetInstance<T>();
         void PerformRegistrations();
+        void RegisterInstance<T>(T instance);
     }
 }

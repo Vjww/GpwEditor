@@ -68,5 +68,10 @@ namespace App.DependencyInjection.Unity
 
             _container = _containerBootstrapper.Register();
         }
+
+        public void RegisterInstance<T>(T instance)
+        {
+            _container.RegisterInstance(instance);
+        }
     }
 }

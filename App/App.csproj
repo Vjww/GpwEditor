@@ -67,7 +67,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
-    <Compile Include="AutoMapper\AutoMapperConfig.cs" />
+    <Compile Include="ObjectMapping\AutoMapper\Configurations\InfrastructureConfiguration.cs" />
+    <Compile Include="ObjectMapping\AutoMapper\Configurations\PresentationConfiguration.cs" />
+    <Compile Include="ObjectMapping\AutoMapper\Profiles\TeamEntityOnTeamViewModelProfile.cs" />
+    <Compile Include="ObjectMapping\AutoMapper\Profiles\MultipleDataEntitiesOnTeamEntityProfile.cs" />
+    <Compile Include="Services\AutoMapperObjectMapperService.cs" />
     <Compile Include="DependencyInjection\Autofac\AutofacContainerBootstrapper.cs" />
     <Compile Include="DependencyInjection\Autofac\AutofacDependencyInjectionContainer.cs" />
     <Compile Include="DependencyInjection\IOutput.cs" />
@@ -75,7 +79,7 @@
     <Compile Include="DependencyInjection\Unity\UnityContainerBootstrapper.cs" />
     <Compile Include="DependencyInjection\Unity\UnityContainerRegistrationExtension.cs" />
     <Compile Include="DependencyInjection\Unity\UnityDependencyInjectionContainer.cs" />
-    <Compile Include="Outputs\ConsoleOutput.cs" />
+    <Compile Include="Output\ConsoleOutput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -84,10 +88,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\App.BaseGameEditor.Application\App.BaseGameEditor.Application.csproj">
-      <Project>{4538da14-275a-4711-b4bf-6a4dd806189d}</Project>
-      <Name>App.BaseGameEditor.Application</Name>
-    </ProjectReference>
     <ProjectReference Include="..\App.BaseGameEditor.Data\App.BaseGameEditor.Data.csproj">
       <Project>{d338afef-dc6d-4325-aff8-ce03b7820c51}</Project>
       <Name>App.BaseGameEditor.Data</Name>
@@ -105,5 +105,6 @@
       <Name>App.BaseGameEditor.Presentation</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

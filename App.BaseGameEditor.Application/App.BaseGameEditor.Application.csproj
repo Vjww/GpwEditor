@@ -37,8 +37,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoMapper\AutoMapperConfig.cs" />
-    <Compile Include="AutoMapper\AutoMapperExtension.cs" />
     <Compile Include="Services\DataExportService.cs" />
     <Compile Include="Services\DataImportService.cs" />
     <Compile Include="Services\TeamDomainModelExportService.cs" />

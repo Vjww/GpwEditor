@@ -37,11 +37,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="Controllers\BaseGameController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Controllers\IController.cs" />
-    <Compile Include="Maps\TeamEntityOnTeamViewModelMap.cs" />
     <Compile Include="Outputs\ConsoleOutput.cs" />
     <Compile Include="Outputs\IOutput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,6 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Maps\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

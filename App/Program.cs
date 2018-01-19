@@ -1,7 +1,7 @@
 ﻿using System;
-using App.AutoMapper;
+using App.BaseGameEditor.Infrastructure.Services;
 using App.DependencyInjection.Unity;
-using App.Outputs;
+using App.Output;
 
 namespace App
 {
@@ -11,17 +11,19 @@ namespace App
         {
             var output = new ConsoleOutput();
 
-            AutoMapperConfig.RegisterMappings();
-
             // TODO: Pick a dependency injection container to match your taste
-            //using (var container = new AutofacDependencyInjectionContainer(outputDevice))
+            //using (var container = new AutofacDependencyInjectionContainer(output))
             using (var container = new UnityDependencyInjectionContainer(output))
             {
                 container.DisplayContainerName();
                 container.PerformRegistrations();
                 container.DisplayRegistrations();
 
-                container.GetInstance<Application>().Run();
+                var mapperService = container.GetInstance<IMapperService>();
+                mapperService.Initialise();
+
+                var application = container.GetInstance<Application>();
+                application.Run();
             }
 
             Console.ReadLine();

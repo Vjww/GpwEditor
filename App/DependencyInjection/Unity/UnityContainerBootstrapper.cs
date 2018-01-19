@@ -6,7 +6,9 @@ using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.FileResources;
 using App.BaseGameEditor.Domain.Repositories;
 using App.BaseGameEditor.Infrastructure.Repositories;
+using App.BaseGameEditor.Infrastructure.Services;
 using App.BaseGameEditor.Presentation.Outputs;
+using App.Services;
 using Unity;
 using Unity.Lifetime;
 using Unity.RegistrationByConvention;
@@ -49,6 +51,7 @@ namespace App.DependencyInjection.Unity
 
             // Manual registrations
             _container.RegisterType<BaseGameEditor.Presentation.Outputs.IOutput, ConsoleOutput>();
+            _container.RegisterType<IMapperService, AutoMapperObjectMapperService>();
             _container.RegisterType<IStreamFactory, MemoryStreamFactory>();
             _container.RegisterType<ICatalogueExporter<LanguageCatalogueItem>, LanguageCatalogueExporter>();
             _container.RegisterType<ICatalogueImporter<LanguageCatalogueItem>, LanguageCatalogueImporter>();
