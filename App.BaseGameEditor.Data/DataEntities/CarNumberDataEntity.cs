@@ -1,6 +1,6 @@
-﻿namespace App.BaseGameEditor.Data.Entities
+﻿namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class CarNumberEntity : EntityBase
+    public class CarNumberDataEntity : DataEntityBase
     {
         public int TeamId { get; set; }
         public int PositionId { get; set; }

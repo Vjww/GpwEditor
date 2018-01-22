@@ -1,11 +1,11 @@
 ﻿using System;
 using App.BaseGameEditor.Data.Catalogues.Language;
 
-namespace App.BaseGameEditor.Data.Entities
+namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class TeamEntity : EntityBase
+    public class TeamDataEntity : DataEntityBase
     {
-        public TeamEntity(LanguageCatalogueValue languageCatalogueValue)
+        public TeamDataEntity(LanguageCatalogueValue languageCatalogueValue)
         {
             Name = languageCatalogueValue ?? throw new ArgumentNullException(nameof(languageCatalogueValue));
         }

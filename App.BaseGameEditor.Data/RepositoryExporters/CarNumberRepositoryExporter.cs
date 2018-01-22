@@ -5,7 +5,7 @@ namespace App.BaseGameEditor.Data.RepositoryExporters
 {
     public class CarNumberRepositoryExporter : RepositoryExporterBase
     {
-        public CarNumberRepositoryExporter(CarNumberEntityExporter entityExporter) : base(entityExporter)
+        public CarNumberRepositoryExporter(CarNumberDataEntityExporter dataEntityExporter) : base(dataEntityExporter)
         {
         }
     }

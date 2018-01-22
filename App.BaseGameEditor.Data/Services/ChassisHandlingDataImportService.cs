@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using App.BaseGameEditor.Data.Entities;
+using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.Repositories;
 using App.BaseGameEditor.Data.RepositoryImporters;
 
@@ -24,7 +24,7 @@ namespace App.BaseGameEditor.Data.Services
         public void Import()
         {
             var items = _service.Import(ItemCount);
-            _repository.Set(items.Cast<ChassisHandlingEntity>().ToList()); // TODO: Remove cast once unnecessary
+            _repository.Set(items.Cast<ChassisHandlingDataEntity>().ToList()); // TODO: Remove cast once unnecessary
         }
     }
 }

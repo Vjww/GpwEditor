@@ -1,10 +1,10 @@
-﻿using App.BaseGameEditor.Data.Entities;
+﻿using App.BaseGameEditor.Data.DataEntities;
 
 namespace App.BaseGameEditor.Data.Factories
 {
-    public class CarNumberEntityFactory
+    public class ChassisHandlingDataEntityFactory
     {
-        public CarNumberEntity Create(int id)
+        public ChassisHandlingDataEntity Create(int id)
         {
             // TODO: Should this be instantiated from a DI Container?
             // TODO: This factory class might need to reside under the composition root
@@ -12,7 +12,7 @@ namespace App.BaseGameEditor.Data.Factories
             // TODO: should not reference the DI tool.
             // TODO: Alternatively a solution could be implemented by the DI Container.
             // TODO: Refer to http://www.wiktorzychla.com/2016/01/di-factories-and-composition-root.html
-            return new CarNumberEntity { Id = id };
+            return new ChassisHandlingDataEntity { Id = id };
         }
     }
 }

@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using App.BaseGameEditor.Data.Entities;
+using App.BaseGameEditor.Data.DataEntities;
 
 namespace App.BaseGameEditor.Data.Repositories
 {
-    public interface IRepository<TEntity>
-        where TEntity : class, IEntity
+    public interface IRepository<TDataEntity>
+        where TDataEntity : class, IDataEntity
     {
-        IEnumerable<TEntity> Get();
-        IEnumerable<TEntity> Get(Func<TEntity, bool> predicate);
-        TEntity GetById(int id);
-        void Set(IEnumerable<TEntity> items);
-        void SetById(TEntity item);
+        IEnumerable<TDataEntity> Get();
+        IEnumerable<TDataEntity> Get(Func<TDataEntity, bool> predicate);
+        TDataEntity GetById(int id);
+        void Set(IEnumerable<TDataEntity> items);
+        void SetById(TDataEntity item);
     }
 }

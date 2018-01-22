@@ -45,8 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\CarNumbersObjectFactory.cs" />
-    <Compile Include="Maps\CarNumberEntitiesToCarNumbersObjectMapper.cs" />
-    <Compile Include="Maps\CarNumbersObjectToCarNumberEntitiesMapper.cs" />
+    <Compile Include="Maps\CarNumberDataEntitiesToCarNumbersObjectMapper.cs" />
+    <Compile Include="Maps\CarNumbersObjectToCarNumberDataEntitiesMapper.cs" />
     <Compile Include="Factories\EntityFactory.cs" />
     <Compile Include="Maps\CarNumbersObject.cs" />
     <Compile Include="Services\IMapperService.cs" />

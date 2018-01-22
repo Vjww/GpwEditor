@@ -1,4 +1,5 @@
-﻿using App.BaseGameEditor.Data.Entities;
+﻿using App.BaseGameEditor.Data.DataEntities;
+using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Maps;
 using AutoMapper;
 
@@ -8,7 +9,7 @@ namespace App.ObjectMapping.AutoMapper.Profiles
     {
         public MultipleDataEntitiesOnTeamEntityProfile()
         {
-            CreateMap<TeamEntity, BaseGameEditor.Domain.Entities.TeamEntity>()
+            CreateMap<TeamDataEntity, TeamEntity>()
                 .ForMember(dest => dest.TeamId, opt => opt.ResolveUsing(src => src.Id + 1))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name.All))
                 .ForMember(dest => dest.ChassisHandling, opt => opt.Ignore())
@@ -18,7 +19,7 @@ namespace App.ObjectMapping.AutoMapper.Profiles
                 .ForMember(src => src.Id, opt => opt.Ignore())
                 .ForPath(src => src.Name.All, opt => opt.MapFrom(dest => dest.Name));
 
-            CreateMap<ChassisHandlingEntity, BaseGameEditor.Domain.Entities.TeamEntity>()
+            CreateMap<ChassisHandlingDataEntity, TeamEntity>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ForMember(dest => dest.TeamId, opt => opt.Ignore())
                 .ForMember(dest => dest.Name, opt => opt.Ignore())
@@ -40,7 +41,7 @@ namespace App.ObjectMapping.AutoMapper.Profiles
                 .ForMember(src => src.TeamId, opt => opt.ResolveUsing(dest => dest.TeamId - 1))
                 .ForMember(src => src.Value, opt => opt.MapFrom(dest => dest.ChassisHandling));
 
-            CreateMap<CarNumbersObject, BaseGameEditor.Domain.Entities.TeamEntity>()
+            CreateMap<CarNumbersObject, TeamEntity>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ForMember(dest => dest.TeamId, opt => opt.Ignore())
                 .ForMember(dest => dest.Name, opt => opt.Ignore())

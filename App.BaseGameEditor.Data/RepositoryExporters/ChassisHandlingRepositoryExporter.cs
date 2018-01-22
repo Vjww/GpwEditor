@@ -5,7 +5,7 @@ namespace App.BaseGameEditor.Data.RepositoryExporters
 {
     public class ChassisHandlingRepositoryExporter : RepositoryExporterBase
     {
-        public ChassisHandlingRepositoryExporter(ChassisHandlingEntityExporter entityExporter) : base(entityExporter)
+        public ChassisHandlingRepositoryExporter(ChassisHandlingDataEntityExporter dataEntityExporter) : base(dataEntityExporter)
         {
         }
     }

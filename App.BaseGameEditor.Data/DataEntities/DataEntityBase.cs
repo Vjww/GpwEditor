@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace App.BaseGameEditor.Data.Entities
+namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class EntityBase : IEntity
+    public class DataEntityBase : IDataEntity
     {
         private bool _isIdInitialised;
         private int _id;
 
-        protected EntityBase()
+        protected DataEntityBase()
         {
         }
 

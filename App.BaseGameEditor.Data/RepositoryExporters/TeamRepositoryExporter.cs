@@ -5,7 +5,7 @@ namespace App.BaseGameEditor.Data.RepositoryExporters
 {
     public class TeamRepositoryExporter : RepositoryExporterBase
     {
-        public TeamRepositoryExporter(TeamEntityExporter entityExporter) : base(entityExporter)
+        public TeamRepositoryExporter(TeamDataEntityExporter dataEntityExporter) : base(dataEntityExporter)
         {
         }
     }

@@ -5,7 +5,7 @@ using App.BaseGameEditor.Data.Services;
 
 namespace App.BaseGameEditor.Application.Services
 {
-    public class DataImportService// TODO: remove interface : IDataImportService<DataConnection>
+    public class DataImportService
     {
         private readonly DataService _dataService;
         private readonly DataEndpoint _dataEndpoint;

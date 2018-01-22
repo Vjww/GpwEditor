@@ -5,7 +5,7 @@ namespace App.BaseGameEditor.Data.RepositoryImporters
 {
     public class ChassisHandlingRepositoryImporter : RepositoryImporterBase
     {
-        public ChassisHandlingRepositoryImporter(ChassisHandlingEntityImporter entityImporter) : base(entityImporter)
+        public ChassisHandlingRepositoryImporter(ChassisHandlingDataEntityImporter dataEntityImporter) : base(dataEntityImporter)
         {
         }
     }

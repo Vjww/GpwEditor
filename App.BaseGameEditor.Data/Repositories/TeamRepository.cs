@@ -1,8 +1,8 @@
-﻿using App.BaseGameEditor.Data.Entities;
+﻿using App.BaseGameEditor.Data.DataEntities;
 
 namespace App.BaseGameEditor.Data.Repositories
 {
-    public class TeamRepository : RepositoryBase<TeamEntity>
+    public class TeamRepository : RepositoryBase<TeamDataEntity>
     {
     }
 }

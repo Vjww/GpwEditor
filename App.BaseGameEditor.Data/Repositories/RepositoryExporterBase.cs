@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using App.BaseGameEditor.Data.Entities;
+using App.BaseGameEditor.Data.DataEntities;
 
 namespace App.BaseGameEditor.Data.Repositories
 {
     public class RepositoryExporterBase : IRepositoryExporter
     {
-        private readonly IEntityExporter _entityExporter;
+        private readonly IDataEntityExporter _dataEntityExporter;
 
-        protected RepositoryExporterBase(IEntityExporter entityExporter)
+        protected RepositoryExporterBase(IDataEntityExporter dataEntityExporter)
         {
-            _entityExporter = entityExporter ?? throw new ArgumentNullException(nameof(entityExporter));
+            _dataEntityExporter = dataEntityExporter ?? throw new ArgumentNullException(nameof(dataEntityExporter));
         }
 
-        public void Export(IEnumerable<IEntity> entities)
+        public void Export(IEnumerable<IDataEntity> items)
         {
-            foreach (var entity in entities)
+            foreach (var item in items)
             {
-                _entityExporter.Export(entity);
+                _dataEntityExporter.Export(item);
             }
         }
     }

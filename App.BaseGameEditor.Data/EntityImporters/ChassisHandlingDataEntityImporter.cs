@@ -1,39 +1,38 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEndpoints;
+using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.DataLocators;
-using App.BaseGameEditor.Data.Entities;
 using App.BaseGameEditor.Data.Factories;
 
 namespace App.BaseGameEditor.Data.EntityImporters
 {
-    public class ChassisHandlingEntityImporter : IEntityImporter
+    public class ChassisHandlingDataEntityImporter : IDataEntityImporter
     {
         private readonly DataEndpoint _dataEndpoint;
         private readonly ChassisHandlingDataLocator _dataLocator;
-        private readonly ChassisHandlingEntityFactory _entityFactory;
+        private readonly ChassisHandlingDataEntityFactory _factory;
 
-        public ChassisHandlingEntityImporter(
+        public ChassisHandlingDataEntityImporter(
             DataEndpoint dataEndpoint,
             ChassisHandlingDataLocator dataLocator,
-            ChassisHandlingEntityFactory entityFactory)
+            ChassisHandlingDataEntityFactory factory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataLocator = dataLocator ?? throw new ArgumentNullException(nameof(dataLocator));
-            _entityFactory = entityFactory ?? throw new ArgumentNullException(nameof(entityFactory));
+            _factory = factory ?? throw new ArgumentNullException(nameof(factory));
         }
 
-        public IEntity Import(int id)
+        public IDataEntity Import(int id)
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
 
             _dataLocator.Initialise(id);
 
-            var entity = _entityFactory.Create(id);
+            var result = _factory.Create(id);
+            result.TeamId = result.Id;
+            result.Value = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.Value);
 
-            entity.TeamId = entity.Id;
-            entity.Value = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.Value);
-
-            return entity;
+            return result;
         }
     }
 }

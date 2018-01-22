@@ -44,8 +44,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Maps\CarNumberEntitiesToCarNumbersObjectMapper.cs" />
-    <Compile Include="Maps\CarNumbersObjectToCarNumberEntitiesMapper.cs" />
+    <Compile Include="Maps\CarNumberDataEntitiesToCarNumbersObjectMapper.cs" />
+    <Compile Include="Maps\CarNumbersObjectToCarNumberDataEntitiesMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

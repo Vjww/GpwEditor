@@ -1,33 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using App.BaseGameEditor.Data.Entities;
+using App.BaseGameEditor.Data.DataEntities;
 
 namespace App.BaseGameEditor.Data.Repositories
 {
     public class RepositoryImporterBase : IRepositoryImporter
     {
-        private readonly IEntityImporter _entityImporter;
+        private readonly IDataEntityImporter _dataEntityImporter;
 
-        protected RepositoryImporterBase(IEntityImporter entityImporter)
+        protected RepositoryImporterBase(IDataEntityImporter dataEntityImporter)
         {
-            _entityImporter = entityImporter ?? throw new ArgumentNullException(nameof(entityImporter));
+            _dataEntityImporter = dataEntityImporter ?? throw new ArgumentNullException(nameof(dataEntityImporter));
         }
 
-        public IEnumerable<IEntity> Import(int repositoryCapacity)
+        public IEnumerable<IDataEntity> Import(int repositoryCapacity)
         {
             if (repositoryCapacity <= 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(repositoryCapacity));
             }
 
-            var entities = new List<IEntity>();
+            var result = new List<IDataEntity>();
             for (var i = 0; i < repositoryCapacity; i++)
             {
-                var entity = _entityImporter.Import(i);
-                entities.Add(entity);
+                var entity = _dataEntityImporter.Import(i);
+                result.Add(entity);
             }
 
-            return entities;
+            return result;
         }
     }
 }

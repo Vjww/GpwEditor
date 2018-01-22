@@ -1,5 +1,6 @@
-﻿using App.BaseGameEditor.Data.Entities;
+﻿using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.Factories;
+using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Factories;
 using App.BaseGameEditor.Infrastructure.Maps;
 using App.ObjectMapping.AutoMapper.Configurations;
@@ -11,15 +12,15 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
     [TestFixture]
     public class MultipleDataEntitiesOnTeamEntityProfile
     {
-        private static TeamEntityFactory _teamDataEntityFactory;
-        private static ChassisHandlingEntityFactory _chassisHandlingDataEntityFactory;
+        private static TeamDataEntityFactory _teamDataEntityFactory;
+        private static ChassisHandlingDataEntityFactory _chassisHandlingDataEntityFactory;
         private static CarNumbersObjectFactory _carNumbersObjectFactory;
-        private static BaseGameEditor.Infrastructure.Factories.EntityFactory<BaseGameEditor.Domain.Entities.TeamEntity> _teamEntityFactory;
+        private static EntityFactory<TeamEntity> _teamEntityFactory;
 
-        private TeamEntity _teamDataEntity;
-        private ChassisHandlingEntity _chassisHandlingDataEntity;
+        private TeamDataEntity _teamDataEntity;
+        private ChassisHandlingDataEntity _chassisHandlingDataEntity;
         private CarNumbersObject _carNumbersObject;
-        private BaseGameEditor.Domain.Entities.TeamEntity _teamEntity;
+        private TeamEntity _teamEntity;
         private PresentationConfiguration _presentationConfiguration;
         private InfrastructureConfiguration _infrastructureConfiguration;
         private AutoMapperObjectMapperService _mapper;
@@ -27,10 +28,10 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
         [OneTimeSetUp]
         public static void OneTimeSetUp()
         {
-            _teamDataEntityFactory = new TeamEntityFactory();
-            _chassisHandlingDataEntityFactory = new ChassisHandlingEntityFactory();
+            _teamDataEntityFactory = new TeamDataEntityFactory();
+            _chassisHandlingDataEntityFactory = new ChassisHandlingDataEntityFactory();
             _carNumbersObjectFactory = new CarNumbersObjectFactory();
-            _teamEntityFactory = new BaseGameEditor.Infrastructure.Factories.EntityFactory<BaseGameEditor.Domain.Entities.TeamEntity>();
+            _teamEntityFactory = new EntityFactory<TeamEntity>();
         }
 
         [SetUp]
@@ -60,6 +61,7 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
             _chassisHandlingDataEntity.TeamId = 22;
             _chassisHandlingDataEntity.Value = 23;
 
+            // TODO: Should we be testing with CarNumberDataEntities rather than CarNumberObject? Or maybe this is sufficient as is?
             _carNumbersObject = _carNumbersObjectFactory.Create();
             _carNumbersObject.CarNumberDriver1 = 24;
             _carNumbersObject.CarNumberDriver2 = 25;
@@ -187,7 +189,8 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
         [Test]
         public void MultipleDataEntitiesOnTeamEntityProfile_WhenMappingFromPopulatedTeamEntity_ExpectPopulatedCarNumbersObject()
         {
-            var sut = _mapper.Map<BaseGameEditor.Domain.Entities.TeamEntity, CarNumbersObject>(_teamEntity);
+            var carNumbersObject = _carNumbersObjectFactory.Create();
+            var sut = _mapper.Map(_teamEntity, carNumbersObject);
 
             Assert.IsNotNull(sut);
             Assert.IsTrue(sut.CarNumberDriver1 == _teamEntity.CarNumberDriver1);

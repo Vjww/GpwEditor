@@ -5,7 +5,7 @@ namespace App.BaseGameEditor.Data.RepositoryImporters
 {
     public class TeamRepositoryImporter : RepositoryImporterBase
     {
-        public TeamRepositoryImporter(TeamEntityImporter entityImporter) : base(entityImporter)
+        public TeamRepositoryImporter(TeamDataEntityImporter dataEntityImporter) : base(dataEntityImporter)
         {
         }
     }

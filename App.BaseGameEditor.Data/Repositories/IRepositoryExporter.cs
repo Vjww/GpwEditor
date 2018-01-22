@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using App.BaseGameEditor.Data.Entities;
+using App.BaseGameEditor.Data.DataEntities;
 
 namespace App.BaseGameEditor.Data.Repositories
 {
     public interface IRepositoryExporter
     {
-        void Export(IEnumerable<IEntity> entities);
+        void Export(IEnumerable<IDataEntity> items);
     }
 }
