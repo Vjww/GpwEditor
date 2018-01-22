@@ -15,11 +15,10 @@ namespace App.ObjectMapping.AutoMapper.Profiles
                 .ForMember(dest => dest.CarNumberDriver1, opt => opt.Ignore())
                 .ForMember(dest => dest.CarNumberDriver2, opt => opt.Ignore())
                 .ReverseMap()
-                .ForPath(src => src.Name.All, opt => opt.MapFrom(dest => dest.Name))
-                .ForPath(src => src.Id, opt => opt.Ignore());
+                .ForMember(src => src.Id, opt => opt.Ignore())
+                .ForPath(src => src.Name.All, opt => opt.MapFrom(dest => dest.Name));
 
             CreateMap<ChassisHandlingEntity, BaseGameEditor.Domain.Entities.TeamEntity>()
-                .ForMember(dest => dest.ChassisHandling, opt => opt.MapFrom(src => src.Value))
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ForMember(dest => dest.TeamId, opt => opt.Ignore())
                 .ForMember(dest => dest.Name, opt => opt.Ignore())
@@ -35,8 +34,11 @@ namespace App.ObjectMapping.AutoMapper.Profiles
                 .ForMember(dest => dest.TyreSupplierId, opt => opt.Ignore())
                 .ForMember(dest => dest.CarNumberDriver1, opt => opt.Ignore())
                 .ForMember(dest => dest.CarNumberDriver2, opt => opt.Ignore())
+                .ForMember(dest => dest.ChassisHandling, opt => opt.MapFrom(src => src.Value))
                 .ReverseMap()
-                .ForPath(src => src.Value, opt => opt.MapFrom(dest => dest.ChassisHandling));
+                .ForMember(src => src.Id, opt => opt.Ignore())
+                .ForMember(src => src.TeamId, opt => opt.ResolveUsing(dest => dest.TeamId - 1))
+                .ForMember(src => src.Value, opt => opt.MapFrom(dest => dest.ChassisHandling));
 
             CreateMap<CarNumbersObject, BaseGameEditor.Domain.Entities.TeamEntity>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
