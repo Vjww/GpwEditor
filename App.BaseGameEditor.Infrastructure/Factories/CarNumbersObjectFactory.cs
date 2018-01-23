@@ -4,7 +4,7 @@ namespace App.BaseGameEditor.Infrastructure.Factories
 {
     public class CarNumbersObjectFactory
     {
-        public CarNumbersObject Create()
+        public CarNumbersObject Create(int id)
         {
             // TODO: Should this be instantiated from a DI Container?
             // TODO: This factory class might need to reside under the composition root
@@ -12,7 +12,7 @@ namespace App.BaseGameEditor.Infrastructure.Factories
             // TODO: should not reference the DI tool.
             // TODO: Alternatively a solution could be implemented by the DI Container.
             // TODO: Refer to http://www.wiktorzychla.com/2016/01/di-factories-and-composition-root.html
-            return new CarNumbersObject();
+            return new CarNumbersObject { Id = id };
         }
     }
 }

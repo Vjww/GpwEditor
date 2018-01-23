@@ -4,8 +4,6 @@ using App.BaseGameEditor.Data.Catalogues.Commentary;
 using App.BaseGameEditor.Data.Catalogues.Language;
 using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.FileResources;
-using App.BaseGameEditor.Domain.Repositories;
-using App.BaseGameEditor.Infrastructure.Repositories;
 using App.BaseGameEditor.Infrastructure.Services;
 using App.BaseGameEditor.Presentation.Outputs;
 using App.Services;
@@ -61,9 +59,6 @@ namespace App.DependencyInjection.Unity
             _container.RegisterType<ICatalogueImporter<CommentaryCatalogueItem>, CommentaryCatalogueImporter<ILanguagePhrases>>();
             _container.RegisterType<ICatalogueReader<CommentaryCatalogueItem>, CommentaryCatalogueReader>();
             _container.RegisterType<ICatalogueWriter<CommentaryCatalogueItem>, CommentaryCatalogueWriter>();
-
-            // TODO: Added for integration test to succeed
-            _container.RegisterType<ITeamRepository, TeamRepository>(); // TODO: Maybe a clash domain/data layer
 
             return _container;
         }

@@ -16,7 +16,7 @@ namespace App.BaseGameEditor.Data.Streams
             _streamFactory = streamFactory ?? throw new ArgumentNullException(nameof(streamFactory));
         }
 
-        public void Write(Stream stream, long offset, byte value, SeekOrigin seekOrigin = SeekOrigin.Begin)
+        public void Write(Stream stream, long offset, byte value, SeekOrigin seekOrigin)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             if (!Enum.IsDefined(typeof(SeekOrigin), seekOrigin))
@@ -25,7 +25,7 @@ namespace App.BaseGameEditor.Data.Streams
             Write(stream, offset, new[] { value }, seekOrigin);
         }
 
-        public void Write(Stream stream, long offset, byte[] values, SeekOrigin seekOrigin = SeekOrigin.Begin)
+        public void Write(Stream stream, long offset, byte[] values, SeekOrigin seekOrigin)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             if (values == null) throw new ArgumentNullException(nameof(values));
@@ -37,10 +37,10 @@ namespace App.BaseGameEditor.Data.Streams
             stream.Write(values, 0, values.Length);
         }
 
-        public void WriteStringList(Stream stream, IEnumerable list)
+        public void WriteStringList(Stream stream, IEnumerable items)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
-            if (list == null) throw new ArgumentNullException(nameof(list));
+            if (items == null) throw new ArgumentNullException(nameof(items));
 
             var streamCopy = _streamFactory.Create();
             stream.CopyTo(streamCopy);
@@ -49,7 +49,7 @@ namespace App.BaseGameEditor.Data.Streams
             // TODO: Remove the dependancy on the CLI StreamWriter class
             using (var streamWriter = new StreamWriter(streamCopy, Encoding.Default))
             {
-                foreach (var item in list)
+                foreach (var item in items)
                 {
                     streamWriter.WriteLine(item);
                 }

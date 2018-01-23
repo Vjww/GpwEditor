@@ -33,7 +33,7 @@ namespace App.BaseGameEditor.Data.Streams
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
 
-            var list = new List<string>();
+            var result = new List<string>();
 
             var streamCopy = _streamFactory.Create();
             stream.CopyTo(streamCopy);
@@ -45,11 +45,11 @@ namespace App.BaseGameEditor.Data.Streams
                 string line;
                 while ((line = streamReader.ReadLine()) != null)
                 {
-                    list.Add(line);
+                    result.Add(line);
                 }
             }
 
-            return list;
+            return result;
         }
     }
 }

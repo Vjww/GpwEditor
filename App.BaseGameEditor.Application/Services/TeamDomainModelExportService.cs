@@ -2,6 +2,7 @@ using System;
 using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Domain.Services;
+using App.BaseGameEditor.Infrastructure.Factories;
 using App.BaseGameEditor.Infrastructure.Maps;
 using App.BaseGameEditor.Infrastructure.Services;
 
@@ -13,7 +14,7 @@ namespace App.BaseGameEditor.Application.Services
         private readonly DataService _dataService;
         private readonly TeamDataEntityFactory _teamDataEntityFactory;
         private readonly ChassisHandlingDataEntityFactory _chassisHandlingDataEntityFactory;
-        private readonly CarNumberDataEntityFactory _carNumberDataEntityFactory;
+        private readonly CarNumbersObjectFactory _carNumbersObjectFactory;
         private readonly IMapperService _mapperService;
         private readonly CarNumbersObjectToCarNumberDataEntitiesMapper _carNumbersMapper;
 
@@ -22,7 +23,7 @@ namespace App.BaseGameEditor.Application.Services
             DataService dataService,
             TeamDataEntityFactory teamDataEntityFactory,
             ChassisHandlingDataEntityFactory chassisHandlingDataEntityFactory,
-            CarNumberDataEntityFactory carNumberDataEntityFactory,
+            CarNumbersObjectFactory carNumbersObjectFactory,
             IMapperService mapperService,
             CarNumbersObjectToCarNumberDataEntitiesMapper carNumbersMapper)
         {
@@ -30,7 +31,7 @@ namespace App.BaseGameEditor.Application.Services
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
             _teamDataEntityFactory = teamDataEntityFactory ?? throw new ArgumentNullException(nameof(teamDataEntityFactory));
             _chassisHandlingDataEntityFactory = chassisHandlingDataEntityFactory ?? throw new ArgumentNullException(nameof(chassisHandlingDataEntityFactory));
-            _carNumberDataEntityFactory = carNumberDataEntityFactory ?? throw new ArgumentNullException(nameof(carNumberDataEntityFactory));
+            _carNumbersObjectFactory = carNumbersObjectFactory ?? throw new ArgumentNullException(nameof(carNumbersObjectFactory));
             _mapperService = mapperService ?? throw new ArgumentNullException(nameof(mapperService));
             _carNumbersMapper = carNumbersMapper ?? throw new ArgumentNullException(nameof(carNumbersMapper));
         }
@@ -47,9 +48,8 @@ namespace App.BaseGameEditor.Application.Services
                 var chassisHandlingDataEntity = _chassisHandlingDataEntityFactory.Create(team.Id);
                 _mapperService.Map(team, chassisHandlingDataEntity);
 
-                // TODO: This doesnt seem right, should be mapping from Team -> Object -> DataEntities, currently missing middle step
-                // TODO: team = _mapperService.Map(_carNumbersMapper.Map(team), carNumberDataEntities); ???
-                var carNumberDataEntities = _carNumbersMapper.Map(team);
+                var carNumbersObject = _carNumbersObjectFactory.Create(team.Id);
+                var carNumberDataEntities = _carNumbersMapper.Map(_mapperService.Map(team, carNumbersObject));
 
                 _dataService.Teams.SetById(teamDataEntity);
                 _dataService.ChassisHandlings.SetById(chassisHandlingDataEntity);

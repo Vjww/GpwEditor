@@ -24,16 +24,16 @@ namespace App.BaseGameEditor.Domain.Services
         {
             if (teams == null) throw new ArgumentNullException(nameof(teams));
 
-            var validationFailureMessages = new List<string>();
+            var validationMessages = new List<string>();
 
             var list = teams as IList<TeamEntity> ?? teams.ToList();
             foreach (var item in list)
             {
                 var messages = item.Validate();
-                validationFailureMessages.AddRange(messages);
+                validationMessages.AddRange(messages);
             }
 
-            if (validationFailureMessages.Any())
+            if (validationMessages.Any())
             {
                 // TODO: Handle validation failures gracefully.
                 throw new ArgumentException();
@@ -46,12 +46,12 @@ namespace App.BaseGameEditor.Domain.Services
         {
             if (team == null) throw new ArgumentNullException(nameof(team));
 
-            var validationFailureMessages = new List<string>();
+            var validationMessages = new List<string>();
 
             var messages = team.Validate();
-            validationFailureMessages.AddRange(messages);
+            validationMessages.AddRange(messages);
 
-            if (validationFailureMessages.Any())
+            if (validationMessages.Any())
             {
                 // TODO: Handle validation failures gracefully.
                 throw new ArgumentException();

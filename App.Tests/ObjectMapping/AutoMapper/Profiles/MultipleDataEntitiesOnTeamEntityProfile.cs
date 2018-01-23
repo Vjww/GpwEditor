@@ -43,7 +43,8 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
             _mapper.Initialise();
 
             // Initialise data entities using unique non-default dummy values to verify mappings
-            _teamDataEntity = _teamDataEntityFactory.Create(1);
+            const int teamDataEntityId = 1;
+            _teamDataEntity = _teamDataEntityFactory.Create(teamDataEntityId);
             _teamDataEntity.Name.All = "UnitTest";
             _teamDataEntity.LastPosition = 11;
             _teamDataEntity.LastPoints = 12;
@@ -57,12 +58,12 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
             _teamDataEntity.LocationPointerY = 20;
             _teamDataEntity.TyreSupplierId = 21;
 
-            _chassisHandlingDataEntity = _chassisHandlingDataEntityFactory.Create(2);
+            const int chassisHandlingDataEntityId = 2;
+            _chassisHandlingDataEntity = _chassisHandlingDataEntityFactory.Create(chassisHandlingDataEntityId);
             _chassisHandlingDataEntity.TeamId = 22;
             _chassisHandlingDataEntity.Value = 23;
 
-            // TODO: Should we be testing with CarNumberDataEntities rather than CarNumberObject? Or maybe this is sufficient as is?
-            _carNumbersObject = _carNumbersObjectFactory.Create();
+            _carNumbersObject = _carNumbersObjectFactory.Create(teamDataEntityId);
             _carNumbersObject.CarNumberDriver1 = 24;
             _carNumbersObject.CarNumberDriver2 = 25;
 
@@ -189,7 +190,7 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
         [Test]
         public void MultipleDataEntitiesOnTeamEntityProfile_WhenMappingFromPopulatedTeamEntity_ExpectPopulatedCarNumbersObject()
         {
-            var carNumbersObject = _carNumbersObjectFactory.Create();
+            var carNumbersObject = _carNumbersObjectFactory.Create(_teamEntity.Id);
             var sut = _mapper.Map(_teamEntity, carNumbersObject);
 
             Assert.IsNotNull(sut);

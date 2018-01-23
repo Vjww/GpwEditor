@@ -57,8 +57,8 @@ namespace App.BaseGameEditor.Application.Services
                 germanCommentaryFilePath);
 
             // Validate connection prior to export
-            var validationFailedMessages = _dataConnectionValidationService.Validate(_dataConnection);
-            if (validationFailedMessages.Any())
+            var validationMessages = _dataConnectionValidationService.Validate(_dataConnection);
+            if (validationMessages.Any())
             {
                 throw new Exception("Failed to validate data connection.");
             }
@@ -91,8 +91,8 @@ namespace App.BaseGameEditor.Application.Services
                 germanCommentaryFilePath);
 
             // Validate connection prior to import
-            var validationFailedMessages = _dataConnectionValidationService.Validate(_dataConnection);
-            if (validationFailedMessages.Any())
+            var validationMessages = _dataConnectionValidationService.Validate(_dataConnection);
+            if (validationMessages.Any())
             {
                 throw new Exception("Failed to validate data connection.");
             }

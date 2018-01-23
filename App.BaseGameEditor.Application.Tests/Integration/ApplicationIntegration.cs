@@ -13,6 +13,7 @@ namespace App.BaseGameEditor.Application.Tests.Integration
         private const string GameFolder = @"C:\gpw";
 
         [Test]
+        [Ignore("Used for integration testing only. Test can be enabled/disabled as required.")]
         public void ApplicationIntegration_WhenGettingTeamModels_ExpectSelectedModelIsPopulatedWithData()
         {
             var output = new ConsoleOutput();
