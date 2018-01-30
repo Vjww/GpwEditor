@@ -1,7 +1,8 @@
 ﻿using System;
 using App.BaseGameEditor.Infrastructure.Services;
-using App.DependencyInjection.Unity;
+using App.DependencyInjection.Autofac;
 using App.Output;
+using Autofac;
 
 namespace App
 {
@@ -9,20 +10,18 @@ namespace App
     {
         internal static void Main(string[] args)
         {
-            var output = new ConsoleOutput();
-
-            // TODO: Pick a dependency injection container to match your taste
-            //using (var container = new AutofacDependencyInjectionContainer(output))
-            using (var container = new UnityDependencyInjectionContainer(output))
+            using (var container = new AutofacDependencyInjectionContainer(
+                new AutofacContainerBootstrapper(new ContainerBuilder()),
+                new ConsoleOutput()))
             {
-                container.DisplayContainerName();
-                container.PerformRegistrations();
-                container.DisplayRegistrations();
+                container.BuildContainer();
 
-                var mapperService = container.GetInstance<IMapperService>();
+                container.ListRegistrations();
+
+                var mapperService = container.Resolve<IMapperService>();
                 mapperService.Initialise();
 
-                var application = container.GetInstance<Application>();
+                var application = container.Resolve<Application>();
                 application.Run();
             }
 

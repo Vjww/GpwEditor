@@ -4,6 +4,7 @@ using App.BaseGameEditor.Data.Catalogues.Commentary;
 using App.BaseGameEditor.Data.Catalogues.Language;
 using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.FileResources;
+using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Services;
 using App.BaseGameEditor.Presentation.Outputs;
 using App.Services;
@@ -15,22 +16,17 @@ namespace App.DependencyInjection.Unity
 {
     public class UnityContainerBootstrapper
     {
-        private readonly IUnityContainer _container;
-
-        public UnityContainerBootstrapper(IUnityContainer container)
-        {
-            _container = container;
-        }
-
         public IUnityContainer Register()
         {
+            var container = new UnityContainer();
+
             // Automatic registration
-            _container.RegisterTypes(
+            container.RegisterTypes(
                 AllClasses.FromLoadedAssemblies().Where(
                     type => type.Namespace != null &&
-                         !type.Namespace.StartsWith("App.AutoMapper") &&
-                         !type.Namespace.StartsWith("App.DependencyInjection") &&
-                         !type.Namespace.StartsWith("App.Outputs") &&
+                         //!type.Namespace.StartsWith("App.DependencyInjection") &&
+                         //!type.Namespace.StartsWith("App.ObjectMapping") &&
+                         //!type.Namespace.StartsWith("App.Outputs") &&
                          (
                              type.Namespace.StartsWith("App") ||
                              type.Namespace.StartsWith("App.BaseGameEditor.Presentation") ||
@@ -44,23 +40,25 @@ namespace App.DependencyInjection.Unity
                 WithLifetime.ContainerControlled);  // And mappings will have container controlled lifetimes
 
             // Change automatic registrations to have transient lifetimes
-            _container.RegisterType<FileResource>(new TransientLifetimeManager());
-            _container.RegisterType<LanguageCatalogueValue>(new TransientLifetimeManager());
+            container.RegisterType<FileResource>(new TransientLifetimeManager());
+            container.RegisterType<LanguageCatalogueValue>(new TransientLifetimeManager());
+            container.RegisterType<TeamEntity>(new TransientLifetimeManager());
 
             // Manual registrations
-            _container.RegisterType<BaseGameEditor.Presentation.Outputs.IOutput, ConsoleOutput>();
-            _container.RegisterType<IMapperService, AutoMapperObjectMapperService>();
-            _container.RegisterType<IStreamFactory, MemoryStreamFactory>();
-            _container.RegisterType<ICatalogueExporter<LanguageCatalogueItem>, LanguageCatalogueExporter>();
-            _container.RegisterType<ICatalogueImporter<LanguageCatalogueItem>, LanguageCatalogueImporter>();
-            _container.RegisterType<ICatalogueReader<LanguageCatalogueItem>, LanguageCatalogueReader>();
-            _container.RegisterType<ICatalogueWriter<LanguageCatalogueItem>, LanguageCatalogueWriter>();
-            _container.RegisterType<ICatalogueExporter<CommentaryCatalogueItem>, CommentaryCatalogueExporter<ILanguagePhrases>>();
-            _container.RegisterType<ICatalogueImporter<CommentaryCatalogueItem>, CommentaryCatalogueImporter<ILanguagePhrases>>();
-            _container.RegisterType<ICatalogueReader<CommentaryCatalogueItem>, CommentaryCatalogueReader>();
-            _container.RegisterType<ICatalogueWriter<CommentaryCatalogueItem>, CommentaryCatalogueWriter>();
+            container.RegisterType<IOutput, Output.ConsoleOutput>();
+            container.RegisterType<BaseGameEditor.Presentation.Outputs.IOutput, ConsoleOutput>();
+            container.RegisterType<IMapperService, AutoMapperObjectMapperService>();
+            container.RegisterType<IStreamFactory, MemoryStreamFactory>();
+            container.RegisterType<ICatalogueExporter<LanguageCatalogueItem>, LanguageCatalogueExporter>();
+            container.RegisterType<ICatalogueImporter<LanguageCatalogueItem>, LanguageCatalogueImporter>();
+            container.RegisterType<ICatalogueReader<LanguageCatalogueItem>, LanguageCatalogueReader>();
+            container.RegisterType<ICatalogueWriter<LanguageCatalogueItem>, LanguageCatalogueWriter>();
+            container.RegisterType<ICatalogueExporter<CommentaryCatalogueItem>, CommentaryCatalogueExporter<ILanguagePhrases>>();
+            container.RegisterType<ICatalogueImporter<CommentaryCatalogueItem>, CommentaryCatalogueImporter<ILanguagePhrases>>();
+            container.RegisterType<ICatalogueReader<CommentaryCatalogueItem>, CommentaryCatalogueReader>();
+            container.RegisterType<ICatalogueWriter<CommentaryCatalogueItem>, CommentaryCatalogueWriter>();
 
-            return _container;
+            return container;
         }
     }
 }

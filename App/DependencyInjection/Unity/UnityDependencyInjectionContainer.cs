@@ -7,15 +7,15 @@ namespace App.DependencyInjection.Unity
 {
     public class UnityDependencyInjectionContainer : IDependencyInjectionContainer
     {
-        private const string ContainerName = "Unity";
         private IUnityContainer _container;
-        private readonly IOutput _output;
         private readonly UnityContainerBootstrapper _containerBootstrapper;
+        private readonly IOutput _output;
+        private bool _isContainerBuilt;
 
-        public UnityDependencyInjectionContainer(IOutput output)
+        public UnityDependencyInjectionContainer(UnityContainerBootstrapper containerBootstrapper, IOutput output)
         {
+            _containerBootstrapper = containerBootstrapper ?? throw new ArgumentNullException(nameof(containerBootstrapper));
             _output = output ?? throw new ArgumentNullException(nameof(output));
-            _containerBootstrapper = new UnityContainerBootstrapper(new UnityContainer());
         }
 
         public void Dispose()
@@ -23,18 +23,21 @@ namespace App.DependencyInjection.Unity
             _container?.Dispose();
         }
 
-        public void DisplayContainerName()
+        public void BuildContainer()
         {
-            _output.WriteLine($"# This dependency injection container is powered by {ContainerName}.");
+            _output.WriteLine("Building Unity container...");
             _output.WriteLine();
+
+            _container = _containerBootstrapper.Register();
+
+            _isContainerBuilt = true;
         }
 
-        public void DisplayRegistrations()
+        public void ListRegistrations()
         {
-            if (_container == null)
+            if (!_isContainerBuilt)
             {
-                _output.WriteLine("# Container is null. Please perform registrations before displaying them.");
-                return;
+                throw new InvalidOperationException("Container is not built.");
             }
 
             _output.WriteLine($"# Container has {_container.Registrations.Count()} registrations:");
@@ -46,32 +49,19 @@ namespace App.DependencyInjection.Unity
             {
                 var registration = (ContainerRegistration)item;
                 _output.WriteLine(registration.GetMappingAsString());
-
-                //_output.WriteLine($"{item.Name}");
-                //_output.WriteLine($"{item.RegisteredType}");
-                //_output.WriteLine($"{item.MappedToType}");
-                //_output.WriteLine($"{item.LifetimeManager}");
             }
 
             _output.WriteLine();
         }
 
-        public T GetInstance<T>()
+        public T Resolve<T>()
         {
+            if (!_isContainerBuilt)
+            {
+                throw new InvalidOperationException("Container is not built.");
+            }
+
             return _container.Resolve<T>();
-        }
-
-        public void PerformRegistrations()
-        {
-            _output.WriteLine("# Performing registrations...");
-            _output.WriteLine();
-
-            _container = _containerBootstrapper.Register();
-        }
-
-        public void RegisterInstance<T>(T instance)
-        {
-            _container.RegisterInstance(instance);
         }
     }
 }

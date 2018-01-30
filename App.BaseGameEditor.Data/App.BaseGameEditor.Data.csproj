@@ -67,6 +67,8 @@
     <Compile Include="Catalogues\Language\LanguageCatalogueWriter.cs" />
     <Compile Include="DataConnections\DataConnection.cs" />
     <Compile Include="Services\DataConnectionValidationService.cs" />
+    <Compile Include="Services\StreamReaderService.cs" />
+    <Compile Include="Services\StreamWriterService.cs" />
     <Compile Include="Services\TeamDataExportService.cs" />
     <Compile Include="Services\ChassisHandlingDataExportService.cs" />
     <Compile Include="Services\CarNumberDataExportService.cs" />
@@ -85,12 +87,12 @@
     <Compile Include="DataEntities\IDataEntityExporter.cs" />
     <Compile Include="DataEntities\IDataEntityImporter.cs" />
     <Compile Include="DataEntities\TeamDataEntity.cs" />
-    <Compile Include="EntityExporters\CarNumberDataEntityExporter.cs" />
-    <Compile Include="EntityExporters\ChassisHandlingDataEntityExporter.cs" />
-    <Compile Include="EntityExporters\TeamDataEntityExporter.cs" />
-    <Compile Include="EntityImporters\CarNumberDataEntityImporter.cs" />
-    <Compile Include="EntityImporters\ChassisHandlingDataEntityImporter.cs" />
-    <Compile Include="EntityImporters\TeamDataEntityImporter.cs" />
+    <Compile Include="DataEntityExporters\CarNumberDataEntityExporter.cs" />
+    <Compile Include="DataEntityExporters\ChassisHandlingDataEntityExporter.cs" />
+    <Compile Include="DataEntityExporters\TeamDataEntityExporter.cs" />
+    <Compile Include="DataEntityImporters\CarNumberDataEntityImporter.cs" />
+    <Compile Include="DataEntityImporters\ChassisHandlingDataEntityImporter.cs" />
+    <Compile Include="DataEntityImporters\TeamDataEntityImporter.cs" />
     <Compile Include="Enums\CommentaryType.cs" />
     <Compile Include="Enums\LanguageType.cs" />
     <Compile Include="Factories\CarNumberDataEntityFactory.cs" />

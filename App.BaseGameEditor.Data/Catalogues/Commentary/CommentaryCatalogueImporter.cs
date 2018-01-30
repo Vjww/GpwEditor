@@ -48,6 +48,8 @@ namespace App.BaseGameEditor.Data.Catalogues.Commentary
                 var transcript = _catalogueParser.ExtractTranscript(line);
                 var transcriptPrefix = _catalogueParser.ExtractTranscriptPrefix(transcript, commentaryType);
                 var transcriptSuffix = _catalogueParser.ExtractTranscriptSuffix(commentaryType);
+
+                // TODO: Use factory
                 var commentaryCatalogueItem = new CommentaryCatalogueItem
                 {
                     Id = id,

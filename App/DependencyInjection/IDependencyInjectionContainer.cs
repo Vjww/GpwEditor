@@ -4,10 +4,8 @@ namespace App.DependencyInjection
 {
     public interface IDependencyInjectionContainer : IDisposable
     {
-        void DisplayContainerName();
-        void DisplayRegistrations();
-        T GetInstance<T>();
-        void PerformRegistrations();
-        void RegisterInstance<T>(T instance);
+        void BuildContainer();
+        void ListRegistrations();
+        T Resolve<T>();
     }
 }

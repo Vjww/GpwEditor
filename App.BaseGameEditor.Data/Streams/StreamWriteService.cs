@@ -4,16 +4,21 @@ using System.ComponentModel;
 using System.IO;
 using System.Text;
 using App.BaseGameEditor.Data.Factories;
+using App.BaseGameEditor.Data.Services;
 
 namespace App.BaseGameEditor.Data.Streams
 {
     public class StreamWriteService
     {
         private readonly IStreamFactory _streamFactory;
+        private readonly StreamWriterService _streamWriterService;
 
-        public StreamWriteService(IStreamFactory streamFactory)
+        public StreamWriteService(
+            IStreamFactory streamFactory,
+            StreamWriterService streamWriterService)
         {
             _streamFactory = streamFactory ?? throw new ArgumentNullException(nameof(streamFactory));
+            _streamWriterService = streamWriterService ?? throw new ArgumentNullException(nameof(streamWriterService));
         }
 
         public void Write(Stream stream, long offset, byte value, SeekOrigin seekOrigin)
@@ -46,8 +51,7 @@ namespace App.BaseGameEditor.Data.Streams
             stream.CopyTo(streamCopy);
             stream.Seek(0, SeekOrigin.Begin);
 
-            // TODO: Remove the dependancy on the CLI StreamWriter class
-            using (var streamWriter = new StreamWriter(streamCopy, Encoding.Default))
+            using (var streamWriter = _streamWriterService.Writer(streamCopy, Encoding.Default))
             {
                 foreach (var item in items)
                 {

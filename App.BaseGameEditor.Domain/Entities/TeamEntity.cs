@@ -2,9 +2,8 @@
 
 namespace App.BaseGameEditor.Domain.Entities
 {
-    public class TeamEntity : IEntity
+    public class TeamEntity : EntityBase
     {
-        public int Id { get; set; }
         public int TeamId { get; set; }
         public string Name { get; set; }
         public int LastPosition { get; set; }
@@ -21,7 +20,7 @@ namespace App.BaseGameEditor.Domain.Entities
         public int CarNumberDriver1 { get; set; }
         public int CarNumberDriver2 { get; set; }
 
-        public IEnumerable<string> Validate()
+        public override IEnumerable<string> Validate()
         {
             var validationMessages = new List<string>();
 

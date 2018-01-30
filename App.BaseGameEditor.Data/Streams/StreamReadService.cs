@@ -4,16 +4,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using App.BaseGameEditor.Data.Factories;
+using App.BaseGameEditor.Data.Services;
 
 namespace App.BaseGameEditor.Data.Streams
 {
     public class StreamReadService
     {
         private readonly IStreamFactory _streamFactory;
+        private readonly StreamReaderService _streamReaderService;
 
-        public StreamReadService(IStreamFactory streamFactory)
+        public StreamReadService(
+            IStreamFactory streamFactory,
+            StreamReaderService streamReaderService)
         {
             _streamFactory = streamFactory ?? throw new ArgumentNullException(nameof(streamFactory));
+            _streamReaderService = streamReaderService ?? throw new ArgumentNullException(nameof(streamReaderService));
         }
 
         public byte[] Read(Stream stream, long offset, int count, SeekOrigin seekOrigin = SeekOrigin.Begin)
@@ -39,8 +44,7 @@ namespace App.BaseGameEditor.Data.Streams
             stream.CopyTo(streamCopy);
             streamCopy.Seek(0, SeekOrigin.Begin);
 
-            // TODO: Remove the dependancy on the CLI StreamReader class
-            using (var streamReader = new StreamReader(streamCopy, Encoding.Default))
+            using (var streamReader = _streamReaderService.Reader(streamCopy, Encoding.Default))
             {
                 string line;
                 while ((line = streamReader.ReadLine()) != null)

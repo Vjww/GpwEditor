@@ -10,14 +10,15 @@ namespace App.ObjectMapping.AutoMapper.Profiles
         public MultipleDataEntitiesOnTeamEntityProfile()
         {
             CreateMap<TeamDataEntity, TeamEntity>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ForMember(dest => dest.TeamId, opt => opt.ResolveUsing(src => src.Id + 1))
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name.All))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name.Shared))
                 .ForMember(dest => dest.ChassisHandling, opt => opt.Ignore())
                 .ForMember(dest => dest.CarNumberDriver1, opt => opt.Ignore())
                 .ForMember(dest => dest.CarNumberDriver2, opt => opt.Ignore())
                 .ReverseMap()
                 .ForMember(src => src.Id, opt => opt.Ignore())
-                .ForPath(src => src.Name.All, opt => opt.MapFrom(dest => dest.Name));
+                .ForPath(src => src.Name.Shared, opt => opt.MapFrom(dest => dest.Name));
 
             CreateMap<ChassisHandlingDataEntity, TeamEntity>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore())

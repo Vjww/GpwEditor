@@ -34,6 +34,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Services\DomainModelService.cs" />
     <Compile Include="Identities\IIntegerIdentity.cs" />
     <Compile Include="Entities\IEntity.cs" />

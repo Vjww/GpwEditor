@@ -1,85 +1,78 @@
 ﻿using System;
 using App.ObjectMapping.AutoMapper.Configurations;
-using NUnit.Framework;
+using FluentAssertions;
+using Xunit;
 
 namespace App.Tests.Services
 {
-    [TestFixture]
     public class AutoMapperObjectMapperService
     {
-        private PresentationConfiguration _presentationConfiguration;
-        private InfrastructureConfiguration _infrastructureConfiguration;
-
-        [SetUp]
-        public void SetUp()
-        {
-            _presentationConfiguration = new PresentationConfiguration();
-            _infrastructureConfiguration = new InfrastructureConfiguration();
-        }
-
-        [Test]
+        // TODO: Constructor tests may become redundant if we can scan for configurations instead
+        [Fact]
         public void AutoMapperObjectMapperService_WhenInvokingConstructorWithNullFirstParameter_ExpectException()
         {
-            var infrastructureConfiguration = new InfrastructureConfiguration();
-
-            void TestDelegate()
+            var action = new Action(() =>
             {
-                var _ = new App.Services.AutoMapperObjectMapperService(null, infrastructureConfiguration);
-            }
+                var _ = new App.Services.AutoMapperObjectMapperService(
+                    null, new InfrastructureConfiguration()); // TODO: Mock it
+            });
 
-            Assert.Throws(typeof(ArgumentNullException), TestDelegate);
+            action.ShouldThrow<ArgumentNullException>();
         }
 
-        [Test]
+        // TODO: Constructor tests may become redundant if we can scan for configurations instead
+        [Fact]
         public void AutoMapperObjectMapperService_WhenInvokingConstructorWithNullSecondParameter_ExpectException()
         {
-            var presentationConfiguration = new PresentationConfiguration();
-
-            void TestDelegate()
+            var action = new Action(() =>
             {
-                var _ = new App.Services.AutoMapperObjectMapperService(presentationConfiguration, null);
-            }
+                var _ = new App.Services.AutoMapperObjectMapperService(
+                    new PresentationConfiguration(), null); // TODO: Mock it
+            });
 
-            Assert.Throws(typeof(ArgumentNullException), TestDelegate);
+            action.ShouldThrow<ArgumentNullException>();
         }
 
-        [Test]
+        [Fact]
         public void AutoMapperObjectMapperService_WhenInvokingMapMethodWithNullParameter_ExpectException()
         {
-            var mapperService = new App.Services.AutoMapperObjectMapperService(_presentationConfiguration, _infrastructureConfiguration);
+            var mapperService = new App.Services.AutoMapperObjectMapperService(
+                new PresentationConfiguration(), new InfrastructureConfiguration()); // TODO: Mock it
 
-            void TestDelegate()
+            var action = new Action(() =>
             {
                 var _ = mapperService.Map<object, object>(null);
-            }
+            });
 
-            Assert.Throws(typeof(ArgumentNullException), TestDelegate);
+            action.ShouldThrow<ArgumentNullException>();
         }
 
-        [Test]
+        [Fact]
         public void AutoMapperObjectMapperService_WhenInvokingMapMethodWithNullFirstParameter_ExpectException()
         {
-            var mapperService = new App.Services.AutoMapperObjectMapperService(_presentationConfiguration, _infrastructureConfiguration);
+            var mapperService = new App.Services.AutoMapperObjectMapperService(
+                new PresentationConfiguration(), new InfrastructureConfiguration()); // TODO: Mock it
 
-            void TestDelegate()
+            var action = new Action(() =>
             {
                 var _ = mapperService.Map<object, object>(null, new object());
-            }
+            });
 
-            Assert.Throws(typeof(ArgumentNullException), TestDelegate);
+            action.ShouldThrow<ArgumentNullException>();
         }
 
-        [Test]
+        [Fact]
         public void AutoMapperObjectMapperService_WhenInvokingMapMethodWithNullSecondParameter_ExpectException()
         {
-            var mapperService = new App.Services.AutoMapperObjectMapperService(_presentationConfiguration, _infrastructureConfiguration);
+            var mapperService = new App.Services.AutoMapperObjectMapperService(
+                new PresentationConfiguration(), new InfrastructureConfiguration()); // TODO: Mock it
 
-            void TestDelegate()
+            var action = new Action(() =>
             {
                 var _ = mapperService.Map<object, object>(new object(), null);
-            }
+            });
 
-            Assert.Throws(typeof(ArgumentNullException), TestDelegate);
+            action.ShouldThrow<ArgumentNullException>();
         }
     }
 }

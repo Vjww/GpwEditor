@@ -1,86 +1,71 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Infrastructure.Factories;
 using App.BaseGameEditor.Infrastructure.Maps;
-using NUnit.Framework;
+using FluentAssertions;
+using Xunit;
 
 namespace App.BaseGameEditor.Infrastructure.Tests.Maps
 {
-    [TestFixture]
     public class CarNumbersObjectToCarNumberDataEntitiesMapper
     {
-        private static CarNumbersObjectFactory _carNumbersObjectFactory;
-        private static CarNumberDataEntityFactory _carNumberDataEntityFactory;
-
-        private CarNumbersObject _carNumbersObject;
-
-        [OneTimeSetUp]
-        public static void OneTimeSetUp()
-        {
-            _carNumbersObjectFactory = new CarNumbersObjectFactory();
-            _carNumberDataEntityFactory = new CarNumberDataEntityFactory();
-        }
-
-        [SetUp]
-        public void SetUp()
-        {
-            const int carNumbersObjectId = 1;
-            _carNumbersObject = _carNumbersObjectFactory.Create(carNumbersObjectId);
-            _carNumbersObject.CarNumberDriver1 = 3;
-            _carNumbersObject.CarNumberDriver2 = 4;
-        }
-
-        [Test]
+        [Fact]
         public void CarNumbersObjectToCarNumberDataEntitiesMapper_WhenInvokingConstructorWithNullParameter_ExpectException()
         {
-            void TestDelegate()
+            var action = new Action(() =>
             {
                 var _ = new Infrastructure.Maps.CarNumbersObjectToCarNumberDataEntitiesMapper(null);
-            }
+            });
 
-            Assert.Throws(typeof(ArgumentNullException), TestDelegate);
+            action.ShouldThrow<ArgumentNullException>();
         }
 
-        [Test]
+        [Fact]
         public void CarNumbersObjectToCarNumberDataEntitiesMapper_WhenInvokingMapMethodWithNullParameter_ExpectException()
         {
-            var mapper = new Infrastructure.Maps.CarNumbersObjectToCarNumberDataEntitiesMapper(_carNumberDataEntityFactory);
+            var factory = new CarNumberDataEntityFactory(() => new CarNumberDataEntity()); // TODO: Mock it
+            var mapper = new Infrastructure.Maps.CarNumbersObjectToCarNumberDataEntitiesMapper(factory);
 
-            void TestDelegate()
+            var action = new Action(() =>
             {
                 var _ = mapper.Map(null);
-            }
+            });
 
-            Assert.Throws(typeof(ArgumentNullException), TestDelegate);
+            action.ShouldThrow<ArgumentNullException>();
         }
 
-        [Test]
+        [Fact]
         public void CarNumbersObjectToCarNumberDataEntitiesMapper_WhenInvokingMapMethodWithPopulatedEntity_ExpectPopulatedList()
         {
-            var mapper = new Infrastructure.Maps.CarNumbersObjectToCarNumberDataEntitiesMapper(_carNumberDataEntityFactory);
+            var factory = new CarNumberDataEntityFactory(() => new CarNumberDataEntity()); // TODO: Mock it
+            var mapper = new Infrastructure.Maps.CarNumbersObjectToCarNumberDataEntitiesMapper(factory);
 
-            var sut = mapper.Map(_carNumbersObject);
+            var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
 
-            Assert.IsNotNull(sut);
-            var sutAsList = sut as IList<CarNumberDataEntity> ?? sut.ToList();
-            Assert.IsTrue(sutAsList.Count == 2);
+            const int carNumbersObjectId = 1;
+            var carNumbersObject = carNumbersObjectFactory.Create(carNumbersObjectId);
+            carNumbersObject.CarNumberDriver1 = 3;
+            carNumbersObject.CarNumberDriver2 = 4;
 
-            var carNumberDataEntity1 = sutAsList.Single(x => x.PositionId == 0);
-            Assert.IsNotNull(carNumberDataEntity1);
-            Assert.IsTrue(carNumberDataEntity1.Id == 2);
-            Assert.IsTrue(carNumberDataEntity1.TeamId == _carNumbersObject.Id);
-            Assert.IsTrue(carNumberDataEntity1.ValueA == _carNumbersObject.CarNumberDriver1);
-            Assert.IsTrue(carNumberDataEntity1.ValueB == _carNumbersObject.CarNumberDriver1);
+            var sut = mapper.Map(carNumbersObject).ToList();
+            sut.Should().NotBeNull();
+            sut.Count.Should().Be(2);
 
-            var carNumberDataEntity2 = sutAsList.Single(x => x.PositionId == 1);
-            Assert.IsNotNull(carNumberDataEntity2);
-            Assert.IsTrue(carNumberDataEntity2.Id == 3);
-            Assert.IsTrue(carNumberDataEntity2.TeamId == _carNumbersObject.Id);
-            Assert.IsTrue(carNumberDataEntity2.ValueA == _carNumbersObject.CarNumberDriver2);
-            Assert.IsTrue(carNumberDataEntity2.ValueB == _carNumbersObject.CarNumberDriver2);
+            var carNumberDataEntity1 = sut.Single(x => x.PositionId == 0);
+            carNumberDataEntity1.Should().NotBeNull();
+            carNumberDataEntity1.Id.Should().Be(2);
+            carNumberDataEntity1.TeamId.Should().Be(carNumbersObject.Id);
+            carNumberDataEntity1.ValueA.Should().Be(carNumbersObject.CarNumberDriver1);
+            carNumberDataEntity1.ValueB.Should().Be(carNumbersObject.CarNumberDriver1);
+
+            var carNumberDataEntity2 = sut.Single(x => x.PositionId == 1);
+            carNumberDataEntity2.Should().NotBeNull();
+            carNumberDataEntity2.Id.Should().Be(3);
+            carNumberDataEntity2.TeamId.Should().Be(carNumbersObject.Id);
+            carNumberDataEntity2.ValueA.Should().Be(carNumbersObject.CarNumberDriver2);
+            carNumberDataEntity2.ValueB.Should().Be(carNumbersObject.CarNumberDriver2);
         }
     }
 }

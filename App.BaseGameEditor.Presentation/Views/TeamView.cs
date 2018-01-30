@@ -5,7 +5,7 @@ using App.BaseGameEditor.Presentation.ViewModels;
 
 namespace App.BaseGameEditor.Presentation.Views
 {
-    public class TeamView : IView
+    public class TeamView
     {
         private readonly IOutput _output;
 

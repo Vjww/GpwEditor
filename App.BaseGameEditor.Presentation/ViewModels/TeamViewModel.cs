@@ -1,6 +1,6 @@
 ﻿namespace App.BaseGameEditor.Presentation.ViewModels
 {
-    public class TeamViewModel : IViewModel
+    public class TeamViewModel
     {
         public int TeamId { get; set; }
         public string Name { get; set; }

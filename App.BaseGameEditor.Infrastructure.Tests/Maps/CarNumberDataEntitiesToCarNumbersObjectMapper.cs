@@ -3,132 +3,116 @@ using System.Collections.Generic;
 using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Infrastructure.Factories;
-using NUnit.Framework;
+using App.BaseGameEditor.Infrastructure.Maps;
+using FluentAssertions;
+using Xunit;
 
 namespace App.BaseGameEditor.Infrastructure.Tests.Maps
 {
-    [TestFixture]
     public class CarNumberDataEntitiesToCarNumbersObjectMapper
     {
-        private static CarNumbersObjectFactory _carNumbersObjectFactory;
-        private static CarNumberDataEntityFactory _carNumberDataEntityFactory;
-
-        private CarNumberDataEntity _carNumberDataEntity1;
-        private CarNumberDataEntity _carNumberDataEntity2;
-        private CarNumberDataEntity _carNumberDataEntity3;
-
-        [OneTimeSetUp]
-        public static void OneTimeSetUp()
-        {
-            _carNumbersObjectFactory = new CarNumbersObjectFactory();
-            _carNumberDataEntityFactory = new CarNumberDataEntityFactory();
-        }
-
-        [SetUp]
-        public void SetUp()
-        {
-            _carNumberDataEntity1 = _carNumberDataEntityFactory.Create(0);
-            _carNumberDataEntity1.TeamId = 7;
-            _carNumberDataEntity1.ValueA = 1;
-            _carNumberDataEntity1.ValueB = 2;
-            _carNumberDataEntity1.PositionId = 0;
-
-            _carNumberDataEntity2 = _carNumberDataEntityFactory.Create(1);
-            _carNumberDataEntity2.TeamId = 8;
-            _carNumberDataEntity2.ValueA = 3;
-            _carNumberDataEntity2.ValueB = 4;
-            _carNumberDataEntity2.PositionId = 1;
-
-            _carNumberDataEntity3 = _carNumberDataEntityFactory.Create(2);
-            _carNumberDataEntity3.TeamId = 9;
-            _carNumberDataEntity3.ValueA = 5;
-            _carNumberDataEntity3.ValueB = 6;
-            _carNumberDataEntity3.PositionId = 2;
-        }
-
-        [Test]
+        [Fact]
         public void CarNumberDataEntitiesToCarNumbersObjectMapper_WhenInvokingConstructorWithNullParameter_ExpectException()
         {
-            void TestDelegate()
+            var action = new Action(() =>
             {
                 var _ = new Infrastructure.Maps.CarNumberDataEntitiesToCarNumbersObjectMapper(null);
-            }
+            });
 
-            Assert.Throws(typeof(ArgumentNullException), TestDelegate);
+            action.ShouldThrow<ArgumentNullException>();
         }
 
-        [Test]
+        [Fact]
         public void CarNumberDataEntitiesToCarNumbersObjectMapper_WhenInvokingMapMethodWithNullParameter_ExpectException()
         {
-            var mapper = new Infrastructure.Maps.CarNumberDataEntitiesToCarNumbersObjectMapper(_carNumbersObjectFactory);
+            var factory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
+            var mapper = new Infrastructure.Maps.CarNumberDataEntitiesToCarNumbersObjectMapper(factory);
 
-            void TestDelegate()
+            var action = new Action(() =>
             {
                 var _ = mapper.Map(null);
-            }
+            });
 
-            Assert.Throws(typeof(ArgumentNullException), TestDelegate);
+            action.ShouldThrow<ArgumentNullException>();
         }
 
-        [Test]
+        [Fact]
         public void CarNumberDataEntitiesToCarNumbersObjectMapper_WhenInvokingMapMethodWithEmptyList_ExpectException()
         {
-            var mapper = new Infrastructure.Maps.CarNumberDataEntitiesToCarNumbersObjectMapper(_carNumbersObjectFactory);
+            var factory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
+            var mapper = new Infrastructure.Maps.CarNumberDataEntitiesToCarNumbersObjectMapper(factory);
 
             // ReSharper disable once CollectionNeverUpdated.Local
             var list = new List<CarNumberDataEntity>();
 
-            void TestDelegate()
+            var action = new Action(() =>
             {
                 var _ = mapper.Map(list);
-            }
+            });
 
-            Assert.Throws(typeof(ArgumentOutOfRangeException), TestDelegate);
+            action.ShouldThrow<ArgumentOutOfRangeException>();
         }
 
-        [Test]
+        [Fact]
         public void CarNumberDataEntitiesToCarNumbersObjectMapper_WhenInvokingMapMethodWithUnderpopulatedList_ExpectException()
         {
-            var mapper = new Infrastructure.Maps.CarNumberDataEntitiesToCarNumbersObjectMapper(_carNumbersObjectFactory);
+            var factory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
+            var mapper = new Infrastructure.Maps.CarNumberDataEntitiesToCarNumbersObjectMapper(factory);
 
-            var list = new List<CarNumberDataEntity> { _carNumberDataEntity1 };
+            var list = new List<CarNumberDataEntity> { new CarNumberDataEntity() };
 
-            void TestDelegate()
+            var action = new Action(() =>
             {
                 var _ = mapper.Map(list);
-            }
+            });
 
-            Assert.Throws(typeof(ArgumentOutOfRangeException), TestDelegate);
+            action.ShouldThrow<ArgumentOutOfRangeException>();
         }
 
-        [Test]
+        [Fact]
         public void CarNumberDataEntitiesToCarNumbersObjectMapper_WhenInvokingMapMethodWithOverpopulatedList_ExpectException()
         {
-            var mapper = new Infrastructure.Maps.CarNumberDataEntitiesToCarNumbersObjectMapper(_carNumbersObjectFactory);
+            var factory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
+            var mapper = new Infrastructure.Maps.CarNumberDataEntitiesToCarNumbersObjectMapper(factory);
 
-            var list = new List<CarNumberDataEntity> { _carNumberDataEntity1, _carNumberDataEntity2, _carNumberDataEntity3 };
+            var list = new List<CarNumberDataEntity> { new CarNumberDataEntity(), new CarNumberDataEntity(), new CarNumberDataEntity() };
 
-            void TestDelegate()
+            var action = new Action(() =>
             {
                 var _ = mapper.Map(list);
-            }
+            });
 
-            Assert.Throws(typeof(ArgumentOutOfRangeException), TestDelegate);
+            action.ShouldThrow<ArgumentOutOfRangeException>();
         }
 
-        [Test]
+        [Fact]
         public void CarNumberDataEntitiesToCarNumbersObjectMapper_WhenInvokingMapMethodWithPopulatedList_ExpectPopulatedObject()
         {
-            var mapper = new Infrastructure.Maps.CarNumberDataEntitiesToCarNumbersObjectMapper(_carNumbersObjectFactory);
+            var factory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
+            var mapper = new Infrastructure.Maps.CarNumberDataEntitiesToCarNumbersObjectMapper(factory);
 
-            var list = new List<CarNumberDataEntity> { _carNumberDataEntity1, _carNumberDataEntity2 };
+            var carNumberDataEntityFactory = new CarNumberDataEntityFactory(() => new CarNumberDataEntity()); // TODO: Mock it
+
+            var carNumberDataEntity1 = carNumberDataEntityFactory.Create(0);
+            carNumberDataEntity1.TeamId = 7;
+            carNumberDataEntity1.ValueA = 1;
+            carNumberDataEntity1.ValueB = 2;
+            carNumberDataEntity1.PositionId = 0;
+
+            var carNumberDataEntity2 = carNumberDataEntityFactory.Create(1);
+            carNumberDataEntity2.TeamId = 8;
+            carNumberDataEntity2.ValueA = 3;
+            carNumberDataEntity2.ValueB = 4;
+            carNumberDataEntity2.PositionId = 1;
+
+            var list = new List<CarNumberDataEntity> { carNumberDataEntity1, carNumberDataEntity2 };
 
             var sut = mapper.Map(list);
 
-            Assert.IsNotNull(sut);
-            Assert.IsTrue(sut.Id == 7);
-            Assert.IsTrue(sut.CarNumberDriver1 == _carNumberDataEntity1.ValueA);
-            Assert.IsTrue(sut.CarNumberDriver2 == _carNumberDataEntity2.ValueA);
+            sut.Should().NotBeNull();
+            sut.Id.Should().Be(7);
+            sut.CarNumberDriver1.Should().Be(carNumberDataEntity1.ValueA);
+            sut.CarNumberDriver2.Should().Be(carNumberDataEntity2.ValueA);
         }
     }
 }

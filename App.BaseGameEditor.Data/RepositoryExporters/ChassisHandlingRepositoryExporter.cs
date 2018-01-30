@@ -1,4 +1,4 @@
-﻿using App.BaseGameEditor.Data.EntityExporters;
+﻿using App.BaseGameEditor.Data.DataEntityExporters;
 using App.BaseGameEditor.Data.Repositories;
 
 namespace App.BaseGameEditor.Data.RepositoryExporters

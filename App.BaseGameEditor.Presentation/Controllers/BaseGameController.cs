@@ -3,7 +3,7 @@ using App.BaseGameEditor.Application.Services;
 
 namespace App.BaseGameEditor.Presentation.Controllers
 {
-    public class BaseGameController : IController
+    public class BaseGameController
     {
         private readonly ApplicationService _service;
 

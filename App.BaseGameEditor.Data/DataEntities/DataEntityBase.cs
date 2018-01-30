@@ -2,14 +2,10 @@
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class DataEntityBase : IDataEntity
+    public abstract class DataEntityBase : IDataEntity
     {
         private bool _isIdInitialised;
         private int _id;
-
-        protected DataEntityBase()
-        {
-        }
 
         public int Id
         {

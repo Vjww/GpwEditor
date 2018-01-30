@@ -40,6 +40,7 @@ namespace App.BaseGameEditor.Data.Catalogues.Language
 
                 var value = line.Split(new[] { '"' }, 3)[1];
 
+                // TODO: Use factory
                 var languageCatalogueItem = new LanguageCatalogueItem
                 {
                     Id = id,

@@ -2,7 +2,7 @@
 {
     public class LanguageCatalogueValue
     {
-        public string All
+        public string Shared
         {
             get => English;
             set
