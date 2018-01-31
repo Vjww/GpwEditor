@@ -36,6 +36,8 @@
   <ItemGroup>
     <Compile Include="Services\DataExportService.cs" />
     <Compile Include="Services\DataImportService.cs" />
+    <Compile Include="Services\PersonDomainModelExportService.cs" />
+    <Compile Include="Services\PersonDomainModelImportService.cs" />
     <Compile Include="Services\TeamDomainModelExportService.cs" />
     <Compile Include="Services\DomainModelImportService.cs" />
     <Compile Include="Services\ApplicationService.cs" />

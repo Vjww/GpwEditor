@@ -41,6 +41,7 @@
     <Compile Include="Maps\CarNumbersObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\F1ChiefCommercialRepository.cs" />
     <Compile Include="Repositories\TeamRepository.cs" />
     <Compile Include="Services\IMapperService.cs" />
   </ItemGroup>

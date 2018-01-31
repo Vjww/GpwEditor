@@ -14,28 +14,28 @@ namespace App.BaseGameEditor.Presentation.Views
             _output = output ?? throw new ArgumentNullException(nameof(output));
         }
 
-        public void Display(IEnumerable<TeamViewModel> teams)
+        public void Display(IEnumerable<TeamViewModel> items)
         {
             _output.WriteLine("Teams");
             _output.WriteLine("-----");
-            foreach (var team in teams)
+            foreach (var item in items)
             {
-                _output.WriteLine($"TeamId: {team.TeamId}");
-                _output.WriteLine($"Name: {team.Name}");
-                _output.WriteLine($"LastPosition: {team.LastPosition}");
-                _output.WriteLine($"LastPoints: {team.LastPoints}");
-                _output.WriteLine($"FirstGpTrack: {team.FirstGpTrack}");
-                _output.WriteLine($"FirstGpYear: {team.FirstGpYear}");
-                _output.WriteLine($"Wins: {team.Wins}");
-                _output.WriteLine($"YearlyBudget: {team.YearlyBudget}");
-                _output.WriteLine($"CountryMapId: {team.CountryMapId}");
-                _output.WriteLine($"Location: {team.LocationPointerX}, {team.LocationPointerY}");
-                _output.WriteLine($"TyreSupplierId: {team.TyreSupplierId}");
-                _output.WriteLine($"Chassis Handling: {team.ChassisHandling}%");
-                _output.WriteLine($"Car Numbers: {team.CarNumberDriver1}, {team.CarNumberDriver2}");
+                _output.WriteLine($"TeamId: {item.TeamId}");
+                _output.WriteLine($"Name: {item.Name}");
+                _output.WriteLine($"LastPosition: {item.LastPosition}");
+                _output.WriteLine($"LastPoints: {item.LastPoints}");
+                _output.WriteLine($"FirstGpTrack: {item.FirstGpTrack}");
+                _output.WriteLine($"FirstGpYear: {item.FirstGpYear}");
+                _output.WriteLine($"Wins: {item.Wins}");
+                _output.WriteLine($"YearlyBudget: {item.YearlyBudget}");
+                _output.WriteLine($"CountryMapId: {item.CountryMapId}");
+                _output.WriteLine($"Location: {item.LocationPointerX}, {item.LocationPointerY}");
+                _output.WriteLine($"TyreSupplierId: {item.TyreSupplierId}");
+                _output.WriteLine($"Chassis Handling: {item.ChassisHandling}%");
+                _output.WriteLine($"Car Numbers: {item.CarNumberDriver1}, {item.CarNumberDriver2}");
                 _output.WriteLine();
             }
-            _output.WriteLine("-----");
+            _output.WriteLine();
         }
     }
 }

@@ -8,27 +8,32 @@ using App.BaseGameEditor.Presentation.Views;
 
 namespace App.BaseGameEditor.Presentation.Controllers
 {
-    public class TeamController
+    public class PersonController
     {
         private readonly ApplicationService _service;
-        private readonly TeamView _view;
+        private readonly F1ChiefCommercialView _f1ChiefCommercialView;
         private readonly IMapperService _mapper;
 
-        public TeamController(
+        public PersonController(
             ApplicationService service,
-            TeamView view,
+            F1ChiefCommercialView f1ChiefCommercialView,
             IMapperService mapper)
         {
             _service = service ?? throw new ArgumentNullException(nameof(service));
-            _view = view ?? throw new ArgumentNullException(nameof(view));
+            _f1ChiefCommercialView = f1ChiefCommercialView ?? throw new ArgumentNullException(nameof(f1ChiefCommercialView));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public void DisplayTeams()
+        public void DisplayPersons()
         {
-            var entities = _service.DomainModel.Teams.GetTeams();
-            var viewModel = _mapper.Map<IEnumerable<TeamEntity>, IEnumerable<TeamViewModel>>(entities);
-            _view.Display(viewModel);
+            DisplayF1ChiefCommercials();
+        }
+
+        private void DisplayF1ChiefCommercials()
+        {
+            var entities = _service.DomainModel.Persons.GetF1ChiefCommercials();
+            var viewModel = _mapper.Map<IEnumerable<F1ChiefCommercialEntity>, IEnumerable<F1ChiefCommercialViewModel>>(entities);
+            _f1ChiefCommercialView.Display(viewModel);
         }
     }
 }

@@ -10,13 +10,16 @@ namespace App
 
         private readonly BaseGameController _baseGameController;
         private readonly TeamController _teamController;
+        private readonly PersonController _personController;
 
         public Application(
             BaseGameController baseGameController,
-            TeamController teamController)
+            TeamController teamController,
+            PersonController personController)
         {
             _baseGameController = baseGameController ?? throw new ArgumentNullException(nameof(baseGameController));
             _teamController = teamController ?? throw new ArgumentNullException(nameof(teamController));
+            _personController = personController ?? throw new ArgumentNullException(nameof(personController));
         }
 
         public void Run()
@@ -32,6 +35,7 @@ namespace App
                 $@"{GameFolder}\textg\commg.txt");
 
             _teamController.DisplayTeams();
+            _personController.DisplayPersons();
 
             _baseGameController.Export(
                 $@"{TempFolder}",

@@ -60,13 +60,16 @@ namespace App.DependencyInjection.Autofac
             _containerBuilder.RegisterType<LanguageCatalogueValue>().InstancePerDependency();    // TODO: Needs test
 
             _containerBuilder.RegisterType<TeamEntity>().InstancePerDependency();                // TODO: Needs test
+            _containerBuilder.RegisterType<F1ChiefCommercialEntity>().InstancePerDependency();                // TODO: Needs test
             _containerBuilder.RegisterType<CarNumbersObject>().InstancePerDependency();          // TODO: Needs test
             _containerBuilder.RegisterType<CarNumberDataEntity>().InstancePerDependency();       // TODO: Needs test
             _containerBuilder.RegisterType<ChassisHandlingDataEntity>().InstancePerDependency(); // TODO: Needs test
+            _containerBuilder.RegisterType<F1ChiefCommercialDataEntity>().InstancePerDependency(); // TODO: Needs test
             _containerBuilder.RegisterType<TeamDataEntity>().InstancePerDependency();            // TODO: Needs test
 
             _containerBuilder.RegisterType<CarNumberDataLocator>().InstancePerDependency();      // TODO: Needs test
             _containerBuilder.RegisterType<ChassisHandlingDataLocator>().InstancePerDependency();// TODO: Needs test
+            _containerBuilder.RegisterType<F1ChiefCommercialDataLocator>().InstancePerDependency();// TODO: Needs test
             _containerBuilder.RegisterType<TeamDataLocator>().InstancePerDependency();           // TODO: Needs test
 
             //_containerBuilder.RegisterType<AutoMapperObjectMapperService>().As<IMapperService>();

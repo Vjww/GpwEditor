@@ -12,6 +12,7 @@ namespace App.ObjectMapping.AutoMapper.Configurations
                 throw new ArgumentNullException(nameof(mapperConfigurationExpression));
 
             mapperConfigurationExpression.AddProfile<TeamEntityOnTeamViewModelProfile>();
+            mapperConfigurationExpression.AddProfile<PersonEntityOnPersonViewModelProfile>();
         }
     }
 }
