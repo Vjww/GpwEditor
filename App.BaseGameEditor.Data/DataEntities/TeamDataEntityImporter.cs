@@ -8,40 +8,41 @@ namespace App.BaseGameEditor.Data.DataEntities
     public class TeamDataEntityImporter : IDataEntityImporter
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly TeamDataLocator _dataLocator;
-        private readonly DataEntityFactory<TeamDataEntity> _factory;
+        private readonly DataEntityFactory<TeamDataEntity> _dataEntityFactory;
+        private readonly DataLocatorFactory<TeamDataLocator> _dataLocatorFactory;
 
         public TeamDataEntityImporter(
             DataEndpoint dataEndpoint,
-            TeamDataLocator dataLocator,
-            DataEntityFactory<TeamDataEntity> factory)
+            DataEntityFactory<TeamDataEntity> dataEntityFactory,
+            DataLocatorFactory<TeamDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
-            _dataLocator = dataLocator ?? throw new ArgumentNullException(nameof(dataLocator));
-            _factory = factory ?? throw new ArgumentNullException(nameof(factory));
+            _dataEntityFactory = dataEntityFactory ?? throw new ArgumentNullException(nameof(dataEntityFactory));
+            _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));
         }
 
         public IDataEntity Import(int id)
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
 
-            _dataLocator.Initialise(id);
+            var dataLocator = _dataLocatorFactory.Create();
+            dataLocator.Initialise(id);
 
-            var result = _factory.Create(id);
-            result.Name.English = _dataEndpoint.EnglishLanguageCatalogue.Read(_dataLocator.Name);
-            result.Name.French = _dataEndpoint.FrenchLanguageCatalogue.Read(_dataLocator.Name);
-            result.Name.German = _dataEndpoint.GermanLanguageCatalogue.Read(_dataLocator.Name);
-            result.LastPosition = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.LastPosition);
-            result.LastPoints = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.LastPoints);
-            result.FirstGpTrack = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.FirstGpTrack);
-            result.FirstGpYear = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.FirstGpYear);
-            result.Wins = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.Wins);
-            result.YearlyBudget = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.YearlyBudget);
-            result.UnknownA = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.UnknownA);
-            result.CountryMapId = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.CountryMapId);
-            result.LocationPointerX = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.LocationPointerX);
-            result.LocationPointerY = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.LocationPointerY);
-            result.TyreSupplierId = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.TyreSupplierId);
+            var result = _dataEntityFactory.Create(id);
+            result.Name.English = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Name);
+            result.Name.French = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name);
+            result.Name.German = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name);
+            result.LastPosition = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.LastPosition);
+            result.LastPoints = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.LastPoints);
+            result.FirstGpTrack = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.FirstGpTrack);
+            result.FirstGpYear = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.FirstGpYear);
+            result.Wins = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Wins);
+            result.YearlyBudget = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.YearlyBudget);
+            result.UnknownA = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.UnknownA);
+            result.CountryMapId = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.CountryMapId);
+            result.LocationPointerX = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.LocationPointerX);
+            result.LocationPointerY = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.LocationPointerY);
+            result.TyreSupplierId = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.TyreSupplierId);
 
             return result;
         }

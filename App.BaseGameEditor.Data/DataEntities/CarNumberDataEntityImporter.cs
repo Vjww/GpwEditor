@@ -8,30 +8,31 @@ namespace App.BaseGameEditor.Data.DataEntities
     public class CarNumberDataEntityImporter : IDataEntityImporter
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly CarNumberDataLocator _dataLocator;
-        private readonly DataEntityFactory<CarNumberDataEntity> _factory;
+        private readonly DataEntityFactory<CarNumberDataEntity> _dataEntityFactory;
+        private readonly DataLocatorFactory<CarNumberDataLocator> _dataLocatorFactory;
 
         public CarNumberDataEntityImporter(
             DataEndpoint dataEndpoint,
-            CarNumberDataLocator dataLocator,
-            DataEntityFactory<CarNumberDataEntity> factory)
+            DataEntityFactory<CarNumberDataEntity> dataEntityFactory,
+            DataLocatorFactory<CarNumberDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
-            _dataLocator = dataLocator ?? throw new ArgumentNullException(nameof(dataLocator));
-            _factory = factory ?? throw new ArgumentNullException(nameof(factory));
+            _dataEntityFactory = dataEntityFactory ?? throw new ArgumentNullException(nameof(dataEntityFactory));
+            _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));
         }
 
         public IDataEntity Import(int id)
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
 
-            _dataLocator.Initialise(id);
+            var dataLocator = _dataLocatorFactory.Create();
+            dataLocator.Initialise(id);
 
-            var result = _factory.Create(id);
+            var result = _dataEntityFactory.Create(id);
             result.TeamId = result.Id / 2;
             result.PositionId = result.Id % 2;
-            result.ValueA = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.ValueA);
-            result.ValueB = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.ValueB);
+            result.ValueA = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ValueA);
+            result.ValueB = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ValueB);
 
             return result;
         }

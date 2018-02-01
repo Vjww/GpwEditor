@@ -1,18 +1,21 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEndpoints;
 using App.BaseGameEditor.Data.DataLocators;
+using App.BaseGameEditor.Data.Factories;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
     public class CarNumberDataEntityExporter : IDataEntityExporter
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly CarNumberDataLocator _dataLocator;
+        private readonly DataLocatorFactory<CarNumberDataLocator> _dataLocatorFactory;
 
-        public CarNumberDataEntityExporter(DataEndpoint dataEndpoint, CarNumberDataLocator dataLocator)
+        public CarNumberDataEntityExporter(
+            DataEndpoint dataEndpoint,
+            DataLocatorFactory<CarNumberDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
-            _dataLocator = dataLocator ?? throw new ArgumentNullException(nameof(dataLocator));
+            _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));
         }
 
         public void Export(IDataEntity dataEntity)
@@ -20,10 +23,11 @@ namespace App.BaseGameEditor.Data.DataEntities
             if (dataEntity == null) throw new ArgumentNullException(nameof(dataEntity));
             if (!(dataEntity is CarNumberDataEntity carNumberDataEntity)) throw new ArgumentNullException(nameof(carNumberDataEntity));
 
-            _dataLocator.Initialise(carNumberDataEntity.Id);
+            var dataLocator = _dataLocatorFactory.Create();
+            dataLocator.Initialise(carNumberDataEntity.Id);
 
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.ValueA, carNumberDataEntity.ValueA);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.ValueB, carNumberDataEntity.ValueB);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ValueA, carNumberDataEntity.ValueA);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ValueB, carNumberDataEntity.ValueB);
         }
     }
 }

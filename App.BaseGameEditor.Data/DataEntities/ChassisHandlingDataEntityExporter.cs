@@ -1,18 +1,21 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEndpoints;
 using App.BaseGameEditor.Data.DataLocators;
+using App.BaseGameEditor.Data.Factories;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
     public class ChassisHandlingDataEntityExporter : IDataEntityExporter
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly ChassisHandlingDataLocator _dataLocator;
+        private readonly DataLocatorFactory<ChassisHandlingDataLocator> _dataLocatorFactory;
 
-        public ChassisHandlingDataEntityExporter(DataEndpoint dataEndpoint, ChassisHandlingDataLocator dataLocator)
+        public ChassisHandlingDataEntityExporter(
+            DataEndpoint dataEndpoint,
+            DataLocatorFactory<ChassisHandlingDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
-            _dataLocator = dataLocator ?? throw new ArgumentNullException(nameof(dataLocator));
+            _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));
         }
 
         public void Export(IDataEntity dataEntity)
@@ -20,9 +23,10 @@ namespace App.BaseGameEditor.Data.DataEntities
             if (dataEntity == null) throw new ArgumentNullException(nameof(dataEntity));
             if (!(dataEntity is ChassisHandlingDataEntity chassisHandlingDataEntity)) throw new ArgumentNullException(nameof(chassisHandlingDataEntity));
 
-            _dataLocator.Initialise(chassisHandlingDataEntity.Id);
+            var dataLocator = _dataLocatorFactory.Create();
+            dataLocator.Initialise(chassisHandlingDataEntity.Id);
 
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.Value, chassisHandlingDataEntity.Value);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Value, chassisHandlingDataEntity.Value);
         }
     }
 }

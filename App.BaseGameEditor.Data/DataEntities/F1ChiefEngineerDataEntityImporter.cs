@@ -5,16 +5,16 @@ using App.BaseGameEditor.Data.Factories;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class F1ChiefCommercialDataEntityImporter : IDataEntityImporter
+    public class F1ChiefEngineerDataEntityImporter : IDataEntityImporter
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly DataEntityFactory<F1ChiefCommercialDataEntity> _dataEntityFactory;
-        private readonly DataLocatorFactory<F1ChiefCommercialDataLocator> _dataLocatorFactory;
+        private readonly DataEntityFactory<F1ChiefEngineerDataEntity> _dataEntityFactory;
+        private readonly DataLocatorFactory<F1ChiefEngineerDataLocator> _dataLocatorFactory;
 
-        public F1ChiefCommercialDataEntityImporter(
+        public F1ChiefEngineerDataEntityImporter(
             DataEndpoint dataEndpoint,
-            DataEntityFactory<F1ChiefCommercialDataEntity> dataEntityFactory,
-            DataLocatorFactory<F1ChiefCommercialDataLocator> dataLocatorFactory)
+            DataEntityFactory<F1ChiefEngineerDataEntity> dataEntityFactory,
+            DataLocatorFactory<F1ChiefEngineerDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataEntityFactory = dataEntityFactory ?? throw new ArgumentNullException(nameof(dataEntityFactory));
@@ -35,7 +35,9 @@ namespace App.BaseGameEditor.Data.DataEntities
             result.Ability = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Ability);
             result.Age = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Age);
             result.Salary = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Salary);
-            result.Royalty = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Royalty);
+            result.RaceBonus = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.RaceBonus);
+            result.ChampionshipBonus = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ChampionshipBonus);
+            result.DriverLoyalty = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.DriverLoyalty);
             result.Morale = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Morale);
 
             return result;

@@ -1,18 +1,21 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEndpoints;
 using App.BaseGameEditor.Data.DataLocators;
+using App.BaseGameEditor.Data.Factories;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
     public class F1ChiefCommercialDataEntityExporter : IDataEntityExporter
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly F1ChiefCommercialDataLocator _dataLocator;
+        private readonly DataLocatorFactory<F1ChiefCommercialDataLocator> _dataLocatorFactory;
 
-        public F1ChiefCommercialDataEntityExporter(DataEndpoint dataEndpoint, F1ChiefCommercialDataLocator dataLocator)
+        public F1ChiefCommercialDataEntityExporter(
+            DataEndpoint dataEndpoint,
+            DataLocatorFactory<F1ChiefCommercialDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
-            _dataLocator = dataLocator ?? throw new ArgumentNullException(nameof(dataLocator));
+            _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));
         }
 
         public void Export(IDataEntity dataEntity)
@@ -20,16 +23,17 @@ namespace App.BaseGameEditor.Data.DataEntities
             if (dataEntity == null) throw new ArgumentNullException(nameof(dataEntity));
             if (!(dataEntity is F1ChiefCommercialDataEntity f1ChiefCommercialDataEntity)) throw new ArgumentNullException(nameof(f1ChiefCommercialDataEntity));
 
-            _dataLocator.Initialise(f1ChiefCommercialDataEntity.Id);
+            var dataLocator = _dataLocatorFactory.Create();
+            dataLocator.Initialise(f1ChiefCommercialDataEntity.Id);
 
-            _dataEndpoint.EnglishLanguageCatalogue.Write(_dataLocator.Name, f1ChiefCommercialDataEntity.Name.English);
-            _dataEndpoint.FrenchLanguageCatalogue.Write(_dataLocator.Name, f1ChiefCommercialDataEntity.Name.French);
-            _dataEndpoint.GermanLanguageCatalogue.Write(_dataLocator.Name, f1ChiefCommercialDataEntity.Name.German);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.Ability, f1ChiefCommercialDataEntity.Ability);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.Age, f1ChiefCommercialDataEntity.Age);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.Salary, f1ChiefCommercialDataEntity.Salary);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.Royalty, f1ChiefCommercialDataEntity.Royalty);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.Morale, f1ChiefCommercialDataEntity.Morale);
+            _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, f1ChiefCommercialDataEntity.Name.English);
+            _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, f1ChiefCommercialDataEntity.Name.French);
+            _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, f1ChiefCommercialDataEntity.Name.German);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Ability, f1ChiefCommercialDataEntity.Ability);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Age, f1ChiefCommercialDataEntity.Age);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Salary, f1ChiefCommercialDataEntity.Salary);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Royalty, f1ChiefCommercialDataEntity.Royalty);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Morale, f1ChiefCommercialDataEntity.Morale);
         }
     }
 }

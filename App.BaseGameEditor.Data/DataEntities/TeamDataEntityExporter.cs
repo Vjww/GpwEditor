@@ -1,18 +1,21 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEndpoints;
 using App.BaseGameEditor.Data.DataLocators;
+using App.BaseGameEditor.Data.Factories;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
     public class TeamDataEntityExporter : IDataEntityExporter
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly TeamDataLocator _dataLocator;
+        private readonly DataLocatorFactory<TeamDataLocator> _dataLocatorFactory;
 
-        public TeamDataEntityExporter(DataEndpoint dataEndpoint, TeamDataLocator dataLocator)
+        public TeamDataEntityExporter(
+            DataEndpoint dataEndpoint,
+            DataLocatorFactory<TeamDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
-            _dataLocator = dataLocator ?? throw new ArgumentNullException(nameof(dataLocator));
+            _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));
         }
 
         public void Export(IDataEntity dataEntity)
@@ -20,22 +23,23 @@ namespace App.BaseGameEditor.Data.DataEntities
             if (dataEntity == null) throw new ArgumentNullException(nameof(dataEntity));
             if (!(dataEntity is TeamDataEntity teamDataEntity)) throw new ArgumentNullException(nameof(teamDataEntity));
 
-            _dataLocator.Initialise(teamDataEntity.Id);
+            var dataLocator = _dataLocatorFactory.Create();
+            dataLocator.Initialise(teamDataEntity.Id);
 
-            _dataEndpoint.EnglishLanguageCatalogue.Write(_dataLocator.Name, teamDataEntity.Name.English);
-            _dataEndpoint.FrenchLanguageCatalogue.Write(_dataLocator.Name, teamDataEntity.Name.French);
-            _dataEndpoint.GermanLanguageCatalogue.Write(_dataLocator.Name, teamDataEntity.Name.German);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.LastPosition, teamDataEntity.LastPosition);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.LastPoints, teamDataEntity.LastPoints);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.FirstGpTrack, teamDataEntity.FirstGpTrack);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.FirstGpYear, teamDataEntity.FirstGpYear);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.Wins, teamDataEntity.Wins);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.YearlyBudget, teamDataEntity.YearlyBudget);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.UnknownA, teamDataEntity.UnknownA);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.CountryMapId, teamDataEntity.CountryMapId);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.LocationPointerX, teamDataEntity.LocationPointerX);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.LocationPointerY, teamDataEntity.LocationPointerY);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(_dataLocator.TyreSupplierId, teamDataEntity.TyreSupplierId);
+            _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, teamDataEntity.Name.English);
+            _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, teamDataEntity.Name.French);
+            _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, teamDataEntity.Name.German);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.LastPosition, teamDataEntity.LastPosition);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.LastPoints, teamDataEntity.LastPoints);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.FirstGpTrack, teamDataEntity.FirstGpTrack);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.FirstGpYear, teamDataEntity.FirstGpYear);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Wins, teamDataEntity.Wins);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.YearlyBudget, teamDataEntity.YearlyBudget);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.UnknownA, teamDataEntity.UnknownA);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.CountryMapId, teamDataEntity.CountryMapId);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.LocationPointerX, teamDataEntity.LocationPointerX);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.LocationPointerY, teamDataEntity.LocationPointerY);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.TyreSupplierId, teamDataEntity.TyreSupplierId);
         }
     }
 }

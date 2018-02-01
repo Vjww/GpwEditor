@@ -35,7 +35,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Entities\F1DriverEntity.cs" />
+    <Compile Include="Entities\F1ChiefMechanicEntity.cs" />
+    <Compile Include="Entities\F1ChiefEngineerEntity.cs" />
+    <Compile Include="Entities\F1ChiefDesignerEntity.cs" />
     <Compile Include="Entities\F1ChiefCommercialEntity.cs" />
+    <Compile Include="Repositories\IF1DriverRepository.cs" />
+    <Compile Include="Repositories\IF1ChiefMechanicRepository.cs" />
+    <Compile Include="Repositories\IF1ChiefEngineerRepository.cs" />
+    <Compile Include="Repositories\IF1ChiefDesignerRepository.cs" />
     <Compile Include="Repositories\IF1ChiefCommercialRepository.cs" />
     <Compile Include="Services\DomainModelService.cs" />
     <Compile Include="Identities\IIntegerIdentity.cs" />

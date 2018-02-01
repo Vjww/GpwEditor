@@ -6,9 +6,7 @@ using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.FileResources;
 using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Maps;
-using App.BaseGameEditor.Infrastructure.Services;
 using App.BaseGameEditor.Presentation.Outputs;
-using App.Services;
 using Autofac;
 using Autofac.Features.ResolveAnything;
 
@@ -56,21 +54,34 @@ namespace App.DependencyInjection.Autofac
             _containerBuilder.RegisterType<ConsoleOutput>().As<BaseGameEditor.Presentation.Outputs.IOutput>().SingleInstance();
             _containerBuilder.RegisterType<MemoryStreamFactory>().As<IStreamFactory>().SingleInstance();
 
-            _containerBuilder.RegisterType<FileResource>().InstancePerDependency();              // TODO: Needs test
-            _containerBuilder.RegisterType<LanguageCatalogueValue>().InstancePerDependency();    // TODO: Needs test
+            _containerBuilder.RegisterType<FileResource>().InstancePerDependency();
+            _containerBuilder.RegisterType<LanguageCatalogueValue>().InstancePerDependency();
 
-            _containerBuilder.RegisterType<TeamEntity>().InstancePerDependency();                // TODO: Needs test
-            _containerBuilder.RegisterType<F1ChiefCommercialEntity>().InstancePerDependency();                // TODO: Needs test
-            _containerBuilder.RegisterType<CarNumbersObject>().InstancePerDependency();          // TODO: Needs test
-            _containerBuilder.RegisterType<CarNumberDataEntity>().InstancePerDependency();       // TODO: Needs test
-            _containerBuilder.RegisterType<ChassisHandlingDataEntity>().InstancePerDependency(); // TODO: Needs test
-            _containerBuilder.RegisterType<F1ChiefCommercialDataEntity>().InstancePerDependency(); // TODO: Needs test
-            _containerBuilder.RegisterType<TeamDataEntity>().InstancePerDependency();            // TODO: Needs test
+            _containerBuilder.RegisterType<TeamEntity>().InstancePerDependency();
+            _containerBuilder.RegisterType<F1ChiefCommercialEntity>().InstancePerDependency();
+            _containerBuilder.RegisterType<F1ChiefDesignerEntity>().InstancePerDependency();
+            _containerBuilder.RegisterType<F1ChiefEngineerEntity>().InstancePerDependency();
+            _containerBuilder.RegisterType<F1ChiefMechanicEntity>().InstancePerDependency();
+            _containerBuilder.RegisterType<F1DriverEntity>().InstancePerDependency();
+            _containerBuilder.RegisterType<CarNumbersObject>().InstancePerDependency();
 
-            _containerBuilder.RegisterType<CarNumberDataLocator>().InstancePerDependency();      // TODO: Needs test
-            _containerBuilder.RegisterType<ChassisHandlingDataLocator>().InstancePerDependency();// TODO: Needs test
-            _containerBuilder.RegisterType<F1ChiefCommercialDataLocator>().InstancePerDependency();// TODO: Needs test
-            _containerBuilder.RegisterType<TeamDataLocator>().InstancePerDependency();           // TODO: Needs test
+            _containerBuilder.RegisterType<CarNumberDataEntity>().InstancePerDependency();
+            _containerBuilder.RegisterType<ChassisHandlingDataEntity>().InstancePerDependency();
+            _containerBuilder.RegisterType<F1ChiefCommercialDataEntity>().InstancePerDependency();
+            _containerBuilder.RegisterType<F1ChiefDesignerDataEntity>().InstancePerDependency();
+            _containerBuilder.RegisterType<F1ChiefEngineerDataEntity>().InstancePerDependency();
+            _containerBuilder.RegisterType<F1ChiefMechanicDataEntity>().InstancePerDependency();
+            _containerBuilder.RegisterType<F1DriverDataEntity>().InstancePerDependency();
+            _containerBuilder.RegisterType<TeamDataEntity>().InstancePerDependency();
+
+            _containerBuilder.RegisterType<CarNumberDataLocator>().InstancePerDependency();
+            _containerBuilder.RegisterType<ChassisHandlingDataLocator>().InstancePerDependency();
+            _containerBuilder.RegisterType<F1ChiefCommercialDataLocator>().InstancePerDependency();
+            _containerBuilder.RegisterType<F1ChiefDesignerDataLocator>().InstancePerDependency();
+            _containerBuilder.RegisterType<F1ChiefEngineerDataLocator>().InstancePerDependency();
+            _containerBuilder.RegisterType<F1ChiefMechanicDataLocator>().InstancePerDependency();
+            _containerBuilder.RegisterType<F1DriverDataLocator>().InstancePerDependency();
+            _containerBuilder.RegisterType<TeamDataLocator>().InstancePerDependency();
 
             //_containerBuilder.RegisterType<AutoMapperObjectMapperService>().As<IMapperService>();
 
@@ -82,7 +93,6 @@ namespace App.DependencyInjection.Autofac
             //_containerBuilder.RegisterType<CommentaryCatalogueImporter<ILanguagePhrases>>().As<ICatalogueImporter<CommentaryCatalogueItem>>();
             //_containerBuilder.RegisterType<CommentaryCatalogueReader>().As<ICatalogueReader<CommentaryCatalogueItem>>();
             //_containerBuilder.RegisterType<CommentaryCatalogueWriter>().As<ICatalogueWriter<CommentaryCatalogueItem>>();
-
 
             return _containerBuilder.Build();
         }
