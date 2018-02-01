@@ -7,9 +7,9 @@ namespace App.BaseGameEditor.Infrastructure.Maps
 {
     public class CarNumbersObjectToCarNumberDataEntitiesMapper
     {
-        private readonly CarNumberDataEntityFactory _factory;
+        private readonly DataEntityFactory<CarNumberDataEntity> _factory;
 
-        public CarNumbersObjectToCarNumberDataEntitiesMapper(CarNumberDataEntityFactory factory)
+        public CarNumbersObjectToCarNumberDataEntitiesMapper(DataEntityFactory<CarNumberDataEntity> factory)
         {
             _factory = factory ?? throw new ArgumentNullException(nameof(factory));
         }

@@ -1,21 +1,20 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEndpoints;
-using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.DataLocators;
 using App.BaseGameEditor.Data.Factories;
 
-namespace App.BaseGameEditor.Data.DataEntityImporters
+namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class ChassisHandlingDataEntityImporter : IDataEntityImporter
+    public class CarNumberDataEntityImporter : IDataEntityImporter
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly ChassisHandlingDataLocator _dataLocator;
-        private readonly ChassisHandlingDataEntityFactory _factory;
+        private readonly CarNumberDataLocator _dataLocator;
+        private readonly DataEntityFactory<CarNumberDataEntity> _factory;
 
-        public ChassisHandlingDataEntityImporter(
+        public CarNumberDataEntityImporter(
             DataEndpoint dataEndpoint,
-            ChassisHandlingDataLocator dataLocator,
-            ChassisHandlingDataEntityFactory factory)
+            CarNumberDataLocator dataLocator,
+            DataEntityFactory<CarNumberDataEntity> factory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataLocator = dataLocator ?? throw new ArgumentNullException(nameof(dataLocator));
@@ -29,8 +28,10 @@ namespace App.BaseGameEditor.Data.DataEntityImporters
             _dataLocator.Initialise(id);
 
             var result = _factory.Create(id);
-            result.TeamId = result.Id;
-            result.Value = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.Value);
+            result.TeamId = result.Id / 2;
+            result.PositionId = result.Id % 2;
+            result.ValueA = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.ValueA);
+            result.ValueB = _dataEndpoint.GameExecutableFileResource.ReadInteger(_dataLocator.ValueB);
 
             return result;
         }

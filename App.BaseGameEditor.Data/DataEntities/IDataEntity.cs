@@ -1,7 +1,8 @@
-﻿namespace App.BaseGameEditor.Data.DataEntities
+﻿using App.BaseGameEditor.Data.Identities;
+
+namespace App.BaseGameEditor.Data.DataEntities
 {
-    public interface IDataEntity
+    public interface IDataEntity : IIntegerIdentity
     {
-        int Id { get; set; }
     }
 }

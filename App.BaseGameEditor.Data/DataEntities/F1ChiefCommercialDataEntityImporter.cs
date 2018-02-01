@@ -1,10 +1,9 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEndpoints;
-using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.DataLocators;
 using App.BaseGameEditor.Data.Factories;
 
-namespace App.BaseGameEditor.Data.DataEntityImporters
+namespace App.BaseGameEditor.Data.DataEntities
 {
     public class F1ChiefCommercialDataEntityImporter : IDataEntityImporter
     {

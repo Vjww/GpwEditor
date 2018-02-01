@@ -4,7 +4,7 @@ using App.BaseGameEditor.Data.DataEntities;
 
 namespace App.BaseGameEditor.Data.Repositories
 {
-    public class RepositoryImporterBase : IRepositoryImporter
+    public abstract class RepositoryImporterBase : IRepositoryImporter
     {
         private readonly IDataEntityImporter _dataEntityImporter;
 

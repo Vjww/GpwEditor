@@ -1,5 +1,7 @@
 ﻿using System;
 using App.ObjectMapping.AutoMapper.Configurations;
+using App.ObjectMapping.AutoMapper.Profiles;
+using App.Services;
 using FluentAssertions;
 using Xunit;
 
@@ -14,7 +16,9 @@ namespace App.Tests.Services
             var action = new Action(() =>
             {
                 var _ = new App.Services.AutoMapperObjectMapperService(
-                    null, new InfrastructureConfiguration()); // TODO: Mock it
+                    null, new InfrastructureConfiguration(
+                        new MultipleDataEntitiesOnTeamEntityProfile(),
+                        new PersonDataEntityOnPersonEntityProfile(new ValueConverterService()))); // TODO: Mock it
             });
 
             action.ShouldThrow<ArgumentNullException>();
@@ -37,7 +41,9 @@ namespace App.Tests.Services
         public void AutoMapperObjectMapperService_WhenInvokingMapMethodWithNullParameter_ExpectException()
         {
             var mapperService = new App.Services.AutoMapperObjectMapperService(
-                new PresentationConfiguration(), new InfrastructureConfiguration()); // TODO: Mock it
+                new PresentationConfiguration(), new InfrastructureConfiguration(
+                    new MultipleDataEntitiesOnTeamEntityProfile(),
+                    new PersonDataEntityOnPersonEntityProfile(new ValueConverterService()))); // TODO: Mock it
 
             var action = new Action(() =>
             {
@@ -51,7 +57,9 @@ namespace App.Tests.Services
         public void AutoMapperObjectMapperService_WhenInvokingMapMethodWithNullFirstParameter_ExpectException()
         {
             var mapperService = new App.Services.AutoMapperObjectMapperService(
-                new PresentationConfiguration(), new InfrastructureConfiguration()); // TODO: Mock it
+                new PresentationConfiguration(), new InfrastructureConfiguration(
+                    new MultipleDataEntitiesOnTeamEntityProfile(),
+                    new PersonDataEntityOnPersonEntityProfile(new ValueConverterService()))); // TODO: Mock it
 
             var action = new Action(() =>
             {
@@ -65,7 +73,9 @@ namespace App.Tests.Services
         public void AutoMapperObjectMapperService_WhenInvokingMapMethodWithNullSecondParameter_ExpectException()
         {
             var mapperService = new App.Services.AutoMapperObjectMapperService(
-                new PresentationConfiguration(), new InfrastructureConfiguration()); // TODO: Mock it
+                new PresentationConfiguration(), new InfrastructureConfiguration(
+                    new MultipleDataEntitiesOnTeamEntityProfile(),
+                    new PersonDataEntityOnPersonEntityProfile(new ValueConverterService()))); // TODO: Mock it
 
             var action = new Action(() =>
             {

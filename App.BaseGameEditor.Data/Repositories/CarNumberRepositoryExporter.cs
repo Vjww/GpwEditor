@@ -1,7 +1,6 @@
-﻿using App.BaseGameEditor.Data.DataEntityExporters;
-using App.BaseGameEditor.Data.Repositories;
+﻿using App.BaseGameEditor.Data.DataEntities;
 
-namespace App.BaseGameEditor.Data.RepositoryExporters
+namespace App.BaseGameEditor.Data.Repositories
 {
     public class CarNumberRepositoryExporter : RepositoryExporterBase
     {

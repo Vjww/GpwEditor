@@ -2,7 +2,7 @@
 
 namespace App.BaseGameEditor.Data.DataLocators
 {
-    public class TeamDataLocator
+    public class TeamDataLocator : DataLocatorBase
     {
         private const int NameOffset = 5696 + 1; // "No Team" -> "Williams"
 
@@ -23,7 +23,6 @@ namespace App.BaseGameEditor.Data.DataLocators
         private const int LocationPointerXOffset = 0;
         private const int LocationPointerYOffset = 10;
 
-        public int Id { get; set; }
         public int Name { get; set; }
         public int LastPosition { get; set; }
         public int LastPoints { get; set; }
@@ -37,7 +36,7 @@ namespace App.BaseGameEditor.Data.DataLocators
         public int LocationPointerY { get; set; }
         public int TyreSupplierId { get; set; }
 
-        public void Initialise(int id)
+        public override void Initialise(int id)
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
 

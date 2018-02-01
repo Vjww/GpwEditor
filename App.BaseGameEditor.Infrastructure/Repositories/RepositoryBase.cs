@@ -6,57 +6,59 @@ using App.BaseGameEditor.Domain.Repositories;
 
 namespace App.BaseGameEditor.Infrastructure.Repositories
 {
-    public class RepositoryBase<TEntity> : List<TEntity>, IRepository<TEntity>
+    public abstract class RepositoryBase<TEntity> : IRepository<TEntity>
         where TEntity : class, IEntity
     {
-        protected RepositoryBase()
-        {
+        private readonly List<TEntity> _list;
 
+        protected RepositoryBase(List<TEntity> list)
+        {
+            _list = list;
         }
 
         public IEnumerable<TEntity> Get()
         {
-            if (Count == 0) throw new InvalidOperationException("There are no items in the repository.");
+            if (_list.Count == 0) throw new InvalidOperationException("There are no items in the repository.");
 
-            return this.AsEnumerable();
+            return _list.AsEnumerable();
         }
 
         public IEnumerable<TEntity> Get(Func<TEntity, bool> predicate)
         {
             if (predicate == null) throw new ArgumentNullException(nameof(predicate));
-            if (Count == 0) throw new InvalidOperationException("There are no items in the repository.");
+            if (_list.Count == 0) throw new InvalidOperationException("There are no items in the repository.");
 
-            return this.Where(predicate).AsEnumerable();
+            return _list.Where(predicate).AsEnumerable();
         }
 
         public TEntity GetById(int id)
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
-            if (Count == 0) throw new InvalidOperationException("There are no items in the repository.");
+            if (_list.Count == 0) throw new InvalidOperationException("There are no items in the repository.");
 
-            return this.Single(x => x.Id == id);
+            return _list.Single(x => x.Id == id);
         }
 
         public void Set(IEnumerable<TEntity> items)
         {
             if (items == null) throw new ArgumentNullException(nameof(items));
 
-            Clear();
-            AddRange(items);
-            TrimExcess();
+            _list.Clear();
+            _list.AddRange(items);
+            _list.TrimExcess();
         }
 
         public void SetById(TEntity item)
         {
             if (item == null) throw new ArgumentNullException(nameof(item));
-            if (Count == 0) throw new InvalidOperationException("There are no items in the repository.");
+            if (_list.Count == 0) throw new InvalidOperationException("There are no items in the repository.");
 
-            var index = FindIndex(x => x.Id == item.Id);
+            var index = _list.FindIndex(x => x.Id == item.Id);
             if (index < 0)
             {
                 throw new KeyNotFoundException();
             }
-            this[index] = item;
+            _list[index] = item;
         }
     }
 }

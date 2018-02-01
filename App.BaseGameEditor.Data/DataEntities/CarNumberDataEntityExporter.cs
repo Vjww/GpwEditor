@@ -1,9 +1,8 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEndpoints;
-using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.DataLocators;
 
-namespace App.BaseGameEditor.Data.DataEntityExporters
+namespace App.BaseGameEditor.Data.DataEntities
 {
     public class CarNumberDataEntityExporter : IDataEntityExporter
     {

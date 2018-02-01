@@ -1,21 +1,20 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEndpoints;
-using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.DataLocators;
 using App.BaseGameEditor.Data.Factories;
 
-namespace App.BaseGameEditor.Data.DataEntityImporters
+namespace App.BaseGameEditor.Data.DataEntities
 {
     public class TeamDataEntityImporter : IDataEntityImporter
     {
         private readonly DataEndpoint _dataEndpoint;
         private readonly TeamDataLocator _dataLocator;
-        private readonly TeamDataEntityFactory _factory;
+        private readonly DataEntityFactory<TeamDataEntity> _factory;
 
         public TeamDataEntityImporter(
             DataEndpoint dataEndpoint,
             TeamDataLocator dataLocator,
-            TeamDataEntityFactory factory)
+            DataEntityFactory<TeamDataEntity> factory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataLocator = dataLocator ?? throw new ArgumentNullException(nameof(dataLocator));

@@ -1,4 +1,5 @@
 using System;
+using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Domain.Services;
@@ -12,8 +13,8 @@ namespace App.BaseGameEditor.Application.Services
     {
         private readonly TeamService _domainService;
         private readonly DataService _dataService;
-        private readonly TeamDataEntityFactory _teamDataEntityFactory;
-        private readonly ChassisHandlingDataEntityFactory _chassisHandlingDataEntityFactory;
+        private readonly DataEntityFactory<TeamDataEntity> _teamDataEntityFactory;
+        private readonly DataEntityFactory<ChassisHandlingDataEntity> _chassisHandlingDataEntityFactory;
         private readonly CarNumbersObjectFactory _carNumbersObjectFactory;
         private readonly IMapperService _mapperService;
         private readonly CarNumbersObjectToCarNumberDataEntitiesMapper _carNumbersMapper;
@@ -21,8 +22,8 @@ namespace App.BaseGameEditor.Application.Services
         public TeamDomainModelExportService(
             TeamService domainService,
             DataService dataService,
-            TeamDataEntityFactory teamDataEntityFactory,
-            ChassisHandlingDataEntityFactory chassisHandlingDataEntityFactory,
+            DataEntityFactory<TeamDataEntity> teamDataEntityFactory,
+            DataEntityFactory<ChassisHandlingDataEntity> chassisHandlingDataEntityFactory,
             CarNumbersObjectFactory carNumbersObjectFactory,
             IMapperService mapperService,
             CarNumbersObjectToCarNumberDataEntitiesMapper carNumbersMapper)

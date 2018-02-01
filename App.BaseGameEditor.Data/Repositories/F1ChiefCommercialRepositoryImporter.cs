@@ -1,7 +1,6 @@
-﻿using App.BaseGameEditor.Data.DataEntityImporters;
-using App.BaseGameEditor.Data.Repositories;
+﻿using App.BaseGameEditor.Data.DataEntities;
 
-namespace App.BaseGameEditor.Data.RepositoryImporters
+namespace App.BaseGameEditor.Data.Repositories
 {
     public class F1ChiefCommercialRepositoryImporter : RepositoryImporterBase
     {

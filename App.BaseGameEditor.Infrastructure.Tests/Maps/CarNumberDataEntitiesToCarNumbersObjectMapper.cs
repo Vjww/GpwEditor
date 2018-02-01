@@ -91,7 +91,7 @@ namespace App.BaseGameEditor.Infrastructure.Tests.Maps
             var factory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
             var mapper = new Infrastructure.Maps.CarNumberDataEntitiesToCarNumbersObjectMapper(factory);
 
-            var carNumberDataEntityFactory = new CarNumberDataEntityFactory(() => new CarNumberDataEntity()); // TODO: Mock it
+            var carNumberDataEntityFactory = new DataEntityFactory<CarNumberDataEntity>(() => new CarNumberDataEntity()); // TODO: Mock it
 
             var carNumberDataEntity1 = carNumberDataEntityFactory.Create(0);
             carNumberDataEntity1.TeamId = 7;

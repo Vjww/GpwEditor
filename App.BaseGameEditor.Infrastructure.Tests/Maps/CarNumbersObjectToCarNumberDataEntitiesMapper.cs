@@ -25,7 +25,7 @@ namespace App.BaseGameEditor.Infrastructure.Tests.Maps
         [Fact]
         public void CarNumbersObjectToCarNumberDataEntitiesMapper_WhenInvokingMapMethodWithNullParameter_ExpectException()
         {
-            var factory = new CarNumberDataEntityFactory(() => new CarNumberDataEntity()); // TODO: Mock it
+            var factory = new DataEntityFactory<CarNumberDataEntity>(() => new CarNumberDataEntity()); // TODO: Mock it
             var mapper = new Infrastructure.Maps.CarNumbersObjectToCarNumberDataEntitiesMapper(factory);
 
             var action = new Action(() =>
@@ -39,7 +39,7 @@ namespace App.BaseGameEditor.Infrastructure.Tests.Maps
         [Fact]
         public void CarNumbersObjectToCarNumberDataEntitiesMapper_WhenInvokingMapMethodWithPopulatedEntity_ExpectPopulatedList()
         {
-            var factory = new CarNumberDataEntityFactory(() => new CarNumberDataEntity()); // TODO: Mock it
+            var factory = new DataEntityFactory<CarNumberDataEntity>(() => new CarNumberDataEntity()); // TODO: Mock it
             var mapper = new Infrastructure.Maps.CarNumbersObjectToCarNumberDataEntitiesMapper(factory);
 
             var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it

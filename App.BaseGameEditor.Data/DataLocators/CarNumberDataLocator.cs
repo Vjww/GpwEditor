@@ -3,7 +3,7 @@ using App.BaseGameEditor.Data.Calculators;
 
 namespace App.BaseGameEditor.Data.DataLocators
 {
-    public class CarNumberDataLocator
+    public class CarNumberDataLocator : DataLocatorBase
     {
         private readonly IdentityCalculator _identityCalculator;
 
@@ -12,7 +12,6 @@ namespace App.BaseGameEditor.Data.DataLocators
         private const int ValueBBaseOffset = 474500;
         private const int ValueBLocalOffset = 10;
 
-        public int Id { get; set; }
         public int ValueA { get; set; }
         public int ValueB { get; set; }
 
@@ -21,7 +20,7 @@ namespace App.BaseGameEditor.Data.DataLocators
             _identityCalculator = identityCalculator ?? throw new ArgumentNullException(nameof(identityCalculator));
         }
 
-        public void Initialise(int id)
+        public override void Initialise(int id)
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
 

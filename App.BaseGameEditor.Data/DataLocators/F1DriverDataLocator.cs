@@ -3,7 +3,7 @@ using App.BaseGameEditor.Data.Calculators;
 
 namespace App.BaseGameEditor.Data.DataLocators
 {
-    public class F1DriverDataLocator
+    public class F1DriverDataLocator : DataLocatorBase
     {
         private readonly IdentityCalculator _calculator;
 
@@ -41,7 +41,6 @@ namespace App.BaseGameEditor.Data.DataLocators
         private const int CommentaryIndexBaseOffset = 474720; // TODO: Should this be moved to own data locator?
         private const int CommentaryIndexLocalOffset = 10;    // TODO: Should this be moved to own data locator?
 
-        public int Id { get; set; }
         public int Name { get; set; }
         public int Salary { get; set; }
         public int RaceBonus { get; set; }
@@ -74,7 +73,7 @@ namespace App.BaseGameEditor.Data.DataLocators
             _calculator = calculator ?? throw new ArgumentNullException(nameof(calculator));
         }
 
-        public void Initialise(int id)
+        public override void Initialise(int id)
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
 

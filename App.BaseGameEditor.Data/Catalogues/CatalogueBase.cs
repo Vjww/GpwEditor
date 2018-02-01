@@ -3,20 +3,23 @@ using System.Collections.Generic;
 
 namespace App.BaseGameEditor.Data.Catalogues
 {
-    public class CatalogueBase<TCatalogueItem> : List<TCatalogueItem>
+    public abstract class CatalogueBase<TCatalogueItem>
         where TCatalogueItem : class, ICatalogueItem
     {
+        private readonly List<TCatalogueItem> _list;
         private readonly ICatalogueExporter<TCatalogueItem> _catalogueExporter;
         private readonly ICatalogueImporter<TCatalogueItem> _catalogueImporter;
         private readonly ICatalogueReader<TCatalogueItem> _catalogueReader;
         private readonly ICatalogueWriter<TCatalogueItem> _catalogueWriter;
 
         protected CatalogueBase(
+            List<TCatalogueItem> list,
             ICatalogueExporter<TCatalogueItem> catalogueExporter,
             ICatalogueImporter<TCatalogueItem> catalogueImporter,
             ICatalogueReader<TCatalogueItem> catalogueReader,
             ICatalogueWriter<TCatalogueItem> catalogueWriter)
         {
+            _list = list;
             _catalogueExporter = catalogueExporter ?? throw new ArgumentNullException(nameof(catalogueExporter));
             _catalogueImporter = catalogueImporter ?? throw new ArgumentNullException(nameof(catalogueImporter));
             _catalogueReader = catalogueReader ?? throw new ArgumentNullException(nameof(catalogueReader));
@@ -28,7 +31,7 @@ namespace App.BaseGameEditor.Data.Catalogues
             if (string.IsNullOrWhiteSpace(filePath))
                 throw new ArgumentException("Value cannot be null or whitespace.", nameof(filePath));
 
-            _catalogueExporter.Export(this, filePath);
+            _catalogueExporter.Export(_list, filePath);
         }
 
         public void Import(string filePath)
@@ -36,15 +39,18 @@ namespace App.BaseGameEditor.Data.Catalogues
             if (string.IsNullOrWhiteSpace(filePath))
                 throw new ArgumentException("Value cannot be null or whitespace.", nameof(filePath));
 
-            Clear();
-            AddRange(_catalogueImporter.Import(filePath));
+            var items = _catalogueImporter.Import(filePath);
+
+            _list.Clear();
+            _list.AddRange(items);
+            _list.TrimExcess();
         }
 
         public string Read(int id)
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
 
-            return _catalogueReader.Read(this, id);
+            return _catalogueReader.Read(_list, id);
         }
 
         public void Write(int id, string value)
@@ -52,7 +58,7 @@ namespace App.BaseGameEditor.Data.Catalogues
             if (value == null) throw new ArgumentNullException(nameof(value));
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
 
-            _catalogueWriter.Write(this, id, value);
+            _catalogueWriter.Write(_list, id, value);
         }
     }
 }
