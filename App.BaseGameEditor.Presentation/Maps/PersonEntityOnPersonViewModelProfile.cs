@@ -2,9 +2,9 @@
 using App.BaseGameEditor.Presentation.ViewModels;
 using AutoMapper;
 
-namespace App.ObjectMapping.AutoMapper.Profiles
+namespace App.BaseGameEditor.Presentation.Maps
 {
-    public class PersonEntityOnPersonViewModelProfile : Profile
+    public class PersonEntityOnPersonViewModelProfile : Profile, IAutoMapperPresentationProfile
     {
         public PersonEntityOnPersonViewModelProfile()
         {

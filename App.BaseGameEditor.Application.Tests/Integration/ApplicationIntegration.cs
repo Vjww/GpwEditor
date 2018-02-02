@@ -2,7 +2,7 @@
 using App.BaseGameEditor.Application.Services;
 using App.BaseGameEditor.Infrastructure.Services;
 using App.DependencyInjection.Autofac;
-using App.Output;
+using App.Outputs;
 using Autofac;
 using FluentAssertions;
 using Xunit;

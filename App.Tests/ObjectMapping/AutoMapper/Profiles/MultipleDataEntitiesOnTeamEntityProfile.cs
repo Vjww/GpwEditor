@@ -1,11 +1,11 @@
-﻿using App.BaseGameEditor.Data.Catalogues.Language;
+﻿using System.Collections.Generic;
+using App.BaseGameEditor.Data.Catalogues.Language;
 using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Factories;
 using App.BaseGameEditor.Infrastructure.Maps;
-using App.ObjectMapping.AutoMapper.Configurations;
-using App.ObjectMapping.AutoMapper.Profiles;
+using App.ObjectMapping.AutoMapper;
 using App.Services;
 using FluentAssertions;
 using Xunit;
@@ -24,9 +24,13 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
             var teamEntityFactory = new EntityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
             var mapper = new AutoMapperObjectMapperService(
-                new PresentationConfiguration(), new InfrastructureConfiguration(
-                    new App.ObjectMapping.AutoMapper.Profiles.MultipleDataEntitiesOnTeamEntityProfile(),
-                    new PersonDataEntityOnPersonEntityProfile(new ValueConverterService()))); // TODO: Mock it
+                new List<IAutoMapperConfiguration>
+                {
+                    new InfrastructureConfiguration(new List<IAutoMapperInfrastructureProfile>
+                    {
+                        new BaseGameEditor.Infrastructure.Maps.MultipleDataEntitiesOnTeamEntityProfile()
+                    })
+                }); // TODO: Mock it
             mapper.Initialise();
 
             // Initialise data entities using unique non-default dummy values to verify mappings
@@ -97,9 +101,13 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
             var teamEntityFactory = new EntityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
             var mapper = new AutoMapperObjectMapperService(
-                new PresentationConfiguration(), new InfrastructureConfiguration(
-                    new App.ObjectMapping.AutoMapper.Profiles.MultipleDataEntitiesOnTeamEntityProfile(),
-                    new PersonDataEntityOnPersonEntityProfile(new ValueConverterService()))); // TODO: Mock it
+                new List<IAutoMapperConfiguration>
+                {
+                    new InfrastructureConfiguration(new List<IAutoMapperInfrastructureProfile>
+                    {
+                        new BaseGameEditor.Infrastructure.Maps.MultipleDataEntitiesOnTeamEntityProfile()
+                    })
+                }); // TODO: Mock it
             mapper.Initialise();
 
             const int chassisHandlingDataEntityId = 2;
@@ -122,9 +130,13 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
             var teamEntityFactory = new EntityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
             var mapper = new AutoMapperObjectMapperService(
-                new PresentationConfiguration(), new InfrastructureConfiguration(
-                    new App.ObjectMapping.AutoMapper.Profiles.MultipleDataEntitiesOnTeamEntityProfile(),
-                    new PersonDataEntityOnPersonEntityProfile(new ValueConverterService()))); // TODO: Mock it
+                new List<IAutoMapperConfiguration>
+                {
+                    new InfrastructureConfiguration(new List<IAutoMapperInfrastructureProfile>
+                    {
+                        new BaseGameEditor.Infrastructure.Maps.MultipleDataEntitiesOnTeamEntityProfile()
+                    })
+                }); // TODO: Mock it
             mapper.Initialise();
 
             const int teamDataEntityId = 1;
@@ -150,9 +162,13 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
             var teamEntityFactory = new EntityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
             var mapper = new AutoMapperObjectMapperService(
-                new PresentationConfiguration(), new InfrastructureConfiguration(
-                    new App.ObjectMapping.AutoMapper.Profiles.MultipleDataEntitiesOnTeamEntityProfile(),
-                    new PersonDataEntityOnPersonEntityProfile(new ValueConverterService()))); // TODO: Mock it
+                new List<IAutoMapperConfiguration>
+                {
+                    new InfrastructureConfiguration(new List<IAutoMapperInfrastructureProfile>
+                    {
+                        new BaseGameEditor.Infrastructure.Maps.MultipleDataEntitiesOnTeamEntityProfile()
+                    })
+                }); // TODO: Mock it
             mapper.Initialise();
 
             // Initialise data entities using unique non-default dummy values to verify mappings
@@ -230,9 +246,13 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
             var teamEntityFactory = new EntityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
             var mapper = new AutoMapperObjectMapperService(
-                new PresentationConfiguration(), new InfrastructureConfiguration(
-                    new App.ObjectMapping.AutoMapper.Profiles.MultipleDataEntitiesOnTeamEntityProfile(),
-                    new PersonDataEntityOnPersonEntityProfile(new ValueConverterService()))); // TODO: Mock it
+                new List<IAutoMapperConfiguration>
+                {
+                    new InfrastructureConfiguration(new List<IAutoMapperInfrastructureProfile>
+                    {
+                        new BaseGameEditor.Infrastructure.Maps.MultipleDataEntitiesOnTeamEntityProfile()
+                    })
+                }); // TODO: Mock it
             mapper.Initialise();
 
             // Initialise data entities using unique non-default dummy values to verify mappings
@@ -305,9 +325,13 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
             var teamEntityFactory = new EntityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
             var mapper = new AutoMapperObjectMapperService(
-                new PresentationConfiguration(), new InfrastructureConfiguration(
-                    new App.ObjectMapping.AutoMapper.Profiles.MultipleDataEntitiesOnTeamEntityProfile(),
-                    new PersonDataEntityOnPersonEntityProfile(new ValueConverterService()))); // TODO: Mock it
+                new List<IAutoMapperConfiguration>
+                {
+                    new InfrastructureConfiguration(new List<IAutoMapperInfrastructureProfile>
+                    {
+                        new BaseGameEditor.Infrastructure.Maps.MultipleDataEntitiesOnTeamEntityProfile()
+                    })
+                }); // TODO: Mock it
             mapper.Initialise();
 
             // Initialise data entities using unique non-default dummy values to verify mappings
@@ -371,9 +395,13 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
             var teamEntityFactory = new EntityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
             var mapper = new AutoMapperObjectMapperService(
-                new PresentationConfiguration(), new InfrastructureConfiguration(
-                    new App.ObjectMapping.AutoMapper.Profiles.MultipleDataEntitiesOnTeamEntityProfile(),
-                    new PersonDataEntityOnPersonEntityProfile(new ValueConverterService()))); // TODO: Mock it
+                new List<IAutoMapperConfiguration>
+                {
+                    new InfrastructureConfiguration(new List<IAutoMapperInfrastructureProfile>
+                    {
+                        new BaseGameEditor.Infrastructure.Maps.MultipleDataEntitiesOnTeamEntityProfile()
+                    })
+                }); // TODO: Mock it
             mapper.Initialise();
 
             // Initialise data entities using unique non-default dummy values to verify mappings

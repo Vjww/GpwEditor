@@ -1,12 +1,12 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Domain.Entities;
-using App.Services;
+using App.BaseGameEditor.Infrastructure.Services;
 using AutoMapper;
 
-namespace App.ObjectMapping.AutoMapper.Profiles
+namespace App.BaseGameEditor.Infrastructure.Maps
 {
-    public class PersonDataEntityOnPersonEntityProfile : Profile
+    public class PersonDataEntityOnPersonEntityProfile : Profile, IAutoMapperInfrastructureProfile
     {
         public PersonDataEntityOnPersonEntityProfile(ValueConverterService valueConverterService)
         {

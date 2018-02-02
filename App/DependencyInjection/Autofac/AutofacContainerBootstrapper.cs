@@ -27,9 +27,7 @@ namespace App.DependencyInjection.Autofac
             _containerBuilder.RegisterAssemblyTypes(
                 AppDomain.CurrentDomain.GetAssemblies()).Where(
                 type => type.Namespace != null &&
-                    //!type.Namespace.StartsWith("App.DependencyInjection") &&
-                    //!type.Namespace.StartsWith("App.ObjectMapping") &&
-                    //!type.Namespace.StartsWith("App.ObjectMapping.AutoMapper.Profiles") &&
+                    !type.Namespace.StartsWith("App.DependencyInjection") &&
                     !type.Namespace.StartsWith("App.Outputs") &&
                     (
                         type.Namespace.StartsWith("App") ||

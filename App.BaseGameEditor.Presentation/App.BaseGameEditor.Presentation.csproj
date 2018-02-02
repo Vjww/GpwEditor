@@ -30,13 +30,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BaseGameController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
+    <Compile Include="Maps\IAutoMapperPresentationProfile.cs" />
+    <Compile Include="Maps\PersonEntityOnPersonViewModelProfile.cs" />
+    <Compile Include="Maps\TeamEntityOnTeamViewModelProfile.cs" />
     <Compile Include="Outputs\ConsoleOutput.cs" />
     <Compile Include="Outputs\IOutput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,7 +79,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Maps\" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

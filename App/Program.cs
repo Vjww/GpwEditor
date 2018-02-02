@@ -1,7 +1,7 @@
 ﻿using System;
 using App.BaseGameEditor.Infrastructure.Services;
 using App.DependencyInjection.Autofac;
-using App.Output;
+using App.Outputs;
 using Autofac;
 
 namespace App

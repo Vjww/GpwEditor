@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace App.Services
+namespace App.BaseGameEditor.Infrastructure.Services
 {
     public class ValueConverterService
     {

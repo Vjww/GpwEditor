@@ -1,6 +1,6 @@
 ﻿using App.DependencyInjection;
 
-namespace App.Output
+namespace App.Outputs
 {
     public class ConsoleOutput : IOutput
     {

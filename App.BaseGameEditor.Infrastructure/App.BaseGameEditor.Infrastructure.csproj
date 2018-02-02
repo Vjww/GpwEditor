@@ -30,8 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\CarNumbersObjectFactory.cs" />
@@ -39,6 +44,9 @@
     <Compile Include="Maps\CarNumbersObjectToCarNumberDataEntitiesMapper.cs" />
     <Compile Include="Factories\EntityFactory.cs" />
     <Compile Include="Maps\CarNumbersObject.cs" />
+    <Compile Include="Maps\IAutoMapperInfrastructureProfile.cs" />
+    <Compile Include="Maps\MultipleDataEntitiesOnTeamEntityProfile.cs" />
+    <Compile Include="Maps\PersonDataEntityOnPersonEntityProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\F1DriverRepository.cs" />
     <Compile Include="Repositories\F1ChiefMechanicRepository.cs" />
@@ -48,6 +56,7 @@
     <Compile Include="Repositories\F1ChiefCommercialRepository.cs" />
     <Compile Include="Repositories\TeamRepository.cs" />
     <Compile Include="Services\IMapperService.cs" />
+    <Compile Include="Services\ValueConverterService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App.BaseGameEditor.Data\App.BaseGameEditor.Data.csproj">
@@ -59,6 +68,8 @@
       <Name>App.BaseGameEditor.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,7 +3,7 @@ using App.BaseGameEditor.Data.Catalogues.Language;
 using App.BaseGameEditor.Data.FileResources;
 using App.BaseGameEditor.Domain.Entities;
 using App.DependencyInjection.Autofac;
-using App.Output;
+using App.Outputs;
 using Autofac;
 using FluentAssertions;
 using Xunit;

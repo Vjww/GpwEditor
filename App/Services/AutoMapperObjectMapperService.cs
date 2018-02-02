@@ -1,32 +1,32 @@
 ﻿using System;
+using System.Collections.Generic;
 using App.BaseGameEditor.Infrastructure.Services;
-using App.ObjectMapping.AutoMapper.Configurations;
+using App.ObjectMapping.AutoMapper;
 using AutoMapper;
 
 namespace App.Services
 {
     public class AutoMapperObjectMapperService : IMapperService
     {
-        private readonly PresentationConfiguration _presentationConfiguration;
-        private readonly InfrastructureConfiguration _infrastructureConfiguration;
+        private readonly IEnumerable<IAutoMapperConfiguration> _autoMapperConfigurations;
         private IMapper _mapper;
 
-        public AutoMapperObjectMapperService(
-            PresentationConfiguration presentationConfiguration,
-            InfrastructureConfiguration infrastructureConfiguration)
+        public AutoMapperObjectMapperService(IEnumerable<IAutoMapperConfiguration> autoMapperConfigurations)
         {
-            _presentationConfiguration = presentationConfiguration ?? throw new ArgumentNullException(nameof(presentationConfiguration));
-            _infrastructureConfiguration = infrastructureConfiguration ?? throw new ArgumentNullException(nameof(infrastructureConfiguration));
+            _autoMapperConfigurations = autoMapperConfigurations ?? throw new ArgumentNullException(nameof(autoMapperConfigurations));
         }
 
         public void Initialise()
         {
-            // TODO: Could MapperConfiguration be injected with parameter somehow?
             var mapperConfiguration = new MapperConfiguration(configure =>
             {
-                _presentationConfiguration.RegisterMappings(configure);
-                _infrastructureConfiguration.RegisterMappings(configure);
+                // Invoke register mappings for every configuration class that implements IAutoMapperConfiguration
+                foreach (var item in _autoMapperConfigurations)
+                {
+                    item.RegisterMappings(configure);
+                }
             });
+
             mapperConfiguration.AssertConfigurationIsValid();
             _mapper = mapperConfiguration.CreateMapper();
         }
