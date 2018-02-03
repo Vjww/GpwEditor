@@ -40,21 +40,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\CarNumbersObjectFactory.cs" />
-    <Compile Include="Maps\CarNumberDataEntitiesToCarNumbersObjectMapper.cs" />
-    <Compile Include="Maps\CarNumbersObjectToCarNumberDataEntitiesMapper.cs" />
+    <Compile Include="Maps\Manual\CarNumberDataEntitiesToCarNumbersObjectMapper.cs" />
+    <Compile Include="Maps\Manual\CarNumbersObjectToCarNumberDataEntitiesMapper.cs" />
     <Compile Include="Factories\EntityFactory.cs" />
-    <Compile Include="Maps\CarNumbersObject.cs" />
-    <Compile Include="Maps\IAutoMapperInfrastructureProfile.cs" />
-    <Compile Include="Maps\MultipleDataEntitiesOnTeamEntityProfile.cs" />
-    <Compile Include="Maps\PersonDataEntityOnPersonEntityProfile.cs" />
+    <Compile Include="Maps\Manual\CarNumbersObject.cs" />
+    <Compile Include="Maps\AutoMapper\IAutoMapperInfrastructureProfile.cs" />
+    <Compile Include="Maps\AutoMapper\MultipleDataEntitiesOnTeamEntityProfile.cs" />
+    <Compile Include="Maps\AutoMapper\PersonDataEntityOnPersonEntityProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\F1DriverRepository.cs" />
-    <Compile Include="Repositories\F1ChiefMechanicRepository.cs" />
-    <Compile Include="Repositories\F1ChiefEngineerRepository.cs" />
-    <Compile Include="Repositories\F1ChiefDesignerRepository.cs" />
-    <Compile Include="Repositories\RepositoryBase.cs" />
-    <Compile Include="Repositories\F1ChiefCommercialRepository.cs" />
-    <Compile Include="Repositories\TeamRepository.cs" />
+    <Compile Include="Repositories\Data\CarNumberDataRepository.cs" />
+    <Compile Include="Repositories\Data\ChassisHandlingDataRepository.cs" />
+    <Compile Include="Repositories\Data\DataRepositoryBase.cs" />
+    <Compile Include="Repositories\Data\F1ChiefCommercialDataRepository.cs" />
+    <Compile Include="Repositories\Data\F1ChiefDesignerDataRepository.cs" />
+    <Compile Include="Repositories\Data\F1ChiefEngineerDataRepository.cs" />
+    <Compile Include="Repositories\Data\F1ChiefMechanicDataRepository.cs" />
+    <Compile Include="Repositories\Data\F1DriverDataRepository.cs" />
+    <Compile Include="Repositories\Data\TeamDataRepository.cs" />
+    <Compile Include="Repositories\Domain\F1DriverRepository.cs" />
+    <Compile Include="Repositories\Domain\F1ChiefMechanicRepository.cs" />
+    <Compile Include="Repositories\Domain\F1ChiefEngineerRepository.cs" />
+    <Compile Include="Repositories\Domain\F1ChiefDesignerRepository.cs" />
+    <Compile Include="Repositories\Domain\RepositoryBase.cs" />
+    <Compile Include="Repositories\Domain\F1ChiefCommercialRepository.cs" />
+    <Compile Include="Repositories\Domain\TeamRepository.cs" />
     <Compile Include="Services\IMapperService.cs" />
     <Compile Include="Services\ValueConverterService.cs" />
   </ItemGroup>
@@ -71,5 +80,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

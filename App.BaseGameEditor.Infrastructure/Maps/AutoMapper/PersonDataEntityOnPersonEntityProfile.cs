@@ -4,7 +4,7 @@ using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Services;
 using AutoMapper;
 
-namespace App.BaseGameEditor.Infrastructure.Maps
+namespace App.BaseGameEditor.Infrastructure.Maps.AutoMapper
 {
     public class PersonDataEntityOnPersonEntityProfile : Profile, IAutoMapperInfrastructureProfile
     {

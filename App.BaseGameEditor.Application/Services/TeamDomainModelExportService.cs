@@ -4,7 +4,7 @@ using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Domain.Services;
 using App.BaseGameEditor.Infrastructure.Factories;
-using App.BaseGameEditor.Infrastructure.Maps;
+using App.BaseGameEditor.Infrastructure.Maps.Manual;
 using App.BaseGameEditor.Infrastructure.Services;
 
 namespace App.BaseGameEditor.Application.Services

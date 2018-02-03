@@ -1,15 +1,16 @@
 ﻿using System;
+using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.Repositories;
 
 namespace App.BaseGameEditor.Data.Services
 {
     public class TeamDataExportService
     {
-        private readonly TeamRepository _repository;
+        private readonly IRepository<TeamDataEntity> _repository;
         private readonly TeamRepositoryExporter _service;
 
         public TeamDataExportService(
-            TeamRepository repository,
+            IRepository<TeamDataEntity> repository,
             TeamRepositoryExporter service)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));

@@ -1,8 +1,9 @@
 ﻿using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Domain.Entities;
+using App.BaseGameEditor.Infrastructure.Maps.Manual;
 using AutoMapper;
 
-namespace App.BaseGameEditor.Infrastructure.Maps
+namespace App.BaseGameEditor.Infrastructure.Maps.AutoMapper
 {
     public class MultipleDataEntitiesOnTeamEntityProfile : Profile, IAutoMapperInfrastructureProfile
     {

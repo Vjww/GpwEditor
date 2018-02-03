@@ -1,28 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using App.BaseGameEditor.Data.DataEntities;
+using App.BaseGameEditor.Domain.Entities;
+using App.BaseGameEditor.Domain.Repositories;
 
-namespace App.BaseGameEditor.Data.Repositories
+namespace App.BaseGameEditor.Infrastructure.Repositories.Domain
 {
-    public abstract class RepositoryBase<TDataEntity> : IRepository<TDataEntity>
-        where TDataEntity : class, IDataEntity
+    public abstract class RepositoryBase<TEntity> : IRepository<TEntity>
+        where TEntity : class, IEntity
     {
-        private readonly List<TDataEntity> _list;
+        private readonly List<TEntity> _list;
 
-        protected RepositoryBase(List<TDataEntity> list)
+        protected RepositoryBase(List<TEntity> list)
         {
             _list = list;
         }
 
-        public IEnumerable<TDataEntity> Get()
+        public IEnumerable<TEntity> Get()
         {
             if (_list.Count == 0) throw new InvalidOperationException("There are no items in the repository.");
 
             return _list.AsEnumerable();
         }
 
-        public IEnumerable<TDataEntity> Get(Func<TDataEntity, bool> predicate)
+        public IEnumerable<TEntity> Get(Func<TEntity, bool> predicate)
         {
             if (predicate == null) throw new ArgumentNullException(nameof(predicate));
             if (_list.Count == 0) throw new InvalidOperationException("There are no items in the repository.");
@@ -30,7 +31,7 @@ namespace App.BaseGameEditor.Data.Repositories
             return _list.Where(predicate).AsEnumerable();
         }
 
-        public TDataEntity GetById(int id)
+        public TEntity GetById(int id)
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
             if (_list.Count == 0) throw new InvalidOperationException("There are no items in the repository.");
@@ -38,7 +39,7 @@ namespace App.BaseGameEditor.Data.Repositories
             return _list.Single(x => x.Id == id);
         }
 
-        public void Set(IEnumerable<TDataEntity> items)
+        public void Set(IEnumerable<TEntity> items)
         {
             if (items == null) throw new ArgumentNullException(nameof(items));
 
@@ -47,7 +48,7 @@ namespace App.BaseGameEditor.Data.Repositories
             _list.TrimExcess();
         }
 
-        public void SetById(TDataEntity item)
+        public void SetById(TEntity item)
         {
             if (item == null) throw new ArgumentNullException(nameof(item));
             if (_list.Count == 0) throw new InvalidOperationException("There are no items in the repository.");

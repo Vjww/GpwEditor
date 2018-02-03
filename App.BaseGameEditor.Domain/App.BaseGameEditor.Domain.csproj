@@ -40,17 +40,11 @@
     <Compile Include="Entities\F1ChiefEngineerEntity.cs" />
     <Compile Include="Entities\F1ChiefDesignerEntity.cs" />
     <Compile Include="Entities\F1ChiefCommercialEntity.cs" />
-    <Compile Include="Repositories\IF1DriverRepository.cs" />
-    <Compile Include="Repositories\IF1ChiefMechanicRepository.cs" />
-    <Compile Include="Repositories\IF1ChiefEngineerRepository.cs" />
-    <Compile Include="Repositories\IF1ChiefDesignerRepository.cs" />
-    <Compile Include="Repositories\IF1ChiefCommercialRepository.cs" />
     <Compile Include="Services\DomainModelService.cs" />
     <Compile Include="Identities\IIntegerIdentity.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\TeamEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\ITeamRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Services\PersonService.cs" />
     <Compile Include="Services\TeamService.cs" />

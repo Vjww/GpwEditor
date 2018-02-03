@@ -9,11 +9,11 @@ namespace App.BaseGameEditor.Data.Services
     {
         private const int ItemCount = 11;
 
-        private readonly TeamRepository _repository;
+        private readonly IRepository<TeamDataEntity> _repository;
         private readonly TeamRepositoryImporter _service;
 
         public TeamDataImportService(
-            TeamRepository repository,
+            IRepository<TeamDataEntity> repository,
             TeamRepositoryImporter service)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));

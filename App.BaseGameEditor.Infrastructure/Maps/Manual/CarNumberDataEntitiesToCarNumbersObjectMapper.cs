@@ -4,7 +4,7 @@ using System.Linq;
 using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Infrastructure.Factories;
 
-namespace App.BaseGameEditor.Infrastructure.Maps
+namespace App.BaseGameEditor.Infrastructure.Maps.Manual
 {
     public class CarNumberDataEntitiesToCarNumbersObjectMapper
     {

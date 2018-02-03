@@ -1,15 +1,16 @@
 ﻿using System;
+using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.Repositories;
 
 namespace App.BaseGameEditor.Data.Services
 {
     public class F1ChiefEngineerDataExportService
     {
-        private readonly F1ChiefEngineerRepository _repository;
+        private readonly IRepository<F1ChiefEngineerDataEntity> _repository;
         private readonly F1ChiefEngineerRepositoryExporter _service;
 
         public F1ChiefEngineerDataExportService(
-            F1ChiefEngineerRepository repository,
+            IRepository<F1ChiefEngineerDataEntity> repository,
             F1ChiefEngineerRepositoryExporter service)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));

@@ -9,11 +9,11 @@ namespace App.BaseGameEditor.Data.Services
     {
         private const int ItemCount = 33;
 
-        private readonly F1DriverRepository _repository;
+        private readonly IRepository<F1DriverDataEntity> _repository;
         private readonly F1DriverRepositoryImporter _service;
 
         public F1DriverDataImportService(
-            F1DriverRepository repository,
+            IRepository<F1DriverDataEntity> repository,
             F1DriverRepositoryImporter service)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));

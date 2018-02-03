@@ -38,7 +38,6 @@ namespace App.BaseGameEditor.Data.DataEntities
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.DriverRole, f1DriverDataEntity.DriverRole);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Age, f1DriverDataEntity.Age);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Nationality, f1DriverDataEntity.Nationality);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.CommentaryIndex, f1DriverDataEntity.CommentaryIndex); // TODO: Should this be moved to own data entity?
 
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.CareerChampionships, f1DriverDataEntity.CareerChampionships);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.CareerRaces, f1DriverDataEntity.CareerRaces);

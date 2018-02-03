@@ -1,4 +1,4 @@
-﻿namespace App.BaseGameEditor.Infrastructure.Maps
+﻿namespace App.BaseGameEditor.Infrastructure.Maps.Manual
 {
     public class CarNumbersObject
     {

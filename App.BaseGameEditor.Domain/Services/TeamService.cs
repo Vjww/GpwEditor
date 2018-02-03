@@ -8,9 +8,9 @@ namespace App.BaseGameEditor.Domain.Services
 {
     public class TeamService
     {
-        private readonly ITeamRepository _repository;
+        private readonly IRepository<TeamEntity> _repository;
 
-        public TeamService(ITeamRepository repository)
+        public TeamService(IRepository<TeamEntity> repository)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }

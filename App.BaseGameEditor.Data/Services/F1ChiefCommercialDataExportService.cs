@@ -1,15 +1,16 @@
 ﻿using System;
+using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.Repositories;
 
 namespace App.BaseGameEditor.Data.Services
 {
     public class F1ChiefCommercialDataExportService
     {
-        private readonly F1ChiefCommercialRepository _repository;
+        private readonly IRepository<F1ChiefCommercialDataEntity> _repository;
         private readonly F1ChiefCommercialRepositoryExporter _service;
 
         public F1ChiefCommercialDataExportService(
-            F1ChiefCommercialRepository repository,
+            IRepository<F1ChiefCommercialDataEntity> repository,
             F1ChiefCommercialRepositoryExporter service)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));

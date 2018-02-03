@@ -8,18 +8,18 @@ namespace App.BaseGameEditor.Domain.Services
 {
     public class PersonService
     {
-        private readonly IF1ChiefCommercialRepository _f1ChiefCommercialRepository;
-        private readonly IF1ChiefDesignerRepository _f1ChiefDesignerRepository;
-        private readonly IF1ChiefEngineerRepository _f1ChiefEngineerRepository;
-        private readonly IF1ChiefMechanicRepository _f1ChiefMechanicRepository;
-        private readonly IF1DriverRepository _f1DriverRepository;
+        private readonly IRepository<F1ChiefCommercialEntity> _f1ChiefCommercialRepository;
+        private readonly IRepository<F1ChiefDesignerEntity> _f1ChiefDesignerRepository;
+        private readonly IRepository<F1ChiefEngineerEntity> _f1ChiefEngineerRepository;
+        private readonly IRepository<F1ChiefMechanicEntity> _f1ChiefMechanicRepository;
+        private readonly IRepository<F1DriverEntity> _f1DriverRepository;
 
         public PersonService(
-            IF1ChiefCommercialRepository f1ChiefCommercialRepository,
-            IF1ChiefDesignerRepository f1ChiefDesignerRepository,
-            IF1ChiefEngineerRepository f1ChiefEngineerRepository,
-            IF1ChiefMechanicRepository f1ChiefMechanicRepository,
-            IF1DriverRepository f1DriverRepository)
+            IRepository<F1ChiefCommercialEntity> f1ChiefCommercialRepository,
+            IRepository<F1ChiefDesignerEntity> f1ChiefDesignerRepository,
+            IRepository<F1ChiefEngineerEntity> f1ChiefEngineerRepository,
+            IRepository<F1ChiefMechanicEntity> f1ChiefMechanicRepository,
+            IRepository<F1DriverEntity> f1DriverRepository)
         {
             _f1ChiefCommercialRepository = f1ChiefCommercialRepository ?? throw new ArgumentNullException(nameof(f1ChiefCommercialRepository));
             _f1ChiefDesignerRepository = f1ChiefDesignerRepository ?? throw new ArgumentNullException(nameof(f1ChiefDesignerRepository));

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.Factories;
 
-namespace App.BaseGameEditor.Infrastructure.Maps
+namespace App.BaseGameEditor.Infrastructure.Maps.Manual
 {
     public class CarNumbersObjectToCarNumberDataEntitiesMapper
     {

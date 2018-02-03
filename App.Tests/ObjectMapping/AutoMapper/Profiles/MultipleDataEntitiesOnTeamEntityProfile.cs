@@ -4,7 +4,8 @@ using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Factories;
-using App.BaseGameEditor.Infrastructure.Maps;
+using App.BaseGameEditor.Infrastructure.Maps.AutoMapper;
+using App.BaseGameEditor.Infrastructure.Maps.Manual;
 using App.ObjectMapping.AutoMapper;
 using App.Services;
 using FluentAssertions;
@@ -28,7 +29,7 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
                 {
                     new InfrastructureConfiguration(new List<IAutoMapperInfrastructureProfile>
                     {
-                        new BaseGameEditor.Infrastructure.Maps.MultipleDataEntitiesOnTeamEntityProfile()
+                        new BaseGameEditor.Infrastructure.Maps.AutoMapper.MultipleDataEntitiesOnTeamEntityProfile()
                     })
                 }); // TODO: Mock it
             mapper.Initialise();
@@ -105,7 +106,7 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
                 {
                     new InfrastructureConfiguration(new List<IAutoMapperInfrastructureProfile>
                     {
-                        new BaseGameEditor.Infrastructure.Maps.MultipleDataEntitiesOnTeamEntityProfile()
+                        new BaseGameEditor.Infrastructure.Maps.AutoMapper.MultipleDataEntitiesOnTeamEntityProfile()
                     })
                 }); // TODO: Mock it
             mapper.Initialise();
@@ -134,7 +135,7 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
                 {
                     new InfrastructureConfiguration(new List<IAutoMapperInfrastructureProfile>
                     {
-                        new BaseGameEditor.Infrastructure.Maps.MultipleDataEntitiesOnTeamEntityProfile()
+                        new BaseGameEditor.Infrastructure.Maps.AutoMapper.MultipleDataEntitiesOnTeamEntityProfile()
                     })
                 }); // TODO: Mock it
             mapper.Initialise();
@@ -166,7 +167,7 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
                 {
                     new InfrastructureConfiguration(new List<IAutoMapperInfrastructureProfile>
                     {
-                        new BaseGameEditor.Infrastructure.Maps.MultipleDataEntitiesOnTeamEntityProfile()
+                        new BaseGameEditor.Infrastructure.Maps.AutoMapper.MultipleDataEntitiesOnTeamEntityProfile()
                     })
                 }); // TODO: Mock it
             mapper.Initialise();
@@ -250,7 +251,7 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
                 {
                     new InfrastructureConfiguration(new List<IAutoMapperInfrastructureProfile>
                     {
-                        new BaseGameEditor.Infrastructure.Maps.MultipleDataEntitiesOnTeamEntityProfile()
+                        new BaseGameEditor.Infrastructure.Maps.AutoMapper.MultipleDataEntitiesOnTeamEntityProfile()
                     })
                 }); // TODO: Mock it
             mapper.Initialise();
@@ -329,7 +330,7 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
                 {
                     new InfrastructureConfiguration(new List<IAutoMapperInfrastructureProfile>
                     {
-                        new BaseGameEditor.Infrastructure.Maps.MultipleDataEntitiesOnTeamEntityProfile()
+                        new BaseGameEditor.Infrastructure.Maps.AutoMapper.MultipleDataEntitiesOnTeamEntityProfile()
                     })
                 }); // TODO: Mock it
             mapper.Initialise();
@@ -399,7 +400,7 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
                 {
                     new InfrastructureConfiguration(new List<IAutoMapperInfrastructureProfile>
                     {
-                        new BaseGameEditor.Infrastructure.Maps.MultipleDataEntitiesOnTeamEntityProfile()
+                        new BaseGameEditor.Infrastructure.Maps.AutoMapper.MultipleDataEntitiesOnTeamEntityProfile()
                     })
                 }); // TODO: Mock it
             mapper.Initialise();

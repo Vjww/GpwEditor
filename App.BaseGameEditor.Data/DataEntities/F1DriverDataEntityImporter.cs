@@ -41,7 +41,6 @@ namespace App.BaseGameEditor.Data.DataEntities
             result.DriverRole = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.DriverRole);
             result.Age = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Age);
             result.Nationality = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Nationality);
-            result.CommentaryIndex = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.CommentaryIndex); // TODO: Should this be moved to own data entity?
 
             result.CareerChampionships = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.CareerChampionships);
             result.CareerRaces = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.CareerRaces);

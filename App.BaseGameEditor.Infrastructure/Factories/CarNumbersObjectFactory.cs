@@ -1,5 +1,5 @@
 ﻿using System;
-using App.BaseGameEditor.Infrastructure.Maps;
+using App.BaseGameEditor.Infrastructure.Maps.Manual;
 
 namespace App.BaseGameEditor.Infrastructure.Factories
 {

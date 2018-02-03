@@ -5,7 +5,7 @@ using App.BaseGameEditor.Data.DataLocators;
 using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.FileResources;
 using App.BaseGameEditor.Domain.Entities;
-using App.BaseGameEditor.Infrastructure.Maps;
+using App.BaseGameEditor.Infrastructure.Maps.Manual;
 using App.BaseGameEditor.Presentation.Outputs;
 using Autofac;
 using Autofac.Features.ResolveAnything;

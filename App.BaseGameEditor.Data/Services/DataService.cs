@@ -1,4 +1,5 @@
 ﻿using System;
+using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.Repositories;
 
 namespace App.BaseGameEditor.Data.Services
@@ -22,14 +23,14 @@ namespace App.BaseGameEditor.Data.Services
         private readonly TeamDataExportService _teamDataExportService;
         private readonly TeamDataImportService _teamDataImportService;
 
-        public CarNumberRepository CarNumbers { get; }
-        public ChassisHandlingRepository ChassisHandlings { get; }
-        public F1ChiefCommercialRepository F1ChiefCommercials { get; }
-        public F1ChiefDesignerRepository F1ChiefDesigners { get; }
-        public F1ChiefEngineerRepository F1ChiefEngineers { get; }
-        public F1ChiefMechanicRepository F1ChiefMechanics { get; }
-        public F1DriverRepository F1Drivers { get; }
-        public TeamRepository Teams { get; }
+        public IRepository<CarNumberDataEntity> CarNumbers { get; }
+        public IRepository<ChassisHandlingDataEntity> ChassisHandlings { get; }
+        public IRepository<F1ChiefCommercialDataEntity> F1ChiefCommercials { get; }
+        public IRepository<F1ChiefDesignerDataEntity> F1ChiefDesigners { get; }
+        public IRepository<F1ChiefEngineerDataEntity> F1ChiefEngineers { get; }
+        public IRepository<F1ChiefMechanicDataEntity> F1ChiefMechanics { get; }
+        public IRepository<F1DriverDataEntity> F1Drivers { get; }
+        public IRepository<TeamDataEntity> Teams { get; }
 
         public DataService(
             CarNumberDataExportService carNumberDataExportService,
@@ -48,14 +49,14 @@ namespace App.BaseGameEditor.Data.Services
             F1DriverDataImportService f1DriverDataImportService,
             TeamDataExportService teamDataExportService,
             TeamDataImportService teamDataImportService,
-            CarNumberRepository carNumberRepository,
-            ChassisHandlingRepository chassisHandlingRepository,
-            F1ChiefCommercialRepository f1ChiefCommercialRepository,
-            F1ChiefDesignerRepository f1ChiefDesignerRepository,
-            F1ChiefEngineerRepository f1ChiefEngineerRepository,
-            F1ChiefMechanicRepository f1ChiefMechanicRepository,
-            F1DriverRepository f1DriverRepository,
-            TeamRepository teamRepository)
+            IRepository<CarNumberDataEntity> carNumberRepository,
+            IRepository<ChassisHandlingDataEntity> chassisHandlingRepository,
+            IRepository<F1ChiefCommercialDataEntity> f1ChiefCommercialRepository,
+            IRepository<F1ChiefDesignerDataEntity> f1ChiefDesignerRepository,
+            IRepository<F1ChiefEngineerDataEntity> f1ChiefEngineerRepository,
+            IRepository<F1ChiefMechanicDataEntity> f1ChiefMechanicRepository,
+            IRepository<F1DriverDataEntity> f1DriverRepository,
+            IRepository<TeamDataEntity> teamRepository)
         {
             _carNumberDataExportService = carNumberDataExportService ?? throw new ArgumentNullException(nameof(carNumberDataExportService));
             _carNumberDataImportService = carNumberDataImportService ?? throw new ArgumentNullException(nameof(carNumberDataImportService));

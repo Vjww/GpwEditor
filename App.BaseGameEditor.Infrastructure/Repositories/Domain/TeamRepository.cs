@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using App.BaseGameEditor.Domain.Entities;
-using App.BaseGameEditor.Domain.Repositories;
 
-namespace App.BaseGameEditor.Infrastructure.Repositories
+namespace App.BaseGameEditor.Infrastructure.Repositories.Domain
 {
-    public class TeamRepository : RepositoryBase<TeamEntity>, ITeamRepository
+    public class TeamRepository : RepositoryBase<TeamEntity>
     {
         public TeamRepository(List<TeamEntity> list) : base(list)
         {

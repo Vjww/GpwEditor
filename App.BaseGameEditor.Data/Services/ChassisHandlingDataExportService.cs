@@ -1,15 +1,16 @@
 ﻿using System;
+using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.Repositories;
 
 namespace App.BaseGameEditor.Data.Services
 {
     public class ChassisHandlingDataExportService
     {
-        private readonly ChassisHandlingRepository _repository;
+        private readonly IRepository<ChassisHandlingDataEntity> _repository;
         private readonly ChassisHandlingRepositoryExporter _service;
 
         public ChassisHandlingDataExportService(
-            ChassisHandlingRepository repository,
+            IRepository<ChassisHandlingDataEntity> repository,
             ChassisHandlingRepositoryExporter service)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));

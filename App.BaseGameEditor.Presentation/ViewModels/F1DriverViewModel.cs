@@ -13,7 +13,6 @@
         public int DriverRole { get; set; }
         public int Age { get; set; }
         public int Nationality { get; set; }
-        public int CommentaryIndex { get; set; } // TODO: Should this be moved to own entity?
 
         public int CareerChampionships { get; set; }
         public int CareerRaces { get; set; }

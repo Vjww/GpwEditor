@@ -31,7 +31,6 @@ namespace App.BaseGameEditor.Presentation.Views
                 _output.WriteLine($"DriverRole: {item.DriverRole}");
                 _output.WriteLine($"Age: {item.Age}");
                 _output.WriteLine($"Nationality: {item.Nationality}");
-                _output.WriteLine($"CommentaryIndex: {item.CommentaryIndex}"); // TODO: Should this be moved to own view model?
 
                 _output.WriteLine($"CareerChampionships: {item.CareerChampionships}");
                 _output.WriteLine($"CareerRaces: {item.CareerRaces}");

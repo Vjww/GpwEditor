@@ -38,9 +38,6 @@ namespace App.BaseGameEditor.Data.DataLocators
         private const int StaminaOffset = 210;
         private const int MoraleOffset = 220;
 
-        private const int CommentaryIndexBaseOffset = 474720; // TODO: Should this be moved to own data locator?
-        private const int CommentaryIndexLocalOffset = 10;    // TODO: Should this be moved to own data locator?
-
         public int Name { get; set; }
         public int Salary { get; set; }
         public int RaceBonus { get; set; }
@@ -51,7 +48,6 @@ namespace App.BaseGameEditor.Data.DataLocators
         public int DriverRole { get; set; }
         public int Age { get; set; }
         public int Nationality { get; set; }
-        public int CommentaryIndex { get; set; } // TODO: Should this be moved to own data locator?
         public int CareerChampionships { get; set; }
         public int CareerRaces { get; set; }
         public int CareerWins { get; set; }
@@ -91,7 +87,6 @@ namespace App.BaseGameEditor.Data.DataLocators
             DriverRole = BaseOffset + stepOffset + DriverRoleOffset;
             Age = BaseOffset + stepOffset + AgeOffset;
             Nationality = BaseOffset + stepOffset + NationalityOffset;
-            CommentaryIndex = CommentaryIndexBaseOffset + CommentaryIndexLocalOffset * id;  // TODO: Should this be moved to own data locator?
 
             CareerChampionships = BaseOffset + stepOffset + CareerChampionshipsOffset;
             CareerRaces = BaseOffset + stepOffset + CareerRacesOffset;

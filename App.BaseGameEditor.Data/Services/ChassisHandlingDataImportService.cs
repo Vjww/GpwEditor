@@ -9,11 +9,11 @@ namespace App.BaseGameEditor.Data.Services
     {
         private const int ItemCount = 11;
 
-        private readonly ChassisHandlingRepository _repository;
+        private readonly IRepository<ChassisHandlingDataEntity> _repository;
         private readonly ChassisHandlingRepositoryImporter _service;
 
         public ChassisHandlingDataImportService(
-            ChassisHandlingRepository repository,
+            IRepository<ChassisHandlingDataEntity> repository,
             ChassisHandlingRepositoryImporter service)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
