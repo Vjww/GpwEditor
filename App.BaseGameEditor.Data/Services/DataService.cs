@@ -1,27 +1,27 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEntities;
-using App.BaseGameEditor.Data.Repositories;
+using App.Core.Repositories;
 
 namespace App.BaseGameEditor.Data.Services
 {
     public class DataService
     {
-        private readonly CarNumberDataExportService _carNumberDataExportService;
-        private readonly CarNumberDataImportService _carNumberDataImportService;
-        private readonly ChassisHandlingDataExportService _chassisHandlingDataExportService;
-        private readonly ChassisHandlingDataImportService _chassisHandlingDataImportService;
-        private readonly F1ChiefCommercialDataExportService _f1ChiefCommercialDataExportService;
-        private readonly F1ChiefCommercialDataImportService _f1ChiefCommercialDataImportService;
-        private readonly F1ChiefDesignerDataExportService _f1ChiefDesignerDataExportService;
-        private readonly F1ChiefDesignerDataImportService _f1ChiefDesignerDataImportService;
-        private readonly F1ChiefEngineerDataExportService _f1ChiefEngineerDataExportService;
-        private readonly F1ChiefEngineerDataImportService _f1ChiefEngineerDataImportService;
-        private readonly F1ChiefMechanicDataExportService _f1ChiefMechanicDataExportService;
-        private readonly F1ChiefMechanicDataImportService _f1ChiefMechanicDataImportService;
-        private readonly F1DriverDataExportService _f1DriverDataExportService;
-        private readonly F1DriverDataImportService _f1DriverDataImportService;
-        private readonly TeamDataExportService _teamDataExportService;
-        private readonly TeamDataImportService _teamDataImportService;
+        private readonly IRepositoryExportService<CarNumberDataEntity> _carNumberRepositoryExportService;
+        private readonly IRepositoryImportService<CarNumberDataEntity> _carNumberRepositoryImportService;
+        private readonly IRepositoryExportService<ChassisHandlingDataEntity> _chassisHandlingRepositoryExportService;
+        private readonly IRepositoryImportService<ChassisHandlingDataEntity> _chassisHandlingRepositoryImportService;
+        private readonly IRepositoryExportService<F1ChiefCommercialDataEntity> _f1ChiefCommercialRepositoryExportService;
+        private readonly IRepositoryImportService<F1ChiefCommercialDataEntity> _f1ChiefCommercialRepositoryImportService;
+        private readonly IRepositoryExportService<F1ChiefDesignerDataEntity> _f1ChiefDesignerRepositoryExportService;
+        private readonly IRepositoryImportService<F1ChiefDesignerDataEntity> _f1ChiefDesignerRepositoryImportService;
+        private readonly IRepositoryExportService<F1ChiefEngineerDataEntity> _f1ChiefEngineerRepositoryExportService;
+        private readonly IRepositoryImportService<F1ChiefEngineerDataEntity> _f1ChiefEngineerRepositoryImportService;
+        private readonly IRepositoryExportService<F1ChiefMechanicDataEntity> _f1ChiefMechanicRepositoryExportService;
+        private readonly IRepositoryImportService<F1ChiefMechanicDataEntity> _f1ChiefMechanicRepositoryImportService;
+        private readonly IRepositoryExportService<F1DriverDataEntity> _f1DriverRepositoryExportService;
+        private readonly IRepositoryImportService<F1DriverDataEntity> _f1DriverRepositoryImportService;
+        private readonly IRepositoryExportService<TeamDataEntity> _teamRepositoryExportService;
+        private readonly IRepositoryImportService<TeamDataEntity> _teamRepositoryImportService;
 
         public IRepository<CarNumberDataEntity> CarNumbers { get; }
         public IRepository<ChassisHandlingDataEntity> ChassisHandlings { get; }
@@ -33,22 +33,22 @@ namespace App.BaseGameEditor.Data.Services
         public IRepository<TeamDataEntity> Teams { get; }
 
         public DataService(
-            CarNumberDataExportService carNumberDataExportService,
-            CarNumberDataImportService carNumberDataImportService,
-            ChassisHandlingDataExportService chassisHandlingDataExportService,
-            ChassisHandlingDataImportService chassisHandlingDataImportService,
-            F1ChiefCommercialDataExportService f1ChiefCommercialDataExportService,
-            F1ChiefCommercialDataImportService f1ChiefCommercialDataImportService,
-            F1ChiefDesignerDataExportService f1ChiefDesignerDataExportService,
-            F1ChiefDesignerDataImportService f1ChiefDesignerDataImportService,
-            F1ChiefEngineerDataExportService f1ChiefEngineerDataExportService,
-            F1ChiefEngineerDataImportService f1ChiefEngineerDataImportService,
-            F1ChiefMechanicDataExportService f1ChiefMechanicDataExportService,
-            F1ChiefMechanicDataImportService f1ChiefMechanicDataImportService,
-            F1DriverDataExportService f1DriverDataExportService,
-            F1DriverDataImportService f1DriverDataImportService,
-            TeamDataExportService teamDataExportService,
-            TeamDataImportService teamDataImportService,
+            IRepositoryExportService<CarNumberDataEntity> carNumberRepositoryExportService,
+            IRepositoryImportService<CarNumberDataEntity> carNumberRepositoryImportService,
+            IRepositoryExportService<ChassisHandlingDataEntity> chassisHandlingRepositoryExportService,
+            IRepositoryImportService<ChassisHandlingDataEntity> chassisHandlingRepositoryImportService,
+            IRepositoryExportService<F1ChiefCommercialDataEntity> f1ChiefCommercialRepositoryExportService,
+            IRepositoryImportService<F1ChiefCommercialDataEntity> f1ChiefCommercialRepositoryImportService,
+            IRepositoryExportService<F1ChiefDesignerDataEntity> f1ChiefDesignerRepositoryExportService,
+            IRepositoryImportService<F1ChiefDesignerDataEntity> f1ChiefDesignerRepositoryImportService,
+            IRepositoryExportService<F1ChiefEngineerDataEntity> f1ChiefEngineerRepositoryExportService,
+            IRepositoryImportService<F1ChiefEngineerDataEntity> f1ChiefEngineerRepositoryImportService,
+            IRepositoryExportService<F1ChiefMechanicDataEntity> f1ChiefMechanicRepositoryExportService,
+            IRepositoryImportService<F1ChiefMechanicDataEntity> f1ChiefMechanicRepositoryImportService,
+            IRepositoryExportService<F1DriverDataEntity> f1DriverRepositoryExportService,
+            IRepositoryImportService<F1DriverDataEntity> f1DriverRepositoryImportService,
+            IRepositoryExportService<TeamDataEntity> teamRepositoryExportService,
+            IRepositoryImportService<TeamDataEntity> teamRepositoryImportService,
             IRepository<CarNumberDataEntity> carNumberRepository,
             IRepository<ChassisHandlingDataEntity> chassisHandlingRepository,
             IRepository<F1ChiefCommercialDataEntity> f1ChiefCommercialRepository,
@@ -58,22 +58,22 @@ namespace App.BaseGameEditor.Data.Services
             IRepository<F1DriverDataEntity> f1DriverRepository,
             IRepository<TeamDataEntity> teamRepository)
         {
-            _carNumberDataExportService = carNumberDataExportService ?? throw new ArgumentNullException(nameof(carNumberDataExportService));
-            _carNumberDataImportService = carNumberDataImportService ?? throw new ArgumentNullException(nameof(carNumberDataImportService));
-            _chassisHandlingDataExportService = chassisHandlingDataExportService ?? throw new ArgumentNullException(nameof(chassisHandlingDataExportService));
-            _chassisHandlingDataImportService = chassisHandlingDataImportService ?? throw new ArgumentNullException(nameof(chassisHandlingDataImportService));
-            _f1ChiefCommercialDataExportService = f1ChiefCommercialDataExportService ?? throw new ArgumentNullException(nameof(f1ChiefCommercialDataExportService));
-            _f1ChiefCommercialDataImportService = f1ChiefCommercialDataImportService ?? throw new ArgumentNullException(nameof(f1ChiefCommercialDataImportService));
-            _f1ChiefDesignerDataExportService = f1ChiefDesignerDataExportService ?? throw new ArgumentNullException(nameof(f1ChiefDesignerDataExportService));
-            _f1ChiefDesignerDataImportService = f1ChiefDesignerDataImportService ?? throw new ArgumentNullException(nameof(f1ChiefDesignerDataImportService));
-            _f1ChiefEngineerDataExportService = f1ChiefEngineerDataExportService ?? throw new ArgumentNullException(nameof(f1ChiefEngineerDataExportService));
-            _f1ChiefEngineerDataImportService = f1ChiefEngineerDataImportService ?? throw new ArgumentNullException(nameof(f1ChiefEngineerDataImportService));
-            _f1ChiefMechanicDataExportService = f1ChiefMechanicDataExportService ?? throw new ArgumentNullException(nameof(f1ChiefMechanicDataExportService));
-            _f1ChiefMechanicDataImportService = f1ChiefMechanicDataImportService ?? throw new ArgumentNullException(nameof(f1ChiefMechanicDataImportService));
-            _f1DriverDataExportService = f1DriverDataExportService ?? throw new ArgumentNullException(nameof(f1DriverDataExportService));
-            _f1DriverDataImportService = f1DriverDataImportService ?? throw new ArgumentNullException(nameof(f1DriverDataImportService));
-            _teamDataExportService = teamDataExportService ?? throw new ArgumentNullException(nameof(teamDataExportService));
-            _teamDataImportService = teamDataImportService ?? throw new ArgumentNullException(nameof(teamDataImportService));
+            _carNumberRepositoryExportService = carNumberRepositoryExportService ?? throw new ArgumentNullException(nameof(carNumberRepositoryExportService));
+            _carNumberRepositoryImportService = carNumberRepositoryImportService ?? throw new ArgumentNullException(nameof(carNumberRepositoryImportService));
+            _chassisHandlingRepositoryExportService = chassisHandlingRepositoryExportService ?? throw new ArgumentNullException(nameof(chassisHandlingRepositoryExportService));
+            _chassisHandlingRepositoryImportService = chassisHandlingRepositoryImportService ?? throw new ArgumentNullException(nameof(chassisHandlingRepositoryImportService));
+            _f1ChiefCommercialRepositoryExportService = f1ChiefCommercialRepositoryExportService ?? throw new ArgumentNullException(nameof(f1ChiefCommercialRepositoryExportService));
+            _f1ChiefCommercialRepositoryImportService = f1ChiefCommercialRepositoryImportService ?? throw new ArgumentNullException(nameof(f1ChiefCommercialRepositoryImportService));
+            _f1ChiefDesignerRepositoryExportService = f1ChiefDesignerRepositoryExportService ?? throw new ArgumentNullException(nameof(f1ChiefDesignerRepositoryExportService));
+            _f1ChiefDesignerRepositoryImportService = f1ChiefDesignerRepositoryImportService ?? throw new ArgumentNullException(nameof(f1ChiefDesignerRepositoryImportService));
+            _f1ChiefEngineerRepositoryExportService = f1ChiefEngineerRepositoryExportService ?? throw new ArgumentNullException(nameof(f1ChiefEngineerRepositoryExportService));
+            _f1ChiefEngineerRepositoryImportService = f1ChiefEngineerRepositoryImportService ?? throw new ArgumentNullException(nameof(f1ChiefEngineerRepositoryImportService));
+            _f1ChiefMechanicRepositoryExportService = f1ChiefMechanicRepositoryExportService ?? throw new ArgumentNullException(nameof(f1ChiefMechanicRepositoryExportService));
+            _f1ChiefMechanicRepositoryImportService = f1ChiefMechanicRepositoryImportService ?? throw new ArgumentNullException(nameof(f1ChiefMechanicRepositoryImportService));
+            _f1DriverRepositoryExportService = f1DriverRepositoryExportService ?? throw new ArgumentNullException(nameof(f1DriverRepositoryExportService));
+            _f1DriverRepositoryImportService = f1DriverRepositoryImportService ?? throw new ArgumentNullException(nameof(f1DriverRepositoryImportService));
+            _teamRepositoryExportService = teamRepositoryExportService ?? throw new ArgumentNullException(nameof(teamRepositoryExportService));
+            _teamRepositoryImportService = teamRepositoryImportService ?? throw new ArgumentNullException(nameof(teamRepositoryImportService));
 
             CarNumbers = carNumberRepository ?? throw new ArgumentNullException(nameof(carNumberRepository));
             ChassisHandlings = chassisHandlingRepository ?? throw new ArgumentNullException(nameof(chassisHandlingRepository));
@@ -87,26 +87,26 @@ namespace App.BaseGameEditor.Data.Services
 
         public void Export()
         {
-            _carNumberDataExportService.Export();
-            _chassisHandlingDataExportService.Export();
-            _f1ChiefCommercialDataExportService.Export();
-            _f1ChiefDesignerDataExportService.Export();
-            _f1ChiefEngineerDataExportService.Export();
-            _f1ChiefMechanicDataExportService.Export();
-            _f1DriverDataExportService.Export();
-            _teamDataExportService.Export();
+            _carNumberRepositoryExportService.Export();
+            _chassisHandlingRepositoryExportService.Export();
+            _f1ChiefCommercialRepositoryExportService.Export();
+            _f1ChiefDesignerRepositoryExportService.Export();
+            _f1ChiefEngineerRepositoryExportService.Export();
+            _f1ChiefMechanicRepositoryExportService.Export();
+            _f1DriverRepositoryExportService.Export();
+            _teamRepositoryExportService.Export();
         }
 
         public void Import()
         {
-            _carNumberDataImportService.Import();
-            _chassisHandlingDataImportService.Import();
-            _f1ChiefCommercialDataImportService.Import();
-            _f1ChiefDesignerDataImportService.Import();
-            _f1ChiefEngineerDataImportService.Import();
-            _f1ChiefMechanicDataImportService.Import();
-            _f1DriverDataImportService.Import();
-            _teamDataImportService.Import();
+            _carNumberRepositoryImportService.Import(22);
+            _chassisHandlingRepositoryImportService.Import(11);
+            _f1ChiefCommercialRepositoryImportService.Import(11);
+            _f1ChiefDesignerRepositoryImportService.Import(11);
+            _f1ChiefEngineerRepositoryImportService.Import(11);
+            _f1ChiefMechanicRepositoryImportService.Import(11);
+            _f1DriverRepositoryImportService.Import(33);
+            _teamRepositoryImportService.Import(11);
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using App.BaseGameEditor.Domain.Entities;
-using App.BaseGameEditor.Domain.Repositories;
+using App.Core.Repositories;
 
 namespace App.BaseGameEditor.Domain.Services
 {

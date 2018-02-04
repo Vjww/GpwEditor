@@ -4,9 +4,11 @@ using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.DataLocators;
 using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.FileResources;
+using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Factories;
 using App.BaseGameEditor.Infrastructure.Maps.Manual;
+using App.BaseGameEditor.Infrastructure.Repositories;
 using App.BaseGameEditor.Presentation.Outputs;
 using Autofac;
 using Autofac.Features.ResolveAnything;
@@ -83,8 +85,13 @@ namespace App.DependencyInjection.Autofac
             _containerBuilder.RegisterType<F1DriverDataLocator>().InstancePerDependency();
             _containerBuilder.RegisterType<TeamDataLocator>().InstancePerDependency();
 
-            _containerBuilder.RegisterGeneric(typeof(DataEntityFactory<>)).As(typeof(IDataEntityFactory<>)).InstancePerDependency();
-            _containerBuilder.RegisterGeneric(typeof(DataLocatorFactory<>)).As(typeof(IDataLocatorFactory<>)).InstancePerDependency();
+            _containerBuilder.RegisterGeneric(typeof(DataEntityFactory<>)).As(typeof(IDataEntityFactory<>)).SingleInstance();
+            _containerBuilder.RegisterGeneric(typeof(DataLocatorFactory<>)).As(typeof(IDataLocatorFactory<>)).SingleInstance();
+            _containerBuilder.RegisterGeneric(typeof(RepositoryExportService<>)).As(typeof(IRepositoryExportService<>)).SingleInstance();
+            _containerBuilder.RegisterGeneric(typeof(RepositoryImportService<>)).As(typeof(IRepositoryImportService<>)).SingleInstance();
+
+            //_containerBuilder.RegisterGeneric(typeof(RepositoryExporter<>)).As(typeof(IRepositoryExporter<>)).SingleInstance();
+            //_containerBuilder.RegisterGeneric(typeof(AlternativeRepositoryImporter<>)).As(typeof(IAlternativeRepositoryImporter<>)).SingleInstance();
 
             //_containerBuilder.RegisterType<AutoMapperObjectMapperService>().As<IMapperService>();
 
