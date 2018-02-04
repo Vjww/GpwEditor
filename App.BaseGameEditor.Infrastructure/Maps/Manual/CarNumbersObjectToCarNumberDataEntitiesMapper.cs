@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using App.BaseGameEditor.Data.DataEntities;
-using App.BaseGameEditor.Data.Factories;
+using App.BaseGameEditor.Infrastructure.Factories;
 
 namespace App.BaseGameEditor.Infrastructure.Maps.Manual
 {

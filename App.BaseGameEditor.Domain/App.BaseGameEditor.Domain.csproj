@@ -41,7 +41,6 @@
     <Compile Include="Entities\F1ChiefDesignerEntity.cs" />
     <Compile Include="Entities\F1ChiefCommercialEntity.cs" />
     <Compile Include="Services\DomainModelService.cs" />
-    <Compile Include="Identities\IIntegerIdentity.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\TeamEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ValueObjects\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\App.Core\App.Core.csproj">
+      <Project>{8F131E69-0FB5-432A-B873-DDC4B2631D49}</Project>
+      <Name>App.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

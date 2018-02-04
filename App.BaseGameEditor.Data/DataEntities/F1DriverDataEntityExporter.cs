@@ -8,11 +8,11 @@ namespace App.BaseGameEditor.Data.DataEntities
     public class F1DriverDataEntityExporter : IDataEntityExporter
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly DataLocatorFactory<F1DriverDataLocator> _dataLocatorFactory;
+        private readonly IDataLocatorFactory<F1DriverDataLocator> _dataLocatorFactory;
 
         public F1DriverDataEntityExporter(
             DataEndpoint dataEndpoint,
-            DataLocatorFactory<F1DriverDataLocator> dataLocatorFactory)
+            IDataLocatorFactory<F1DriverDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));

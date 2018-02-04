@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using App.BaseGameEditor.Domain.Identities;
+using App.Core.Identities;
 
 namespace App.BaseGameEditor.Domain.Entities
 {

@@ -5,6 +5,7 @@ using App.BaseGameEditor.Data.DataLocators;
 using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.FileResources;
 using App.BaseGameEditor.Domain.Entities;
+using App.BaseGameEditor.Infrastructure.Factories;
 using App.BaseGameEditor.Infrastructure.Maps.Manual;
 using App.BaseGameEditor.Presentation.Outputs;
 using Autofac;
@@ -35,7 +36,8 @@ namespace App.DependencyInjection.Autofac
                         type.Namespace.StartsWith("App.BaseGameEditor.Application") ||
                         type.Namespace.StartsWith("App.BaseGameEditor.Domain") ||
                         type.Namespace.StartsWith("App.BaseGameEditor.Infrastructure") ||
-                        type.Namespace.StartsWith("App.BaseGameEditor.Data")
+                        type.Namespace.StartsWith("App.BaseGameEditor.Data") ||
+                        type.Namespace.StartsWith("App.Core")
                     ))
                 .AsImplementedInterfaces()
                 .SingleInstance();
@@ -80,6 +82,9 @@ namespace App.DependencyInjection.Autofac
             _containerBuilder.RegisterType<F1ChiefMechanicDataLocator>().InstancePerDependency();
             _containerBuilder.RegisterType<F1DriverDataLocator>().InstancePerDependency();
             _containerBuilder.RegisterType<TeamDataLocator>().InstancePerDependency();
+
+            _containerBuilder.RegisterGeneric(typeof(DataEntityFactory<>)).As(typeof(IDataEntityFactory<>)).InstancePerDependency();
+            _containerBuilder.RegisterGeneric(typeof(DataLocatorFactory<>)).As(typeof(IDataLocatorFactory<>)).InstancePerDependency();
 
             //_containerBuilder.RegisterType<AutoMapperObjectMapperService>().As<IMapperService>();
 

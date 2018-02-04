@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\CarNumbersObjectFactory.cs" />
+    <Compile Include="Factories\DataEntityFactory.cs" />
+    <Compile Include="Factories\DataLocatorFactory.cs" />
+    <Compile Include="Factories\MemoryStreamFactory.cs" />
     <Compile Include="Maps\Manual\CarNumberDataEntitiesToCarNumbersObjectMapper.cs" />
     <Compile Include="Maps\Manual\CarNumbersObjectToCarNumberDataEntitiesMapper.cs" />
     <Compile Include="Factories\EntityFactory.cs" />
@@ -75,6 +78,10 @@
     <ProjectReference Include="..\App.BaseGameEditor.Domain\App.BaseGameEditor.Domain.csproj">
       <Project>{26383d7c-aaf3-43b9-ad71-fd795387b59f}</Project>
       <Name>App.BaseGameEditor.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Core\App.Core.csproj">
+      <Project>{8F131E69-0FB5-432A-B873-DDC4B2631D49}</Project>
+      <Name>App.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

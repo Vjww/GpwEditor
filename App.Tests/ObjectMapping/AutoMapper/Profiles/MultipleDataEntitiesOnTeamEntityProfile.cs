@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using App.BaseGameEditor.Data.Catalogues.Language;
 using App.BaseGameEditor.Data.DataEntities;
-using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Factories;
 using App.BaseGameEditor.Infrastructure.Maps.AutoMapper;

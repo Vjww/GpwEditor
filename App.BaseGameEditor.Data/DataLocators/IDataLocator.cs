@@ -1,4 +1,4 @@
-﻿using App.BaseGameEditor.Data.Identities;
+﻿using App.Core.Identities;
 
 namespace App.BaseGameEditor.Data.DataLocators
 {

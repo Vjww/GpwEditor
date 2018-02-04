@@ -58,6 +58,10 @@
       <Project>{360ab367-9cb7-4fdf-9580-984962f76616}</Project>
       <Name>App.BaseGameEditor.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.Core\App.Core.csproj">
+      <Project>{8F131E69-0FB5-432A-B873-DDC4B2631D49}</Project>
+      <Name>App.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

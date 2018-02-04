@@ -88,9 +88,8 @@
     <Compile Include="DataLocators\F1ChiefMechanicDataLocator.cs" />
     <Compile Include="DataLocators\F1DriverDataLocator.cs" />
     <Compile Include="DataLocators\IDataLocator.cs" />
-    <Compile Include="Factories\DataLocatorFactory.cs" />
-    <Compile Include="Factories\DataEntityFactory.cs" />
-    <Compile Include="Identities\IIntegerIdentity.cs" />
+    <Compile Include="Factories\IDataEntityFactory.cs" />
+    <Compile Include="Factories\IDataLocatorFactory.cs" />
     <Compile Include="Repositories\F1DriverRepositoryImporter.cs" />
     <Compile Include="Repositories\F1ChiefMechanicRepositoryImporter.cs" />
     <Compile Include="Repositories\F1ChiefEngineerRepositoryImporter.cs" />
@@ -141,7 +140,6 @@
     <Compile Include="Enums\CommentaryType.cs" />
     <Compile Include="Enums\LanguageType.cs" />
     <Compile Include="Factories\IStreamFactory.cs" />
-    <Compile Include="Factories\MemoryStreamFactory.cs" />
     <Compile Include="Services\FileService.cs" />
     <Compile Include="FileResources\FileResource.cs" />
     <Compile Include="FileResources\FileResourceExporter.cs" />
@@ -163,6 +161,11 @@
     <Compile Include="Streams\StreamReadService.cs" />
     <Compile Include="Streams\StreamWriteService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\App.Core\App.Core.csproj">
+      <Project>{8F131E69-0FB5-432A-B873-DDC4B2631D49}</Project>
+      <Name>App.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

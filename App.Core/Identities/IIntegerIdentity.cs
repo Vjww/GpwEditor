@@ -1,4 +1,4 @@
-﻿namespace App.BaseGameEditor.Data.Identities
+﻿namespace App.Core.Identities
 {
     public interface IIntegerIdentity
     {

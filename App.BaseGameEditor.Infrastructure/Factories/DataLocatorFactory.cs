@@ -1,9 +1,10 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataLocators;
+using App.BaseGameEditor.Data.Factories;
 
-namespace App.BaseGameEditor.Data.Factories
+namespace App.BaseGameEditor.Infrastructure.Factories
 {
-    public class DataLocatorFactory<TDataLocator>
+    public class DataLocatorFactory<TDataLocator> : IDataLocatorFactory<TDataLocator>
         where TDataLocator : class, IDataLocator
     {
         private readonly Func<TDataLocator> _instantiateType;

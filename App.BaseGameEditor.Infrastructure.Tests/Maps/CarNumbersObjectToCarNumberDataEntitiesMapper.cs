@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using App.BaseGameEditor.Data.DataEntities;
-using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Infrastructure.Factories;
 using App.BaseGameEditor.Infrastructure.Maps.Manual;
 using FluentAssertions;

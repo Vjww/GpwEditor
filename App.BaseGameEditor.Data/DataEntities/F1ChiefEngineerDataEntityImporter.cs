@@ -8,13 +8,13 @@ namespace App.BaseGameEditor.Data.DataEntities
     public class F1ChiefEngineerDataEntityImporter : IDataEntityImporter
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly DataEntityFactory<F1ChiefEngineerDataEntity> _dataEntityFactory;
-        private readonly DataLocatorFactory<F1ChiefEngineerDataLocator> _dataLocatorFactory;
+        private readonly IDataEntityFactory<F1ChiefEngineerDataEntity> _dataEntityFactory;
+        private readonly IDataLocatorFactory<F1ChiefEngineerDataLocator> _dataLocatorFactory;
 
         public F1ChiefEngineerDataEntityImporter(
             DataEndpoint dataEndpoint,
-            DataEntityFactory<F1ChiefEngineerDataEntity> dataEntityFactory,
-            DataLocatorFactory<F1ChiefEngineerDataLocator> dataLocatorFactory)
+            IDataEntityFactory<F1ChiefEngineerDataEntity> dataEntityFactory,
+            IDataLocatorFactory<F1ChiefEngineerDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataEntityFactory = dataEntityFactory ?? throw new ArgumentNullException(nameof(dataEntityFactory));

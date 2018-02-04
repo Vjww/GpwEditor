@@ -8,13 +8,13 @@ namespace App.BaseGameEditor.Data.DataEntities
     public class TeamDataEntityImporter : IDataEntityImporter
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly DataEntityFactory<TeamDataEntity> _dataEntityFactory;
-        private readonly DataLocatorFactory<TeamDataLocator> _dataLocatorFactory;
+        private readonly IDataEntityFactory<TeamDataEntity> _dataEntityFactory;
+        private readonly IDataLocatorFactory<TeamDataLocator> _dataLocatorFactory;
 
         public TeamDataEntityImporter(
             DataEndpoint dataEndpoint,
-            DataEntityFactory<TeamDataEntity> dataEntityFactory,
-            DataLocatorFactory<TeamDataLocator> dataLocatorFactory)
+            IDataEntityFactory<TeamDataEntity> dataEntityFactory,
+            IDataLocatorFactory<TeamDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataEntityFactory = dataEntityFactory ?? throw new ArgumentNullException(nameof(dataEntityFactory));

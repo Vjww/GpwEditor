@@ -8,13 +8,13 @@ namespace App.BaseGameEditor.Data.DataEntities
     public class CarNumberDataEntityImporter : IDataEntityImporter
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly DataEntityFactory<CarNumberDataEntity> _dataEntityFactory;
-        private readonly DataLocatorFactory<CarNumberDataLocator> _dataLocatorFactory;
+        private readonly IDataEntityFactory<CarNumberDataEntity> _dataEntityFactory;
+        private readonly IDataLocatorFactory<CarNumberDataLocator> _dataLocatorFactory;
 
         public CarNumberDataEntityImporter(
             DataEndpoint dataEndpoint,
-            DataEntityFactory<CarNumberDataEntity> dataEntityFactory,
-            DataLocatorFactory<CarNumberDataLocator> dataLocatorFactory)
+            IDataEntityFactory<CarNumberDataEntity> dataEntityFactory,
+            IDataLocatorFactory<CarNumberDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataEntityFactory = dataEntityFactory ?? throw new ArgumentNullException(nameof(dataEntityFactory));
