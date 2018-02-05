@@ -1,10 +1,10 @@
-﻿using App.BaseGameEditor.Data.DataEntities;
+﻿using App.Core.Entities;
 
 namespace App.BaseGameEditor.Data.Services
 {
-    public interface IDataEntityImportService<out TDataEntity>
-        where TDataEntity : class, IDataEntity
+    public interface IDataEntityImportService<out TEntity>
+        where TEntity : class, IEntity
     {
-        TDataEntity Import(int id);
+        TEntity Import(int id);
     }
 }

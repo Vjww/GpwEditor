@@ -18,8 +18,8 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
         [Fact]
         public void MultipleDataEntitiesOnTeamEntityProfile_WhenMappingFromPopulatedTeamDataEntity_ExpectPopulatedTeamEntity()
         {
-            var teamDataEntityFactory = new DataEntityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue())); // TODO: Mock it
-            var chassisHandlingDataEntityFactory = new DataEntityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
+            var teamDataEntityFactory = new EntityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue())); // TODO: Mock it
+            var chassisHandlingDataEntityFactory = new EntityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
             var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
             var teamEntityFactory = new EntityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
@@ -97,7 +97,7 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
         [Fact]
         public void MultipleDataEntitiesOnTeamEntityProfile_WhenMappingFromPopulatedChassisHandlingDataEntity_ExpectPopulatedTeamEntity()
         {
-            var chassisHandlingDataEntityFactory = new DataEntityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
+            var chassisHandlingDataEntityFactory = new EntityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
             var teamEntityFactory = new EntityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
             var mapper = new AutoMapperObjectMapperService(
@@ -156,8 +156,8 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
         [Fact]
         public void MultipleDataEntitiesOnTeamEntityProfile_WhenMappingFromThreeSourcesToOne_ExpectPopulatedTeamEntity()
         {
-            var teamDataEntityFactory = new DataEntityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue())); // TODO: Mock it
-            var chassisHandlingDataEntityFactory = new DataEntityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
+            var teamDataEntityFactory = new EntityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue())); // TODO: Mock it
+            var chassisHandlingDataEntityFactory = new EntityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
             var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
             var teamEntityFactory = new EntityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
@@ -240,8 +240,8 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
         [Fact]
         public void MultipleDataEntitiesOnTeamEntityProfile_WhenMappingFromPopulatedTeamEntity_ExpectPopulatedTeamDataEntity()
         {
-            var teamDataEntityFactory = new DataEntityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue())); // TODO: Mock it
-            var chassisHandlingDataEntityFactory = new DataEntityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
+            var teamDataEntityFactory = new EntityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue())); // TODO: Mock it
+            var chassisHandlingDataEntityFactory = new EntityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
             var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
             var teamEntityFactory = new EntityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
@@ -319,8 +319,8 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
         [Fact]
         public void MultipleDataEntitiesOnTeamEntityProfile_WhenMappingFromPopulatedTeamEntity_ExpectPopulatedChassisHandlingDataEntity()
         {
-            var teamDataEntityFactory = new DataEntityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue())); // TODO: Mock it
-            var chassisHandlingDataEntityFactory = new DataEntityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
+            var teamDataEntityFactory = new EntityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue())); // TODO: Mock it
+            var chassisHandlingDataEntityFactory = new EntityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
             var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
             var teamEntityFactory = new EntityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
@@ -389,8 +389,8 @@ namespace App.Tests.ObjectMapping.AutoMapper.Profiles
         [Fact]
         public void MultipleDataEntitiesOnTeamEntityProfile_WhenMappingFromPopulatedTeamEntity_ExpectPopulatedCarNumbersObject()
         {
-            var teamDataEntityFactory = new DataEntityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue())); // TODO: Mock it
-            var chassisHandlingDataEntityFactory = new DataEntityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
+            var teamDataEntityFactory = new EntityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue())); // TODO: Mock it
+            var chassisHandlingDataEntityFactory = new EntityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
             var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
             var teamEntityFactory = new EntityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 

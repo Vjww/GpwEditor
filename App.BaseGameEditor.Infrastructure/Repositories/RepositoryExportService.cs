@@ -1,19 +1,19 @@
 ﻿using System;
-using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.Services;
+using App.Core.Entities;
 using App.Core.Repositories;
 
 namespace App.BaseGameEditor.Infrastructure.Repositories
 {
-    public class RepositoryExportService<TDataEntity> : IRepositoryExportService<TDataEntity>
-        where TDataEntity : class, IDataEntity
+    public class RepositoryExportService<TEntity> : IRepositoryExportService<TEntity>
+        where TEntity : class, IEntity
     {
-        private readonly IRepository<TDataEntity> _repository;
-        private readonly IDataEntityExportService<TDataEntity> _service;
+        private readonly IRepository<TEntity> _repository;
+        private readonly IDataEntityExportService<TEntity> _service;
 
         public RepositoryExportService(
-            IRepository<TDataEntity> repository,
-            IDataEntityExportService<TDataEntity> service)
+            IRepository<TEntity> repository,
+            IDataEntityExportService<TEntity> service)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _service = service ?? throw new ArgumentNullException(nameof(service));

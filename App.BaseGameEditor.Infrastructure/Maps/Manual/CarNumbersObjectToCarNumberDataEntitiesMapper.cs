@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using App.BaseGameEditor.Data.DataEntities;
-using App.BaseGameEditor.Infrastructure.Factories;
+using App.Core.Factories;
 
 namespace App.BaseGameEditor.Infrastructure.Maps.Manual
 {
     public class CarNumbersObjectToCarNumberDataEntitiesMapper
     {
-        private readonly DataEntityFactory<CarNumberDataEntity> _factory;
+        private readonly IEntityFactory<CarNumberDataEntity> _factory;
 
-        public CarNumbersObjectToCarNumberDataEntitiesMapper(DataEntityFactory<CarNumberDataEntity> factory)
+        public CarNumbersObjectToCarNumberDataEntitiesMapper(IEntityFactory<CarNumberDataEntity> factory)
         {
             _factory = factory ?? throw new ArgumentNullException(nameof(factory));
         }

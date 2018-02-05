@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace App.BaseGameEditor.Data.DataEntities
+namespace App.Core.Entities
 {
-    public abstract class DataEntityBase : IDataEntity
+    public abstract class EntityBase : IEntity
     {
         private bool _isIdInitialised;
         private int _id;

@@ -11,21 +11,21 @@ namespace App.BaseGameEditor.Application.Services
     {
         private readonly PersonService _domainService;
         private readonly DataService _dataService;
-        private readonly DataEntityFactory<F1ChiefCommercialDataEntity> _f1ChiefCommercialDataEntityFactory;
-        private readonly DataEntityFactory<F1ChiefDesignerDataEntity> _f1ChiefDesignerDataEntityFactory;
-        private readonly DataEntityFactory<F1ChiefEngineerDataEntity> _f1ChiefEngineerDataEntityFactory;
-        private readonly DataEntityFactory<F1ChiefMechanicDataEntity> _f1ChiefMechanicDataEntityFactory;
-        private readonly DataEntityFactory<F1DriverDataEntity> _f1DriverDataEntityFactory;
+        private readonly EntityFactory<F1ChiefCommercialDataEntity> _f1ChiefCommercialDataEntityFactory;
+        private readonly EntityFactory<F1ChiefDesignerDataEntity> _f1ChiefDesignerDataEntityFactory;
+        private readonly EntityFactory<F1ChiefEngineerDataEntity> _f1ChiefEngineerDataEntityFactory;
+        private readonly EntityFactory<F1ChiefMechanicDataEntity> _f1ChiefMechanicDataEntityFactory;
+        private readonly EntityFactory<F1DriverDataEntity> _f1DriverDataEntityFactory;
         private readonly IMapperService _mapperService;
 
         public PersonDomainModelExportService(
             PersonService domainService,
             DataService dataService,
-            DataEntityFactory<F1ChiefCommercialDataEntity> f1ChiefCommercialDataEntityFactory,
-            DataEntityFactory<F1ChiefDesignerDataEntity> f1ChiefDesignerDataEntityFactory,
-            DataEntityFactory<F1ChiefEngineerDataEntity> f1ChiefEngineerDataEntityFactory,
-            DataEntityFactory<F1ChiefMechanicDataEntity> f1ChiefMechanicDataEntityFactory,
-            DataEntityFactory<F1DriverDataEntity> f1DriverDataEntityFactory,
+            EntityFactory<F1ChiefCommercialDataEntity> f1ChiefCommercialDataEntityFactory,
+            EntityFactory<F1ChiefDesignerDataEntity> f1ChiefDesignerDataEntityFactory,
+            EntityFactory<F1ChiefEngineerDataEntity> f1ChiefEngineerDataEntityFactory,
+            EntityFactory<F1ChiefMechanicDataEntity> f1ChiefMechanicDataEntityFactory,
+            EntityFactory<F1DriverDataEntity> f1DriverDataEntityFactory,
             IMapperService mapperService)
         {
             _domainService = domainService ?? throw new ArgumentNullException(nameof(domainService));

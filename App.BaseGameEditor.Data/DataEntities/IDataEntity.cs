@@ -1,8 +1,6 @@
-﻿using App.Core.Identities;
-
-namespace App.BaseGameEditor.Data.DataEntities
+﻿namespace App.BaseGameEditor.Data.DataEntities
 {
-    public interface IDataEntity : IIntegerIdentity
+    public interface IDataEntity
     {
     }
 }

@@ -1,10 +1,10 @@
-﻿using App.BaseGameEditor.Data.DataEntities;
+﻿using App.Core.Entities;
 
 namespace App.BaseGameEditor.Data.Services
 {
-    public interface IDataEntityExportService<in TDataEntity>
-        where TDataEntity : class, IDataEntity
+    public interface IDataEntityExportService<in TEntity>
+        where TEntity : class, IEntity
     {
-        void Export(TDataEntity dataEntity);
+        void Export(TEntity dataEntity);
     }
 }

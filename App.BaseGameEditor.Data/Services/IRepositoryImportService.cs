@@ -1,9 +1,9 @@
-﻿using App.BaseGameEditor.Data.DataEntities;
+﻿using App.Core.Entities;
 
 namespace App.BaseGameEditor.Data.Services
 {
-    public interface IRepositoryImportService<TDataEntity>
-        where TDataEntity : class, IDataEntity
+    public interface IRepositoryImportService<TEntity>
+        where TEntity : class, IEntity
     {
         void Import(int itemCount);
     }

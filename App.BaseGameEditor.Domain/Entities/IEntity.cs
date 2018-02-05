@@ -3,7 +3,7 @@ using App.Core.Identities;
 
 namespace App.BaseGameEditor.Domain.Entities
 {
-    public interface IEntity : IIntegerIdentity
+    public interface IValidatingEntity : IIntegerIdentity
     {
         IEnumerable<string> Validate();
     }

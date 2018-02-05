@@ -1,9 +1,9 @@
-﻿using App.BaseGameEditor.Data.DataEntities;
+﻿using App.Core.Entities;
 
 namespace App.BaseGameEditor.Data.Services
 {
-    public interface IRepositoryExportService<TDataEntity>
-        where TDataEntity : class, IDataEntity
+    public interface IRepositoryExportService<TEntity>
+        where TEntity : class, IEntity
     {
         void Export();
     }

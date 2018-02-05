@@ -1,9 +1,10 @@
 ﻿using System;
 using App.BaseGameEditor.Data.Catalogues.Language;
+using App.Core.Entities;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class F1ChiefMechanicDataEntity : DataEntityBase
+    public class F1ChiefMechanicDataEntity : EntityBase, IDataEntity
     {
         public F1ChiefMechanicDataEntity(LanguageCatalogueValue languageCatalogueValue)
         {

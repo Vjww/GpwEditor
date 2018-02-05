@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using App.Core.Identities;
+using App.Core.Entities;
 
 namespace App.Core.Repositories
 {
     public interface IRepository<TEntity>
-        where TEntity : class, IIntegerIdentity
+        where TEntity : class, IEntity
     {
         IEnumerable<TEntity> Get();
         IEnumerable<TEntity> Get(Func<TEntity, bool> predicate);

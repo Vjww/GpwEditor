@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using App.Core.Identities;
+using App.Core.Entities;
 using App.Core.Repositories;
 
 namespace App.BaseGameEditor.Infrastructure.Repositories
 {
     public abstract class RepositoryBase<TEntity> : IRepository<TEntity>
-        where TEntity : class, IIntegerIdentity
+        where TEntity : class, IEntity
     {
         private readonly List<TEntity> _list;
 

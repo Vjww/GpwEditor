@@ -1,9 +1,10 @@
 ﻿using System;
-using App.BaseGameEditor.Domain.Entities;
+using App.Core.Entities;
+using App.Core.Factories;
 
 namespace App.BaseGameEditor.Infrastructure.Factories
 {
-    public class EntityFactory<TEntity>
+    public class EntityFactory<TEntity> : IEntityFactory<TEntity>
         where TEntity : class, IEntity
     {
         private readonly Func<TEntity> _instantiateType;

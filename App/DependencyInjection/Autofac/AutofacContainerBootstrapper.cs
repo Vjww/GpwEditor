@@ -10,6 +10,7 @@ using App.BaseGameEditor.Infrastructure.Factories;
 using App.BaseGameEditor.Infrastructure.Maps.Manual;
 using App.BaseGameEditor.Infrastructure.Repositories;
 using App.BaseGameEditor.Presentation.Outputs;
+using App.Core.Factories;
 using Autofac;
 using Autofac.Features.ResolveAnything;
 
@@ -85,7 +86,7 @@ namespace App.DependencyInjection.Autofac
             _containerBuilder.RegisterType<F1DriverDataLocator>().InstancePerDependency();
             _containerBuilder.RegisterType<TeamDataLocator>().InstancePerDependency();
 
-            _containerBuilder.RegisterGeneric(typeof(DataEntityFactory<>)).As(typeof(IDataEntityFactory<>)).SingleInstance();
+            _containerBuilder.RegisterGeneric(typeof(EntityFactory<>)).As(typeof(IEntityFactory<>)).SingleInstance();
             _containerBuilder.RegisterGeneric(typeof(DataLocatorFactory<>)).As(typeof(IDataLocatorFactory<>)).SingleInstance();
             _containerBuilder.RegisterGeneric(typeof(RepositoryExportService<>)).As(typeof(IRepositoryExportService<>)).SingleInstance();
             _containerBuilder.RegisterGeneric(typeof(RepositoryImportService<>)).As(typeof(IRepositoryImportService<>)).SingleInstance();

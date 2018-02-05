@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using App.Core.Entities;
 
 namespace App.BaseGameEditor.Domain.Entities
 {
-    public class TeamEntity : EntityBase
+    public class TeamEntity : EntityBase, IValidatingEntity
     {
         public int TeamId { get; set; }
         public string Name { get; set; }
@@ -20,7 +21,7 @@ namespace App.BaseGameEditor.Domain.Entities
         public int CarNumberDriver1 { get; set; }
         public int CarNumberDriver2 { get; set; }
 
-        public override IEnumerable<string> Validate()
+        public IEnumerable<string> Validate()
         {
             var validationMessages = new List<string>();
 

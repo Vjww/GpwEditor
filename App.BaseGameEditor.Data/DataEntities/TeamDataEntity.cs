@@ -1,9 +1,10 @@
 ﻿using System;
 using App.BaseGameEditor.Data.Catalogues.Language;
+using App.Core.Entities;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class TeamDataEntity : DataEntityBase
+    public class TeamDataEntity : EntityBase, IDataEntity
     {
         public TeamDataEntity(LanguageCatalogueValue languageCatalogueValue)
         {

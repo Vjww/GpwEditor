@@ -3,22 +3,23 @@ using App.BaseGameEditor.Data.DataEndpoints;
 using App.BaseGameEditor.Data.DataLocators;
 using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.Services;
+using App.Core.Factories;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
     public class F1ChiefDesignerDataEntityImportService : IDataEntityImportService<F1ChiefDesignerDataEntity>
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly IDataEntityFactory<F1ChiefDesignerDataEntity> _dataEntityFactory;
+        private readonly IEntityFactory<F1ChiefDesignerDataEntity> _entityFactory;
         private readonly IDataLocatorFactory<F1ChiefDesignerDataLocator> _dataLocatorFactory;
 
         public F1ChiefDesignerDataEntityImportService(
             DataEndpoint dataEndpoint,
-            IDataEntityFactory<F1ChiefDesignerDataEntity> dataEntityFactory,
+            IEntityFactory<F1ChiefDesignerDataEntity> entityFactory,
             IDataLocatorFactory<F1ChiefDesignerDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
-            _dataEntityFactory = dataEntityFactory ?? throw new ArgumentNullException(nameof(dataEntityFactory));
+            _entityFactory = entityFactory ?? throw new ArgumentNullException(nameof(entityFactory));
             _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));
         }
 
@@ -29,7 +30,7 @@ namespace App.BaseGameEditor.Data.DataEntities
             var dataLocator = _dataLocatorFactory.Create();
             dataLocator.Initialise(id);
 
-            var result = _dataEntityFactory.Create(id);
+            var result = _entityFactory.Create(id);
             result.Name.English = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Name);
             result.Name.French = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name);
             result.Name.German = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name);
