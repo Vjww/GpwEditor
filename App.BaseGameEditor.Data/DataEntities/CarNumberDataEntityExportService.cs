@@ -1,19 +1,19 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEndpoints;
 using App.BaseGameEditor.Data.DataLocators;
-using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.Services;
+using App.Core.Factories;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
     public class CarNumberDataEntityExportService : IDataEntityExportService<CarNumberDataEntity>
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly IDataLocatorFactory<CarNumberDataLocator> _dataLocatorFactory;
+        private readonly IIntegerIdentityFactory<CarNumberDataLocator> _dataLocatorFactory;
 
         public CarNumberDataEntityExportService(
             DataEndpoint dataEndpoint,
-            IDataLocatorFactory<CarNumberDataLocator> dataLocatorFactory)
+            IIntegerIdentityFactory<CarNumberDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));
@@ -24,8 +24,8 @@ namespace App.BaseGameEditor.Data.DataEntities
             if (dataEntity == null) throw new ArgumentNullException(nameof(dataEntity));
             if (!(dataEntity is CarNumberDataEntity carNumberDataEntity)) throw new ArgumentNullException(nameof(carNumberDataEntity));
 
-            var dataLocator = _dataLocatorFactory.Create();
-            dataLocator.Initialise(carNumberDataEntity.Id);
+            var dataLocator = _dataLocatorFactory.Create(carNumberDataEntity.Id);
+            dataLocator.Initialise();
 
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ValueA, carNumberDataEntity.ValueA);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ValueB, carNumberDataEntity.ValueB);

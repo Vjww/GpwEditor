@@ -1,7 +1,6 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEndpoints;
 using App.BaseGameEditor.Data.DataLocators;
-using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.Services;
 using App.Core.Factories;
 
@@ -10,16 +9,16 @@ namespace App.BaseGameEditor.Data.DataEntities
     public class F1DriverDataEntityImportService : IDataEntityImportService<F1DriverDataEntity>
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly IEntityFactory<F1DriverDataEntity> _entityFactory;
-        private readonly IDataLocatorFactory<F1DriverDataLocator> _dataLocatorFactory;
+        private readonly IIntegerIdentityFactory<F1DriverDataEntity> _dataEntityFactory;
+        private readonly IIntegerIdentityFactory<F1DriverDataLocator> _dataLocatorFactory;
 
         public F1DriverDataEntityImportService(
             DataEndpoint dataEndpoint,
-            IEntityFactory<F1DriverDataEntity> entityFactory,
-            IDataLocatorFactory<F1DriverDataLocator> dataLocatorFactory)
+            IIntegerIdentityFactory<F1DriverDataEntity> dataEntityFactory,
+            IIntegerIdentityFactory<F1DriverDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
-            _entityFactory = entityFactory ?? throw new ArgumentNullException(nameof(entityFactory));
+            _dataEntityFactory = dataEntityFactory ?? throw new ArgumentNullException(nameof(dataEntityFactory));
             _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));
         }
 
@@ -27,10 +26,10 @@ namespace App.BaseGameEditor.Data.DataEntities
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
 
-            var dataLocator = _dataLocatorFactory.Create();
-            dataLocator.Initialise(id);
+            var dataLocator = _dataLocatorFactory.Create(id);
+            dataLocator.Initialise();
 
-            var result = _entityFactory.Create(id);
+            var result = _dataEntityFactory.Create(id);
             result.Name.English = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Name);
             result.Name.French = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name);
             result.Name.German = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name);

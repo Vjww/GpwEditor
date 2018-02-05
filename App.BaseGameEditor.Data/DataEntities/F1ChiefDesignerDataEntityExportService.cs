@@ -1,19 +1,19 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEndpoints;
 using App.BaseGameEditor.Data.DataLocators;
-using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.Services;
+using App.Core.Factories;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
     public class F1ChiefDesignerDataEntityExportService : IDataEntityExportService<F1ChiefDesignerDataEntity>
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly IDataLocatorFactory<F1ChiefDesignerDataLocator> _dataLocatorFactory;
+        private readonly IIntegerIdentityFactory<F1ChiefDesignerDataLocator> _dataLocatorFactory;
 
         public F1ChiefDesignerDataEntityExportService(
             DataEndpoint dataEndpoint,
-            IDataLocatorFactory<F1ChiefDesignerDataLocator> dataLocatorFactory)
+            IIntegerIdentityFactory<F1ChiefDesignerDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));
@@ -24,8 +24,8 @@ namespace App.BaseGameEditor.Data.DataEntities
             if (dataEntity == null) throw new ArgumentNullException(nameof(dataEntity));
             if (!(dataEntity is F1ChiefDesignerDataEntity f1ChiefDesignerDataEntity)) throw new ArgumentNullException(nameof(f1ChiefDesignerDataEntity));
 
-            var dataLocator = _dataLocatorFactory.Create();
-            dataLocator.Initialise(f1ChiefDesignerDataEntity.Id);
+            var dataLocator = _dataLocatorFactory.Create(f1ChiefDesignerDataEntity.Id);
+            dataLocator.Initialise();
 
             _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, f1ChiefDesignerDataEntity.Name.English);
             _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, f1ChiefDesignerDataEntity.Name.French);

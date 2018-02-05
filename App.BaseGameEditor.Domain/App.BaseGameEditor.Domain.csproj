@@ -39,7 +39,7 @@
     <Compile Include="Entities\F1ChiefEngineerEntity.cs" />
     <Compile Include="Entities\F1ChiefDesignerEntity.cs" />
     <Compile Include="Entities\F1ChiefCommercialEntity.cs" />
-    <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Services\IEntityValidationService.cs" />
     <Compile Include="Services\DomainModelService.cs" />
     <Compile Include="Entities\TeamEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

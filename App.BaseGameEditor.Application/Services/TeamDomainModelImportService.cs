@@ -4,9 +4,9 @@ using System.Linq;
 using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Domain.Services;
-using App.BaseGameEditor.Infrastructure.Factories;
 using App.BaseGameEditor.Infrastructure.Maps.Manual;
 using App.BaseGameEditor.Infrastructure.Services;
+using App.Core.Factories;
 
 namespace App.BaseGameEditor.Application.Services
 {
@@ -16,20 +16,20 @@ namespace App.BaseGameEditor.Application.Services
 
         private readonly TeamService _domainService;
         private readonly DataService _dataService;
-        private readonly EntityFactory<TeamEntity> _factory;
+        private readonly IIntegerIdentityFactory<TeamEntity> _teamEntityFactory;
         private readonly IMapperService _mapperService;
         private readonly CarNumberDataEntitiesToCarNumbersObjectMapper _carNumbersMapper;
 
         public TeamDomainModelImportService(
             TeamService domainService,
             DataService dataService,
-            EntityFactory<TeamEntity> factory,
+            IIntegerIdentityFactory<TeamEntity> teamEntityFactory,
             IMapperService mapperService,
             CarNumberDataEntitiesToCarNumbersObjectMapper carNumbersMapper)
         {
             _domainService = domainService ?? throw new ArgumentNullException(nameof(domainService));
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
-            _factory = factory ?? throw new ArgumentNullException(nameof(factory));
+            _teamEntityFactory = teamEntityFactory ?? throw new ArgumentNullException(nameof(teamEntityFactory));
             _mapperService = mapperService ?? throw new ArgumentNullException(nameof(mapperService));
             _carNumbersMapper = carNumbersMapper ?? throw new ArgumentNullException(nameof(carNumbersMapper));
         }
@@ -46,7 +46,7 @@ namespace App.BaseGameEditor.Application.Services
                 var carNumberDataEntities = _dataService.CarNumbers.Get(x => x.TeamId == id);
 
                 // Map three into one
-                var team = _factory.Create(id);
+                var team = _teamEntityFactory.Create(id);
                 team = _mapperService.Map(teamDataEntity, team);
                 team = _mapperService.Map(chassisHandlingDataEntity, team);
                 team = _mapperService.Map(_carNumbersMapper.Map(carNumberDataEntities), team);

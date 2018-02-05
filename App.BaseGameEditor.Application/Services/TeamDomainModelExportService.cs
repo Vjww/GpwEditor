@@ -5,6 +5,7 @@ using App.BaseGameEditor.Domain.Services;
 using App.BaseGameEditor.Infrastructure.Factories;
 using App.BaseGameEditor.Infrastructure.Maps.Manual;
 using App.BaseGameEditor.Infrastructure.Services;
+using App.Core.Factories;
 
 namespace App.BaseGameEditor.Application.Services
 {
@@ -12,8 +13,8 @@ namespace App.BaseGameEditor.Application.Services
     {
         private readonly TeamService _domainService;
         private readonly DataService _dataService;
-        private readonly EntityFactory<TeamDataEntity> _teamDataEntityFactory;
-        private readonly EntityFactory<ChassisHandlingDataEntity> _chassisHandlingDataEntityFactory;
+        private readonly IIntegerIdentityFactory<TeamDataEntity> _teamDataEntityFactory;
+        private readonly IIntegerIdentityFactory<ChassisHandlingDataEntity> _chassisHandlingDataEntityFactory;
         private readonly CarNumbersObjectFactory _carNumbersObjectFactory;
         private readonly IMapperService _mapperService;
         private readonly CarNumbersObjectToCarNumberDataEntitiesMapper _carNumbersMapper;
@@ -21,8 +22,8 @@ namespace App.BaseGameEditor.Application.Services
         public TeamDomainModelExportService(
             TeamService domainService,
             DataService dataService,
-            EntityFactory<TeamDataEntity> teamDataEntityFactory,
-            EntityFactory<ChassisHandlingDataEntity> chassisHandlingDataEntityFactory,
+            IIntegerIdentityFactory<TeamDataEntity> teamDataEntityFactory,
+            IIntegerIdentityFactory<ChassisHandlingDataEntity> chassisHandlingDataEntityFactory,
             CarNumbersObjectFactory carNumbersObjectFactory,
             IMapperService mapperService,
             CarNumbersObjectToCarNumberDataEntitiesMapper carNumbersMapper)

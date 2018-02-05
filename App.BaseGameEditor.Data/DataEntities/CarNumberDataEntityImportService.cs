@@ -1,7 +1,6 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEndpoints;
 using App.BaseGameEditor.Data.DataLocators;
-using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.Services;
 using App.Core.Factories;
 
@@ -10,16 +9,16 @@ namespace App.BaseGameEditor.Data.DataEntities
     public class CarNumberDataEntityImportService : IDataEntityImportService<CarNumberDataEntity>
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly IEntityFactory<CarNumberDataEntity> _entityFactory;
-        private readonly IDataLocatorFactory<CarNumberDataLocator> _dataLocatorFactory;
+        private readonly IIntegerIdentityFactory<CarNumberDataEntity> _dataEntityFactory;
+        private readonly IIntegerIdentityFactory<CarNumberDataLocator> _dataLocatorFactory;
 
         public CarNumberDataEntityImportService(
             DataEndpoint dataEndpoint,
-            IEntityFactory<CarNumberDataEntity> entityFactory,
-            IDataLocatorFactory<CarNumberDataLocator> dataLocatorFactory)
+            IIntegerIdentityFactory<CarNumberDataEntity> dataEntityFactory,
+            IIntegerIdentityFactory<CarNumberDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
-            _entityFactory = entityFactory ?? throw new ArgumentNullException(nameof(entityFactory));
+            _dataEntityFactory = dataEntityFactory ?? throw new ArgumentNullException(nameof(dataEntityFactory));
             _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));
         }
 
@@ -27,10 +26,10 @@ namespace App.BaseGameEditor.Data.DataEntities
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
 
-            var dataLocator = _dataLocatorFactory.Create();
-            dataLocator.Initialise(id);
+            var dataLocator = _dataLocatorFactory.Create(id);
+            dataLocator.Initialise();
 
-            var result = _entityFactory.Create(id);
+            var result = _dataEntityFactory.Create(id);
             result.TeamId = result.Id / 2;
             result.PositionId = result.Id % 2;
             result.ValueA = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ValueA);

@@ -4,8 +4,8 @@ using System.Linq;
 using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Domain.Services;
-using App.BaseGameEditor.Infrastructure.Factories;
 using App.BaseGameEditor.Infrastructure.Services;
+using App.Core.Factories;
 
 namespace App.BaseGameEditor.Application.Services
 {
@@ -16,21 +16,21 @@ namespace App.BaseGameEditor.Application.Services
 
         private readonly PersonService _domainService;
         private readonly DataService _dataService;
-        private readonly EntityFactory<F1ChiefCommercialEntity> _f1ChiefCommercialEntityFactory;
-        private readonly EntityFactory<F1ChiefDesignerEntity> _f1ChiefDesignerEntityFactory;
-        private readonly EntityFactory<F1ChiefEngineerEntity> _f1ChiefEngineerEntityFactory;
-        private readonly EntityFactory<F1ChiefMechanicEntity> _f1ChiefMechanicEntityFactory;
-        private readonly EntityFactory<F1DriverEntity> _f1DriverEntityFactory;
+        private readonly IIntegerIdentityFactory<F1ChiefCommercialEntity> _f1ChiefCommercialEntityFactory;
+        private readonly IIntegerIdentityFactory<F1ChiefDesignerEntity> _f1ChiefDesignerEntityFactory;
+        private readonly IIntegerIdentityFactory<F1ChiefEngineerEntity> _f1ChiefEngineerEntityFactory;
+        private readonly IIntegerIdentityFactory<F1ChiefMechanicEntity> _f1ChiefMechanicEntityFactory;
+        private readonly IIntegerIdentityFactory<F1DriverEntity> _f1DriverEntityFactory;
         private readonly IMapperService _mapperService;
 
         public PersonDomainModelImportService(
             PersonService domainService,
             DataService dataService,
-            EntityFactory<F1ChiefCommercialEntity> f1ChiefCommercialEntityFactory,
-            EntityFactory<F1ChiefDesignerEntity> f1ChiefDesignerEntityFactory,
-            EntityFactory<F1ChiefEngineerEntity> f1ChiefEngineerEntityFactory,
-            EntityFactory<F1ChiefMechanicEntity> f1ChiefMechanicEntityFactory,
-            EntityFactory<F1DriverEntity> f1DriverEntityFactory,
+            IIntegerIdentityFactory<F1ChiefCommercialEntity> f1ChiefCommercialEntityFactory,
+            IIntegerIdentityFactory<F1ChiefDesignerEntity> f1ChiefDesignerEntityFactory,
+            IIntegerIdentityFactory<F1ChiefEngineerEntity> f1ChiefEngineerEntityFactory,
+            IIntegerIdentityFactory<F1ChiefMechanicEntity> f1ChiefMechanicEntityFactory,
+            IIntegerIdentityFactory<F1DriverEntity> f1DriverEntityFactory,
             IMapperService mapperService)
         {
             _domainService = domainService ?? throw new ArgumentNullException(nameof(domainService));

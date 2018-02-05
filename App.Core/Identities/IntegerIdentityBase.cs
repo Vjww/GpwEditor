@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace App.BaseGameEditor.Data.DataLocators
+namespace App.Core.Identities
 {
-    public abstract class DataLocatorBase : IDataLocator
+    public abstract class IntegerIdentityBase : IIntegerIdentity
     {
         private bool _isIdInitialised;
         private int _id;
@@ -12,8 +12,6 @@ namespace App.BaseGameEditor.Data.DataLocators
             get => _id;
             set => SetId(value);
         }
-
-        public abstract void Initialise(int id);
 
         private void SetId(int id)
         {

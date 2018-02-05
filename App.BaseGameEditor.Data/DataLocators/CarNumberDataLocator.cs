@@ -1,11 +1,12 @@
 ﻿using System;
 using App.BaseGameEditor.Data.Calculators;
+using App.Core.Identities;
 
 namespace App.BaseGameEditor.Data.DataLocators
 {
-    public class CarNumberDataLocator : DataLocatorBase
+    public class CarNumberDataLocator : IntegerIdentityBase, IDataLocator
     {
-        private readonly IdentityCalculator _identityCalculator;
+        private readonly IdentityCalculator _calculator;
 
         private const int ValueABaseOffset = 466160;
         private const int ValueALocalOffset = 260;
@@ -15,18 +16,14 @@ namespace App.BaseGameEditor.Data.DataLocators
         public int ValueA { get; set; }
         public int ValueB { get; set; }
 
-        public CarNumberDataLocator(IdentityCalculator identityCalculator)
+        public CarNumberDataLocator(IdentityCalculator calculator)
         {
-            _identityCalculator = identityCalculator ?? throw new ArgumentNullException(nameof(identityCalculator));
+            _calculator = calculator ?? throw new ArgumentNullException(nameof(calculator));
         }
 
-        public override void Initialise(int id)
+        public void Initialise()
         {
-            if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
-
-            Id = id;
-
-            ValueA = ValueABaseOffset + ValueALocalOffset * _identityCalculator.GetMultiplier0To31From0To21(Id);
+            ValueA = ValueABaseOffset + ValueALocalOffset * _calculator.GetMultiplier0To31From0To21(Id);
             ValueB = ValueBBaseOffset + ValueBLocalOffset * Id;
         }
     }

@@ -86,8 +86,7 @@ namespace App.DependencyInjection.Autofac
             _containerBuilder.RegisterType<F1DriverDataLocator>().InstancePerDependency();
             _containerBuilder.RegisterType<TeamDataLocator>().InstancePerDependency();
 
-            _containerBuilder.RegisterGeneric(typeof(EntityFactory<>)).As(typeof(IEntityFactory<>)).SingleInstance();
-            _containerBuilder.RegisterGeneric(typeof(DataLocatorFactory<>)).As(typeof(IDataLocatorFactory<>)).SingleInstance();
+            _containerBuilder.RegisterGeneric(typeof(IntegerIdentityFactory<>)).As(typeof(IIntegerIdentityFactory<>)).SingleInstance();
             _containerBuilder.RegisterGeneric(typeof(RepositoryExportService<>)).As(typeof(IRepositoryExportService<>)).SingleInstance();
             _containerBuilder.RegisterGeneric(typeof(RepositoryImportService<>)).As(typeof(IRepositoryImportService<>)).SingleInstance();
 

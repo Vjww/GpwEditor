@@ -38,11 +38,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\CarNumbersObjectFactory.cs" />
-    <Compile Include="Factories\DataLocatorFactory.cs" />
     <Compile Include="Factories\MemoryStreamFactory.cs" />
     <Compile Include="Maps\Manual\CarNumberDataEntitiesToCarNumbersObjectMapper.cs" />
     <Compile Include="Maps\Manual\CarNumbersObjectToCarNumberDataEntitiesMapper.cs" />
-    <Compile Include="Factories\EntityFactory.cs" />
+    <Compile Include="Factories\IntegerIdentityFactory.cs" />
     <Compile Include="Maps\Manual\CarNumbersObject.cs" />
     <Compile Include="Maps\AutoMapper\IAutoMapperInfrastructureProfile.cs" />
     <Compile Include="Maps\AutoMapper\MultipleDataEntitiesOnTeamEntityProfile.cs" />

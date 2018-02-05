@@ -1,19 +1,19 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataEndpoints;
 using App.BaseGameEditor.Data.DataLocators;
-using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.Services;
+using App.Core.Factories;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
     public class TeamDataEntityExportService : IDataEntityExportService<TeamDataEntity>
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly IDataLocatorFactory<TeamDataLocator> _dataLocatorFactory;
+        private readonly IIntegerIdentityFactory<TeamDataLocator> _dataLocatorFactory;
 
         public TeamDataEntityExportService(
             DataEndpoint dataEndpoint,
-            IDataLocatorFactory<TeamDataLocator> dataLocatorFactory)
+            IIntegerIdentityFactory<TeamDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));
@@ -24,8 +24,8 @@ namespace App.BaseGameEditor.Data.DataEntities
             if (dataEntity == null) throw new ArgumentNullException(nameof(dataEntity));
             if (!(dataEntity is TeamDataEntity teamDataEntity)) throw new ArgumentNullException(nameof(teamDataEntity));
 
-            var dataLocator = _dataLocatorFactory.Create();
-            dataLocator.Initialise(teamDataEntity.Id);
+            var dataLocator = _dataLocatorFactory.Create(teamDataEntity.Id);
+            dataLocator.Initialise();
 
             _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, teamDataEntity.Name.English);
             _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, teamDataEntity.Name.French);

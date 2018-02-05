@@ -1,9 +1,7 @@
-﻿using App.Core.Identities;
-
-namespace App.BaseGameEditor.Data.DataLocators
+﻿namespace App.BaseGameEditor.Data.DataLocators
 {
-    public interface IDataLocator : IIntegerIdentity
+    public interface IDataLocator
     {
-        void Initialise(int id);
+        void Initialise();
     }
 }

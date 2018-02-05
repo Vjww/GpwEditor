@@ -81,15 +81,12 @@
     <Compile Include="DataEntities\F1DriverDataEntity.cs" />
     <Compile Include="DataEntities\F1ChiefCommercialDataEntityExportService.cs" />
     <Compile Include="DataEntities\F1ChiefCommercialDataEntityImportService.cs" />
-    <Compile Include="DataEntities\IDataEntity.cs" />
-    <Compile Include="DataLocators\DataLocatorBase.cs" />
     <Compile Include="DataLocators\F1ChiefCommercialDataLocator.cs" />
     <Compile Include="DataLocators\F1ChiefDesignerDataLocator.cs" />
     <Compile Include="DataLocators\F1ChiefEngineerDataLocator.cs" />
     <Compile Include="DataLocators\F1ChiefMechanicDataLocator.cs" />
     <Compile Include="DataLocators\F1DriverDataLocator.cs" />
     <Compile Include="DataLocators\IDataLocator.cs" />
-    <Compile Include="Factories\IDataLocatorFactory.cs" />
     <Compile Include="Services\DataConnectionValidationService.cs" />
     <Compile Include="Services\IDataEntityExportService.cs" />
     <Compile Include="Services\IDataEntityImportService.cs" />

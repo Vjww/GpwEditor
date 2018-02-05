@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using App.BaseGameEditor.Domain.Services;
 using App.Core.Entities;
+using App.Core.Identities;
 
 namespace App.BaseGameEditor.Domain.Entities
 {
-    public class F1ChiefEngineerEntity : EntityBase, IValidatingEntity
+    public class F1ChiefEngineerEntity : IntegerIdentityBase, IEntity, IEntityValidationService<F1ChiefEngineerEntity>
     {
         public int TeamId { get; set; }
         public string Name { get; set; }

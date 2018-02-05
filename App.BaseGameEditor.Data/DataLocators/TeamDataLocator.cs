@@ -1,8 +1,8 @@
-﻿using System;
+﻿using App.Core.Identities;
 
 namespace App.BaseGameEditor.Data.DataLocators
 {
-    public class TeamDataLocator : DataLocatorBase
+    public class TeamDataLocator : IntegerIdentityBase, IDataLocator
     {
         private const int NameOffset = 5696 + 1; // "No Team" -> "Williams"
 
@@ -36,11 +36,8 @@ namespace App.BaseGameEditor.Data.DataLocators
         public int LocationPointerY { get; set; }
         public int TyreSupplierId { get; set; }
 
-        public override void Initialise(int id)
+        public void Initialise()
         {
-            if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
-
-            Id = id;
             Name = NameOffset + Id;
 
             var stepOffset = LocalOffset * Id;

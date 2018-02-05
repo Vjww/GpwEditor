@@ -1,9 +1,10 @@
 ﻿using System;
 using App.BaseGameEditor.Data.Calculators;
+using App.Core.Identities;
 
 namespace App.BaseGameEditor.Data.DataLocators
 {
-    public class F1ChiefDesignerDataLocator : DataLocatorBase
+    public class F1ChiefDesignerDataLocator : IntegerIdentityBase, IDataLocator
     {
         private readonly IdentityCalculator _calculator;
 
@@ -33,12 +34,9 @@ namespace App.BaseGameEditor.Data.DataLocators
             _calculator = calculator ?? throw new ArgumentNullException(nameof(calculator));
         }
 
-        public override void Initialise(int id)
+        public void Initialise()
         {
-            if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
-
-            Id = id;
-            Name = NameOffset + _calculator.GetF1ChiefDesignerNameId(id);
+            Name = NameOffset + _calculator.GetF1ChiefDesignerNameId(Id);
 
             var stepOffset = LocalOffset * Id;
 

@@ -59,17 +59,5 @@ namespace App.BaseGameEditor.Domain.Services
 
             _repository.SetById(team);
         }
-
-        // TODO: Remove, currently implemented as an example of business logic
-        public void IncrementWinsForAllTeams()
-        {
-            var teams = _repository.Get();
-            var list = teams as IList<TeamEntity> ?? teams.ToList();
-            foreach (var item in list)
-            {
-                item.Wins++;
-            }
-            _repository.Set(list);
-        }
     }
 }

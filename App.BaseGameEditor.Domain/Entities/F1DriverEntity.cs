@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using App.BaseGameEditor.Domain.Services;
 using App.Core.Entities;
+using App.Core.Identities;
 
 namespace App.BaseGameEditor.Domain.Entities
 {
-    public class F1DriverEntity : EntityBase, IValidatingEntity
+    public class F1DriverEntity : IntegerIdentityBase, IEntity, IEntityValidationService<F1DriverEntity>
     {
         public int TeamId { get; set; }
         public string Name { get; set; }

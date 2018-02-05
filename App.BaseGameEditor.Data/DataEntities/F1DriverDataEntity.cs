@@ -1,10 +1,11 @@
 ﻿using System;
 using App.BaseGameEditor.Data.Catalogues.Language;
 using App.Core.Entities;
+using App.Core.Identities;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class F1DriverDataEntity : EntityBase, IDataEntity
+    public class F1DriverDataEntity : IntegerIdentityBase, IEntity
     {
         public F1DriverDataEntity(LanguageCatalogueValue languageCatalogueValue)
         {
