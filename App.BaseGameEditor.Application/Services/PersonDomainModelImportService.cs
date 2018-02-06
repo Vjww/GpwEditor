@@ -14,7 +14,7 @@ namespace App.BaseGameEditor.Application.Services
         private const int F1ChiefItemCount = 11;
         private const int F1DriverItemCount = 33;
 
-        private readonly PersonService _domainService;
+        private readonly PersonDomainService _domainService;
         private readonly DataService _dataService;
         private readonly IIntegerIdentityFactory<F1ChiefCommercialEntity> _f1ChiefCommercialEntityFactory;
         private readonly IIntegerIdentityFactory<F1ChiefDesignerEntity> _f1ChiefDesignerEntityFactory;
@@ -24,7 +24,7 @@ namespace App.BaseGameEditor.Application.Services
         private readonly IMapperService _mapperService;
 
         public PersonDomainModelImportService(
-            PersonService domainService,
+            PersonDomainService domainService,
             DataService dataService,
             IIntegerIdentityFactory<F1ChiefCommercialEntity> f1ChiefCommercialEntityFactory,
             IIntegerIdentityFactory<F1ChiefDesignerEntity> f1ChiefDesignerEntityFactory,

@@ -14,14 +14,14 @@ namespace App.BaseGameEditor.Application.Services
     {
         private const int ItemCount = 11;
 
-        private readonly TeamService _domainService;
+        private readonly TeamDomainService _domainService;
         private readonly DataService _dataService;
         private readonly IIntegerIdentityFactory<TeamEntity> _teamEntityFactory;
         private readonly IMapperService _mapperService;
         private readonly CarNumberDataEntitiesToCarNumbersObjectMapper _carNumbersMapper;
 
         public TeamDomainModelImportService(
-            TeamService domainService,
+            TeamDomainService domainService,
             DataService dataService,
             IIntegerIdentityFactory<TeamEntity> teamEntityFactory,
             IMapperService mapperService,

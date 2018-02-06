@@ -1,10 +1,10 @@
-﻿namespace App.BaseGameEditor.Infrastructure.Maps.AutoMapper
+﻿namespace App.BaseGameEditor.Presentation.Maps.AutoMapper
 {
     /// <summary>
     /// AutoMapper profile classes that inherit this interface
     /// are added to AutoMapper on startup via assembly scanning
     /// </summary>
-    public interface IAutoMapperInfrastructureProfile
+    public interface IAutoMapperPresentationProfile
     {
     }
 }

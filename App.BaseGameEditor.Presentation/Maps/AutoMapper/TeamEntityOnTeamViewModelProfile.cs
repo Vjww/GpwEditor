@@ -2,7 +2,7 @@
 using App.BaseGameEditor.Presentation.ViewModels;
 using AutoMapper;
 
-namespace App.BaseGameEditor.Presentation.Maps
+namespace App.BaseGameEditor.Presentation.Maps.AutoMapper
 {
     public class TeamEntityOnTeamViewModelProfile : Profile, IAutoMapperPresentationProfile
     {

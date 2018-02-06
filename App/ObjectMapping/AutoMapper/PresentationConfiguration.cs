@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using App.BaseGameEditor.Presentation.Maps;
+using App.BaseGameEditor.Presentation.Maps.AutoMapper;
 using AutoMapper;
 
 namespace App.ObjectMapping.AutoMapper

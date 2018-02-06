@@ -39,12 +39,18 @@
     <Compile Include="Entities\F1ChiefEngineerEntity.cs" />
     <Compile Include="Entities\F1ChiefDesignerEntity.cs" />
     <Compile Include="Entities\F1ChiefCommercialEntity.cs" />
-    <Compile Include="Services\IEntityValidationService.cs" />
+    <Compile Include="EntityValidators\TeamEntityValidator.cs" />
+    <Compile Include="EntityValidators\F1DriverEntityValidator.cs" />
+    <Compile Include="EntityValidators\F1ChiefMechanicEntityValidator.cs" />
+    <Compile Include="EntityValidators\F1ChiefEngineerEntityValidator.cs" />
+    <Compile Include="EntityValidators\F1ChiefDesignerEntityValidator.cs" />
+    <Compile Include="EntityValidators\F1ChiefCommercialEntityValidator.cs" />
+    <Compile Include="EntityValidators\IEntityValidator.cs" />
     <Compile Include="Services\DomainModelService.cs" />
     <Compile Include="Entities\TeamEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\PersonService.cs" />
-    <Compile Include="Services\TeamService.cs" />
+    <Compile Include="Services\PersonDomainService.cs" />
+    <Compile Include="Services\TeamDomainService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ValueObjects\" />

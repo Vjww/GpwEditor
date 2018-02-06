@@ -11,7 +11,7 @@ namespace App.BaseGameEditor.Application.Services
 {
     public class TeamDomainModelExportService
     {
-        private readonly TeamService _domainService;
+        private readonly TeamDomainService _domainService;
         private readonly DataService _dataService;
         private readonly IIntegerIdentityFactory<TeamDataEntity> _teamDataEntityFactory;
         private readonly IIntegerIdentityFactory<ChassisHandlingDataEntity> _chassisHandlingDataEntityFactory;
@@ -20,7 +20,7 @@ namespace App.BaseGameEditor.Application.Services
         private readonly CarNumbersObjectToCarNumberDataEntitiesMapper _carNumbersMapper;
 
         public TeamDomainModelExportService(
-            TeamService domainService,
+            TeamDomainService domainService,
             DataService dataService,
             IIntegerIdentityFactory<TeamDataEntity> teamDataEntityFactory,
             IIntegerIdentityFactory<ChassisHandlingDataEntity> chassisHandlingDataEntityFactory,

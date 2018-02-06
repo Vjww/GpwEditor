@@ -16,7 +16,7 @@ namespace App
             {
                 container.BuildContainer();
 
-                container.ListRegistrations();
+                //container.ListRegistrations();
 
                 var mapperService = container.Resolve<IMapperService>();
                 mapperService.Initialise();

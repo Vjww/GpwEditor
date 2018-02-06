@@ -2,22 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using App.BaseGameEditor.Domain.Entities;
+using App.BaseGameEditor.Domain.EntityValidators;
 using App.Core.Repositories;
 
 namespace App.BaseGameEditor.Domain.Services
 {
-    public class TeamService
+    public class TeamDomainService
     {
-        private readonly IRepository<TeamEntity> _repository;
+        private readonly IRepository<TeamEntity> _teamRepository;
+        private readonly IEntityValidator<TeamEntity> _teamEntityValidator;
 
-        public TeamService(IRepository<TeamEntity> repository)
+        public TeamDomainService(
+            IRepository<TeamEntity> teamRepository,
+            IEntityValidator<TeamEntity> teamEntityValidator
+        )
         {
-            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _teamRepository = teamRepository ?? throw new ArgumentNullException(nameof(teamRepository));
+            _teamEntityValidator = teamEntityValidator ?? throw new ArgumentNullException(nameof(teamEntityValidator));
         }
 
         public IEnumerable<TeamEntity> GetTeams()
         {
-            return _repository.Get();
+            return _teamRepository.Get();
         }
 
         public void SetTeams(IEnumerable<TeamEntity> teams)
@@ -29,7 +35,7 @@ namespace App.BaseGameEditor.Domain.Services
             var list = teams as IList<TeamEntity> ?? teams.ToList();
             foreach (var item in list)
             {
-                var messages = item.Validate();
+                var messages = _teamEntityValidator.Validate(item);
                 validationMessages.AddRange(messages);
             }
 
@@ -39,7 +45,7 @@ namespace App.BaseGameEditor.Domain.Services
                 throw new ArgumentException();
             }
 
-            _repository.Set(list);
+            _teamRepository.Set(list);
         }
 
         public void SetTeam(TeamEntity team)
@@ -48,7 +54,7 @@ namespace App.BaseGameEditor.Domain.Services
 
             var validationMessages = new List<string>();
 
-            var messages = team.Validate();
+            var messages = _teamEntityValidator.Validate(team);
             validationMessages.AddRange(messages);
 
             if (validationMessages.Any())
@@ -57,7 +63,7 @@ namespace App.BaseGameEditor.Domain.Services
                 throw new ArgumentException();
             }
 
-            _repository.SetById(team);
+            _teamRepository.SetById(team);
         }
     }
 }

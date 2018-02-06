@@ -9,7 +9,7 @@ namespace App.BaseGameEditor.Application.Services
 {
     public class PersonDomainModelExportService
     {
-        private readonly PersonService _domainService;
+        private readonly PersonDomainService _domainService;
         private readonly DataService _dataService;
         private readonly IIntegerIdentityFactory<F1ChiefCommercialDataEntity> _f1ChiefCommercialDataEntityFactory;
         private readonly IIntegerIdentityFactory<F1ChiefDesignerDataEntity> _f1ChiefDesignerDataEntityFactory;
@@ -19,7 +19,7 @@ namespace App.BaseGameEditor.Application.Services
         private readonly IMapperService _mapperService;
 
         public PersonDomainModelExportService(
-            PersonService domainService,
+            PersonDomainService domainService,
             DataService dataService,
             IIntegerIdentityFactory<F1ChiefCommercialDataEntity> f1ChiefCommercialDataEntityFactory,
             IIntegerIdentityFactory<F1ChiefDesignerDataEntity> f1ChiefDesignerDataEntityFactory,

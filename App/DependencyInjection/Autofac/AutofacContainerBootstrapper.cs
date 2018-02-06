@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using App.BaseGameEditor.Data.Catalogues.Language;
 using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.DataLocators;
@@ -86,6 +87,7 @@ namespace App.DependencyInjection.Autofac
             _containerBuilder.RegisterType<F1DriverDataLocator>().InstancePerDependency();
             _containerBuilder.RegisterType<TeamDataLocator>().InstancePerDependency();
 
+            _containerBuilder.RegisterGeneric(typeof(List<>)).InstancePerDependency();
             _containerBuilder.RegisterGeneric(typeof(IntegerIdentityFactory<>)).As(typeof(IIntegerIdentityFactory<>)).SingleInstance();
             _containerBuilder.RegisterGeneric(typeof(RepositoryExportService<>)).As(typeof(IRepositoryExportService<>)).SingleInstance();
             _containerBuilder.RegisterGeneric(typeof(RepositoryImportService<>)).As(typeof(IRepositoryImportService<>)).SingleInstance();

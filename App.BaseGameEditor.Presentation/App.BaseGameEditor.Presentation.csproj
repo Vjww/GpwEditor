@@ -40,9 +40,9 @@
     <Compile Include="Controllers\BaseGameController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
-    <Compile Include="Maps\IAutoMapperPresentationProfile.cs" />
-    <Compile Include="Maps\PersonEntityOnPersonViewModelProfile.cs" />
-    <Compile Include="Maps\TeamEntityOnTeamViewModelProfile.cs" />
+    <Compile Include="Maps\AutoMapper\IAutoMapperPresentationProfile.cs" />
+    <Compile Include="Maps\AutoMapper\PersonEntityOnPersonViewModelProfile.cs" />
+    <Compile Include="Maps\AutoMapper\TeamEntityOnTeamViewModelProfile.cs" />
     <Compile Include="Outputs\ConsoleOutput.cs" />
     <Compile Include="Outputs\IOutput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

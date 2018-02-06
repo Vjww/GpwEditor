@@ -2,30 +2,46 @@
 using System.Collections.Generic;
 using System.Linq;
 using App.BaseGameEditor.Domain.Entities;
+using App.BaseGameEditor.Domain.EntityValidators;
 using App.Core.Repositories;
 
 namespace App.BaseGameEditor.Domain.Services
 {
-    public class PersonService
+    public class PersonDomainService
     {
         private readonly IRepository<F1ChiefCommercialEntity> _f1ChiefCommercialRepository;
         private readonly IRepository<F1ChiefDesignerEntity> _f1ChiefDesignerRepository;
         private readonly IRepository<F1ChiefEngineerEntity> _f1ChiefEngineerRepository;
         private readonly IRepository<F1ChiefMechanicEntity> _f1ChiefMechanicRepository;
         private readonly IRepository<F1DriverEntity> _f1DriverRepository;
+        private readonly IEntityValidator<F1ChiefCommercialEntity> _f1ChiefCommercialEntityValidator;
+        private readonly IEntityValidator<F1ChiefDesignerEntity> _f1ChiefDesignerEntityValidator;
+        private readonly IEntityValidator<F1ChiefEngineerEntity> _f1ChiefEngineerEntityValidator;
+        private readonly IEntityValidator<F1ChiefMechanicEntity> _f1ChiefMechanicEntityValidator;
+        private readonly IEntityValidator<F1DriverEntity> _f1DriverEntityValidator;
 
-        public PersonService(
+        public PersonDomainService(
             IRepository<F1ChiefCommercialEntity> f1ChiefCommercialRepository,
             IRepository<F1ChiefDesignerEntity> f1ChiefDesignerRepository,
             IRepository<F1ChiefEngineerEntity> f1ChiefEngineerRepository,
             IRepository<F1ChiefMechanicEntity> f1ChiefMechanicRepository,
-            IRepository<F1DriverEntity> f1DriverRepository)
+            IRepository<F1DriverEntity> f1DriverRepository,
+            IEntityValidator<F1ChiefCommercialEntity> f1ChiefCommercialEntityValidator,
+            IEntityValidator<F1ChiefDesignerEntity> f1ChiefDesignerEntityValidator,
+            IEntityValidator<F1ChiefEngineerEntity> f1ChiefEngineerEntityValidator,
+            IEntityValidator<F1ChiefMechanicEntity> f1ChiefMechanicEntityValidator,
+            IEntityValidator<F1DriverEntity> f1DriverEntityValidator)
         {
             _f1ChiefCommercialRepository = f1ChiefCommercialRepository ?? throw new ArgumentNullException(nameof(f1ChiefCommercialRepository));
             _f1ChiefDesignerRepository = f1ChiefDesignerRepository ?? throw new ArgumentNullException(nameof(f1ChiefDesignerRepository));
             _f1ChiefEngineerRepository = f1ChiefEngineerRepository ?? throw new ArgumentNullException(nameof(f1ChiefEngineerRepository));
             _f1ChiefMechanicRepository = f1ChiefMechanicRepository ?? throw new ArgumentNullException(nameof(f1ChiefMechanicRepository));
             _f1DriverRepository = f1DriverRepository ?? throw new ArgumentNullException(nameof(f1DriverRepository));
+            _f1ChiefCommercialEntityValidator = f1ChiefCommercialEntityValidator ?? throw new ArgumentNullException(nameof(f1ChiefCommercialEntityValidator));
+            _f1ChiefDesignerEntityValidator = f1ChiefDesignerEntityValidator ?? throw new ArgumentNullException(nameof(f1ChiefDesignerEntityValidator));
+            _f1ChiefEngineerEntityValidator = f1ChiefEngineerEntityValidator ?? throw new ArgumentNullException(nameof(f1ChiefEngineerEntityValidator));
+            _f1ChiefMechanicEntityValidator = f1ChiefMechanicEntityValidator ?? throw new ArgumentNullException(nameof(f1ChiefMechanicEntityValidator));
+            _f1DriverEntityValidator = f1DriverEntityValidator ?? throw new ArgumentNullException(nameof(f1DriverEntityValidator));
         }
 
         public IEnumerable<F1ChiefCommercialEntity> GetF1ChiefCommercials()
@@ -42,7 +58,7 @@ namespace App.BaseGameEditor.Domain.Services
             var list = persons as IList<F1ChiefCommercialEntity> ?? persons.ToList();
             foreach (var item in list)
             {
-                var messages = item.Validate();
+                var messages = _f1ChiefCommercialEntityValidator.Validate(item);
                 validationMessages.AddRange(messages);
             }
 
@@ -61,7 +77,7 @@ namespace App.BaseGameEditor.Domain.Services
 
             var validationMessages = new List<string>();
 
-            var messages = person.Validate();
+            var messages = _f1ChiefCommercialEntityValidator.Validate(person);
             validationMessages.AddRange(messages);
 
             if (validationMessages.Any())
@@ -87,7 +103,7 @@ namespace App.BaseGameEditor.Domain.Services
             var list = persons as IList<F1ChiefDesignerEntity> ?? persons.ToList();
             foreach (var item in list)
             {
-                var messages = item.Validate();
+                var messages = _f1ChiefDesignerEntityValidator.Validate(item);
                 validationMessages.AddRange(messages);
             }
 
@@ -106,7 +122,7 @@ namespace App.BaseGameEditor.Domain.Services
 
             var validationMessages = new List<string>();
 
-            var messages = person.Validate();
+            var messages = _f1ChiefDesignerEntityValidator.Validate(person);
             validationMessages.AddRange(messages);
 
             if (validationMessages.Any())
@@ -132,7 +148,7 @@ namespace App.BaseGameEditor.Domain.Services
             var list = persons as IList<F1ChiefEngineerEntity> ?? persons.ToList();
             foreach (var item in list)
             {
-                var messages = item.Validate();
+                var messages = _f1ChiefEngineerEntityValidator.Validate(item);
                 validationMessages.AddRange(messages);
             }
 
@@ -151,7 +167,7 @@ namespace App.BaseGameEditor.Domain.Services
 
             var validationMessages = new List<string>();
 
-            var messages = person.Validate();
+            var messages = _f1ChiefEngineerEntityValidator.Validate(person);
             validationMessages.AddRange(messages);
 
             if (validationMessages.Any())
@@ -177,7 +193,7 @@ namespace App.BaseGameEditor.Domain.Services
             var list = persons as IList<F1ChiefMechanicEntity> ?? persons.ToList();
             foreach (var item in list)
             {
-                var messages = item.Validate();
+                var messages = _f1ChiefMechanicEntityValidator.Validate(item);
                 validationMessages.AddRange(messages);
             }
 
@@ -196,7 +212,7 @@ namespace App.BaseGameEditor.Domain.Services
 
             var validationMessages = new List<string>();
 
-            var messages = person.Validate();
+            var messages = _f1ChiefMechanicEntityValidator.Validate(person);
             validationMessages.AddRange(messages);
 
             if (validationMessages.Any())
@@ -222,7 +238,7 @@ namespace App.BaseGameEditor.Domain.Services
             var list = persons as IList<F1DriverEntity> ?? persons.ToList();
             foreach (var item in list)
             {
-                var messages = item.Validate();
+                var messages = _f1DriverEntityValidator.Validate(item);
                 validationMessages.AddRange(messages);
             }
 
@@ -241,7 +257,7 @@ namespace App.BaseGameEditor.Domain.Services
 
             var validationMessages = new List<string>();
 
-            var messages = person.Validate();
+            var messages = _f1DriverEntityValidator.Validate(person);
             validationMessages.AddRange(messages);
 
             if (validationMessages.Any())

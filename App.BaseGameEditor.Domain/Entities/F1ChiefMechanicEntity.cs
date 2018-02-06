@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using App.BaseGameEditor.Domain.Services;
-using App.Core.Entities;
+﻿using App.Core.Entities;
 using App.Core.Identities;
 
 namespace App.BaseGameEditor.Domain.Entities
 {
-    public class F1ChiefMechanicEntity : IntegerIdentityBase, IEntity, IEntityValidationService<F1ChiefMechanicEntity>
+    public class F1ChiefMechanicEntity : IntegerIdentityBase, IEntity
     {
         public int TeamId { get; set; }
         public string Name { get; set; }
@@ -16,17 +14,5 @@ namespace App.BaseGameEditor.Domain.Entities
         public int ChampionshipBonus { get; set; }
         public int DriverLoyalty { get; set; }
         public int Morale { get; set; }
-
-        public IEnumerable<string> Validate()
-        {
-            var validationMessages = new List<string>();
-
-            if (TeamId < 1 || TeamId > 11)
-            {
-                validationMessages.Add($"Field {nameof(TeamId)} is out of range and must be a value from 1 to 11.");
-            }
-
-            return validationMessages;
-        }
     }
 }

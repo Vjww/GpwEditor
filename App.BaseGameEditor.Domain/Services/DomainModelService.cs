@@ -4,15 +4,15 @@ namespace App.BaseGameEditor.Domain.Services
 {
     public class DomainModelService
     {
-        public TeamService Teams { get; }
-        public PersonService Persons { get; }
+        public TeamDomainService Teams { get; }
+        public PersonDomainService Persons { get; }
 
         public DomainModelService(
-            TeamService teamService,
-            PersonService personService)
+            TeamDomainService teamDomainService,
+            PersonDomainService personDomainService)
         {
-            Teams = teamService ?? throw new ArgumentNullException(nameof(teamService));
-            Persons = personService ?? throw new ArgumentNullException(nameof(personService));
+            Teams = teamDomainService ?? throw new ArgumentNullException(nameof(teamDomainService));
+            Persons = personDomainService ?? throw new ArgumentNullException(nameof(personDomainService));
         }
     }
 }
