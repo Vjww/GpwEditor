@@ -30,22 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factories\CarNumbersObjectFactory.cs" />
     <Compile Include="Factories\MemoryStreamFactory.cs" />
-    <Compile Include="Maps\Manual\CarNumberDataEntitiesToCarNumbersObjectMapper.cs" />
-    <Compile Include="Maps\Manual\CarNumbersObjectToCarNumberDataEntitiesMapper.cs" />
     <Compile Include="Factories\IntegerIdentityFactory.cs" />
-    <Compile Include="Maps\Manual\CarNumbersObject.cs" />
-    <Compile Include="Maps\AutoMapper\IAutoMapperInfrastructureProfile.cs" />
-    <Compile Include="Maps\AutoMapper\MultipleDataEntitiesOnTeamEntityProfile.cs" />
-    <Compile Include="Maps\AutoMapper\PersonDataEntityOnPersonEntityProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Data\CarNumberDataRepository.cs" />
     <Compile Include="Repositories\Data\ChassisHandlingDataRepository.cs" />
@@ -64,7 +54,6 @@
     <Compile Include="Repositories\Domain\TeamRepository.cs" />
     <Compile Include="Repositories\RepositoryExportService.cs" />
     <Compile Include="Repositories\RepositoryImportService.cs" />
-    <Compile Include="Services\IMapperService.cs" />
     <Compile Include="Services\ValueConverterService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,9 +69,6 @@
       <Project>{8F131E69-0FB5-432A-B873-DDC4B2631D49}</Project>
       <Name>App.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

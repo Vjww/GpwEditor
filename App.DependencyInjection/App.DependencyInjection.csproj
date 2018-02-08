@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4538DA14-275A-4711-B4BF-6A4DD806189D}</ProjectGuid>
+    <ProjectGuid>{E154D576-5745-44EF-A5E6-15D13790A36C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>App.BaseGameEditor.Application</RootNamespace>
-    <AssemblyName>App.BaseGameEditor.Application</AssemblyName>
+    <RootNamespace>App.DependencyInjection</RootNamespace>
+    <AssemblyName>App.DependencyInjection</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,20 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\DataExportService.cs" />
-    <Compile Include="Services\DataImportService.cs" />
-    <Compile Include="Services\PersonDomainModelExportService.cs" />
-    <Compile Include="Services\PersonDomainModelImportService.cs" />
-    <Compile Include="Services\TeamDomainModelExportService.cs" />
-    <Compile Include="Services\DomainModelImportService.cs" />
-    <Compile Include="Services\ApplicationService.cs" />
+    <Compile Include="Autofac\AutofacModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\DomainModelExportService.cs" />
-    <Compile Include="Services\TeamDomainModelImportService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App.BaseGameEditor.Data\App.BaseGameEditor.Data.csproj">
@@ -54,8 +52,12 @@
       <Project>{26383d7c-aaf3-43b9-ad71-fd795387b59f}</Project>
       <Name>App.BaseGameEditor.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.BaseGameEditor.Infrastructure\App.BaseGameEditor.Infrastructure.csproj">
+      <Project>{360ab367-9cb7-4fdf-9580-984962f76616}</Project>
+      <Name>App.BaseGameEditor.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.Core\App.Core.csproj">
-      <Project>{8F131E69-0FB5-432A-B873-DDC4B2631D49}</Project>
+      <Project>{8f131e69-0fb5-432a-b873-ddc4b2631d49}</Project>
       <Name>App.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\App.ObjectMapping\App.ObjectMapping.csproj">

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using App.BaseGameEditor.Data.DataEntities;
-using App.BaseGameEditor.Infrastructure.Factories;
+using App.ObjectMapping.Factories;
+using App.ObjectMapping.Objects;
 
-namespace App.BaseGameEditor.Infrastructure.Maps.Manual
+namespace App.ObjectMapping.Maps.Manual
 {
     public class CarNumberDataEntitiesToCarNumbersObjectMapper
     {

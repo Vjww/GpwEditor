@@ -1,7 +1,7 @@
 ﻿using System;
-using App.BaseGameEditor.Infrastructure.Maps.Manual;
+using App.ObjectMapping.Objects;
 
-namespace App.BaseGameEditor.Infrastructure.Factories
+namespace App.ObjectMapping.Factories
 {
     public class CarNumbersObjectFactory
     {
