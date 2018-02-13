@@ -8,10 +8,10 @@ using App.BaseGameEditor.Data.FileResources;
 using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Factories;
+using App.BaseGameEditor.Infrastructure.Objects;
 using App.BaseGameEditor.Infrastructure.Repositories;
+using App.BaseGameEditor.Infrastructure.Services;
 using App.Core.Factories;
-using App.ObjectMapping.Objects;
-using App.ObjectMapping.Services;
 using Autofac;
 using Autofac.Features.ResolveAnything;
 
@@ -36,7 +36,8 @@ namespace App.DependencyInjection.Autofac
                 .AsImplementedInterfaces()
                 .SingleInstance();
 
-            builder.RegisterType<AutoMapperMapperService>().As<IMapperService>().SingleInstance();
+            // TODO: good to remove?
+            //builder.RegisterType<AutoMapperMapperService>().As<IMapperService>().SingleInstance();
 
             // Register concrete types that do not implement interfaces
             builder.RegisterSource(

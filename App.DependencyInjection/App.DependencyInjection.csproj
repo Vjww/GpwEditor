@@ -60,10 +60,6 @@
       <Project>{8f131e69-0fb5-432a-b873-ddc4b2631d49}</Project>
       <Name>App.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\App.ObjectMapping\App.ObjectMapping.csproj">
-      <Project>{10a944f7-3505-40d0-8ca6-d3745e015e40}</Project>
-      <Name>App.ObjectMapping</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

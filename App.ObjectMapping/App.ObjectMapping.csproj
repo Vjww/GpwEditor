@@ -37,17 +37,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factories\CarNumbersObjectFactory.cs" />
-    <Compile Include="Services\AutoMapperMapperService.cs" />
-    <Compile Include="Services\IMapperService.cs" />
-    <Compile Include="Maps\AutoMapper\DataEntityMoraleMemberValueResolver.cs" />
-    <Compile Include="Maps\AutoMapper\EntityMoraleMemberValueResolver.cs" />
-    <Compile Include="Maps\AutoMapper\MultipleDataEntitiesOnTeamEntityProfile.cs" />
-    <Compile Include="Maps\AutoMapper\PersonDataEntityOnPersonEntityProfile.cs" />
-    <Compile Include="Maps\Manual\CarNumberDataEntitiesToCarNumbersObjectMapper.cs" />
     <Compile Include="ObjectMappingClass.cs" />
-    <Compile Include="Objects\CarNumbersObject.cs" />
-    <Compile Include="Maps\Manual\CarNumbersObjectToCarNumberDataEntitiesMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

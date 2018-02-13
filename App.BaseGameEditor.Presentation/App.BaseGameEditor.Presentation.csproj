@@ -33,31 +33,15 @@
     <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\BaseGameController.cs" />
-    <Compile Include="Controllers\PersonController.cs" />
-    <Compile Include="Controllers\TeamController.cs" />
-    <Compile Include="Maps\AutoMapper\IAutoMapperPresentationProfile.cs" />
-    <Compile Include="Maps\AutoMapper\PersonEntityOnPersonViewModelProfile.cs" />
-    <Compile Include="Maps\AutoMapper\TeamEntityOnTeamViewModelProfile.cs" />
     <Compile Include="Outputs\ConsoleOutput.cs" />
     <Compile Include="Outputs\IOutput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\F1DriverViewModel.cs" />
-    <Compile Include="ViewModels\F1ChiefMechanicViewModel.cs" />
-    <Compile Include="ViewModels\F1ChiefEngineerViewModel.cs" />
-    <Compile Include="ViewModels\F1ChiefDesignerViewModel.cs" />
-    <Compile Include="ViewModels\F1ChiefCommercialViewModel.cs" />
-    <Compile Include="ViewModels\TeamViewModel.cs" />
-    <Compile Include="Views\F1DriverView.cs" />
-    <Compile Include="Views\F1ChiefMechanicView.cs" />
-    <Compile Include="Views\F1ChiefEngineerView.cs" />
-    <Compile Include="Views\F1ChiefDesignerView.cs" />
-    <Compile Include="Views\F1ChiefCommercialView.cs" />
-    <Compile Include="Views\TeamView.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App.BaseGameEditor.Application\App.BaseGameEditor.Application.csproj">

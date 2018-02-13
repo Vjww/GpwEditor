@@ -30,10 +30,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maps\AutoMapper\Reference\ApplicationMaps.cs" />
+    <Compile Include="Maps\AutoMapper\MemberValueResolvers\DataEntityMoraleMemberValueResolver.cs" />
+    <Compile Include="Maps\AutoMapper\MemberValueResolvers\EntityMoraleMemberValueResolver.cs" />
+    <Compile Include="Maps\AutoMapper\MultipleDataEntitiesOnTeamEntityProfile.cs" />
+    <Compile Include="Maps\AutoMapper\PersonDataEntityOnPersonEntityProfile.cs" />
+    <Compile Include="Maps\Manual\CarNumberDataEntitiesToCarNumbersObjectMapper.cs" />
+    <Compile Include="Maps\Manual\CarNumbersObjectToCarNumberDataEntitiesMapper.cs" />
     <Compile Include="Services\DataExportService.cs" />
     <Compile Include="Services\DataImportService.cs" />
     <Compile Include="Services\PersonDomainModelExportService.cs" />
@@ -44,6 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DomainModelExportService.cs" />
     <Compile Include="Services\TeamDomainModelImportService.cs" />
+    <Compile Include="Services\ValueConverterService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App.BaseGameEditor.Data\App.BaseGameEditor.Data.csproj">
@@ -54,14 +67,17 @@
       <Project>{26383d7c-aaf3-43b9-ad71-fd795387b59f}</Project>
       <Name>App.BaseGameEditor.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.BaseGameEditor.Infrastructure\App.BaseGameEditor.Infrastructure.csproj">
+      <Project>{360ab367-9cb7-4fdf-9580-984962f76616}</Project>
+      <Name>App.BaseGameEditor.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.Core\App.Core.csproj">
       <Project>{8F131E69-0FB5-432A-B873-DDC4B2631D49}</Project>
       <Name>App.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\App.ObjectMapping\App.ObjectMapping.csproj">
-      <Project>{10a944f7-3505-40d0-8ca6-d3745e015e40}</Project>
-      <Name>App.ObjectMapping</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

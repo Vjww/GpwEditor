@@ -85,10 +85,6 @@
       <Project>{8F131E69-0FB5-432A-B873-DDC4B2631D49}</Project>
       <Name>App.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\App\App.csproj">
-      <Project>{B434CCD5-543C-4C4D-B9C9-35705FE22B31}</Project>
-      <Name>App</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />

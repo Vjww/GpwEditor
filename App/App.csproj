@@ -42,7 +42,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application.cs" />
     <Compile Include="ObjectMapping\AutoMapper\IAutoMapperConfiguration.cs" />
     <Compile Include="ObjectMapping\AutoMapper\InfrastructureConfiguration.cs" />
     <Compile Include="ObjectMapping\AutoMapper\PresentationConfiguration.cs" />
@@ -71,13 +70,13 @@
       <Project>{360ab367-9cb7-4fdf-9580-984962f76616}</Project>
       <Name>App.BaseGameEditor.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\App.BaseGameEditor.Presentation\App.BaseGameEditor.Presentation.csproj">
-      <Project>{409fe1b2-4faa-4a3a-b131-20e0e4b675b2}</Project>
-      <Name>App.BaseGameEditor.Presentation</Name>
-    </ProjectReference>
     <ProjectReference Include="..\App.Core\App.Core.csproj">
       <Project>{8F131E69-0FB5-432A-B873-DDC4B2631D49}</Project>
       <Name>App.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.DependencyInjection\App.DependencyInjection.csproj">
+      <Project>{e154d576-5745-44ef-a5e6-15d13790a36c}</Project>
+      <Name>App.DependencyInjection</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

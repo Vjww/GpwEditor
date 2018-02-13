@@ -96,10 +96,6 @@
       <Project>{8F131E69-0FB5-432A-B873-DDC4B2631D49}</Project>
       <Name>App.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\App\App.csproj">
-      <Project>{b434ccd5-543c-4c4d-b9c9-35705fe22b31}</Project>
-      <Name>App</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
