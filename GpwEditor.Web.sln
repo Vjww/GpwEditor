@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.WebService", "App.WebService\App.WebService.csproj", "{B16B9CFE-56AC-4B65-A84C-038B60DD514B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Web", "App.Web\App.Web.csproj", "{40A188AD-3624-4736-9619-46D0BC90E88F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.WebService", "App.WebService\App.WebService.csproj", "{B16B9CFE-56AC-4B65-A84C-038B60DD514B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Core", "App.Core\App.Core.csproj", "{8F131E69-0FB5-432A-B873-DDC4B2631D49}"
 EndProject
@@ -29,10 +27,6 @@ Global
 		{B16B9CFE-56AC-4B65-A84C-038B60DD514B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B16B9CFE-56AC-4B65-A84C-038B60DD514B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B16B9CFE-56AC-4B65-A84C-038B60DD514B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{40A188AD-3624-4736-9619-46D0BC90E88F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{40A188AD-3624-4736-9619-46D0BC90E88F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{40A188AD-3624-4736-9619-46D0BC90E88F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{40A188AD-3624-4736-9619-46D0BC90E88F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8F131E69-0FB5-432A-B873-DDC4B2631D49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8F131E69-0FB5-432A-B873-DDC4B2631D49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F131E69-0FB5-432A-B873-DDC4B2631D49}.Release|Any CPU.ActiveCfg = Release|Any CPU
