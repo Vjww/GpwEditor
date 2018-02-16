@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.BaseGameEditor.Infrastr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.BaseGameEditor.Application", "App.BaseGameEditor.Application\App.BaseGameEditor.Application.csproj", "{4538DA14-275A-4711-B4BF-6A4DD806189D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Web", "App.Web\App.Web.csproj", "{F329AD6F-5119-4620-BEA6-EC92BA494090}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{4538DA14-275A-4711-B4BF-6A4DD806189D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4538DA14-275A-4711-B4BF-6A4DD806189D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4538DA14-275A-4711-B4BF-6A4DD806189D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F329AD6F-5119-4620-BEA6-EC92BA494090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F329AD6F-5119-4620-BEA6-EC92BA494090}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F329AD6F-5119-4620-BEA6-EC92BA494090}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F329AD6F-5119-4620-BEA6-EC92BA494090}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
