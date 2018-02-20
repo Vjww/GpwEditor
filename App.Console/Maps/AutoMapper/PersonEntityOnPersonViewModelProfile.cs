@@ -22,6 +22,21 @@ namespace App.Console.Maps.AutoMapper
 
             CreateMap<F1DriverEntity, F1DriverViewModel>()
                 .ReverseMap();
+
+            CreateMap<NonF1ChiefCommercialEntity, NonF1ChiefCommercialViewModel>()
+                .ReverseMap();
+
+            CreateMap<NonF1ChiefDesignerEntity, NonF1ChiefDesignerViewModel>()
+                .ReverseMap();
+
+            CreateMap<NonF1ChiefEngineerEntity, NonF1ChiefEngineerViewModel>()
+                .ReverseMap();
+
+            CreateMap<NonF1ChiefMechanicEntity, NonF1ChiefMechanicViewModel>()
+                .ReverseMap();
+
+            CreateMap<NonF1DriverEntity, NonF1DriverViewModel>()
+                .ReverseMap();
         }
     }
 }

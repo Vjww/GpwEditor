@@ -75,5 +75,55 @@
 
             return idToResourceIdMap[id];
         }
+
+        public int GetNonF1ChiefCommercialNameId(int id)
+        {
+            var idToResourceIdMap = new[]
+            {
+                89, 90, 91, 92, 93, 94, 95, 96, 97, 98
+            };
+
+            return idToResourceIdMap[id];
+        }
+
+        public int GetNonF1ChiefDesignerNameId(int id)
+        {
+            var idToResourceIdMap = new[]
+            {
+                99, 100, 101, 102, 103, 104, 105, 106, 107, 108
+            };
+
+            return idToResourceIdMap[id];
+        }
+
+        public int GetNonF1ChiefEngineerNameId(int id)
+        {
+            var idToResourceIdMap = new[]
+            {
+                109, 110, 111, 112, 113, 114, 115, 116, 117, 118
+            };
+
+            return idToResourceIdMap[id];
+        }
+
+        public int GetNonF1ChiefMechanicNameId(int id)
+        {
+            var idToResourceIdMap = new[]
+            {
+                119, 120, 121, 122, 123, 124, 125, 126, 127, 128
+            };
+
+            return idToResourceIdMap[id];
+        }
+
+        public int GetNonF1DriverNameId(int id)
+        {
+            var idToResourceIdMap = new[]
+            {
+                129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139
+            };
+
+            return idToResourceIdMap[id];
+        }
     }
 }

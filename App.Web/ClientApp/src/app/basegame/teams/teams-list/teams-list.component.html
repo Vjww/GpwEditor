@@ -1,0 +1,22 @@
+<p>
+    teams-list works!
+</p>
+<a [routerLink]="['/basegame/teams', 10]">
+    <span class='glyphicon glyphicon-th-list'></span> Go to a team
+</a>
+<div class='table-responsive'>
+    <table class='table' *ngIf='_teams && _teams.length'>
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let team of _teams'>
+                <td>{{ team.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

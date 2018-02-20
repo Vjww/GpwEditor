@@ -33,6 +33,8 @@ namespace App.Console
 
             var application = serviceProvider.GetService<Application>();
             application.Run();
+
+            var _ = System.Console.ReadLine();
         }
     }
 }

@@ -60,6 +60,11 @@ namespace App.DependencyInjection.Autofac
             builder.RegisterType<F1ChiefEngineerEntity>().InstancePerDependency();
             builder.RegisterType<F1ChiefMechanicEntity>().InstancePerDependency();
             builder.RegisterType<F1DriverEntity>().InstancePerDependency();
+            builder.RegisterType<NonF1ChiefCommercialEntity>().InstancePerDependency();
+            builder.RegisterType<NonF1ChiefDesignerEntity>().InstancePerDependency();
+            builder.RegisterType<NonF1ChiefEngineerEntity>().InstancePerDependency();
+            builder.RegisterType<NonF1ChiefMechanicEntity>().InstancePerDependency();
+            builder.RegisterType<NonF1DriverEntity>().InstancePerDependency();
             builder.RegisterType<CarNumbersObject>().InstancePerDependency();
 
             // TODO: Register by convention? i.e. all concrete types in namespace ending in DataEntity
@@ -70,6 +75,11 @@ namespace App.DependencyInjection.Autofac
             builder.RegisterType<F1ChiefEngineerDataEntity>().InstancePerDependency();
             builder.RegisterType<F1ChiefMechanicDataEntity>().InstancePerDependency();
             builder.RegisterType<F1DriverDataEntity>().InstancePerDependency();
+            builder.RegisterType<NonF1ChiefCommercialDataEntity>().InstancePerDependency();
+            builder.RegisterType<NonF1ChiefDesignerDataEntity>().InstancePerDependency();
+            builder.RegisterType<NonF1ChiefEngineerDataEntity>().InstancePerDependency();
+            builder.RegisterType<NonF1ChiefMechanicDataEntity>().InstancePerDependency();
+            builder.RegisterType<NonF1DriverDataEntity>().InstancePerDependency();
             builder.RegisterType<TeamDataEntity>().InstancePerDependency();
 
             // TODO: Register by convention? i.e. all concrete types in namespace ending in DataLocator
@@ -80,6 +90,11 @@ namespace App.DependencyInjection.Autofac
             builder.RegisterType<F1ChiefEngineerDataLocator>().InstancePerDependency();
             builder.RegisterType<F1ChiefMechanicDataLocator>().InstancePerDependency();
             builder.RegisterType<F1DriverDataLocator>().InstancePerDependency();
+            builder.RegisterType<NonF1ChiefCommercialDataLocator>().InstancePerDependency();
+            builder.RegisterType<NonF1ChiefDesignerDataLocator>().InstancePerDependency();
+            builder.RegisterType<NonF1ChiefEngineerDataLocator>().InstancePerDependency();
+            builder.RegisterType<NonF1ChiefMechanicDataLocator>().InstancePerDependency();
+            builder.RegisterType<NonF1DriverDataLocator>().InstancePerDependency();
             builder.RegisterType<TeamDataLocator>().InstancePerDependency();
 
             builder.RegisterGeneric(typeof(List<>)).InstancePerDependency();

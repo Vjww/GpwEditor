@@ -58,6 +58,43 @@ namespace App.BaseGameEditor.Application.Maps.AutoMapper
                 .ForMember(src => src.Id, opt => opt.Ignore())
                 .ForPath(src => src.Name.Shared, opt => opt.MapFrom(dest => dest.Name))
                 .ForMember(src => src.Morale, opt => opt.ResolveUsing<DataEntityMoraleMemberValueResolver, int>(src => src.Morale));
+
+            CreateMap<NonF1ChiefCommercialDataEntity, NonF1ChiefCommercialEntity>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name.Shared))
+                .ReverseMap()
+                .ForMember(src => src.Id, opt => opt.Ignore())
+                .ForPath(src => src.Name.Shared, opt => opt.MapFrom(dest => dest.Name));
+
+            CreateMap<NonF1ChiefDesignerDataEntity, NonF1ChiefDesignerEntity>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name.Shared))
+                .ReverseMap()
+                .ForMember(src => src.Id, opt => opt.Ignore())
+                .ForPath(src => src.Name.Shared, opt => opt.MapFrom(dest => dest.Name));
+
+            CreateMap<NonF1ChiefEngineerDataEntity, NonF1ChiefEngineerEntity>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name.Shared))
+                .ReverseMap()
+                .ForMember(src => src.Id, opt => opt.Ignore())
+                .ForPath(src => src.Name.Shared, opt => opt.MapFrom(dest => dest.Name));
+
+            CreateMap<NonF1ChiefMechanicDataEntity, NonF1ChiefMechanicEntity>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name.Shared))
+                .ReverseMap()
+                .ForMember(src => src.Id, opt => opt.Ignore())
+                .ForPath(src => src.Name.Shared, opt => opt.MapFrom(dest => dest.Name));
+
+            CreateMap<NonF1DriverDataEntity, NonF1DriverEntity>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name.Shared))
+                // Morale for a Non-F1 driver does not require a transformation
+                .ReverseMap()
+                .ForMember(src => src.Id, opt => opt.Ignore())
+                .ForPath(src => src.Name.Shared, opt => opt.MapFrom(dest => dest.Name));
+                // Morale for a Non-F1 driver does not require a transformation
         }
     }
 }

@@ -23,6 +23,9 @@ namespace App.WebService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // TODO: This is added
+            services.AddCors();
+            
             services.AddMvc();
 
             // TODO: This is added
@@ -52,6 +55,9 @@ namespace App.WebService
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // TODO: This is added
+            app.UseCors(cp => cp.AllowAnyOrigin().AllowAnyHeader());
 
             app.UseMvc();
         }

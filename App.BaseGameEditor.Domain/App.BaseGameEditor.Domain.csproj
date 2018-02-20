@@ -39,6 +39,16 @@
     <Compile Include="Entities\F1ChiefEngineerEntity.cs" />
     <Compile Include="Entities\F1ChiefDesignerEntity.cs" />
     <Compile Include="Entities\F1ChiefCommercialEntity.cs" />
+    <Compile Include="Entities\NonF1ChiefCommercialEntity.cs" />
+    <Compile Include="Entities\NonF1ChiefDesignerEntity.cs" />
+    <Compile Include="Entities\NonF1ChiefEngineerEntity.cs" />
+    <Compile Include="Entities\NonF1ChiefMechanicEntity.cs" />
+    <Compile Include="Entities\NonF1DriverEntity.cs" />
+    <Compile Include="EntityValidators\NonF1ChiefCommercialEntityValidator.cs" />
+    <Compile Include="EntityValidators\NonF1ChiefDesignerEntityValidator.cs" />
+    <Compile Include="EntityValidators\NonF1ChiefEngineerEntityValidator.cs" />
+    <Compile Include="EntityValidators\NonF1ChiefMechanicEntityValidator.cs" />
+    <Compile Include="EntityValidators\NonF1DriverEntityValidator.cs" />
     <Compile Include="EntityValidators\TeamEntityValidator.cs" />
     <Compile Include="EntityValidators\F1DriverEntityValidator.cs" />
     <Compile Include="EntityValidators\F1ChiefMechanicEntityValidator.cs" />

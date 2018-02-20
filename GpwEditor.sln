@@ -23,7 +23,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Core", "App.Core\App.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.DependencyInjection", "App.DependencyInjection\App.DependencyInjection.csproj", "{E154D576-5745-44EF-A5E6-15D13790A36C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Console", "App.Console\App.Console.csproj", "{5997D727-84D1-4926-8BFE-D918EF6DC071}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Console", "App.Console\App.Console.csproj", "{5997D727-84D1-4926-8BFE-D918EF6DC071}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F369AA64-DD83-4F4F-9BB9-39589DCA9228}"
+	ProjectSection(SolutionItems) = preProject
+		readme.txt = readme.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

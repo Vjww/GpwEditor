@@ -16,8 +16,8 @@ namespace App.Console.Views
 
         public void Display(IEnumerable<F1ChiefMechanicViewModel> items)
         {
-            _output.WriteLine("Chief Mechanics");
-            _output.WriteLine("---------------");
+            _output.WriteLine("F1 Chief Mechanics");
+            _output.WriteLine("------------------");
             foreach (var item in items)
             {
                 _output.WriteLine($"TeamId: {item.TeamId}");

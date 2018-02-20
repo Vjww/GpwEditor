@@ -16,8 +16,8 @@ namespace App.Console.Views
 
         public void Display(IEnumerable<F1DriverViewModel> items)
         {
-            _output.WriteLine("Drivers");
-            _output.WriteLine("-------");
+            _output.WriteLine("F1 Drivers");
+            _output.WriteLine("----------");
             foreach (var item in items)
             {
                 _output.WriteLine($"TeamId: {item.TeamId}");
