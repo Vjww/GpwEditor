@@ -20,13 +20,11 @@ namespace App.BaseGameEditor.Application.Maps.Manual
             if (item == null) throw new ArgumentNullException(nameof(item));
 
             var resultItem1 = _factory.Create(item.Id * 2);
-            // resultItem1.TeamId = item.Id; // TODO: Remove?
             resultItem1.PositionId = 0;
             resultItem1.ValueA = item.CarNumberDriver1;
             resultItem1.ValueB = item.CarNumberDriver1;
 
             var resultItem2 = _factory.Create(item.Id * 2 + 1);
-            // resultItem2.TeamId = item.Id; // TODO: Remove?
             resultItem2.PositionId = 1;
             resultItem2.ValueA = item.CarNumberDriver2;
             resultItem2.ValueB = item.CarNumberDriver2;

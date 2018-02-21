@@ -32,6 +32,12 @@ namespace App.BaseGameEditor.Data.Services
         private readonly IRepositoryImportService<NonF1DriverDataEntity> _nonF1DriverRepositoryImportService;
         private readonly IRepositoryExportService<TeamDataEntity> _teamRepositoryExportService;
         private readonly IRepositoryImportService<TeamDataEntity> _teamRepositoryImportService;
+        private readonly IRepositoryExportService<EngineDataEntity> _engineRepositoryExportService;
+        private readonly IRepositoryImportService<EngineDataEntity> _engineRepositoryImportService;
+        private readonly IRepositoryExportService<TyreDataEntity> _tyreRepositoryExportService;
+        private readonly IRepositoryImportService<TyreDataEntity> _tyreRepositoryImportService;
+        private readonly IRepositoryExportService<FuelDataEntity> _fuelRepositoryExportService;
+        private readonly IRepositoryImportService<FuelDataEntity> _fuelRepositoryImportService;
 
         public IRepository<CarNumberDataEntity> CarNumbers { get; }
         public IRepository<ChassisHandlingDataEntity> ChassisHandlings { get; }
@@ -46,6 +52,9 @@ namespace App.BaseGameEditor.Data.Services
         public IRepository<NonF1ChiefMechanicDataEntity> NonF1ChiefMechanics { get; }
         public IRepository<NonF1DriverDataEntity> NonF1Drivers { get; }
         public IRepository<TeamDataEntity> Teams { get; }
+        public IRepository<EngineDataEntity> Engines { get; }
+        public IRepository<TyreDataEntity> Tyres { get; }
+        public IRepository<FuelDataEntity> Fuels { get; }
 
         public DataService(
             IRepositoryExportService<CarNumberDataEntity> carNumberRepositoryExportService,
@@ -74,6 +83,12 @@ namespace App.BaseGameEditor.Data.Services
             IRepositoryImportService<NonF1DriverDataEntity> nonF1DriverRepositoryImportService,
             IRepositoryExportService<TeamDataEntity> teamRepositoryExportService,
             IRepositoryImportService<TeamDataEntity> teamRepositoryImportService,
+            IRepositoryExportService<EngineDataEntity> engineRepositoryExportService,
+            IRepositoryImportService<EngineDataEntity> engineRepositoryImportService,
+            IRepositoryExportService<TyreDataEntity> tyreRepositoryExportService,
+            IRepositoryImportService<TyreDataEntity> tyreRepositoryImportService,
+            IRepositoryExportService<FuelDataEntity> fuelRepositoryExportService,
+            IRepositoryImportService<FuelDataEntity> fuelRepositoryImportService,
             IRepository<CarNumberDataEntity> carNumberRepository,
             IRepository<ChassisHandlingDataEntity> chassisHandlingRepository,
             IRepository<F1ChiefCommercialDataEntity> f1ChiefCommercialRepository,
@@ -86,7 +101,10 @@ namespace App.BaseGameEditor.Data.Services
             IRepository<NonF1ChiefEngineerDataEntity> nonF1ChiefEngineerRepository,
             IRepository<NonF1ChiefMechanicDataEntity> nonF1ChiefMechanicRepository,
             IRepository<NonF1DriverDataEntity> nonF1DriverRepository,
-            IRepository<TeamDataEntity> teamRepository)
+            IRepository<TeamDataEntity> teamRepository,
+            IRepository<EngineDataEntity> engineRepository,
+            IRepository<TyreDataEntity> tyreRepository,
+            IRepository<FuelDataEntity> fuelRepository)
         {
             _carNumberRepositoryExportService = carNumberRepositoryExportService ?? throw new ArgumentNullException(nameof(carNumberRepositoryExportService));
             _carNumberRepositoryImportService = carNumberRepositoryImportService ?? throw new ArgumentNullException(nameof(carNumberRepositoryImportService));
@@ -114,6 +132,12 @@ namespace App.BaseGameEditor.Data.Services
             _nonF1DriverRepositoryImportService = nonF1DriverRepositoryImportService ?? throw new ArgumentNullException(nameof(nonF1DriverRepositoryImportService));
             _teamRepositoryExportService = teamRepositoryExportService ?? throw new ArgumentNullException(nameof(teamRepositoryExportService));
             _teamRepositoryImportService = teamRepositoryImportService ?? throw new ArgumentNullException(nameof(teamRepositoryImportService));
+            _engineRepositoryExportService = engineRepositoryExportService ?? throw new ArgumentNullException(nameof(engineRepositoryExportService));
+            _engineRepositoryImportService = engineRepositoryImportService ?? throw new ArgumentNullException(nameof(engineRepositoryImportService));
+            _tyreRepositoryExportService = tyreRepositoryExportService ?? throw new ArgumentNullException(nameof(tyreRepositoryExportService));
+            _tyreRepositoryImportService = tyreRepositoryImportService ?? throw new ArgumentNullException(nameof(tyreRepositoryImportService));
+            _fuelRepositoryExportService = fuelRepositoryExportService ?? throw new ArgumentNullException(nameof(fuelRepositoryExportService));
+            _fuelRepositoryImportService = fuelRepositoryImportService ?? throw new ArgumentNullException(nameof(fuelRepositoryImportService));
 
             CarNumbers = carNumberRepository ?? throw new ArgumentNullException(nameof(carNumberRepository));
             ChassisHandlings = chassisHandlingRepository ?? throw new ArgumentNullException(nameof(chassisHandlingRepository));
@@ -128,6 +152,9 @@ namespace App.BaseGameEditor.Data.Services
             NonF1ChiefMechanics = nonF1ChiefMechanicRepository ?? throw new ArgumentNullException(nameof(nonF1ChiefMechanicRepository));
             NonF1Drivers = nonF1DriverRepository ?? throw new ArgumentNullException(nameof(nonF1DriverRepository));
             Teams = teamRepository ?? throw new ArgumentNullException(nameof(teamRepository));
+            Engines = engineRepository ?? throw new ArgumentNullException(nameof(engineRepository));
+            Tyres = tyreRepository ?? throw new ArgumentNullException(nameof(tyreRepository));
+            Fuels = fuelRepository ?? throw new ArgumentNullException(nameof(fuelRepository));
         }
 
         public void Export()
@@ -145,6 +172,9 @@ namespace App.BaseGameEditor.Data.Services
             _nonF1ChiefMechanicRepositoryExportService.Export();
             _nonF1DriverRepositoryExportService.Export();
             _teamRepositoryExportService.Export();
+            _engineRepositoryExportService.Export();
+            _tyreRepositoryExportService.Export();
+            _fuelRepositoryExportService.Export();
         }
 
         public void Import()
@@ -162,6 +192,9 @@ namespace App.BaseGameEditor.Data.Services
             _nonF1ChiefMechanicRepositoryImportService.Import(10);
             _nonF1DriverRepositoryImportService.Import(11);
             _teamRepositoryImportService.Import(11);
+            _engineRepositoryImportService.Import(8);
+            _tyreRepositoryImportService.Import(3);
+            _fuelRepositoryImportService.Import(9);
         }
     }
 }

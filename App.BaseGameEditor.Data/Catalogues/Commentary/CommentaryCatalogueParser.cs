@@ -81,7 +81,7 @@ namespace App.BaseGameEditor.Data.Catalogues.Commentary
                 case CommentaryType.TeamOut:
                     return fileName.Substring(0, fileName.Length - TeamOutFileNameSuffix.Length);
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(commentaryType));
             }
         }
 
@@ -107,7 +107,7 @@ namespace App.BaseGameEditor.Data.Catalogues.Commentary
                 case CommentaryType.TeamOut:
                     return TeamOutFileNameSuffix;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(commentaryType));
             }
         }
 
@@ -143,7 +143,7 @@ namespace App.BaseGameEditor.Data.Catalogues.Commentary
                 case CommentaryType.TeamOut:
                     return transcript.Substring(0, transcript.Length - _languagePhrases.TeamOutSuffix.Length - 1);
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(commentaryType));
             }
         }
 
@@ -169,7 +169,7 @@ namespace App.BaseGameEditor.Data.Catalogues.Commentary
                 case CommentaryType.TeamOut:
                     return _languagePhrases.TeamOutSuffix;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(commentaryType));
             }
         }
 

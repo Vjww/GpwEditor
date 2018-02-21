@@ -23,7 +23,6 @@ namespace App.BaseGameEditor.Application.Maps.Manual
             var list = items as IList<CarNumberDataEntity> ?? items.ToList();
             if (list.Count != 2) throw new ArgumentOutOfRangeException();
 
-            // var result = _factory.Create(list.Single(x => x.PositionId == 0).TeamId); // TODO: Remove?
             var result = _factory.Create(list.Single(x => x.PositionId == 0).Id / 2);
             result.CarNumberDriver1 = list.Single(x => x.PositionId == 0).ValueA;
             result.CarNumberDriver2 = list.Single(x => x.PositionId == 1).ValueA;

@@ -66,6 +66,14 @@
     <Compile Include="Catalogues\Language\LanguageCatalogueValue.cs" />
     <Compile Include="Catalogues\Language\LanguageCatalogueWriter.cs" />
     <Compile Include="DataConnections\DataConnection.cs" />
+    <Compile Include="DataEntities\TyreDataEntityImportService.cs" />
+    <Compile Include="DataEntities\TyreDataEntityExportService.cs" />
+    <Compile Include="DataEntities\FuelDataEntityImportService.cs" />
+    <Compile Include="DataEntities\FuelDataEntityExportService.cs" />
+    <Compile Include="DataEntities\EngineDataEntityExportService.cs" />
+    <Compile Include="DataEntities\EngineDataEntityImportService.cs" />
+    <Compile Include="DataEntities\TyreDataEntity.cs" />
+    <Compile Include="DataEntities\FuelDataEntity.cs" />
     <Compile Include="DataEntities\F1ChiefCommercialDataEntity.cs" />
     <Compile Include="DataEntities\F1DriverDataEntityImportService.cs" />
     <Compile Include="DataEntities\F1DriverDataEntityExportService.cs" />
@@ -96,6 +104,9 @@
     <Compile Include="DataEntities\NonF1DriverDataEntity.cs" />
     <Compile Include="DataEntities\NonF1DriverDataEntityExportService.cs" />
     <Compile Include="DataEntities\NonF1DriverDataEntityImportService.cs" />
+    <Compile Include="DataEntities\EngineDataEntity.cs" />
+    <Compile Include="DataLocators\TyreDataLocator.cs" />
+    <Compile Include="DataLocators\FuelDataLocator.cs" />
     <Compile Include="DataLocators\F1ChiefCommercialDataLocator.cs" />
     <Compile Include="DataLocators\F1ChiefDesignerDataLocator.cs" />
     <Compile Include="DataLocators\F1ChiefEngineerDataLocator.cs" />
@@ -107,6 +118,7 @@
     <Compile Include="DataLocators\NonF1ChiefEngineerDataLocator.cs" />
     <Compile Include="DataLocators\NonF1ChiefMechanicDataLocator.cs" />
     <Compile Include="DataLocators\NonF1DriverDataLocator.cs" />
+    <Compile Include="DataLocators\EngineDataLocator.cs" />
     <Compile Include="Services\DataConnectionValidationService.cs" />
     <Compile Include="Services\IDataEntityExportService.cs" />
     <Compile Include="Services\IDataEntityImportService.cs" />

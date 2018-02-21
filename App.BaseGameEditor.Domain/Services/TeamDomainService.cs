@@ -14,8 +14,7 @@ namespace App.BaseGameEditor.Domain.Services
 
         public TeamDomainService(
             IRepository<TeamEntity> teamRepository,
-            IEntityValidator<TeamEntity> teamEntityValidator
-        )
+            IEntityValidator<TeamEntity> teamEntityValidator)
         {
             _teamRepository = teamRepository ?? throw new ArgumentNullException(nameof(teamRepository));
             _teamEntityValidator = teamEntityValidator ?? throw new ArgumentNullException(nameof(teamEntityValidator));

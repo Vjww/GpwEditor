@@ -42,8 +42,6 @@ namespace App.BaseGameEditor.Application.Services
                 var id = i;
 
                 var teamDataEntity = _dataService.Teams.Get(x => x.Id == id).Single();
-                //var chassisHandlingDataEntity = _dataService.ChassisHandlings.Get(x => x.TeamId == id).Single(); // TODO: Remove?
-                //var carNumberDataEntities = _dataService.CarNumbers.Get(x => x.TeamId == id);                    // TODO: Remove?
                 var chassisHandlingDataEntity = _dataService.ChassisHandlings.Get(x => x.Id == id).Single();
                 var carNumberDataEntities = _dataService.CarNumbers.Get(x => x.Id / 2 == id);
 

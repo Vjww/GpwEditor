@@ -39,15 +39,18 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maps\AutoMapper\SupplierDataEntitiesOnSupplierEntityProfile.cs" />
     <Compile Include="Maps\AutoMapper\Reference\ApplicationMaps.cs" />
     <Compile Include="Maps\AutoMapper\MemberValueResolvers\DataEntityMoraleMemberValueResolver.cs" />
     <Compile Include="Maps\AutoMapper\MemberValueResolvers\EntityMoraleMemberValueResolver.cs" />
-    <Compile Include="Maps\AutoMapper\MultipleDataEntitiesOnTeamEntityProfile.cs" />
+    <Compile Include="Maps\AutoMapper\TeamDataEntityOnTeamEntityProfile.cs" />
     <Compile Include="Maps\AutoMapper\PersonDataEntityOnPersonEntityProfile.cs" />
     <Compile Include="Maps\Manual\CarNumberDataEntitiesToCarNumbersObjectMapper.cs" />
     <Compile Include="Maps\Manual\CarNumbersObjectToCarNumberDataEntitiesMapper.cs" />
     <Compile Include="Services\DataExportService.cs" />
     <Compile Include="Services\DataImportService.cs" />
+    <Compile Include="Services\SupplierDomainModelImportService.cs" />
+    <Compile Include="Services\SupplierDomainModelExportService.cs" />
     <Compile Include="Services\PersonDomainModelExportService.cs" />
     <Compile Include="Services\PersonDomainModelImportService.cs" />
     <Compile Include="Services\TeamDomainModelExportService.cs" />

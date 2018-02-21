@@ -30,7 +30,6 @@ namespace App.BaseGameEditor.Data.DataEntities
             dataLocator.Initialise();
 
             var result = _dataEntityFactory.Create(id);
-            // result.TeamId = result.Id / 2; // TODO: Remove?
             result.PositionId = result.Id % 2;
             result.ValueA = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ValueA);
             result.ValueB = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ValueB);

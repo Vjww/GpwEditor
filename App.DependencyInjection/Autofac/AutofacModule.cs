@@ -1,16 +1,11 @@
 using System;
 using System.Collections.Generic;
 using App.BaseGameEditor.Data.Catalogues.Language;
-using App.BaseGameEditor.Data.DataEntities;
-using App.BaseGameEditor.Data.DataLocators;
 using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.FileResources;
 using App.BaseGameEditor.Data.Services;
-using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Factories;
-using App.BaseGameEditor.Infrastructure.Objects;
 using App.BaseGameEditor.Infrastructure.Repositories;
-using App.BaseGameEditor.Infrastructure.Services;
 using App.Core.Factories;
 using Autofac;
 using Autofac.Features.ResolveAnything;
@@ -21,86 +16,61 @@ namespace App.DependencyInjection.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
+            // Note: Factories are registered via dynamic instantiation Func<T>
+            // http://autofaccn.readthedocs.io/en/latest/resolve/relationships.html#dynamic-instantiation-func-b
+
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+            var isTypeWithinAppNamespaceRange = new Func<Type, bool>(
+                type => type.Namespace != null &&
+                (
+                    type.Namespace.StartsWith("App.BaseGameEditor.Application") ||
+                    type.Namespace.StartsWith("App.BaseGameEditor.Data") ||
+                    type.Namespace.StartsWith("App.BaseGameEditor.Domain") ||
+                    type.Namespace.StartsWith("App.BaseGameEditor.Infrastructure") ||
+                    type.Namespace.StartsWith("App.Core")
+                ));
+
             // Register interface types
-            builder.RegisterAssemblyTypes(
-                    AppDomain.CurrentDomain.GetAssemblies()).Where(
-                    type => type.Namespace != null &&
-                            (
-                                type.Namespace.StartsWith("App.BaseGameEditor.Application") ||
-                                type.Namespace.StartsWith("App.BaseGameEditor.Data") ||
-                                type.Namespace.StartsWith("App.BaseGameEditor.Domain") ||
-                                type.Namespace.StartsWith("App.BaseGameEditor.Infrastructure") ||
-                                type.Namespace.StartsWith("App.Core") ||
-                                type.Namespace.StartsWith("App.ObjectMapping")
-                            ))
+            builder.RegisterAssemblyTypes(assemblies)
+                    .Where(isTypeWithinAppNamespaceRange)
                 .AsImplementedInterfaces()
                 .SingleInstance();
-
-            // TODO: good to remove?
-            //builder.RegisterType<AutoMapperMapperService>().As<IMapperService>().SingleInstance();
 
             // Register concrete types that do not implement interfaces
             builder.RegisterSource(
                 new AnyConcreteTypeNotAlreadyRegisteredSource()
                     .WithRegistrationsAs(rb => rb.SingleInstance()));
 
-            // Register factories via dynamic instantiation Func<T>
-            // http://autofaccn.readthedocs.io/en/latest/resolve/relationships.html#dynamic-instantiation-func-b
-
             // Manual registrations
             builder.RegisterType<MemoryStreamFactory>().As<IStreamFactory>().SingleInstance();
-
-            builder.RegisterType<FileResource>().InstancePerDependency();
-            builder.RegisterType<LanguageCatalogueValue>().InstancePerDependency();
-
-            // TODO: Register by convention? i.e. all concrete types in namespace ending in Entity
-            builder.RegisterType<TeamEntity>().InstancePerDependency();
-            builder.RegisterType<F1ChiefCommercialEntity>().InstancePerDependency();
-            builder.RegisterType<F1ChiefDesignerEntity>().InstancePerDependency();
-            builder.RegisterType<F1ChiefEngineerEntity>().InstancePerDependency();
-            builder.RegisterType<F1ChiefMechanicEntity>().InstancePerDependency();
-            builder.RegisterType<F1DriverEntity>().InstancePerDependency();
-            builder.RegisterType<NonF1ChiefCommercialEntity>().InstancePerDependency();
-            builder.RegisterType<NonF1ChiefDesignerEntity>().InstancePerDependency();
-            builder.RegisterType<NonF1ChiefEngineerEntity>().InstancePerDependency();
-            builder.RegisterType<NonF1ChiefMechanicEntity>().InstancePerDependency();
-            builder.RegisterType<NonF1DriverEntity>().InstancePerDependency();
-            builder.RegisterType<CarNumbersObject>().InstancePerDependency();
-
-            // TODO: Register by convention? i.e. all concrete types in namespace ending in DataEntity
-            builder.RegisterType<CarNumberDataEntity>().InstancePerDependency();
-            builder.RegisterType<ChassisHandlingDataEntity>().InstancePerDependency();
-            builder.RegisterType<F1ChiefCommercialDataEntity>().InstancePerDependency();
-            builder.RegisterType<F1ChiefDesignerDataEntity>().InstancePerDependency();
-            builder.RegisterType<F1ChiefEngineerDataEntity>().InstancePerDependency();
-            builder.RegisterType<F1ChiefMechanicDataEntity>().InstancePerDependency();
-            builder.RegisterType<F1DriverDataEntity>().InstancePerDependency();
-            builder.RegisterType<NonF1ChiefCommercialDataEntity>().InstancePerDependency();
-            builder.RegisterType<NonF1ChiefDesignerDataEntity>().InstancePerDependency();
-            builder.RegisterType<NonF1ChiefEngineerDataEntity>().InstancePerDependency();
-            builder.RegisterType<NonF1ChiefMechanicDataEntity>().InstancePerDependency();
-            builder.RegisterType<NonF1DriverDataEntity>().InstancePerDependency();
-            builder.RegisterType<TeamDataEntity>().InstancePerDependency();
-
-            // TODO: Register by convention? i.e. all concrete types in namespace ending in DataLocator
-            builder.RegisterType<CarNumberDataLocator>().InstancePerDependency();
-            builder.RegisterType<ChassisHandlingDataLocator>().InstancePerDependency();
-            builder.RegisterType<F1ChiefCommercialDataLocator>().InstancePerDependency();
-            builder.RegisterType<F1ChiefDesignerDataLocator>().InstancePerDependency();
-            builder.RegisterType<F1ChiefEngineerDataLocator>().InstancePerDependency();
-            builder.RegisterType<F1ChiefMechanicDataLocator>().InstancePerDependency();
-            builder.RegisterType<F1DriverDataLocator>().InstancePerDependency();
-            builder.RegisterType<NonF1ChiefCommercialDataLocator>().InstancePerDependency();
-            builder.RegisterType<NonF1ChiefDesignerDataLocator>().InstancePerDependency();
-            builder.RegisterType<NonF1ChiefEngineerDataLocator>().InstancePerDependency();
-            builder.RegisterType<NonF1ChiefMechanicDataLocator>().InstancePerDependency();
-            builder.RegisterType<NonF1DriverDataLocator>().InstancePerDependency();
-            builder.RegisterType<TeamDataLocator>().InstancePerDependency();
-
-            builder.RegisterGeneric(typeof(List<>)).InstancePerDependency();
             builder.RegisterGeneric(typeof(IntegerIdentityFactory<>)).As(typeof(IIntegerIdentityFactory<>)).SingleInstance();
             builder.RegisterGeneric(typeof(RepositoryExportService<>)).As(typeof(IRepositoryExportService<>)).SingleInstance();
             builder.RegisterGeneric(typeof(RepositoryImportService<>)).As(typeof(IRepositoryImportService<>)).SingleInstance();
+            builder.RegisterGeneric(typeof(List<>)).InstancePerDependency();
+            builder.RegisterType<FileResource>().InstancePerDependency();
+            builder.RegisterType<LanguageCatalogueValue>().InstancePerDependency();
+
+            // Register types in the data layer as instance per dependancy
+            builder.RegisterAssemblyTypes(assemblies)
+                .Where(type => type.Namespace != null &&
+                               type.Namespace.StartsWith("App.BaseGameEditor.Data") &&
+                               (type.Name.EndsWith("DataEntity") ||
+                                type.Name.EndsWith("DataLocator")))
+                .InstancePerDependency();
+
+            // Register types in the domain layer as instance per dependancy
+            builder.RegisterAssemblyTypes(assemblies)
+                .Where(type => type.Namespace != null &&
+                               type.Namespace.StartsWith("App.BaseGameEditor.Domain") &&
+                               (type.Name.EndsWith("Entity")))
+                .InstancePerDependency();
+
+            // Register types in the infrastructure layer as instance per dependancy
+            builder.RegisterAssemblyTypes(assemblies)
+                .Where(type => type.Namespace != null &&
+                               type.Namespace.StartsWith("App.BaseGameEditor.Infrastructure") &&
+                               (type.Name.EndsWith("Object")))
+                .InstancePerDependency();
         }
     }
 }

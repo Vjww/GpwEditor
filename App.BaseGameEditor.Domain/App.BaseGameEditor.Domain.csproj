@@ -34,6 +34,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\FuelEntity.cs" />
+    <Compile Include="Entities\TyreEntity.cs" />
     <Compile Include="Entities\F1DriverEntity.cs" />
     <Compile Include="Entities\F1ChiefMechanicEntity.cs" />
     <Compile Include="Entities\F1ChiefEngineerEntity.cs" />
@@ -44,6 +46,10 @@
     <Compile Include="Entities\NonF1ChiefEngineerEntity.cs" />
     <Compile Include="Entities\NonF1ChiefMechanicEntity.cs" />
     <Compile Include="Entities\NonF1DriverEntity.cs" />
+    <Compile Include="Entities\EngineEntity.cs" />
+    <Compile Include="EntityValidators\TyreEntityValidator.cs" />
+    <Compile Include="EntityValidators\FuelEntityValidator.cs" />
+    <Compile Include="EntityValidators\EngineEntityValidator.cs" />
     <Compile Include="EntityValidators\NonF1ChiefCommercialEntityValidator.cs" />
     <Compile Include="EntityValidators\NonF1ChiefDesignerEntityValidator.cs" />
     <Compile Include="EntityValidators\NonF1ChiefEngineerEntityValidator.cs" />
@@ -60,6 +66,7 @@
     <Compile Include="Entities\TeamEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\PersonDomainService.cs" />
+    <Compile Include="Services\SupplierDomainService.cs" />
     <Compile Include="Services\TeamDomainService.cs" />
   </ItemGroup>
   <ItemGroup>

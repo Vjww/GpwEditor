@@ -5,9 +5,9 @@ using AutoMapper;
 
 namespace App.BaseGameEditor.Application.Maps.AutoMapper
 {
-    public class MultipleDataEntitiesOnTeamEntityProfile : Profile
+    public class TeamDataEntityOnTeamEntityProfile : Profile
     {
-        public MultipleDataEntitiesOnTeamEntityProfile()
+        public TeamDataEntityOnTeamEntityProfile()
         {
             CreateMap<TeamDataEntity, TeamEntity>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
@@ -39,7 +39,6 @@ namespace App.BaseGameEditor.Application.Maps.AutoMapper
                 .ForMember(dest => dest.ChassisHandling, opt => opt.MapFrom(src => src.Value))
                 .ReverseMap()
                 .ForMember(src => src.Id, opt => opt.Ignore())
-                //.ForMember(src => src.TeamId, opt => opt.ResolveUsing(dest => dest.TeamId - 1)) // TODO: Remove?
                 .ForMember(src => src.Value, opt => opt.MapFrom(dest => dest.ChassisHandling));
 
             CreateMap<CarNumbersObject, TeamEntity>()
