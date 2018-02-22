@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
+﻿using System.Reflection;
 using App.BaseGameEditor.Application.Maps.AutoMapper.Reference;
 using App.BaseGameEditor.Data.Catalogues.Language;
 using App.BaseGameEditor.Data.DataEntities;
@@ -7,12 +6,8 @@ using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Factories;
 using App.BaseGameEditor.Infrastructure.Objects;
 using App.BaseGameEditor.Infrastructure.Services;
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 using FluentAssertions;
-using Microsoft.Extensions.DependencyInjection;
-using Moq;
 using Xunit;
 
 namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
@@ -27,16 +22,10 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
             var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.AddAutoMapper(Assembly.GetAssembly(typeof(ApplicationMaps)));
-
-            var containerBuilder = new ContainerBuilder();
-            containerBuilder.Populate(serviceCollection);
-
-            var container = containerBuilder.Build();
-            var serviceProvider = new AutofacServiceProvider(container);
-
-            var mapperService = serviceProvider.GetService<AutoMapperMapperService>();
+            var assembly = Assembly.GetAssembly(typeof(ApplicationMaps));
+            var mapperConfiguration = new MapperConfiguration(c => c.AddProfiles(assembly));
+            var mapper = mapperConfiguration.CreateMapper();
+            var mapperService = new AutoMapperMapperService(mapper);
 
             // Initialise data entities using unique non-default dummy values to verify mappings
             const int teamDataEntityId = 1;
@@ -104,8 +93,10 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             var chassisHandlingDataEntityFactory = new IntegerIdentityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
             var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
-            var mockMapper = new Mock<IMapper>();
-            var mapperService = new Infrastructure.Services.AutoMapperMapperService(mockMapper.Object);
+            var assembly = Assembly.GetAssembly(typeof(ApplicationMaps));
+            var mapperConfiguration = new MapperConfiguration(c => c.AddProfiles(assembly));
+            var mapper = mapperConfiguration.CreateMapper();
+            var mapperService = new AutoMapperMapperService(mapper);
 
             const int chassisHandlingDataEntityId = 2;
             var chassisHandlingDataEntity = chassisHandlingDataEntityFactory.Create(chassisHandlingDataEntityId);
@@ -125,8 +116,10 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
             var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
-            var mockMapper = new Mock<IMapper>();
-            var mapperService = new Infrastructure.Services.AutoMapperMapperService(mockMapper.Object);
+            var assembly = Assembly.GetAssembly(typeof(ApplicationMaps));
+            var mapperConfiguration = new MapperConfiguration(c => c.AddProfiles(assembly));
+            var mapper = mapperConfiguration.CreateMapper();
+            var mapperService = new AutoMapperMapperService(mapper);
 
             const int teamDataEntityId = 1;
             var carNumbersObject = carNumbersObjectFactory.Create(teamDataEntityId);
@@ -150,8 +143,10 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
             var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
-            var mockMapper = new Mock<IMapper>();
-            var mapperService = new Infrastructure.Services.AutoMapperMapperService(mockMapper.Object);
+            var assembly = Assembly.GetAssembly(typeof(ApplicationMaps));
+            var mapperConfiguration = new MapperConfiguration(c => c.AddProfiles(assembly));
+            var mapper = mapperConfiguration.CreateMapper();
+            var mapperService = new AutoMapperMapperService(mapper);
 
             // Initialise data entities using unique non-default dummy values to verify mappings
             const int teamDataEntityId = 1;
@@ -226,8 +221,10 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
             var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
-            var mockMapper = new Mock<IMapper>();
-            var mapperService = new Infrastructure.Services.AutoMapperMapperService(mockMapper.Object);
+            var assembly = Assembly.GetAssembly(typeof(ApplicationMaps));
+            var mapperConfiguration = new MapperConfiguration(c => c.AddProfiles(assembly));
+            var mapper = mapperConfiguration.CreateMapper();
+            var mapperService = new AutoMapperMapperService(mapper);
 
             // Initialise data entities using unique non-default dummy values to verify mappings
             const int teamDataEntityId = 1;
@@ -297,8 +294,10 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
             var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
-            var mockMapper = new Mock<IMapper>();
-            var mapperService = new Infrastructure.Services.AutoMapperMapperService(mockMapper.Object);
+            var assembly = Assembly.GetAssembly(typeof(ApplicationMaps));
+            var mapperConfiguration = new MapperConfiguration(c => c.AddProfiles(assembly));
+            var mapper = mapperConfiguration.CreateMapper();
+            var mapperService = new AutoMapperMapperService(mapper);
 
             // Initialise data entities using unique non-default dummy values to verify mappings
             const int teamDataEntityId = 1;
@@ -358,8 +357,10 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
             var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
 
-            var mockMapper = new Mock<IMapper>();
-            var mapperService = new Infrastructure.Services.AutoMapperMapperService(mockMapper.Object);
+            var assembly = Assembly.GetAssembly(typeof(ApplicationMaps));
+            var mapperConfiguration = new MapperConfiguration(c => c.AddProfiles(assembly));
+            var mapper = mapperConfiguration.CreateMapper();
+            var mapperService = new AutoMapperMapperService(mapper);
 
             // Initialise data entities using unique non-default dummy values to verify mappings
             const int teamDataEntityId = 1;
