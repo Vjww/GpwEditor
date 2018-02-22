@@ -1,3 +1,5 @@
+TODO: Sort out the language text encoding in rewrite
+
 TODO: Create helper for entity import and export for language properties, should there ever be a fourth language
 e.g. the below could be refactored into a method:
             result.Name.English = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Name);

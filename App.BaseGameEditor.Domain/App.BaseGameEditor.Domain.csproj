@@ -34,6 +34,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\PerformanceCurveEntity.cs" />
     <Compile Include="Entities\TrackEntity.cs" />
     <Compile Include="Entities\FuelEntity.cs" />
     <Compile Include="Entities\TyreEntity.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="Entities\NonF1ChiefMechanicEntity.cs" />
     <Compile Include="Entities\NonF1DriverEntity.cs" />
     <Compile Include="Entities\EngineEntity.cs" />
+    <Compile Include="EntityValidators\PerformanceCurveEntityValidator.cs" />
     <Compile Include="EntityValidators\TrackEntityValidator.cs" />
     <Compile Include="EntityValidators\TyreEntityValidator.cs" />
     <Compile Include="EntityValidators\FuelEntityValidator.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Entities\TeamEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\PersonDomainService.cs" />
+    <Compile Include="Services\PerformanceCurveDomainService.cs" />
     <Compile Include="Services\TrackDomainService.cs" />
     <Compile Include="Services\SupplierDomainService.cs" />
     <Compile Include="Services\TeamDomainService.cs" />

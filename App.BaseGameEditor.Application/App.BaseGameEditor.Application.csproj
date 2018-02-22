@@ -39,6 +39,7 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maps\AutoMapper\PerformanceCurveDataEntitiesOnPerformanceCurveEntityProfile.cs" />
     <Compile Include="Maps\AutoMapper\TrackDataEntitiesOnTrackEntityProfile.cs" />
     <Compile Include="Maps\AutoMapper\SupplierDataEntitiesOnSupplierEntityProfile.cs" />
     <Compile Include="Maps\AutoMapper\Reference\ApplicationMaps.cs" />
@@ -50,7 +51,9 @@
     <Compile Include="Maps\Manual\CarNumbersObjectToCarNumberDataEntitiesMapper.cs" />
     <Compile Include="Services\DataExportService.cs" />
     <Compile Include="Services\DataImportService.cs" />
+    <Compile Include="Services\PerformanceCurveDomainModelExportService.cs" />
     <Compile Include="Services\TrackDomainModelExportService.cs" />
+    <Compile Include="Services\PerformanceCurveDomainModelImportService.cs" />
     <Compile Include="Services\TrackDomainModelImportService.cs" />
     <Compile Include="Services\SupplierDomainModelImportService.cs" />
     <Compile Include="Services\SupplierDomainModelExportService.cs" />

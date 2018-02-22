@@ -66,6 +66,9 @@
     <Compile Include="Catalogues\Language\LanguageCatalogueValue.cs" />
     <Compile Include="Catalogues\Language\LanguageCatalogueWriter.cs" />
     <Compile Include="DataConnections\DataConnection.cs" />
+    <Compile Include="DataEntities\PerformanceCurveDataEntityExportService.cs" />
+    <Compile Include="DataEntities\PerformanceCurveDataEntityImportService.cs" />
+    <Compile Include="DataEntities\PerformanceCurveDataEntity.cs" />
     <Compile Include="DataEntities\TrackDataEntityExportService.cs" />
     <Compile Include="DataEntities\TrackDataEntityImportService.cs" />
     <Compile Include="DataEntities\TrackDataEntity.cs" />
@@ -108,6 +111,7 @@
     <Compile Include="DataEntities\NonF1DriverDataEntityExportService.cs" />
     <Compile Include="DataEntities\NonF1DriverDataEntityImportService.cs" />
     <Compile Include="DataEntities\EngineDataEntity.cs" />
+    <Compile Include="DataLocators\PerformanceCurveDataLocator.cs" />
     <Compile Include="DataLocators\TrackDataLocator.cs" />
     <Compile Include="DataLocators\TyreDataLocator.cs" />
     <Compile Include="DataLocators\FuelDataLocator.cs" />

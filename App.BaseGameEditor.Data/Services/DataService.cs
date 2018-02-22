@@ -40,6 +40,8 @@ namespace App.BaseGameEditor.Data.Services
         private readonly IRepositoryImportService<FuelDataEntity> _fuelRepositoryImportService;
         private readonly IRepositoryExportService<TrackDataEntity> _trackRepositoryExportService;
         private readonly IRepositoryImportService<TrackDataEntity> _trackRepositoryImportService;
+        private readonly IRepositoryExportService<PerformanceCurveDataEntity> _performanceCurveRepositoryExportService;
+        private readonly IRepositoryImportService<PerformanceCurveDataEntity> _performanceCurveRepositoryImportService;
 
         public IRepository<CarNumberDataEntity> CarNumbers { get; }
         public IRepository<ChassisHandlingDataEntity> ChassisHandlings { get; }
@@ -58,6 +60,7 @@ namespace App.BaseGameEditor.Data.Services
         public IRepository<TyreDataEntity> Tyres { get; }
         public IRepository<FuelDataEntity> Fuels { get; }
         public IRepository<TrackDataEntity> Tracks { get; }
+        public IRepository<PerformanceCurveDataEntity> PerformanceCurveValues { get; }
 
         public DataService(
             IRepositoryExportService<CarNumberDataEntity> carNumberRepositoryExportService,
@@ -94,6 +97,8 @@ namespace App.BaseGameEditor.Data.Services
             IRepositoryImportService<FuelDataEntity> fuelRepositoryImportService,
             IRepositoryExportService<TrackDataEntity> trackRepositoryExportService,
             IRepositoryImportService<TrackDataEntity> trackRepositoryImportService,
+            IRepositoryExportService<PerformanceCurveDataEntity> performanceCurveRepositoryExportService,
+            IRepositoryImportService<PerformanceCurveDataEntity> performanceCurveRepositoryImportService,
             IRepository<CarNumberDataEntity> carNumberRepository,
             IRepository<ChassisHandlingDataEntity> chassisHandlingRepository,
             IRepository<F1ChiefCommercialDataEntity> f1ChiefCommercialRepository,
@@ -110,7 +115,8 @@ namespace App.BaseGameEditor.Data.Services
             IRepository<EngineDataEntity> engineRepository,
             IRepository<TyreDataEntity> tyreRepository,
             IRepository<FuelDataEntity> fuelRepository,
-            IRepository<TrackDataEntity> trackRepository)
+            IRepository<TrackDataEntity> trackRepository,
+            IRepository<PerformanceCurveDataEntity> performanceCurveRepository)
         {
             _carNumberRepositoryExportService = carNumberRepositoryExportService ?? throw new ArgumentNullException(nameof(carNumberRepositoryExportService));
             _carNumberRepositoryImportService = carNumberRepositoryImportService ?? throw new ArgumentNullException(nameof(carNumberRepositoryImportService));
@@ -146,6 +152,8 @@ namespace App.BaseGameEditor.Data.Services
             _fuelRepositoryImportService = fuelRepositoryImportService ?? throw new ArgumentNullException(nameof(fuelRepositoryImportService));
             _trackRepositoryExportService = trackRepositoryExportService ?? throw new ArgumentNullException(nameof(trackRepositoryExportService));
             _trackRepositoryImportService = trackRepositoryImportService ?? throw new ArgumentNullException(nameof(trackRepositoryImportService));
+            _performanceCurveRepositoryExportService = performanceCurveRepositoryExportService ?? throw new ArgumentNullException(nameof(performanceCurveRepositoryExportService));
+            _performanceCurveRepositoryImportService = performanceCurveRepositoryImportService ?? throw new ArgumentNullException(nameof(performanceCurveRepositoryImportService));
 
             CarNumbers = carNumberRepository ?? throw new ArgumentNullException(nameof(carNumberRepository));
             ChassisHandlings = chassisHandlingRepository ?? throw new ArgumentNullException(nameof(chassisHandlingRepository));
@@ -164,6 +172,7 @@ namespace App.BaseGameEditor.Data.Services
             Tyres = tyreRepository ?? throw new ArgumentNullException(nameof(tyreRepository));
             Fuels = fuelRepository ?? throw new ArgumentNullException(nameof(fuelRepository));
             Tracks = trackRepository ?? throw new ArgumentNullException(nameof(trackRepository));
+            PerformanceCurveValues = performanceCurveRepository ?? throw new ArgumentNullException(nameof(performanceCurveRepository));
         }
 
         public void Export()
@@ -185,6 +194,7 @@ namespace App.BaseGameEditor.Data.Services
             _tyreRepositoryExportService.Export();
             _fuelRepositoryExportService.Export();
             _trackRepositoryExportService.Export();
+            _performanceCurveRepositoryExportService.Export();
         }
 
         public void Import()
@@ -207,6 +217,7 @@ namespace App.BaseGameEditor.Data.Services
             _tyreRepositoryImportService.Import(3);
             _fuelRepositoryImportService.Import(9);
             _trackRepositoryImportService.Import(16);
+            _performanceCurveRepositoryImportService.Import(120);
         }
     }
 }

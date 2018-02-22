@@ -27,3 +27,4 @@ For the Console Presentation layer:
 - add a view
 - add/modify a controller
 - add object maps between domain entities and view models
+- add controller to application class and invoke display method

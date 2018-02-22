@@ -8,17 +8,20 @@ namespace App.BaseGameEditor.Application.Services
         private readonly PersonDomainModelExportService _personDomainModelExportService;
         private readonly SupplierDomainModelExportService _supplierDomainModelExportService;
         private readonly TrackDomainModelExportService _trackDomainModelExportService;
+        private readonly PerformanceCurveDomainModelExportService _performanceCurveDomainModelExportService;
 
         public DomainModelExportService(
             TeamDomainModelExportService teamDomainModelExportService,
             PersonDomainModelExportService personDomainModelExportService,
             SupplierDomainModelExportService supplierDomainModelExportService,
-            TrackDomainModelExportService trackDomainModelExportService)
+            TrackDomainModelExportService trackDomainModelExportService,
+            PerformanceCurveDomainModelExportService performanceCurveDomainModelExportService)
         {
             _teamDomainModelExportService = teamDomainModelExportService ?? throw new ArgumentNullException(nameof(teamDomainModelExportService));
             _personDomainModelExportService = personDomainModelExportService ?? throw new ArgumentNullException(nameof(personDomainModelExportService));
             _supplierDomainModelExportService = supplierDomainModelExportService ?? throw new ArgumentNullException(nameof(supplierDomainModelExportService));
             _trackDomainModelExportService = trackDomainModelExportService ?? throw new ArgumentNullException(nameof(trackDomainModelExportService));
+            _performanceCurveDomainModelExportService = performanceCurveDomainModelExportService ?? throw new ArgumentNullException(nameof(performanceCurveDomainModelExportService));
         }
 
         public void Export()
@@ -27,6 +30,7 @@ namespace App.BaseGameEditor.Application.Services
             _personDomainModelExportService.Export();
             _supplierDomainModelExportService.Export();
             _trackDomainModelExportService.Export();
+            _performanceCurveDomainModelExportService.Export();
         }
     }
 }
