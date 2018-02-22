@@ -1,5 +1,4 @@
-﻿// TODO: Resolve?
-//using System;
+﻿//using System;
 //using App.BaseGameEditor.Data.Catalogues.Language;
 //using App.BaseGameEditor.Data.FileResources;
 //using App.BaseGameEditor.Domain.Entities;

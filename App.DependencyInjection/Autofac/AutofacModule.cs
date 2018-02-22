@@ -30,22 +30,26 @@ namespace App.DependencyInjection.Autofac
                     type.Namespace.StartsWith("App.Core")
                 ));
 
-            // Register interface types
+            // Register concrete types that implement interface of the same name
+            // e.g. Registers Foo as IFoo and Bar as IBar
             builder.RegisterAssemblyTypes(assemblies)
                     .Where(isTypeWithinAppNamespaceRange)
                 .AsImplementedInterfaces()
                 .SingleInstance();
 
             // Register concrete types that do not implement interfaces
+            // or do not implement an interface of the same name
             builder.RegisterSource(
                 new AnyConcreteTypeNotAlreadyRegisteredSource()
                     .WithRegistrationsAs(rb => rb.SingleInstance()));
 
-            // Manual registrations
+            // Manual registrations for singletons
             builder.RegisterType<MemoryStreamFactory>().As<IStreamFactory>().SingleInstance();
             builder.RegisterGeneric(typeof(IntegerIdentityFactory<>)).As(typeof(IIntegerIdentityFactory<>)).SingleInstance();
             builder.RegisterGeneric(typeof(RepositoryExportService<>)).As(typeof(IRepositoryExportService<>)).SingleInstance();
             builder.RegisterGeneric(typeof(RepositoryImportService<>)).As(typeof(IRepositoryImportService<>)).SingleInstance();
+
+            // Manual registrations for non-singletons
             builder.RegisterGeneric(typeof(List<>)).InstancePerDependency();
             builder.RegisterType<FileResource>().InstancePerDependency();
             builder.RegisterType<LanguageCatalogueValue>().InstancePerDependency();

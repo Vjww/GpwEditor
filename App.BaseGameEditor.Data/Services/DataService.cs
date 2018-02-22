@@ -199,7 +199,6 @@ namespace App.BaseGameEditor.Data.Services
 
         public void Import()
         {
-            // TODO: ItemCount numbers should be retreived from a centralised location
             _carNumberRepositoryImportService.Import(22);
             _chassisHandlingRepositoryImportService.Import(11);
             _f1ChiefCommercialRepositoryImportService.Import(11);

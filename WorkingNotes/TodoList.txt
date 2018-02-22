@@ -1,3 +1,5 @@
+TODO: Delete App.Tests once all tests written
+
 TODO: Sort out the language text encoding in rewrite
 
 TODO: Create helper for entity import and export for language properties, should there ever be a fourth language
