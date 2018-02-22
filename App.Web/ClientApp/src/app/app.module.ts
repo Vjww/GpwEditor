@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { TeamsModule } from './basegame/basegame.teams.module';
+import { ImportModule } from './basegame/basegame.import.module';
 
 @NgModule({
   declarations: [
@@ -28,9 +29,11 @@ import { TeamsModule } from './basegame/basegame.teams.module';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: '**', redirectTo: 'home' }
     ]),
     NgbModule.forRoot(),
-    TeamsModule//,
+    TeamsModule,
+    ImportModule//,
     // AppRoutingModule // Retain as final route, as Angular registers routes based on the order of modules specified here
   ],
   providers: [],

@@ -57,7 +57,7 @@ namespace App.WebService
             }
 
             // TODO: This is added
-            app.UseCors(cp => cp.AllowAnyOrigin().AllowAnyHeader());
+            app.UseCors(cp => cp.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseMvc();
         }

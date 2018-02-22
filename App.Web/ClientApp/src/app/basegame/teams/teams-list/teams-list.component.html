@@ -1,22 +1,131 @@
-<p>
-    teams-list works!
-</p>
+<h1>{{title}}</h1>
+<button kendoButton (click)="onButtonClick()" [primary]="true">My Kendo UI Button</button>
 <a [routerLink]="['/basegame/teams', 10]">
-    <span class='glyphicon glyphicon-th-list'></span> Go to a team
+  <span class='glyphicon glyphicon-th-list'></span> Go and view team 10
 </a>
 <div class='table-responsive'>
-    <table class='table' *ngIf='_teams && _teams.length'>
-        <thead>
-            <tr>
-                <th>
-                    Id
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor='let team of _teams'>
-                <td>{{ team.id }}</td>
-            </tr>
-        </tbody>
-    </table>
+  <table class='table' *ngIf='_teams && _teams.length'>
+    <thead>
+      <tr>
+        <th>
+          Id
+        </th>
+        <th>
+          TeamId
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          LastPosition
+        </th>
+        <th>
+          LastPoints
+        </th>
+        <th>
+          FirstGpTrack
+        </th>
+        <th>
+          FirstGpYear
+        </th>
+        <th>
+          Wins
+        </th>
+        <th>
+          YearlyBudget
+        </th>
+        <th>
+          CountryMapId
+        </th>
+        <th>
+          LocationPointerX
+        </th>
+        <th>
+          LocationPointerY
+        </th>
+        <th>
+          TyreSupplierId
+        </th>
+        <th>
+          ChassisHandling
+        </th>
+        <th>
+          CarNumberDriver1
+        </th>
+        <th>
+          CarNumberDriver2
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let team of _teams'>
+        <td>
+          {{ team.id }}
+        </td>
+        <td>
+          {{ team.teamId }}
+        </td>
+        <td>
+          {{ team.name }}
+        </td>
+        <td>
+          {{ team.lastPosition }}
+        </td>
+        <td>
+          {{ team.lastPoints }}
+        </td>
+        <td>
+          {{ team.firstGpTrack }}
+        </td>
+        <td>
+          {{ team.firstGpYear }}
+        </td>
+        <td>
+          {{ team.wins }}
+        </td>
+        <td>
+          {{ team.yearlyBudget }}
+        </td>
+        <td>
+          {{ team.countryMapId }}
+        </td>
+        <td>
+          {{ team.locationPointerX }}
+        </td>
+        <td>
+          {{ team.locationPointerY }}
+        </td>
+        <td>
+          {{ team.tyreSupplierId }}
+        </td>
+        <td>
+          {{ team.chassisHandling }}
+        </td>
+        <td>
+          {{ team.carNumberDriver1 }}
+        </td>
+        <td>
+          {{ team.carNumberDriver2 }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <kendo-grid [data]="gridData" [height]="410">
+    <kendo-grid-column field="ProductID" title="ID" width="40">
+    </kendo-grid-column>
+    <kendo-grid-column field="ProductName" title="Name" width="250">
+    </kendo-grid-column>
+    <kendo-grid-column field="Category.CategoryName" title="Category">
+    </kendo-grid-column>
+    <kendo-grid-column field="UnitPrice" title="Price" width="80">
+    </kendo-grid-column>
+    <kendo-grid-column field="UnitsInStock" title="In stock" width="80">
+    </kendo-grid-column>
+    <kendo-grid-column field="Discontinued" title="Discontinued" width="120">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <input type="checkbox" [checked]="dataItem.Discontinued" disabled />
+      </ng-template>
+    </kendo-grid-column>
+  </kendo-grid>
 </div>

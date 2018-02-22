@@ -12,17 +12,20 @@ namespace App.Console
         private readonly TeamController _teamController;
         private readonly PersonController _personController;
         private readonly SupplierController _supplierController;
+        private readonly TrackController _trackController;
 
         public Application(
             BaseGameController baseGameController,
             TeamController teamController,
             PersonController personController,
-            SupplierController supplierController)
+            SupplierController supplierController,
+            TrackController trackController)
         {
             _baseGameController = baseGameController ?? throw new ArgumentNullException(nameof(baseGameController));
             _teamController = teamController ?? throw new ArgumentNullException(nameof(teamController));
             _personController = personController ?? throw new ArgumentNullException(nameof(personController));
             _supplierController = supplierController ?? throw new ArgumentNullException(nameof(supplierController));
+            _trackController = trackController ?? throw new ArgumentNullException(nameof(trackController));
         }
 
         public void Run()
@@ -40,6 +43,7 @@ namespace App.Console
             _teamController.DisplayTeams();
             _personController.DisplayPersons();
             _supplierController.DisplaySuppliers();
+            _trackController.DisplayTracks();
 
             _baseGameController.Export(
                 $@"{TempFolder}",

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using App.BaseGameEditor.Application.Services;
+using App.BaseGameEditor.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.WebService.Controllers
@@ -7,93 +9,43 @@ namespace App.WebService.Controllers
     [Route("api/[controller]")]
     public class BaseGameController : Controller
     {
+        private readonly ApplicationService _applicationService;
         private readonly ImportDataService _importDataService;
         private readonly ExportDataService _exportDataService;
 
         public BaseGameController(
+            ApplicationService applicationService,
             ImportDataService importDataService,
             ExportDataService exportDataService)
         {
+            _applicationService = applicationService ?? throw new ArgumentNullException(nameof(applicationService));
             _importDataService = importDataService ?? throw new ArgumentNullException(nameof(importDataService));
             _exportDataService = exportDataService ?? throw new ArgumentNullException(nameof(exportDataService));
         }
 
-        // TODO: Should be Post method once UI is in place
-        //// POST: api/BaseGame/Import
-        //[HttpPost("Import")]
-
-        // GET: api/BaseGame/Import
-        [HttpGet("Import")]
-        public void Import()
+        [HttpPost("[action]")]
+        public void Import([FromBody]Test test)
         {
+            var _ = test;
             _importDataService.Import();
         }
 
-        // TODO: Should be Post method once UI is in place
-        //// POST: api/BaseGame/Export
-        //[HttpPost("Export")]
-
-        // GET: api/BaseGame/Export
-        [HttpGet("Export")]
-        public void Export()
+        [HttpPost("[action]")]
+        public void Export(Test test)
         {
+            var _ = test;
             _exportDataService.Export();
         }
 
         [HttpGet("[action]")]
-        public IEnumerable<Team> GetTeams()
+        public IEnumerable<TeamEntity> GetTeams()
         {
-            return new List<Team>
-            {
-                new Team { Id = 1 },
-                new Team { Id = 2 },
-                new Team { Id = 3 },
-                new Team { Id = 4 },
-                new Team { Id = 5 }
-            };
-        }
-
-        public class Team
-        {
-            public int Id { get; set; }
+            return _applicationService.DomainModel.Teams.GetTeams();
         }
     }
 
-//    [Produces("application/json")]
-//    [Route("api/BaseGame")]
-//    public class BaseGameController : Controller
-//    {
-//        private readonly ImportDataService _importDataService;
-//        private readonly ExportDataService _exportDataService;
-
-//        public BaseGameController(
-//            ImportDataService importDataService,
-//            ExportDataService exportDataService)
-//        {
-//            _importDataService = importDataService ?? throw new ArgumentNullException(nameof(importDataService));
-//            _exportDataService = exportDataService ?? throw new ArgumentNullException(nameof(exportDataService));
-//        }
-
-//        // TODO: Should be Post method once UI is in place
-//        //// POST: api/BaseGame/Import
-//        //[HttpPost("Import")]
-
-//        // GET: api/BaseGame/Import
-//        [HttpGet("Import")]
-//        public void Import()
-//        {
-//            _importDataService.Import();
-//        }
-
-//        // TODO: Should be Post method once UI is in place
-//        //// POST: api/BaseGame/Export
-//        //[HttpPost("Export")]
-
-//        // GET: api/BaseGame/Export
-//        [HttpGet("Export")]
-//        public void Export()
-//        {
-//            _exportDataService.Export();
-//        }
-//    }
+    public class Test
+    {
+        public string FilePath { get; set; }
+    }
 }
