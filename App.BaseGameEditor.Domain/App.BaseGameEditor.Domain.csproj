@@ -1,88 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{26383D7C-AAF3-43B9-AD71-FD795387B59F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>App.BaseGameEditor.Domain</RootNamespace>
-    <AssemblyName>App.BaseGameEditor.Domain</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
+    <ProjectReference Include="..\App.Core\App.Core.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Entities\PerformanceCurveEntity.cs" />
-    <Compile Include="Entities\TrackEntity.cs" />
-    <Compile Include="Entities\FuelEntity.cs" />
-    <Compile Include="Entities\TyreEntity.cs" />
-    <Compile Include="Entities\F1DriverEntity.cs" />
-    <Compile Include="Entities\F1ChiefMechanicEntity.cs" />
-    <Compile Include="Entities\F1ChiefEngineerEntity.cs" />
-    <Compile Include="Entities\F1ChiefDesignerEntity.cs" />
-    <Compile Include="Entities\F1ChiefCommercialEntity.cs" />
-    <Compile Include="Entities\NonF1ChiefCommercialEntity.cs" />
-    <Compile Include="Entities\NonF1ChiefDesignerEntity.cs" />
-    <Compile Include="Entities\NonF1ChiefEngineerEntity.cs" />
-    <Compile Include="Entities\NonF1ChiefMechanicEntity.cs" />
-    <Compile Include="Entities\NonF1DriverEntity.cs" />
-    <Compile Include="Entities\EngineEntity.cs" />
-    <Compile Include="EntityValidators\PerformanceCurveEntityValidator.cs" />
-    <Compile Include="EntityValidators\TrackEntityValidator.cs" />
-    <Compile Include="EntityValidators\TyreEntityValidator.cs" />
-    <Compile Include="EntityValidators\FuelEntityValidator.cs" />
-    <Compile Include="EntityValidators\EngineEntityValidator.cs" />
-    <Compile Include="EntityValidators\NonF1ChiefCommercialEntityValidator.cs" />
-    <Compile Include="EntityValidators\NonF1ChiefDesignerEntityValidator.cs" />
-    <Compile Include="EntityValidators\NonF1ChiefEngineerEntityValidator.cs" />
-    <Compile Include="EntityValidators\NonF1ChiefMechanicEntityValidator.cs" />
-    <Compile Include="EntityValidators\NonF1DriverEntityValidator.cs" />
-    <Compile Include="EntityValidators\TeamEntityValidator.cs" />
-    <Compile Include="EntityValidators\F1DriverEntityValidator.cs" />
-    <Compile Include="EntityValidators\F1ChiefMechanicEntityValidator.cs" />
-    <Compile Include="EntityValidators\F1ChiefEngineerEntityValidator.cs" />
-    <Compile Include="EntityValidators\F1ChiefDesignerEntityValidator.cs" />
-    <Compile Include="EntityValidators\F1ChiefCommercialEntityValidator.cs" />
-    <Compile Include="EntityValidators\IEntityValidator.cs" />
-    <Compile Include="Services\DomainModelService.cs" />
-    <Compile Include="Entities\TeamEntity.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\PersonDomainService.cs" />
-    <Compile Include="Services\PerformanceCurveDomainService.cs" />
-    <Compile Include="Services\TrackDomainService.cs" />
-    <Compile Include="Services\SupplierDomainService.cs" />
-    <Compile Include="Services\TeamDomainService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ValueObjects\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\App.Core\App.Core.csproj">
-      <Project>{8F131E69-0FB5-432A-B873-DDC4B2631D49}</Project>
-      <Name>App.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>

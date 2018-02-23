@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\App.BaseGameEditor.Application\App.BaseGameEditor.Application.csproj" />
     <ProjectReference Include="..\App.DependencyInjection\App.DependencyInjection.csproj" />
+    <ProjectReference Include="..\App.SaveGameEditor.Application\App.SaveGameEditor.Application.csproj" />
   </ItemGroup>
 
 </Project>

@@ -12,6 +12,7 @@ using Autofac.Features.ResolveAnything;
 
 namespace App.DependencyInjection.Autofac
 {
+    // TODO: Review references, as perhaps only core and infrastructure layers should be referenced?
     public class AutofacModule : Module
     {
         protected override void Load(ContainerBuilder builder)

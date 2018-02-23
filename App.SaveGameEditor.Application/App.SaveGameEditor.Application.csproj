@@ -5,14 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.6.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\App.BaseGameEditor.Data\App.BaseGameEditor.Data.csproj" />
-    <ProjectReference Include="..\App.BaseGameEditor.Infrastructure\App.BaseGameEditor.Infrastructure.csproj" />
     <ProjectReference Include="..\App.Core\App.Core.csproj" />
     <ProjectReference Include="..\App.SaveGameEditor.Data\App.SaveGameEditor.Data.csproj" />
+    <ProjectReference Include="..\App.SaveGameEditor.Domain\App.SaveGameEditor.Domain.csproj" />
     <ProjectReference Include="..\App.SaveGameEditor.Infrastructure\App.SaveGameEditor.Infrastructure.csproj" />
   </ItemGroup>
 

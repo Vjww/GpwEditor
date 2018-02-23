@@ -1,92 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4538DA14-275A-4711-B4BF-6A4DD806189D}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>App.BaseGameEditor.Application</RootNamespace>
-    <AssemblyName>App.BaseGameEditor.Application</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Maps\AutoMapper\PerformanceCurveDataEntitiesOnPerformanceCurveEntityProfile.cs" />
-    <Compile Include="Maps\AutoMapper\TrackDataEntitiesOnTrackEntityProfile.cs" />
-    <Compile Include="Maps\AutoMapper\SupplierDataEntitiesOnSupplierEntityProfile.cs" />
-    <Compile Include="Maps\AutoMapper\Reference\ApplicationMaps.cs" />
-    <Compile Include="Maps\AutoMapper\MemberValueResolvers\DataEntityMoraleMemberValueResolver.cs" />
-    <Compile Include="Maps\AutoMapper\MemberValueResolvers\EntityMoraleMemberValueResolver.cs" />
-    <Compile Include="Maps\AutoMapper\TeamDataEntityOnTeamEntityProfile.cs" />
-    <Compile Include="Maps\AutoMapper\PersonDataEntityOnPersonEntityProfile.cs" />
-    <Compile Include="Maps\Manual\CarNumberDataEntitiesToCarNumbersObjectMapper.cs" />
-    <Compile Include="Maps\Manual\CarNumbersObjectToCarNumberDataEntitiesMapper.cs" />
-    <Compile Include="Services\DataExportService.cs" />
-    <Compile Include="Services\DataImportService.cs" />
-    <Compile Include="Services\PerformanceCurveDomainModelExportService.cs" />
-    <Compile Include="Services\TrackDomainModelExportService.cs" />
-    <Compile Include="Services\PerformanceCurveDomainModelImportService.cs" />
-    <Compile Include="Services\TrackDomainModelImportService.cs" />
-    <Compile Include="Services\SupplierDomainModelImportService.cs" />
-    <Compile Include="Services\SupplierDomainModelExportService.cs" />
-    <Compile Include="Services\PersonDomainModelExportService.cs" />
-    <Compile Include="Services\PersonDomainModelImportService.cs" />
-    <Compile Include="Services\TeamDomainModelExportService.cs" />
-    <Compile Include="Services\DomainModelImportService.cs" />
-    <Compile Include="Services\ApplicationService.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\DomainModelExportService.cs" />
-    <Compile Include="Services\TeamDomainModelImportService.cs" />
-    <Compile Include="Services\ValueConverterService.cs" />
+    <ProjectReference Include="..\App.BaseGameEditor.Data\App.BaseGameEditor.Data.csproj" />
+    <ProjectReference Include="..\App.BaseGameEditor.Domain\App.BaseGameEditor.Domain.csproj" />
+    <ProjectReference Include="..\App.BaseGameEditor.Infrastructure\App.BaseGameEditor.Infrastructure.csproj" />
+    <ProjectReference Include="..\App.Core\App.Core.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\App.BaseGameEditor.Data\App.BaseGameEditor.Data.csproj">
-      <Project>{d338afef-dc6d-4325-aff8-ce03b7820c51}</Project>
-      <Name>App.BaseGameEditor.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\App.BaseGameEditor.Domain\App.BaseGameEditor.Domain.csproj">
-      <Project>{26383d7c-aaf3-43b9-ad71-fd795387b59f}</Project>
-      <Name>App.BaseGameEditor.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\App.BaseGameEditor.Infrastructure\App.BaseGameEditor.Infrastructure.csproj">
-      <Project>{360ab367-9cb7-4fdf-9580-984962f76616}</Project>
-      <Name>App.BaseGameEditor.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\App.Core\App.Core.csproj">
-      <Project>{8F131E69-0FB5-432A-B873-DDC4B2631D49}</Project>
-      <Name>App.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>

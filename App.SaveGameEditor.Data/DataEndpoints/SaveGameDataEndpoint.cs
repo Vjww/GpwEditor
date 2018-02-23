@@ -1,4 +1,6 @@
-﻿//using System;
+﻿// TODO: Review this is still in line with BaseGameEditor
+
+//using System;
 //using App.SaveGameEditor.Data.Connections;
 //using Common.Editor.Data.DataEndpoints;
 //using Common.Editor.Data.FileResources;

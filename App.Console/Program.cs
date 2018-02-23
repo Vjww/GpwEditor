@@ -12,12 +12,11 @@ namespace App.Console
 {
     internal class Program
     {
-        public static void Main(string[] args)
+        private static void Main()
         {
             var serviceCollection = new ServiceCollection();
 
-            // AutoMapper: 
-            // Scan for and register profiles in assemblies
+            // AutoMapper: Scan for and register profiles in assemblies
             serviceCollection.AddAutoMapper(
                 Assembly.GetAssembly(typeof(ApplicationMaps)),
                 Assembly.GetAssembly(typeof(PresentationMaps)));
