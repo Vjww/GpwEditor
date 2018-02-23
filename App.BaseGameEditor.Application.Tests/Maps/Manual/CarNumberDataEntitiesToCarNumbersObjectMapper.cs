@@ -18,7 +18,7 @@ namespace App.BaseGameEditor.Application.Tests.Maps.Manual
                 var _ = new Application.Maps.Manual.CarNumberDataEntitiesToCarNumbersObjectMapper(null);
             });
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -32,7 +32,7 @@ namespace App.BaseGameEditor.Application.Tests.Maps.Manual
                 var _ = mapper.Map(null);
             });
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -49,7 +49,7 @@ namespace App.BaseGameEditor.Application.Tests.Maps.Manual
                 var _ = mapper.Map(list);
             });
 
-            action.ShouldThrow<ArgumentOutOfRangeException>();
+            action.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [Fact]
@@ -65,7 +65,7 @@ namespace App.BaseGameEditor.Application.Tests.Maps.Manual
                 var _ = mapper.Map(list);
             });
 
-            action.ShouldThrow<ArgumentOutOfRangeException>();
+            action.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [Fact]
@@ -81,7 +81,7 @@ namespace App.BaseGameEditor.Application.Tests.Maps.Manual
                 var _ = mapper.Map(list);
             });
 
-            action.ShouldThrow<ArgumentOutOfRangeException>();
+            action.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [Fact]

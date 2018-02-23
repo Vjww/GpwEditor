@@ -18,7 +18,7 @@ namespace App.BaseGameEditor.Application.Tests.Maps.Manual
                 var _ = new Application.Maps.Manual.CarNumbersObjectToCarNumberDataEntitiesMapper(null);
             });
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -32,7 +32,7 @@ namespace App.BaseGameEditor.Application.Tests.Maps.Manual
                 var _ = mapper.Map(null);
             });
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]

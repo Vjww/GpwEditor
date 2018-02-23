@@ -16,7 +16,7 @@ namespace App.BaseGameEditor.Infrastructure.Tests.Services
                 var _ = new Infrastructure.Services.AutoMapperMapperService(null);
             });
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -30,7 +30,7 @@ namespace App.BaseGameEditor.Infrastructure.Tests.Services
                 var _ = mapperService.Map<object, object>(null);
             });
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -44,7 +44,7 @@ namespace App.BaseGameEditor.Infrastructure.Tests.Services
                 var _ = mapperService.Map<object, object>(null, new object());
             });
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Fact]
@@ -58,7 +58,7 @@ namespace App.BaseGameEditor.Infrastructure.Tests.Services
                 var _ = mapperService.Map<object, object>(new object(), null);
             });
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
     }
 }
