@@ -19,7 +19,19 @@ namespace App.BaseGameEditor.Data.DataLocators.Lookups
 
         public void Initialise()
         {
-            Description = DescriptionOffset + _calculator.GetTrackFastestLapDriverNameId(Id);
+            const int specialOffset = 535;
+
+            var nameId = _calculator.GetTrackFastestLapDriverNameId(Id);
+
+            if (nameId >= 200 && nameId <= 203)
+            {
+                // Use special offset for retired fastest lap drivers (language file index 6530 to 6533)
+                Description = DescriptionOffset + nameId + specialOffset;
+            }
+            else
+            {
+                Description = DescriptionOffset + nameId;
+            }
         }
     }
 }
