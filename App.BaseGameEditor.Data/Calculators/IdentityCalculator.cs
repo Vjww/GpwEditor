@@ -125,5 +125,67 @@
 
             return idToResourceIdMap[id];
         }
+
+        public int GetChiefDriverLoyaltyNameId(int id)
+        {
+            var idToResourceIdMap = new[]
+            {
+                0, 6, 7, 8, 14, 15, 16, 22, 23, 24, 30, 31, 32, 38, 39, 40, 46, 47, 48, 54, 55, 56, 62, 63, 64,
+                70, 71, 72, 78, 79, 80, 86, 87, 88, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139,
+            };
+
+            return idToResourceIdMap[id];
+        }
+
+        public int GetDriverNationalityNameId(int id)
+        {
+            var idToResourceIdMap = new[]
+            {
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
+            };
+
+            return idToResourceIdMap[id];
+        }
+
+        public int GetTeamDebutGrandPrixNameId(int id)
+        {
+            var idToResourceIdMap = new[]
+            {
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+            };
+
+            return idToResourceIdMap[id];
+        }
+
+        public int GetTrackFastestLapDriverNameId(int id)
+        {
+            var idToResourceIdMap = new[]
+            {
+                6, 7, 8, 14, 15, 16, 22, 23, 24, 30, 31, 32, 38, 39, 40, 46, 47, 48, 54, 55, 56, 62, 63, 64, 70, 71, 72,
+                78, 79, 80, 86, 87, 88, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 200, 201, 202, 203
+            };
+
+            return idToResourceIdMap[id];
+        }
+
+        public int GetTrackLayoutNameId(int id)
+        {
+            var idToResourceIdMap = new[]
+            {
+                1, 2, 3
+            };
+
+            return idToResourceIdMap[id];
+        }
+
+        public int GetTyreSupplierNameId(int id)
+        {
+            var idToResourceIdMap = new[]
+            {
+                8, 9, 10
+            };
+
+            return idToResourceIdMap[id];
+        }
     }
 }

@@ -1,0 +1,165 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using App.BaseGameEditor.Data.Services;
+using App.BaseGameEditor.Domain.Entities.Lookups;
+using App.BaseGameEditor.Domain.Services;
+using App.BaseGameEditor.Infrastructure.Services;
+using App.Core.Factories;
+
+namespace App.BaseGameEditor.Application.Services
+{
+    public class LookupDomainModelImportService
+    {
+        private const int ChiefDriverLoyaltyLookupItemCount = 45;
+        private const int DriverNationalityLookupItemCount = 14;
+        private const int TeamDebutGrandPrixLookupItemCount = 19;
+        private const int TrackFastestLapDriverLookupItemCount = 48;
+        private const int TrackLayoutLookupItemCount = 3;
+        private const int TyreSupplierLookupItemCount = 3;
+
+        private readonly LookupDomainService _domainService;
+        private readonly DataService _dataService;
+        private readonly IIntegerIdentityFactory<ChiefDriverLoyaltyLookupEntity> _chiefDriverLoyaltyLookupEntityFactory;
+        private readonly IIntegerIdentityFactory<DriverNationalityLookupEntity> _driverNationalityLookupEntityFactory;
+        private readonly IIntegerIdentityFactory<TeamDebutGrandPrixLookupEntity> _teamDebutGrandPrixLookupEntityFactory;
+        private readonly IIntegerIdentityFactory<TrackFastestLapDriverLookupEntity> _trackFastestLapDriverLookupEntityFactory;
+        private readonly IIntegerIdentityFactory<TrackLayoutLookupEntity> _trackLayoutLookupEntityFactory;
+        private readonly IIntegerIdentityFactory<TyreSupplierLookupEntity> _tyreSupplierLookupEntityFactory;
+        private readonly IMapperService _mapperService;
+
+        public LookupDomainModelImportService(
+            LookupDomainService domainService,
+            DataService dataService,
+            IIntegerIdentityFactory<ChiefDriverLoyaltyLookupEntity> chiefDriverLoyaltyLookupEntityFactory,
+            IIntegerIdentityFactory<DriverNationalityLookupEntity> driverNationalityLookupEntityFactory,
+            IIntegerIdentityFactory<TeamDebutGrandPrixLookupEntity> teamDebutGrandPrixLookupEntityFactory,
+            IIntegerIdentityFactory<TrackFastestLapDriverLookupEntity> trackFastestLapDriverLookupEntityFactory,
+            IIntegerIdentityFactory<TrackLayoutLookupEntity> trackLayoutLookupEntityFactory,
+            IIntegerIdentityFactory<TyreSupplierLookupEntity> tyreSupplierLookupEntityFactory,
+            IMapperService mapperService)
+        {
+            _domainService = domainService ?? throw new ArgumentNullException(nameof(domainService));
+            _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
+            _chiefDriverLoyaltyLookupEntityFactory = chiefDriverLoyaltyLookupEntityFactory ?? throw new ArgumentNullException(nameof(chiefDriverLoyaltyLookupEntityFactory));
+            _driverNationalityLookupEntityFactory = driverNationalityLookupEntityFactory ?? throw new ArgumentNullException(nameof(driverNationalityLookupEntityFactory));
+            _teamDebutGrandPrixLookupEntityFactory = teamDebutGrandPrixLookupEntityFactory ?? throw new ArgumentNullException(nameof(teamDebutGrandPrixLookupEntityFactory));
+            _trackFastestLapDriverLookupEntityFactory = trackFastestLapDriverLookupEntityFactory ?? throw new ArgumentNullException(nameof(trackFastestLapDriverLookupEntityFactory));
+            _trackLayoutLookupEntityFactory = trackLayoutLookupEntityFactory ?? throw new ArgumentNullException(nameof(trackLayoutLookupEntityFactory));
+            _tyreSupplierLookupEntityFactory = tyreSupplierLookupEntityFactory ?? throw new ArgumentNullException(nameof(tyreSupplierLookupEntityFactory));
+            _mapperService = mapperService ?? throw new ArgumentNullException(nameof(mapperService));
+        }
+
+        public void Import()
+        {
+            ImportChiefDriverLoyaltyLookups();
+            ImportDriverNationalityLookups();
+            ImportTeamDebutGrandPrixLookups();
+            ImportTrackFastestLapDriverLookups();
+            ImportTrackLayoutLookups();
+            ImportTyreSupplierLookups();
+        }
+
+        private void ImportChiefDriverLoyaltyLookups()
+        {
+            var entities = new List<ChiefDriverLoyaltyLookupEntity>();
+            for (var i = 0; i < ChiefDriverLoyaltyLookupItemCount; i++)
+            {
+                var id = i;
+
+                var dataEntity = _dataService.ChiefDriverLoyaltyLookups.Get(x => x.Id == id).Single();
+
+                var entity = _chiefDriverLoyaltyLookupEntityFactory.Create(id);
+                entity = _mapperService.Map(dataEntity, entity);
+
+                entities.Add(entity);
+            }
+            _domainService.SetChiefDriverLoyaltyLookups(entities);
+        }
+
+        private void ImportDriverNationalityLookups()
+        {
+            var entities = new List<DriverNationalityLookupEntity>();
+            for (var i = 0; i < DriverNationalityLookupItemCount; i++)
+            {
+                var id = i;
+
+                var dataEntity = _dataService.DriverNationalityLookups.Get(x => x.Id == id).Single();
+
+                var entity = _driverNationalityLookupEntityFactory.Create(id);
+                entity = _mapperService.Map(dataEntity, entity);
+
+                entities.Add(entity);
+            }
+            _domainService.SetDriverNationalityLookups(entities);
+        }
+
+        private void ImportTeamDebutGrandPrixLookups()
+        {
+            var entities = new List<TeamDebutGrandPrixLookupEntity>();
+            for (var i = 0; i < TeamDebutGrandPrixLookupItemCount; i++)
+            {
+                var id = i;
+
+                var dataEntity = _dataService.TeamDebutGrandPrixLookups.Get(x => x.Id == id).Single();
+
+                var entity = _teamDebutGrandPrixLookupEntityFactory.Create(id);
+                entity = _mapperService.Map(dataEntity, entity);
+
+                entities.Add(entity);
+            }
+            _domainService.SetTeamDebutGrandPrixLookups(entities);
+        }
+
+        private void ImportTrackFastestLapDriverLookups()
+        {
+            var entities = new List<TrackFastestLapDriverLookupEntity>();
+            for (var i = 0; i < TrackFastestLapDriverLookupItemCount; i++)
+            {
+                var id = i;
+
+                var dataEntity = _dataService.TrackFastestLapDriverLookups.Get(x => x.Id == id).Single();
+
+                var entity = _trackFastestLapDriverLookupEntityFactory.Create(id);
+                entity = _mapperService.Map(dataEntity, entity);
+
+                entities.Add(entity);
+            }
+            _domainService.SetTrackFastestLapDriverLookups(entities);
+        }
+
+        private void ImportTrackLayoutLookups()
+        {
+            var entities = new List<TrackLayoutLookupEntity>();
+            for (var i = 0; i < TrackLayoutLookupItemCount; i++)
+            {
+                var id = i;
+
+                var dataEntity = _dataService.TrackLayoutLookups.Get(x => x.Id == id).Single();
+
+                var entity = _trackLayoutLookupEntityFactory.Create(id);
+                entity = _mapperService.Map(dataEntity, entity);
+
+                entities.Add(entity);
+            }
+            _domainService.SetTrackLayoutLookups(entities);
+        }
+
+        private void ImportTyreSupplierLookups()
+        {
+            var entities = new List<TyreSupplierLookupEntity>();
+            for (var i = 0; i < TyreSupplierLookupItemCount; i++)
+            {
+                var id = i;
+
+                var dataEntity = _dataService.TyreSupplierLookups.Get(x => x.Id == id).Single();
+
+                var entity = _tyreSupplierLookupEntityFactory.Create(id);
+                entity = _mapperService.Map(dataEntity, entity);
+
+                entities.Add(entity);
+            }
+            _domainService.SetTyreSupplierLookups(entities);
+        }
+    }
+}
