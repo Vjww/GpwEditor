@@ -8,22 +8,246 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace App.WindowsForms.Properties
-{
-
-
+namespace App.WindowsForms.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.5.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("GPW Edit")]
+        public string ApplicationName {
+            get {
+                return ((string)(this["ApplicationName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Grand Prix World")]
+        public string GameName {
+            get {
+                return ((string)(this["GameName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool InitialRun {
+            get {
+                return ((bool)(this["InitialRun"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SOFTWARE\\MicroProse\\Grand Prix World\\1.00.000")]
+        public string RegistryKey {
+            get {
+                return ((string)(this["RegistryKey"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files\\MicroProse\\Grand Prix World")]
+        public string DefaultGameFolderPath {
+            get {
+                return ((string)(this["DefaultGameFolderPath"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("gpw.exe")]
+        public string DefaultGameExecutableName {
+            get {
+                return ((string)(this["DefaultGameExecutableName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("english.txt")]
+        public string DefaultEnglishLanguageFileName {
+            get {
+                return ((string)(this["DefaultEnglishLanguageFileName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("french.txt")]
+        public string DefaultFrenchLanguageFileName {
+            get {
+                return ((string)(this["DefaultFrenchLanguageFileName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("german.txt")]
+        public string DefaultGermanLanguageFileName {
+            get {
+                return ((string)(this["DefaultGermanLanguageFileName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("comme.txt")]
+        public string DefaultEnglishCommentaryFileName {
+            get {
+                return ((string)(this["DefaultEnglishCommentaryFileName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("commf.txt")]
+        public string DefaultFrenchCommentaryFileName {
+            get {
+                return ((string)(this["DefaultFrenchCommentaryFileName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("commg.txt")]
+        public string DefaultGermanCommentaryFileName {
+            get {
+                return ((string)(this["DefaultGermanCommentaryFileName"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UserGameFolderPath {
+            get {
+                return ((string)(this["UserGameFolderPath"]));
+            }
+            set {
+                this["UserGameFolderPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UserGameLaunchCommand {
+            get {
+                return ((string)(this["UserGameLaunchCommand"]));
+            }
+            set {
+                this["UserGameLaunchCommand"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MruGameFolderPath {
+            get {
+                return ((string)(this["MruGameFolderPath"]));
+            }
+            set {
+                this["MruGameFolderPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MruGameExecutablePath {
+            get {
+                return ((string)(this["MruGameExecutablePath"]));
+            }
+            set {
+                this["MruGameExecutablePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MruEnglishLanguageFilePath {
+            get {
+                return ((string)(this["MruEnglishLanguageFilePath"]));
+            }
+            set {
+                this["MruEnglishLanguageFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MruFrenchLanguageFilePath {
+            get {
+                return ((string)(this["MruFrenchLanguageFilePath"]));
+            }
+            set {
+                this["MruFrenchLanguageFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MruGermanLanguageFilePath {
+            get {
+                return ((string)(this["MruGermanLanguageFilePath"]));
+            }
+            set {
+                this["MruGermanLanguageFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MruEnglishCommentaryFilePath {
+            get {
+                return ((string)(this["MruEnglishCommentaryFilePath"]));
+            }
+            set {
+                this["MruEnglishCommentaryFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MruFrenchCommentaryFilePath {
+            get {
+                return ((string)(this["MruFrenchCommentaryFilePath"]));
+            }
+            set {
+                this["MruFrenchCommentaryFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MruGermanCommentaryFilePath {
+            get {
+                return ((string)(this["MruGermanCommentaryFilePath"]));
+            }
+            set {
+                this["MruGermanCommentaryFilePath"] = value;
             }
         }
     }

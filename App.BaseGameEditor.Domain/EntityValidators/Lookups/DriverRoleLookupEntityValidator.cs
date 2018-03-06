@@ -3,9 +3,9 @@ using App.BaseGameEditor.Domain.Entities.Lookups;
 
 namespace App.BaseGameEditor.Domain.EntityValidators.Lookups
 {
-    public class TrackFastestLapDriverLookupEntityValidator : IEntityValidator<TrackFastestLapDriverLookupEntity>
+    public class DriverRoleLookupEntityValidator : IEntityValidator<DriverRoleLookupEntity>
     {
-        public IEnumerable<string> Validate(TrackFastestLapDriverLookupEntity entity)
+        public IEnumerable<string> Validate(DriverRoleLookupEntity entity)
         {
             var validationMessages = new List<string>();
 

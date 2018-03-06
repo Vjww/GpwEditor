@@ -129,14 +129,47 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ApplicationForm.Designer.cs">
-      <DependentUpon>ApplicationForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Maps\AutoMapper\Reference\PresentationMaps.cs" />
+    <Compile Include="Models\EngineModel.cs" />
+    <Compile Include="Models\F1ChiefCommercialModel.cs" />
+    <Compile Include="Models\F1ChiefDesignerModel.cs" />
+    <Compile Include="Models\F1ChiefEngineerModel.cs" />
+    <Compile Include="Models\F1ChiefMechanicModel.cs" />
+    <Compile Include="Models\F1DriverModel.cs" />
+    <Compile Include="Models\FuelModel.cs" />
+    <Compile Include="Models\Lookups\DriverRoleLookupModel.cs" />
+    <Compile Include="Models\Lookups\TrackTeamLookupModel.cs" />
+    <Compile Include="Models\Lookups\TrackLayoutLookupModel.cs" />
+    <Compile Include="Models\Lookups\TrackDriverLookupModel.cs" />
+    <Compile Include="Models\Lookups\DriverNationalityLookupModel.cs" />
+    <Compile Include="Models\Lookups\ChiefDriverLoyaltyLookupModel.cs" />
+    <Compile Include="Models\Lookups\TyreSupplierLookupModel.cs" />
+    <Compile Include="Models\Lookups\TeamDebutGrandPrixLookupModel.cs" />
+    <Compile Include="Models\NonF1ChiefCommercialModel.cs" />
+    <Compile Include="Models\NonF1ChiefDesignerModel.cs" />
+    <Compile Include="Models\NonF1ChiefEngineerModel.cs" />
+    <Compile Include="Models\NonF1ChiefMechanicModel.cs" />
+    <Compile Include="Models\NonF1DriverModel.cs" />
+    <Compile Include="Models\PerformanceCurveModel.cs" />
+    <Compile Include="Models\TeamModel.cs" />
+    <Compile Include="Models\TrackModel.cs" />
+    <Compile Include="Models\TyreModel.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\EditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EditorForm.Designer.cs">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GameExecutableEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GameExecutableEditorForm.Designer.cs">
+      <DependentUpon>GameExecutableEditorForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -145,7 +178,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\EditorForm.resx">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GameExecutableEditorForm.resx">
+      <DependentUpon>GameExecutableEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -165,6 +205,18 @@
       <Project>{14bfb1ca-130c-46b0-bedf-66817481f5ca}</Project>
       <Name>App.BaseGameEditor.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.BaseGameEditor.Domain\App.BaseGameEditor.Domain.csproj">
+      <Project>{FB06DC21-5923-4461-8AC6-5F973BA16821}</Project>
+      <Name>App.BaseGameEditor.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.BaseGameEditor.Infrastructure\App.BaseGameEditor.Infrastructure.csproj">
+      <Project>{D4ED742A-5907-42A9-A4BD-0DB924A10FFE}</Project>
+      <Name>App.BaseGameEditor.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Core\App.Core.csproj">
+      <Project>{E188796D-CEA0-4BB5-8AE6-BE02D5B8C11E}</Project>
+      <Name>App.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.DependencyInjection\App.DependencyInjection.csproj">
       <Project>{a5d0b5be-f4da-44d0-975a-55ca3910b88e}</Project>
       <Name>App.DependencyInjection</Name>
@@ -173,6 +225,19 @@
       <Project>{b136bbc6-18fe-437d-8470-69ff35c30300}</Project>
       <Name>App.SaveGameEditor.Application</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Base\ss1.png" />
+    <Content Include="Resources\Base\ss2.png" />
+    <Content Include="Resources\Base\ss3.png" />
+    <Content Include="Resources\Base\ss4.png" />
+    <Content Include="Resources\Base\ss5.png" />
+    <Content Include="Resources\icon1.ico" />
+    <Content Include="Resources\logo1.png" />
+    <Content Include="Resources\logo2.png" />
+    <Content Include="Resources\logo3.png" />
+    <Content Include="Resources\logo4.png" />
+    <Content Include="Resources\logo5.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

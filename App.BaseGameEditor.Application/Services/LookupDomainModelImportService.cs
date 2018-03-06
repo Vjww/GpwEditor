@@ -13,18 +13,22 @@ namespace App.BaseGameEditor.Application.Services
     {
         private const int ChiefDriverLoyaltyLookupItemCount = 45;
         private const int DriverNationalityLookupItemCount = 14;
+        private const int DriverRoleLookupItemCount = 4;
         private const int TeamDebutGrandPrixLookupItemCount = 19;
-        private const int TrackFastestLapDriverLookupItemCount = 48;
+        private const int TrackDriverLookupItemCount = 48;
         private const int TrackLayoutLookupItemCount = 3;
+        private const int TrackTeamLookupItemCount = 11;
         private const int TyreSupplierLookupItemCount = 3;
 
         private readonly LookupDomainService _domainService;
         private readonly DataService _dataService;
         private readonly IIntegerIdentityFactory<ChiefDriverLoyaltyLookupEntity> _chiefDriverLoyaltyLookupEntityFactory;
         private readonly IIntegerIdentityFactory<DriverNationalityLookupEntity> _driverNationalityLookupEntityFactory;
+        private readonly IIntegerIdentityFactory<DriverRoleLookupEntity> _driverRoleLookupEntityFactory;
         private readonly IIntegerIdentityFactory<TeamDebutGrandPrixLookupEntity> _teamDebutGrandPrixLookupEntityFactory;
-        private readonly IIntegerIdentityFactory<TrackFastestLapDriverLookupEntity> _trackFastestLapDriverLookupEntityFactory;
+        private readonly IIntegerIdentityFactory<TrackDriverLookupEntity> _trackDriverLookupEntityFactory;
         private readonly IIntegerIdentityFactory<TrackLayoutLookupEntity> _trackLayoutLookupEntityFactory;
+        private readonly IIntegerIdentityFactory<TrackTeamLookupEntity> _trackTeamLookupEntityFactory;
         private readonly IIntegerIdentityFactory<TyreSupplierLookupEntity> _tyreSupplierLookupEntityFactory;
         private readonly IMapperService _mapperService;
 
@@ -33,9 +37,11 @@ namespace App.BaseGameEditor.Application.Services
             DataService dataService,
             IIntegerIdentityFactory<ChiefDriverLoyaltyLookupEntity> chiefDriverLoyaltyLookupEntityFactory,
             IIntegerIdentityFactory<DriverNationalityLookupEntity> driverNationalityLookupEntityFactory,
+            IIntegerIdentityFactory<DriverRoleLookupEntity> driverRoleLookupEntityFactory,
             IIntegerIdentityFactory<TeamDebutGrandPrixLookupEntity> teamDebutGrandPrixLookupEntityFactory,
-            IIntegerIdentityFactory<TrackFastestLapDriverLookupEntity> trackFastestLapDriverLookupEntityFactory,
+            IIntegerIdentityFactory<TrackDriverLookupEntity> trackDriverLookupEntityFactory,
             IIntegerIdentityFactory<TrackLayoutLookupEntity> trackLayoutLookupEntityFactory,
+            IIntegerIdentityFactory<TrackTeamLookupEntity> trackTeamLookupEntityFactory,
             IIntegerIdentityFactory<TyreSupplierLookupEntity> tyreSupplierLookupEntityFactory,
             IMapperService mapperService)
         {
@@ -43,9 +49,11 @@ namespace App.BaseGameEditor.Application.Services
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
             _chiefDriverLoyaltyLookupEntityFactory = chiefDriverLoyaltyLookupEntityFactory ?? throw new ArgumentNullException(nameof(chiefDriverLoyaltyLookupEntityFactory));
             _driverNationalityLookupEntityFactory = driverNationalityLookupEntityFactory ?? throw new ArgumentNullException(nameof(driverNationalityLookupEntityFactory));
+            _driverRoleLookupEntityFactory = driverRoleLookupEntityFactory ?? throw new ArgumentNullException(nameof(driverRoleLookupEntityFactory));
             _teamDebutGrandPrixLookupEntityFactory = teamDebutGrandPrixLookupEntityFactory ?? throw new ArgumentNullException(nameof(teamDebutGrandPrixLookupEntityFactory));
-            _trackFastestLapDriverLookupEntityFactory = trackFastestLapDriverLookupEntityFactory ?? throw new ArgumentNullException(nameof(trackFastestLapDriverLookupEntityFactory));
+            _trackDriverLookupEntityFactory = trackDriverLookupEntityFactory ?? throw new ArgumentNullException(nameof(trackDriverLookupEntityFactory));
             _trackLayoutLookupEntityFactory = trackLayoutLookupEntityFactory ?? throw new ArgumentNullException(nameof(trackLayoutLookupEntityFactory));
+            _trackTeamLookupEntityFactory = trackTeamLookupEntityFactory ?? throw new ArgumentNullException(nameof(trackTeamLookupEntityFactory));
             _tyreSupplierLookupEntityFactory = tyreSupplierLookupEntityFactory ?? throw new ArgumentNullException(nameof(tyreSupplierLookupEntityFactory));
             _mapperService = mapperService ?? throw new ArgumentNullException(nameof(mapperService));
         }
@@ -54,9 +62,11 @@ namespace App.BaseGameEditor.Application.Services
         {
             ImportChiefDriverLoyaltyLookups();
             ImportDriverNationalityLookups();
+            ImportDriverRoleLookups();
             ImportTeamDebutGrandPrixLookups();
-            ImportTrackFastestLapDriverLookups();
+            ImportTrackDriverLookups();
             ImportTrackLayoutLookups();
+            ImportTrackTeamLookups();
             ImportTyreSupplierLookups();
         }
 
@@ -94,6 +104,23 @@ namespace App.BaseGameEditor.Application.Services
             _domainService.SetDriverNationalityLookups(entities);
         }
 
+        private void ImportDriverRoleLookups()
+        {
+            var entities = new List<DriverRoleLookupEntity>();
+            for (var i = 0; i < DriverRoleLookupItemCount; i++)
+            {
+                var id = i;
+
+                var dataEntity = _dataService.DriverRoleLookups.Get(x => x.Id == id).Single();
+
+                var entity = _driverRoleLookupEntityFactory.Create(id);
+                entity = _mapperService.Map(dataEntity, entity);
+
+                entities.Add(entity);
+            }
+            _domainService.SetDriverRoleLookups(entities);
+        }
+
         private void ImportTeamDebutGrandPrixLookups()
         {
             var entities = new List<TeamDebutGrandPrixLookupEntity>();
@@ -111,21 +138,21 @@ namespace App.BaseGameEditor.Application.Services
             _domainService.SetTeamDebutGrandPrixLookups(entities);
         }
 
-        private void ImportTrackFastestLapDriverLookups()
+        private void ImportTrackDriverLookups()
         {
-            var entities = new List<TrackFastestLapDriverLookupEntity>();
-            for (var i = 0; i < TrackFastestLapDriverLookupItemCount; i++)
+            var entities = new List<TrackDriverLookupEntity>();
+            for (var i = 0; i < TrackDriverLookupItemCount; i++)
             {
                 var id = i;
 
-                var dataEntity = _dataService.TrackFastestLapDriverLookups.Get(x => x.Id == id).Single();
+                var dataEntity = _dataService.TrackDriverLookups.Get(x => x.Id == id).Single();
 
-                var entity = _trackFastestLapDriverLookupEntityFactory.Create(id);
+                var entity = _trackDriverLookupEntityFactory.Create(id);
                 entity = _mapperService.Map(dataEntity, entity);
 
                 entities.Add(entity);
             }
-            _domainService.SetTrackFastestLapDriverLookups(entities);
+            _domainService.SetTrackDriverLookups(entities);
         }
 
         private void ImportTrackLayoutLookups()
@@ -143,6 +170,23 @@ namespace App.BaseGameEditor.Application.Services
                 entities.Add(entity);
             }
             _domainService.SetTrackLayoutLookups(entities);
+        }
+
+        private void ImportTrackTeamLookups()
+        {
+            var entities = new List<TrackTeamLookupEntity>();
+            for (var i = 0; i < TrackTeamLookupItemCount; i++)
+            {
+                var id = i;
+
+                var dataEntity = _dataService.TrackTeamLookups.Get(x => x.Id == id).Single();
+
+                var entity = _trackTeamLookupEntityFactory.Create(id);
+                entity = _mapperService.Map(dataEntity, entity);
+
+                entities.Add(entity);
+            }
+            _domainService.SetTrackTeamLookups(entities);
         }
 
         private void ImportTyreSupplierLookups()

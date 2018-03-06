@@ -7,17 +7,17 @@ using App.Core.Factories;
 
 namespace App.BaseGameEditor.Data.DataEntities.Lookups
 {
-    public class TrackFastestLapDriverLookupDataEntityImportService : IDataEntityImportService<TrackFastestLapDriverLookupDataEntity>
+    public class TrackDriverLookupDataEntityImportService : IDataEntityImportService<TrackDriverLookupDataEntity>
     {
         private readonly DataEndpoint _dataEndpoint;
-        private readonly IIntegerIdentityFactory<TrackFastestLapDriverLookupDataEntity> _dataEntityFactory;
-        private readonly IIntegerIdentityFactory<TrackFastestLapDriverLookupDataLocator> _dataLocatorFactory;
+        private readonly IIntegerIdentityFactory<TrackDriverLookupDataEntity> _dataEntityFactory;
+        private readonly IIntegerIdentityFactory<TrackDriverLookupDataLocator> _dataLocatorFactory;
         private readonly IdentityCalculator _identityCalculator;
 
-        public TrackFastestLapDriverLookupDataEntityImportService(
+        public TrackDriverLookupDataEntityImportService(
             DataEndpoint dataEndpoint,
-            IIntegerIdentityFactory<TrackFastestLapDriverLookupDataEntity> dataEntityFactory,
-            IIntegerIdentityFactory<TrackFastestLapDriverLookupDataLocator> dataLocatorFactory,
+            IIntegerIdentityFactory<TrackDriverLookupDataEntity> dataEntityFactory,
+            IIntegerIdentityFactory<TrackDriverLookupDataLocator> dataLocatorFactory,
             IdentityCalculator identityCalculator)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
@@ -26,7 +26,7 @@ namespace App.BaseGameEditor.Data.DataEntities.Lookups
             _identityCalculator = identityCalculator ?? throw new ArgumentNullException(nameof(identityCalculator));
         }
 
-        public TrackFastestLapDriverLookupDataEntity Import(int id)
+        public TrackDriverLookupDataEntity Import(int id)
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
 
@@ -34,7 +34,7 @@ namespace App.BaseGameEditor.Data.DataEntities.Lookups
             dataLocator.Initialise();
 
             var result = _dataEntityFactory.Create(id);
-            result.Value = _identityCalculator.GetTrackFastestLapDriverNameId(result.Id);
+            result.Value = _identityCalculator.GetTrackDriverNameId(result.Id);
             result.Description = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Description);
 
             return result;

@@ -1,17 +1,15 @@
 ﻿using App.Core.Entities;
 using App.Core.Identities;
 
-namespace App.BaseGameEditor.Domain.Entities
+namespace App.WindowsForms.Models
 {
-    public class F1DriverEntity : IntegerIdentityBase, IEntity
+    public class F1DriverModel : IntegerIdentityBase, IEntity
     {
         public int TeamId { get; set; }
         public string Name { get; set; }
         public int Salary { get; set; }
         public int RaceBonus { get; set; }
         public int ChampionshipBonus { get; set; }
-        public int PayRating { get; set; }      // TODO: These need to be recalculated from Salary on export
-        public int PositiveSalary { get; set; } // TODO: These need to be recalculated from Salary on export
         public int LastChampionshipPosition { get; set; }
         public int DriverRole { get; set; }
         public int Age { get; set; }

@@ -147,6 +147,16 @@
             return idToResourceIdMap[id];
         }
 
+        public int GetDriverRoleNameId(int id)
+        {
+            var idToResourceIdMap = new[]
+            {
+                1, 2, 3, 4
+            };
+
+            return idToResourceIdMap[id];
+        }
+
         public int GetTeamDebutGrandPrixNameId(int id)
         {
             var idToResourceIdMap = new[]
@@ -157,12 +167,22 @@
             return idToResourceIdMap[id];
         }
 
-        public int GetTrackFastestLapDriverNameId(int id)
+        public int GetTrackDriverNameId(int id)
         {
             var idToResourceIdMap = new[]
             {
                 6, 7, 8, 14, 15, 16, 22, 23, 24, 30, 31, 32, 38, 39, 40, 46, 47, 48, 54, 55, 56, 62, 63, 64, 70, 71, 72,
                 78, 79, 80, 86, 87, 88, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 200, 201, 202, 203
+            };
+
+            return idToResourceIdMap[id];
+        }
+
+        public int GetTrackTeamNameId(int id)
+        {
+            var idToResourceIdMap = new[]
+            {
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
             };
 
             return idToResourceIdMap[id];

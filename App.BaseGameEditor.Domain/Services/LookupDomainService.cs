@@ -14,12 +14,16 @@ namespace App.BaseGameEditor.Domain.Services
         private readonly IEntityValidator<ChiefDriverLoyaltyLookupEntity> _chiefDriverLoyaltyLookupEntityValidator;
         private readonly IRepository<DriverNationalityLookupEntity> _driverNationalityLookupRepository;
         private readonly IEntityValidator<DriverNationalityLookupEntity> _driverNationalityLookupEntityValidator;
+        private readonly IRepository<DriverRoleLookupEntity> _driverRoleLookupRepository;
+        private readonly IEntityValidator<DriverRoleLookupEntity> _driverRoleLookupEntityValidator;
         private readonly IRepository<TeamDebutGrandPrixLookupEntity> _teamDebutGrandPrixLookupRepository;
         private readonly IEntityValidator<TeamDebutGrandPrixLookupEntity> _teamDebutGrandPrixLookupEntityValidator;
-        private readonly IRepository<TrackFastestLapDriverLookupEntity> _trackFastestLapDriverLookupRepository;
-        private readonly IEntityValidator<TrackFastestLapDriverLookupEntity> _trackFastestLapDriverLookupEntityValidator;
+        private readonly IRepository<TrackDriverLookupEntity> _trackDriverLookupRepository;
+        private readonly IEntityValidator<TrackDriverLookupEntity> _trackDriverLookupEntityValidator;
         private readonly IRepository<TrackLayoutLookupEntity> _trackLayoutLookupEntityRepository;
         private readonly IEntityValidator<TrackLayoutLookupEntity> _trackLayoutLookupEntityValidator;
+        private readonly IRepository<TrackTeamLookupEntity> _trackTeamLookupRepository;
+        private readonly IEntityValidator<TrackTeamLookupEntity> _trackTeamLookupEntityValidator;
         private readonly IRepository<TyreSupplierLookupEntity> _tyreSupplierLookupRepository;
         private readonly IEntityValidator<TyreSupplierLookupEntity> _tyreSupplierLookupEntityValidator;
 
@@ -28,12 +32,16 @@ namespace App.BaseGameEditor.Domain.Services
             IEntityValidator<ChiefDriverLoyaltyLookupEntity> chiefDriverLoyaltyLookupEntityValidator,
             IRepository<DriverNationalityLookupEntity> driverNationalityLookupRepository,
             IEntityValidator<DriverNationalityLookupEntity> driverNationalityLookupEntityValidator,
+            IRepository<DriverRoleLookupEntity> driverRoleLookupRepository,
+            IEntityValidator<DriverRoleLookupEntity> driverRoleLookupEntityValidator,
             IRepository<TeamDebutGrandPrixLookupEntity> teamDebutGrandPrixLookupRepository,
             IEntityValidator<TeamDebutGrandPrixLookupEntity> teamDebutGrandPrixLookupEntityValidator,
-            IRepository<TrackFastestLapDriverLookupEntity> trackFastestLapDriverLookupRepository,
-            IEntityValidator<TrackFastestLapDriverLookupEntity> trackFastestLapDriverLookupEntityValidator,
+            IRepository<TrackDriverLookupEntity> trackDriverLookupRepository,
+            IEntityValidator<TrackDriverLookupEntity> trackDriverLookupEntityValidator,
             IRepository<TrackLayoutLookupEntity> trackLayoutLookupEntityRepository,
             IEntityValidator<TrackLayoutLookupEntity> trackLayoutLookupEntityValidator,
+            IRepository<TrackTeamLookupEntity> trackTeamLookupRepository,
+            IEntityValidator<TrackTeamLookupEntity> trackTeamLookupEntityValidator,
             IRepository<TyreSupplierLookupEntity> tyreSupplierLookupRepository,
             IEntityValidator<TyreSupplierLookupEntity> tyreSupplierLookupEntityValidator)
         {
@@ -41,12 +49,16 @@ namespace App.BaseGameEditor.Domain.Services
             _chiefDriverLoyaltyLookupEntityValidator = chiefDriverLoyaltyLookupEntityValidator ?? throw new ArgumentNullException(nameof(chiefDriverLoyaltyLookupEntityValidator));
             _driverNationalityLookupRepository = driverNationalityLookupRepository ?? throw new ArgumentNullException(nameof(driverNationalityLookupRepository));
             _driverNationalityLookupEntityValidator = driverNationalityLookupEntityValidator ?? throw new ArgumentNullException(nameof(driverNationalityLookupEntityValidator));
+            _driverRoleLookupRepository = driverRoleLookupRepository ?? throw new ArgumentNullException(nameof(driverRoleLookupRepository));
+            _driverRoleLookupEntityValidator = driverRoleLookupEntityValidator ?? throw new ArgumentNullException(nameof(driverRoleLookupEntityValidator));
             _teamDebutGrandPrixLookupRepository = teamDebutGrandPrixLookupRepository ?? throw new ArgumentNullException(nameof(teamDebutGrandPrixLookupRepository));
             _teamDebutGrandPrixLookupEntityValidator = teamDebutGrandPrixLookupEntityValidator ?? throw new ArgumentNullException(nameof(teamDebutGrandPrixLookupEntityValidator));
-            _trackFastestLapDriverLookupRepository = trackFastestLapDriverLookupRepository ?? throw new ArgumentNullException(nameof(trackFastestLapDriverLookupRepository));
-            _trackFastestLapDriverLookupEntityValidator = trackFastestLapDriverLookupEntityValidator ?? throw new ArgumentNullException(nameof(trackFastestLapDriverLookupEntityValidator));
+            _trackDriverLookupRepository = trackDriverLookupRepository ?? throw new ArgumentNullException(nameof(trackDriverLookupRepository));
+            _trackDriverLookupEntityValidator = trackDriverLookupEntityValidator ?? throw new ArgumentNullException(nameof(trackDriverLookupEntityValidator));
             _trackLayoutLookupEntityRepository = trackLayoutLookupEntityRepository ?? throw new ArgumentNullException(nameof(trackLayoutLookupEntityRepository));
             _trackLayoutLookupEntityValidator = trackLayoutLookupEntityValidator ?? throw new ArgumentNullException(nameof(trackLayoutLookupEntityValidator));
+            _trackTeamLookupRepository = trackTeamLookupRepository ?? throw new ArgumentNullException(nameof(trackTeamLookupRepository));
+            _trackTeamLookupEntityValidator = trackTeamLookupEntityValidator ?? throw new ArgumentNullException(nameof(trackTeamLookupEntityValidator));
             _tyreSupplierLookupRepository = tyreSupplierLookupRepository ?? throw new ArgumentNullException(nameof(tyreSupplierLookupRepository));
             _tyreSupplierLookupEntityValidator = tyreSupplierLookupEntityValidator ?? throw new ArgumentNullException(nameof(tyreSupplierLookupEntityValidator));
         }
@@ -141,6 +153,51 @@ namespace App.BaseGameEditor.Domain.Services
             _driverNationalityLookupRepository.SetById(driverNationalityLookup);
         }
 
+        public IEnumerable<DriverRoleLookupEntity> GetDriverRoleLookups()
+        {
+            return _driverRoleLookupRepository.Get();
+        }
+
+        public void SetDriverRoleLookups(IEnumerable<DriverRoleLookupEntity> driverRoleLookups)
+        {
+            if (driverRoleLookups == null) throw new ArgumentNullException(nameof(driverRoleLookups));
+
+            var validationMessages = new List<string>();
+
+            var list = driverRoleLookups as IList<DriverRoleLookupEntity> ?? driverRoleLookups.ToList();
+            foreach (var item in list)
+            {
+                var messages = _driverRoleLookupEntityValidator.Validate(item);
+                validationMessages.AddRange(messages);
+            }
+
+            if (validationMessages.Any())
+            {
+                // TODO: Handle validation failures gracefully.
+                throw new ArgumentException();
+            }
+
+            _driverRoleLookupRepository.Set(list);
+        }
+
+        public void SetDriverRoleLookup(DriverRoleLookupEntity driverRoleLookup)
+        {
+            if (driverRoleLookup == null) throw new ArgumentNullException(nameof(driverRoleLookup));
+
+            var validationMessages = new List<string>();
+
+            var messages = _driverRoleLookupEntityValidator.Validate(driverRoleLookup);
+            validationMessages.AddRange(messages);
+
+            if (validationMessages.Any())
+            {
+                // TODO: Handle validation failures gracefully.
+                throw new ArgumentException();
+            }
+
+            _driverRoleLookupRepository.SetById(driverRoleLookup);
+        }
+
         public IEnumerable<TeamDebutGrandPrixLookupEntity> GetTeamDebutGrandPrixLookups()
         {
             return _teamDebutGrandPrixLookupRepository.Get();
@@ -186,21 +243,21 @@ namespace App.BaseGameEditor.Domain.Services
             _teamDebutGrandPrixLookupRepository.SetById(teamDebutGrandPrixLookup);
         }
 
-        public IEnumerable<TrackFastestLapDriverLookupEntity> GetTrackFastestLapDriverLookups()
+        public IEnumerable<TrackDriverLookupEntity> GetTrackDriverLookups()
         {
-            return _trackFastestLapDriverLookupRepository.Get();
+            return _trackDriverLookupRepository.Get();
         }
 
-        public void SetTrackFastestLapDriverLookups(IEnumerable<TrackFastestLapDriverLookupEntity> trackFastestLapDriverLookups)
+        public void SetTrackDriverLookups(IEnumerable<TrackDriverLookupEntity> trackDriverLookups)
         {
-            if (trackFastestLapDriverLookups == null) throw new ArgumentNullException(nameof(trackFastestLapDriverLookups));
+            if (trackDriverLookups == null) throw new ArgumentNullException(nameof(trackDriverLookups));
 
             var validationMessages = new List<string>();
 
-            var list = trackFastestLapDriverLookups as IList<TrackFastestLapDriverLookupEntity> ?? trackFastestLapDriverLookups.ToList();
+            var list = trackDriverLookups as IList<TrackDriverLookupEntity> ?? trackDriverLookups.ToList();
             foreach (var item in list)
             {
-                var messages = _trackFastestLapDriverLookupEntityValidator.Validate(item);
+                var messages = _trackDriverLookupEntityValidator.Validate(item);
                 validationMessages.AddRange(messages);
             }
 
@@ -210,16 +267,16 @@ namespace App.BaseGameEditor.Domain.Services
                 throw new ArgumentException();
             }
 
-            _trackFastestLapDriverLookupRepository.Set(list);
+            _trackDriverLookupRepository.Set(list);
         }
 
-        public void SetTrackFastestLapDriverLookup(TrackFastestLapDriverLookupEntity trackFastestLapDriverLookup)
+        public void SetTrackDriverLookup(TrackDriverLookupEntity trackDriverLookup)
         {
-            if (trackFastestLapDriverLookup == null) throw new ArgumentNullException(nameof(trackFastestLapDriverLookup));
+            if (trackDriverLookup == null) throw new ArgumentNullException(nameof(trackDriverLookup));
 
             var validationMessages = new List<string>();
 
-            var messages = _trackFastestLapDriverLookupEntityValidator.Validate(trackFastestLapDriverLookup);
+            var messages = _trackDriverLookupEntityValidator.Validate(trackDriverLookup);
             validationMessages.AddRange(messages);
 
             if (validationMessages.Any())
@@ -228,7 +285,7 @@ namespace App.BaseGameEditor.Domain.Services
                 throw new ArgumentException();
             }
 
-            _trackFastestLapDriverLookupRepository.SetById(trackFastestLapDriverLookup);
+            _trackDriverLookupRepository.SetById(trackDriverLookup);
         }
 
         public IEnumerable<TrackLayoutLookupEntity> GetTrackLayoutLookups()
@@ -274,6 +331,51 @@ namespace App.BaseGameEditor.Domain.Services
             }
 
             _trackLayoutLookupEntityRepository.SetById(trackLayoutLookup);
+        }
+
+        public IEnumerable<TrackTeamLookupEntity> GetTrackTeamLookups()
+        {
+            return _trackTeamLookupRepository.Get();
+        }
+
+        public void SetTrackTeamLookups(IEnumerable<TrackTeamLookupEntity> trackTeamLookups)
+        {
+            if (trackTeamLookups == null) throw new ArgumentNullException(nameof(trackTeamLookups));
+
+            var validationMessages = new List<string>();
+
+            var list = trackTeamLookups as IList<TrackTeamLookupEntity> ?? trackTeamLookups.ToList();
+            foreach (var item in list)
+            {
+                var messages = _trackTeamLookupEntityValidator.Validate(item);
+                validationMessages.AddRange(messages);
+            }
+
+            if (validationMessages.Any())
+            {
+                // TODO: Handle validation failures gracefully.
+                throw new ArgumentException();
+            }
+
+            _trackTeamLookupRepository.Set(list);
+        }
+
+        public void SetTrackTeamLookup(TrackTeamLookupEntity trackTeamLookup)
+        {
+            if (trackTeamLookup == null) throw new ArgumentNullException(nameof(trackTeamLookup));
+
+            var validationMessages = new List<string>();
+
+            var messages = _trackTeamLookupEntityValidator.Validate(trackTeamLookup);
+            validationMessages.AddRange(messages);
+
+            if (validationMessages.Any())
+            {
+                // TODO: Handle validation failures gracefully.
+                throw new ArgumentException();
+            }
+
+            _trackTeamLookupRepository.SetById(trackTeamLookup);
         }
 
         public IEnumerable<TyreSupplierLookupEntity> GetTyreSupplierLookups()

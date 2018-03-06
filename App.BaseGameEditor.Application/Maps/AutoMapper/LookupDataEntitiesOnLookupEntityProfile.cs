@@ -18,17 +18,27 @@ namespace App.BaseGameEditor.Application.Maps.AutoMapper
                 .ReverseMap()
                 .ForMember(src => src.Id, opt => opt.Ignore());
 
+            CreateMap<DriverRoleLookupDataEntity, DriverRoleLookupEntity>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ReverseMap()
+                .ForMember(src => src.Id, opt => opt.Ignore());
+
             CreateMap<TeamDebutGrandPrixLookupDataEntity, TeamDebutGrandPrixLookupEntity>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ReverseMap()
                 .ForMember(src => src.Id, opt => opt.Ignore());
 
-            CreateMap<TrackFastestLapDriverLookupDataEntity, TrackFastestLapDriverLookupEntity>()
+            CreateMap<TrackDriverLookupDataEntity, TrackDriverLookupEntity>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ReverseMap()
                 .ForMember(src => src.Id, opt => opt.Ignore());
 
             CreateMap<TrackLayoutLookupDataEntity, TrackLayoutLookupEntity>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ReverseMap()
+                .ForMember(src => src.Id, opt => opt.Ignore());
+
+            CreateMap<TrackTeamLookupDataEntity, TrackTeamLookupEntity>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ReverseMap()
                 .ForMember(src => src.Id, opt => opt.Ignore());

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Reflection;
-using System.Windows.Forms;
 using App.BaseGameEditor.Application.Maps.AutoMapper.Reference;
 using App.DependencyInjection.Autofac;
+using App.WindowsForms.Controllers;
+using App.WindowsForms.Maps.AutoMapper.Reference;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
@@ -18,13 +19,12 @@ namespace App.WindowsForms
         [STAThread]
         private static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
             var serviceCollection = new ServiceCollection();
 
             // AutoMapper: Scan for and register profiles in assemblies
-            serviceCollection.AddAutoMapper(Assembly.GetAssembly(typeof(ApplicationMaps)));
+            serviceCollection.AddAutoMapper(
+                Assembly.GetAssembly(typeof(ApplicationMaps)),
+                Assembly.GetAssembly(typeof(PresentationMaps)));
 
             // Autofac: http://autofaccn.readthedocs.io/en/latest/integration/netcore.html
             var containerBuilder = new ContainerBuilder();
@@ -33,9 +33,8 @@ namespace App.WindowsForms
 
             var container = containerBuilder.Build();
             var serviceProvider = new AutofacServiceProvider(container);
-            var application = serviceProvider.GetService<ApplicationForm>();
-
-            Application.Run(application);
+            var application = serviceProvider.GetService<ApplicationController>();
+            application.Run();
         }
     }
 }

@@ -45,9 +45,11 @@ namespace App.BaseGameEditor.Data.Services
         private readonly IRepositoryImportService<PerformanceCurveDataEntity> _performanceCurveRepositoryImportService;
         private readonly IRepositoryImportService<ChiefDriverLoyaltyLookupDataEntity> _chiefDriverLoyaltyLookupRepositoryImportService;
         private readonly IRepositoryImportService<DriverNationalityLookupDataEntity> _driverNationalityLookupRepositoryImportService;
+        private readonly IRepositoryImportService<DriverRoleLookupDataEntity> _driverRoleLookupRepositoryImportService;
         private readonly IRepositoryImportService<TeamDebutGrandPrixLookupDataEntity> _teamDebutGrandPrixLookupRepositoryImportService;
-        private readonly IRepositoryImportService<TrackFastestLapDriverLookupDataEntity> _trackFastestLapDriverLookupRepositoryImportService;
+        private readonly IRepositoryImportService<TrackDriverLookupDataEntity> _trackDriverLookupRepositoryImportService;
         private readonly IRepositoryImportService<TrackLayoutLookupDataEntity> _trackLayoutLookupRepositoryImportService;
+        private readonly IRepositoryImportService<TrackTeamLookupDataEntity> _trackTeamLookupRepositoryImportService;
         private readonly IRepositoryImportService<TyreSupplierLookupDataEntity> _tyreSupplierLookupRepositoryImportService;
 
         public IRepository<CarNumberDataEntity> CarNumbers { get; }
@@ -70,9 +72,11 @@ namespace App.BaseGameEditor.Data.Services
         public IRepository<PerformanceCurveDataEntity> PerformanceCurveValues { get; }
         public IRepository<ChiefDriverLoyaltyLookupDataEntity> ChiefDriverLoyaltyLookups { get; }
         public IRepository<DriverNationalityLookupDataEntity> DriverNationalityLookups { get; }
+        public IRepository<DriverRoleLookupDataEntity> DriverRoleLookups { get; }
         public IRepository<TeamDebutGrandPrixLookupDataEntity> TeamDebutGrandPrixLookups { get; }
-        public IRepository<TrackFastestLapDriverLookupDataEntity> TrackFastestLapDriverLookups { get; }
+        public IRepository<TrackDriverLookupDataEntity> TrackDriverLookups { get; }
         public IRepository<TrackLayoutLookupDataEntity> TrackLayoutLookups { get; }
+        public IRepository<TrackTeamLookupDataEntity> TrackTeamLookups { get; }
         public IRepository<TyreSupplierLookupDataEntity> TyreSupplierLookups { get; }
 
         public DataService(
@@ -114,9 +118,11 @@ namespace App.BaseGameEditor.Data.Services
             IRepositoryImportService<PerformanceCurveDataEntity> performanceCurveRepositoryImportService,
             IRepositoryImportService<ChiefDriverLoyaltyLookupDataEntity> chiefDriverLoyaltyLookupRepositoryImportService,
             IRepositoryImportService<DriverNationalityLookupDataEntity> driverNationalityLookupRepositoryImportService,
+            IRepositoryImportService<DriverRoleLookupDataEntity> driverRoleLookupRepositoryImportService,
             IRepositoryImportService<TeamDebutGrandPrixLookupDataEntity> teamDebutGrandPrixLookupRepositoryImportService,
-            IRepositoryImportService<TrackFastestLapDriverLookupDataEntity> trackFastestLapDriverLookupRepositoryImportService,
+            IRepositoryImportService<TrackDriverLookupDataEntity> trackDriverLookupRepositoryImportService,
             IRepositoryImportService<TrackLayoutLookupDataEntity> trackLayoutLookupRepositoryImportService,
+            IRepositoryImportService<TrackTeamLookupDataEntity> trackTeamLookupRepositoryImportService,
             IRepositoryImportService<TyreSupplierLookupDataEntity> tyreSupplierLookupRepositoryImportService,
             IRepository<CarNumberDataEntity> carNumberRepository,
             IRepository<ChassisHandlingDataEntity> chassisHandlingRepository,
@@ -138,9 +144,11 @@ namespace App.BaseGameEditor.Data.Services
             IRepository<PerformanceCurveDataEntity> performanceCurveRepository,
             IRepository<ChiefDriverLoyaltyLookupDataEntity> chiefDriverLoyaltyLookupRepository,
             IRepository<DriverNationalityLookupDataEntity> driverNationalityLookupRepository,
+            IRepository<DriverRoleLookupDataEntity> driverRoleLookupRepository,
             IRepository<TeamDebutGrandPrixLookupDataEntity> teamDebutGrandPrixLookupRepository,
-            IRepository<TrackFastestLapDriverLookupDataEntity> trackFastestLapDriverLookupRepository,
+            IRepository<TrackDriverLookupDataEntity> trackDriverLookupRepository,
             IRepository<TrackLayoutLookupDataEntity> trackLayoutLookupRepository,
+            IRepository<TrackTeamLookupDataEntity> trackTeamLookupRepository,
             IRepository<TyreSupplierLookupDataEntity> tyreSupplierLookupRepository)
         {
             _carNumberRepositoryExportService = carNumberRepositoryExportService ?? throw new ArgumentNullException(nameof(carNumberRepositoryExportService));
@@ -181,9 +189,11 @@ namespace App.BaseGameEditor.Data.Services
             _performanceCurveRepositoryImportService = performanceCurveRepositoryImportService ?? throw new ArgumentNullException(nameof(performanceCurveRepositoryImportService));
             _chiefDriverLoyaltyLookupRepositoryImportService = chiefDriverLoyaltyLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(chiefDriverLoyaltyLookupRepositoryImportService));
             _driverNationalityLookupRepositoryImportService = driverNationalityLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(driverNationalityLookupRepositoryImportService));
+            _driverRoleLookupRepositoryImportService = driverRoleLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(driverRoleLookupRepositoryImportService));
             _teamDebutGrandPrixLookupRepositoryImportService = teamDebutGrandPrixLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(teamDebutGrandPrixLookupRepositoryImportService));
-            _trackFastestLapDriverLookupRepositoryImportService = trackFastestLapDriverLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(trackFastestLapDriverLookupRepositoryImportService));
+            _trackDriverLookupRepositoryImportService = trackDriverLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(trackDriverLookupRepositoryImportService));
             _trackLayoutLookupRepositoryImportService = trackLayoutLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(trackLayoutLookupRepositoryImportService));
+            _trackTeamLookupRepositoryImportService = trackTeamLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(trackTeamLookupRepositoryImportService));
             _tyreSupplierLookupRepositoryImportService = tyreSupplierLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(tyreSupplierLookupRepositoryImportService));
 
             CarNumbers = carNumberRepository ?? throw new ArgumentNullException(nameof(carNumberRepository));
@@ -206,9 +216,11 @@ namespace App.BaseGameEditor.Data.Services
             PerformanceCurveValues = performanceCurveRepository ?? throw new ArgumentNullException(nameof(performanceCurveRepository));
             ChiefDriverLoyaltyLookups = chiefDriverLoyaltyLookupRepository ?? throw new ArgumentNullException(nameof(chiefDriverLoyaltyLookupRepository));
             DriverNationalityLookups = driverNationalityLookupRepository ?? throw new ArgumentNullException(nameof(driverNationalityLookupRepository));
+            DriverRoleLookups = driverRoleLookupRepository ?? throw new ArgumentNullException(nameof(driverRoleLookupRepository));
             TeamDebutGrandPrixLookups = teamDebutGrandPrixLookupRepository ?? throw new ArgumentNullException(nameof(teamDebutGrandPrixLookupRepository));
-            TrackFastestLapDriverLookups = trackFastestLapDriverLookupRepository ?? throw new ArgumentNullException(nameof(trackFastestLapDriverLookupRepository));
+            TrackDriverLookups = trackDriverLookupRepository ?? throw new ArgumentNullException(nameof(trackDriverLookupRepository));
             TrackLayoutLookups = trackLayoutLookupRepository ?? throw new ArgumentNullException(nameof(trackLayoutLookupRepository));
+            TrackTeamLookups = trackTeamLookupRepository ?? throw new ArgumentNullException(nameof(trackTeamLookupRepository));
             TyreSupplierLookups = tyreSupplierLookupRepository ?? throw new ArgumentNullException(nameof(tyreSupplierLookupRepository));
         }
 
@@ -236,6 +248,15 @@ namespace App.BaseGameEditor.Data.Services
 
         public void Import()
         {
+            _chiefDriverLoyaltyLookupRepositoryImportService.Import(45);
+            _driverNationalityLookupRepositoryImportService.Import(14);
+            _driverRoleLookupRepositoryImportService.Import(4);
+            _teamDebutGrandPrixLookupRepositoryImportService.Import(19);
+            _trackDriverLookupRepositoryImportService.Import(48);
+            _trackLayoutLookupRepositoryImportService.Import(3);
+            _trackTeamLookupRepositoryImportService.Import(11);
+            _tyreSupplierLookupRepositoryImportService.Import(3);
+
             _carNumberRepositoryImportService.Import(22);
             _chassisHandlingRepositoryImportService.Import(11);
             _f1ChiefCommercialRepositoryImportService.Import(11);
@@ -254,13 +275,6 @@ namespace App.BaseGameEditor.Data.Services
             _fuelRepositoryImportService.Import(9);
             _trackRepositoryImportService.Import(16);
             _performanceCurveRepositoryImportService.Import(120);
-
-            _chiefDriverLoyaltyLookupRepositoryImportService.Import(45);
-            _driverNationalityLookupRepositoryImportService.Import(14);
-            _teamDebutGrandPrixLookupRepositoryImportService.Import(19);
-            _trackFastestLapDriverLookupRepositoryImportService.Import(48);
-            _trackLayoutLookupRepositoryImportService.Import(3);
-            _tyreSupplierLookupRepositoryImportService.Import(3);
         }
     }
 }

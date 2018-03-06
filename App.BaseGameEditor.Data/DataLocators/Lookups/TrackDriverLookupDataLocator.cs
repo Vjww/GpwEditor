@@ -4,7 +4,7 @@ using App.Core.Identities;
 
 namespace App.BaseGameEditor.Data.DataLocators.Lookups
 {
-    public class TrackFastestLapDriverLookupDataLocator : IntegerIdentityBase, IDataLocator
+    public class TrackDriverLookupDataLocator : IntegerIdentityBase, IDataLocator
     {
         private readonly IdentityCalculator _calculator;
 
@@ -12,7 +12,7 @@ namespace App.BaseGameEditor.Data.DataLocators.Lookups
 
         public int Description { get; set; }
 
-        public TrackFastestLapDriverLookupDataLocator(IdentityCalculator calculator)
+        public TrackDriverLookupDataLocator(IdentityCalculator calculator)
         {
             _calculator = calculator ?? throw new ArgumentNullException(nameof(calculator));
         }
@@ -21,7 +21,7 @@ namespace App.BaseGameEditor.Data.DataLocators.Lookups
         {
             const int specialOffset = 535;
 
-            var nameId = _calculator.GetTrackFastestLapDriverNameId(Id);
+            var nameId = _calculator.GetTrackDriverNameId(Id);
 
             if (nameId >= 200 && nameId <= 203)
             {
