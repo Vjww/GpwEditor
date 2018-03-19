@@ -7,7 +7,7 @@ namespace App.BaseGameEditor.Domain.Entities
     {
         public string Name { get; set; }
         public int Laps { get; set; }
-        public int Design { get; set; }
+        public int Layout { get; set; }
         public int LapRecordDriver { get; set; }
         public int LapRecordTeam { get; set; }
         public int LapRecordTime { get; set; }

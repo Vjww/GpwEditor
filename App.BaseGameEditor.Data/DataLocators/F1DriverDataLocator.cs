@@ -18,7 +18,7 @@ namespace App.BaseGameEditor.Data.DataLocators
         private const int PayRatingOffset = 90;
         private const int PositiveSalaryOffset = 100;
         private const int LastChampionshipPositionOffset = 70;
-        private const int DriverRoleOffset = 60;
+        private const int RoleOffset = 60;
         private const int AgeOffset = 80;
         private const int NationalityOffset = 30;
 
@@ -46,7 +46,7 @@ namespace App.BaseGameEditor.Data.DataLocators
         public int PayRating { get; set; }
         public int PositiveSalary { get; set; }
         public int LastChampionshipPosition { get; set; }
-        public int DriverRole { get; set; }
+        public int Role { get; set; }
         public int Age { get; set; }
         public int Nationality { get; set; }
         public int CareerChampionships { get; set; }
@@ -82,7 +82,7 @@ namespace App.BaseGameEditor.Data.DataLocators
             PayRating = BaseOffset + stepOffset + PayRatingOffset;
             PositiveSalary = BaseOffset + stepOffset + PositiveSalaryOffset;
             LastChampionshipPosition = BaseOffset + stepOffset + LastChampionshipPositionOffset;
-            DriverRole = BaseOffset + stepOffset + DriverRoleOffset;
+            Role = BaseOffset + stepOffset + RoleOffset;
             Age = BaseOffset + stepOffset + AgeOffset;
             Nationality = BaseOffset + stepOffset + NationalityOffset;
 

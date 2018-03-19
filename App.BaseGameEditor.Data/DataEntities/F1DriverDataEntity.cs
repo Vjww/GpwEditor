@@ -19,7 +19,7 @@ namespace App.BaseGameEditor.Data.DataEntities
         public int PayRating { get; set; }
         public int PositiveSalary { get; set; }
         public int LastChampionshipPosition { get; set; }
-        public int DriverRole { get; set; }
+        public int Role { get; set; }
         public int Age { get; set; }
         public int Nationality { get; set; }
 

@@ -34,7 +34,7 @@ namespace App.BaseGameEditor.Data.DataEntities
             result.Name.French = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name);
             result.Name.German = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name);
             result.Laps = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Laps);
-            result.Design = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Design);
+            result.Layout = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Layout);
             result.LapRecordDriver = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.LapRecordDriver);
             result.LapRecordTeam = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.LapRecordTeam);
             result.LapRecordTime = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.LapRecordTime);

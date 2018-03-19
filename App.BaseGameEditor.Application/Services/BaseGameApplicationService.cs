@@ -6,7 +6,7 @@ using App.BaseGameEditor.Domain.Services;
 
 namespace App.BaseGameEditor.Application.Services
 {
-    public class ApplicationService
+    public class BaseGameApplicationService
     {
         private readonly DataConnection _dataConnection;
         private readonly DataConnectionValidationService _dataConnectionValidationService;
@@ -17,7 +17,7 @@ namespace App.BaseGameEditor.Application.Services
 
         public DomainModelService DomainModel { get; }
 
-        public ApplicationService(
+        public BaseGameApplicationService(
             DataConnection dataConnection,
             DataConnectionValidationService dataConnectionValidationService,
             DataExportService dataExportService,

@@ -64,5 +64,99 @@ namespace App.BaseGameEditor.Domain.Services
 
             _teamRepository.SetById(team);
         }
+
+        public IEnumerable<TeamEntity> GetChassisHandlingValuesFromOriginalValues(IEnumerable<TeamEntity> teams)
+        {
+            if (teams == null) throw new ArgumentNullException(nameof(teams));
+
+            var values = new[]
+            {
+                75,
+                80,
+                70,
+                90,
+                55,
+                30,
+                45,
+                50,
+                40,
+                25,
+                20
+            };
+
+            var teamEntities = teams.ToList();
+
+            for (var i = 0; i < teamEntities.Count; i++)
+            {
+                var id = i;
+                teamEntities.Single(x => x.Id == id).ChassisHandling = values[id];
+            }
+
+            return teamEntities;
+        }
+
+        public IEnumerable<TeamEntity> GetChassisHandlingValuesFromRandomisedModifiedDesignCalculation(
+            IEnumerable<TeamEntity> teams,
+            IEnumerable<F1ChiefDesignerEntity> chiefDesigners,
+            IEnumerable<F1ChiefEngineerEntity> chiefEngineers)
+        {
+            if (teams == null) throw new ArgumentNullException(nameof(teams));
+            if (chiefDesigners == null) throw new ArgumentNullException(nameof(chiefDesigners));
+            if (chiefEngineers == null) throw new ArgumentNullException(nameof(chiefEngineers));
+
+            const int designerFactor = 5;
+            const int engineerFactor = 15;
+
+            var teamEntities = teams.ToList();
+            var f1ChiefDesignerEntities = chiefDesigners.ToList();
+            var f1ChiefEngineerEntities = chiefEngineers.ToList();
+
+            for (var i = 0; i < teamEntities.Count; i++)
+            {
+                var id = i;
+                var team = teamEntities.Single(x => x.Id == id);
+                var designerAbility = f1ChiefDesignerEntities.Single(x => x.TeamId == team.TeamId).Ability;
+                var engineerAbility = f1ChiefEngineerEntities.Single(x => x.TeamId == team.TeamId).Ability;
+                var randomFactor = new Random().Next(0, 21); // 0..20 // TODO: Inject RandomService?
+
+                var recalculatedValue = designerFactor * (designerAbility - 1) +
+                                  engineerFactor * (engineerAbility - 1) +
+                                  (31 - team.LastPosition - randomFactor);
+
+                teamEntities.Single(x => x.Id == id).ChassisHandling = recalculatedValue;
+            }
+
+            return teamEntities;
+        }
+
+        public IEnumerable<TeamEntity> GetChassisHandlingValuesFromRecommendedValues(IEnumerable<TeamEntity> teams)
+        {
+            if (teams == null) throw new ArgumentNullException(nameof(teams));
+
+            var values = new[]
+            {
+                44,
+                50,
+                45,
+                66,
+                37,
+                26,
+                34,
+                23,
+                22,
+                13,
+                13
+            };
+
+            var teamEntities = teams.ToList();
+
+            for (var i = 0; i < teamEntities.Count; i++)
+            {
+                var id = i;
+                teamEntities.Single(x => x.Id == id).ChassisHandling = values[id];
+            }
+
+            return teamEntities;
+        }
     }
 }

@@ -10,10 +10,10 @@ namespace App.BaseGameEditor.Domain.Entities
         public int Salary { get; set; }
         public int RaceBonus { get; set; }
         public int ChampionshipBonus { get; set; }
-        public int PayRating { get; set; }      // TODO: These need to be recalculated from Salary on export
-        public int PositiveSalary { get; set; } // TODO: These need to be recalculated from Salary on export
+        public int PayRating { get; set; }
+        public int PositiveSalary { get; set; }
         public int LastChampionshipPosition { get; set; }
-        public int DriverRole { get; set; }
+        public int Role { get; set; }
         public int Age { get; set; }
         public int Nationality { get; set; }
 

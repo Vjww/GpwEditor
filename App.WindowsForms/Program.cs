@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Reflection;
+using System.Windows.Forms;
 using App.BaseGameEditor.Application.Maps.AutoMapper.Reference;
 using App.DependencyInjection.Autofac;
 using App.WindowsForms.Controllers;
 using App.WindowsForms.Maps.AutoMapper.Reference;
+using App.WindowsForms.Views;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
@@ -19,6 +21,9 @@ namespace App.WindowsForms
         [STAThread]
         private static void Main()
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
             var serviceCollection = new ServiceCollection();
 
             // AutoMapper: Scan for and register profiles in assemblies
@@ -31,9 +36,12 @@ namespace App.WindowsForms
             containerBuilder.Populate(serviceCollection);
             containerBuilder.RegisterModule(new AutofacModule());
 
+            // Register child forms
+            containerBuilder.RegisterType<BaseGameEditorForm>().InstancePerDependency();
+
             var container = containerBuilder.Build();
             var serviceProvider = new AutofacServiceProvider(container);
-            var application = serviceProvider.GetService<ApplicationController>();
+            var application = serviceProvider.GetService<MenuController>();
             application.Run();
         }
     }

@@ -18,39 +18,46 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using App.WindowsForms.Controllers;
 using App.WindowsForms.Models;
 using App.WindowsForms.Models.Lookups;
 using App.WindowsForms.Properties;
+using App.WindowsForms.Views.Extensions;
 
 namespace App.WindowsForms.Views
 {
-    public partial class GameExecutableEditorForm : EditorForm
+    public partial class BaseGameEditorForm : EditorForm
     {
-        private ApplicationController _controller;
+        private BaseGameController _controller;
+        private bool _isFailedValidationForSwitchingContext;
+        private bool _isImportOccurred;
 
         #region ToolTip Declarations
+        private const string ReadOnlyNameToolTipText = " This field is read only.";
+
         private const string TeamsIdToolTipText = "The id of the team record.";
         private const string TeamsTeamIdToolTipText = "The id of the team.";
-        private const string TeamsNameToolTipText = "The name of the team.";
+        private const string TeamsNameToolTipText = "The name of the team." + ReadOnlyNameToolTipText;
         private const string TeamsLastPositionToolTipText = "The finishing position of the team in last year's constructors' championship (e.g. 1997 when playing the 1998 season).";
         private const string TeamsLastPointsToolTipText = "The number of points scored by the team in last year's constructors' championship (e.g. 1997 when playing the 1998 season).";
         private const string TeamsDebutGrandPrixToolTipText = "The Grand Prix where the team made their debut.";
         private const string TeamsDebutYearToolTipText = "The year when the team made their Grand Prix debut.";
         private const string TeamsWinsToolTipText = "The number of wins scored by the team.";
         private const string TeamsYearlyBudgetToolTipText = "An estimation of the team's budget for this year's championship (e.g. 1998 when playing the 1998 season).";
-        private const string TeamsLocationToolTipText = "The index of the country where the team's factory is located and represents the country map to display in the game.";
+        private const string TeamsUnknownAToolTipText = "An unknown value for the team.";
+        private const string TeamsLocationToolTipText = "The country where the team's factory is located and represents the country map to display in the game.";
         private const string TeamsLocationXToolTipText = "The X co-ordinate of the pointer where the team's factory is located on the country map in the game.";
         private const string TeamsLocationYToolTipText = "The Y co-ordinate of the pointer where the team's factory is located on the country map in the game.";
-        private const string TeamsTyreSupplierIdToolTipText = "The tyre manufacturer supplying the team for this year's championship (e.g. 1998 when playing the 1998 season). Unknown usage but suspect this may be used to determine the tyre sidewalls to display.";
+        private const string TeamsTyreSupplierToolTipText = "The tyre manufacturer supplying the team for this year's championship (e.g. 1998 when playing the 1998 season). Unknown usage but suspect this may be used to determine the tyre sidewalls to display.";
         private const string TeamsChassisHandlingToolTipText = "The handling rating of the chassis at the start of the game.";
         private const string TeamsCarNumberDriver1ToolTipText = "The car number used by the team for driver 1.";
         private const string TeamsCarNumberDriver2ToolTipText = "The car number used by the team for driver 2.";
 
         private const string ChiefsIdToolTipText = "The id of the chief record.";
         private const string ChiefsTeamIdToolTipText = "The id of the team the chief is contracted to.";
-        private const string ChiefsNameToolTipText = "The name of the chief.";
+        private const string ChiefsNameToolTipText = "The name of the chief." + ReadOnlyNameToolTipText;
         private const string ChiefsAbilityToolTipText = "The ability rating of the chief.";
         private const string ChiefsAgeToolTipText = "The age of the chief at the start of the year.";
         private const string ChiefsSalaryToolTipText = "The salary paid to the chief.";
@@ -62,12 +69,12 @@ namespace App.WindowsForms.Views
 
         private const string DriversIdToolTipText = "The id of the driver record.";
         private const string DriversTeamIdToolTipText = "The id of the team the driver is contracted to.";
-        private const string DriversNameToolTipText = "The name of the driver.";
+        private const string DriversNameToolTipText = "The name of the driver." + ReadOnlyNameToolTipText;
         private const string DriversSalaryToolTipText = "The salary paid to the driver. Pay drivers will have a negative salary amount (e.g. -3500000).";
         private const string DriversRaceBonusToolTipText = "The race bonus awarded to the driver.";
         private const string DriversChampionshipBonusToolTipText = "The championship bonus awarded to the driver.";
         private const string DriversLastChampionshipPositionToolTipText = "The finishing position of the driver in last year's drivers' championship (e.g. 1997 when playing the 1998 season).";
-        private const string DriversDriverRoleToolTipText = "The role of the driver in the team, as agreed in the driver's contract.";
+        private const string DriversRoleToolTipText = "The role of the driver in the team, as agreed in the driver's contract.";
         private const string DriversAgeToolTipText = "The age of the driver at the start of the year.";
         private const string DriversNationalityToolTipText = "The nationality of the driver.";
         private const string DriversUnknownAToolTipText = "An unknown value for the driver.";
@@ -87,83 +94,76 @@ namespace App.WindowsForms.Views
         private const string DriversStaminaToolTipText = "The stamina rating of the driver.";
         private const string DriversMoraleToolTipText = "The morale level of the driver.";
 
-        // TODO: Populate
-        private const string SuppliersEngineIdToolTipText = "";
-        private const string SuppliersEngineNameToolTipText = "";
-        private const string SuppliersEngineFuelToolTipText = "";
-        private const string SuppliersEngineHeatToolTipText = "";
-        private const string SuppliersEnginePowerToolTipText = "";
-        private const string SuppliersEngineReliabilityToolTipText = "";
-        private const string SuppliersEngineResponseToolTipText = "";
-        private const string SuppliersEngineRigidityToolTipText = "";
-        private const string SuppliersEngineWeightToolTipText = "";
+        private const string EnginesIdToolTipText = "The id of the engine supplier record.";
+        private const string EnginesNameToolTipText = "The name of the engine supplier." + ReadOnlyNameToolTipText;
+        private const string EnginesFuelToolTipText = "The fuel rating of the engine.";
+        private const string EnginesHeatToolTipText = "The heat rating of the engine.";
+        private const string EnginesPowerToolTipText = "The power rating of the engine.";
+        private const string EnginesReliabilityToolTipText = "The reliability rating of the engine.";
+        private const string EnginesResponseToolTipText = "The response rating of the engine.";
+        private const string EnginesRigidityToolTipText = "The rigidity rating of the engine.";
+        private const string EnginesWeightToolTipText = "The weight rating of the engine.";
 
-        // TODO: Populate
-        private const string SuppliersTyreIdToolTipText = "";
-        private const string SuppliersTyreNameToolTipText = "";
-        private const string SuppliersTyreDryHardGripToolTipText = "";
-        private const string SuppliersTyreDryHardResilienceToolTipText = "";
-        private const string SuppliersTyreDryHardStiffnessToolTipText = "";
-        private const string SuppliersTyreDryHardTemperatureToolTipText = "";
-        private const string SuppliersTyreDrySoftGripToolTipText = "";
-        private const string SuppliersTyreDrySoftResilienceToolTipText = "";
-        private const string SuppliersTyreDrySoftStiffnessToolTipText = "";
-        private const string SuppliersTyreDrySoftTemperatureToolTipText = "";
-        private const string SuppliersTyreIntermediateGripToolTipText = "";
-        private const string SuppliersTyreIntermediateResilienceToolTipText = "";
-        private const string SuppliersTyreIntermediateStiffnessToolTipText = "";
-        private const string SuppliersTyreIntermediateTemperatureToolTipText = "";
-        private const string SuppliersTyreWetWeatherGripToolTipText = "";
-        private const string SuppliersTyreWetWeatherResilienceToolTipText = "";
-        private const string SuppliersTyreWetWeatherStiffnessToolTipText = "";
-        private const string SuppliersTyreWetWeatherTemperatureToolTipText = "";
+        private const string TyresIdToolTipText = "The id of the tyre supplier record.";
+        private const string TyresNameToolTipText = "The name of the tyre supplier." + ReadOnlyNameToolTipText;
+        private const string TyresDryHardGripToolTipText = "The grip rating of the dry hard tyre.";
+        private const string TyresDryHardResilienceToolTipText = "The resilience rating of the dry hard tyre.";
+        private const string TyresDryHardStiffnessToolTipText = "The stiffness rating of the dry hard tyre.";
+        private const string TyresDryHardTemperatureToolTipText = "The temperature rating of the dry hard tyre.";
+        private const string TyresDrySoftGripToolTipText = "The grip rating of the dry soft tyre.";
+        private const string TyresDrySoftResilienceToolTipText = "The resilience rating of the dry soft tyre.";
+        private const string TyresDrySoftStiffnessToolTipText = "The stiffness rating of the dry soft tyre.";
+        private const string TyresDrySoftTemperatureToolTipText = "The temperature rating of the dry soft tyre.";
+        private const string TyresIntermediateGripToolTipText = "The grip rating of the intermediate tyre.";
+        private const string TyresIntermediateResilienceToolTipText = "The resilience rating of the intermediate tyre.";
+        private const string TyresIntermediateStiffnessToolTipText = "The stiffness rating of the intermediate tyre.";
+        private const string TyresIntermediateTemperatureToolTipText = "The temperature rating of the intermediate tyre.";
+        private const string TyresWetWeatherGripToolTipText = "The grip rating of the wet weather tyre.";
+        private const string TyresWetWeatherResilienceToolTipText = "The resilience rating of the wet weather tyre.";
+        private const string TyresWetWeatherStiffnessToolTipText = "The stiffness rating of the wet weather tyre.";
+        private const string TyresWetWeatherTemperatureToolTipText = "The temperature rating of the wet weather tyre.";
 
-        // TODO: Populate
-        private const string SuppliersFuelIdToolTipText = "";
-        private const string SuppliersFuelNameToolTipText = "";
-        private const string SuppliersFuelPerformanceToolTipText = "";
-        private const string SuppliersFuelToleranceToolTipText = "";
+        private const string FuelsIdToolTipText = "The id of the fuel supplier record.";
+        private const string FuelsNameToolTipText = "The name of the fuel supplier." + ReadOnlyNameToolTipText;
+        private const string FuelsPerformanceToolTipText = "The performance rating of the fuel.";
+        private const string FuelsToleranceToolTipText = "The tolerance rating of the fuel.";
 
-        // TODO: Populate
-        private const string TracksIdToolTipText = "";
-        private const string TracksNameToolTipText = "";
-        private const string TracksLapsToolTipText = "";
-        private const string TracksDesignToolTipText = "";
-        private const string TracksLapRecordDriverToolTipText = "";
-        private const string TracksLapRecordTeamToolTipText = "";
-        private const string TracksLapRecordTimeToolTipText = "";
-        private const string TracksLapRecordMphToolTipText = "";
-        private const string TracksLapRecordYearToolTipText = "";
-        private const string TracksLastRaceDriverToolTipText = "";
-        private const string TracksLastRaceTeamToolTipText = "";
-        private const string TracksLastRaceYearToolTipText = "";
-        private const string TracksLastRaceTimeToolTipText = "";
-        private const string TracksHospitalityToolTipText = "";
-        private const string TracksSpeedToolTipText = "";
-        private const string TracksGripToolTipText = "";
-        private const string TracksSurfaceToolTipText = "";
-        private const string TracksTarmacToolTipText = "";
-        private const string TracksDustToolTipText = "";
-        private const string TracksOvertakingToolTipText = "";
-        private const string TracksBrakingToolTipText = "";
-        private const string TracksRainToolTipText = "";
-        private const string TracksHeatToolTipText = "";
-        private const string TracksWindToolTipText = "";
+        private const string TracksIdToolTipText = "The id of the track record.";
+        private const string TracksNameToolTipText = "The name of the track." + ReadOnlyNameToolTipText;
+        private const string TracksLapsToolTipText = "The number of racing laps in a Grand Prix.";
+        private const string TracksLayoutToolTipText = "The layout of the track.";
+        private const string TracksLapRecordDriverToolTipText = "The name of the driver that set the fastest lap record at the track.";
+        private const string TracksLapRecordTeamToolTipText = "The name of the team that set the fastest lap record at the track.";
+        private const string TracksLapRecordTimeToolTipText = "The laptime that set the fastest lap record at the track."; // TODO: Should describe number format
+        private const string TracksLapRecordMphToolTipText = "The average speed (MPH) that set the fastest lap record at the track.";
+        private const string TracksLapRecordYearToolTipText = "The year when the fastest lap record was set at the track.";
+        private const string TracksLastRaceDriverToolTipText = "The name of the driver that won the last Grand Prix held at the track.";
+        private const string TracksLastRaceTeamToolTipText = "The name of the team that won the last Grand Prix held at the track.";
+        private const string TracksLastRaceYearToolTipText = "The year the last Grand Prix was held at the track.";
+        private const string TracksLastRaceTimeToolTipText = "The duration of the race when the last Grand Prix was held at the track."; // TODO: Should describe number format
+        private const string TracksHospitalityToolTipText = "The hospitality rating of the track.";
+        private const string TracksSpeedToolTipText = "The speed rating of the track.";
+        private const string TracksGripToolTipText = "The grip rating of the track.";
+        private const string TracksSurfaceToolTipText = "The surface rating of the track.";
+        private const string TracksTarmacToolTipText = "The tarmac rating of the track.";
+        private const string TracksDustToolTipText = "The dust rating of the track.";
+        private const string TracksOvertakingToolTipText = "The overtaking rating of the track.";
+        private const string TracksBrakingToolTipText = "The braking rating of the track.";
+        private const string TracksRainToolTipText = "The rain rating of the track.";
+        private const string TracksHeatToolTipText = "The heat rating of the track.";
+        private const string TracksWindToolTipText = "The wind rating of the track.";
         #endregion
 
-        public string GameFolderPath { get; set; }             // TODO: Perhaps should get/set from ExampleTextBox
+        public string GameFolderPath { get => GameFolderPathTextBox.Text; set => GameFolderPathTextBox.Text = value; }
         public string GameExecutableFilePath { get => GameExecutablePathTextBox.Text; set => GameExecutablePathTextBox.Text = value; }
-        public string EnglishLanguageFilePath { get => LanguageFilePathTextBox.Text; set => LanguageFilePathTextBox.Text = value; } // TODO: Use English TextBox once implmented
-        public string FrenchLanguageFilePath { get; set; }     // TODO: Perhaps should get/set from ExampleTextBox
-        public string GermanLanguageFilePath { get; set; }     // TODO: Perhaps should get/set from ExampleTextBox
-        public string EnglishCommentaryFilePath { get; set; }  // TODO: Perhaps should get/set from ExampleTextBox
-        public string FrenchCommentaryFilePath { get; set; }   // TODO: Perhaps should get/set from ExampleTextBox
-        public string GermanCommentaryFilePath { get; set; }   // TODO: Perhaps should get/set from ExampleTextBox
+        public string EnglishLanguageFilePath { get => EnglishLanguageFilePathTextBox.Text; set => EnglishLanguageFilePathTextBox.Text = value; }
+        public string FrenchLanguageFilePath { get => FrenchLanguageFilePathTextBox.Text; set => FrenchLanguageFilePathTextBox.Text = value; }
+        public string GermanLanguageFilePath { get => GermanLanguageFilePathTextBox.Text; set => GermanLanguageFilePathTextBox.Text = value; }
+        public string EnglishCommentaryFilePath { get => EnglishCommentaryFilePathTextBox.Text; set => EnglishCommentaryFilePathTextBox.Text = value; }
+        public string FrenchCommentaryFilePath { get => FrenchCommentaryFilePathTextBox.Text; set => FrenchCommentaryFilePathTextBox.Text = value; }
+        public string GermanCommentaryFilePath { get => GermanCommentaryFilePathTextBox.Text; set => GermanCommentaryFilePathTextBox.Text = value; }
 
-        private bool _isFailedValidationForSwitchingContext;
-        private bool _isImportOccurred;
-
-        public GameExecutableEditorForm()
+        public BaseGameEditorForm()
         {
             InitializeComponent();
 
@@ -183,6 +183,7 @@ namespace App.WindowsForms.Views
         public IEnumerable<DriverNationalityLookupModel> DriverNationalityLookups { get; set; }
         public IEnumerable<DriverRoleLookupModel> DriverRoleLookups { get; set; }
         public IEnumerable<TeamDebutGrandPrixLookupModel> TeamDebutGrandPrixLookups { get; set; }
+        public IEnumerable<TeamLocationLookupModel> TeamLocationLookups { get; set; }
         public IEnumerable<TrackDriverLookupModel> TrackDriverLookups { get; set; }
         public IEnumerable<TrackLayoutLookupModel> TrackLayoutLookups { get; set; }
         public IEnumerable<TrackTeamLookupModel> TrackTeamLookups { get; set; }
@@ -281,44 +282,63 @@ namespace App.WindowsForms.Views
         // TODO: Decide how this will work
         //public IEnumerable<PerformanceCurveModel> PerformanceCurveValues
         //{
-        //    get;
+        //    get => ExtractPerformanceCurveValues;
         //    set => BuildPerformanceCurveGraph(value);
         //}
 
-        public void SetController(ApplicationController controller)
+        //public void SetController(BaseGameController controller)
+        //{
+        //    _controller = controller;
+        //}
+
+        public void UpdateTeamsModelWithUpdatedChassisHandlingValues(IEnumerable<TeamModel> teams)
         {
-            _controller = controller;
+            if (teams == null) throw new ArgumentNullException(nameof(teams));
+
+            var teamModel = teams.ToList();
+            var values = new int[teamModel.Count()];
+
+            for (var i = 0; i < teamModel.Count; i++)
+            {
+                values[i] = teamModel.Single(x => x.Id == i).ChassisHandling;
+            }
+
+            UpdateValuesInDataGridViewColumn(TeamsDataGridView, "ChassisHandling", values);
         }
 
         private void BuildTeamDataGridView(IEnumerable<TeamModel> dataSource)
         {
-            ClearDataGridView(TeamsDataGridView);
+            ResetDataGridView(TeamsDataGridView);
 
             AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", TeamsIdToolTipText, false));
             AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("TeamId", "TeamId", TeamsTeamIdToolTipText, false));
             AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", TeamsNameToolTipText, true, true));
             AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("LastPosition", "Last Year's Championship Position", TeamsLastPositionToolTipText));
             AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("LastPoints", "Last Year's Championship Points", TeamsLastPointsToolTipText));
-            AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewComboBoxColumn("FirstGpTrack", "Debut Grand Prix", TeamsDebutGrandPrixToolTipText));            // TODO: Rename property to DebutGrandPrix
-            AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("FirstGpYear", "Debut Year", TeamsDebutYearToolTipText));                         // TODO: Rename property to DebutYear
+            AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewComboBoxColumn("DebutGrandPrix", "Debut Grand Prix", TeamsDebutGrandPrixToolTipText));
+            AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("DebutYear", "Debut Year", TeamsDebutYearToolTipText));
             AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("Wins", "Wins", TeamsWinsToolTipText));
             AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("YearlyBudget", "This Year's Budget", TeamsYearlyBudgetToolTipText));
-            AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("CountryMapId", "Location", TeamsLocationToolTipText));                           // TODO: Rename property to Location
-            AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("LocationPointerX", "Location X", TeamsLocationXToolTipText));                    // TODO: Rename property to LocationX
-            AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("LocationPointerY", "Location Y", TeamsLocationYToolTipText));                    // TODO: Rename property to LocationY
-            AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewComboBoxColumn("TyreSupplierId", "This Year's Tyre Supplier", TeamsTyreSupplierIdToolTipText)); // TODO: Rename property to TyreSupplier
+            AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("UnknownA", "UnknownA", TeamsUnknownAToolTipText, false));
+            AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewComboBoxColumn("Location", "Location", TeamsLocationToolTipText));
+            AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("LocationX", "Location X", TeamsLocationXToolTipText));
+            AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("LocationY", "Location Y", TeamsLocationYToolTipText));
+            AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewComboBoxColumn("TyreSupplier", "This Year's Tyre Supplier", TeamsTyreSupplierToolTipText));
             AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("ChassisHandling", "Chassis Handling Rating", TeamsChassisHandlingToolTipText));
             AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("CarNumberDriver1", "Car Number Driver 1", TeamsCarNumberDriver1ToolTipText));
             AddColumnToDataGridView(TeamsDataGridView, CreateDataGridViewTextBoxColumn("CarNumberDriver2", "Car Number Driver 2", TeamsCarNumberDriver2ToolTipText));
 
-            BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)TeamsDataGridView.Columns["FirstGpTrack"], TeamDebutGrandPrixLookups);                // TODO: Rename property to DebutGrandPrix
-            BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)TeamsDataGridView.Columns["TyreSupplierId"], TyreSupplierLookups);                    // TODO: Rename property to TyreSupplier
+            BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)TeamsDataGridView.Columns["DebutGrandPrix"], TeamDebutGrandPrixLookups);
+            BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)TeamsDataGridView.Columns["Location"], TeamLocationLookups);
+            BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)TeamsDataGridView.Columns["TyreSupplier"], TyreSupplierLookups);
             BindDataGridViewToDataSource(TeamsDataGridView, dataSource);
+
+            ConfigureDataGridView(TeamsDataGridView, "Name");
         }
 
         private void BuildChiefsF1CommerceDataGridView(IEnumerable<F1ChiefCommercialModel> dataSource)
         {
-            ClearDataGridView(ChiefsF1CommerceDataGridView);
+            ResetDataGridView(ChiefsF1CommerceDataGridView);
 
             AddColumnToDataGridView(ChiefsF1CommerceDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", ChiefsIdToolTipText, false));
             AddColumnToDataGridView(ChiefsF1CommerceDataGridView, CreateDataGridViewTextBoxColumn("TeamId", "TeamId", ChiefsTeamIdToolTipText, false));
@@ -330,11 +350,13 @@ namespace App.WindowsForms.Views
             AddColumnToDataGridView(ChiefsF1CommerceDataGridView, CreateDataGridViewTextBoxColumn("Morale", "Morale", ChiefsMoraleToolTipText));
 
             BindDataGridViewToDataSource(ChiefsF1CommerceDataGridView, dataSource);
+
+            ConfigureDataGridView(ChiefsF1CommerceDataGridView, "Name");
         }
 
         private void BuildChiefsF1DesignerDataGridView(IEnumerable<F1ChiefDesignerModel> dataSource)
         {
-            ClearDataGridView(ChiefsF1DesignerDataGridView);
+            ResetDataGridView(ChiefsF1DesignerDataGridView);
 
             AddColumnToDataGridView(ChiefsF1DesignerDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", ChiefsIdToolTipText, false));
             AddColumnToDataGridView(ChiefsF1DesignerDataGridView, CreateDataGridViewTextBoxColumn("TeamId", "TeamId", ChiefsTeamIdToolTipText, false));
@@ -349,11 +371,13 @@ namespace App.WindowsForms.Views
 
             BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)ChiefsF1DesignerDataGridView.Columns["DriverLoyalty"], ChiefDriverLoyaltyLookups);
             BindDataGridViewToDataSource(ChiefsF1DesignerDataGridView, dataSource);
+
+            ConfigureDataGridView(ChiefsF1DesignerDataGridView, "Name");
         }
 
         private void BuildChiefsF1EngineerDataGridView(IEnumerable<F1ChiefEngineerModel> dataSource)
         {
-            ClearDataGridView(ChiefsF1EngineerDataGridView);
+            ResetDataGridView(ChiefsF1EngineerDataGridView);
 
             AddColumnToDataGridView(ChiefsF1EngineerDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", ChiefsIdToolTipText, false));
             AddColumnToDataGridView(ChiefsF1EngineerDataGridView, CreateDataGridViewTextBoxColumn("TeamId", "TeamId", ChiefsTeamIdToolTipText, false));
@@ -368,11 +392,13 @@ namespace App.WindowsForms.Views
 
             BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)ChiefsF1EngineerDataGridView.Columns["DriverLoyalty"], ChiefDriverLoyaltyLookups);
             BindDataGridViewToDataSource(ChiefsF1EngineerDataGridView, dataSource);
+
+            ConfigureDataGridView(ChiefsF1EngineerDataGridView, "Name");
         }
 
         private void BuildChiefsF1MechanicDataGridView(IEnumerable<F1ChiefMechanicModel> dataSource)
         {
-            ClearDataGridView(ChiefsF1MechanicDataGridView);
+            ResetDataGridView(ChiefsF1MechanicDataGridView);
 
             AddColumnToDataGridView(ChiefsF1MechanicDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", ChiefsIdToolTipText, false));
             AddColumnToDataGridView(ChiefsF1MechanicDataGridView, CreateDataGridViewTextBoxColumn("TeamId", "TeamId", ChiefsTeamIdToolTipText, false));
@@ -387,11 +413,13 @@ namespace App.WindowsForms.Views
 
             BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)ChiefsF1MechanicDataGridView.Columns["DriverLoyalty"], ChiefDriverLoyaltyLookups);
             BindDataGridViewToDataSource(ChiefsF1MechanicDataGridView, dataSource);
+
+            ConfigureDataGridView(ChiefsF1MechanicDataGridView, "Name");
         }
 
         private void BuildChiefsNonF1CommerceDataGridView(IEnumerable<NonF1ChiefCommercialModel> dataSource)
         {
-            ClearDataGridView(ChiefsNonF1CommerceDataGridView);
+            ResetDataGridView(ChiefsNonF1CommerceDataGridView);
 
             AddColumnToDataGridView(ChiefsNonF1CommerceDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", ChiefsIdToolTipText, false));
             AddColumnToDataGridView(ChiefsNonF1CommerceDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", ChiefsNameToolTipText, true, true));
@@ -401,11 +429,13 @@ namespace App.WindowsForms.Views
             AddColumnToDataGridView(ChiefsNonF1CommerceDataGridView, CreateDataGridViewTextBoxColumn("Royalty", "Royalty", ChiefsRoyaltyToolTipText));
 
             BindDataGridViewToDataSource(ChiefsNonF1CommerceDataGridView, dataSource);
+
+            ConfigureDataGridView(ChiefsNonF1CommerceDataGridView, "Name");
         }
 
         private void BuildChiefsNonF1DesignerDataGridView(IEnumerable<NonF1ChiefDesignerModel> dataSource)
         {
-            ClearDataGridView(ChiefsNonF1DesignerDataGridView);
+            ResetDataGridView(ChiefsNonF1DesignerDataGridView);
 
             AddColumnToDataGridView(ChiefsNonF1DesignerDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", ChiefsIdToolTipText, false));
             AddColumnToDataGridView(ChiefsNonF1DesignerDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", ChiefsNameToolTipText, true, true));
@@ -416,11 +446,13 @@ namespace App.WindowsForms.Views
             AddColumnToDataGridView(ChiefsNonF1DesignerDataGridView, CreateDataGridViewTextBoxColumn("ChampionshipBonus", "Championship Bonus", ChiefsChampionshipBonusToolTipText));
 
             BindDataGridViewToDataSource(ChiefsNonF1DesignerDataGridView, dataSource);
+
+            ConfigureDataGridView(ChiefsNonF1DesignerDataGridView, "Name");
         }
 
         private void BuildChiefsNonF1EngineerDataGridView(IEnumerable<NonF1ChiefEngineerModel> dataSource)
         {
-            ClearDataGridView(ChiefsNonF1EngineerDataGridView);
+            ResetDataGridView(ChiefsNonF1EngineerDataGridView);
 
             AddColumnToDataGridView(ChiefsNonF1EngineerDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", ChiefsIdToolTipText, false));
             AddColumnToDataGridView(ChiefsNonF1EngineerDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", ChiefsNameToolTipText, true, true));
@@ -431,11 +463,13 @@ namespace App.WindowsForms.Views
             AddColumnToDataGridView(ChiefsNonF1EngineerDataGridView, CreateDataGridViewTextBoxColumn("ChampionshipBonus", "Championship Bonus", ChiefsChampionshipBonusToolTipText));
 
             BindDataGridViewToDataSource(ChiefsNonF1EngineerDataGridView, dataSource);
+
+            ConfigureDataGridView(ChiefsNonF1EngineerDataGridView, "Name");
         }
 
         private void BuildChiefsNonF1MechanicDataGridView(IEnumerable<NonF1ChiefMechanicModel> dataSource)
         {
-            ClearDataGridView(ChiefsNonF1MechanicDataGridView);
+            ResetDataGridView(ChiefsNonF1MechanicDataGridView);
 
             AddColumnToDataGridView(ChiefsNonF1MechanicDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", ChiefsIdToolTipText, false));
             AddColumnToDataGridView(ChiefsNonF1MechanicDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", ChiefsNameToolTipText, true, true));
@@ -446,11 +480,13 @@ namespace App.WindowsForms.Views
             AddColumnToDataGridView(ChiefsNonF1MechanicDataGridView, CreateDataGridViewTextBoxColumn("ChampionshipBonus", "Championship Bonus", ChiefsChampionshipBonusToolTipText));
 
             BindDataGridViewToDataSource(ChiefsNonF1MechanicDataGridView, dataSource);
+
+            ConfigureDataGridView(ChiefsNonF1MechanicDataGridView, "Name");
         }
 
         private void BuildDriversF1DataGridView(IEnumerable<F1DriverModel> dataSource)
         {
-            ClearDataGridView(DriversF1DataGridView);
+            ResetDataGridView(DriversF1DataGridView);
 
             AddColumnToDataGridView(DriversF1DataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", DriversIdToolTipText, false));
             AddColumnToDataGridView(DriversF1DataGridView, CreateDataGridViewTextBoxColumn("TeamId", "TeamId", DriversTeamIdToolTipText, false));
@@ -459,7 +495,7 @@ namespace App.WindowsForms.Views
             AddColumnToDataGridView(DriversF1DataGridView, CreateDataGridViewTextBoxColumn("RaceBonus", "Race Bonus", DriversRaceBonusToolTipText));
             AddColumnToDataGridView(DriversF1DataGridView, CreateDataGridViewTextBoxColumn("ChampionshipBonus", "Championship Bonus", DriversChampionshipBonusToolTipText));
             AddColumnToDataGridView(DriversF1DataGridView, CreateDataGridViewTextBoxColumn("LastChampionshipPosition", "Last Year's Championship Position", DriversLastChampionshipPositionToolTipText));
-            AddColumnToDataGridView(DriversF1DataGridView, CreateDataGridViewComboBoxColumn("DriverRole", "Driver Role", DriversDriverRoleToolTipText)); // TODO: Rename property to Role
+            AddColumnToDataGridView(DriversF1DataGridView, CreateDataGridViewComboBoxColumn("Role", "Role", DriversRoleToolTipText));
             AddColumnToDataGridView(DriversF1DataGridView, CreateDataGridViewTextBoxColumn("Age", "Age", DriversAgeToolTipText));
             AddColumnToDataGridView(DriversF1DataGridView, CreateDataGridViewComboBoxColumn("Nationality", "Nationality", DriversNationalityToolTipText));
             AddColumnToDataGridView(DriversF1DataGridView, CreateDataGridViewTextBoxColumn("CareerChampionships", "Championships", DriversCareerChampionshipsToolTipText));
@@ -478,14 +514,16 @@ namespace App.WindowsForms.Views
             AddColumnToDataGridView(DriversF1DataGridView, CreateDataGridViewTextBoxColumn("Stamina", "Stamina", DriversStaminaToolTipText));
             AddColumnToDataGridView(DriversF1DataGridView, CreateDataGridViewTextBoxColumn("Morale", "Morale", DriversMoraleToolTipText));
 
-            BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)DriversF1DataGridView.Columns["DriverRole"], DriverRoleLookups); // TODO: Rename property to Role
+            BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)DriversF1DataGridView.Columns["Role"], DriverRoleLookups);
             BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)DriversF1DataGridView.Columns["Nationality"], DriverNationalityLookups);
             BindDataGridViewToDataSource(DriversF1DataGridView, dataSource);
+
+            ConfigureDataGridView(DriversF1DataGridView, "Name");
         }
 
         private void BuildDriversNonF1DataGridView(IEnumerable<NonF1DriverModel> dataSource)
         {
-            ClearDataGridView(DriversNonF1DataGridView);
+            ResetDataGridView(DriversNonF1DataGridView);
 
             AddColumnToDataGridView(DriversNonF1DataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", DriversIdToolTipText, false));
             AddColumnToDataGridView(DriversNonF1DataGridView, CreateDataGridViewTextBoxColumn("TeamId", "TeamId", DriversTeamIdToolTipText, false));
@@ -507,71 +545,79 @@ namespace App.WindowsForms.Views
 
             BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)DriversNonF1DataGridView.Columns["Nationality"], DriverNationalityLookups);
             BindDataGridViewToDataSource(DriversNonF1DataGridView, dataSource);
+
+            ConfigureDataGridView(DriversNonF1DataGridView, "Name");
         }
 
         private void BuildSuppliersEngineDataGridView(IEnumerable<EngineModel> dataSource)
         {
-            ClearDataGridView(SuppliersEngineDataGridView);
+            ResetDataGridView(SuppliersEngineDataGridView);
 
-            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SuppliersEngineIdToolTipText, false));
-            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SuppliersEngineNameToolTipText, true, true));
-            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Fuel", "Fuel", SuppliersEngineFuelToolTipText));
-            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Heat", "Heat", SuppliersEngineHeatToolTipText));
-            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Power", "Power", SuppliersEnginePowerToolTipText));
-            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Reliability", "Reliability", SuppliersEngineReliabilityToolTipText));
-            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Response", "Response", SuppliersEngineResponseToolTipText));
-            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Rigidity", "Rigidity", SuppliersEngineRigidityToolTipText));
-            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Weight", "Weight", SuppliersEngineWeightToolTipText));
+            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", EnginesIdToolTipText, false));
+            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", EnginesNameToolTipText, true, true));
+            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Fuel", "Fuel", EnginesFuelToolTipText));
+            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Heat", "Heat", EnginesHeatToolTipText));
+            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Power", "Power", EnginesPowerToolTipText));
+            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Reliability", "Reliability", EnginesReliabilityToolTipText));
+            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Response", "Response", EnginesResponseToolTipText));
+            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Rigidity", "Rigidity", EnginesRigidityToolTipText));
+            AddColumnToDataGridView(SuppliersEngineDataGridView, CreateDataGridViewTextBoxColumn("Weight", "Weight", EnginesWeightToolTipText));
 
             BindDataGridViewToDataSource(SuppliersEngineDataGridView, dataSource);
+
+            ConfigureDataGridView(SuppliersEngineDataGridView, "Name");
         }
 
         private void BuildSuppliersTyreDataGridView(IEnumerable<TyreModel> dataSource)
         {
-            ClearDataGridView(SuppliersTyreDataGridView);
+            ResetDataGridView(SuppliersTyreDataGridView);
 
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SuppliersTyreIdToolTipText, false));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SuppliersTyreNameToolTipText, true, true));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardGrip", "Dry Hard Grip", SuppliersTyreDryHardGripToolTipText));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardResilience", "Dry Hard Resilience", SuppliersTyreDryHardResilienceToolTipText));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardStiffness", "Dry Hard Stiffness", SuppliersTyreDryHardStiffnessToolTipText));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardTemperature", "Dry Hard Temperature", SuppliersTyreDryHardTemperatureToolTipText));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftGrip", "Dry Soft Grip", SuppliersTyreDrySoftGripToolTipText));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftResilience", "Dry Soft Resilience", SuppliersTyreDrySoftResilienceToolTipText));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftStiffness", "Dry Soft Stiffness", SuppliersTyreDrySoftStiffnessToolTipText));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftTemperature", "Dry Soft Temperature", SuppliersTyreDrySoftTemperatureToolTipText));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateGrip", "Intermediate Grip", SuppliersTyreIntermediateGripToolTipText));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateResilience", "Intermediate Resilience", SuppliersTyreIntermediateResilienceToolTipText));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateStiffness", "Intermediate Stiffness", SuppliersTyreIntermediateStiffnessToolTipText));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateTemperature", "Intermediate Temperature", SuppliersTyreIntermediateTemperatureToolTipText));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherGrip", "Wet Weather Grip", SuppliersTyreWetWeatherGripToolTipText));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherResilience", "Wet Weather Resilience", SuppliersTyreWetWeatherResilienceToolTipText));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherStiffness", "Wet Weather Stiffness", SuppliersTyreWetWeatherStiffnessToolTipText));
-            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherTemperature", "Wet Weather Temperature", SuppliersTyreWetWeatherTemperatureToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", TyresIdToolTipText, false));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", TyresNameToolTipText, true, true));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardGrip", "Dry Hard Grip", TyresDryHardGripToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardResilience", "Dry Hard Resilience", TyresDryHardResilienceToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardStiffness", "Dry Hard Stiffness", TyresDryHardStiffnessToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardTemperature", "Dry Hard Temperature", TyresDryHardTemperatureToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftGrip", "Dry Soft Grip", TyresDrySoftGripToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftResilience", "Dry Soft Resilience", TyresDrySoftResilienceToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftStiffness", "Dry Soft Stiffness", TyresDrySoftStiffnessToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftTemperature", "Dry Soft Temperature", TyresDrySoftTemperatureToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateGrip", "Intermediate Grip", TyresIntermediateGripToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateResilience", "Intermediate Resilience", TyresIntermediateResilienceToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateStiffness", "Intermediate Stiffness", TyresIntermediateStiffnessToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateTemperature", "Intermediate Temperature", TyresIntermediateTemperatureToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherGrip", "Wet Weather Grip", TyresWetWeatherGripToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherResilience", "Wet Weather Resilience", TyresWetWeatherResilienceToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherStiffness", "Wet Weather Stiffness", TyresWetWeatherStiffnessToolTipText));
+            AddColumnToDataGridView(SuppliersTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherTemperature", "Wet Weather Temperature", TyresWetWeatherTemperatureToolTipText));
 
             BindDataGridViewToDataSource(SuppliersTyreDataGridView, dataSource);
+
+            ConfigureDataGridView(SuppliersTyreDataGridView, "Name");
         }
 
         private void BuildSuppliersFuelDataGridView(IEnumerable<FuelModel> dataSource)
         {
-            ClearDataGridView(SuppliersFuelDataGridView);
+            ResetDataGridView(SuppliersFuelDataGridView);
 
-            AddColumnToDataGridView(SuppliersFuelDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SuppliersFuelIdToolTipText, false));
-            AddColumnToDataGridView(SuppliersFuelDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SuppliersFuelNameToolTipText, true, true));
-            AddColumnToDataGridView(SuppliersFuelDataGridView, CreateDataGridViewTextBoxColumn("Performance", "Performance", SuppliersFuelPerformanceToolTipText));
-            AddColumnToDataGridView(SuppliersFuelDataGridView, CreateDataGridViewTextBoxColumn("Tolerance", "Tolerance", SuppliersFuelToleranceToolTipText));
+            AddColumnToDataGridView(SuppliersFuelDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", FuelsIdToolTipText, false));
+            AddColumnToDataGridView(SuppliersFuelDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", FuelsNameToolTipText, true, true));
+            AddColumnToDataGridView(SuppliersFuelDataGridView, CreateDataGridViewTextBoxColumn("Performance", "Performance", FuelsPerformanceToolTipText));
+            AddColumnToDataGridView(SuppliersFuelDataGridView, CreateDataGridViewTextBoxColumn("Tolerance", "Tolerance", FuelsToleranceToolTipText));
 
             BindDataGridViewToDataSource(SuppliersFuelDataGridView, dataSource);
+
+            ConfigureDataGridView(SuppliersFuelDataGridView, "Name");
         }
 
         private void BuildTracksDataGridView(IEnumerable<TrackModel> dataSource)
         {
-            ClearDataGridView(TracksDataGridView);
+            ResetDataGridView(TracksDataGridView);
 
             AddColumnToDataGridView(TracksDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", TracksIdToolTipText, false));
             AddColumnToDataGridView(TracksDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", TracksNameToolTipText, true, true));
             AddColumnToDataGridView(TracksDataGridView, CreateDataGridViewTextBoxColumn("Laps", "Laps", TracksLapsToolTipText));
-            AddColumnToDataGridView(TracksDataGridView, CreateDataGridViewComboBoxColumn("Design", "Design", TracksDesignToolTipText)); // TODO: Rename property to Layout
+            AddColumnToDataGridView(TracksDataGridView, CreateDataGridViewComboBoxColumn("Layout", "Layout", TracksLayoutToolTipText));
             AddColumnToDataGridView(TracksDataGridView, CreateDataGridViewComboBoxColumn("LapRecordDriver", "Lap Record Driver", TracksLapRecordDriverToolTipText));
             AddColumnToDataGridView(TracksDataGridView, CreateDataGridViewComboBoxColumn("LapRecordTeam", "Lap Record Team", TracksLapRecordTeamToolTipText));
             AddColumnToDataGridView(TracksDataGridView, CreateDataGridViewTextBoxColumn("LapRecordTime", "Lap Record Time", TracksLapRecordTimeToolTipText));
@@ -593,12 +639,14 @@ namespace App.WindowsForms.Views
             AddColumnToDataGridView(TracksDataGridView, CreateDataGridViewTextBoxColumn("Heat", "Heat", TracksHeatToolTipText));
             AddColumnToDataGridView(TracksDataGridView, CreateDataGridViewTextBoxColumn("Wind", "Wind", TracksWindToolTipText));
 
-            BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)TracksDataGridView.Columns["Design"], TrackLayoutLookups); // TODO: Rename property to Layout
+            BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)TracksDataGridView.Columns["Layout"], TrackLayoutLookups);
             BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)TracksDataGridView.Columns["LapRecordDriver"], TrackDriverLookups);
             BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)TracksDataGridView.Columns["LapRecordTeam"], TrackTeamLookups);
             BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)TracksDataGridView.Columns["LastRaceDriver"], TrackDriverLookups);
             BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)TracksDataGridView.Columns["LastRaceTeam"], TrackTeamLookups);
             BindDataGridViewToDataSource(TracksDataGridView, dataSource);
+
+            ConfigureDataGridView(TracksDataGridView, "Name");
         }
 
         private void GameExecutableEditorForm_Load(object sender, EventArgs e)
@@ -649,7 +697,7 @@ namespace App.WindowsForms.Views
             }
         }
 
-        private void BrowseGameExecutableButton_Click(object sender, EventArgs e)
+        private void GameExecutablePathBrowseButton_Click(object sender, EventArgs e)
         {
             // TODO: Activate
             //var result = GetGameExecutablePathFromOpenFileDialog();
@@ -670,13 +718,13 @@ namespace App.WindowsForms.Views
 
         private void ExportButton_Click(object sender, EventArgs e)
         {
-            //if (!_isImportOccurred)
-            //{
-            //    ShowMessageBox("Unable to export until a successful import has occurred.", MessageBoxIcon.Error);
-            //    return;
-            //}
+            if (!_isImportOccurred)
+            {
+                ShowMessageBox("Unable to export until a successful import has occurred.", MessageBoxIcon.Error);
+                return;
+            }
 
-            //Export(GameExecutablePathTextBox.Text, LanguageFilePathTextBox.Text);
+            Export();
         }
 
         private static void GenericDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -712,7 +760,7 @@ namespace App.WindowsForms.Views
             //// http://stackoverflow.com/a/325161
             //var dataGridView = (DataGridView)sender;
             //var listItemType = ListBindingHelper.GetListItemType(dataGridView.DataSource);
-            //var methodInfo = typeof(GameExecutableEditorForm).GetMethod("ValidateDataGridViewCell", BindingFlags.NonPublic | BindingFlags.Instance);
+            //var methodInfo = typeof(BaseGameEditorForm).GetMethod("ValidateDataGridViewCell", BindingFlags.NonPublic | BindingFlags.Instance);
             //var genericMethod = methodInfo.MakeGenericMethod(listItemType);
             //genericMethod.Invoke(this, new[] { sender, e });
         }
@@ -728,15 +776,7 @@ namespace App.WindowsForms.Views
             //}
         }
 
-        private static void BindDataGridViewComboBoxColumn(DataGridView dataGridView, string dataGridViewComboBoxColumnName, object dataSource)
-        {
-            //var dataGridViewComboBoxColumn = (DataGridViewComboBoxColumn)dataGridView.Columns[dataGridViewComboBoxColumnName];
-            //dataGridViewComboBoxColumn.DataSource = dataSource;
-            //dataGridViewComboBoxColumn.DisplayMember = "ResourceText";
-            //dataGridViewComboBoxColumn.ValueMember = "LocalResourceId";
-            //dataGridViewComboBoxColumn.ValueType = typeof(int);
-        }
-
+        /* TODO: A dead method now as datasources are assigned by controller instead, could use code as reference
         //private void ConfigureControls()
         //{
         //    // Configure data grid view controls
@@ -767,6 +807,7 @@ namespace App.WindowsForms.Views
         //    //TODO ConfigureDataGridViewControl<SingleValueBase>(UnknownADataGridView, 0, "UnknownA", true);
         //    //TODO ConfigureDataGridViewControl<SingleValueBase>(UnknownBDataGridView, 0, "UnknownB", true);
         //}
+        */
 
         private void Export()
         {
@@ -774,7 +815,7 @@ namespace App.WindowsForms.Views
 
             try
             {
-                /* TODO: This block is all old code that can likely be removed
+                /* TODO: This block is all old code that can likely be removed, could use code as reference
                     // TODO: FolderExists(gameFolderPath);
                     FileExists(gameExecutablePath);
                     FileExists(languageFilePath);
@@ -808,7 +849,7 @@ namespace App.WindowsForms.Views
 
             try
             {
-                /* TODO: This block is all old code that can likely be removed
+                /* TODO: This block is all old code that can likely be removed, could use code as reference
                     // TODO: FolderExists(gameFolderPath);
                     FileExists(gameExecutablePath);
                     FileExists(languageFilePath);
@@ -842,46 +883,6 @@ namespace App.WindowsForms.Views
             //{
             //    // Move data from database into controls
             //    LanguageDataGridView.DataSource = database.LanguageResources;
-            //    TeamsDataGridView.DataSource = database.Teams;
-            //    ChiefsF1CommerceDataGridView.DataSource = database.F1ChiefCommercials;
-            //    ChiefsF1DesignerDataGridView.DataSource = database.F1ChiefDesigners;
-            //    ChiefsF1EngineerDataGridView.DataSource = database.F1ChiefEngineers;
-            //    ChiefsF1MechanicDataGridView.DataSource = database.F1ChiefMechanics;
-            //    ChiefsNonF1CommerceDataGridView.DataSource = database.NonF1ChiefCommercials;
-            //    ChiefsNonF1DesignerDataGridView.DataSource = database.NonF1ChiefDesigners;
-            //    ChiefsNonF1EngineerDataGridView.DataSource = database.NonF1ChiefEngineers;
-            //    ChiefsNonF1MechanicDataGridView.DataSource = database.NonF1ChiefMechanics;
-            //    DriversF1DataGridView.DataSource = database.F1Drivers;
-            //    DriversNonF1DataGridView.DataSource = database.NonF1Drivers;
-            //    SuppliersEnginesDataGridView.DataSource = database.Engines;
-            //    SuppliersTyresDataGridView.DataSource = database.Tyres;
-            //    SuppliersFuelsDataGridView.DataSource = database.Fuels;
-            //    TracksDataGridView.DataSource = database.Tracks;
-            //    ChassisHandlingDataGridView.DataSource = database.ChassisHandlings;
-            //    //TODO FactoryRunningCostsDataGridView.DataSource = database.FactoryRunningCosts;
-            //    //TODO FactoryExpansionCostsDataGridView.DataSource = database.FactoryExpansionCosts;
-            //    //TODO StaffSalariesDataGridView.DataSource = database.StaffSalaries;
-            //    //TODO StaffEffortsDataGridView.DataSource = database.StaffEfforts;
-            //    //TODO TestingMilesDataGridView.DataSource = database.TestingMiles;
-            //    //TODO EngineeringCostsDataGridView.DataSource = database.EngineeringCosts;
-            //    //TODO UnknownADataGridView.DataSource = database.UnknownAEfforts;
-            //    //TODO UnknownBDataGridView.DataSource = database.UnknownBEfforts;
-
-            //    // Bind comboboxes to data
-            //    // Hint: Requires the column type to be set at design time to ComboBoxColumn via DataGridView Tasks Wizard > Edit Columns... > ColumnType
-            //    //       Requires a rename at design time of the column's Name property. Change the suffix TextBoxColumn to ComboBoxColumn to reflect the ColumnType.
-            //    BindDataGridViewComboBoxColumn(TeamsDataGridView, "firstGpTrackDataGridViewComboBoxColumn", database.FirstGpTrackLookups);
-            //    BindDataGridViewComboBoxColumn(TeamsDataGridView, "tyreSupplierIdDataGridViewComboBoxColumn", database.TyreSupplierIdAsSupplierIdLookups);
-            //    BindDataGridViewComboBoxColumn(ChiefsF1DesignerDataGridView, "driverLoyaltyDataGridViewComboBoxColumn", database.DriverLoyaltyDriverIdAsStaffIdLookups);
-            //    BindDataGridViewComboBoxColumn(ChiefsF1EngineerDataGridView, "driverLoyaltyDataGridViewComboBoxColumn1", database.DriverLoyaltyDriverIdAsStaffIdLookups);
-            //    BindDataGridViewComboBoxColumn(ChiefsF1MechanicDataGridView, "driverLoyaltyDataGridViewComboBoxColumn2", database.DriverLoyaltyDriverIdAsStaffIdLookups);
-            //    BindDataGridViewComboBoxColumn(DriversF1DataGridView, "nationalityDataGridViewComboBoxColumn", database.DriverNationalityLookups);
-            //    BindDataGridViewComboBoxColumn(DriversNonF1DataGridView, "nationalityDataGridViewComboBoxColumn1", database.DriverNationalityLookups);
-            //    BindDataGridViewComboBoxColumn(TracksDataGridView, "designDataGridViewComboBoxColumn", database.TrackDesignLookups);
-            //    BindDataGridViewComboBoxColumn(TracksDataGridView, "lapRecordDriverDataGridViewComboBoxColumn", database.FastestLapDriverIdAsStaffIdLookups);
-            //    BindDataGridViewComboBoxColumn(TracksDataGridView, "lapRecordTeamDataGridViewComboBoxColumn", database.Teams);
-            //    BindDataGridViewComboBoxColumn(TracksDataGridView, "lastRaceDriverDataGridViewComboBoxColumn", database.FastestLapDriverIdAsStaffIdLookups);
-            //    BindDataGridViewComboBoxColumn(TracksDataGridView, "lastRaceTeamDataGridViewComboBoxColumn", database.Teams);
             //}
         */
 
@@ -890,30 +891,6 @@ namespace App.WindowsForms.Views
         //{
         //    // Move data from controls into database
         //    database.LanguageResources = (IdentityCollection)LanguageDataGridView.DataSource;
-        //    database.Teams = (Collection<Team>)TeamsDataGridView.DataSource;
-        //    database.F1ChiefCommercials = (Collection<F1ChiefCommercial>)ChiefsF1CommerceDataGridView.DataSource;
-        //    database.F1ChiefDesigners = (Collection<F1ChiefDesigner>)ChiefsF1DesignerDataGridView.DataSource;
-        //    database.F1ChiefEngineers = (Collection<F1ChiefEngineer>)ChiefsF1EngineerDataGridView.DataSource;
-        //    database.F1ChiefMechanics = (Collection<F1ChiefMechanic>)ChiefsF1MechanicDataGridView.DataSource;
-        //    database.NonF1ChiefCommercials = (Collection<NonF1ChiefCommercial>)ChiefsNonF1CommerceDataGridView.DataSource;
-        //    database.NonF1ChiefDesigners = (Collection<NonF1ChiefDesigner>)ChiefsNonF1DesignerDataGridView.DataSource;
-        //    database.NonF1ChiefEngineers = (Collection<NonF1ChiefEngineer>)ChiefsNonF1EngineerDataGridView.DataSource;
-        //    database.NonF1ChiefMechanics = (Collection<NonF1ChiefMechanic>)ChiefsNonF1MechanicDataGridView.DataSource;
-        //    database.F1Drivers = (Collection<F1Driver>)DriversF1DataGridView.DataSource;
-        //    database.NonF1Drivers = (Collection<NonF1Driver>)DriversNonF1DataGridView.DataSource;
-        //    database.Engines = (Collection<Engine>)SuppliersEnginesDataGridView.DataSource;
-        //    database.Tyres = (Collection<Tyre>)SuppliersTyresDataGridView.DataSource;
-        //    database.Fuels = (Collection<Fuel>)SuppliersFuelsDataGridView.DataSource;
-        //    database.Tracks = (Collection<Track>)TracksDataGridView.DataSource;
-        //    database.ChassisHandlings = (Collection<ChassisHandling>)ChassisHandlingDataGridView.DataSource;
-        //    // TODO database.StaffEfforts = (FiveRatingCollection)StaffEffortsDataGridView.DataSource;
-        //    // TODO database.StaffSalaries = (FiveRatingCollection)StaffSalariesDataGridView.DataSource;
-        //    // TODO database.FactoryRunningCosts = (FiveValueCollection)FactoryRunningCostsDataGridView.DataSource;
-        //    // TODO database.FactoryExpansionCosts = (FiveRatingCollection)FactoryExpansionCostsDataGridView.DataSource;
-        //    // TODO database.TestingMiles = (TenValueCollection)TestingMilesDataGridView.DataSource;
-        //    // TODO database.EngineeringCosts = (TenValueCollection)EngineeringCostsDataGridView.DataSource;
-        //    // TODO database.UnknownAEfforts = (SingleValueCollection)UnknownADataGridView.DataSource;
-        //    // TODO database.UnknownBEfforts = (SingleValueCollection)UnknownBDataGridView.DataSource;
         //}
         */
 
@@ -927,6 +904,33 @@ namespace App.WindowsForms.Views
                 //((DataGridView)control).CellLeave += GenericDataGridView_CellLeave;           // TODO: Verify requirement
                 //((DataGridView)control).CellValidating += GenericDataGridView_CellValidating; // TODO: Verify requirement
             }
+        }
+
+        private void TeamsChassisHandlingOriginalValuesButton_Click(object sender, EventArgs e)
+        {
+            _controller.UpdateTeamsModelWithChassisHandlingValuesFromOriginalValues();
+        }
+
+        private void TeamsChassisHandlingRecommendedValuesButton_Click(object sender, EventArgs e)
+        {
+            _controller.UpdateTeamsModelWithChassisHandlingValuesFromRecommendedValues();
+        }
+
+        private void TeamsChassisHandlingCalculatedValuesButton_Click(object sender, EventArgs e)
+        {
+            _controller.UpdateTeamsModelWithChassisHandlingValuesFromRandomisedModifiedDesignCalculation();
+        }
+
+        // TODO: Should be moved to common form
+        // TODO: May now be redundant as values are retreived via dataSource rather than cells.
+        private static int GetDataGridCellValue(DataGridView dataGridView, string columnName, int rowIndex)
+        {
+            int tryParseResult;
+            if (!int.TryParse(dataGridView.Rows[rowIndex].Cells[columnName].Value.ToString(), out tryParseResult))
+            {
+                throw new Exception("Unable to parse value to the required type.");
+            }
+            return tryParseResult;
         }
 
         //// ReSharper disable once UnusedMember.Local
@@ -1005,86 +1009,9 @@ namespace App.WindowsForms.Views
         //    }
         //}
 
-        private void ChassisHandlingOriginalValuesButton_Click(object sender, EventArgs e)
+        public void SetController(BaseGameController controller)
         {
-            //var values = new[]
-            //{
-            //    75,
-            //    80,
-            //    70,
-            //    90,
-            //    55,
-            //    30,
-            //    45,
-            //    50,
-            //    40,
-            //    25,
-            //    20
-            //};
-
-            //UpdateValuesInDataGridViewColumn(ChassisHandlingDataGridView, 4, values);
+            _controller = controller;
         }
-
-        private void ChassisHandlingRecommendedValuesButton_Click(object sender, EventArgs e)
-        {
-            //var values = new[]
-            //{
-            //    44,
-            //    50,
-            //    45,
-            //    66,
-            //    37,
-            //    26,
-            //    34,
-            //    23,
-            //    22,
-            //    13,
-            //    13
-            //};
-
-            //UpdateValuesInDataGridViewColumn(ChassisHandlingDataGridView, 4, values);
-        }
-
-        private void ChassisHandlingCalculatedValuesButton_Click(object sender, EventArgs e)
-        {
-            //var values = new[]
-            //{
-            //    CalculateChassisHandling(0),
-            //    CalculateChassisHandling(1),
-            //    CalculateChassisHandling(2),
-            //    CalculateChassisHandling(3),
-            //    CalculateChassisHandling(4),
-            //    CalculateChassisHandling(5),
-            //    CalculateChassisHandling(6),
-            //    CalculateChassisHandling(7),
-            //    CalculateChassisHandling(8),
-            //    CalculateChassisHandling(9),
-            //    CalculateChassisHandling(10)
-            //};
-
-            //UpdateValuesInDataGridViewColumn(ChassisHandlingDataGridView, 4, values);
-        }
-
-        //private int CalculateChassisHandling(int id)
-        //{
-        //    var championshipPosition = GetDataGridCellValue(TeamsDataGridView, 4, id);
-        //    var designerAbility = GetDataGridCellValue(ChiefsF1DesignerDataGridView, 4, id);
-        //    var engineerAbility = GetDataGridCellValue(ChiefsF1EngineerDataGridView, 4, id);
-        //    const int designerFactor = 5;
-        //    const int engineerFactor = 15;
-        //    var randomFactor = new Random().Next(0, 21); // 0..20
-        //    return designerFactor * (designerAbility - 1) + engineerFactor * (engineerAbility - 1) +
-        //                      (31 - championshipPosition - randomFactor);
-        //}
-
-        //private static int GetDataGridCellValue(DataGridView dataGridView, int columnIndex, int rowIndex)
-        //{
-        //    int tryParseResult;
-        //    if (!int.TryParse(dataGridView.Rows[rowIndex].Cells[columnIndex].Value.ToString(), out tryParseResult))
-        //    {
-        //        throw new Exception("Unable to parse value to the required type.");
-        //    }
-        //    return tryParseResult;
-        //}
     }
 }

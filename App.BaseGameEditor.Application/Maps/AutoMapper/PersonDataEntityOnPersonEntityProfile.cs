@@ -53,6 +53,8 @@ namespace App.BaseGameEditor.Application.Maps.AutoMapper
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ForMember(dest => dest.TeamId, opt => opt.ResolveUsing(src => src.Id / 3 + 1))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name.Shared))
+                .ForMember(dest => dest.PayRating, opt => opt.ResolveUsing<EntityF1DriverPayRatingMemberValueResolver, int>(src => src.Salary))
+                .ForMember(dest => dest.PositiveSalary, opt => opt.ResolveUsing<EntityF1DriverPositiveSalaryMemberValueResolver, int>(src => src.Salary))
                 .ForMember(dest => dest.Morale, opt => opt.ResolveUsing<EntityMoraleMemberValueResolver, int>(src => src.Morale))
                 .ReverseMap()
                 .ForMember(src => src.Id, opt => opt.Ignore())
@@ -94,7 +96,7 @@ namespace App.BaseGameEditor.Application.Maps.AutoMapper
                 .ReverseMap()
                 .ForMember(src => src.Id, opt => opt.Ignore())
                 .ForPath(src => src.Name.Shared, opt => opt.MapFrom(dest => dest.Name));
-                // Morale for a Non-F1 driver does not require a transformation
+            // Morale for a Non-F1 driver does not require a transformation
         }
     }
 }

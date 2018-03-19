@@ -9,7 +9,7 @@ namespace App.BaseGameEditor.Data.DataLocators
         private const int BaseOffset = 1058252;
         private const int LocalOffset = 210;
         private const int LapsOffset = 0;
-        private const int DesignOffset = 10;
+        private const int LayoutOffset = 10;
         private const int LapRecordDriverOffset = 20;
         private const int LapRecordTeamOffset = 30;
         private const int LapRecordTimeOffset = 40;
@@ -35,7 +35,7 @@ namespace App.BaseGameEditor.Data.DataLocators
 
         public int Name { get; set; }
         public int Laps { get; set; }
-        public int Design { get; set; }
+        public int Layout { get; set; }
         public int LapRecordDriver { get; set; }
         public int LapRecordTeam { get; set; }
         public int LapRecordTime { get; set; }
@@ -64,7 +64,7 @@ namespace App.BaseGameEditor.Data.DataLocators
             var stepOffset = LocalOffset * Id;
 
             Laps = BaseOffset + stepOffset + LapsOffset;
-            Design = BaseOffset + stepOffset + DesignOffset;
+            Layout = BaseOffset + stepOffset + LayoutOffset;
             LapRecordDriver = BaseOffset + stepOffset + LapRecordDriverOffset;
             LapRecordTeam = BaseOffset + stepOffset + LapRecordTeamOffset;
             LapRecordTime = BaseOffset + stepOffset + LapRecordTimeOffset;

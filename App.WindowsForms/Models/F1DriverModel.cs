@@ -11,7 +11,7 @@ namespace App.WindowsForms.Models
         public int RaceBonus { get; set; }
         public int ChampionshipBonus { get; set; }
         public int LastChampionshipPosition { get; set; }
-        public int DriverRole { get; set; }
+        public int Role { get; set; }
         public int Age { get; set; }
         public int Nationality { get; set; }
 

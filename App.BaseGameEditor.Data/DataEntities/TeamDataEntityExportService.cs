@@ -32,15 +32,15 @@ namespace App.BaseGameEditor.Data.DataEntities
             _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, teamDataEntity.Name.German);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.LastPosition, teamDataEntity.LastPosition);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.LastPoints, teamDataEntity.LastPoints);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.FirstGpTrack, teamDataEntity.FirstGpTrack);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.FirstGpYear, teamDataEntity.FirstGpYear);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.DebutGrandPrix, teamDataEntity.DebutGrandPrix);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.DebutYear, teamDataEntity.DebutYear);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Wins, teamDataEntity.Wins);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.YearlyBudget, teamDataEntity.YearlyBudget);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.UnknownA, teamDataEntity.UnknownA);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.CountryMapId, teamDataEntity.CountryMapId);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.LocationPointerX, teamDataEntity.LocationPointerX);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.LocationPointerY, teamDataEntity.LocationPointerY);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.TyreSupplierId, teamDataEntity.TyreSupplierId);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Location, teamDataEntity.Location);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.LocationX, teamDataEntity.LocationX);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.LocationY, teamDataEntity.LocationY);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.TyreSupplier, teamDataEntity.TyreSupplier);
         }
     }
 }

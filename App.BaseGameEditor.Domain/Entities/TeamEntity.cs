@@ -9,14 +9,15 @@ namespace App.BaseGameEditor.Domain.Entities
         public string Name { get; set; }
         public int LastPosition { get; set; }
         public int LastPoints { get; set; }
-        public int FirstGpTrack { get; set; }
-        public int FirstGpYear { get; set; }
+        public int DebutGrandPrix { get; set; }
+        public int DebutYear { get; set; }
         public int Wins { get; set; }
         public int YearlyBudget { get; set; }
-        public int CountryMapId { get; set; }
-        public int LocationPointerX { get; set; }
-        public int LocationPointerY { get; set; }
-        public int TyreSupplierId { get; set; }
+        public int UnknownA { get; set; }
+        public int Location { get; set; }
+        public int LocationX { get; set; }
+        public int LocationY { get; set; }
+        public int TyreSupplier { get; set; }
         public int ChassisHandling { get; set; }
         public int CarNumberDriver1 { get; set; }
         public int CarNumberDriver2 { get; set; }

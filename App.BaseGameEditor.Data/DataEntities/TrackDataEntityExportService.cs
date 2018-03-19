@@ -31,7 +31,7 @@ namespace App.BaseGameEditor.Data.DataEntities
             _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, trackDataEntity.Name.French);
             _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, trackDataEntity.Name.German);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Laps, trackDataEntity.Laps);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Design, trackDataEntity.Design);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Layout, trackDataEntity.Layout);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.LapRecordDriver, trackDataEntity.LapRecordDriver);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.LapRecordTeam, trackDataEntity.LapRecordTeam);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.LapRecordTime, trackDataEntity.LapRecordTime);

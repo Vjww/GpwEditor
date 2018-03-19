@@ -39,7 +39,7 @@ namespace App.BaseGameEditor.Data.DataEntities
             result.PayRating = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.PayRating);
             result.PositiveSalary = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.PositiveSalary);
             result.LastChampionshipPosition = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.LastChampionshipPosition);
-            result.DriverRole = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.DriverRole);
+            result.Role = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Role);
             result.Age = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Age);
             result.Nationality = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Nationality);
 

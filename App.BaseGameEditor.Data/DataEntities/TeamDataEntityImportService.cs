@@ -35,15 +35,15 @@ namespace App.BaseGameEditor.Data.DataEntities
             result.Name.German = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name);
             result.LastPosition = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.LastPosition);
             result.LastPoints = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.LastPoints);
-            result.FirstGpTrack = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.FirstGpTrack);
-            result.FirstGpYear = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.FirstGpYear);
+            result.DebutGrandPrix = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.DebutGrandPrix);
+            result.DebutYear = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.DebutYear);
             result.Wins = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Wins);
             result.YearlyBudget = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.YearlyBudget);
             result.UnknownA = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.UnknownA);
-            result.CountryMapId = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.CountryMapId);
-            result.LocationPointerX = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.LocationPointerX);
-            result.LocationPointerY = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.LocationPointerY);
-            result.TyreSupplierId = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.TyreSupplierId);
+            result.Location = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Location);
+            result.LocationX = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.LocationX);
+            result.LocationY = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.LocationY);
+            result.TyreSupplier = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.TyreSupplier);
 
             return result;
         }

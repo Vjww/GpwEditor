@@ -36,7 +36,7 @@ namespace App.BaseGameEditor.Data.DataEntities
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.PayRating, f1DriverDataEntity.PayRating);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.PositiveSalary, f1DriverDataEntity.PositiveSalary);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.LastChampionshipPosition, f1DriverDataEntity.LastChampionshipPosition);
-            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.DriverRole, f1DriverDataEntity.DriverRole);
+            _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Role, f1DriverDataEntity.Role);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Age, f1DriverDataEntity.Age);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Nationality, f1DriverDataEntity.Nationality);
 

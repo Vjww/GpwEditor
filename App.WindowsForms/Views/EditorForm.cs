@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using App.Core.Entities;
 using App.Core.Entities.Lookups;
@@ -20,20 +19,17 @@ namespace App.WindowsForms.Views
 
         protected bool CloseFormConfirmation(bool isModified, string message)
         {
-            //// Return true if there are no unsaved changes 
-            //if (!isModified)
-            //{
-            //    return true;
-            //}
+            // Return true if there are no unsaved changes 
+            if (!isModified)
+            {
+                return true;
+            }
 
-            //// Prompt user whether to close form with unsaved changes
-            //var result = MessageBox.Show(message, Settings.Default.ApplicationName, MessageBoxButtons.YesNo,
-            //    MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            // Prompt user whether to close form with unsaved changes
+            var result = MessageBox.Show(message, Settings.Default.ApplicationName, MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
-            //return result == DialogResult.Yes;
-
-            // TODO: Fix up
-            return true;
+            return result == DialogResult.Yes;
         }
 
         protected static void ConvertLinesToRtf(RichTextBox richTextBox)
@@ -48,12 +44,14 @@ namespace App.WindowsForms.Views
             richTextBox.Rtf = rtfString.TrimEnd(@"\line".ToCharArray());
         }
 
+        /* LEGACY CODE
         // ReSharper disable once UnusedMember.Local
         private static void ConfigureDataGridViewControl<T>(DataGridView dataGridView, int columnId, string resourceTextHeaderText, bool fillColumns = false)
         {
             ConfigureDataGridViewControl<T>(dataGridView, columnId, fillColumns);
             dataGridView.Columns[3].HeaderText = resourceTextHeaderText;
         }
+        */
 
         protected static void ConfigureDataGridViewControl<T>(DataGridView dataGridView, int idColumnId, int localResourceIdColumnId, int resourceIdColumnId, int resourceTextColumnId, bool fillColumns = false)
         {
@@ -210,16 +208,16 @@ namespace App.WindowsForms.Views
             //}
         }
 
-        protected static void UpdateValuesInDataGridViewColumn<T>(DataGridView dataGridView, int columnIndex, IReadOnlyList<T> values)
+        protected static void UpdateValuesInDataGridViewColumn<T>(DataGridView dataGridView, string columnName, IReadOnlyList<T> values)
         {
             foreach (DataGridViewColumn column in dataGridView.Columns)
             {
-                if (column.Index != columnIndex) continue;
+                if (!column.Name.Equals(columnName, StringComparison.Ordinal)) continue;
 
                 var counter = 0;
                 foreach (DataGridViewRow row in dataGridView.Rows)
                 {
-                    row.Cells[columnIndex].Value = values[counter];
+                    row.Cells[columnName].Value = values[counter];
                     counter++;
                 }
             }
@@ -241,7 +239,7 @@ namespace App.WindowsForms.Views
             }
         }
 
-        public static bool IsFileLocked(FileInfo fileInfo)
+        protected static bool IsFileLocked(FileInfo fileInfo)
         {
             try
             {
@@ -263,10 +261,41 @@ namespace App.WindowsForms.Views
             dataGridView.Columns.Add(dataGridViewColumn);
         }
 
-        public static void ClearDataGridView(DataGridView dataGridView)
+        public static void ResetDataGridView(DataGridView dataGridView, bool fillColumns = false)
         {
+            if (dataGridView == null) throw new ArgumentNullException(nameof(dataGridView));
+
+            // Resolves defect with hidden columns becoming unhidden on grid recreation
+            // https://stackoverflow.com/a/38168418
+            dataGridView.DataSource = null;
+
             dataGridView.AutoGenerateColumns = false;
             dataGridView.Columns.Clear();
+        }
+
+        public static void ConfigureDataGridView(DataGridView dataGridView, string primaryColumnName, bool fillColumns = false)
+        {
+            if (dataGridView == null) throw new ArgumentNullException(nameof(dataGridView));
+            if (primaryColumnName == null) throw new ArgumentNullException(nameof(primaryColumnName));
+
+            // Freeze primary column (to always remain visible when scrolling horizontally)
+            var primaryColumn = dataGridView.Columns[primaryColumnName];
+            if (primaryColumn != null)
+            {
+                primaryColumn.Frozen = !fillColumns;
+            }
+            else
+            {
+                throw new IndexOutOfRangeException(nameof(primaryColumnName));
+            }
+
+            // Configure grid
+            dataGridView.AutoSizeColumnsMode = fillColumns ? DataGridViewAutoSizeColumnsMode.Fill : DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.AllowUserToDeleteRows = false;
+            dataGridView.AllowUserToResizeRows = false;
+            dataGridView.MultiSelect = false;
+            dataGridView.RowHeadersVisible = false;
         }
 
         public static DataGridViewTextBoxColumn CreateDataGridViewTextBoxColumn(string propertyName, string displayText, string toolTipText, bool visible = true, bool readOnly = false)
@@ -299,26 +328,16 @@ namespace App.WindowsForms.Views
             return dataGridViewComboBoxColumn;
         }
 
+        public static void BindDataGridViewToDataSource(DataGridView dataGridView, IEnumerable<IEntity> dataSource)
+        {
+            dataGridView.DataSource = dataSource;
+        }
+
         public static void BindDataGridViewComboBoxColumnToDataSource(DataGridViewComboBoxColumn dataGridViewComboBoxColumn, IEnumerable<ILookup> dataSource)
         {
             dataGridViewComboBoxColumn.DataSource = dataSource;
             dataGridViewComboBoxColumn.ValueMember = "Value";
             dataGridViewComboBoxColumn.DisplayMember = "Description";
-        }
-
-        public static void BindDataGridViewToDataSource(DataGridView dataGridView, IEnumerable<IEntity> dataSource)
-        {
-            dataGridView.DataSource = dataSource;
-        }
-    }
-
-    // TODO: Taken from old code ControlExtension.cs, could be a nomination for common code
-    public static class ControlExtension
-    {
-        public static IEnumerable<Control> GetAllControlsOfType(this Control control, Type type)
-        {
-            var controls = control.Controls.Cast<Control>();
-            return controls.SelectMany(x => GetAllControlsOfType(x, type)).Concat(controls).Where(c => c.GetType() == type);
         }
     }
 }
