@@ -52,6 +52,8 @@ namespace App.WindowsForms.Controllers
 
         public void Export()
         {
+            UpdateServiceFromModels();
+
             _configureGameApplicationService.Export(
                 _view.GameFolderPath,
                 _view.GameExecutableFilePath,
@@ -61,8 +63,6 @@ namespace App.WindowsForms.Controllers
                 _view.EnglishCommentaryFilePath,
                 _view.FrenchCommentaryFilePath,
                 _view.GermanCommentaryFilePath);
-
-            UpdateServiceFromModels();
         }
 
         public void UpdateCommentaryModelWithDriverIndicesFromOriginalValues()
@@ -175,6 +175,8 @@ namespace App.WindowsForms.Controllers
             UpdateServiceFromModel<IEnumerable<CommentaryIndexTeamModel>, IEnumerable<CommentaryIndexTeamEntity>>(_configureGameApplicationService.DomainModel.Commentaries.SetCommentaryIndexTeams, _view.CommentaryIndexTeams);
             UpdateServiceFromModel<IEnumerable<CommentaryPrefixDriverModel>, IEnumerable<CommentaryPrefixDriverEntity>>(_configureGameApplicationService.DomainModel.Commentaries.SetCommentaryPrefixDrivers, _view.CommentaryPrefixDrivers);
             UpdateServiceFromModel<IEnumerable<CommentaryPrefixTeamModel>, IEnumerable<CommentaryPrefixTeamEntity>>(_configureGameApplicationService.DomainModel.Commentaries.SetCommentaryPrefixTeams, _view.CommentaryPrefixTeams);
+
+            UpdateServiceFromModel<IEnumerable<PerformanceCurveModel>, IEnumerable<PerformanceCurveEntity>>(_configureGameApplicationService.DomainModel.PerformanceCurveValues.SetPerformanceCurves, _view.PerformanceCurves);
         }
 
         public void RunEditPerformanceCurveForm()

@@ -20,7 +20,7 @@ namespace App.BaseGameEditor.Data.FileResources
             if (offset < 0) throw new ArgumentOutOfRangeException(nameof(offset));
 
             var bytes = BitConverter.GetBytes(value);
-            _streamWriteService.Write(stream, offset, bytes, SeekOrigin.Begin);
+            _streamWriteService.Write(stream, offset, bytes);
         }
 
         public void WriteStringList(Stream stream, IEnumerable list)

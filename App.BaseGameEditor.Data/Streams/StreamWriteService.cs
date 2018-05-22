@@ -30,7 +30,7 @@ namespace App.BaseGameEditor.Data.Streams
             Write(stream, offset, new[] { value }, seekOrigin);
         }
 
-        public void Write(Stream stream, long offset, byte[] values, SeekOrigin seekOrigin)
+        public void Write(Stream stream, long offset, byte[] values, SeekOrigin seekOrigin = SeekOrigin.Begin)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             if (values == null) throw new ArgumentNullException(nameof(values));
@@ -42,13 +42,15 @@ namespace App.BaseGameEditor.Data.Streams
             stream.Write(values, 0, values.Length);
         }
 
-        public void WriteStringList(Stream stream, IEnumerable items)
+        public void WriteStringList(Stream stream, IEnumerable items, SeekOrigin seekOrigin = SeekOrigin.Begin)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             if (items == null) throw new ArgumentNullException(nameof(items));
+            if (!Enum.IsDefined(typeof(SeekOrigin), seekOrigin))
+                throw new InvalidEnumArgumentException(nameof(seekOrigin), (int)seekOrigin, typeof(SeekOrigin));
 
-            var newStream = _streamFactory.Create();
-            using (var streamWriter = _streamWriterService.Writer(newStream, Encoding.Default))
+            var alternateStream = _streamFactory.Create();
+            using (var streamWriter = _streamWriterService.Writer(alternateStream, Encoding.Default))
             {
                 foreach (var item in items)
                 {
@@ -56,8 +58,9 @@ namespace App.BaseGameEditor.Data.Streams
                 }
                 streamWriter.Flush();
 
-                newStream.Seek(0, SeekOrigin.Begin);
-                newStream.CopyTo(stream);
+                stream.Seek(0, seekOrigin);
+                alternateStream.Seek(0, SeekOrigin.Begin);
+                alternateStream.CopyTo(stream);
             }
         }
     }

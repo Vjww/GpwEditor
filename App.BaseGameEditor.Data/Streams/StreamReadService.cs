@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Text;
 using App.BaseGameEditor.Data.Factories;
@@ -26,25 +27,28 @@ namespace App.BaseGameEditor.Data.Streams
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             if (count <= 0) throw new ArgumentOutOfRangeException(nameof(count));
             if (!Enum.IsDefined(typeof(SeekOrigin), seekOrigin))
-                throw new ArgumentOutOfRangeException(nameof(seekOrigin));
+                throw new InvalidEnumArgumentException(nameof(seekOrigin), (int)seekOrigin, typeof(SeekOrigin));
 
-            var buffer = new byte[count];
+            var result = new byte[count];
             stream.Seek(offset, seekOrigin);
-            stream.Read(buffer, 0, count);
-            return buffer;
+            stream.Read(result, 0, count);
+            return result;
         }
 
-        public IEnumerable ReadStringList(Stream stream)
+        public IEnumerable ReadStringList(Stream stream, SeekOrigin seekOrigin = SeekOrigin.Begin)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
+            if (!Enum.IsDefined(typeof(SeekOrigin), seekOrigin))
+                throw new InvalidEnumArgumentException(nameof(seekOrigin), (int)seekOrigin, typeof(SeekOrigin));
 
             var result = new List<string>();
 
-            var streamCopy = _streamFactory.Create();
-            stream.CopyTo(streamCopy);
-            streamCopy.Seek(0, SeekOrigin.Begin);
+            var alternateStream = _streamFactory.Create();
+            stream.Seek(0, seekOrigin);
+            stream.CopyTo(alternateStream);
+            alternateStream.Seek(0, SeekOrigin.Begin);
 
-            using (var streamReader = _streamReaderService.Reader(streamCopy, Encoding.Default))
+            using (var streamReader = _streamReaderService.Reader(alternateStream, Encoding.Default))
             {
                 string line;
                 while ((line = streamReader.ReadLine()) != null)

@@ -52,6 +52,8 @@ namespace App.WindowsForms.Controllers
 
         public void Export()
         {
+            UpdateServiceFromModels();
+
             _baseGameApplicationService.Export(
                 _view.GameFolderPath,
                 _view.GameExecutableFilePath,
@@ -61,8 +63,6 @@ namespace App.WindowsForms.Controllers
                 _view.EnglishCommentaryFilePath,
                 _view.FrenchCommentaryFilePath,
                 _view.GermanCommentaryFilePath);
-
-            UpdateServiceFromModels();
         }
 
         public void UpdateTeamsModelWithChassisHandlingValuesFromOriginalValues()
