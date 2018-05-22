@@ -19,7 +19,10 @@ namespace App.BaseGameEditor.Data.FileResources
             if (string.IsNullOrWhiteSpace(filePath))
                 throw new ArgumentException("Value cannot be null or whitespace.", nameof(filePath));
 
-            using (var fileStream = _fileService.Open(filePath, FileMode.Truncate, FileAccess.Write))
+            // FileMode.Create is equivalent to requesting that if the file does not exist, use CreateNew; otherwise, use Truncate.
+            // https://msdn.microsoft.com/en-us/library/system.io.filemode(v=vs.110).aspx
+
+            using (var fileStream = _fileService.Open(filePath, FileMode.Create, FileAccess.Write))
             {
                 stream.Seek(0, SeekOrigin.Begin);
                 stream.CopyTo(fileStream);

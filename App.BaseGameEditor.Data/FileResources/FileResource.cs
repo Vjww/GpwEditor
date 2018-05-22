@@ -45,6 +45,13 @@ namespace App.BaseGameEditor.Data.FileResources
             _stream = _fileResourceImporter.Import(filePath);
         }
 
+        public void Import(Stream stream)
+        {
+            if (stream == null) throw new ArgumentNullException(nameof(stream));
+
+            _stream = _fileResourceImporter.Import(stream);
+        }
+
         public int ReadInteger(int offset)
         {
             if (offset < 0) throw new ArgumentOutOfRangeException(nameof(offset));

@@ -27,9 +27,18 @@ namespace App.BaseGameEditor.Data.DataEntities
             var dataLocator = _dataLocatorFactory.Create(f1DriverDataEntity.Id);
             dataLocator.Initialise();
 
-            _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, f1DriverDataEntity.Name.English);
-            _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, f1DriverDataEntity.Name.French);
-            _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, f1DriverDataEntity.Name.German);
+            var englishCatalogueItem = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Name);
+            var frenchCatalogueItem = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name);
+            var germanCatalogueItem = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name);
+
+            englishCatalogueItem.Value = f1DriverDataEntity.Name.English;
+            frenchCatalogueItem.Value = f1DriverDataEntity.Name.French;
+            germanCatalogueItem.Value = f1DriverDataEntity.Name.German;
+
+            _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, englishCatalogueItem);
+            _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, frenchCatalogueItem);
+            _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, germanCatalogueItem);
+
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Salary, f1DriverDataEntity.Salary);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.RaceBonus, f1DriverDataEntity.RaceBonus);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ChampionshipBonus, f1DriverDataEntity.ChampionshipBonus);

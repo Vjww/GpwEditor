@@ -30,8 +30,8 @@ namespace App.WindowsForms.Views
 {
     public partial class BaseGameEditorForm : EditorForm
     {
-        private BaseGameController _controller;
-        private bool _isFailedValidationForSwitchingContext;
+        private BaseGameEditorController _controller;
+        private bool _isFailedValidationForSwitchingContext; // TODO: May now be redundant due to changes in raising grid events?
         private bool _isImportOccurred;
 
         #region ToolTip Declarations
@@ -163,22 +163,6 @@ namespace App.WindowsForms.Views
         public string FrenchCommentaryFilePath { get => FrenchCommentaryFilePathTextBox.Text; set => FrenchCommentaryFilePathTextBox.Text = value; }
         public string GermanCommentaryFilePath { get => GermanCommentaryFilePathTextBox.Text; set => GermanCommentaryFilePathTextBox.Text = value; }
 
-        public BaseGameEditorForm()
-        {
-            InitializeComponent();
-
-            // TODO: Temporary measure to pre-populate fields before TextBox fields are introduced. These are just debug folder/file paths
-            const string gameFolder = @"C:\gpw";
-            GameFolderPath = $@"{gameFolder}";
-            GameExecutableFilePath = $@"{gameFolder}\gpw.exe";
-            EnglishLanguageFilePath = $@"{gameFolder}\english.txt";
-            FrenchLanguageFilePath = $@"{gameFolder}\french.txt";
-            GermanLanguageFilePath = $@"{gameFolder}\german.txt";
-            EnglishCommentaryFilePath = $@"{gameFolder}\text\comme.txt";
-            FrenchCommentaryFilePath = $@"{gameFolder}\textf\commf.txt";
-            GermanCommentaryFilePath = $@"{gameFolder}\textg\commg.txt";
-        }
-
         public IEnumerable<ChiefDriverLoyaltyLookupModel> ChiefDriverLoyaltyLookups { get; set; }
         public IEnumerable<DriverNationalityLookupModel> DriverNationalityLookups { get; set; }
         public IEnumerable<DriverRoleLookupModel> DriverRoleLookups { get; set; }
@@ -286,10 +270,15 @@ namespace App.WindowsForms.Views
         //    set => BuildPerformanceCurveGraph(value);
         //}
 
-        //public void SetController(BaseGameController controller)
-        //{
-        //    _controller = controller;
-        //}
+        public BaseGameEditorForm()
+        {
+            InitializeComponent();
+        }
+
+        public void SetController(BaseGameEditorController controller)
+        {
+            _controller = controller;
+        }
 
         public void UpdateTeamsModelWithUpdatedChassisHandlingValues(IEnumerable<TeamModel> teams)
         {
@@ -655,10 +644,15 @@ namespace App.WindowsForms.Views
             Text = $"{Settings.Default.ApplicationName} - Game Executable Editor";
             ConvertLinesToRtf(OverviewRichTextBox);
 
-            // TODO:
-            // Populate with most recently used (MRU) or default
-            // GameExecutablePathTextBox.Text = GetGameExecutableMruOrDefault(); // TODO: Add the rest once implemented
-            // LanguageFilePathTextBox.Text = GetLanguageFileMruOrDefault();     // TODO: Add the rest once implemented
+            // Populate paths with most recently used (MRU) or default
+            GameFolderPath = GetGameFolderMruOrDefault();
+            GameExecutableFilePath = GetGameExecutableMruOrDefault();
+            EnglishLanguageFilePath = GetEnglishLanguageFileMruOrDefault();
+            FrenchLanguageFilePath = GetFrenchLanguageFileMruOrDefault();
+            GermanLanguageFilePath = GetGermanLanguageFileMruOrDefault();
+            EnglishCommentaryFilePath = GetEnglishCommentaryFileMruOrDefault();
+            FrenchCommentaryFilePath = GetFrenchCommentaryFileMruOrDefault();
+            GermanCommentaryFilePath = GetGermanCommentaryFileMruOrDefault();
 
             // ConfigureControls(); // TODO: Suspect no longer needed
             SubscribeDataGridViewControlsToGenericEvents();
@@ -673,8 +667,7 @@ namespace App.WindowsForms.Views
                 return;
             }
 
-            if (CloseFormConfirmation(true, $"Are you sure you wish to close the game executable editor?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost.")
-            )
+            if (CloseFormConfirmation(true, $"Are you sure you wish to close the game executable editor?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost."))
             {
                 return;
             }
@@ -697,18 +690,52 @@ namespace App.WindowsForms.Views
             }
         }
 
-        private void GameExecutablePathBrowseButton_Click(object sender, EventArgs e)
+        private void GameFolderPathBrowseButton_Click(object sender, EventArgs e)
         {
-            // TODO: Activate
-            //var result = GetGameExecutablePathFromOpenFileDialog();
-            //GameExecutablePathTextBox.Text = string.IsNullOrEmpty(result) ? GameExecutablePathTextBox.Text : result;
+            var result = GetGameFolderPathFromFolderBrowserDialog();
+            GameFolderPath = string.IsNullOrEmpty(result) ? GameFolderPath : result;
         }
 
-        private void BrowseLanguageFileButton_Click(object sender, EventArgs e)
+        private void GameExecutablePathBrowseButton_Click(object sender, EventArgs e)
         {
-            // TODO: Activate
-            //var result = GetLanguageFilePathFromOpenFileDialog();
-            //LanguageFilePathTextBox.Text = string.IsNullOrEmpty(result) ? LanguageFilePathTextBox.Text : result;
+            var result = GetGameExecutablePathFromOpenFileDialog();
+            GameExecutableFilePath = string.IsNullOrEmpty(result) ? GameExecutableFilePath : result;
+        }
+
+        private void EnglishLanguageFilePathBrowseButton_Click(object sender, EventArgs e)
+        {
+            var result = GetEnglishLanguageFilePathFromOpenFileDialog();
+            EnglishLanguageFilePath = string.IsNullOrEmpty(result) ? EnglishLanguageFilePath : result;
+        }
+
+        private void FrenchLanguageFilePathBrowseButton_Click(object sender, EventArgs e)
+        {
+            var result = GetFrenchLanguageFilePathFromOpenFileDialog();
+            FrenchLanguageFilePath = string.IsNullOrEmpty(result) ? FrenchLanguageFilePath : result;
+        }
+
+        private void GermanLanguageFilePathBrowseButton_Click(object sender, EventArgs e)
+        {
+            var result = GetGermanLanguageFilePathFromOpenFileDialog();
+            GermanLanguageFilePath = string.IsNullOrEmpty(result) ? GermanLanguageFilePath : result;
+        }
+
+        private void EnglishCommentaryFilePathBrowseButton_Click(object sender, EventArgs e)
+        {
+            var result = GetEnglishCommentaryFilePathFromOpenFileDialog();
+            EnglishCommentaryFilePath = string.IsNullOrEmpty(result) ? EnglishCommentaryFilePath : result;
+        }
+
+        private void FrenchCommentaryFilePathBrowseButton_Click(object sender, EventArgs e)
+        {
+            var result = GetFrenchCommentaryFilePathFromOpenFileDialog();
+            FrenchCommentaryFilePath = string.IsNullOrEmpty(result) ? FrenchCommentaryFilePath : result;
+        }
+
+        private void GermanCommentaryFilePathBrowseButton_Click(object sender, EventArgs e)
+        {
+            var result = GetGermanCommentaryFilePathFromOpenFileDialog();
+            GermanCommentaryFilePath = string.IsNullOrEmpty(result) ? GermanCommentaryFilePath : result;
         }
 
         private void ImportButton_Click(object sender, EventArgs e)
@@ -840,7 +867,7 @@ namespace App.WindowsForms.Views
                 Cursor.Current = Cursors.Default;
             }
 
-            MessageBox.Show("Export complete!", Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ShowMessageBox("Export complete!");
         }
 
         private void Import()
@@ -850,7 +877,7 @@ namespace App.WindowsForms.Views
             try
             {
                 /* TODO: This block is all old code that can likely be removed, could use code as reference
-                    // TODO: FolderExists(gameFolderPath);
+                    //FolderExists(gameFolderPath); // TODO: Move to controller?
                     FileExists(gameExecutablePath);
                     FileExists(languageFilePath);
 
@@ -1008,10 +1035,5 @@ namespace App.WindowsForms.Views
         //        }
         //    }
         //}
-
-        public void SetController(BaseGameController controller)
-        {
-            _controller = controller;
-        }
     }
 }

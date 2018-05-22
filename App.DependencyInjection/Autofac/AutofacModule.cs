@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using App.BaseGameEditor.Data.Catalogues.Commentary;
 using App.BaseGameEditor.Data.Catalogues.Language;
 using App.BaseGameEditor.Data.Factories;
 using App.BaseGameEditor.Data.FileResources;
@@ -53,6 +54,10 @@ namespace App.DependencyInjection.Autofac
             // Manual registrations for non-singletons
             builder.RegisterGeneric(typeof(List<>)).InstancePerDependency();
             builder.RegisterType<FileResource>().InstancePerDependency();
+            builder.RegisterType<LanguageCatalogueExporter>().InstancePerDependency();
+            builder.RegisterType<LanguageCatalogueImporter>().InstancePerDependency();
+            builder.RegisterType<CommentaryCatalogueExporter<ILanguagePhrases>>().InstancePerDependency();
+            builder.RegisterType<CommentaryCatalogueImporter<ILanguagePhrases>>().InstancePerDependency();
             builder.RegisterType<LanguageCatalogueValue>().InstancePerDependency();
 
             // Register types in the data layer as instance per dependancy

@@ -110,26 +110,89 @@ namespace App.WindowsForms.Views
 
         protected string GetGameExecutablePathFromOpenFileDialog()
         {
-            // Configure open file dialog
-            ProgramOpenFileDialog.InitialDirectory = Directory.Exists(Settings.Default.MruGameFolderPath)
-                ? Settings.Default.MruGameFolderPath
-                : Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            ProgramOpenFileDialog.FileName = null;
+            var result = GetFilePathFromOpenFileDialog();
 
-            // Get file from user
-            var dialogResult = ProgramOpenFileDialog.ShowDialog();
+            if (string.IsNullOrEmpty(result)) return null;
 
-            // Return if no file was selected
-            if (dialogResult != DialogResult.OK) return null;
-
-            // Save selected file
-            Settings.Default.MruGameExecutablePath = ProgramOpenFileDialog.FileName;
+            Settings.Default.MruGameExecutablePath = result;
             Settings.Default.Save();
 
-            return Settings.Default.MruGameExecutablePath;
+            return result;
         }
 
-        protected string GetLanguageFilePathFromOpenFileDialog()
+        protected string GetEnglishLanguageFilePathFromOpenFileDialog()
+        {
+            var result = GetFilePathFromOpenFileDialog();
+
+            if (string.IsNullOrEmpty(result)) return null;
+
+            Settings.Default.MruEnglishLanguageFilePath = result;
+            Settings.Default.Save();
+
+            return result;
+        }
+
+        protected string GetFrenchLanguageFilePathFromOpenFileDialog()
+        {
+            var result = GetFilePathFromOpenFileDialog();
+
+            if (string.IsNullOrEmpty(result)) return null;
+
+            Settings.Default.MruFrenchLanguageFilePath = result;
+            Settings.Default.Save();
+
+            return result;
+        }
+
+        protected string GetGermanLanguageFilePathFromOpenFileDialog()
+        {
+            var result = GetFilePathFromOpenFileDialog();
+
+            if (string.IsNullOrEmpty(result)) return null;
+
+            Settings.Default.MruGermanLanguageFilePath = result;
+            Settings.Default.Save();
+
+            return result;
+        }
+
+        protected string GetEnglishCommentaryFilePathFromOpenFileDialog()
+        {
+            var result = GetFilePathFromOpenFileDialog();
+
+            if (string.IsNullOrEmpty(result)) return null;
+
+            Settings.Default.MruEnglishCommentaryFilePath = result;
+            Settings.Default.Save();
+
+            return result;
+        }
+
+        protected string GetFrenchCommentaryFilePathFromOpenFileDialog()
+        {
+            var result = GetFilePathFromOpenFileDialog();
+
+            if (string.IsNullOrEmpty(result)) return null;
+
+            Settings.Default.MruFrenchCommentaryFilePath = result;
+            Settings.Default.Save();
+
+            return result;
+        }
+
+        protected string GetGermanCommentaryFilePathFromOpenFileDialog()
+        {
+            var result = GetFilePathFromOpenFileDialog();
+
+            if (string.IsNullOrEmpty(result)) return null;
+
+            Settings.Default.MruGermanCommentaryFilePath = result;
+            Settings.Default.Save();
+
+            return result;
+        }
+
+        private string GetFilePathFromOpenFileDialog()
         {
             // Configure open file dialog
             ProgramOpenFileDialog.InitialDirectory = Directory.Exists(Settings.Default.MruGameFolderPath)
@@ -140,35 +203,63 @@ namespace App.WindowsForms.Views
             // Get file from user
             var dialogResult = ProgramOpenFileDialog.ShowDialog();
 
-            // Return if no file was selected
-            if (dialogResult != DialogResult.OK) return null;
-
-            // Save selected file
-            Settings.Default.MruEnglishLanguageFilePath = ProgramOpenFileDialog.FileName;
-            Settings.Default.Save();
-
-            return Settings.Default.MruEnglishLanguageFilePath;
+            // Return null if no file was selected, else return filename of selected file
+            return dialogResult != DialogResult.OK ? null : ProgramOpenFileDialog.FileName;
         }
 
         protected string GetGameFolderMruOrDefault()
         {
-            var defaultPath = GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.UserGameFolderPath,
-                Settings.Default.DefaultGameFolderPath);
+            var defaultPath = GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.UserGameFolderPath, Settings.Default.DefaultGameFolderPath);
             return GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.MruGameFolderPath, defaultPath);
         }
 
         protected string GetGameExecutableMruOrDefault()
         {
-            var gameFolderPath = GetGameFolderMruOrDefault();
-            var defaultFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultGameExecutableName);
-            return GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.MruGameExecutablePath, defaultFilePath);
+            return GetFileMruOrDefault(Settings.Default.DefaultGameExecutableName, Settings.Default.MruGameExecutablePath);
         }
 
-        protected string GetLanguageFileMruOrDefault()
+        protected string GetEnglishLanguageFileMruOrDefault()
+        {
+            return GetFileMruOrDefault(Settings.Default.DefaultEnglishLanguageFileName, Settings.Default.MruEnglishLanguageFilePath);
+        }
+
+        protected string GetFrenchLanguageFileMruOrDefault()
+        {
+            return GetFileMruOrDefault(Settings.Default.DefaultFrenchLanguageFileName, Settings.Default.MruFrenchLanguageFilePath);
+        }
+
+        protected string GetGermanLanguageFileMruOrDefault()
+        {
+            return GetFileMruOrDefault(Settings.Default.DefaultGermanLanguageFileName, Settings.Default.MruGermanLanguageFilePath);
+        }
+
+        protected string GetEnglishCommentaryFileMruOrDefault()
+        {
+            return GetFileMruOrDefault(Settings.Default.DefaultEnglishCommentaryFileName, "text", Settings.Default.MruEnglishCommentaryFilePath);
+        }
+
+        protected string GetFrenchCommentaryFileMruOrDefault()
+        {
+            return GetFileMruOrDefault(Settings.Default.DefaultFrenchCommentaryFileName, "textf", Settings.Default.MruFrenchCommentaryFilePath);
+        }
+
+        protected string GetGermanCommentaryFileMruOrDefault()
+        {
+            return GetFileMruOrDefault(Settings.Default.DefaultGermanCommentaryFileName, "textg", Settings.Default.MruGermanCommentaryFilePath);
+        }
+
+        private string GetFileMruOrDefault(string defaultFileName, string mruFilePath)
         {
             var gameFolderPath = GetGameFolderMruOrDefault();
-            var defaultFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultEnglishLanguageFileName);
-            return GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.MruEnglishLanguageFilePath, defaultFilePath);
+            var defaultFilePath = Path.Combine(gameFolderPath, defaultFileName);
+            return GetValueOrDefaultIfNullOrWhiteSpace(mruFilePath, defaultFilePath);
+        }
+
+        private string GetFileMruOrDefault(string defaultFileName, string defaultSubFolder, string mruFilePath)
+        {
+            var gameFolderPath = GetGameFolderMruOrDefault();
+            var defaultFilePath = Path.Combine(gameFolderPath, defaultSubFolder, defaultFileName);
+            return GetValueOrDefaultIfNullOrWhiteSpace(mruFilePath, defaultFilePath);
         }
 
         protected string GetValueOrDefaultIfNullOrWhiteSpace(string value, string @default)

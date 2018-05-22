@@ -35,7 +35,7 @@ namespace App.BaseGameEditor.Data.DataEntities.Lookups
 
             var result = _dataEntityFactory.Create(id);
             result.Value = _identityCalculator.GetDriverNationalityNameId(result.Id);
-            result.Description = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Description);
+            result.Description = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Description).Value;
 
             return result;
         }

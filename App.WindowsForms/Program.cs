@@ -37,6 +37,9 @@ namespace App.WindowsForms
             containerBuilder.RegisterModule(new AutofacModule());
 
             // Register child forms
+            containerBuilder.RegisterType<UpgradeGameForm>().InstancePerDependency();
+            containerBuilder.RegisterType<ConfigureGameForm>().InstancePerDependency();
+            containerBuilder.RegisterType<PerformanceCurveValuesForm>().InstancePerDependency();
             containerBuilder.RegisterType<BaseGameEditorForm>().InstancePerDependency();
 
             var container = containerBuilder.Build();

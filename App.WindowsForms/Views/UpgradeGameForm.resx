@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ProgramOpenFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="ProgramFolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>199, 17</value>
+  </metadata>
+  <data name="OverviewRichTextBox.Text" xml:space="preserve">
+    <value>{\rtf1\ansi\deff0{\fs24\b Overview - Upgrade Game}
+
+Use this tool to upgrade your Grand Prix World installation to the latest specification that is required to support this program.
+
+It is strongly recommended that you only attempt to upgrade a fresh/unmodified installation of the game (either official version 1.00 or 1.01b). Do not install any other patches, mods or season updates at this stage, as the upgrade process will make substantial changes to the files in the game folder. Existing patches, mods or season updates may become incompatible with the game once the upgrade has been applied. The Windows XP version of the game executable (gpwxp.exe) is unsupported by this program and is no longer required, as the upgrade process will allow the game to run on all modern operating systems. If the game folder path is at a location that requires administrator rights to modify the contents (e.g. C:\\Program Files\\MicroProse\\Grand Prix World), you should re-run (and always run) this program as an administrator.
+
+To upgrade, click the Browse button to select the path of the game folder (e.g. C:\\Gpw) and then click the Upgrade button.
+
+On upgrading, the following changes are applied:
+
+- The game executable (e.g. gpw.exe) is upgraded to match official version 1.01b.
+- The game executable is upgraded with new code to support this editor and enhance editing capabilities.
+- The game executable is upgraded with compatibility changes and gameplay enhancements. Use Configure Game to review and toggle these changes.
+- The language files (e.g. english.txt, french.txt, german.txt) are upgraded to match official version 1.01b and contain a number of enhancements.
+- The commentary transcript files for each language are upgraded to reorder drivers and correct commentary transcript errors (COMME/COMMF/COMMG.txt).
+- Five new commentary sound clips have been added for anonymous commentary support (ANONOUT/P1/P2/P3/PIT.wav).
+- Three existing commentary sound clips have been modified to suit anonymous commentary support (P1C.wav, P2A.wav and P3A.wav).
+- Jacques Villeneuve replaces John Newhouse at Williams and will use an anonymous commentary sound clip with a named commentary transcript.
+- Jason Watt joins the game as a test driver for Benetton and will use an anonymous commentary sound clip with a named commentary transcript.
+- Juichi Wakisaka joins the game as a test driver for Jordan and will use an anonymous commentary sound clip with a named commentary transcript.
+- Mário Haberfeld joins the game as a test driver for Stewart and will use an anonymous commentary sound clip with a named commentary transcript.
+- Non-F1 drivers Karl Eisen, Pete Johnson and Celso Moreira will share the same commentary sound clips and transcripts used for Dario Laureti. *
+- The French Grand Prix now has 72 laps instead of 71. The race in 1998 was reduced by one lap due to an aborted start.
+- The Japanese Grand Prix now has 53 laps instead of 51. The race in 1998 was reduced by two laps due to two aborted starts.
+
+* Currently the game only allocates commentary sound clips and transcripts for 41 drivers (of a potential 44 drivers).}</value>
+  </data>
+</root>

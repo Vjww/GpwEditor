@@ -16,7 +16,9 @@ namespace App.BaseGameEditor.Application.Maps.AutoMapper.MemberValueResolvers
         public int Resolve(object source, object destination, int sourceMember, int destMember, ResolutionContext context)
         {
             // TODO: Check whether only negative salaries should be rated or positive salaries as well.
-            return _service.Calculate(sourceMember);
+
+            // Calculate rating if value is negative (for pay driver), else return 0 (for paid driver)
+            return sourceMember < 0 ? _service.Calculate(sourceMember) : 0;
         }
     }
 }

@@ -46,19 +46,19 @@ namespace App.BaseGameEditor.Data.Catalogues
             _list.TrimExcess();
         }
 
-        public string Read(int id)
+        public TCatalogueItem Read(int id)
         {
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
 
             return _catalogueReader.Read(_list, id);
         }
 
-        public void Write(int id, string value)
+        public void Write(int id, TCatalogueItem item)
         {
-            if (value == null) throw new ArgumentNullException(nameof(value));
+            if (item == null) throw new ArgumentNullException(nameof(item));
             if (id < 0) throw new ArgumentOutOfRangeException(nameof(id));
 
-            _catalogueWriter.Write(_list, id, value);
+            _catalogueWriter.Write(_list, id, item);
         }
     }
 }

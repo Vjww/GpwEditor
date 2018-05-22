@@ -27,9 +27,18 @@ namespace App.BaseGameEditor.Data.DataEntities
             var dataLocator = _dataLocatorFactory.Create(fuelDataEntity.Id);
             dataLocator.Initialise();
 
-            _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, fuelDataEntity.Name.English);
-            _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, fuelDataEntity.Name.French);
-            _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, fuelDataEntity.Name.German);
+            var englishCatalogueItem = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Name);
+            var frenchCatalogueItem = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name);
+            var germanCatalogueItem = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name);
+
+            englishCatalogueItem.Value = fuelDataEntity.Name.English;
+            frenchCatalogueItem.Value = fuelDataEntity.Name.French;
+            germanCatalogueItem.Value = fuelDataEntity.Name.German;
+
+            _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, englishCatalogueItem);
+            _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, frenchCatalogueItem);
+            _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, germanCatalogueItem);
+
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Performance, fuelDataEntity.Performance);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Tolerance, fuelDataEntity.Tolerance);
         }

@@ -27,9 +27,18 @@ namespace App.BaseGameEditor.Data.DataEntities
             var dataLocator = _dataLocatorFactory.Create(f1ChiefDesignerDataEntity.Id);
             dataLocator.Initialise();
 
-            _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, f1ChiefDesignerDataEntity.Name.English);
-            _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, f1ChiefDesignerDataEntity.Name.French);
-            _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, f1ChiefDesignerDataEntity.Name.German);
+            var englishCatalogueItem = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Name);
+            var frenchCatalogueItem = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name);
+            var germanCatalogueItem = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name);
+
+            englishCatalogueItem.Value = f1ChiefDesignerDataEntity.Name.English;
+            frenchCatalogueItem.Value = f1ChiefDesignerDataEntity.Name.French;
+            germanCatalogueItem.Value = f1ChiefDesignerDataEntity.Name.German;
+
+            _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, englishCatalogueItem);
+            _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, frenchCatalogueItem);
+            _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, germanCatalogueItem);
+
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Age, f1ChiefDesignerDataEntity.Age);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Ability, f1ChiefDesignerDataEntity.Ability);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Salary, f1ChiefDesignerDataEntity.Salary);

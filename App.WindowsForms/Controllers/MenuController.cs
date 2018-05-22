@@ -6,58 +6,65 @@ namespace App.WindowsForms.Controllers
 {
     public class MenuController
     {
-        private readonly MenuForm _menuView;
-        private readonly BaseGameController _baseGameController;
+        private readonly MenuForm _view;
+
+        private readonly UpgradeGameController _upgradeGameController;
+        private readonly ConfigureGameController _configureGameController;
+        private readonly BaseGameEditorController _baseGameEditorController;
 
         public MenuController(
-            MenuForm menuView,
-            BaseGameController baseGameController)
+            MenuForm view,
+            UpgradeGameController upgradeGameController,
+            ConfigureGameController configureGameController,
+            BaseGameEditorController baseGameEditorController)
         {
-            _menuView = menuView ?? throw new ArgumentNullException(nameof(menuView));
-            _baseGameController = baseGameController ?? throw new ArgumentNullException(nameof(baseGameController));
+            _view = view ?? throw new ArgumentNullException(nameof(view));
+            _upgradeGameController = upgradeGameController ?? throw new ArgumentNullException(nameof(upgradeGameController));
+            _configureGameController = configureGameController ?? throw new ArgumentNullException(nameof(configureGameController));
+            _baseGameEditorController = baseGameEditorController ?? throw new ArgumentNullException(nameof(baseGameEditorController));
 
-            _menuView.SetController(this);
+            _view.SetController(this);
         }
 
         public void Run()
         {
-            Application.Run(_menuView);
+            Application.Run(_view);
         }
 
         public void RunUpgradeGame()
         {
-            //EnsureConfiguredGameFolder();
-            //_upgradeGameController.Run(_menuView);
+            EnsureConfiguredGameFolder();
+            _upgradeGameController.Run(_view);
+        }
+
+        public void RunConfigureGame()
+        {
+            EnsureConfiguredGameFolder();
+            _configureGameController.Run(_view);
         }
 
         public void RunBaseGameEditor()
         {
             EnsureConfiguredGameFolder();
-            _baseGameController.Run(_menuView);
+            _baseGameEditorController.Run(_view);
         }
 
         public void RunSaveGameEditor()
         {
             //EnsureConfiguredGameFolder();
-            //_saveGameController.Run(_menuView);
+            //_saveGameController.Run(_view);
         }
 
         public void RunLanguageFileEditor()
         {
             //EnsureConfiguredGameFolder();
-            //_languageFileController.Run(_menuView);
-        }
-
-        public void RunConfigureGame()
-        {
-            //EnsureConfiguredGameFolder();
-            //_configureGameController.Run(_menuView);
+            //_languageFileController.Run(_view);
         }
 
         public void RunRegistryKeysEditor()
         {
             //EnsureConfiguredGameFolder();
-            //_registryKeysController.Run(_menuView);
+            //_registryKeysController.Run(_view);
         }
 
         private void EnsureConfiguredGameFolder()

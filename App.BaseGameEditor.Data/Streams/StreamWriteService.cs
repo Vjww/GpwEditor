@@ -47,16 +47,17 @@ namespace App.BaseGameEditor.Data.Streams
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             if (items == null) throw new ArgumentNullException(nameof(items));
 
-            var streamCopy = _streamFactory.Create();
-            stream.CopyTo(streamCopy);
-            stream.Seek(0, SeekOrigin.Begin);
-
-            using (var streamWriter = _streamWriterService.Writer(streamCopy, Encoding.Default))
+            var newStream = _streamFactory.Create();
+            using (var streamWriter = _streamWriterService.Writer(newStream, Encoding.Default))
             {
                 foreach (var item in items)
                 {
                     streamWriter.WriteLine(item);
                 }
+                streamWriter.Flush();
+
+                newStream.Seek(0, SeekOrigin.Begin);
+                newStream.CopyTo(stream);
             }
         }
     }

@@ -35,6 +35,8 @@ namespace App.BaseGameEditor.Application.Services
         public void Export()
         {
             ExportEngines();
+            ExportFuels();
+            ExportTyres();
         }
 
         private void ExportEngines()

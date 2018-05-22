@@ -33,107 +33,107 @@
             this.HomeTabPage = new System.Windows.Forms.TabPage();
             this.LanguageDataGridView = new System.Windows.Forms.DataGridView();
             this.FilesGroupBox = new System.Windows.Forms.GroupBox();
+            this.GameFolderPathLabel = new System.Windows.Forms.Label();
+            this.GameFolderPathTextBox = new System.Windows.Forms.TextBox();
+            this.GameFolderPathBrowseButton = new System.Windows.Forms.Button();
             this.GameExecutablePathLabel = new System.Windows.Forms.Label();
-            this.GermanLanguageFilePathLabel = new System.Windows.Forms.Label();
-            this.FrenchLanguageFilePathLabel = new System.Windows.Forms.Label();
-            this.EnglishLanguageFilePathLabel = new System.Windows.Forms.Label();
             this.GameExecutablePathTextBox = new System.Windows.Forms.TextBox();
-            this.GermanLanguageFilePathTextBox = new System.Windows.Forms.TextBox();
-            this.FrenchLanguageFilePathTextBox = new System.Windows.Forms.TextBox();
-            this.GermanLanguageFilePathBrowseButton = new System.Windows.Forms.Button();
-            this.EnglishLanguageFilePathTextBox = new System.Windows.Forms.TextBox();
-            this.FrenchLanguageFilePathBrowseButton = new System.Windows.Forms.Button();
             this.GameExecutablePathBrowseButton = new System.Windows.Forms.Button();
+            this.EnglishLanguageFilePathLabel = new System.Windows.Forms.Label();
+            this.EnglishCommentaryFilePathTextBox = new System.Windows.Forms.TextBox();
+            this.EnglishCommentaryFilePathBrowseButton = new System.Windows.Forms.Button();
+            this.FrenchLanguageFilePathLabel = new System.Windows.Forms.Label();
+            this.FrenchCommentaryFilePathTextBox = new System.Windows.Forms.TextBox();
+            this.FrenchCommentaryFilePathBrowseButton = new System.Windows.Forms.Button();
+            this.GermanLanguageFilePathLabel = new System.Windows.Forms.Label();
+            this.GermanCommentaryFilePathTextBox = new System.Windows.Forms.TextBox();
+            this.GermanCommentaryFilePathBrowseButton = new System.Windows.Forms.Button();
+            this.EnglishCommentaryFilePathLabel = new System.Windows.Forms.Label();
+            this.EnglishLanguageFilePathTextBox = new System.Windows.Forms.TextBox();
             this.EnglishLanguageFilePathBrowseButton = new System.Windows.Forms.Button();
-            this.ExportButton = new System.Windows.Forms.Button();
+            this.FrenchCommentaryFilePathLabel = new System.Windows.Forms.Label();
+            this.FrenchLanguageFilePathTextBox = new System.Windows.Forms.TextBox();
+            this.FrenchLanguageFilePathBrowseButton = new System.Windows.Forms.Button();
+            this.GermanCommentaryFilePathLabel = new System.Windows.Forms.Label();
+            this.GermanLanguageFilePathTextBox = new System.Windows.Forms.TextBox();
+            this.GermanLanguageFilePathBrowseButton = new System.Windows.Forms.Button();
             this.ImportButton = new System.Windows.Forms.Button();
+            this.ExportButton = new System.Windows.Forms.Button();
             this.OverviewGroupBox = new System.Windows.Forms.GroupBox();
             this.OverviewRichTextBox = new System.Windows.Forms.RichTextBox();
             this.TeamsTabPage = new System.Windows.Forms.TabPage();
             this.TeamsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.TeamsDataGridView = new System.Windows.Forms.DataGridView();
             this.TeamsOptionsGroupBox = new System.Windows.Forms.GroupBox();
-            this.TeamsChassisHandlingCalculatedValuesButton = new System.Windows.Forms.Button();
-            this.TeamsChassisHandlingRecommendedValuesButton = new System.Windows.Forms.Button();
             this.TeamsChassisHandlingOriginalValuesButton = new System.Windows.Forms.Button();
+            this.TeamsChassisHandlingRecommendedValuesButton = new System.Windows.Forms.Button();
+            this.TeamsChassisHandlingCalculatedValuesButton = new System.Windows.Forms.Button();
             this.ChiefsTabPage = new System.Windows.Forms.TabPage();
             this.ChiefsTabControl = new System.Windows.Forms.TabControl();
             this.ChiefsF1TabPage = new System.Windows.Forms.TabPage();
             this.ChiefsF1TabControl = new System.Windows.Forms.TabControl();
             this.ChiefsF1CommerceTabPage = new System.Windows.Forms.TabPage();
             this.ChiefsF1CommerceTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.ChiefsF1CommerceGroupBox = new System.Windows.Forms.GroupBox();
             this.ChiefsF1CommerceDataGridView = new System.Windows.Forms.DataGridView();
             this.ChiefsF1DesignerTabPage = new System.Windows.Forms.TabPage();
             this.ChiefsF1DesignerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.ChiefsF1DesignerGroupBox = new System.Windows.Forms.GroupBox();
             this.ChiefsF1DesignerDataGridView = new System.Windows.Forms.DataGridView();
             this.ChiefsF1EngineerTabPage = new System.Windows.Forms.TabPage();
             this.ChiefsF1EngineerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.ChiefsF1EngineerGroupBox = new System.Windows.Forms.GroupBox();
             this.ChiefsF1EngineerDataGridView = new System.Windows.Forms.DataGridView();
             this.ChiefsF1MechanicTabPage = new System.Windows.Forms.TabPage();
             this.ChiefsF1MechanicTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.ChiefsF1MechanicGroupBox = new System.Windows.Forms.GroupBox();
             this.ChiefsF1MechanicDataGridView = new System.Windows.Forms.DataGridView();
             this.ChiefsNonF1TabPage = new System.Windows.Forms.TabPage();
             this.ChiefsNonF1TabControl = new System.Windows.Forms.TabControl();
             this.ChiefsNonF1CommerceTabPage = new System.Windows.Forms.TabPage();
             this.ChiefsNonF1CommerceTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.ChiefsNonF1CommerceGroupBox = new System.Windows.Forms.GroupBox();
             this.ChiefsNonF1CommerceDataGridView = new System.Windows.Forms.DataGridView();
             this.ChiefsNonF1DesignerTabPage = new System.Windows.Forms.TabPage();
             this.ChiefsNonF1DesignerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.ChiefsNonF1DesignerGroupBox = new System.Windows.Forms.GroupBox();
             this.ChiefsNonF1DesignerDataGridView = new System.Windows.Forms.DataGridView();
             this.ChiefsNonF1EngineerTabPage = new System.Windows.Forms.TabPage();
             this.ChiefsNonF1EngineerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.ChiefsNonF1EngineerGroupBox = new System.Windows.Forms.GroupBox();
             this.ChiefsNonF1EngineerDataGridView = new System.Windows.Forms.DataGridView();
             this.ChiefsNonF1MechanicTabPage = new System.Windows.Forms.TabPage();
             this.ChiefsNonF1MechanicTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.ChiefsNonF1MechanicGroupBox = new System.Windows.Forms.GroupBox();
             this.ChiefsNonF1MechanicDataGridView = new System.Windows.Forms.DataGridView();
             this.DriversTabPage = new System.Windows.Forms.TabPage();
             this.DriversTabControl = new System.Windows.Forms.TabControl();
             this.DriversF1TabPage = new System.Windows.Forms.TabPage();
             this.DriversF1TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.DriversF1GroupBox = new System.Windows.Forms.GroupBox();
             this.DriversF1DataGridView = new System.Windows.Forms.DataGridView();
             this.DriversNonF1TabPage = new System.Windows.Forms.TabPage();
             this.DriversNonF1TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.DriversNonF1GroupBox = new System.Windows.Forms.GroupBox();
             this.DriversNonF1DataGridView = new System.Windows.Forms.DataGridView();
             this.SuppliersTabPage = new System.Windows.Forms.TabPage();
             this.SuppliersTabControl = new System.Windows.Forms.TabControl();
             this.SuppliersEngineTabPage = new System.Windows.Forms.TabPage();
             this.SuppliersEngineTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SuppliersEngineGroupBox = new System.Windows.Forms.GroupBox();
             this.SuppliersEngineDataGridView = new System.Windows.Forms.DataGridView();
             this.SuppliersTyreTabPage = new System.Windows.Forms.TabPage();
             this.SuppliersTyreTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SuppliersTyreGroupBox = new System.Windows.Forms.GroupBox();
             this.SuppliersTyreDataGridView = new System.Windows.Forms.DataGridView();
             this.SuppliersFuelTabPage = new System.Windows.Forms.TabPage();
             this.SuppliersFuelTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SuppliersFuelGroupBox = new System.Windows.Forms.GroupBox();
             this.SuppliersFuelDataGridView = new System.Windows.Forms.DataGridView();
             this.TracksTabPage = new System.Windows.Forms.TabPage();
             this.TracksTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.TracksDataGridView = new System.Windows.Forms.DataGridView();
             this.TracksGroupBox = new System.Windows.Forms.GroupBox();
-            this.GermanCommentaryFilePathLabel = new System.Windows.Forms.Label();
-            this.FrenchCommentaryFilePathLabel = new System.Windows.Forms.Label();
-            this.EnglishCommentaryFilePathLabel = new System.Windows.Forms.Label();
-            this.GermanCommentaryFilePathTextBox = new System.Windows.Forms.TextBox();
-            this.FrenchCommentaryFilePathTextBox = new System.Windows.Forms.TextBox();
-            this.GermanCommentaryFilePathBrowseButton = new System.Windows.Forms.Button();
-            this.EnglishCommentaryFilePathTextBox = new System.Windows.Forms.TextBox();
-            this.FrenchCommentaryFilePathBrowseButton = new System.Windows.Forms.Button();
-            this.EnglishCommentaryFilePathBrowseButton = new System.Windows.Forms.Button();
-            this.GameFolderPathBrowseButton = new System.Windows.Forms.Button();
-            this.GameFolderPathTextBox = new System.Windows.Forms.TextBox();
-            this.GameFolderPathLabel = new System.Windows.Forms.Label();
-            this.SuppliersFuelGroupBox = new System.Windows.Forms.GroupBox();
-            this.SuppliersTyreGroupBox = new System.Windows.Forms.GroupBox();
-            this.SuppliersEngineGroupBox = new System.Windows.Forms.GroupBox();
-            this.DriversNonF1GroupBox = new System.Windows.Forms.GroupBox();
-            this.DriversF1GroupBox = new System.Windows.Forms.GroupBox();
-            this.ChiefsF1CommerceGroupBox = new System.Windows.Forms.GroupBox();
-            this.ChiefsF1DesignerGroupBox = new System.Windows.Forms.GroupBox();
-            this.ChiefsF1EngineerGroupBox = new System.Windows.Forms.GroupBox();
-            this.ChiefsF1MechanicGroupBox = new System.Windows.Forms.GroupBox();
-            this.ChiefsNonF1CommerceGroupBox = new System.Windows.Forms.GroupBox();
-            this.ChiefsNonF1DesignerGroupBox = new System.Windows.Forms.GroupBox();
-            this.ChiefsNonF1EngineerGroupBox = new System.Windows.Forms.GroupBox();
-            this.ChiefsNonF1MechanicGroupBox = new System.Windows.Forms.GroupBox();
             this.MainTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).BeginInit();
@@ -271,6 +271,34 @@
             this.FilesGroupBox.TabStop = false;
             this.FilesGroupBox.Text = "Files";
             // 
+            // GameFolderPathLabel
+            // 
+            this.GameFolderPathLabel.AutoSize = true;
+            this.GameFolderPathLabel.Location = new System.Drawing.Point(8, 24);
+            this.GameFolderPathLabel.Name = "GameFolderPathLabel";
+            this.GameFolderPathLabel.Size = new System.Drawing.Size(70, 13);
+            this.GameFolderPathLabel.TabIndex = 2;
+            this.GameFolderPathLabel.Text = "Game Folder:";
+            // 
+            // GameFolderPathTextBox
+            // 
+            this.GameFolderPathTextBox.Location = new System.Drawing.Point(141, 21);
+            this.GameFolderPathTextBox.Name = "GameFolderPathTextBox";
+            this.GameFolderPathTextBox.ReadOnly = true;
+            this.GameFolderPathTextBox.Size = new System.Drawing.Size(609, 20);
+            this.GameFolderPathTextBox.TabIndex = 3;
+            this.GameFolderPathTextBox.TabStop = false;
+            // 
+            // GameFolderPathBrowseButton
+            // 
+            this.GameFolderPathBrowseButton.Location = new System.Drawing.Point(756, 19);
+            this.GameFolderPathBrowseButton.Name = "GameFolderPathBrowseButton";
+            this.GameFolderPathBrowseButton.Size = new System.Drawing.Size(75, 23);
+            this.GameFolderPathBrowseButton.TabIndex = 4;
+            this.GameFolderPathBrowseButton.Text = "Browse...";
+            this.GameFolderPathBrowseButton.UseVisualStyleBackColor = true;
+            this.GameFolderPathBrowseButton.Click += new System.EventHandler(this.GameFolderPathBrowseButton_Click);
+            // 
             // GameExecutablePathLabel
             // 
             this.GameExecutablePathLabel.AutoSize = true;
@@ -280,33 +308,6 @@
             this.GameExecutablePathLabel.TabIndex = 2;
             this.GameExecutablePathLabel.Text = "Game Executable:";
             // 
-            // GermanLanguageFilePathLabel
-            // 
-            this.GermanLanguageFilePathLabel.AutoSize = true;
-            this.GermanLanguageFilePathLabel.Location = new System.Drawing.Point(8, 140);
-            this.GermanLanguageFilePathLabel.Name = "GermanLanguageFilePathLabel";
-            this.GermanLanguageFilePathLabel.Size = new System.Drawing.Size(117, 13);
-            this.GermanLanguageFilePathLabel.TabIndex = 6;
-            this.GermanLanguageFilePathLabel.Text = "German Language File:";
-            // 
-            // FrenchLanguageFilePathLabel
-            // 
-            this.FrenchLanguageFilePathLabel.AutoSize = true;
-            this.FrenchLanguageFilePathLabel.Location = new System.Drawing.Point(8, 111);
-            this.FrenchLanguageFilePathLabel.Name = "FrenchLanguageFilePathLabel";
-            this.FrenchLanguageFilePathLabel.Size = new System.Drawing.Size(113, 13);
-            this.FrenchLanguageFilePathLabel.TabIndex = 6;
-            this.FrenchLanguageFilePathLabel.Text = "French Language File:";
-            // 
-            // EnglishLanguageFilePathLabel
-            // 
-            this.EnglishLanguageFilePathLabel.AutoSize = true;
-            this.EnglishLanguageFilePathLabel.Location = new System.Drawing.Point(8, 82);
-            this.EnglishLanguageFilePathLabel.Name = "EnglishLanguageFilePathLabel";
-            this.EnglishLanguageFilePathLabel.Size = new System.Drawing.Size(114, 13);
-            this.EnglishLanguageFilePathLabel.TabIndex = 6;
-            this.EnglishLanguageFilePathLabel.Text = "English Language File:";
-            // 
             // GameExecutablePathTextBox
             // 
             this.GameExecutablePathTextBox.Location = new System.Drawing.Point(141, 50);
@@ -315,53 +316,6 @@
             this.GameExecutablePathTextBox.Size = new System.Drawing.Size(609, 20);
             this.GameExecutablePathTextBox.TabIndex = 3;
             this.GameExecutablePathTextBox.TabStop = false;
-            // 
-            // GermanLanguageFilePathTextBox
-            // 
-            this.GermanLanguageFilePathTextBox.Location = new System.Drawing.Point(141, 137);
-            this.GermanLanguageFilePathTextBox.Name = "GermanLanguageFilePathTextBox";
-            this.GermanLanguageFilePathTextBox.ReadOnly = true;
-            this.GermanLanguageFilePathTextBox.Size = new System.Drawing.Size(609, 20);
-            this.GermanLanguageFilePathTextBox.TabIndex = 7;
-            this.GermanLanguageFilePathTextBox.TabStop = false;
-            // 
-            // FrenchLanguageFilePathTextBox
-            // 
-            this.FrenchLanguageFilePathTextBox.Location = new System.Drawing.Point(141, 108);
-            this.FrenchLanguageFilePathTextBox.Name = "FrenchLanguageFilePathTextBox";
-            this.FrenchLanguageFilePathTextBox.ReadOnly = true;
-            this.FrenchLanguageFilePathTextBox.Size = new System.Drawing.Size(609, 20);
-            this.FrenchLanguageFilePathTextBox.TabIndex = 7;
-            this.FrenchLanguageFilePathTextBox.TabStop = false;
-            // 
-            // GermanLanguageFilePathBrowseButton
-            // 
-            this.GermanLanguageFilePathBrowseButton.Location = new System.Drawing.Point(756, 135);
-            this.GermanLanguageFilePathBrowseButton.Name = "GermanLanguageFilePathBrowseButton";
-            this.GermanLanguageFilePathBrowseButton.Size = new System.Drawing.Size(75, 23);
-            this.GermanLanguageFilePathBrowseButton.TabIndex = 8;
-            this.GermanLanguageFilePathBrowseButton.Text = "Browse...";
-            this.GermanLanguageFilePathBrowseButton.UseVisualStyleBackColor = true;
-            this.GermanLanguageFilePathBrowseButton.Click += new System.EventHandler(this.BrowseLanguageFileButton_Click);
-            // 
-            // EnglishLanguageFilePathTextBox
-            // 
-            this.EnglishLanguageFilePathTextBox.Location = new System.Drawing.Point(141, 79);
-            this.EnglishLanguageFilePathTextBox.Name = "EnglishLanguageFilePathTextBox";
-            this.EnglishLanguageFilePathTextBox.ReadOnly = true;
-            this.EnglishLanguageFilePathTextBox.Size = new System.Drawing.Size(609, 20);
-            this.EnglishLanguageFilePathTextBox.TabIndex = 7;
-            this.EnglishLanguageFilePathTextBox.TabStop = false;
-            // 
-            // FrenchLanguageFilePathBrowseButton
-            // 
-            this.FrenchLanguageFilePathBrowseButton.Location = new System.Drawing.Point(756, 106);
-            this.FrenchLanguageFilePathBrowseButton.Name = "FrenchLanguageFilePathBrowseButton";
-            this.FrenchLanguageFilePathBrowseButton.Size = new System.Drawing.Size(75, 23);
-            this.FrenchLanguageFilePathBrowseButton.TabIndex = 8;
-            this.FrenchLanguageFilePathBrowseButton.Text = "Browse...";
-            this.FrenchLanguageFilePathBrowseButton.UseVisualStyleBackColor = true;
-            this.FrenchLanguageFilePathBrowseButton.Click += new System.EventHandler(this.BrowseLanguageFileButton_Click);
             // 
             // GameExecutablePathBrowseButton
             // 
@@ -373,6 +327,108 @@
             this.GameExecutablePathBrowseButton.UseVisualStyleBackColor = true;
             this.GameExecutablePathBrowseButton.Click += new System.EventHandler(this.GameExecutablePathBrowseButton_Click);
             // 
+            // EnglishLanguageFilePathLabel
+            // 
+            this.EnglishLanguageFilePathLabel.AutoSize = true;
+            this.EnglishLanguageFilePathLabel.Location = new System.Drawing.Point(8, 82);
+            this.EnglishLanguageFilePathLabel.Name = "EnglishLanguageFilePathLabel";
+            this.EnglishLanguageFilePathLabel.Size = new System.Drawing.Size(114, 13);
+            this.EnglishLanguageFilePathLabel.TabIndex = 6;
+            this.EnglishLanguageFilePathLabel.Text = "English Language File:";
+            // 
+            // EnglishCommentaryFilePathTextBox
+            // 
+            this.EnglishCommentaryFilePathTextBox.Location = new System.Drawing.Point(141, 166);
+            this.EnglishCommentaryFilePathTextBox.Name = "EnglishCommentaryFilePathTextBox";
+            this.EnglishCommentaryFilePathTextBox.ReadOnly = true;
+            this.EnglishCommentaryFilePathTextBox.Size = new System.Drawing.Size(609, 20);
+            this.EnglishCommentaryFilePathTextBox.TabIndex = 15;
+            this.EnglishCommentaryFilePathTextBox.TabStop = false;
+            // 
+            // EnglishCommentaryFilePathBrowseButton
+            // 
+            this.EnglishCommentaryFilePathBrowseButton.Location = new System.Drawing.Point(756, 164);
+            this.EnglishCommentaryFilePathBrowseButton.Name = "EnglishCommentaryFilePathBrowseButton";
+            this.EnglishCommentaryFilePathBrowseButton.Size = new System.Drawing.Size(75, 23);
+            this.EnglishCommentaryFilePathBrowseButton.TabIndex = 18;
+            this.EnglishCommentaryFilePathBrowseButton.Text = "Browse...";
+            this.EnglishCommentaryFilePathBrowseButton.UseVisualStyleBackColor = true;
+            this.EnglishCommentaryFilePathBrowseButton.Click += new System.EventHandler(this.EnglishCommentaryFilePathBrowseButton_Click);
+            // 
+            // FrenchLanguageFilePathLabel
+            // 
+            this.FrenchLanguageFilePathLabel.AutoSize = true;
+            this.FrenchLanguageFilePathLabel.Location = new System.Drawing.Point(8, 111);
+            this.FrenchLanguageFilePathLabel.Name = "FrenchLanguageFilePathLabel";
+            this.FrenchLanguageFilePathLabel.Size = new System.Drawing.Size(113, 13);
+            this.FrenchLanguageFilePathLabel.TabIndex = 6;
+            this.FrenchLanguageFilePathLabel.Text = "French Language File:";
+            // 
+            // FrenchCommentaryFilePathTextBox
+            // 
+            this.FrenchCommentaryFilePathTextBox.Location = new System.Drawing.Point(141, 195);
+            this.FrenchCommentaryFilePathTextBox.Name = "FrenchCommentaryFilePathTextBox";
+            this.FrenchCommentaryFilePathTextBox.ReadOnly = true;
+            this.FrenchCommentaryFilePathTextBox.Size = new System.Drawing.Size(609, 20);
+            this.FrenchCommentaryFilePathTextBox.TabIndex = 14;
+            this.FrenchCommentaryFilePathTextBox.TabStop = false;
+            // 
+            // FrenchCommentaryFilePathBrowseButton
+            // 
+            this.FrenchCommentaryFilePathBrowseButton.Location = new System.Drawing.Point(756, 193);
+            this.FrenchCommentaryFilePathBrowseButton.Name = "FrenchCommentaryFilePathBrowseButton";
+            this.FrenchCommentaryFilePathBrowseButton.Size = new System.Drawing.Size(75, 23);
+            this.FrenchCommentaryFilePathBrowseButton.TabIndex = 17;
+            this.FrenchCommentaryFilePathBrowseButton.Text = "Browse...";
+            this.FrenchCommentaryFilePathBrowseButton.UseVisualStyleBackColor = true;
+            this.FrenchCommentaryFilePathBrowseButton.Click += new System.EventHandler(this.FrenchCommentaryFilePathBrowseButton_Click);
+            // 
+            // GermanLanguageFilePathLabel
+            // 
+            this.GermanLanguageFilePathLabel.AutoSize = true;
+            this.GermanLanguageFilePathLabel.Location = new System.Drawing.Point(8, 140);
+            this.GermanLanguageFilePathLabel.Name = "GermanLanguageFilePathLabel";
+            this.GermanLanguageFilePathLabel.Size = new System.Drawing.Size(117, 13);
+            this.GermanLanguageFilePathLabel.TabIndex = 6;
+            this.GermanLanguageFilePathLabel.Text = "German Language File:";
+            // 
+            // GermanCommentaryFilePathTextBox
+            // 
+            this.GermanCommentaryFilePathTextBox.Location = new System.Drawing.Point(141, 224);
+            this.GermanCommentaryFilePathTextBox.Name = "GermanCommentaryFilePathTextBox";
+            this.GermanCommentaryFilePathTextBox.ReadOnly = true;
+            this.GermanCommentaryFilePathTextBox.Size = new System.Drawing.Size(609, 20);
+            this.GermanCommentaryFilePathTextBox.TabIndex = 13;
+            this.GermanCommentaryFilePathTextBox.TabStop = false;
+            // 
+            // GermanCommentaryFilePathBrowseButton
+            // 
+            this.GermanCommentaryFilePathBrowseButton.Location = new System.Drawing.Point(756, 222);
+            this.GermanCommentaryFilePathBrowseButton.Name = "GermanCommentaryFilePathBrowseButton";
+            this.GermanCommentaryFilePathBrowseButton.Size = new System.Drawing.Size(75, 23);
+            this.GermanCommentaryFilePathBrowseButton.TabIndex = 16;
+            this.GermanCommentaryFilePathBrowseButton.Text = "Browse...";
+            this.GermanCommentaryFilePathBrowseButton.UseVisualStyleBackColor = true;
+            this.GermanCommentaryFilePathBrowseButton.Click += new System.EventHandler(this.GermanCommentaryFilePathBrowseButton_Click);
+            // 
+            // EnglishCommentaryFilePathLabel
+            // 
+            this.EnglishCommentaryFilePathLabel.AutoSize = true;
+            this.EnglishCommentaryFilePathLabel.Location = new System.Drawing.Point(8, 169);
+            this.EnglishCommentaryFilePathLabel.Name = "EnglishCommentaryFilePathLabel";
+            this.EnglishCommentaryFilePathLabel.Size = new System.Drawing.Size(124, 13);
+            this.EnglishCommentaryFilePathLabel.TabIndex = 12;
+            this.EnglishCommentaryFilePathLabel.Text = "English Commentary File:";
+            // 
+            // EnglishLanguageFilePathTextBox
+            // 
+            this.EnglishLanguageFilePathTextBox.Location = new System.Drawing.Point(141, 79);
+            this.EnglishLanguageFilePathTextBox.Name = "EnglishLanguageFilePathTextBox";
+            this.EnglishLanguageFilePathTextBox.ReadOnly = true;
+            this.EnglishLanguageFilePathTextBox.Size = new System.Drawing.Size(609, 20);
+            this.EnglishLanguageFilePathTextBox.TabIndex = 7;
+            this.EnglishLanguageFilePathTextBox.TabStop = false;
+            // 
             // EnglishLanguageFilePathBrowseButton
             // 
             this.EnglishLanguageFilePathBrowseButton.Location = new System.Drawing.Point(756, 77);
@@ -381,17 +437,63 @@
             this.EnglishLanguageFilePathBrowseButton.TabIndex = 8;
             this.EnglishLanguageFilePathBrowseButton.Text = "Browse...";
             this.EnglishLanguageFilePathBrowseButton.UseVisualStyleBackColor = true;
-            this.EnglishLanguageFilePathBrowseButton.Click += new System.EventHandler(this.BrowseLanguageFileButton_Click);
+            this.EnglishLanguageFilePathBrowseButton.Click += new System.EventHandler(this.EnglishLanguageFilePathBrowseButton_Click);
             // 
-            // ExportButton
+            // FrenchCommentaryFilePathLabel
             // 
-            this.ExportButton.Location = new System.Drawing.Point(837, 48);
-            this.ExportButton.Name = "ExportButton";
-            this.ExportButton.Size = new System.Drawing.Size(75, 23);
-            this.ExportButton.TabIndex = 9;
-            this.ExportButton.Text = "Export...";
-            this.ExportButton.UseVisualStyleBackColor = true;
-            this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
+            this.FrenchCommentaryFilePathLabel.AutoSize = true;
+            this.FrenchCommentaryFilePathLabel.Location = new System.Drawing.Point(8, 198);
+            this.FrenchCommentaryFilePathLabel.Name = "FrenchCommentaryFilePathLabel";
+            this.FrenchCommentaryFilePathLabel.Size = new System.Drawing.Size(123, 13);
+            this.FrenchCommentaryFilePathLabel.TabIndex = 11;
+            this.FrenchCommentaryFilePathLabel.Text = "French Commentary File:";
+            // 
+            // FrenchLanguageFilePathTextBox
+            // 
+            this.FrenchLanguageFilePathTextBox.Location = new System.Drawing.Point(141, 108);
+            this.FrenchLanguageFilePathTextBox.Name = "FrenchLanguageFilePathTextBox";
+            this.FrenchLanguageFilePathTextBox.ReadOnly = true;
+            this.FrenchLanguageFilePathTextBox.Size = new System.Drawing.Size(609, 20);
+            this.FrenchLanguageFilePathTextBox.TabIndex = 7;
+            this.FrenchLanguageFilePathTextBox.TabStop = false;
+            // 
+            // FrenchLanguageFilePathBrowseButton
+            // 
+            this.FrenchLanguageFilePathBrowseButton.Location = new System.Drawing.Point(756, 106);
+            this.FrenchLanguageFilePathBrowseButton.Name = "FrenchLanguageFilePathBrowseButton";
+            this.FrenchLanguageFilePathBrowseButton.Size = new System.Drawing.Size(75, 23);
+            this.FrenchLanguageFilePathBrowseButton.TabIndex = 8;
+            this.FrenchLanguageFilePathBrowseButton.Text = "Browse...";
+            this.FrenchLanguageFilePathBrowseButton.UseVisualStyleBackColor = true;
+            this.FrenchLanguageFilePathBrowseButton.Click += new System.EventHandler(this.FrenchLanguageFilePathBrowseButton_Click);
+            // 
+            // GermanCommentaryFilePathLabel
+            // 
+            this.GermanCommentaryFilePathLabel.AutoSize = true;
+            this.GermanCommentaryFilePathLabel.Location = new System.Drawing.Point(8, 227);
+            this.GermanCommentaryFilePathLabel.Name = "GermanCommentaryFilePathLabel";
+            this.GermanCommentaryFilePathLabel.Size = new System.Drawing.Size(127, 13);
+            this.GermanCommentaryFilePathLabel.TabIndex = 10;
+            this.GermanCommentaryFilePathLabel.Text = "German Commentary File:";
+            // 
+            // GermanLanguageFilePathTextBox
+            // 
+            this.GermanLanguageFilePathTextBox.Location = new System.Drawing.Point(141, 137);
+            this.GermanLanguageFilePathTextBox.Name = "GermanLanguageFilePathTextBox";
+            this.GermanLanguageFilePathTextBox.ReadOnly = true;
+            this.GermanLanguageFilePathTextBox.Size = new System.Drawing.Size(609, 20);
+            this.GermanLanguageFilePathTextBox.TabIndex = 7;
+            this.GermanLanguageFilePathTextBox.TabStop = false;
+            // 
+            // GermanLanguageFilePathBrowseButton
+            // 
+            this.GermanLanguageFilePathBrowseButton.Location = new System.Drawing.Point(756, 135);
+            this.GermanLanguageFilePathBrowseButton.Name = "GermanLanguageFilePathBrowseButton";
+            this.GermanLanguageFilePathBrowseButton.Size = new System.Drawing.Size(75, 23);
+            this.GermanLanguageFilePathBrowseButton.TabIndex = 8;
+            this.GermanLanguageFilePathBrowseButton.Text = "Browse...";
+            this.GermanLanguageFilePathBrowseButton.UseVisualStyleBackColor = true;
+            this.GermanLanguageFilePathBrowseButton.Click += new System.EventHandler(this.GermanLanguageFilePathBrowseButton_Click);
             // 
             // ImportButton
             // 
@@ -402,6 +504,16 @@
             this.ImportButton.Text = "Import...";
             this.ImportButton.UseVisualStyleBackColor = true;
             this.ImportButton.Click += new System.EventHandler(this.ImportButton_Click);
+            // 
+            // ExportButton
+            // 
+            this.ExportButton.Location = new System.Drawing.Point(837, 48);
+            this.ExportButton.Name = "ExportButton";
+            this.ExportButton.Size = new System.Drawing.Size(75, 23);
+            this.ExportButton.TabIndex = 9;
+            this.ExportButton.Text = "Export...";
+            this.ExportButton.UseVisualStyleBackColor = true;
+            this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
             // 
             // OverviewGroupBox
             // 
@@ -470,15 +582,15 @@
             this.TeamsOptionsGroupBox.TabStop = false;
             this.TeamsOptionsGroupBox.Text = "Teams - Options";
             // 
-            // TeamsChassisHandlingCalculatedValuesButton
+            // TeamsChassisHandlingOriginalValuesButton
             // 
-            this.TeamsChassisHandlingCalculatedValuesButton.Location = new System.Drawing.Point(6, 77);
-            this.TeamsChassisHandlingCalculatedValuesButton.Name = "TeamsChassisHandlingCalculatedValuesButton";
-            this.TeamsChassisHandlingCalculatedValuesButton.Size = new System.Drawing.Size(453, 23);
-            this.TeamsChassisHandlingCalculatedValuesButton.TabIndex = 4;
-            this.TeamsChassisHandlingCalculatedValuesButton.Text = "Chassis Handling - Use randomised values from modified design calculation";
-            this.TeamsChassisHandlingCalculatedValuesButton.UseVisualStyleBackColor = true;
-            this.TeamsChassisHandlingCalculatedValuesButton.Click += new System.EventHandler(this.TeamsChassisHandlingCalculatedValuesButton_Click);
+            this.TeamsChassisHandlingOriginalValuesButton.Location = new System.Drawing.Point(6, 19);
+            this.TeamsChassisHandlingOriginalValuesButton.Name = "TeamsChassisHandlingOriginalValuesButton";
+            this.TeamsChassisHandlingOriginalValuesButton.Size = new System.Drawing.Size(453, 23);
+            this.TeamsChassisHandlingOriginalValuesButton.TabIndex = 2;
+            this.TeamsChassisHandlingOriginalValuesButton.Text = "Chassis Handling - Use original 1998 season values";
+            this.TeamsChassisHandlingOriginalValuesButton.UseVisualStyleBackColor = true;
+            this.TeamsChassisHandlingOriginalValuesButton.Click += new System.EventHandler(this.TeamsChassisHandlingOriginalValuesButton_Click);
             // 
             // TeamsChassisHandlingRecommendedValuesButton
             // 
@@ -490,15 +602,15 @@
             this.TeamsChassisHandlingRecommendedValuesButton.UseVisualStyleBackColor = true;
             this.TeamsChassisHandlingRecommendedValuesButton.Click += new System.EventHandler(this.TeamsChassisHandlingRecommendedValuesButton_Click);
             // 
-            // TeamsChassisHandlingOriginalValuesButton
+            // TeamsChassisHandlingCalculatedValuesButton
             // 
-            this.TeamsChassisHandlingOriginalValuesButton.Location = new System.Drawing.Point(6, 19);
-            this.TeamsChassisHandlingOriginalValuesButton.Name = "TeamsChassisHandlingOriginalValuesButton";
-            this.TeamsChassisHandlingOriginalValuesButton.Size = new System.Drawing.Size(453, 23);
-            this.TeamsChassisHandlingOriginalValuesButton.TabIndex = 2;
-            this.TeamsChassisHandlingOriginalValuesButton.Text = "Chassis Handling - Use original 1998 season values";
-            this.TeamsChassisHandlingOriginalValuesButton.UseVisualStyleBackColor = true;
-            this.TeamsChassisHandlingOriginalValuesButton.Click += new System.EventHandler(this.TeamsChassisHandlingOriginalValuesButton_Click);
+            this.TeamsChassisHandlingCalculatedValuesButton.Location = new System.Drawing.Point(6, 77);
+            this.TeamsChassisHandlingCalculatedValuesButton.Name = "TeamsChassisHandlingCalculatedValuesButton";
+            this.TeamsChassisHandlingCalculatedValuesButton.Size = new System.Drawing.Size(453, 23);
+            this.TeamsChassisHandlingCalculatedValuesButton.TabIndex = 4;
+            this.TeamsChassisHandlingCalculatedValuesButton.Text = "Chassis Handling - Use randomised values from modified design calculation";
+            this.TeamsChassisHandlingCalculatedValuesButton.UseVisualStyleBackColor = true;
+            this.TeamsChassisHandlingCalculatedValuesButton.Click += new System.EventHandler(this.TeamsChassisHandlingCalculatedValuesButton_Click);
             // 
             // ChiefsTabPage
             // 
@@ -572,6 +684,16 @@
             this.ChiefsF1CommerceTableLayoutPanel.Size = new System.Drawing.Size(902, 465);
             this.ChiefsF1CommerceTableLayoutPanel.TabIndex = 1;
             // 
+            // ChiefsF1CommerceGroupBox
+            // 
+            this.ChiefsF1CommerceGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChiefsF1CommerceGroupBox.Location = new System.Drawing.Point(3, 414);
+            this.ChiefsF1CommerceGroupBox.Name = "ChiefsF1CommerceGroupBox";
+            this.ChiefsF1CommerceGroupBox.Size = new System.Drawing.Size(896, 48);
+            this.ChiefsF1CommerceGroupBox.TabIndex = 3;
+            this.ChiefsF1CommerceGroupBox.TabStop = false;
+            this.ChiefsF1CommerceGroupBox.Text = "F1 Commercial Managers - Options";
+            // 
             // ChiefsF1CommerceDataGridView
             // 
             this.ChiefsF1CommerceDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -606,6 +728,16 @@
             this.ChiefsF1DesignerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.ChiefsF1DesignerTableLayoutPanel.Size = new System.Drawing.Size(902, 465);
             this.ChiefsF1DesignerTableLayoutPanel.TabIndex = 2;
+            // 
+            // ChiefsF1DesignerGroupBox
+            // 
+            this.ChiefsF1DesignerGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChiefsF1DesignerGroupBox.Location = new System.Drawing.Point(3, 414);
+            this.ChiefsF1DesignerGroupBox.Name = "ChiefsF1DesignerGroupBox";
+            this.ChiefsF1DesignerGroupBox.Size = new System.Drawing.Size(896, 48);
+            this.ChiefsF1DesignerGroupBox.TabIndex = 4;
+            this.ChiefsF1DesignerGroupBox.TabStop = false;
+            this.ChiefsF1DesignerGroupBox.Text = "F1 Chief Designers - Options";
             // 
             // ChiefsF1DesignerDataGridView
             // 
@@ -642,6 +774,16 @@
             this.ChiefsF1EngineerTableLayoutPanel.Size = new System.Drawing.Size(902, 465);
             this.ChiefsF1EngineerTableLayoutPanel.TabIndex = 2;
             // 
+            // ChiefsF1EngineerGroupBox
+            // 
+            this.ChiefsF1EngineerGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChiefsF1EngineerGroupBox.Location = new System.Drawing.Point(3, 414);
+            this.ChiefsF1EngineerGroupBox.Name = "ChiefsF1EngineerGroupBox";
+            this.ChiefsF1EngineerGroupBox.Size = new System.Drawing.Size(896, 48);
+            this.ChiefsF1EngineerGroupBox.TabIndex = 4;
+            this.ChiefsF1EngineerGroupBox.TabStop = false;
+            this.ChiefsF1EngineerGroupBox.Text = "F1 Chief Engineers - Options";
+            // 
             // ChiefsF1EngineerDataGridView
             // 
             this.ChiefsF1EngineerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -676,6 +818,16 @@
             this.ChiefsF1MechanicTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.ChiefsF1MechanicTableLayoutPanel.Size = new System.Drawing.Size(902, 465);
             this.ChiefsF1MechanicTableLayoutPanel.TabIndex = 2;
+            // 
+            // ChiefsF1MechanicGroupBox
+            // 
+            this.ChiefsF1MechanicGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChiefsF1MechanicGroupBox.Location = new System.Drawing.Point(3, 414);
+            this.ChiefsF1MechanicGroupBox.Name = "ChiefsF1MechanicGroupBox";
+            this.ChiefsF1MechanicGroupBox.Size = new System.Drawing.Size(896, 48);
+            this.ChiefsF1MechanicGroupBox.TabIndex = 4;
+            this.ChiefsF1MechanicGroupBox.TabStop = false;
+            this.ChiefsF1MechanicGroupBox.Text = "F1 Chief Mechanics - Options";
             // 
             // ChiefsF1MechanicDataGridView
             // 
@@ -736,6 +888,16 @@
             this.ChiefsNonF1CommerceTableLayoutPanel.Size = new System.Drawing.Size(902, 465);
             this.ChiefsNonF1CommerceTableLayoutPanel.TabIndex = 2;
             // 
+            // ChiefsNonF1CommerceGroupBox
+            // 
+            this.ChiefsNonF1CommerceGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChiefsNonF1CommerceGroupBox.Location = new System.Drawing.Point(3, 414);
+            this.ChiefsNonF1CommerceGroupBox.Name = "ChiefsNonF1CommerceGroupBox";
+            this.ChiefsNonF1CommerceGroupBox.Size = new System.Drawing.Size(896, 48);
+            this.ChiefsNonF1CommerceGroupBox.TabIndex = 4;
+            this.ChiefsNonF1CommerceGroupBox.TabStop = false;
+            this.ChiefsNonF1CommerceGroupBox.Text = "Non-F1 Commercial Managers - Options";
+            // 
             // ChiefsNonF1CommerceDataGridView
             // 
             this.ChiefsNonF1CommerceDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -770,6 +932,16 @@
             this.ChiefsNonF1DesignerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.ChiefsNonF1DesignerTableLayoutPanel.Size = new System.Drawing.Size(902, 465);
             this.ChiefsNonF1DesignerTableLayoutPanel.TabIndex = 2;
+            // 
+            // ChiefsNonF1DesignerGroupBox
+            // 
+            this.ChiefsNonF1DesignerGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChiefsNonF1DesignerGroupBox.Location = new System.Drawing.Point(3, 414);
+            this.ChiefsNonF1DesignerGroupBox.Name = "ChiefsNonF1DesignerGroupBox";
+            this.ChiefsNonF1DesignerGroupBox.Size = new System.Drawing.Size(896, 48);
+            this.ChiefsNonF1DesignerGroupBox.TabIndex = 5;
+            this.ChiefsNonF1DesignerGroupBox.TabStop = false;
+            this.ChiefsNonF1DesignerGroupBox.Text = "Non-F1 Chief Designers - Options";
             // 
             // ChiefsNonF1DesignerDataGridView
             // 
@@ -806,6 +978,16 @@
             this.ChiefsNonF1EngineerTableLayoutPanel.Size = new System.Drawing.Size(902, 465);
             this.ChiefsNonF1EngineerTableLayoutPanel.TabIndex = 2;
             // 
+            // ChiefsNonF1EngineerGroupBox
+            // 
+            this.ChiefsNonF1EngineerGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChiefsNonF1EngineerGroupBox.Location = new System.Drawing.Point(3, 414);
+            this.ChiefsNonF1EngineerGroupBox.Name = "ChiefsNonF1EngineerGroupBox";
+            this.ChiefsNonF1EngineerGroupBox.Size = new System.Drawing.Size(896, 48);
+            this.ChiefsNonF1EngineerGroupBox.TabIndex = 5;
+            this.ChiefsNonF1EngineerGroupBox.TabStop = false;
+            this.ChiefsNonF1EngineerGroupBox.Text = "Non-F1 Chief Engineers - Options";
+            // 
             // ChiefsNonF1EngineerDataGridView
             // 
             this.ChiefsNonF1EngineerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -840,6 +1022,16 @@
             this.ChiefsNonF1MechanicTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.ChiefsNonF1MechanicTableLayoutPanel.Size = new System.Drawing.Size(902, 465);
             this.ChiefsNonF1MechanicTableLayoutPanel.TabIndex = 2;
+            // 
+            // ChiefsNonF1MechanicGroupBox
+            // 
+            this.ChiefsNonF1MechanicGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChiefsNonF1MechanicGroupBox.Location = new System.Drawing.Point(3, 414);
+            this.ChiefsNonF1MechanicGroupBox.Name = "ChiefsNonF1MechanicGroupBox";
+            this.ChiefsNonF1MechanicGroupBox.Size = new System.Drawing.Size(896, 48);
+            this.ChiefsNonF1MechanicGroupBox.TabIndex = 5;
+            this.ChiefsNonF1MechanicGroupBox.TabStop = false;
+            this.ChiefsNonF1MechanicGroupBox.Text = "Non-F1 Chief Mechanics - Options";
             // 
             // ChiefsNonF1MechanicDataGridView
             // 
@@ -898,6 +1090,16 @@
             this.DriversF1TableLayoutPanel.Size = new System.Drawing.Size(916, 497);
             this.DriversF1TableLayoutPanel.TabIndex = 2;
             // 
+            // DriversF1GroupBox
+            // 
+            this.DriversF1GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DriversF1GroupBox.Location = new System.Drawing.Point(3, 446);
+            this.DriversF1GroupBox.Name = "DriversF1GroupBox";
+            this.DriversF1GroupBox.Size = new System.Drawing.Size(910, 48);
+            this.DriversF1GroupBox.TabIndex = 3;
+            this.DriversF1GroupBox.TabStop = false;
+            this.DriversF1GroupBox.Text = "F1 Drivers - Options";
+            // 
             // DriversF1DataGridView
             // 
             this.DriversF1DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -932,6 +1134,16 @@
             this.DriversNonF1TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.DriversNonF1TableLayoutPanel.Size = new System.Drawing.Size(916, 497);
             this.DriversNonF1TableLayoutPanel.TabIndex = 2;
+            // 
+            // DriversNonF1GroupBox
+            // 
+            this.DriversNonF1GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DriversNonF1GroupBox.Location = new System.Drawing.Point(3, 446);
+            this.DriversNonF1GroupBox.Name = "DriversNonF1GroupBox";
+            this.DriversNonF1GroupBox.Size = new System.Drawing.Size(910, 48);
+            this.DriversNonF1GroupBox.TabIndex = 3;
+            this.DriversNonF1GroupBox.TabStop = false;
+            this.DriversNonF1GroupBox.Text = "Non-F1 Drivers - Options";
             // 
             // DriversNonF1DataGridView
             // 
@@ -991,6 +1203,16 @@
             this.SuppliersEngineTableLayoutPanel.Size = new System.Drawing.Size(916, 497);
             this.SuppliersEngineTableLayoutPanel.TabIndex = 3;
             // 
+            // SuppliersEngineGroupBox
+            // 
+            this.SuppliersEngineGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SuppliersEngineGroupBox.Location = new System.Drawing.Point(3, 446);
+            this.SuppliersEngineGroupBox.Name = "SuppliersEngineGroupBox";
+            this.SuppliersEngineGroupBox.Size = new System.Drawing.Size(910, 48);
+            this.SuppliersEngineGroupBox.TabIndex = 3;
+            this.SuppliersEngineGroupBox.TabStop = false;
+            this.SuppliersEngineGroupBox.Text = "Engine Suppliers - Options";
+            // 
             // SuppliersEngineDataGridView
             // 
             this.SuppliersEngineDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1026,6 +1248,16 @@
             this.SuppliersTyreTableLayoutPanel.Size = new System.Drawing.Size(916, 497);
             this.SuppliersTyreTableLayoutPanel.TabIndex = 4;
             // 
+            // SuppliersTyreGroupBox
+            // 
+            this.SuppliersTyreGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SuppliersTyreGroupBox.Location = new System.Drawing.Point(3, 446);
+            this.SuppliersTyreGroupBox.Name = "SuppliersTyreGroupBox";
+            this.SuppliersTyreGroupBox.Size = new System.Drawing.Size(910, 48);
+            this.SuppliersTyreGroupBox.TabIndex = 3;
+            this.SuppliersTyreGroupBox.TabStop = false;
+            this.SuppliersTyreGroupBox.Text = "Tyre Suppliers - Options";
+            // 
             // SuppliersTyreDataGridView
             // 
             this.SuppliersTyreDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1060,6 +1292,16 @@
             this.SuppliersFuelTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.SuppliersFuelTableLayoutPanel.Size = new System.Drawing.Size(916, 497);
             this.SuppliersFuelTableLayoutPanel.TabIndex = 4;
+            // 
+            // SuppliersFuelGroupBox
+            // 
+            this.SuppliersFuelGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SuppliersFuelGroupBox.Location = new System.Drawing.Point(3, 446);
+            this.SuppliersFuelGroupBox.Name = "SuppliersFuelGroupBox";
+            this.SuppliersFuelGroupBox.Size = new System.Drawing.Size(910, 48);
+            this.SuppliersFuelGroupBox.TabIndex = 3;
+            this.SuppliersFuelGroupBox.TabStop = false;
+            this.SuppliersFuelGroupBox.Text = "Fuel Suppliers - Options";
             // 
             // SuppliersFuelDataGridView
             // 
@@ -1114,245 +1356,6 @@
             this.TracksGroupBox.TabIndex = 2;
             this.TracksGroupBox.TabStop = false;
             this.TracksGroupBox.Text = "Tracks - Options";
-            // 
-            // GermanCommentaryFilePathLabel
-            // 
-            this.GermanCommentaryFilePathLabel.AutoSize = true;
-            this.GermanCommentaryFilePathLabel.Location = new System.Drawing.Point(8, 227);
-            this.GermanCommentaryFilePathLabel.Name = "GermanCommentaryFilePathLabel";
-            this.GermanCommentaryFilePathLabel.Size = new System.Drawing.Size(127, 13);
-            this.GermanCommentaryFilePathLabel.TabIndex = 10;
-            this.GermanCommentaryFilePathLabel.Text = "German Commentary File:";
-            // 
-            // FrenchCommentaryFilePathLabel
-            // 
-            this.FrenchCommentaryFilePathLabel.AutoSize = true;
-            this.FrenchCommentaryFilePathLabel.Location = new System.Drawing.Point(8, 198);
-            this.FrenchCommentaryFilePathLabel.Name = "FrenchCommentaryFilePathLabel";
-            this.FrenchCommentaryFilePathLabel.Size = new System.Drawing.Size(123, 13);
-            this.FrenchCommentaryFilePathLabel.TabIndex = 11;
-            this.FrenchCommentaryFilePathLabel.Text = "French Commentary File:";
-            // 
-            // EnglishCommentaryFilePathLabel
-            // 
-            this.EnglishCommentaryFilePathLabel.AutoSize = true;
-            this.EnglishCommentaryFilePathLabel.Location = new System.Drawing.Point(8, 169);
-            this.EnglishCommentaryFilePathLabel.Name = "EnglishCommentaryFilePathLabel";
-            this.EnglishCommentaryFilePathLabel.Size = new System.Drawing.Size(124, 13);
-            this.EnglishCommentaryFilePathLabel.TabIndex = 12;
-            this.EnglishCommentaryFilePathLabel.Text = "English Commentary File:";
-            // 
-            // GermanCommentaryFilePathTextBox
-            // 
-            this.GermanCommentaryFilePathTextBox.Location = new System.Drawing.Point(141, 224);
-            this.GermanCommentaryFilePathTextBox.Name = "GermanCommentaryFilePathTextBox";
-            this.GermanCommentaryFilePathTextBox.ReadOnly = true;
-            this.GermanCommentaryFilePathTextBox.Size = new System.Drawing.Size(609, 20);
-            this.GermanCommentaryFilePathTextBox.TabIndex = 13;
-            this.GermanCommentaryFilePathTextBox.TabStop = false;
-            // 
-            // FrenchCommentaryFilePathTextBox
-            // 
-            this.FrenchCommentaryFilePathTextBox.Location = new System.Drawing.Point(141, 195);
-            this.FrenchCommentaryFilePathTextBox.Name = "FrenchCommentaryFilePathTextBox";
-            this.FrenchCommentaryFilePathTextBox.ReadOnly = true;
-            this.FrenchCommentaryFilePathTextBox.Size = new System.Drawing.Size(609, 20);
-            this.FrenchCommentaryFilePathTextBox.TabIndex = 14;
-            this.FrenchCommentaryFilePathTextBox.TabStop = false;
-            // 
-            // GermanCommentaryFilePathBrowseButton
-            // 
-            this.GermanCommentaryFilePathBrowseButton.Location = new System.Drawing.Point(756, 222);
-            this.GermanCommentaryFilePathBrowseButton.Name = "GermanCommentaryFilePathBrowseButton";
-            this.GermanCommentaryFilePathBrowseButton.Size = new System.Drawing.Size(75, 23);
-            this.GermanCommentaryFilePathBrowseButton.TabIndex = 16;
-            this.GermanCommentaryFilePathBrowseButton.Text = "Browse...";
-            this.GermanCommentaryFilePathBrowseButton.UseVisualStyleBackColor = true;
-            // 
-            // EnglishCommentaryFilePathTextBox
-            // 
-            this.EnglishCommentaryFilePathTextBox.Location = new System.Drawing.Point(141, 166);
-            this.EnglishCommentaryFilePathTextBox.Name = "EnglishCommentaryFilePathTextBox";
-            this.EnglishCommentaryFilePathTextBox.ReadOnly = true;
-            this.EnglishCommentaryFilePathTextBox.Size = new System.Drawing.Size(609, 20);
-            this.EnglishCommentaryFilePathTextBox.TabIndex = 15;
-            this.EnglishCommentaryFilePathTextBox.TabStop = false;
-            // 
-            // FrenchCommentaryFilePathBrowseButton
-            // 
-            this.FrenchCommentaryFilePathBrowseButton.Location = new System.Drawing.Point(756, 193);
-            this.FrenchCommentaryFilePathBrowseButton.Name = "FrenchCommentaryFilePathBrowseButton";
-            this.FrenchCommentaryFilePathBrowseButton.Size = new System.Drawing.Size(75, 23);
-            this.FrenchCommentaryFilePathBrowseButton.TabIndex = 17;
-            this.FrenchCommentaryFilePathBrowseButton.Text = "Browse...";
-            this.FrenchCommentaryFilePathBrowseButton.UseVisualStyleBackColor = true;
-            // 
-            // EnglishCommentaryFilePathBrowseButton
-            // 
-            this.EnglishCommentaryFilePathBrowseButton.Location = new System.Drawing.Point(756, 164);
-            this.EnglishCommentaryFilePathBrowseButton.Name = "EnglishCommentaryFilePathBrowseButton";
-            this.EnglishCommentaryFilePathBrowseButton.Size = new System.Drawing.Size(75, 23);
-            this.EnglishCommentaryFilePathBrowseButton.TabIndex = 18;
-            this.EnglishCommentaryFilePathBrowseButton.Text = "Browse...";
-            this.EnglishCommentaryFilePathBrowseButton.UseVisualStyleBackColor = true;
-            // 
-            // GameFolderPathBrowseButton
-            // 
-            this.GameFolderPathBrowseButton.Location = new System.Drawing.Point(756, 19);
-            this.GameFolderPathBrowseButton.Name = "GameFolderPathBrowseButton";
-            this.GameFolderPathBrowseButton.Size = new System.Drawing.Size(75, 23);
-            this.GameFolderPathBrowseButton.TabIndex = 4;
-            this.GameFolderPathBrowseButton.Text = "Browse...";
-            this.GameFolderPathBrowseButton.UseVisualStyleBackColor = true;
-            this.GameFolderPathBrowseButton.Click += new System.EventHandler(this.GameExecutablePathBrowseButton_Click);
-            // 
-            // GameFolderPathTextBox
-            // 
-            this.GameFolderPathTextBox.Location = new System.Drawing.Point(141, 21);
-            this.GameFolderPathTextBox.Name = "GameFolderPathTextBox";
-            this.GameFolderPathTextBox.ReadOnly = true;
-            this.GameFolderPathTextBox.Size = new System.Drawing.Size(609, 20);
-            this.GameFolderPathTextBox.TabIndex = 3;
-            this.GameFolderPathTextBox.TabStop = false;
-            // 
-            // GameFolderPathLabel
-            // 
-            this.GameFolderPathLabel.AutoSize = true;
-            this.GameFolderPathLabel.Location = new System.Drawing.Point(8, 24);
-            this.GameFolderPathLabel.Name = "GameFolderPathLabel";
-            this.GameFolderPathLabel.Size = new System.Drawing.Size(70, 13);
-            this.GameFolderPathLabel.TabIndex = 2;
-            this.GameFolderPathLabel.Text = "Game Folder:";
-            // 
-            // SuppliersFuelGroupBox
-            // 
-            this.SuppliersFuelGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SuppliersFuelGroupBox.Location = new System.Drawing.Point(3, 446);
-            this.SuppliersFuelGroupBox.Name = "SuppliersFuelGroupBox";
-            this.SuppliersFuelGroupBox.Size = new System.Drawing.Size(910, 48);
-            this.SuppliersFuelGroupBox.TabIndex = 3;
-            this.SuppliersFuelGroupBox.TabStop = false;
-            this.SuppliersFuelGroupBox.Text = "Fuel Suppliers - Options";
-            // 
-            // SuppliersTyreGroupBox
-            // 
-            this.SuppliersTyreGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SuppliersTyreGroupBox.Location = new System.Drawing.Point(3, 446);
-            this.SuppliersTyreGroupBox.Name = "SuppliersTyreGroupBox";
-            this.SuppliersTyreGroupBox.Size = new System.Drawing.Size(910, 48);
-            this.SuppliersTyreGroupBox.TabIndex = 3;
-            this.SuppliersTyreGroupBox.TabStop = false;
-            this.SuppliersTyreGroupBox.Text = "Tyre Suppliers - Options";
-            // 
-            // SuppliersEngineGroupBox
-            // 
-            this.SuppliersEngineGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SuppliersEngineGroupBox.Location = new System.Drawing.Point(3, 446);
-            this.SuppliersEngineGroupBox.Name = "SuppliersEngineGroupBox";
-            this.SuppliersEngineGroupBox.Size = new System.Drawing.Size(910, 48);
-            this.SuppliersEngineGroupBox.TabIndex = 3;
-            this.SuppliersEngineGroupBox.TabStop = false;
-            this.SuppliersEngineGroupBox.Text = "Engine Suppliers - Options";
-            // 
-            // DriversNonF1GroupBox
-            // 
-            this.DriversNonF1GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DriversNonF1GroupBox.Location = new System.Drawing.Point(3, 446);
-            this.DriversNonF1GroupBox.Name = "DriversNonF1GroupBox";
-            this.DriversNonF1GroupBox.Size = new System.Drawing.Size(910, 48);
-            this.DriversNonF1GroupBox.TabIndex = 3;
-            this.DriversNonF1GroupBox.TabStop = false;
-            this.DriversNonF1GroupBox.Text = "Non-F1 Drivers - Options";
-            // 
-            // DriversF1GroupBox
-            // 
-            this.DriversF1GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DriversF1GroupBox.Location = new System.Drawing.Point(3, 446);
-            this.DriversF1GroupBox.Name = "DriversF1GroupBox";
-            this.DriversF1GroupBox.Size = new System.Drawing.Size(910, 48);
-            this.DriversF1GroupBox.TabIndex = 3;
-            this.DriversF1GroupBox.TabStop = false;
-            this.DriversF1GroupBox.Text = "F1 Drivers - Options";
-            // 
-            // ChiefsF1CommerceGroupBox
-            // 
-            this.ChiefsF1CommerceGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ChiefsF1CommerceGroupBox.Location = new System.Drawing.Point(3, 414);
-            this.ChiefsF1CommerceGroupBox.Name = "ChiefsF1CommerceGroupBox";
-            this.ChiefsF1CommerceGroupBox.Size = new System.Drawing.Size(896, 48);
-            this.ChiefsF1CommerceGroupBox.TabIndex = 3;
-            this.ChiefsF1CommerceGroupBox.TabStop = false;
-            this.ChiefsF1CommerceGroupBox.Text = "F1 Commercial Managers - Options";
-            // 
-            // ChiefsF1DesignerGroupBox
-            // 
-            this.ChiefsF1DesignerGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ChiefsF1DesignerGroupBox.Location = new System.Drawing.Point(3, 414);
-            this.ChiefsF1DesignerGroupBox.Name = "ChiefsF1DesignerGroupBox";
-            this.ChiefsF1DesignerGroupBox.Size = new System.Drawing.Size(896, 48);
-            this.ChiefsF1DesignerGroupBox.TabIndex = 4;
-            this.ChiefsF1DesignerGroupBox.TabStop = false;
-            this.ChiefsF1DesignerGroupBox.Text = "F1 Chief Designers - Options";
-            // 
-            // ChiefsF1EngineerGroupBox
-            // 
-            this.ChiefsF1EngineerGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ChiefsF1EngineerGroupBox.Location = new System.Drawing.Point(3, 414);
-            this.ChiefsF1EngineerGroupBox.Name = "ChiefsF1EngineerGroupBox";
-            this.ChiefsF1EngineerGroupBox.Size = new System.Drawing.Size(896, 48);
-            this.ChiefsF1EngineerGroupBox.TabIndex = 4;
-            this.ChiefsF1EngineerGroupBox.TabStop = false;
-            this.ChiefsF1EngineerGroupBox.Text = "F1 Chief Engineers - Options";
-            // 
-            // ChiefsF1MechanicGroupBox
-            // 
-            this.ChiefsF1MechanicGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ChiefsF1MechanicGroupBox.Location = new System.Drawing.Point(3, 414);
-            this.ChiefsF1MechanicGroupBox.Name = "ChiefsF1MechanicGroupBox";
-            this.ChiefsF1MechanicGroupBox.Size = new System.Drawing.Size(896, 48);
-            this.ChiefsF1MechanicGroupBox.TabIndex = 4;
-            this.ChiefsF1MechanicGroupBox.TabStop = false;
-            this.ChiefsF1MechanicGroupBox.Text = "F1 Chief Mechanics - Options";
-            // 
-            // ChiefsNonF1CommerceGroupBox
-            // 
-            this.ChiefsNonF1CommerceGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ChiefsNonF1CommerceGroupBox.Location = new System.Drawing.Point(3, 414);
-            this.ChiefsNonF1CommerceGroupBox.Name = "ChiefsNonF1CommerceGroupBox";
-            this.ChiefsNonF1CommerceGroupBox.Size = new System.Drawing.Size(896, 48);
-            this.ChiefsNonF1CommerceGroupBox.TabIndex = 4;
-            this.ChiefsNonF1CommerceGroupBox.TabStop = false;
-            this.ChiefsNonF1CommerceGroupBox.Text = "Non-F1 Commercial Managers - Options";
-            // 
-            // ChiefsNonF1DesignerGroupBox
-            // 
-            this.ChiefsNonF1DesignerGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ChiefsNonF1DesignerGroupBox.Location = new System.Drawing.Point(3, 414);
-            this.ChiefsNonF1DesignerGroupBox.Name = "ChiefsNonF1DesignerGroupBox";
-            this.ChiefsNonF1DesignerGroupBox.Size = new System.Drawing.Size(896, 48);
-            this.ChiefsNonF1DesignerGroupBox.TabIndex = 5;
-            this.ChiefsNonF1DesignerGroupBox.TabStop = false;
-            this.ChiefsNonF1DesignerGroupBox.Text = "Non-F1 Chief Designers - Options";
-            // 
-            // ChiefsNonF1EngineerGroupBox
-            // 
-            this.ChiefsNonF1EngineerGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ChiefsNonF1EngineerGroupBox.Location = new System.Drawing.Point(3, 414);
-            this.ChiefsNonF1EngineerGroupBox.Name = "ChiefsNonF1EngineerGroupBox";
-            this.ChiefsNonF1EngineerGroupBox.Size = new System.Drawing.Size(896, 48);
-            this.ChiefsNonF1EngineerGroupBox.TabIndex = 5;
-            this.ChiefsNonF1EngineerGroupBox.TabStop = false;
-            this.ChiefsNonF1EngineerGroupBox.Text = "Non-F1 Chief Engineers - Options";
-            // 
-            // ChiefsNonF1MechanicGroupBox
-            // 
-            this.ChiefsNonF1MechanicGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ChiefsNonF1MechanicGroupBox.Location = new System.Drawing.Point(3, 414);
-            this.ChiefsNonF1MechanicGroupBox.Name = "ChiefsNonF1MechanicGroupBox";
-            this.ChiefsNonF1MechanicGroupBox.Size = new System.Drawing.Size(896, 48);
-            this.ChiefsNonF1MechanicGroupBox.TabIndex = 5;
-            this.ChiefsNonF1MechanicGroupBox.TabStop = false;
-            this.ChiefsNonF1MechanicGroupBox.Text = "Non-F1 Chief Mechanics - Options";
             // 
             // BaseGameEditorForm
             // 

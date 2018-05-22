@@ -30,9 +30,9 @@ namespace App.BaseGameEditor.Data.DataEntities
             dataLocator.Initialise();
 
             var result = _dataEntityFactory.Create(id);
-            result.Name.English = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Name);
-            result.Name.French = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name);
-            result.Name.German = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name);
+            result.Name.English = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Name).Value;
+            result.Name.French = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name).Value;
+            result.Name.German = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name).Value;
             result.Ability = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Ability);
             result.Age = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Age);
             result.Salary = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Salary);

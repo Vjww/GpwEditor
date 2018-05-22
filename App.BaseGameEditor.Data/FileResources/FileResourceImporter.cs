@@ -33,5 +33,18 @@ namespace App.BaseGameEditor.Data.FileResources
             stream.Seek(0, SeekOrigin.Begin);
             return stream;
         }
+
+        public Stream Import(Stream stream)
+        {
+            if (stream == null) throw new ArgumentNullException(nameof(stream));
+
+            var result = _streamFactory.Create();
+
+            stream.Seek(0, SeekOrigin.Begin);
+            stream.CopyTo(result);
+
+            result.Seek(0, SeekOrigin.Begin);
+            return result;
+        }
     }
 }

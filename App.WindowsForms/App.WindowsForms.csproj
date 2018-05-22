@@ -116,6 +116,7 @@
     <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -129,10 +130,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ConfigureGameController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
-    <Compile Include="Controllers\BaseGameController.cs" />
+    <Compile Include="Controllers\BaseGameEditorController.cs" />
+    <Compile Include="Controllers\PerformanceCurveValuesController.cs" />
+    <Compile Include="Controllers\UpgradeGameController.cs" />
+    <Compile Include="Enums\NumericUpDownDirectionType.cs" />
     <Compile Include="FormFactory.cs" />
     <Compile Include="Maps\AutoMapper\Reference\PresentationMaps.cs" />
+    <Compile Include="Models\CommentaryIndexDriverModel.cs" />
+    <Compile Include="Models\CommentaryIndexTeamModel.cs" />
+    <Compile Include="Models\CommentaryFileModel.cs" />
+    <Compile Include="Models\CommentaryPrefixTeamModel.cs" />
+    <Compile Include="Models\CommentaryPrefixDriverModel.cs" />
     <Compile Include="Models\EngineModel.cs" />
     <Compile Include="Models\F1ChiefCommercialModel.cs" />
     <Compile Include="Models\F1ChiefDesignerModel.cs" />
@@ -158,8 +168,15 @@
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Models\TrackModel.cs" />
     <Compile Include="Models\TyreModel.cs" />
+    <Compile Include="PerformanceCurveChart.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ConfigureGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ConfigureGameForm.Designer.cs">
+      <DependentUpon>ConfigureGameForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Extensions\ControlExtension.cs" />
     <Compile Include="Views\EditorForm.cs">
       <SubType>Form</SubType>
@@ -180,6 +197,18 @@
     <Compile Include="Views\MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\PerformanceCurveValuesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PerformanceCurveValuesForm.Designer.cs">
+      <DependentUpon>PerformanceCurveValuesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpgradeGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UpgradeGameForm.Designer.cs">
+      <DependentUpon>UpgradeGameForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -190,6 +219,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\ConfigureGameForm.resx">
+      <DependentUpon>ConfigureGameForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\EditorForm.resx">
       <DependentUpon>EditorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +230,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PerformanceCurveValuesForm.resx">
+      <DependentUpon>PerformanceCurveValuesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UpgradeGameForm.resx">
+      <DependentUpon>UpgradeGameForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

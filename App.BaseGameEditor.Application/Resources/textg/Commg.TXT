@@ -1,0 +1,357 @@
+>PITNOW1.WAV Rein. Rein. Rein.<
+>PITNOW2.WAV Komme rein.<
+>EASEOFF1.WAV Langsam. Langsam. Langsam.<
+>EASEOFF2.WAV Bleibe zurück.<
+>FLYLAP1.WAV Ran. Ran. Ran.<
+>FLYLAP2.WAV OK. OK. OK.<
+>OVERTAK1.WAV Vorbei. Vorbei. Vorbei.<
+>OVERTAK2.WAV Verstanden.<
+>BLOCK1.WAV Halten. Halten. Halten.<
+>BLOCK2.WAV Blockiere.<
+>LEAVPIT1.WAV Raus. Raus. Raus.<
+>LEAVPIT2.WAV Gehe raus.<
+>12LAPS.WAV Komme rein.<
+>ENGPOW.WAV Verliere Leistung.<
+>ENGHEA.WAV Überhitze.<
+>ENGUND.WAV Verliere Traktion.<
+>ENGVIB.WAV Heckspoiler bricht.<
+>FUEL.WAV Zuwenig Sprit.<
+>TYREW.WAV Reifen sind runter.<
+>TYREB.WAV Reifenschaden.<
+>TYREC.WAV Reifen sind zu kalt.<
+>TYREH.WAV Reifen sind zu heiß.<
+>BRAKE.WAV Bremsenproblem.<
+>CLUTCH.WAV Kupplungsproblem.<
+>ELEC.WAV Elektronik versagt.<
+>GEARS.WAV Schaltungsproblem.<
+>HYD.WAV Hydraulik reagiert nicht.<
+>SUS.WAV Aufhängungsschaden.<
+>THROT.WAV Gas klemmt.<
+>AUTOPIT.WAV Komme diese Runde rein.<
+>FWING.WAV Frontspoiler ab.<
+>RWING.WAV Heckspoiler ab.<
+>NORDER.WAV Neue Anweisung. OK.<
+>TRAF.WAV Hänge fest.<
+>RWETTYRE.WAV Brauche Regenreifen.<
+>RINTTYRE.WAV Brauche Mischreifen.<
+>RDRYTYRE.WAV Brauche Slicks.<
+>P1A.WAV Platz 1 - Vorläufig.<
+>P1B.WAV Platz 1 - Gut gemacht.<
+>P1C.WAV Platz 1 - Gute Arbeit.<
+>P1D.WAV Wir haben gewonnen - Gute Arbeit, Leute!<
+>P1E.WAV Plätze 1 und 2 - Fantastisch!<
+>P1F.WAV Plätze 1 und 3 - Sehr gut!<
+>P2A.WAV Platz 2 - Gute Arbeit.<
+>P2B.WAV Zweiter Platz - gute Arbeit!<
+>P2C.WAV Plätze 2 und 3 - sehr schön!<
+>P3A.WAV Platz 3 - Gute Arbeit.<
+>P3B.WAV Dritter Platz - gut gemacht.<
+>P4.WAV Platz 4<
+>P5.WAV Platz 5<
+>P6.WAV Platz 6<
+>P7.WAV Platz 7<
+>P8.WAV Platz 8<
+>P9.WAV Platz 9<
+>P10.WAV Platz 10<
+>P11.WAV Platz 11<
+>P12.WAV Platz 12<
+>P13.WAV Platz 13<
+>P14.WAV Platz 14<
+>P15.WAV Platz 15<
+>P16.WAV Platz 16<
+>P17.WAV Platz 17<
+>P18.WAV Platz 18<
+>P19.WAV Platz 19<
+>P20.WAV Platz 20<
+>P21.WAV Platz 21<
+>P22.WAV Platz 22<
+>NEWHP1.WAV Jacques Villeneuve Platz 1<
+>FRENP1.WAV Heinz-Harald Frentzen Platz 1<
+>TOYP1.WAV Juan Pablo Montoya Platz 1<
+>SCHUP1.WAV Michael Schumacher Platz 1<
+>IRVP1.WAV Eddie Irvine Platz 1<
+>BADP1.WAV Luca Badoer Platz 1<
+>FISP1.WAV Giancarlo Fisichella Platz 1<
+>WURZP1.WAV Alexander Wurz Platz 1<
+>ANONP1.WAV Jason Watt Platz 1<
+>HAKP1.WAV Mika Hakkinen Platz 1<
+>COULP1.WAV David Coulthard Platz 1<
+>ZONP1.WAV Ricardo Zonta Platz 1<
+>HILP1.WAV Damon Hill Platz 1<
+>RALFP1.WAV Ralf Schumacher Platz 1<
+>ANONP1.WAV Juichi Wakisaka Platz 1<
+>PANP1.WAV Olivier Panis Platz 1<
+>TRUP1.WAV Jarno Trulli Platz 1<
+>SARP1.WAV Stéphane Sarrazin Platz 1<
+>ALESP1.WAV Jean Alesi Platz 1<
+>HERBP1.WAV Johnny Herbert Platz 1<
+>MULLP1.WAV Jörg Müller Platz 1<
+>DINP1.WAV Pedro Diniz Platz 1<
+>SALP1.WAV Mika Salo Platz 1<
+>COLP1.WAV Emmanuel Collard Platz 1<
+>BARIP1.WAV Rubens Barrichello Platz 1<
+>MAGP1.WAV Jan Magnussen Platz 1<
+>ANONP1.WAV Mário Haberfeld Platz 1<
+>TAKP1.WAV Ricardo Rosset Platz 1<
+>ROSP1.WAV Toranosuke Takagi Platz 1<
+>MONTP1.WAV Andrea Montermini Platz 1<
+>NAKP1.WAV Shinji Nakano Platz 1<
+>TUERP1.WAV Esteban Tuero Platz 1<
+>REDP1.WAV Laurent Redon Platz 1<
+>ELLP1.WAV Graham Elliott Platz 1<
+>MARP1.WAV Alberto Marini Platz 1<
+>RAIMP1.WAV Pierre Raimbeaux Platz 1<
+>TANP1.WAV Hiroshi Tanaka Platz 1<
+>EBEP1.WAV Hans Ebert Platz 1<
+>PATP1.WAV Dan Paterson Platz 1<
+>FELLP1.WAV John Fellowes Platz 1<
+>LAURP1.WAV Dario Laureti Platz 1<
+>NEWHP2.WAV Jacques Villeneuve Platz 2<
+>FRENP2.WAV Heinz-Harald Frentzen Platz 2<
+>TOYP2.WAV Juan Pablo Montoya Platz 2<
+>SCHUP2.WAV Michael Schumacher Platz 2<
+>IRVP2.WAV Eddie Irvine Platz 2<
+>BADP2.WAV Luca Badoer Platz 2<
+>FISP2.WAV Giancarlo Fisichella Platz 2<
+>WURZP2.WAV Alexander Wurz Platz 2<
+>ANONP2.WAV Jason Watt Platz 2<
+>HAKP2.WAV Mika Hakkinen Platz 2<
+>COULP2.WAV David Coulthard Platz 2<
+>ZONP2.WAV Ricardo Zonta Platz 2<
+>HILP2.WAV Damon Hill Platz 2<
+>RALFP2.WAV Ralf Schumacher Platz 2<
+>ANONP2.WAV Juichi Wakisaka Platz 2<
+>PANP2.WAV Olivier Panis Platz 2<
+>TRUP2.WAV Jarno Trulli Platz 2<
+>SARP2.WAV Stéphane Sarrazin Platz 2<
+>ALESP2.WAV Jean Alesi Platz 2<
+>HERBP2.WAV Johnny Herbert Platz 2<
+>MULLP2.WAV Jörg Müller Platz 2<
+>DINP2.WAV Pedro Diniz Platz 2<
+>SALP2.WAV Mika Salo Platz 2<
+>COLP2.WAV Emmanuel Collard Platz 2<
+>BARIP2.WAV Rubens Barrichello Platz 2<
+>MAGP2.WAV Jan Magnussen Platz 2<
+>ANONP2.WAV Mário Haberfeld Platz 2<
+>TAKP2.WAV Ricardo Rosset Platz 2<
+>ROSP2.WAV Toranosuke Takagi Platz 2<
+>MONTP2.WAV Andrea Montermini Platz 2<
+>NAKP2.WAV Shinji Nakano Platz 2<
+>TUERP2.WAV Esteban Tuero Platz 2<
+>REDP2.WAV Laurent Redon Platz 2<
+>ELLP2.WAV Graham Elliott Platz 2<
+>MARP2.WAV Alberto Marini Platz 2<
+>RAIMP2.WAV Pierre Raimbeaux Platz 2<
+>TANP2.WAV Hiroshi Tanaka Platz 2<
+>EBEP2.WAV Hans Ebert Platz 2<
+>PATP2.WAV Dan Paterson Platz 2<
+>FELLP2.WAV John Fellowes Platz 2<
+>LAURP2.WAV Dario Laureti Platz 2<
+>NEWHP3.WAV Jacques Villeneuve Platz 3<
+>FRENP3.WAV Heinz-Harald Frentzen Platz 3<
+>TOYP3.WAV Juan Pablo Montoya Platz 3<
+>SCHUP3.WAV Michael Schumacher Platz 3<
+>IRVP3.WAV Eddie Irvine Platz 3<
+>BADP3.WAV Luca Badoer Platz 3<
+>FISP3.WAV Giancarlo Fisichella Platz 3<
+>WURZP3.WAV Alexander Wurz Platz 3<
+>ANONP3.WAV Jason Watt Platz 3<
+>HAKP3.WAV Mika Hakkinen Platz 3<
+>COULP3.WAV David Coulthard Platz 3<
+>ZONP3.WAV Ricardo Zonta Platz 3<
+>HILP3.WAV Damon Hill Platz 3<
+>RALFP3.WAV Ralf Schumacher Platz 3<
+>ANONP3.WAV Juichi Wakisaka Platz 3<
+>PANP3.WAV Olivier Panis Platz 3<
+>TRUP3.WAV Jarno Trulli Platz 3<
+>SARP3.WAV Stéphane Sarrazin Platz 3<
+>ALESP3.WAV Jean Alesi Platz 3<
+>HERBP3.WAV Johnny Herbert Platz 3<
+>MULLP3.WAV Jörg Müller Platz 3<
+>DINP3.WAV Pedro Diniz Platz 3<
+>SALP3.WAV Mika Salo Platz 3<
+>COLP3.WAV Emmanuel Collard Platz 3<
+>BARIP3.WAV Rubens Barrichello Platz 3<
+>MAGP3.WAV Jan Magnussen Platz 3<
+>ANONP3.WAV Mário Haberfeld Platz 3<
+>TAKP3.WAV Ricardo Rosset Platz 3<
+>ROSP3.WAV Toranosuke Takagi Platz 3<
+>MONTP3.WAV Andrea Montermini Platz 3<
+>NAKP3.WAV Shinji Nakano Platz 3<
+>TUERP3.WAV Esteban Tuero Platz 3<
+>REDP3.WAV Laurent Redon Platz 3<
+>ELLP3.WAV Graham Elliott Platz 3<
+>MARP3.WAV Alberto Marini Platz 3<
+>RAIMP3.WAV Pierre Raimbeaux Platz 3<
+>TANP3.WAV Hiroshi Tanaka Platz 3<
+>EBEP3.WAV Hans Ebert Platz 3<
+>PATP3.WAV Dan Paterson Platz 3<
+>FELLP3.WAV John Fellowes Platz 3<
+>LAURP3.WAV Dario Laureti Platz 3<
+>NEWHOUT.WAV Jacques Villeneuve ist raus.<
+>FRENOUT.WAV Heinz-Harald Frentzen ist raus.<
+>TOYOUT.WAV Juan Pablo Montoya ist raus.<
+>SCHUOUT.WAV Michael Schumacher ist raus.<
+>IRVOUT.WAV Eddie Irvine ist raus.<
+>BADOUT.WAV Luca Badoer ist raus.<
+>FISOUT.WAV Giancarlo Fisichella ist raus.<
+>WURZOUT.WAV Alexander Wurz ist raus.<
+>ANONOUT.WAV Jason Watt ist raus.<
+>HAKOUT.WAV Mika Hakkinen ist raus.<
+>COULOUT.WAV David Coulthard ist raus.<
+>ZONOUT.WAV Ricardo Zonta ist raus.<
+>HILOUT.WAV Damon Hill ist raus.<
+>RALFOUT.WAV Ralf Schumacher ist raus.<
+>ANONOUT.WAV Juichi Wakisaka ist raus.<
+>PANOUT.WAV Olivier Panis ist raus.<
+>TRUOUT.WAV Jarno Trulli ist raus.<
+>SAROUT.WAV Stéphane Sarrazin ist raus.<
+>ALESOUT.WAV Jean Alesi ist raus.<
+>HERBOUT.WAV Johnny Herbert ist raus.<
+>MULLOUT.WAV Jörg Müller ist raus.<
+>DINOUT.WAV Pedro Diniz ist raus.<
+>SALOUT.WAV Mika Salo ist raus.<
+>COLOUT.WAV Emmanuel Collard ist raus.<
+>BARIOUT.WAV Rubens Barrichello ist raus.<
+>MAGOUT.WAV Jan Magnussen ist raus.<
+>ANONOUT.WAV Mário Haberfeld ist raus.<
+>TAKOUT.WAV Ricardo Rosset ist raus.<
+>ROSOUT.WAV Toranosuke Takagi ist raus.<
+>MONTOUT.WAV Andrea Montermini ist raus.<
+>NAKOUT.WAV Shinji Nakano ist raus.<
+>TUEROUT.WAV Esteban Tuero ist raus.<
+>REDOUT.WAV Laurent Redon ist raus.<
+>ELLOUT.WAV Graham Elliott ist raus.<
+>MAROUT.WAV Alberto Marini ist raus.<
+>RAIMOUT.WAV Pierre Raimbeaux ist raus.<
+>TANOUT.WAV Hiroshi Tanaka ist raus.<
+>EBEOUT.WAV Hans Ebert ist raus.<
+>PATOUT.WAV Dan Paterson ist raus.<
+>FELLOUT.WAV John Fellowes ist raus.<
+>LAUROUT.WAV Dario Laureti ist raus.<
+>WILOUT.WAV Williams ist raus.<
+>FEROUT.WAV Ferrari ist raus.<
+>BENOUT.WAV Benetton ist raus.<
+>MCLOUT.WAV McLaren ist raus.<
+>JOROUT.WAV Jordan ist raus.<
+>PROOUT.WAV Prost ist raus.<
+>SAUOUT.WAV Sauber ist raus.<
+>ARROUT.WAV Arrows ist raus.<
+>STEWOUT.WAV Stewart ist raus.<
+>TYROUT.WAV Tyrrell ist raus.<
+>MINOUT.WAV Minardi ist raus.<
+>WEREOUT.WAV Das war's. Das Rennen ist gelaufen.<
+>NEWHPIT.WAV Jacques Villeneuve an der Box.<
+>FRENPIT.WAV Heinz-Harald Frentzen an der Box.<
+>TOYPIT.WAV Juan Pablo Montoya an der Box.<
+>SCHUPIT.WAV Michael Schumacher an der Box.<
+>IRVPIT.WAV Eddie Irvine an der Box.<
+>BADPIT.WAV Luca Badoer an der Box.<
+>FISPIT.WAV Giancarlo Fisichella an der Box.<
+>WURZPIT.WAV Alexander Wurz an der Box.<
+>ANONPIT.WAV Jason Watt an der Box.<
+>HAKPIT.WAV Mika Hakkinen an der Box.<
+>COULPIT.WAV David Coulthard an der Box.<
+>ZONPIT.WAV Ricardo Zonta an der Box.<
+>HILPIT.WAV Damon Hill an der Box.<
+>RALFPIT.WAV Ralf Schumacher an der Box.<
+>ANONPIT.WAV Juichi Wakisaka an der Box.<
+>PANPIT.WAV Olivier Panis an der Box.<
+>TRUPIT.WAV Jarno Trulli an der Box.<
+>SARPIT.WAV Stéphane Sarrazin an der Box.<
+>ALESPIT.WAV Jean Alesi an der Box.<
+>HERBPIT.WAV Johnny Herbert an der Box.<
+>MULLPIT.WAV Jörg Müller an der Box.<
+>DINPIT.WAV Pedro Diniz an der Box.<
+>SALPIT.WAV Mika Salo an der Box.<
+>COLPIT.WAV Emmanuel Collard an der Box.<
+>BARIPIT.WAV Rubens Barrichello an der Box.<
+>MAGPIT.WAV Jan Magnussen an der Box.<
+>ANONPIT.WAV Mário Haberfeld an der Box.<
+>TAKPIT.WAV Ricardo Rosset an der Box.<
+>ROSPIT.WAV Toranosuke Takagi an der Box.<
+>MONTPIT.WAV Andrea Montermini an der Box.<
+>NAKPIT.WAV Shinji Nakano an der Box.<
+>TUERPIT.WAV Esteban Tuero an der Box.<
+>REDPIT.WAV Laurent Redon an der Box.<
+>ELLPIT.WAV Graham Elliott an der Box.<
+>MARPIT.WAV Alberto Marini an der Box.<
+>RAIMPIT.WAV Pierre Raimbeaux an der Box.<
+>TANPIT.WAV Hiroshi Tanaka an der Box.<
+>EBEPIT.WAV Hans Ebert an der Box.<
+>PATPIT.WAV Dan Paterson an der Box.<
+>FELLPIT.WAV John Fellowes an der Box.<
+>LAURPIT.WAV Dario Laureti an der Box.<
+>BLRUB1.WAV Wenig Gummi auf der Strecke.<
+>BLRUB2.WAV Ausreichend Gummi auf der Strecke.<
+>BLRUB3.WAV Reichlich Gummi auf der Strecke.<
+>BLRUB4.WAV Sehr viel Gummi auf der Strecke.<
+>HEAVRAI.WAV Es regnet stark.<
+>LIGHRAI.WAV Es regnet leicht.<
+>OVER.WAV Der Himmel ist bedeckt.<
+>ADRY.WAV Klare Wetterbedingungen.<
+>AVDRY.WAV Sonniges Wetter.<
+>VWET.WAV Die Strecke ist sehr nass.<
+>WET.WAV Die Strecke ist nass.<
+>DAMP.WAV Die Strecke ist feucht.<
+>CDRY.WAV Die Strecke ist trocken.<
+>CVDRY.WAV Die Strecke ist sehr trocken.<
+>LOSPOS.WAV Position verloren.<
+>GAINPOS.WAV Position gewonnen.<
+>UNCLER.WAV Position unklar.<
+>QUALX1.WAV Wagenschaden. Wagen 3 fertig machen.<
+>QUALX3.WAV Wagenschaden. Wir können nicht weitermachen.<
+>QUALX6.WAV Wagenschaden. Bin verletzt, aber OK. Wiederhole. OK.<
+>LETPASS2.WAV Mache Platz.<
+>PITNOW4.WAV Bleibe draußen.<
+>EASEOFF4.WAV Mache Dampf.<
+>FLYLAP4.WAV Langsamer - OK.<
+>OVERTAK4.WAV Bleibe zurück.<
+>BLOCK4.WAV Halte Ideallinie.<
+>STALL.WAV Der Wagen ist krepiert. Ich bin draußen!<
+>STOPGO.WAV Komme für die Zeitstrafe rein.<
+>DRIPROB.WAV Ich bin müde. Mache Fehler.<
+>IMOUT.WAV Ich bin raus!<
+>QUALX2.WAV Wagen 3 bereit.<
+>QUALX4.WAV Bringe Wagen für Reparaturen rein.<
+>QUALX5.WAV Wagen kann nicht repariert werden. Wiederhole. Kann nicht repariert werden.<
+>QUALX7.WAV Fahrer kann nicht weitermachen. Schicke Hilfe.<
+>QUALX8.WAV Wir haben Erlaubnis, Wagen 3 und den Testfahrer zu benutzen.<
+>QUALEND.WAV Qualifikation abgeschlossen. Sehr schön.<
+>RECORD1.WAV Neuer Rundenrekord.<
+>RECORD2.WAV Neuer Rundenrekord - Spitze!<
+>BLUFLAG.WAV Blaue Flagge auf der Strecke.<
+>YELFLAG.WAV Gelbe Flagge auf der Strecke.<
+>FLAGPEN.WAV Flagge nicht beachtet. 10 Strafsekunden.<
+>PITPEN.WAV Zu schnell in der Boxengasse. 10 Strafsekunden.<
+>FALPEN.WAV Fehlstart. 10 Strafsekunden.<
+>ENDSTOP.WAV Späte Strafe. Der Rennzeit werden 25 Sekunden hinzugefügt.<
+>FLAGPENQ.WAV Gelbe Flagge ignoriert - beste Runde verloren.<
+>BLRUB0.WAV Sehr wenig Gummi auf der Strecke.<
+>TTVLOW.WAV Streckentemperatur sehr niedrig.<
+>TTLOW.WAV Streckentemperatur niedrig.<
+>TTAVE.WAV Streckentemperatur mittel.<
+>TTHIGH.WAV Streckentemperatur hoch.<
+>TTVHIGH.WAV Streckentemperatur sehr hoch.<
+>WIND1.WAV Es ist beinahe windstill.<
+>WIND2.WAV Ein leichter Wind weht.<
+>WIND3.WAV Normale Windgeschwindigkeiten.<
+>WIND4.WAV Es ist recht windig.<
+>WIND5.WAV Wir haben starke Winde.<
+>PIT1.WAV Boxenproblem - Wagenheber verklemmt.<
+>PIT2.WAV Boxenproblem - Wagen hat Aussetzer.<
+>PIT3.WAV Boxenproblem - Verklemmtes Rad.<
+>PIT4.WAV Boxenproblem - Altes Rad noch am Wagen.<
+>PIT5.WAV Boxenproblem - Tankschlauch verklemmt.<
+>PIT6.WAV Boxenproblem - Wagenschaden. Fahrer ist raus!<
+>PIT7.WAV Boxenproblem - Feuer! Feuer! Fahrer ist raus!<
+>PIT8.WAV Boxenstopp erledigt. Wagen geht auf die Strecke.<
+>LETPASS1.WAV Vorbeilassen. Vorbeilassen. Vorbeilassen.<
+>PITNOW3.WAV Bleib draußen. Wiederhole. Bleib draußen.<
+>EASEOFF3.WAV Fahr. Fahr. Fahr.<
+>FLYLAP3.WAV Langsam. Langsam. Langsam.<
+>OVERTAK3.WAV Zurück. Zurück. Zurück.<
+>BLOCK3.WAV Halten. Halten. Halten.<
+>LETPASS3.WAV Los. Los. Los.<
+>LETPASS4.WAV Nehme Position ein.<
+>FUEL2.WAV Nachtankung ungenügend. Nachtankung ungenügend.<

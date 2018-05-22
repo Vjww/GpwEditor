@@ -4,6 +4,7 @@ namespace App.BaseGameEditor.Application.Services
 {
     public class DomainModelImportService
     {
+        private readonly CommentaryDomainModelImportService _commentaryDomainModelImportService;
         private readonly TeamDomainModelImportService _teamDomainModelImportService;
         private readonly PersonDomainModelImportService _personDomainModelImportService;
         private readonly SupplierDomainModelImportService _supplierDomainModelImportService;
@@ -12,6 +13,7 @@ namespace App.BaseGameEditor.Application.Services
         private readonly LookupDomainModelImportService _lookupDomainModelImportService;
 
         public DomainModelImportService(
+            CommentaryDomainModelImportService commentaryDomainModelImportService,
             TeamDomainModelImportService teamDomainModelImportService,
             PersonDomainModelImportService personDomainModelImportService,
             SupplierDomainModelImportService supplierDomainModelImportService,
@@ -19,6 +21,7 @@ namespace App.BaseGameEditor.Application.Services
             PerformanceCurveDomainModelImportService performanceCurveDomainModelImportService,
             LookupDomainModelImportService lookupDomainModelImportService)
         {
+            _commentaryDomainModelImportService = commentaryDomainModelImportService ?? throw new ArgumentNullException(nameof(commentaryDomainModelImportService));
             _teamDomainModelImportService = teamDomainModelImportService ?? throw new ArgumentNullException(nameof(teamDomainModelImportService));
             _personDomainModelImportService = personDomainModelImportService ?? throw new ArgumentNullException(nameof(personDomainModelImportService));
             _supplierDomainModelImportService = supplierDomainModelImportService ?? throw new ArgumentNullException(nameof(supplierDomainModelImportService));
@@ -29,6 +32,7 @@ namespace App.BaseGameEditor.Application.Services
 
         public void Import()
         {
+            _commentaryDomainModelImportService.Import();
             _teamDomainModelImportService.Import();
             _personDomainModelImportService.Import();
             _supplierDomainModelImportService.Import();
