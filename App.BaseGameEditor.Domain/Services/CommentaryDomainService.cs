@@ -17,6 +17,10 @@ namespace App.BaseGameEditor.Domain.Services
         private readonly IEntityValidator<CommentaryPrefixDriverEntity> _commentaryPrefixDriverEntityValidator;
         private readonly IRepository<CommentaryPrefixTeamEntity> _commentaryPrefixTeamRepository;
         private readonly IEntityValidator<CommentaryPrefixTeamEntity> _commentaryPrefixTeamEntityValidator;
+        private readonly IRepository<CommentaryDriverEntity> _commentaryDriverRepository;
+        private readonly IEntityValidator<CommentaryDriverEntity> _commentaryDriverEntityValidator;
+        private readonly IRepository<CommentaryTeamEntity> _commentaryTeamRepository;
+        private readonly IEntityValidator<CommentaryTeamEntity> _commentaryTeamEntityValidator;
         private readonly CommentaryFileDirectoryListingService _commentaryFileDirectoryListingService;
 
         public CommentaryDomainService(
@@ -28,6 +32,10 @@ namespace App.BaseGameEditor.Domain.Services
             IEntityValidator<CommentaryPrefixDriverEntity> commentaryPrefixDriverEntityValidator,
             IRepository<CommentaryPrefixTeamEntity> commentaryPrefixTeamRepository,
             IEntityValidator<CommentaryPrefixTeamEntity> commentaryPrefixTeamEntityValidator,
+            IRepository<CommentaryDriverEntity> commentaryDriverRepository,
+            IEntityValidator<CommentaryDriverEntity> commentaryDriverEntityValidator,
+            IRepository<CommentaryTeamEntity> commentaryTeamRepository,
+            IEntityValidator<CommentaryTeamEntity> commentaryTeamEntityValidator,
             CommentaryFileDirectoryListingService commentaryFileDirectoryListingService)
         {
             _commentaryIndexDriverRepository = commentaryIndexDriverRepository ?? throw new ArgumentNullException(nameof(commentaryIndexDriverRepository));
@@ -38,6 +46,10 @@ namespace App.BaseGameEditor.Domain.Services
             _commentaryPrefixDriverEntityValidator = commentaryPrefixDriverEntityValidator ?? throw new ArgumentNullException(nameof(commentaryPrefixDriverEntityValidator));
             _commentaryPrefixTeamRepository = commentaryPrefixTeamRepository ?? throw new ArgumentNullException(nameof(commentaryPrefixTeamRepository));
             _commentaryPrefixTeamEntityValidator = commentaryPrefixTeamEntityValidator ?? throw new ArgumentNullException(nameof(commentaryPrefixTeamEntityValidator));
+            _commentaryDriverRepository = commentaryDriverRepository ?? throw new ArgumentNullException(nameof(commentaryDriverRepository));
+            _commentaryDriverEntityValidator = commentaryDriverEntityValidator ?? throw new ArgumentNullException(nameof(commentaryDriverEntityValidator));
+            _commentaryTeamRepository = commentaryTeamRepository ?? throw new ArgumentNullException(nameof(commentaryTeamRepository));
+            _commentaryTeamEntityValidator = commentaryTeamEntityValidator ?? throw new ArgumentNullException(nameof(commentaryTeamEntityValidator));
             _commentaryFileDirectoryListingService = commentaryFileDirectoryListingService ?? throw new ArgumentNullException(nameof(commentaryFileDirectoryListingService));
         }
 
@@ -219,6 +231,96 @@ namespace App.BaseGameEditor.Domain.Services
             }
 
             _commentaryPrefixTeamRepository.SetById(commentaryPrefixTeam);
+        }
+
+        public IEnumerable<CommentaryDriverEntity> GetCommentaryDrivers()
+        {
+            return _commentaryDriverRepository.Get();
+        }
+
+        public void SetCommentaryDrivers(IEnumerable<CommentaryDriverEntity> commentaryDrivers)
+        {
+            if (commentaryDrivers == null) throw new ArgumentNullException(nameof(commentaryDrivers));
+
+            var validationMessages = new List<string>();
+
+            var list = commentaryDrivers as IList<CommentaryDriverEntity> ?? commentaryDrivers.ToList();
+            foreach (var item in list)
+            {
+                var messages = _commentaryDriverEntityValidator.Validate(item);
+                validationMessages.AddRange(messages);
+            }
+
+            if (validationMessages.Any())
+            {
+                // TODO: Handle validation failures gracefully.
+                throw new ArgumentException();
+            }
+
+            _commentaryDriverRepository.Set(list);
+        }
+
+        public void SetCommentaryDriver(CommentaryDriverEntity commentaryDriver)
+        {
+            if (commentaryDriver == null) throw new ArgumentNullException(nameof(commentaryDriver));
+
+            var validationMessages = new List<string>();
+
+            var messages = _commentaryDriverEntityValidator.Validate(commentaryDriver);
+            validationMessages.AddRange(messages);
+
+            if (validationMessages.Any())
+            {
+                // TODO: Handle validation failures gracefully.
+                throw new ArgumentException();
+            }
+
+            _commentaryDriverRepository.SetById(commentaryDriver);
+        }
+
+        public IEnumerable<CommentaryTeamEntity> GetCommentaryTeams()
+        {
+            return _commentaryTeamRepository.Get();
+        }
+
+        public void SetCommentaryTeams(IEnumerable<CommentaryTeamEntity> commentaryTeams)
+        {
+            if (commentaryTeams == null) throw new ArgumentNullException(nameof(commentaryTeams));
+
+            var validationMessages = new List<string>();
+
+            var list = commentaryTeams as IList<CommentaryTeamEntity> ?? commentaryTeams.ToList();
+            foreach (var item in list)
+            {
+                var messages = _commentaryTeamEntityValidator.Validate(item);
+                validationMessages.AddRange(messages);
+            }
+
+            if (validationMessages.Any())
+            {
+                // TODO: Handle validation failures gracefully.
+                throw new ArgumentException();
+            }
+
+            _commentaryTeamRepository.Set(list);
+        }
+
+        public void SetCommentaryTeam(CommentaryTeamEntity commentaryTeam)
+        {
+            if (commentaryTeam == null) throw new ArgumentNullException(nameof(commentaryTeam));
+
+            var validationMessages = new List<string>();
+
+            var messages = _commentaryTeamEntityValidator.Validate(commentaryTeam);
+            validationMessages.AddRange(messages);
+
+            if (validationMessages.Any())
+            {
+                // TODO: Handle validation failures gracefully.
+                throw new ArgumentException();
+            }
+
+            _commentaryTeamRepository.SetById(commentaryTeam);
         }
 
         public IEnumerable<CommentaryFileEntity> GetCommentaryFiles(string gameFolderPath)

@@ -65,6 +65,11 @@ namespace App.WindowsForms.Controllers
                 _view.GermanCommentaryFilePath);
         }
 
+        public void RunEditPerformanceCurveForm()
+        {
+            _performanceCurveValuesController.Run(_view);
+        }
+
         public void UpdateCommentaryModelWithDriverIndicesFromOriginalValues()
         {
             var entities = MapperService.Map<IEnumerable<CommentaryIndexDriverModel>, IEnumerable<CommentaryIndexDriverEntity>>(_view.CommentaryIndexDrivers);
@@ -177,11 +182,6 @@ namespace App.WindowsForms.Controllers
             UpdateServiceFromModel<IEnumerable<CommentaryPrefixTeamModel>, IEnumerable<CommentaryPrefixTeamEntity>>(_configureGameApplicationService.DomainModel.Commentaries.SetCommentaryPrefixTeams, _view.CommentaryPrefixTeams);
 
             UpdateServiceFromModel<IEnumerable<PerformanceCurveModel>, IEnumerable<PerformanceCurveEntity>>(_configureGameApplicationService.DomainModel.PerformanceCurveValues.SetPerformanceCurves, _view.PerformanceCurves);
-        }
-
-        public void RunEditPerformanceCurveForm()
-        {
-            _performanceCurveValuesController.Run(_view);
         }
     }
 }

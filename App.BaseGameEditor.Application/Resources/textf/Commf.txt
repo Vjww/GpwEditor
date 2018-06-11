@@ -65,7 +65,7 @@
 >P20.WAV 20ème<
 >P21.WAV 21ème<
 >P22.WAV 22ème<
->NEWHP1.WAV Jacques Villeneuve 1er<
+>NEWHP1.WAV John Newhouse 1er<
 >FRENP1.WAV Heinz-Harald Frentzen 1er<
 >TOYP1.WAV Juan Pablo Montoya 1er<
 >SCHUP1.WAV Michael Schumacher 1er<
@@ -73,13 +73,13 @@
 >BADP1.WAV Luca Badoer 1er<
 >FISP1.WAV Giancarlo Fisichella 1er<
 >WURZP1.WAV Alexander Wurz 1er<
->ANONP1.WAV Jason Watt 1er<
+>ANONP1.WAV Pilote Inconnu 1er<
 >HAKP1.WAV Mika Hakkinen 1er<
 >COULP1.WAV David Coulthard 1er<
 >ZONP1.WAV Ricardo Zonta 1er<
 >HILP1.WAV Damon Hill 1er<
 >RALFP1.WAV Ralf Schumacher 1er<
->ANONP1.WAV Juichi Wakisaka 1er<
+>ANONP1.WAV Pilote Inconnu 1er<
 >PANP1.WAV Olivier Panis 1er<
 >TRUP1.WAV Jarno Trulli 1er<
 >SARP1.WAV Stéphane Sarrazin 1er<
@@ -91,7 +91,7 @@
 >COLP1.WAV Emmanuel Collard 1er<
 >BARIP1.WAV Rubens Barrichello 1er<
 >MAGP1.WAV Jan Magnussen 1er<
->ANONP1.WAV Mário Haberfeld 1er<
+>ANONP1.WAV Pilote Inconnu 1er<
 >TAKP1.WAV Ricardo Rosset 1er<
 >ROSP1.WAV Toranosuke Takagi 1er<
 >MONTP1.WAV Andrea Montermini 1er<
@@ -106,7 +106,7 @@
 >PATP1.WAV Dan Paterson 1er<
 >FELLP1.WAV John Fellowes 1er<
 >LAURP1.WAV Dario Laureti 1er<
->NEWHP2.WAV Jacques Villeneuve 2ème<
+>NEWHP2.WAV John Newhouse 2ème<
 >FRENP2.WAV Heinz-Harald Frentzen 2ème<
 >TOYP2.WAV Juan Pablo Montoya 2ème<
 >SCHUP2.WAV Michael Schumacher 2ème<
@@ -114,13 +114,13 @@
 >BADP2.WAV Luca Badoer 2ème<
 >FISP2.WAV Giancarlo Fisichella 2ème<
 >WURZP2.WAV Alexander Wurz 2ème<
->ANONP2.WAV Jason Watt 2ème<
+>ANONP2.WAV Pilote Inconnu 2ème<
 >HAKP2.WAV Mika Hakkinen 2ème<
 >COULP2.WAV David Coulthard 2ème<
 >ZONP2.WAV Ricardo Zonta 2ème<
 >HILP2.WAV Damon Hill 2ème<
 >RALFP2.WAV Ralf Schumacher 2ème<
->ANONP2.WAV Juichi Wakisaka 2ème<
+>ANONP2.WAV Pilote Inconnu 2ème<
 >PANP2.WAV Olivier Panis 2ème<
 >TRUP2.WAV Jarno Trulli 2ème<
 >SARP2.WAV Stéphane Sarrazin 2ème<
@@ -132,7 +132,7 @@
 >COLP2.WAV Emmanuel Collard 2ème<
 >BARIP2.WAV Rubens Barrichello 2ème<
 >MAGP2.WAV Jan Magnussen 2ème<
->ANONP2.WAV Mário Haberfeld 2ème<
+>ANONP2.WAV Pilote Inconnu 2ème<
 >TAKP2.WAV Ricardo Rosset 2ème<
 >ROSP2.WAV Toranosuke Takagi 2ème<
 >MONTP2.WAV Andrea Montermini 2ème<
@@ -147,7 +147,7 @@
 >PATP2.WAV Dan Paterson 2ème<
 >FELLP2.WAV John Fellowes 2ème<
 >LAURP2.WAV Dario Laureti 2ème<
->NEWHP3.WAV Jacques Villeneuve 3ème<
+>NEWHP3.WAV John Newhouse 3ème<
 >FRENP3.WAV Heinz-Harald Frentzen 3ème<
 >TOYP3.WAV Juan Pablo Montoya 3ème<
 >SCHUP3.WAV Michael Schumacher 3ème<
@@ -155,13 +155,13 @@
 >BADP3.WAV Luca Badoer 3ème<
 >FISP3.WAV Giancarlo Fisichella 3ème<
 >WURZP3.WAV Alexander Wurz 3ème<
->ANONP3.WAV Jason Watt 3ème<
+>ANONP3.WAV Pilote Inconnu 3ème<
 >HAKP3.WAV Mika Hakkinen 3ème<
 >COULP3.WAV David Coulthard 3ème<
 >ZONP3.WAV Ricardo Zonta 3ème<
 >HILP3.WAV Damon Hill 3ème<
 >RALFP3.WAV Ralf Schumacher 3ème<
->ANONP3.WAV Juichi Wakisaka 3ème<
+>ANONP3.WAV Pilote Inconnu 3ème<
 >PANP3.WAV Olivier Panis 3ème<
 >TRUP3.WAV Jarno Trulli 3ème<
 >SARP3.WAV Stéphane Sarrazin 3ème<
@@ -173,7 +173,7 @@
 >COLP3.WAV Emmanuel Collard 3ème<
 >BARIP3.WAV Rubens Barrichello 3ème<
 >MAGP3.WAV Jan Magnussen 3ème<
->ANONP3.WAV Mário Haberfeld 3ème<
+>ANONP3.WAV Pilote Inconnu 3ème<
 >TAKP3.WAV Ricardo Rosset 3ème<
 >ROSP3.WAV Toranosuke Takagi 3ème<
 >MONTP3.WAV Andrea Montermini 3ème<
@@ -188,7 +188,7 @@
 >PATP3.WAV Dan Paterson 3ème<
 >FELLP3.WAV John Fellowes 3ème<
 >LAURP3.WAV Dario Laureti 3ème<
->NEWHOUT.WAV Jacques Villeneuve hors course.<
+>NEWHOUT.WAV John Newhouse hors course.<
 >FRENOUT.WAV Heinz-Harald Frentzen hors course.<
 >TOYOUT.WAV Juan Pablo Montoya hors course.<
 >SCHUOUT.WAV Michael Schumacher hors course.<
@@ -196,13 +196,13 @@
 >BADOUT.WAV Luca Badoer hors course.<
 >FISOUT.WAV Giancarlo Fisichella hors course.<
 >WURZOUT.WAV Alexander Wurz hors course.<
->ANONOUT.WAV Jason Watt hors course.<
+>ANONOUT.WAV Pilote Inconnu hors course.<
 >HAKOUT.WAV Mika Hakkinen hors course.<
 >COULOUT.WAV David Coulthard hors course.<
 >ZONOUT.WAV Ricardo Zonta hors course.<
 >HILOUT.WAV Damon Hill hors course.<
 >RALFOUT.WAV Ralf Schumacher hors course.<
->ANONOUT.WAV Juichi Wakisaka hors course.<
+>ANONOUT.WAV Pilote Inconnu hors course.<
 >PANOUT.WAV Olivier Panis hors course.<
 >TRUOUT.WAV Jarno Trulli hors course.<
 >SAROUT.WAV Stéphane Sarrazin hors course.<
@@ -214,7 +214,7 @@
 >COLOUT.WAV Emmanuel Collard hors course.<
 >BARIOUT.WAV Rubens Barrichello hors course.<
 >MAGOUT.WAV Jan Magnussen hors course.<
->ANONOUT.WAV Mário Haberfeld hors course.<
+>ANONOUT.WAV Pilote Inconnu hors course.<
 >TAKOUT.WAV Ricardo Rosset hors course.<
 >ROSOUT.WAV Toranosuke Takagi hors course.<
 >MONTOUT.WAV Andrea Montermini hors course.<
@@ -241,7 +241,7 @@
 >TYROUT.WAV Tyrrell hors course.<
 >MINOUT.WAV Minardi hors course.<
 >WEREOUT.WAV Ca y est. La course est finie.<
->NEWHPIT.WAV Jacques Villeneuve aux stands.<
+>NEWHPIT.WAV John Newhouse aux stands.<
 >FRENPIT.WAV Heinz-Harald Frentzen aux stands.<
 >TOYPIT.WAV Juan Pablo Montoya aux stands.<
 >SCHUPIT.WAV Michael Schumacher aux stands.<
@@ -249,13 +249,13 @@
 >BADPIT.WAV Luca Badoer aux stands.<
 >FISPIT.WAV Giancarlo Fisichella aux stands.<
 >WURZPIT.WAV Alexander Wurz aux stands.<
->ANONPIT.WAV Jason Watt aux stands.<
+>ANONPIT.WAV Pilote Inconnu aux stands.<
 >HAKPIT.WAV Mika Hakkinen aux stands.<
 >COULPIT.WAV David Coulthard aux stands.<
 >ZONPIT.WAV Ricardo Zonta aux stands.<
 >HILPIT.WAV Damon Hill aux stands.<
 >RALFPIT.WAV Ralf Schumacher aux stands.<
->ANONPIT.WAV Juichi Wakisaka aux stands.<
+>ANONPIT.WAV Pilote Inconnu aux stands.<
 >PANPIT.WAV Olivier Panis aux stands.<
 >TRUPIT.WAV Jarno Trulli aux stands.<
 >SARPIT.WAV Stéphane Sarrazin aux stands.<
@@ -267,7 +267,7 @@
 >COLPIT.WAV Emmanuel Collard aux stands.<
 >BARIPIT.WAV Rubens Barrichello aux stands.<
 >MAGPIT.WAV Jan Magnussen aux stands.<
->ANONPIT.WAV Mário Haberfeld aux stands.<
+>ANONPIT.WAV Pilote Inconnu aux stands.<
 >TAKPIT.WAV Ricardo Rosset aux stands.<
 >ROSPIT.WAV Toranosuke Takagi aux stands.<
 >MONTPIT.WAV Andrea Montermini aux stands.<

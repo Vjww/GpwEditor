@@ -65,7 +65,7 @@
 >P20.WAV Platz 20<
 >P21.WAV Platz 21<
 >P22.WAV Platz 22<
->NEWHP1.WAV Jacques Villeneuve Platz 1<
+>NEWHP1.WAV John Newhouse Platz 1<
 >FRENP1.WAV Heinz-Harald Frentzen Platz 1<
 >TOYP1.WAV Juan Pablo Montoya Platz 1<
 >SCHUP1.WAV Michael Schumacher Platz 1<
@@ -73,13 +73,13 @@
 >BADP1.WAV Luca Badoer Platz 1<
 >FISP1.WAV Giancarlo Fisichella Platz 1<
 >WURZP1.WAV Alexander Wurz Platz 1<
->ANONP1.WAV Jason Watt Platz 1<
+>ANONP1.WAV Fahrer unbekannt Platz 1<
 >HAKP1.WAV Mika Hakkinen Platz 1<
 >COULP1.WAV David Coulthard Platz 1<
 >ZONP1.WAV Ricardo Zonta Platz 1<
 >HILP1.WAV Damon Hill Platz 1<
 >RALFP1.WAV Ralf Schumacher Platz 1<
->ANONP1.WAV Juichi Wakisaka Platz 1<
+>ANONP1.WAV Fahrer unbekannt Platz 1<
 >PANP1.WAV Olivier Panis Platz 1<
 >TRUP1.WAV Jarno Trulli Platz 1<
 >SARP1.WAV Stéphane Sarrazin Platz 1<
@@ -91,7 +91,7 @@
 >COLP1.WAV Emmanuel Collard Platz 1<
 >BARIP1.WAV Rubens Barrichello Platz 1<
 >MAGP1.WAV Jan Magnussen Platz 1<
->ANONP1.WAV Mário Haberfeld Platz 1<
+>ANONP1.WAV Fahrer unbekannt Platz 1<
 >TAKP1.WAV Ricardo Rosset Platz 1<
 >ROSP1.WAV Toranosuke Takagi Platz 1<
 >MONTP1.WAV Andrea Montermini Platz 1<
@@ -106,7 +106,7 @@
 >PATP1.WAV Dan Paterson Platz 1<
 >FELLP1.WAV John Fellowes Platz 1<
 >LAURP1.WAV Dario Laureti Platz 1<
->NEWHP2.WAV Jacques Villeneuve Platz 2<
+>NEWHP2.WAV John Newhouse Platz 2<
 >FRENP2.WAV Heinz-Harald Frentzen Platz 2<
 >TOYP2.WAV Juan Pablo Montoya Platz 2<
 >SCHUP2.WAV Michael Schumacher Platz 2<
@@ -114,13 +114,13 @@
 >BADP2.WAV Luca Badoer Platz 2<
 >FISP2.WAV Giancarlo Fisichella Platz 2<
 >WURZP2.WAV Alexander Wurz Platz 2<
->ANONP2.WAV Jason Watt Platz 2<
+>ANONP2.WAV Fahrer unbekannt Platz 2<
 >HAKP2.WAV Mika Hakkinen Platz 2<
 >COULP2.WAV David Coulthard Platz 2<
 >ZONP2.WAV Ricardo Zonta Platz 2<
 >HILP2.WAV Damon Hill Platz 2<
 >RALFP2.WAV Ralf Schumacher Platz 2<
->ANONP2.WAV Juichi Wakisaka Platz 2<
+>ANONP2.WAV Fahrer unbekannt Platz 2<
 >PANP2.WAV Olivier Panis Platz 2<
 >TRUP2.WAV Jarno Trulli Platz 2<
 >SARP2.WAV Stéphane Sarrazin Platz 2<
@@ -132,7 +132,7 @@
 >COLP2.WAV Emmanuel Collard Platz 2<
 >BARIP2.WAV Rubens Barrichello Platz 2<
 >MAGP2.WAV Jan Magnussen Platz 2<
->ANONP2.WAV Mário Haberfeld Platz 2<
+>ANONP2.WAV Fahrer unbekannt Platz 2<
 >TAKP2.WAV Ricardo Rosset Platz 2<
 >ROSP2.WAV Toranosuke Takagi Platz 2<
 >MONTP2.WAV Andrea Montermini Platz 2<
@@ -147,7 +147,7 @@
 >PATP2.WAV Dan Paterson Platz 2<
 >FELLP2.WAV John Fellowes Platz 2<
 >LAURP2.WAV Dario Laureti Platz 2<
->NEWHP3.WAV Jacques Villeneuve Platz 3<
+>NEWHP3.WAV John Newhouse Platz 3<
 >FRENP3.WAV Heinz-Harald Frentzen Platz 3<
 >TOYP3.WAV Juan Pablo Montoya Platz 3<
 >SCHUP3.WAV Michael Schumacher Platz 3<
@@ -155,13 +155,13 @@
 >BADP3.WAV Luca Badoer Platz 3<
 >FISP3.WAV Giancarlo Fisichella Platz 3<
 >WURZP3.WAV Alexander Wurz Platz 3<
->ANONP3.WAV Jason Watt Platz 3<
+>ANONP3.WAV Fahrer unbekannt Platz 3<
 >HAKP3.WAV Mika Hakkinen Platz 3<
 >COULP3.WAV David Coulthard Platz 3<
 >ZONP3.WAV Ricardo Zonta Platz 3<
 >HILP3.WAV Damon Hill Platz 3<
 >RALFP3.WAV Ralf Schumacher Platz 3<
->ANONP3.WAV Juichi Wakisaka Platz 3<
+>ANONP3.WAV Fahrer unbekannt Platz 3<
 >PANP3.WAV Olivier Panis Platz 3<
 >TRUP3.WAV Jarno Trulli Platz 3<
 >SARP3.WAV Stéphane Sarrazin Platz 3<
@@ -173,7 +173,7 @@
 >COLP3.WAV Emmanuel Collard Platz 3<
 >BARIP3.WAV Rubens Barrichello Platz 3<
 >MAGP3.WAV Jan Magnussen Platz 3<
->ANONP3.WAV Mário Haberfeld Platz 3<
+>ANONP3.WAV Fahrer unbekannt Platz 3<
 >TAKP3.WAV Ricardo Rosset Platz 3<
 >ROSP3.WAV Toranosuke Takagi Platz 3<
 >MONTP3.WAV Andrea Montermini Platz 3<
@@ -188,7 +188,7 @@
 >PATP3.WAV Dan Paterson Platz 3<
 >FELLP3.WAV John Fellowes Platz 3<
 >LAURP3.WAV Dario Laureti Platz 3<
->NEWHOUT.WAV Jacques Villeneuve ist raus.<
+>NEWHOUT.WAV John Newhouse ist raus.<
 >FRENOUT.WAV Heinz-Harald Frentzen ist raus.<
 >TOYOUT.WAV Juan Pablo Montoya ist raus.<
 >SCHUOUT.WAV Michael Schumacher ist raus.<
@@ -196,13 +196,13 @@
 >BADOUT.WAV Luca Badoer ist raus.<
 >FISOUT.WAV Giancarlo Fisichella ist raus.<
 >WURZOUT.WAV Alexander Wurz ist raus.<
->ANONOUT.WAV Jason Watt ist raus.<
+>ANONOUT.WAV Fahrer unbekannt ist raus.<
 >HAKOUT.WAV Mika Hakkinen ist raus.<
 >COULOUT.WAV David Coulthard ist raus.<
 >ZONOUT.WAV Ricardo Zonta ist raus.<
 >HILOUT.WAV Damon Hill ist raus.<
 >RALFOUT.WAV Ralf Schumacher ist raus.<
->ANONOUT.WAV Juichi Wakisaka ist raus.<
+>ANONOUT.WAV Fahrer unbekannt ist raus.<
 >PANOUT.WAV Olivier Panis ist raus.<
 >TRUOUT.WAV Jarno Trulli ist raus.<
 >SAROUT.WAV Stéphane Sarrazin ist raus.<
@@ -214,7 +214,7 @@
 >COLOUT.WAV Emmanuel Collard ist raus.<
 >BARIOUT.WAV Rubens Barrichello ist raus.<
 >MAGOUT.WAV Jan Magnussen ist raus.<
->ANONOUT.WAV Mário Haberfeld ist raus.<
+>ANONOUT.WAV Fahrer unbekannt ist raus.<
 >TAKOUT.WAV Ricardo Rosset ist raus.<
 >ROSOUT.WAV Toranosuke Takagi ist raus.<
 >MONTOUT.WAV Andrea Montermini ist raus.<
@@ -241,7 +241,7 @@
 >TYROUT.WAV Tyrrell ist raus.<
 >MINOUT.WAV Minardi ist raus.<
 >WEREOUT.WAV Das war's. Das Rennen ist gelaufen.<
->NEWHPIT.WAV Jacques Villeneuve an der Box.<
+>NEWHPIT.WAV John Newhouse an der Box.<
 >FRENPIT.WAV Heinz-Harald Frentzen an der Box.<
 >TOYPIT.WAV Juan Pablo Montoya an der Box.<
 >SCHUPIT.WAV Michael Schumacher an der Box.<
@@ -249,13 +249,13 @@
 >BADPIT.WAV Luca Badoer an der Box.<
 >FISPIT.WAV Giancarlo Fisichella an der Box.<
 >WURZPIT.WAV Alexander Wurz an der Box.<
->ANONPIT.WAV Jason Watt an der Box.<
+>ANONPIT.WAV Fahrer unbekannt an der Box.<
 >HAKPIT.WAV Mika Hakkinen an der Box.<
 >COULPIT.WAV David Coulthard an der Box.<
 >ZONPIT.WAV Ricardo Zonta an der Box.<
 >HILPIT.WAV Damon Hill an der Box.<
 >RALFPIT.WAV Ralf Schumacher an der Box.<
->ANONPIT.WAV Juichi Wakisaka an der Box.<
+>ANONPIT.WAV Fahrer unbekannt an der Box.<
 >PANPIT.WAV Olivier Panis an der Box.<
 >TRUPIT.WAV Jarno Trulli an der Box.<
 >SARPIT.WAV Stéphane Sarrazin an der Box.<
@@ -267,7 +267,7 @@
 >COLPIT.WAV Emmanuel Collard an der Box.<
 >BARIPIT.WAV Rubens Barrichello an der Box.<
 >MAGPIT.WAV Jan Magnussen an der Box.<
->ANONPIT.WAV Mário Haberfeld an der Box.<
+>ANONPIT.WAV Fahrer unbekannt an der Box.<
 >TAKPIT.WAV Ricardo Rosset an der Box.<
 >ROSPIT.WAV Toranosuke Takagi an der Box.<
 >MONTPIT.WAV Andrea Montermini an der Box.<

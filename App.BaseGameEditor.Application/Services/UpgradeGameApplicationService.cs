@@ -125,6 +125,7 @@ namespace App.BaseGameEditor.Application.Services
 
         private void UpgradeDriverNames()
         {
+            // Update the domain to update the names in the language file(s)
             var drivers = DomainModel.Persons.GetF1Drivers().ToList();
 
             drivers.Single(x => x.Id == 0).Name = "Jacques Villeneuve"; // Replaces "John Newhouse" (Williams)
@@ -133,6 +134,22 @@ namespace App.BaseGameEditor.Application.Services
             drivers.Single(x => x.Id == 26).Name = "Mário Haberfeld";   // Replaces "Driver Unknown" (Stewart)
 
             DomainModel.Persons.SetF1Drivers(drivers);
+
+            // Update the domain so each commentary line affected by a change in driver name is updated
+            var commentaries = DomainModel.Commentaries.GetCommentaryDrivers().ToList();
+
+            commentaries.Single(x => x.Id == 0).Name = drivers.Single(x => x.Id == 0).Name;   // Name as defined above replaces "John Newhouse" (Williams)
+            commentaries.Single(x => x.Id == 8).Name = drivers.Single(x => x.Id == 8).Name;   // Name as defined above replaces "Driver Unknown" (Benetton)
+            commentaries.Single(x => x.Id == 14).Name = drivers.Single(x => x.Id == 14).Name; // Name as defined above replaces "Driver Unknown" (Jordan)
+            commentaries.Single(x => x.Id == 26).Name = drivers.Single(x => x.Id == 26).Name; // Name as defined above replaces "Driver Unknown" (Stewart)
+
+            DomainModel.Commentaries.SetCommentaryDrivers(commentaries);
+
+            // TODO: Could also do a post processing step on the language and commentary files? Once primary fields have been written?
+            // TODO: e.g. Languages.UpdateDriverNames();
+            // TODO: e.g. Languages.UpdateTeamNames();
+            // TODO: e.g. Commentaries.UpdateDriverNames(driverNames);
+            // TODO: e.g. Commentaries.UpdateTeamNames(teamNames);
         }
 
         private void UpgradeDriverCommentaryIndices()

@@ -31,6 +31,16 @@ namespace App.BaseGameEditor.Application.Maps.AutoMapper
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ReverseMap()
                 .ForMember(src => src.Id, opt => opt.Ignore());
+
+            CreateMap<CommentaryDriverDataEntity, CommentaryDriverEntity>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ReverseMap()
+                .ForMember(src => src.Id, opt => opt.Ignore());
+
+            CreateMap<CommentaryTeamDataEntity, CommentaryTeamEntity>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ReverseMap()
+                .ForMember(src => src.Id, opt => opt.Ignore());
         }
     }
 }
