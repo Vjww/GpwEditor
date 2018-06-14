@@ -109,6 +109,7 @@ namespace App.BaseGameEditor.Application.Services
 
             // Apply changes to the domain
             UpgradeDriverNames();
+            UpgradeDriverFileNamePrefixes();
             UpgradeDriverCommentaryIndices();
             UpgradeTeamCommentaryIndices();
 
@@ -126,105 +127,115 @@ namespace App.BaseGameEditor.Application.Services
         private void UpgradeDriverNames()
         {
             // Update the domain to update the names in the language file(s)
-            var drivers = DomainModel.Persons.GetF1Drivers().ToList();
+            var f1Drivers = DomainModel.Persons.GetF1Drivers().ToList();
 
-            drivers.Single(x => x.Id == 0).Name = "Jacques Villeneuve"; // Replaces "John Newhouse" (Williams)
-            drivers.Single(x => x.Id == 8).Name = "Jason Watt";         // Replaces "Driver Unknown" (Benetton)
-            drivers.Single(x => x.Id == 14).Name = "Juichi Wakisaka";   // Replaces "Driver Unknown" (Jordan)
-            drivers.Single(x => x.Id == 26).Name = "Mário Haberfeld";   // Replaces "Driver Unknown" (Stewart)
+            f1Drivers.Single(x => x.Id == 0).Name = "Jacques Villeneuve"; // Replaces "John Newhouse" (Williams)
+            f1Drivers.Single(x => x.Id == 8).Name = "Jason Watt";         // Replaces "Driver Unknown" (Benetton)
+            f1Drivers.Single(x => x.Id == 14).Name = "Juichi Wakisaka";   // Replaces "Driver Unknown" (Jordan)
+            f1Drivers.Single(x => x.Id == 26).Name = "Mário Haberfeld";   // Replaces "Driver Unknown" (Stewart)
 
-            DomainModel.Persons.SetF1Drivers(drivers);
+            DomainModel.Persons.SetF1Drivers(f1Drivers);
 
             // Update the domain so each commentary line affected by a change in driver name is updated
-            var commentaries = DomainModel.Commentaries.GetCommentaryDrivers().ToList();
+            var commentaryDrivers = DomainModel.Commentaries.GetCommentaryDrivers().ToList();
 
-            commentaries.Single(x => x.Id == 0).Name = drivers.Single(x => x.Id == 0).Name;   // Name as defined above replaces "John Newhouse" (Williams)
-            commentaries.Single(x => x.Id == 8).Name = drivers.Single(x => x.Id == 8).Name;   // Name as defined above replaces "Driver Unknown" (Benetton)
-            commentaries.Single(x => x.Id == 14).Name = drivers.Single(x => x.Id == 14).Name; // Name as defined above replaces "Driver Unknown" (Jordan)
-            commentaries.Single(x => x.Id == 26).Name = drivers.Single(x => x.Id == 26).Name; // Name as defined above replaces "Driver Unknown" (Stewart)
+            commentaryDrivers.Single(x => x.Id == 0).Name = f1Drivers.Single(x => x.Id == 0).Name;   // Name as defined above
+            commentaryDrivers.Single(x => x.Id == 8).Name = f1Drivers.Single(x => x.Id == 8).Name;   // Name as defined above
+            commentaryDrivers.Single(x => x.Id == 14).Name = f1Drivers.Single(x => x.Id == 14).Name; // Name as defined above
+            commentaryDrivers.Single(x => x.Id == 26).Name = f1Drivers.Single(x => x.Id == 26).Name; // Name as defined above 
 
-            DomainModel.Commentaries.SetCommentaryDrivers(commentaries);
+            DomainModel.Commentaries.SetCommentaryDrivers(commentaryDrivers);
+        }
 
-            // TODO: Could also do a post processing step on the language and commentary files? Once primary fields have been written?
-            // TODO: e.g. Languages.UpdateDriverNames();
-            // TODO: e.g. Languages.UpdateTeamNames();
-            // TODO: e.g. Commentaries.UpdateDriverNames(driverNames);
-            // TODO: e.g. Commentaries.UpdateTeamNames(teamNames);
+        private void UpgradeDriverFileNamePrefixes()
+        {
+            // Update the domain to update the file name prefix in the commentary file(s)
+            var commentaryPrefixDrivers = DomainModel.Commentaries.GetCommentaryPrefixDrivers().ToList();
+
+            commentaryPrefixDrivers.Single(x => x.Id == 0).FileNamePrefix = "ANON";  // Replaces "NEWH"
+            commentaryPrefixDrivers.Single(x => x.Id == 8).FileNamePrefix = "ANON";  // Confirms "ANON"
+            commentaryPrefixDrivers.Single(x => x.Id == 14).FileNamePrefix = "ANON"; // Confirms "ANON"
+            commentaryPrefixDrivers.Single(x => x.Id == 26).FileNamePrefix = "ANON"; // Confirms "ANON"
+
+            DomainModel.Commentaries.SetCommentaryPrefixDrivers(commentaryPrefixDrivers);
+
+            // Update the domain so each commentary line affected by a change in file name prefix is updated
+            var commentaryDrivers = DomainModel.Commentaries.GetCommentaryDrivers().ToList();
+
+            commentaryDrivers.Single(x => x.Id == 0).FileNamePrefix = commentaryPrefixDrivers.Single(x => x.Id == 0).FileNamePrefix;   // FileNamePrefix as defined above
+            commentaryDrivers.Single(x => x.Id == 8).FileNamePrefix = commentaryPrefixDrivers.Single(x => x.Id == 8).FileNamePrefix;   // FileNamePrefix as defined above
+            commentaryDrivers.Single(x => x.Id == 14).FileNamePrefix = commentaryPrefixDrivers.Single(x => x.Id == 14).FileNamePrefix; // FileNamePrefix as defined above
+            commentaryDrivers.Single(x => x.Id == 26).FileNamePrefix = commentaryPrefixDrivers.Single(x => x.Id == 26).FileNamePrefix; // FileNamePrefix as defined above
+
+            DomainModel.Commentaries.SetCommentaryDrivers(commentaryDrivers);
         }
 
         private void UpgradeDriverCommentaryIndices()
         {
-            var drivers = DomainModel.Commentaries.GetCommentaryIndexDrivers().ToList();
-            drivers.Single(x => x.Id == 0).CommentaryIndex = 67;
-            drivers.Single(x => x.Id == 1).CommentaryIndex = 68;
-            drivers.Single(x => x.Id == 2).CommentaryIndex = 69;
-            drivers.Single(x => x.Id == 3).CommentaryIndex = 70;
-            drivers.Single(x => x.Id == 4).CommentaryIndex = 71;
-            drivers.Single(x => x.Id == 5).CommentaryIndex = 72;
-            drivers.Single(x => x.Id == 6).CommentaryIndex = 73;
-            drivers.Single(x => x.Id == 7).CommentaryIndex = 74;
-            drivers.Single(x => x.Id == 8).CommentaryIndex = 75;
-            drivers.Single(x => x.Id == 9).CommentaryIndex = 76;
-            drivers.Single(x => x.Id == 10).CommentaryIndex = 77;
-            drivers.Single(x => x.Id == 11).CommentaryIndex = 78;
-            drivers.Single(x => x.Id == 12).CommentaryIndex = 79;
-            drivers.Single(x => x.Id == 13).CommentaryIndex = 80;
-            drivers.Single(x => x.Id == 14).CommentaryIndex = 81;
-            drivers.Single(x => x.Id == 15).CommentaryIndex = 82;
-            drivers.Single(x => x.Id == 16).CommentaryIndex = 83;
-            drivers.Single(x => x.Id == 17).CommentaryIndex = 84;
-            drivers.Single(x => x.Id == 18).CommentaryIndex = 85;
-            drivers.Single(x => x.Id == 19).CommentaryIndex = 86;
-            drivers.Single(x => x.Id == 20).CommentaryIndex = 87;
-            drivers.Single(x => x.Id == 21).CommentaryIndex = 88;
-            drivers.Single(x => x.Id == 22).CommentaryIndex = 89;
-            drivers.Single(x => x.Id == 23).CommentaryIndex = 90;
-            drivers.Single(x => x.Id == 24).CommentaryIndex = 91;
-            drivers.Single(x => x.Id == 25).CommentaryIndex = 92;
-            drivers.Single(x => x.Id == 26).CommentaryIndex = 93;
-            drivers.Single(x => x.Id == 27).CommentaryIndex = 94;
-            drivers.Single(x => x.Id == 28).CommentaryIndex = 95;
-            drivers.Single(x => x.Id == 29).CommentaryIndex = 96;
-            drivers.Single(x => x.Id == 30).CommentaryIndex = 97;
-            drivers.Single(x => x.Id == 31).CommentaryIndex = 98;
-            drivers.Single(x => x.Id == 32).CommentaryIndex = 99;
-            drivers.Single(x => x.Id == 33).CommentaryIndex = 100;
-            drivers.Single(x => x.Id == 34).CommentaryIndex = 101;
-            drivers.Single(x => x.Id == 35).CommentaryIndex = 102;
-            drivers.Single(x => x.Id == 36).CommentaryIndex = 103;
-            drivers.Single(x => x.Id == 37).CommentaryIndex = 104;
-            drivers.Single(x => x.Id == 38).CommentaryIndex = 105;
-            drivers.Single(x => x.Id == 39).CommentaryIndex = 106;
-            drivers.Single(x => x.Id == 40).CommentaryIndex = 107; // Shared
-            drivers.Single(x => x.Id == 41).CommentaryIndex = 107; // Shared
-            drivers.Single(x => x.Id == 42).CommentaryIndex = 107; // Shared
-            drivers.Single(x => x.Id == 43).CommentaryIndex = 107; // Shared
-            DomainModel.Commentaries.SetCommentaryIndexDrivers(drivers);
+            var commentaryIndexDrivers = DomainModel.Commentaries.GetCommentaryIndexDrivers().ToList();
+            commentaryIndexDrivers.Single(x => x.Id == 0).CommentaryIndex = 67;
+            commentaryIndexDrivers.Single(x => x.Id == 1).CommentaryIndex = 68;
+            commentaryIndexDrivers.Single(x => x.Id == 2).CommentaryIndex = 69;
+            commentaryIndexDrivers.Single(x => x.Id == 3).CommentaryIndex = 70;
+            commentaryIndexDrivers.Single(x => x.Id == 4).CommentaryIndex = 71;
+            commentaryIndexDrivers.Single(x => x.Id == 5).CommentaryIndex = 72;
+            commentaryIndexDrivers.Single(x => x.Id == 6).CommentaryIndex = 73;
+            commentaryIndexDrivers.Single(x => x.Id == 7).CommentaryIndex = 74;
+            commentaryIndexDrivers.Single(x => x.Id == 8).CommentaryIndex = 75;
+            commentaryIndexDrivers.Single(x => x.Id == 9).CommentaryIndex = 76;
+            commentaryIndexDrivers.Single(x => x.Id == 10).CommentaryIndex = 77;
+            commentaryIndexDrivers.Single(x => x.Id == 11).CommentaryIndex = 78;
+            commentaryIndexDrivers.Single(x => x.Id == 12).CommentaryIndex = 79;
+            commentaryIndexDrivers.Single(x => x.Id == 13).CommentaryIndex = 80;
+            commentaryIndexDrivers.Single(x => x.Id == 14).CommentaryIndex = 81;
+            commentaryIndexDrivers.Single(x => x.Id == 15).CommentaryIndex = 82;
+            commentaryIndexDrivers.Single(x => x.Id == 16).CommentaryIndex = 83;
+            commentaryIndexDrivers.Single(x => x.Id == 17).CommentaryIndex = 84;
+            commentaryIndexDrivers.Single(x => x.Id == 18).CommentaryIndex = 85;
+            commentaryIndexDrivers.Single(x => x.Id == 19).CommentaryIndex = 86;
+            commentaryIndexDrivers.Single(x => x.Id == 20).CommentaryIndex = 87;
+            commentaryIndexDrivers.Single(x => x.Id == 21).CommentaryIndex = 88;
+            commentaryIndexDrivers.Single(x => x.Id == 22).CommentaryIndex = 89;
+            commentaryIndexDrivers.Single(x => x.Id == 23).CommentaryIndex = 90;
+            commentaryIndexDrivers.Single(x => x.Id == 24).CommentaryIndex = 91;
+            commentaryIndexDrivers.Single(x => x.Id == 25).CommentaryIndex = 92;
+            commentaryIndexDrivers.Single(x => x.Id == 26).CommentaryIndex = 93;
+            commentaryIndexDrivers.Single(x => x.Id == 27).CommentaryIndex = 94;
+            commentaryIndexDrivers.Single(x => x.Id == 28).CommentaryIndex = 95;
+            commentaryIndexDrivers.Single(x => x.Id == 29).CommentaryIndex = 96;
+            commentaryIndexDrivers.Single(x => x.Id == 30).CommentaryIndex = 97;
+            commentaryIndexDrivers.Single(x => x.Id == 31).CommentaryIndex = 98;
+            commentaryIndexDrivers.Single(x => x.Id == 32).CommentaryIndex = 99;
+            commentaryIndexDrivers.Single(x => x.Id == 33).CommentaryIndex = 100;
+            commentaryIndexDrivers.Single(x => x.Id == 34).CommentaryIndex = 101;
+            commentaryIndexDrivers.Single(x => x.Id == 35).CommentaryIndex = 102;
+            commentaryIndexDrivers.Single(x => x.Id == 36).CommentaryIndex = 103;
+            commentaryIndexDrivers.Single(x => x.Id == 37).CommentaryIndex = 104;
+            commentaryIndexDrivers.Single(x => x.Id == 38).CommentaryIndex = 105;
+            commentaryIndexDrivers.Single(x => x.Id == 39).CommentaryIndex = 106;
+            commentaryIndexDrivers.Single(x => x.Id == 40).CommentaryIndex = 107; // Shared
+            commentaryIndexDrivers.Single(x => x.Id == 41).CommentaryIndex = 107; // Shared
+            commentaryIndexDrivers.Single(x => x.Id == 42).CommentaryIndex = 107; // Shared
+            commentaryIndexDrivers.Single(x => x.Id == 43).CommentaryIndex = 107; // Shared
+            DomainModel.Commentaries.SetCommentaryIndexDrivers(commentaryIndexDrivers);
         }
 
         private void UpgradeTeamCommentaryIndices()
         {
-            var teams = DomainModel.Commentaries.GetCommentaryIndexTeams().ToList();
-            teams.Single(x => x.Id == 0).CommentaryIndex = 231;
-            teams.Single(x => x.Id == 1).CommentaryIndex = 232;
-            teams.Single(x => x.Id == 2).CommentaryIndex = 233;
-            teams.Single(x => x.Id == 3).CommentaryIndex = 234;
-            teams.Single(x => x.Id == 4).CommentaryIndex = 235;
-            teams.Single(x => x.Id == 5).CommentaryIndex = 236;
-            teams.Single(x => x.Id == 6).CommentaryIndex = 237;
-            teams.Single(x => x.Id == 7).CommentaryIndex = 238;
-            teams.Single(x => x.Id == 8).CommentaryIndex = 239;
-            teams.Single(x => x.Id == 9).CommentaryIndex = 240;
-            teams.Single(x => x.Id == 10).CommentaryIndex = 241;
-            DomainModel.Commentaries.SetCommentaryIndexTeams(teams);
+            var commentaryIndexTeams = DomainModel.Commentaries.GetCommentaryIndexTeams().ToList();
+            commentaryIndexTeams.Single(x => x.Id == 0).CommentaryIndex = 231;
+            commentaryIndexTeams.Single(x => x.Id == 1).CommentaryIndex = 232;
+            commentaryIndexTeams.Single(x => x.Id == 2).CommentaryIndex = 233;
+            commentaryIndexTeams.Single(x => x.Id == 3).CommentaryIndex = 234;
+            commentaryIndexTeams.Single(x => x.Id == 4).CommentaryIndex = 235;
+            commentaryIndexTeams.Single(x => x.Id == 5).CommentaryIndex = 236;
+            commentaryIndexTeams.Single(x => x.Id == 6).CommentaryIndex = 237;
+            commentaryIndexTeams.Single(x => x.Id == 7).CommentaryIndex = 238;
+            commentaryIndexTeams.Single(x => x.Id == 8).CommentaryIndex = 239;
+            commentaryIndexTeams.Single(x => x.Id == 9).CommentaryIndex = 240;
+            commentaryIndexTeams.Single(x => x.Id == 10).CommentaryIndex = 241;
+            DomainModel.Commentaries.SetCommentaryIndexTeams(commentaryIndexTeams);
         }
-
-        // TODO: Possibly now redundant as we are using a stream of bytes? Rather than a text file
-        //private static void CopyTextResourceToFile(string filePath, string resource)
-        //{
-        //    // https://stackoverflow.com/a/17269952
-        //    File.WriteAllText(filePath, resource, Encoding.GetEncoding(1252)); // Western European (Windows)
-        //}
 
         private void Export(
             string gameFolderPath,

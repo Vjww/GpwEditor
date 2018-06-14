@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using App.BaseGameEditor.Application.Services;
 using App.BaseGameEditor.Domain.Entities;
@@ -176,12 +177,61 @@ namespace App.WindowsForms.Controllers
             _configureGameApplicationService.DomainModel.Configurations.PointsScoringSystemOption2 = _view.PointsScoringSystemOption2;
             _configureGameApplicationService.DomainModel.Configurations.PointsScoringSystemOption3 = _view.PointsScoringSystemOption3;
 
+            // Update commentary driver services
             UpdateServiceFromModel<IEnumerable<CommentaryIndexDriverModel>, IEnumerable<CommentaryIndexDriverEntity>>(_configureGameApplicationService.DomainModel.Commentaries.SetCommentaryIndexDrivers, _view.CommentaryIndexDrivers);
-            UpdateServiceFromModel<IEnumerable<CommentaryIndexTeamModel>, IEnumerable<CommentaryIndexTeamEntity>>(_configureGameApplicationService.DomainModel.Commentaries.SetCommentaryIndexTeams, _view.CommentaryIndexTeams);
             UpdateServiceFromModel<IEnumerable<CommentaryPrefixDriverModel>, IEnumerable<CommentaryPrefixDriverEntity>>(_configureGameApplicationService.DomainModel.Commentaries.SetCommentaryPrefixDrivers, _view.CommentaryPrefixDrivers);
+            SynchroniseChangesToCommentaryDriversService();
+
+            // Update commentary team services
+            UpdateServiceFromModel<IEnumerable<CommentaryIndexTeamModel>, IEnumerable<CommentaryIndexTeamEntity>>(_configureGameApplicationService.DomainModel.Commentaries.SetCommentaryIndexTeams, _view.CommentaryIndexTeams);
             UpdateServiceFromModel<IEnumerable<CommentaryPrefixTeamModel>, IEnumerable<CommentaryPrefixTeamEntity>>(_configureGameApplicationService.DomainModel.Commentaries.SetCommentaryPrefixTeams, _view.CommentaryPrefixTeams);
+            SynchroniseChangesToCommentaryTeamsService();
 
             UpdateServiceFromModel<IEnumerable<PerformanceCurveModel>, IEnumerable<PerformanceCurveEntity>>(_configureGameApplicationService.DomainModel.PerformanceCurveValues.SetPerformanceCurves, _view.PerformanceCurves);
+        }
+
+        private void SynchroniseChangesToCommentaryDriversService()
+        {
+            // Update the domain so each commentary line is synchronised with changes to driver indices and prefixes
+            var commentaryDrivers = _configureGameApplicationService.DomainModel.Commentaries.GetCommentaryDrivers().ToList();
+
+            var commentaryIndexDrivers = _configureGameApplicationService.DomainModel.Commentaries.GetCommentaryIndexDrivers().ToList();
+            var commentaryPrefixDrivers = _configureGameApplicationService.DomainModel.Commentaries.GetCommentaryPrefixDrivers().ToList();
+
+            // Iterate through each commentary line and update line according to values registered against the commentary index
+            var counter = 0;
+            foreach (var item in commentaryDrivers)
+            {
+                // Take first driver if multiple drivers share same commentary index
+                item.Name = commentaryIndexDrivers.First(x => x.CommentaryIndex == 67 + counter).Name;                      // 67 is the first commentary index for drivers
+                item.FileNamePrefix = commentaryPrefixDrivers.First(x => x.CommentaryIndex == 67 + counter).FileNamePrefix; // 67 is the first commentary index for drivers
+
+                counter++;
+            }
+
+            _configureGameApplicationService.DomainModel.Commentaries.SetCommentaryDrivers(commentaryDrivers);
+        }
+
+        private void SynchroniseChangesToCommentaryTeamsService()
+        {
+            // Update the domain so each commentary line is synchronised with changes to team indices and prefixes
+            var commentaryTeams = _configureGameApplicationService.DomainModel.Commentaries.GetCommentaryTeams().ToList();
+
+            var commentaryIndexTeams = _configureGameApplicationService.DomainModel.Commentaries.GetCommentaryIndexTeams().ToList();
+            var commentaryPrefixTeams = _configureGameApplicationService.DomainModel.Commentaries.GetCommentaryPrefixTeams().ToList();
+
+            // Iterate through each commentary line and update line according to values registered against the commentary index
+            var counter = 0;
+            foreach (var item in commentaryTeams)
+            {
+                // Take first team if multiple teams share same commentary index
+                item.Name = commentaryIndexTeams.First(x => x.CommentaryIndex == 231 + counter).Name;                      // 231 is the first commentary index for teams
+                item.FileNamePrefix = commentaryPrefixTeams.First(x => x.CommentaryIndex == 231 + counter).FileNamePrefix; // 231 is the first commentary index for teams
+
+                counter++;
+            }
+
+            _configureGameApplicationService.DomainModel.Commentaries.SetCommentaryTeams(commentaryTeams);
         }
     }
 }
