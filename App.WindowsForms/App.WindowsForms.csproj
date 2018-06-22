@@ -137,6 +137,7 @@
     <Compile Include="Controllers\UpgradeGameController.cs" />
     <Compile Include="Enums\NumericUpDownDirectionType.cs" />
     <Compile Include="FormFactory.cs" />
+    <Compile Include="Maps\AutoMapper\PersonEntityOnPersonModelProfile.cs" />
     <Compile Include="Maps\AutoMapper\Reference\PresentationMaps.cs" />
     <Compile Include="Models\CommentaryIndexDriverModel.cs" />
     <Compile Include="Models\CommentaryIndexTeamModel.cs" />

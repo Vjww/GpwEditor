@@ -54,6 +54,14 @@ namespace App.WindowsForms.Controllers
         {
             UpdateServiceFromModels();
 
+            //if (!_baseGameApplicationService.DomainModel.IsValid)
+            //{
+            //    UpdateValidationModels();
+            //    DisplayValidationMessages();
+
+            //    throw new Exception("Your changes have failed validation. Please review the validation messages and try again.");
+            //}
+
             _baseGameApplicationService.Export(
                 _view.GameFolderPath,
                 _view.GameExecutableFilePath,
@@ -96,6 +104,11 @@ namespace App.WindowsForms.Controllers
 
             var model = MapperService.Map<IEnumerable<TeamEntity>, IEnumerable<TeamModel>>(modifiedEntities);
             _view.UpdateTeamsModelWithUpdatedChassisHandlingValues(model);
+        }
+
+        private void DisplayValidationMessages()
+        {
+            // TODO: Update view to display messages from validation viewmodels
         }
 
         private void UpdateModelsFromService()
@@ -175,6 +188,11 @@ namespace App.WindowsForms.Controllers
                 new TeamLocationLookupModel {Id = 2, Description = "Italy", Value = 2},
                 new TeamLocationLookupModel {Id = 3, Description = "Switzerland", Value = 3}
             };
+        }
+
+        private void UpdateValidationModels()
+        {
+            // TODO: Update validation view models with validation messages from domain entities
         }
     }
 }
