@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using App.BaseGameEditor.Application.Services;
 using App.BaseGameEditor.Infrastructure.Services;
+using App.WindowsForms.Factories;
 using App.WindowsForms.Properties;
 using App.WindowsForms.Views;
 
@@ -34,9 +35,13 @@ namespace App.WindowsForms.Controllers
 
         public void Upgrade()
         {
-            // TODO: if (!FolderExists(gameFolderPath))
-            // TODO: if (!VerifyGameFolder(gameFolderPath))
+            // Preliminary validation
+            if (!Directory.Exists(_view.GameFolderPath))
+            {
+                throw new Exception("The selected game folder does not exist or is invalid. Please try again.");
+            }
 
+            // Use validated game folder path to build file paths with default file names retreived from project properties
             var gameFolderPath = _view.GameFolderPath;
             var gameExecutableFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultGameExecutableName);
             var englishLanguageFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultEnglishLanguageFileName);

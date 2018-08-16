@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using App.WindowsForms.Charts;
 using App.WindowsForms.Controllers;
 using App.WindowsForms.Properties;
 
@@ -8,12 +9,9 @@ namespace App.WindowsForms.Views
     public partial class PerformanceCurveValuesForm : EditorForm
     {
         private PerformanceCurveValuesController _controller;
-        private readonly PerformanceCurveChart _performanceCurveChart;
 
-        public PerformanceCurveValuesForm(PerformanceCurveChart performanceCurveChart)
+        public PerformanceCurveValuesForm()
         {
-            _performanceCurveChart = performanceCurveChart;
-
             InitializeComponent();
         }
 
@@ -82,7 +80,7 @@ namespace App.WindowsForms.Views
             ValuesTextBox.Clear();
 
             // Get values
-            var proposedValues = _performanceCurveChart.GetProposedSeries();
+            var proposedValues = _controller.GetProposedSeriesValuesFromPerformanceCurveChart();
 
             // Populate textbox
             foreach (var proposedValue in proposedValues)
@@ -103,7 +101,7 @@ namespace App.WindowsForms.Views
             }
 
             // Set values
-            _performanceCurveChart.SetHiddenSeries(values);
+            _controller.UpdatePerformanceCurveChartWithHiddenSeriesValues(values);
         }
 
         private bool ValidateValues()
@@ -122,8 +120,7 @@ namespace App.WindowsForms.Views
                 var values = new int[120];
                 for (var i = 0; i < values.Length; i++)
                 {
-                    int testValue;
-                    isValidValues = int.TryParse(stringValues[i], out testValue);
+                    isValidValues = int.TryParse(stringValues[i], out _);
                     if (!isValidValues)
                     {
                         break;

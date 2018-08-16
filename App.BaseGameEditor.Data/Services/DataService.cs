@@ -21,6 +21,8 @@ namespace App.BaseGameEditor.Data.Services
         private readonly IRepositoryImportService<CommentaryDriverDataEntity> _commentaryDriverRepositoryImportService;
         private readonly IRepositoryExportService<CommentaryTeamDataEntity> _commentaryTeamRepositoryExportService;
         private readonly IRepositoryImportService<CommentaryTeamDataEntity> _commentaryTeamRepositoryImportService;
+        private readonly IRepositoryExportService<LanguageDataEntity> _languageRepositoryExportService;
+        private readonly IRepositoryImportService<LanguageDataEntity> _languageRepositoryImportService;
         private readonly IRepositoryExportService<ChassisHandlingDataEntity> _chassisHandlingRepositoryExportService;
         private readonly IRepositoryImportService<ChassisHandlingDataEntity> _chassisHandlingRepositoryImportService;
         private readonly IRepositoryExportService<F1ChiefCommercialDataEntity> _f1ChiefCommercialRepositoryExportService;
@@ -70,6 +72,7 @@ namespace App.BaseGameEditor.Data.Services
         public IRepository<CommentaryPrefixTeamDataEntity> CommentaryPrefixTeams { get; }
         public IRepository<CommentaryDriverDataEntity> CommentaryDrivers { get; }
         public IRepository<CommentaryTeamDataEntity> CommentaryTeams { get; }
+        public IRepository<LanguageDataEntity> Languages { get; }
         public IRepository<CarNumberDataEntity> CarNumbers { get; }
         public IRepository<ChassisHandlingDataEntity> ChassisHandlings { get; }
         public IRepository<F1ChiefCommercialDataEntity> F1ChiefCommercials { get; }
@@ -110,6 +113,8 @@ namespace App.BaseGameEditor.Data.Services
             IRepositoryImportService<CommentaryDriverDataEntity> commentaryDriverRepositoryImportService,
             IRepositoryExportService<CommentaryTeamDataEntity> commentaryTeamRepositoryExportService,
             IRepositoryImportService<CommentaryTeamDataEntity> commentaryTeamRepositoryImportService,
+            IRepositoryExportService<LanguageDataEntity> languageRepositoryExportService,
+            IRepositoryImportService<LanguageDataEntity> languageRepositoryImportService,
             IRepositoryExportService<CarNumberDataEntity> carNumberRepositoryExportService,
             IRepositoryImportService<CarNumberDataEntity> carNumberRepositoryImportService,
             IRepositoryExportService<ChassisHandlingDataEntity> chassisHandlingRepositoryExportService,
@@ -160,6 +165,7 @@ namespace App.BaseGameEditor.Data.Services
             IRepository<CommentaryPrefixTeamDataEntity> commentaryPrefixTeamRepository,
             IRepository<CommentaryDriverDataEntity> commentaryDriverRepository,
             IRepository<CommentaryTeamDataEntity> commentaryTeamRepository,
+            IRepository<LanguageDataEntity> languageTeamRepository,
             IRepository<CarNumberDataEntity> carNumberRepository,
             IRepository<ChassisHandlingDataEntity> chassisHandlingRepository,
             IRepository<F1ChiefCommercialDataEntity> f1ChiefCommercialRepository,
@@ -199,6 +205,8 @@ namespace App.BaseGameEditor.Data.Services
             _commentaryDriverRepositoryImportService = commentaryDriverRepositoryImportService ?? throw new ArgumentNullException(nameof(commentaryDriverRepositoryImportService));
             _commentaryTeamRepositoryExportService = commentaryTeamRepositoryExportService ?? throw new ArgumentNullException(nameof(commentaryTeamRepositoryExportService));
             _commentaryTeamRepositoryImportService = commentaryTeamRepositoryImportService ?? throw new ArgumentNullException(nameof(commentaryTeamRepositoryImportService));
+            _languageRepositoryExportService = languageRepositoryExportService ?? throw new ArgumentNullException(nameof(languageRepositoryExportService));
+            _languageRepositoryImportService = languageRepositoryImportService ?? throw new ArgumentNullException(nameof(languageRepositoryImportService));
             _carNumberRepositoryExportService = carNumberRepositoryExportService ?? throw new ArgumentNullException(nameof(carNumberRepositoryExportService));
             _carNumberRepositoryImportService = carNumberRepositoryImportService ?? throw new ArgumentNullException(nameof(carNumberRepositoryImportService));
             _chassisHandlingRepositoryExportService = chassisHandlingRepositoryExportService ?? throw new ArgumentNullException(nameof(chassisHandlingRepositoryExportService));
@@ -250,6 +258,7 @@ namespace App.BaseGameEditor.Data.Services
             CommentaryPrefixTeams = commentaryPrefixTeamRepository ?? throw new ArgumentNullException(nameof(commentaryPrefixTeamRepository));
             CommentaryDrivers = commentaryDriverRepository ?? throw new ArgumentNullException(nameof(commentaryDriverRepository));
             CommentaryTeams = commentaryTeamRepository ?? throw new ArgumentNullException(nameof(commentaryTeamRepository));
+            Languages = languageTeamRepository ?? throw new ArgumentNullException(nameof(languageTeamRepository));
             CarNumbers = carNumberRepository ?? throw new ArgumentNullException(nameof(carNumberRepository));
             ChassisHandlings = chassisHandlingRepository ?? throw new ArgumentNullException(nameof(chassisHandlingRepository));
             F1ChiefCommercials = f1ChiefCommercialRepository ?? throw new ArgumentNullException(nameof(f1ChiefCommercialRepository));
@@ -286,6 +295,7 @@ namespace App.BaseGameEditor.Data.Services
             _commentaryPrefixTeamRepositoryExportService.Export();
             _commentaryDriverRepositoryExportService.Export();
             _commentaryTeamRepositoryExportService.Export();
+            _languageRepositoryExportService.Export();
             _carNumberRepositoryExportService.Export();
             _chassisHandlingRepositoryExportService.Export();
             _f1ChiefCommercialRepositoryExportService.Export();
@@ -323,6 +333,7 @@ namespace App.BaseGameEditor.Data.Services
             _commentaryPrefixTeamRepositoryImportService.Import(11);
             _commentaryDriverRepositoryImportService.Import(205);
             _commentaryTeamRepositoryImportService.Import(11);
+            _languageRepositoryImportService.Import(7173);
             _carNumberRepositoryImportService.Import(22);
             _chassisHandlingRepositoryImportService.Import(11);
             _f1ChiefCommercialRepositoryImportService.Import(11);

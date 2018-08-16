@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using App.BaseGameEditor.Application.Services;
 using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Services;
+using App.WindowsForms.Factories;
 using App.WindowsForms.Models;
 using App.WindowsForms.Views;
 
@@ -22,9 +23,10 @@ namespace App.WindowsForms.Controllers
             PerformanceCurveValuesController performanceCurveValuesController,
             ConfigureGameApplicationService configureGameApplicationService,
             IMapperService mapperService,
-            FormFactory formFactory) : base(mapperService)
+            FormFactory formFactory)
+            : base(mapperService)
         {
-            _performanceCurveValuesController = performanceCurveValuesController;
+            _performanceCurveValuesController = performanceCurveValuesController ?? throw new ArgumentNullException(nameof(performanceCurveValuesController));
             _configureGameApplicationService = configureGameApplicationService ?? throw new ArgumentNullException(nameof(configureGameApplicationService));
             _formFactory = formFactory ?? throw new ArgumentNullException(nameof(formFactory));
         }
@@ -68,7 +70,7 @@ namespace App.WindowsForms.Controllers
 
         public void RunEditPerformanceCurveForm()
         {
-            _performanceCurveValuesController.Run(_view);
+            _performanceCurveValuesController.Run(_view, this);
         }
 
         public void UpdateCommentaryModelWithDriverIndicesFromOriginalValues()
@@ -232,6 +234,16 @@ namespace App.WindowsForms.Controllers
             }
 
             _configureGameApplicationService.DomainModel.Commentaries.SetCommentaryTeams(commentaryTeams);
+        }
+
+        public IEnumerable<int> GetProposedSeriesValuesFromPerformanceCurveChart()
+        {
+            return _view.GetProposedSeriesValuesFromPerformanceCurveChart();
+        }
+
+        public void UpdatePerformanceCurveChartWithHiddenSeriesValues(int[] values)
+        {
+            _view.UpdatePerformanceCurveChartWithHiddenSeriesValues(values);
         }
     }
 }

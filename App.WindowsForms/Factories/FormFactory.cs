@@ -1,15 +1,16 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using Autofac;
 
-namespace App.WindowsForms
+namespace App.WindowsForms.Factories
 {
     public class FormFactory
     {
-        readonly ILifetimeScope _scope;
+        private readonly ILifetimeScope _scope;
 
         public FormFactory(ILifetimeScope scope)
         {
-            _scope = scope;
+            _scope = scope ?? throw new ArgumentNullException(nameof(scope));
         }
 
         public TForm Create<TForm>()

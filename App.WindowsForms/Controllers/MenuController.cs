@@ -11,17 +11,20 @@ namespace App.WindowsForms.Controllers
         private readonly UpgradeGameController _upgradeGameController;
         private readonly ConfigureGameController _configureGameController;
         private readonly BaseGameEditorController _baseGameEditorController;
+        private readonly LanguageFileEditorController _languageFileEditorController;
 
         public MenuController(
             MenuForm view,
             UpgradeGameController upgradeGameController,
             ConfigureGameController configureGameController,
-            BaseGameEditorController baseGameEditorController)
+            BaseGameEditorController baseGameEditorController,
+            LanguageFileEditorController languageFileEditorController)
         {
             _view = view ?? throw new ArgumentNullException(nameof(view));
             _upgradeGameController = upgradeGameController ?? throw new ArgumentNullException(nameof(upgradeGameController));
             _configureGameController = configureGameController ?? throw new ArgumentNullException(nameof(configureGameController));
             _baseGameEditorController = baseGameEditorController ?? throw new ArgumentNullException(nameof(baseGameEditorController));
+            _languageFileEditorController = languageFileEditorController ?? throw new ArgumentNullException(nameof(languageFileEditorController));
 
             _view.SetController(this);
         }
@@ -52,19 +55,19 @@ namespace App.WindowsForms.Controllers
         public void RunSaveGameEditor()
         {
             //EnsureConfiguredGameFolder();
-            //_saveGameController.Run(_view);
+            //_saveGameEditorController.Run(_view);
         }
 
         public void RunLanguageFileEditor()
         {
-            //EnsureConfiguredGameFolder();
-            //_languageFileController.Run(_view);
+            EnsureConfiguredGameFolder();
+            _languageFileEditorController.Run(_view);
         }
 
         public void RunRegistryKeysEditor()
         {
             //EnsureConfiguredGameFolder();
-            //_registryKeysController.Run(_view);
+            //_registryKeysEditorController.Run(_view);
         }
 
         private void EnsureConfiguredGameFolder()

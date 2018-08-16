@@ -5,6 +5,7 @@ namespace App.BaseGameEditor.Domain.Services
     public class DomainModelService
     {
         public ConfigurationDomainService Configurations { get; }
+        public LanguageDomainService Languages { get; }
         public CommentaryDomainService Commentaries { get; }
         public TeamDomainService Teams { get; }
         public PersonDomainService Persons { get; }
@@ -15,6 +16,7 @@ namespace App.BaseGameEditor.Domain.Services
 
         public DomainModelService(
             ConfigurationDomainService configurationDomainService,
+            LanguageDomainService languageDomainService,
             CommentaryDomainService commentaryDomainService,
             TeamDomainService teamDomainService,
             PersonDomainService personDomainService,
@@ -24,6 +26,7 @@ namespace App.BaseGameEditor.Domain.Services
             LookupDomainService lookupDomainService)
         {
             Configurations = configurationDomainService ?? throw new ArgumentNullException(nameof(configurationDomainService));
+            Languages = languageDomainService ?? throw new ArgumentNullException(nameof(languageDomainService));
             Commentaries = commentaryDomainService ?? throw new ArgumentNullException(nameof(commentaryDomainService));
             Teams = teamDomainService ?? throw new ArgumentNullException(nameof(teamDomainService));
             Persons = personDomainService ?? throw new ArgumentNullException(nameof(personDomainService));

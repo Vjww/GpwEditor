@@ -17,19 +17,9 @@ namespace App.WindowsForms.Views
             InitializeComponent();
         }
 
-        private static string GetApplicationVersion()
+        public void SetController(MenuController controller)
         {
-#if (!DEBUG)
-            {
-                return System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed
-                    ? System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(2)
-                    : FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
-            }
-#else
-            {
-                return FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
-            }
-#endif
+            _controller = controller;
         }
 
         private void MenuForm_Load(object sender, EventArgs e)
@@ -164,6 +154,21 @@ namespace App.WindowsForms.Views
             }
         }
 
+        private static string GetApplicationVersion()
+        {
+#if (!DEBUG)
+            {
+                return System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed
+                    ? System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(2)
+                    : FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
+            }
+#else
+            {
+                return FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
+            }
+#endif
+        }
+
         private void SwitchContext(Form form)
         {
             // If game folder has not been set
@@ -200,11 +205,6 @@ namespace App.WindowsForms.Views
                     LogoPictureBox.Image = Resources.logo1;
                     break;
             }
-        }
-
-        public void SetController(MenuController controller)
-        {
-            _controller = controller;
         }
     }
 }

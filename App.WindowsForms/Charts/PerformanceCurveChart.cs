@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms.DataVisualization.Charting;
 using App.WindowsForms.Enums;
 
-namespace App.WindowsForms
+namespace App.WindowsForms.Charts
 {
     public class PerformanceCurveChart
     {

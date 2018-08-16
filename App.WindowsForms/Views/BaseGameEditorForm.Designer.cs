@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseGameEditorForm));
-            this.MainTabControl = new System.Windows.Forms.TabControl();
+            this.BaseGameEditorTabControl = new System.Windows.Forms.TabControl();
             this.HomeTabPage = new System.Windows.Forms.TabPage();
             this.LanguageDataGridView = new System.Windows.Forms.DataGridView();
             this.FilesGroupBox = new System.Windows.Forms.GroupBox();
@@ -134,7 +134,7 @@
             this.TracksTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.TracksDataGridView = new System.Windows.Forms.DataGridView();
             this.TracksGroupBox = new System.Windows.Forms.GroupBox();
-            this.MainTabControl.SuspendLayout();
+            this.BaseGameEditorTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).BeginInit();
             this.FilesGroupBox.SuspendLayout();
@@ -197,21 +197,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.TracksDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // MainTabControl
+            // BaseGameEditorTabControl
             // 
-            this.MainTabControl.Controls.Add(this.HomeTabPage);
-            this.MainTabControl.Controls.Add(this.TeamsTabPage);
-            this.MainTabControl.Controls.Add(this.ChiefsTabPage);
-            this.MainTabControl.Controls.Add(this.DriversTabPage);
-            this.MainTabControl.Controls.Add(this.SuppliersTabPage);
-            this.MainTabControl.Controls.Add(this.TracksTabPage);
-            this.MainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainTabControl.Location = new System.Drawing.Point(3, 3);
-            this.MainTabControl.Name = "MainTabControl";
-            this.MainTabControl.SelectedIndex = 0;
-            this.MainTabControl.Size = new System.Drawing.Size(938, 555);
-            this.MainTabControl.TabIndex = 0;
-            this.MainTabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.MainTabControl_Selecting);
+            this.BaseGameEditorTabControl.Controls.Add(this.HomeTabPage);
+            this.BaseGameEditorTabControl.Controls.Add(this.TeamsTabPage);
+            this.BaseGameEditorTabControl.Controls.Add(this.ChiefsTabPage);
+            this.BaseGameEditorTabControl.Controls.Add(this.DriversTabPage);
+            this.BaseGameEditorTabControl.Controls.Add(this.SuppliersTabPage);
+            this.BaseGameEditorTabControl.Controls.Add(this.TracksTabPage);
+            this.BaseGameEditorTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BaseGameEditorTabControl.Location = new System.Drawing.Point(3, 3);
+            this.BaseGameEditorTabControl.Name = "BaseGameEditorTabControl";
+            this.BaseGameEditorTabControl.SelectedIndex = 0;
+            this.BaseGameEditorTabControl.Size = new System.Drawing.Size(938, 555);
+            this.BaseGameEditorTabControl.TabIndex = 0;
+            this.BaseGameEditorTabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.BaseGameEditorTabControl_Selecting);
             // 
             // HomeTabPage
             // 
@@ -1362,14 +1362,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 561);
-            this.Controls.Add(this.MainTabControl);
+            this.Controls.Add(this.BaseGameEditorTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "BaseGameEditorForm";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameExecutableEditorForm_FormClosing);
             this.Load += new System.EventHandler(this.GameExecutableEditorForm_Load);
-            this.MainTabControl.ResumeLayout(false);
+            this.BaseGameEditorTabControl.ResumeLayout(false);
             this.HomeTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).EndInit();
             this.FilesGroupBox.ResumeLayout(false);
@@ -1436,7 +1436,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.TabControl MainTabControl;
+        private System.Windows.Forms.TabControl BaseGameEditorTabControl;
         private System.Windows.Forms.TabPage HomeTabPage;
         private System.Windows.Forms.TabPage TeamsTabPage;
         private System.Windows.Forms.TabPage ChiefsTabPage;

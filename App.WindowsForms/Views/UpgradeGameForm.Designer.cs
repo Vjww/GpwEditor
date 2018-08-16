@@ -36,11 +36,11 @@
             this.UpgradeButton = new System.Windows.Forms.Button();
             this.OverviewGroupBox = new System.Windows.Forms.GroupBox();
             this.OverviewRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.UpgradeTabControl = new System.Windows.Forms.TabControl();
+            this.UpgradeGameTabControl = new System.Windows.Forms.TabControl();
             this.HomeTabPage = new System.Windows.Forms.TabPage();
             this.FilesGroupBox.SuspendLayout();
             this.OverviewGroupBox.SuspendLayout();
-            this.UpgradeTabControl.SuspendLayout();
+            this.UpgradeGameTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             this.FilesGroupBox.Controls.Add(this.UpgradeButton);
             this.FilesGroupBox.Location = new System.Drawing.Point(6, 6);
             this.FilesGroupBox.Name = "FilesGroupBox";
-            this.FilesGroupBox.Size = new System.Drawing.Size(918, 48);
+            this.FilesGroupBox.Size = new System.Drawing.Size(918, 52);
             this.FilesGroupBox.TabIndex = 1;
             this.FilesGroupBox.TabStop = false;
             this.FilesGroupBox.Text = "Files";
@@ -60,7 +60,7 @@
             // GameFolderPathLabel
             // 
             this.GameFolderPathLabel.AutoSize = true;
-            this.GameFolderPathLabel.Location = new System.Drawing.Point(30, 24);
+            this.GameFolderPathLabel.Location = new System.Drawing.Point(8, 24);
             this.GameFolderPathLabel.Name = "GameFolderPathLabel";
             this.GameFolderPathLabel.Size = new System.Drawing.Size(70, 13);
             this.GameFolderPathLabel.TabIndex = 2;
@@ -68,10 +68,10 @@
             // 
             // GameFolderPathTextBox
             // 
-            this.GameFolderPathTextBox.Location = new System.Drawing.Point(106, 21);
+            this.GameFolderPathTextBox.Location = new System.Drawing.Point(141, 21);
             this.GameFolderPathTextBox.Name = "GameFolderPathTextBox";
             this.GameFolderPathTextBox.ReadOnly = true;
-            this.GameFolderPathTextBox.Size = new System.Drawing.Size(644, 20);
+            this.GameFolderPathTextBox.Size = new System.Drawing.Size(609, 20);
             this.GameFolderPathTextBox.TabIndex = 3;
             this.GameFolderPathTextBox.TabStop = false;
             // 
@@ -98,9 +98,9 @@
             // OverviewGroupBox
             // 
             this.OverviewGroupBox.Controls.Add(this.OverviewRichTextBox);
-            this.OverviewGroupBox.Location = new System.Drawing.Point(6, 60);
+            this.OverviewGroupBox.Location = new System.Drawing.Point(6, 64);
             this.OverviewGroupBox.Name = "OverviewGroupBox";
-            this.OverviewGroupBox.Size = new System.Drawing.Size(918, 463);
+            this.OverviewGroupBox.Size = new System.Drawing.Size(918, 459);
             this.OverviewGroupBox.TabIndex = 6;
             this.OverviewGroupBox.TabStop = false;
             // 
@@ -115,15 +115,15 @@
             this.OverviewRichTextBox.TabIndex = 7;
             this.OverviewRichTextBox.Text = resources.GetString("OverviewRichTextBox.Text");
             // 
-            // UpgradeTabControl
+            // UpgradeGameTabControl
             // 
-            this.UpgradeTabControl.Controls.Add(this.HomeTabPage);
-            this.UpgradeTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UpgradeTabControl.Location = new System.Drawing.Point(3, 3);
-            this.UpgradeTabControl.Name = "UpgradeTabControl";
-            this.UpgradeTabControl.SelectedIndex = 0;
-            this.UpgradeTabControl.Size = new System.Drawing.Size(938, 555);
-            this.UpgradeTabControl.TabIndex = 0;
+            this.UpgradeGameTabControl.Controls.Add(this.HomeTabPage);
+            this.UpgradeGameTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UpgradeGameTabControl.Location = new System.Drawing.Point(3, 3);
+            this.UpgradeGameTabControl.Name = "UpgradeGameTabControl";
+            this.UpgradeGameTabControl.SelectedIndex = 0;
+            this.UpgradeGameTabControl.Size = new System.Drawing.Size(938, 555);
+            this.UpgradeGameTabControl.TabIndex = 0;
             // 
             // HomeTabPage
             // 
@@ -142,7 +142,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 561);
-            this.Controls.Add(this.UpgradeTabControl);
+            this.Controls.Add(this.UpgradeGameTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "UpgradeGameForm";
@@ -153,7 +153,7 @@
             this.FilesGroupBox.ResumeLayout(false);
             this.FilesGroupBox.PerformLayout();
             this.OverviewGroupBox.ResumeLayout(false);
-            this.UpgradeTabControl.ResumeLayout(false);
+            this.UpgradeGameTabControl.ResumeLayout(false);
             this.HomeTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -167,7 +167,7 @@
         private System.Windows.Forms.Label GameFolderPathLabel;
         private System.Windows.Forms.TextBox GameFolderPathTextBox;
         private System.Windows.Forms.Button GameFolderPathBrowseButton;
-        private System.Windows.Forms.TabControl UpgradeTabControl;
+        private System.Windows.Forms.TabControl UpgradeGameTabControl;
         private System.Windows.Forms.TabPage HomeTabPage;
     }
 }

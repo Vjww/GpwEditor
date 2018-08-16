@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using App.BaseGameEditor.Application.Maps.AutoMapper.Reference;
 using App.DependencyInjection.Autofac;
+using App.WindowsForms.Charts;
 using App.WindowsForms.Controllers;
 using App.WindowsForms.Maps.AutoMapper.Reference;
 using App.WindowsForms.Views;
@@ -41,6 +42,10 @@ namespace App.WindowsForms
             containerBuilder.RegisterType<ConfigureGameForm>().InstancePerDependency();
             containerBuilder.RegisterType<PerformanceCurveValuesForm>().InstancePerDependency();
             containerBuilder.RegisterType<BaseGameEditorForm>().InstancePerDependency();
+            containerBuilder.RegisterType<LanguageFileEditorForm>().InstancePerDependency();
+
+            // Register transients
+            containerBuilder.RegisterType<PerformanceCurveChart>().InstancePerDependency();
 
             var container = containerBuilder.Build();
             var serviceProvider = new AutofacServiceProvider(container);

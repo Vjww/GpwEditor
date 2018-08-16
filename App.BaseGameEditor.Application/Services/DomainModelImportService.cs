@@ -5,6 +5,7 @@ namespace App.BaseGameEditor.Application.Services
     public class DomainModelImportService
     {
         private readonly CommentaryDomainModelImportService _commentaryDomainModelImportService;
+        private readonly LanguageDomainModelImportService _languageDomainModelImportService;
         private readonly TeamDomainModelImportService _teamDomainModelImportService;
         private readonly PersonDomainModelImportService _personDomainModelImportService;
         private readonly SupplierDomainModelImportService _supplierDomainModelImportService;
@@ -14,6 +15,7 @@ namespace App.BaseGameEditor.Application.Services
 
         public DomainModelImportService(
             CommentaryDomainModelImportService commentaryDomainModelImportService,
+            LanguageDomainModelImportService languageDomainModelImportService,
             TeamDomainModelImportService teamDomainModelImportService,
             PersonDomainModelImportService personDomainModelImportService,
             SupplierDomainModelImportService supplierDomainModelImportService,
@@ -22,6 +24,7 @@ namespace App.BaseGameEditor.Application.Services
             LookupDomainModelImportService lookupDomainModelImportService)
         {
             _commentaryDomainModelImportService = commentaryDomainModelImportService ?? throw new ArgumentNullException(nameof(commentaryDomainModelImportService));
+            _languageDomainModelImportService = languageDomainModelImportService ?? throw new ArgumentNullException(nameof(languageDomainModelImportService));
             _teamDomainModelImportService = teamDomainModelImportService ?? throw new ArgumentNullException(nameof(teamDomainModelImportService));
             _personDomainModelImportService = personDomainModelImportService ?? throw new ArgumentNullException(nameof(personDomainModelImportService));
             _supplierDomainModelImportService = supplierDomainModelImportService ?? throw new ArgumentNullException(nameof(supplierDomainModelImportService));
@@ -33,6 +36,7 @@ namespace App.BaseGameEditor.Application.Services
         public void Import()
         {
             _commentaryDomainModelImportService.Import();
+            _languageDomainModelImportService.Import();
             _teamDomainModelImportService.Import();
             _personDomainModelImportService.Import();
             _supplierDomainModelImportService.Import();

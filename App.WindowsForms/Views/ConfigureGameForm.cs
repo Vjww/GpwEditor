@@ -4,8 +4,10 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using App.BaseGameEditor.Domain.Entities;
+using App.WindowsForms.Charts;
 using App.WindowsForms.Controllers;
 using App.WindowsForms.Enums;
+using App.WindowsForms.Factories;
 using App.WindowsForms.Models;
 using App.WindowsForms.Properties;
 
@@ -26,26 +28,26 @@ namespace App.WindowsForms.Views
         private bool _isModified;
 
         #region ToolTip Declarations
-        private const string ReadOnlyNameToolTipText = " This field is read only.";
+        private const string ReadOnlyToolTipText = " This field is read only.";
 
         private const string CommentaryIndicesDriverIdToolTipText = "The id of the driver commentary index record.";
-        private const string CommentaryIndicesDriverNameToolTipText = "The name of the driver." + ReadOnlyNameToolTipText;
+        private const string CommentaryIndicesDriverNameToolTipText = "The name of the driver." + ReadOnlyToolTipText;
         private const string CommentaryIndicesDriverCommentaryIndexToolTipText = "The index of the commentary transcript to use for the driver.";
 
         private const string CommentaryIndicesTeamIdToolTipText = "The id of the team commentary index record.";
-        private const string CommentaryIndicesTeamNameToolTipText = "The name of the team." + ReadOnlyNameToolTipText;
+        private const string CommentaryIndicesTeamNameToolTipText = "The name of the team." + ReadOnlyToolTipText;
         private const string CommentaryIndicesTeamCommentaryIndexToolTipText = "The index of the commentary transcript to use for the team.";
 
         private const string CommentaryPrefixesDriverIdToolTipText = "The id of the commentary prefix driver record.";
-        private const string CommentaryPrefixesDriverCommentaryIndexToolTipText = "The index of the commentary transcript." + ReadOnlyNameToolTipText;
+        private const string CommentaryPrefixesDriverCommentaryIndexToolTipText = "The index of the commentary transcript." + ReadOnlyToolTipText;
         private const string CommentaryPrefixesDriverFileNamePrefixToolTipText = "The prefix used to build the filename of the sound file associated with the commentary index.";
 
         private const string CommentaryPrefixesTeamIdToolTipText = "The id of the commentary prefix team record.";
-        private const string CommentaryPrefixesTeamCommentaryIndexToolTipText = "The index of the commentary transcript." + ReadOnlyNameToolTipText;
+        private const string CommentaryPrefixesTeamCommentaryIndexToolTipText = "The index of the commentary transcript." + ReadOnlyToolTipText;
         private const string CommentaryPrefixesTeamFileNamePrefixToolTipText = "The prefix used to build the filename of the sound file associated with the commentary index.";
 
         private const string CommentaryFileIdToolTipText = "The id of the commentary file record.";
-        private const string CommentaryFileFileNameToolTipText = "The file name of the commentary sound." + ReadOnlyNameToolTipText;
+        private const string CommentaryFileFileNameToolTipText = "The file name of the commentary sound." + ReadOnlyToolTipText;
         #endregion
 
         public string GameFolderPath { get => GameFolderPathTextBox.Text; set => GameFolderPathTextBox.Text = value; }
@@ -106,12 +108,11 @@ namespace App.WindowsForms.Views
             set => BuildPerformanceCurveChart(value);
         }
 
-        // TODO: We should look to get a a new instance of PerformanceCurveChart each time the form is created.
         public ConfigureGameForm(PerformanceCurveChart performanceCurveChart)
         {
-            InitializeComponent();
-
             _performanceCurveChart = performanceCurveChart;
+
+            InitializeComponent();
         }
 
         public void SetController(ConfigureGameController controller)
@@ -493,10 +494,13 @@ namespace App.WindowsForms.Views
                     database.ExportDataToFile(gameFolderPath, gameExecutablePath, languageFilePath);
                     
                     // Update chart
-                    _performanceCurveChart.SetCurrentSeriesToProposedSeries();
+                    _performanceCurveChart.SetCurrentSeriesToProposedSeries(); // Note: implemented below
                 */
 
                 _controller.Export();
+
+                // Update chart
+                _performanceCurveChart.SetCurrentSeriesToProposedSeries();
             }
             catch (Exception ex)
             {
@@ -699,6 +703,16 @@ namespace App.WindowsForms.Views
             }
 
             UpdateValuesInDataGridViewColumn(CommentaryPrefixesTeamDataGridView, "FileNamePrefix", values);
+        }
+
+        public IEnumerable<int> GetProposedSeriesValuesFromPerformanceCurveChart()
+        {
+            return _performanceCurveChart.GetProposedSeries();
+        }
+
+        public void UpdatePerformanceCurveChartWithHiddenSeriesValues(int[] values)
+        {
+            _performanceCurveChart.SetHiddenSeries(values);
         }
     }
 }

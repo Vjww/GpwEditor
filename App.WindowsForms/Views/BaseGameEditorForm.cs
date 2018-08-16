@@ -35,11 +35,11 @@ namespace App.WindowsForms.Views
         private bool _isImportOccurred;
 
         #region ToolTip Declarations
-        private const string ReadOnlyNameToolTipText = " This field is read only.";
+        private const string ReadOnlyToolTipText = " This field is read only.";
 
         private const string TeamsIdToolTipText = "The id of the team record.";
         private const string TeamsTeamIdToolTipText = "The id of the team.";
-        private const string TeamsNameToolTipText = "The name of the team." + ReadOnlyNameToolTipText;
+        private const string TeamsNameToolTipText = "The name of the team." + ReadOnlyToolTipText;
         private const string TeamsLastPositionToolTipText = "The finishing position of the team in last year's constructors' championship (e.g. 1997 when playing the 1998 season).";
         private const string TeamsLastPointsToolTipText = "The number of points scored by the team in last year's constructors' championship (e.g. 1997 when playing the 1998 season).";
         private const string TeamsDebutGrandPrixToolTipText = "The Grand Prix where the team made their debut.";
@@ -57,7 +57,7 @@ namespace App.WindowsForms.Views
 
         private const string ChiefsIdToolTipText = "The id of the chief record.";
         private const string ChiefsTeamIdToolTipText = "The id of the team the chief is contracted to.";
-        private const string ChiefsNameToolTipText = "The name of the chief." + ReadOnlyNameToolTipText;
+        private const string ChiefsNameToolTipText = "The name of the chief." + ReadOnlyToolTipText;
         private const string ChiefsAbilityToolTipText = "The ability rating of the chief.";
         private const string ChiefsAgeToolTipText = "The age of the chief at the start of the year.";
         private const string ChiefsSalaryToolTipText = "The salary paid to the chief.";
@@ -69,7 +69,7 @@ namespace App.WindowsForms.Views
 
         private const string DriversIdToolTipText = "The id of the driver record.";
         private const string DriversTeamIdToolTipText = "The id of the team the driver is contracted to.";
-        private const string DriversNameToolTipText = "The name of the driver." + ReadOnlyNameToolTipText;
+        private const string DriversNameToolTipText = "The name of the driver." + ReadOnlyToolTipText;
         private const string DriversSalaryToolTipText = "The salary paid to the driver. Pay drivers will have a negative salary amount (e.g. -3500000).";
         private const string DriversRaceBonusToolTipText = "The race bonus awarded to the driver.";
         private const string DriversChampionshipBonusToolTipText = "The championship bonus awarded to the driver.";
@@ -95,7 +95,7 @@ namespace App.WindowsForms.Views
         private const string DriversMoraleToolTipText = "The morale level of the driver.";
 
         private const string EnginesIdToolTipText = "The id of the engine supplier record.";
-        private const string EnginesNameToolTipText = "The name of the engine supplier." + ReadOnlyNameToolTipText;
+        private const string EnginesNameToolTipText = "The name of the engine supplier." + ReadOnlyToolTipText;
         private const string EnginesFuelToolTipText = "The fuel rating of the engine.";
         private const string EnginesHeatToolTipText = "The heat rating of the engine.";
         private const string EnginesPowerToolTipText = "The power rating of the engine.";
@@ -105,7 +105,7 @@ namespace App.WindowsForms.Views
         private const string EnginesWeightToolTipText = "The weight rating of the engine.";
 
         private const string TyresIdToolTipText = "The id of the tyre supplier record.";
-        private const string TyresNameToolTipText = "The name of the tyre supplier." + ReadOnlyNameToolTipText;
+        private const string TyresNameToolTipText = "The name of the tyre supplier." + ReadOnlyToolTipText;
         private const string TyresDryHardGripToolTipText = "The grip rating of the dry hard tyre.";
         private const string TyresDryHardResilienceToolTipText = "The resilience rating of the dry hard tyre.";
         private const string TyresDryHardStiffnessToolTipText = "The stiffness rating of the dry hard tyre.";
@@ -124,12 +124,12 @@ namespace App.WindowsForms.Views
         private const string TyresWetWeatherTemperatureToolTipText = "The temperature rating of the wet weather tyre.";
 
         private const string FuelsIdToolTipText = "The id of the fuel supplier record.";
-        private const string FuelsNameToolTipText = "The name of the fuel supplier." + ReadOnlyNameToolTipText;
+        private const string FuelsNameToolTipText = "The name of the fuel supplier." + ReadOnlyToolTipText;
         private const string FuelsPerformanceToolTipText = "The performance rating of the fuel.";
         private const string FuelsToleranceToolTipText = "The tolerance rating of the fuel.";
 
         private const string TracksIdToolTipText = "The id of the track record.";
-        private const string TracksNameToolTipText = "The name of the track." + ReadOnlyNameToolTipText;
+        private const string TracksNameToolTipText = "The name of the track." + ReadOnlyToolTipText;
         private const string TracksLapsToolTipText = "The number of racing laps in a Grand Prix.";
         private const string TracksLayoutToolTipText = "The layout of the track.";
         private const string TracksLapRecordDriverToolTipText = "The name of the driver that set the fastest lap record at the track.";
@@ -655,19 +655,19 @@ namespace App.WindowsForms.Views
             GermanCommentaryFilePath = GetGermanCommentaryFileMruOrDefault();
 
             // ConfigureControls(); // TODO: Suspect no longer needed
-            SubscribeDataGridViewControlsToGenericEvents();
+            SubscribeDataGridViewControlsToGenericEvents(); // TODO: What's this for, I think it is still needed in the rewrite...
         }
 
         private void GameExecutableEditorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (_isFailedValidationForSwitchingContext)
+            if (_isFailedValidationForSwitchingContext) // TODO: Reconsider for validation rewrite
             {
                 e.Cancel = true; // Abort event
                 _isFailedValidationForSwitchingContext = false; // Reset
                 return;
             }
 
-            if (CloseFormConfirmation(true, $"Are you sure you wish to close the game executable editor?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost."))
+            if (CloseFormConfirmation(true, $"Are you sure you wish to close this window?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost."))
             {
                 return;
             }
@@ -675,7 +675,7 @@ namespace App.WindowsForms.Views
             e.Cancel = true; // Abort event
         }
 
-        private void MainTabControl_Selecting(object sender, TabControlCancelEventArgs e)
+        private void BaseGameEditorTabControl_Selecting(object sender, TabControlCancelEventArgs e)
         {
             if (!_isImportOccurred)
             {

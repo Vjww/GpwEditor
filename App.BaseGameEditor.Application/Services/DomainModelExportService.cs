@@ -5,6 +5,7 @@ namespace App.BaseGameEditor.Application.Services
     public class DomainModelExportService
     {
         private readonly CommentaryDomainModelExportService _commentaryDomainModelExportService;
+        private readonly LanguageDomainModelExportService _languageDomainModelExportService;
         private readonly TeamDomainModelExportService _teamDomainModelExportService;
         private readonly PersonDomainModelExportService _personDomainModelExportService;
         private readonly SupplierDomainModelExportService _supplierDomainModelExportService;
@@ -13,6 +14,7 @@ namespace App.BaseGameEditor.Application.Services
 
         public DomainModelExportService(
             CommentaryDomainModelExportService commentaryDomainModelExportService,
+            LanguageDomainModelExportService languageDomainModelExportService,
             TeamDomainModelExportService teamDomainModelExportService,
             PersonDomainModelExportService personDomainModelExportService,
             SupplierDomainModelExportService supplierDomainModelExportService,
@@ -20,6 +22,7 @@ namespace App.BaseGameEditor.Application.Services
             PerformanceCurveDomainModelExportService performanceCurveDomainModelExportService)
         {
             _commentaryDomainModelExportService = commentaryDomainModelExportService ?? throw new ArgumentNullException(nameof(commentaryDomainModelExportService));
+            _languageDomainModelExportService = languageDomainModelExportService ?? throw new ArgumentNullException(nameof(languageDomainModelExportService));
             _teamDomainModelExportService = teamDomainModelExportService ?? throw new ArgumentNullException(nameof(teamDomainModelExportService));
             _personDomainModelExportService = personDomainModelExportService ?? throw new ArgumentNullException(nameof(personDomainModelExportService));
             _supplierDomainModelExportService = supplierDomainModelExportService ?? throw new ArgumentNullException(nameof(supplierDomainModelExportService));
@@ -30,6 +33,7 @@ namespace App.BaseGameEditor.Application.Services
         public void Export()
         {
             _commentaryDomainModelExportService.Export();
+            _languageDomainModelExportService.Export();
             _teamDomainModelExportService.Export();
             _personDomainModelExportService.Export();
             _supplierDomainModelExportService.Export();

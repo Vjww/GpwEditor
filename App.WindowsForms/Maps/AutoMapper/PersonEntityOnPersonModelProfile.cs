@@ -8,7 +8,7 @@ namespace App.WindowsForms.Maps.AutoMapper
     {
         public PersonEntityOnPersonModelProfile()
         {
-            // Required due to differences between entity and model when mapping as IEnumerable
+            // Required due to differences between entity and model when mapping as an IEnumerable<Type>
             CreateMap<F1DriverEntity, F1DriverModel>()
                 .ReverseMap();
         }

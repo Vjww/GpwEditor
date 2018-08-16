@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
 using App.BaseGameEditor.Application.Validators;
 using App.BaseGameEditor.Data.DataConnections;
-using App.BaseGameEditor.Data.FileResources;
 using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Domain.Services;
-using App.BaseGameEditor.Infrastructure.Factories;
 
 namespace App.BaseGameEditor.Application.Services
 {
@@ -261,7 +256,7 @@ namespace App.BaseGameEditor.Application.Services
             var validationMessages = _dataConnectionValidationService.Validate(_dataConnection);
             if (validationMessages.Any())
             {
-                throw new Exception("Failed to validate data connection.");
+                throw new Exception("Failed to validate data connection."); // TODO: Include validation messages in exception details
             }
 
             // Export from domain layer into data layer
@@ -295,7 +290,7 @@ namespace App.BaseGameEditor.Application.Services
             var validationMessages = _dataConnectionValidationService.Validate(_dataConnection);
             if (validationMessages.Any())
             {
-                throw new Exception("Failed to validate data connection.");
+                throw new Exception("Failed to validate data connection."); // TODO: Include validation messages in exception details
             }
 
             // Import from files into data layer

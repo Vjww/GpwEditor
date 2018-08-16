@@ -48,7 +48,7 @@ SID004971 "Brembo"              // FREE ???
 SID004972 "Serra"               // FREE ???
 SID004973 "Telecom Argentina"   // FREE ???
 
-Two of the free could be added to Stewart?
+Two of the three could be added to Stewart?
 
 Before you reorder the code, try take out a few lines and move them to a relocation function and try add in the missing two sponsors???
 
