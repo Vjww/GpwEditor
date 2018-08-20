@@ -1,4 +1,5 @@
 ﻿using System;
+using App.BaseGameEditor.Application.Services.DomainModel;
 
 namespace App.BaseGameEditor.Application.Services
 {

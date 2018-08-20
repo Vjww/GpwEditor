@@ -4,7 +4,7 @@ using App.BaseGameEditor.Data.DataConnections;
 using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Domain.Services;
 
-namespace App.BaseGameEditor.Application.Services
+namespace App.BaseGameEditor.Application.Services.Application
 {
     public class LanguageFileEditorApplicationService
     {

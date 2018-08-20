@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using App.BaseGameEditor.Application.Services;
+using App.BaseGameEditor.Application.Services.Application;
 using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Domain.Entities.Lookups;
 using App.BaseGameEditor.Infrastructure.Services;

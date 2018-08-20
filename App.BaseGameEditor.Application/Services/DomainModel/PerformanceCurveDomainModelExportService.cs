@@ -5,36 +5,36 @@ using App.BaseGameEditor.Domain.Services;
 using App.BaseGameEditor.Infrastructure.Services;
 using App.Core.Factories;
 
-namespace App.BaseGameEditor.Application.Services
+namespace App.BaseGameEditor.Application.Services.DomainModel
 {
-    public class LanguageDomainModelExportService
+    public class PerformanceCurveDomainModelExportService
     {
-        private readonly LanguageDomainService _domainService;
+        private readonly PerformanceCurveDomainService _domainService;
         private readonly DataService _dataService;
-        private readonly IIntegerIdentityFactory<LanguageDataEntity> _languageDataEntityFactory;
+        private readonly IIntegerIdentityFactory<PerformanceCurveDataEntity> _performanceCurveDataEntityFactory;
         private readonly IMapperService _mapperService;
 
-        public LanguageDomainModelExportService(
-            LanguageDomainService domainService,
+        public PerformanceCurveDomainModelExportService(
+            PerformanceCurveDomainService domainService,
             DataService dataService,
-            IIntegerIdentityFactory<LanguageDataEntity> languageDataEntityFactory,
+            IIntegerIdentityFactory<PerformanceCurveDataEntity> performanceCurveDataEntityFactory,
             IMapperService mapperService)
         {
             _domainService = domainService ?? throw new ArgumentNullException(nameof(domainService));
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
-            _languageDataEntityFactory = languageDataEntityFactory ?? throw new ArgumentNullException(nameof(languageDataEntityFactory));
+            _performanceCurveDataEntityFactory = performanceCurveDataEntityFactory ?? throw new ArgumentNullException(nameof(performanceCurveDataEntityFactory));
             _mapperService = mapperService ?? throw new ArgumentNullException(nameof(mapperService));
         }
 
         public void Export()
         {
-            var entities = _domainService.GetLanguages();
+            var entities = _domainService.GetPerformanceCurves();
             foreach (var item in entities)
             {
-                var dataEntity = _languageDataEntityFactory.Create(item.Id);
+                var dataEntity = _performanceCurveDataEntityFactory.Create(item.Id);
                 _mapperService.Map(item, dataEntity);
 
-                _dataService.Languages.SetById(dataEntity);
+                _dataService.PerformanceCurveValues.SetById(dataEntity);
             }
         }
     }

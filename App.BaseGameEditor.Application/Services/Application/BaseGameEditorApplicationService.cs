@@ -4,9 +4,9 @@ using App.BaseGameEditor.Data.DataConnections;
 using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Domain.Services;
 
-namespace App.BaseGameEditor.Application.Services
+namespace App.BaseGameEditor.Application.Services.Application
 {
-    public class ConfigureGameApplicationService
+    public class BaseGameEditorApplicationService
     {
         private readonly DataConnection _dataConnection;
         private readonly DataConnectionValidationService _dataConnectionValidationService;
@@ -14,19 +14,17 @@ namespace App.BaseGameEditor.Application.Services
         private readonly DataImportService _dataImportService;
         private readonly DomainModelExportService _domainModelExportService;
         private readonly DomainModelImportService _domainModelImportService;
-        private readonly GameExecutableCodePatcher _gameExecutableCodePatcher;
 
         public DomainModelService DomainModel { get; }
 
-        public ConfigureGameApplicationService(
+        public BaseGameEditorApplicationService(
             DataConnection dataConnection,
             DataConnectionValidationService dataConnectionValidationService,
             DataExportService dataExportService,
             DataImportService dataImportService,
             DomainModelService domainModelService,
             DomainModelExportService domainModelExportService,
-            DomainModelImportService domainModelImportService,
-            GameExecutableCodePatcher gameExecutableCodePatcher)
+            DomainModelImportService domainModelImportService)
         {
             _dataConnection = dataConnection ?? throw new ArgumentNullException(nameof(dataConnection));
             _dataConnectionValidationService = dataConnectionValidationService ?? throw new ArgumentNullException(nameof(dataConnectionValidationService));
@@ -34,7 +32,6 @@ namespace App.BaseGameEditor.Application.Services
             _dataImportService = dataImportService ?? throw new ArgumentNullException(nameof(dataImportService));
             _domainModelExportService = domainModelExportService ?? throw new ArgumentNullException(nameof(domainModelExportService));
             _domainModelImportService = domainModelImportService ?? throw new ArgumentNullException(nameof(domainModelImportService));
-            _gameExecutableCodePatcher = gameExecutableCodePatcher ?? throw new ArgumentNullException(nameof(gameExecutableCodePatcher));
 
             DomainModel = domainModelService ?? throw new ArgumentNullException(nameof(domainModelService));
         }
@@ -65,9 +62,6 @@ namespace App.BaseGameEditor.Application.Services
             {
                 throw new Exception("Failed to validate data connection.");
             }
-
-            // Export configuration changes to game executable
-            _gameExecutableCodePatcher.ExportConfiguration(DomainModel, gameExecutableFilePath);
 
             // Export from domain layer into data layer
             _domainModelExportService.Export();
@@ -108,9 +102,6 @@ namespace App.BaseGameEditor.Application.Services
 
             // Import from data layer into domain layer
             _domainModelImportService.Import();
-
-            // Import configuration changes from game executable
-            _gameExecutableCodePatcher.ImportConfiguration(DomainModel, gameExecutableFilePath);
         }
     }
 }

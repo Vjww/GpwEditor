@@ -7,7 +7,7 @@ using App.BaseGameEditor.Domain.Services;
 using App.BaseGameEditor.Infrastructure.Services;
 using App.Core.Factories;
 
-namespace App.BaseGameEditor.Application.Services
+namespace App.BaseGameEditor.Application.Services.DomainModel
 {
     public class PersonDomainModelImportService
     {
