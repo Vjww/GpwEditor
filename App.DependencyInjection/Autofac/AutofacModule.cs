@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using App.BaseGameEditor.Data.Catalogues.Commentary;
-using App.BaseGameEditor.Data.Catalogues.Language;
-using App.BaseGameEditor.Data.Factories;
-using App.BaseGameEditor.Data.FileResources;
-using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Infrastructure.Factories;
-using App.BaseGameEditor.Infrastructure.Repositories;
 using App.Core.Factories;
+using App.Shared.Data.Catalogues.Commentary;
+using App.Shared.Data.Catalogues.Language;
+using App.Shared.Data.Factories;
+using App.Shared.Data.FileResources;
+using App.Shared.Data.Services;
+using App.Shared.Infrastructure.Repositories;
 using Autofac;
 using Autofac.Features.ResolveAnything;
 

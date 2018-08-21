@@ -1,7 +1,7 @@
 ﻿using System;
-using App.BaseGameEditor.Data.DataEntities;
-using App.BaseGameEditor.Data.Services;
 using App.Core.Repositories;
+using App.LanguageFileEditor.Data.DataEntities;
+using App.Shared.Data.Services;
 
 namespace App.LanguageFileEditor.Data.Services
 {

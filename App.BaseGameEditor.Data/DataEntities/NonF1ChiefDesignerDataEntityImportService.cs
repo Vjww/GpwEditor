@@ -1,8 +1,8 @@
 ﻿using System;
-using App.BaseGameEditor.Data.DataEndpoints;
 using App.BaseGameEditor.Data.DataLocators;
-using App.BaseGameEditor.Data.Services;
 using App.Core.Factories;
+using App.Shared.Data.DataEndpoints;
+using App.Shared.Data.Services;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {

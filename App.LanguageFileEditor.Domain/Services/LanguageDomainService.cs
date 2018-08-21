@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using App.BaseGameEditor.Domain.Entities;
-using App.BaseGameEditor.Domain.EntityValidators;
 using App.Core.Repositories;
+using App.LanguageFileEditor.Domain.Entities;
+using App.Shared.Domain.EntityValidators;
 
 namespace App.LanguageFileEditor.Domain.Services
 {

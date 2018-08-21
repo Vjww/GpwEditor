@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\App.BaseGameEditor.Infrastructure\App.BaseGameEditor.Infrastructure.csproj" />
+    <ProjectReference Include="..\App.LanguageFileEditor.Data\App.LanguageFileEditor.Data.csproj" />
   </ItemGroup>
 
 </Project>

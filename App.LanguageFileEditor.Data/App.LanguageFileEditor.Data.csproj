@@ -7,6 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\App.BaseGameEditor.Data\App.BaseGameEditor.Data.csproj" />
     <ProjectReference Include="..\App.Core\App.Core.csproj" />
+    <ProjectReference Include="..\App.Shared.Data\App.Shared.Data.csproj" />
   </ItemGroup>
 
 </Project>

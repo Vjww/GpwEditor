@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using App.BaseGameEditor.Application.Validators;
-using App.BaseGameEditor.Data.DataConnections;
-using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Domain.Services;
+using App.Shared.Data.DataConnections;
+using App.Shared.Data.Services;
 
 namespace App.BaseGameEditor.Application.Services.Application
 {

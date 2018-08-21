@@ -1,6 +1,6 @@
 ﻿using System;
-using App.BaseGameEditor.Data.Calculators;
 using App.Core.Identities;
+using App.Shared.Data.Calculators;
 
 namespace App.BaseGameEditor.Data.DataLocators.Lookups
 {

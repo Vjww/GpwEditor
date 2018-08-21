@@ -2,6 +2,7 @@
 using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.DataEntities.Lookups;
 using App.Core.Repositories;
+using App.Shared.Data.Services;
 
 namespace App.BaseGameEditor.Data.Services
 {

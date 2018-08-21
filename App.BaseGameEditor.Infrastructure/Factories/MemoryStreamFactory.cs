@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using App.BaseGameEditor.Data.Factories;
+using App.Shared.Data.Factories;
 
 namespace App.BaseGameEditor.Infrastructure.Factories
 {

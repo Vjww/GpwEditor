@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Services;
 using App.LanguageFileEditor.Application.Services.Application;
+using App.LanguageFileEditor.Domain.Entities;
 using App.WindowsForms.Factories;
 using App.WindowsForms.Models;
 using App.WindowsForms.Views;

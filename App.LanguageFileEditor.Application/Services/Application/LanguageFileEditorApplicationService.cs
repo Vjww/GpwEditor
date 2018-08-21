@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using App.BaseGameEditor.Data.DataConnections;
-using App.BaseGameEditor.Data.Services;
 using App.LanguageFileEditor.Domain.Services;
+using App.Shared.Data.DataConnections;
+using App.Shared.Data.Services;
 
 namespace App.LanguageFileEditor.Application.Services.Application
 {
