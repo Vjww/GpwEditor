@@ -5,7 +5,7 @@ using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Domain.EntityValidators;
 using App.Core.Repositories;
 
-namespace App.BaseGameEditor.Domain.Services
+namespace App.LanguageFileEditor.Domain.Services
 {
     public class LanguageDomainService
     {

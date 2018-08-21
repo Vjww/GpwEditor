@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\App.BaseGameEditor.Application\App.BaseGameEditor.Application.csproj" />
+    <ProjectReference Include="..\App.Core\App.Core.csproj" />
+    <ProjectReference Include="..\App.LanguageFileEditor.Data\App.LanguageFileEditor.Data.csproj" />
+    <ProjectReference Include="..\App.LanguageFileEditor.Domain\App.LanguageFileEditor.Domain.csproj" />
+    <ProjectReference Include="..\App.LanguageFileEditor.Infrastructure\App.LanguageFileEditor.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

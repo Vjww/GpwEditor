@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Domain.Entities;
-using App.BaseGameEditor.Domain.Services;
 using App.BaseGameEditor.Infrastructure.Services;
 using App.Core.Factories;
+using App.LanguageFileEditor.Data.Services;
+using App.LanguageFileEditor.Domain.Services;
 
-namespace App.BaseGameEditor.Application.Services.DomainModel
+namespace App.LanguageFileEditor.Application.Services.DomainModel
 {
     public class LanguageDomainModelImportService
     {

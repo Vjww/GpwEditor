@@ -2,9 +2,9 @@
 using System.Linq;
 using App.BaseGameEditor.Data.DataConnections;
 using App.BaseGameEditor.Data.Services;
-using App.BaseGameEditor.Domain.Services;
+using App.LanguageFileEditor.Domain.Services;
 
-namespace App.BaseGameEditor.Application.Services.Application
+namespace App.LanguageFileEditor.Application.Services.Application
 {
     public class LanguageFileEditorApplicationService
     {
@@ -12,8 +12,8 @@ namespace App.BaseGameEditor.Application.Services.Application
         private readonly DataConnectionValidationService _dataConnectionValidationService;
         private readonly DataExportService _dataExportService;
         private readonly DataImportService _dataImportService;
-        private readonly DomainModelExportService _domainModelExportService;
-        private readonly DomainModelImportService _domainModelImportService;
+        private readonly LanguageFileEditorDomainModelExportService _domainModelExportService;
+        private readonly LanguageFileEditorDomainModelImportService _domainModelImportService;
 
         public DomainModelService DomainModel { get; }
 
@@ -23,8 +23,8 @@ namespace App.BaseGameEditor.Application.Services.Application
             DataExportService dataExportService,
             DataImportService dataImportService,
             DomainModelService domainModelService,
-            DomainModelExportService domainModelExportService,
-            DomainModelImportService domainModelImportService)
+            LanguageFileEditorDomainModelExportService domainModelExportService,
+            LanguageFileEditorDomainModelImportService domainModelImportService)
         {
             _dataConnection = dataConnection ?? throw new ArgumentNullException(nameof(dataConnection));
             _dataConnectionValidationService = dataConnectionValidationService ?? throw new ArgumentNullException(nameof(dataConnectionValidationService));

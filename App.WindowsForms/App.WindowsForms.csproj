@@ -286,6 +286,18 @@
       <Project>{a5d0b5be-f4da-44d0-975a-55ca3910b88e}</Project>
       <Name>App.DependencyInjection</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.LanguageFileEditor.Application\App.LanguageFileEditor.Application.csproj">
+      <Project>{f333a0c0-a6ba-47c7-9a52-2de1df496fbb}</Project>
+      <Name>App.LanguageFileEditor.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.LanguageFileEditor.Domain\App.LanguageFileEditor.Domain.csproj">
+      <Project>{9512f3aa-b9fe-40fb-84d4-f781bab8e47e}</Project>
+      <Name>App.LanguageFileEditor.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.LanguageFileEditor.Infrastructure\App.LanguageFileEditor.Infrastructure.csproj">
+      <Project>{d79a2d98-7d30-4ef2-a7f8-06086da8f564}</Project>
+      <Name>App.LanguageFileEditor.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.SaveGameEditor.Application\App.SaveGameEditor.Application.csproj">
       <Project>{b136bbc6-18fe-437d-8470-69ff35c30300}</Project>
       <Name>App.SaveGameEditor.Application</Name>
