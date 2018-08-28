@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using App.BaseGameEditor.Domain.Entities;
 using App.WindowsForms.Charts;
 using App.WindowsForms.Controllers;
 using App.WindowsForms.Enums;
-using App.WindowsForms.Factories;
 using App.WindowsForms.Models;
 using App.WindowsForms.Properties;
 

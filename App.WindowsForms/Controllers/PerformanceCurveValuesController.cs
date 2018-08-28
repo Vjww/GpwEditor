@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using App.BaseGameEditor.Infrastructure.Services;
+using App.Shared.Infrastructure.Services;
 using App.WindowsForms.Factories;
 using App.WindowsForms.Views;
 

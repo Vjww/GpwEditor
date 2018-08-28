@@ -5,8 +5,8 @@ using App.BaseGameEditor.Application.Maps.Manual;
 using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Domain.Services;
-using App.BaseGameEditor.Infrastructure.Services;
 using App.Core.Factories;
+using App.Shared.Infrastructure.Services;
 
 namespace App.BaseGameEditor.Application.Services.DomainModel
 {

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using App.BaseGameEditor.Application.Services.Application;
-using App.BaseGameEditor.Infrastructure.Services;
+using App.Shared.Infrastructure.Services;
 using App.WindowsForms.Factories;
 using App.WindowsForms.Properties;
 using App.WindowsForms.Views;

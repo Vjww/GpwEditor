@@ -60,7 +60,7 @@
     <ProjectReference Include="..\App.BaseGameEditor.Data\App.BaseGameEditor.Data.csproj" />
     <ProjectReference Include="..\App.BaseGameEditor.Domain\App.BaseGameEditor.Domain.csproj" />
     <ProjectReference Include="..\App.BaseGameEditor.Infrastructure\App.BaseGameEditor.Infrastructure.csproj" />
-    <ProjectReference Include="..\App.Core\App.Core.csproj" />
+    <ProjectReference Include="..\App.Shared.Infrastructure\App.Shared.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

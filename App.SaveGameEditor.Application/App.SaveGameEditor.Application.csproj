@@ -5,10 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\App.Core\App.Core.csproj" />
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\App.SaveGameEditor.Data\App.SaveGameEditor.Data.csproj" />
     <ProjectReference Include="..\App.SaveGameEditor.Domain\App.SaveGameEditor.Domain.csproj" />
     <ProjectReference Include="..\App.SaveGameEditor.Infrastructure\App.SaveGameEditor.Infrastructure.csproj" />
+    <ProjectReference Include="..\App.Shared.Infrastructure\App.Shared.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

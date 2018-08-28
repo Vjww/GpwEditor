@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\App.LanguageFileEditor.Data\App.LanguageFileEditor.Data.csproj" />
+    <ProjectReference Include="..\App.LanguageFileEditor.Domain\App.LanguageFileEditor.Domain.csproj" />
+    <ProjectReference Include="..\App.Shared.Infrastructure\App.Shared.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

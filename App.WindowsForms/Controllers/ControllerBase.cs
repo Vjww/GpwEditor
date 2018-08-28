@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using App.BaseGameEditor.Infrastructure.Services;
+using App.Shared.Infrastructure.Services;
 using App.WindowsForms.Views;
 
 namespace App.WindowsForms.Controllers

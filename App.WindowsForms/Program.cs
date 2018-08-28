@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Reflection;
 using System.Windows.Forms;
-using App.BaseGameEditor.Application.Maps.AutoMapper.Reference;
 using App.DependencyInjection.Autofac;
 using App.WindowsForms.Charts;
 using App.WindowsForms.Controllers;
-using App.WindowsForms.Maps.AutoMapper.Reference;
 using App.WindowsForms.Views;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
@@ -29,8 +27,9 @@ namespace App.WindowsForms
 
             // AutoMapper: Scan for and register profiles in assemblies
             serviceCollection.AddAutoMapper(
-                Assembly.GetAssembly(typeof(ApplicationMaps)),
-                Assembly.GetAssembly(typeof(PresentationMaps)));
+                Assembly.GetAssembly(typeof(BaseGameEditor.Application.Maps.AutoMapper.Reference.ApplicationMaps)),
+                Assembly.GetAssembly(typeof(LanguageFileEditor.Application.Maps.AutoMapper.Reference.ApplicationMaps)),
+                Assembly.GetAssembly(typeof(Maps.AutoMapper.Reference.PresentationMaps)));
 
             // Autofac: http://autofaccn.readthedocs.io/en/latest/integration/netcore.html
             var containerBuilder = new ContainerBuilder();

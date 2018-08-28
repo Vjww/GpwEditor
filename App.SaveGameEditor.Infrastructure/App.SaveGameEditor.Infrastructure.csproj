@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\App.Core\App.Core.csproj" />
     <ProjectReference Include="..\App.SaveGameEditor.Data\App.SaveGameEditor.Data.csproj" />
     <ProjectReference Include="..\App.SaveGameEditor.Domain\App.SaveGameEditor.Domain.csproj" />
+    <ProjectReference Include="..\App.Shared.Infrastructure\App.Shared.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

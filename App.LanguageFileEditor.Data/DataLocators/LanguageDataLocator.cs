@@ -1,4 +1,5 @@
 ﻿using App.Core.Identities;
+using App.Shared.Data.DataLocators;
 
 namespace App.LanguageFileEditor.Data.DataLocators
 {

@@ -25,19 +25,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.BaseGameEditor.Domain",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.BaseGameEditor.Infrastructure", "App.BaseGameEditor.Infrastructure\App.BaseGameEditor.Infrastructure.csproj", "{D4ED742A-5907-42A9-A4BD-0DB924A10FFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.LanguageFileEditor.Data", "App.LanguageFileEditor.Data\App.LanguageFileEditor.Data.csproj", "{D2DB3136-F151-459B-A01B-A3E232D96503}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.LanguageFileEditor.Data", "App.LanguageFileEditor.Data\App.LanguageFileEditor.Data.csproj", "{D2DB3136-F151-459B-A01B-A3E232D96503}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.LanguageFileEditor.Domain", "App.LanguageFileEditor.Domain\App.LanguageFileEditor.Domain.csproj", "{9512F3AA-B9FE-40FB-84D4-F781BAB8E47E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.LanguageFileEditor.Domain", "App.LanguageFileEditor.Domain\App.LanguageFileEditor.Domain.csproj", "{9512F3AA-B9FE-40FB-84D4-F781BAB8E47E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.LanguageFileEditor.Infrastructure", "App.LanguageFileEditor.Infrastructure\App.LanguageFileEditor.Infrastructure.csproj", "{D79A2D98-7D30-4EF2-A7F8-06086DA8F564}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.LanguageFileEditor.Application", "App.LanguageFileEditor.Application\App.LanguageFileEditor.Application.csproj", "{F333A0C0-A6BA-47C7-9A52-2DE1DF496FBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.LanguageFileEditor.Application", "App.LanguageFileEditor.Application\App.LanguageFileEditor.Application.csproj", "{F333A0C0-A6BA-47C7-9A52-2DE1DF496FBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Shared.Data", "App.Shared.Data\App.Shared.Data.csproj", "{AF47595F-2A48-4C67-8141-3E7A45A96BDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Shared.Data", "App.Shared.Data\App.Shared.Data.csproj", "{AF47595F-2A48-4C67-8141-3E7A45A96BDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Shared.Infrastructure", "App.Shared.Infrastructure\App.Shared.Infrastructure.csproj", "{065E058A-A3C9-472C-99E0-35316BDAE21F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Shared.Infrastructure", "App.Shared.Infrastructure\App.Shared.Infrastructure.csproj", "{065E058A-A3C9-472C-99E0-35316BDAE21F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Shared.Domain", "App.Shared.Domain\App.Shared.Domain.csproj", "{A249513C-DBAF-470D-A519-9CA65230981E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Shared.Domain", "App.Shared.Domain\App.Shared.Domain.csproj", "{A249513C-DBAF-470D-A519-9CA65230981E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.LanguageFileEditor.Infrastructure", "App.LanguageFileEditor.Infrastructure\App.LanguageFileEditor.Infrastructure.csproj", "{F359E868-6169-4EFD-87D0-E3060B15B41E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,10 +97,6 @@ Global
 		{9512F3AA-B9FE-40FB-84D4-F781BAB8E47E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9512F3AA-B9FE-40FB-84D4-F781BAB8E47E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9512F3AA-B9FE-40FB-84D4-F781BAB8E47E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D79A2D98-7D30-4EF2-A7F8-06086DA8F564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D79A2D98-7D30-4EF2-A7F8-06086DA8F564}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D79A2D98-7D30-4EF2-A7F8-06086DA8F564}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D79A2D98-7D30-4EF2-A7F8-06086DA8F564}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F333A0C0-A6BA-47C7-9A52-2DE1DF496FBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F333A0C0-A6BA-47C7-9A52-2DE1DF496FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F333A0C0-A6BA-47C7-9A52-2DE1DF496FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -117,6 +113,10 @@ Global
 		{A249513C-DBAF-470D-A519-9CA65230981E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A249513C-DBAF-470D-A519-9CA65230981E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A249513C-DBAF-470D-A519-9CA65230981E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F359E868-6169-4EFD-87D0-E3060B15B41E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F359E868-6169-4EFD-87D0-E3060B15B41E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F359E868-6169-4EFD-87D0-E3060B15B41E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F359E868-6169-4EFD-87D0-E3060B15B41E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using App.BaseGameEditor.Domain.Entities;
-using App.BaseGameEditor.Infrastructure.Services;
 using App.Core.Factories;
 using App.LanguageFileEditor.Data.Services;
+using App.LanguageFileEditor.Domain.Entities;
 using App.LanguageFileEditor.Domain.Services;
+using App.Shared.Infrastructure.Services;
 
 namespace App.LanguageFileEditor.Application.Services.DomainModel
 {

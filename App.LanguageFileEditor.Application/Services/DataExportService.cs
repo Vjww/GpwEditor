@@ -1,7 +1,7 @@
 using System;
-using App.BaseGameEditor.Data.DataConnections;
-using App.BaseGameEditor.Data.DataEndpoints;
 using App.LanguageFileEditor.Data.Services;
+using App.Shared.Data.DataConnections;
+using App.Shared.Data.DataEndpoints;
 
 namespace App.LanguageFileEditor.Application.Services
 {
