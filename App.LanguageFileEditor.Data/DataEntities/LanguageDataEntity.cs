@@ -9,5 +9,6 @@ namespace App.LanguageFileEditor.Data.DataEntities
         public string EnglishValue { get; set; }
         public string FrenchValue { get; set; }
         public string GermanValue { get; set; }
+        public bool IsShared { get; set; }
     }
 }

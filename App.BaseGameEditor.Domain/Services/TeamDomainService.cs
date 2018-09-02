@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using App.BaseGameEditor.Domain.Entities;
 using App.Core.Repositories;
+using App.Core.Services;
 using App.Shared.Domain.EntityValidators;
 
 namespace App.BaseGameEditor.Domain.Services
@@ -11,13 +12,16 @@ namespace App.BaseGameEditor.Domain.Services
     {
         private readonly IRepository<TeamEntity> _teamRepository;
         private readonly IEntityValidator<TeamEntity> _teamEntityValidator;
+        private readonly RandomService _randomService;
 
         public TeamDomainService(
             IRepository<TeamEntity> teamRepository,
-            IEntityValidator<TeamEntity> teamEntityValidator)
+            IEntityValidator<TeamEntity> teamEntityValidator,
+            RandomService randomService)
         {
             _teamRepository = teamRepository ?? throw new ArgumentNullException(nameof(teamRepository));
             _teamEntityValidator = teamEntityValidator ?? throw new ArgumentNullException(nameof(teamEntityValidator));
+            _randomService = randomService ?? throw new ArgumentNullException(nameof(randomService));
         }
 
         public IEnumerable<TeamEntity> GetTeams()
@@ -117,7 +121,7 @@ namespace App.BaseGameEditor.Domain.Services
                 var team = teamEntities.Single(x => x.Id == id);
                 var designerAbility = f1ChiefDesignerEntities.Single(x => x.TeamId == team.TeamId).Ability;
                 var engineerAbility = f1ChiefEngineerEntities.Single(x => x.TeamId == team.TeamId).Ability;
-                var randomFactor = new Random().Next(0, 21); // 0..20 // TODO: Inject RandomService?
+                var randomFactor = _randomService.Next(0, 21); // 0..20
 
                 var recalculatedValue = designerFactor * (designerAbility - 1) +
                                   engineerFactor * (engineerAbility - 1) +

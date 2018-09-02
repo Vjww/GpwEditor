@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Reflection;
 using System.Windows.Forms;
 using App.DependencyInjection.Autofac;
@@ -20,6 +21,11 @@ namespace App.WindowsForms
         [STAThread]
         private static void Main()
         {
+            if (Debugger.IsAttached)
+            {
+                Properties.Settings.Default.Reset();
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

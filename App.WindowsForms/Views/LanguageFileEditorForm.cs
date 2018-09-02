@@ -21,7 +21,10 @@ namespace App.WindowsForms.Views
 
         private const string IdToolTipText = "The id of the language file resource record.";
         private const string IndexToolTipText = "The index of the language file resource record." + ReadOnlyToolTipText;
-        private const string ValueToolTipText = "The value of the language file resource record.";
+        private const string EnglishValueToolTipText = "The English value of the language file resource record.";
+        private const string FrenchValueToolTipText = "The French value of the language file resource record.";
+        private const string GermanValueToolTipText = "The German value of the language file resource record.";
+        private const string IsSharedToolTipText = "The value of the language file resource record.";
         #endregion
 
         public string GameFolderPath { get => GameFolderPathTextBox.Text; set => GameFolderPathTextBox.Text = value; }
@@ -55,13 +58,21 @@ namespace App.WindowsForms.Views
 
             AddColumnToDataGridView(LanguagesDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", IdToolTipText, false));
             AddColumnToDataGridView(LanguagesDataGridView, CreateDataGridViewTextBoxColumn("Index", "Index", IndexToolTipText, true, true));
-            AddColumnToDataGridView(LanguagesDataGridView, CreateDataGridViewTextBoxColumn("EnglishValue", "English Value", ValueToolTipText));
-            AddColumnToDataGridView(LanguagesDataGridView, CreateDataGridViewTextBoxColumn("FrenchValue", "French Value", ValueToolTipText));
-            AddColumnToDataGridView(LanguagesDataGridView, CreateDataGridViewTextBoxColumn("GermanValue", "German Value", ValueToolTipText));
+            AddColumnToDataGridView(LanguagesDataGridView, CreateDataGridViewTextBoxColumn("EnglishValue", "English Value", EnglishValueToolTipText));
+            AddColumnToDataGridView(LanguagesDataGridView, CreateDataGridViewTextBoxColumn("FrenchValue", "French Value", FrenchValueToolTipText));
+            AddColumnToDataGridView(LanguagesDataGridView, CreateDataGridViewTextBoxColumn("GermanValue", "German Value", GermanValueToolTipText));
+            AddColumnToDataGridView(LanguagesDataGridView, CreateDataGridViewTextBoxColumn("IsShared", "Is Shared Value", IsSharedToolTipText, false));
 
             BindDataGridViewToDataSource(LanguagesDataGridView, dataSource);
 
             ConfigureDataGridView(LanguagesDataGridView, "Index");
+
+            // Additional sizing
+            LanguagesDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            LanguagesDataGridView.Columns["Index"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            LanguagesDataGridView.Columns["EnglishValue"].Width = 180;
+            LanguagesDataGridView.Columns["FrenchValue"].Width = 180;
+            LanguagesDataGridView.Columns["GermanValue"].Width = 180;
         }
 
         private void LanguageFileEditorForm_Load(object sender, EventArgs e)
@@ -481,6 +492,25 @@ namespace App.WindowsForms.Views
             NavigateToRow(index);
             GoToIndexTextBox.Text = string.Empty;
             GoToIndexTextBox.Focus();
+        }
+
+        private void LanguagesDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            // TODO: Need to handle recursive executions of this event, due to manual changing of cell value
+
+            if (!(sender is DataGridView dataGrid)) return;
+
+            var row = dataGrid.Rows[e.RowIndex];
+            bool.TryParse(row.Cells["IsShared"].Value.ToString(), out var isSharedValue);
+
+            // Return if value is not shared across languages
+            if (!isSharedValue) return;
+
+            // Else update each language with the same value
+            var changedValue = row.Cells[e.ColumnIndex].Value;
+            row.Cells["EnglishValue"].Value = changedValue;
+            row.Cells["FrenchValue"].Value = changedValue;
+            row.Cells["GermanValue"].Value = changedValue;
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using App.BaseGameEditor.Infrastructure.Factories;
 using App.Core.Factories;
@@ -28,16 +29,10 @@ namespace App.DependencyInjection.Autofac
             LanguageFileEditorInfrastructureReferenceClass.DoNothing();
             SaveGameEditorInfrastructureReferenceClass.DoNothing();
 
-            // TODO: Check whether there is a better solution than the above and remove below if not required
-            //var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "App.LanguageGameEditor.Infrastructure.dll");
-            //AppDomain.CurrentDomain.Load(filePath);
-            //AppDomain.CurrentDomain.Load("App.LanguageGameEditor.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
+            var assemblies = Debugger.IsAttached
+                ? AppDomain.CurrentDomain.GetAssemblies().OrderBy(x => x.FullName).ToArray()
+                : AppDomain.CurrentDomain.GetAssemblies();
 
-#if !DEBUG
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-#else
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies().OrderBy(x => x.FullName).ToArray();
-#endif
             var isTypeWithinAppNamespaceRange = new Func<Type, bool>(
                 type => type.Namespace != null &&
                 (

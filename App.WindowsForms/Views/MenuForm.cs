@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
+using App.Core.Services;
 using App.WindowsForms.Controllers;
 using App.WindowsForms.Properties;
 
@@ -10,10 +11,12 @@ namespace App.WindowsForms.Views
 {
     public sealed partial class MenuForm : EditorForm
     {
+        private readonly RandomService _randomService;
         private MenuController _controller;
 
-        public MenuForm()
+        public MenuForm(RandomService randomService)
         {
+            _randomService = randomService ?? throw new ArgumentNullException(nameof(randomService));
             InitializeComponent();
         }
 
@@ -24,96 +27,167 @@ namespace App.WindowsForms.Views
 
         private void MenuForm_Load(object sender, EventArgs e)
         {
-            Icon = Resources.icon1;
-            Text = $"{Settings.Default.ApplicationName} v{GetApplicationVersion()}";
-            SetLogo();
-
-            // On initial run
-            if (Settings.Default.InitialRun)
+            try
             {
-                //
+                Icon = Resources.icon1;
+                Text = $"{Settings.Default.ApplicationName} v{GetApplicationVersion()}";
+                SetLogo();
+
+                GameFolderAdministratorLabel.Text = string.Format(GameFolderAdministratorLabel.Text, Settings.Default.ApplicationName);
+
+                // On initial run
+                if (Settings.Default.InitialRun)
+                {
+                    // Use game folder in registry if available and valid
+                    if (_controller.IsGameFolderAvailableFromWindowsRegistry())
+                    {
+                        var gameFolder = _controller.GetGameFolderFromWindowsRegistry();
+
+                        if (_controller.IsGameFolderValid(gameFolder))
+                        {
+                            Settings.Default.UserGameFolderPath = gameFolder;
+                            Settings.Default.UserGameLaunchCommand = Path.Combine(gameFolder, Settings.Default.DefaultGameExecutableName);
+                        }
+                    }
+
+                    if (Debugger.IsAttached)
+                    {
+                        // Override game folder
+                        Settings.Default.UserGameFolderPath = @"C:\Gpw";
+                        Settings.Default.UserGameLaunchCommand = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultGameExecutableName);
+                    }
+
+                    Settings.Default.InitialRun = false;
+                    Settings.Default.Save();
+                }
+
+                GameFolderPathTextBox.Text = Settings.Default.UserGameFolderPath;
+                GameFolderPanel.Show();
             }
-
-#if DEBUG
-            Settings.Default.UserGameFolderPath = @"C:\Gpw";
-#endif
-
-            Settings.Default.InitialRun = false;
-            Settings.Default.Save();
+            catch (Exception ex)
+            {
+                ShowErrorBox(ex);
+            }
         }
 
         private void UpgradeGameButton_Click(object sender, EventArgs e)
         {
-            _controller.RunUpgradeGame();
+            try
+            {
+                _controller.RunUpgradeGame();
+            }
+            catch (Exception ex)
+            {
+                ShowErrorBox(ex);
+            }
         }
 
         private void ConfigureGameButton_Click(object sender, EventArgs e)
         {
-            _controller.RunConfigureGame();
+            try
+            {
+                _controller.RunConfigureGame();
+            }
+            catch (Exception ex)
+            {
+                ShowErrorBox(ex);
+            }
         }
 
-        private void GameEditorButton_Click(object sender, EventArgs e)
+        private void GameExecutableEditorButton_Click(object sender, EventArgs e)
         {
-            _controller.RunBaseGameEditor();
-        }
-
-        private void SaveGameEditorButton_Click(object sender, EventArgs e)
-        {
-            // TODO: _controller.RunSaveGameEditor();
-
-            MessageBox.Show(
-                $"The save game editor is not available in this version of {Settings.Default.ApplicationName}.{Environment.NewLine}{Environment.NewLine}" +
-                $"Please try upgrading to the latest version of {Settings.Default.ApplicationName} " +
-                $"or search the Internet for the following editors to modify your save games.{Environment.NewLine}{Environment.NewLine}" +
-                $"Grand Prix World Editor 3.2 (GPWedit32.zip){Environment.NewLine}" +
-                $"GPW Patch v1.0 (gpwpatch.zip){Environment.NewLine}" +
-                "GPW Editor Beta (Lexxgpweditor.zip)",
-                Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                _controller.RunBaseGameEditor();
+            }
+            catch (Exception ex)
+            {
+                ShowErrorBox(ex);
+            }
         }
 
         private void LanguageFileEditorButton_Click(object sender, EventArgs e)
         {
-            _controller.RunLanguageFileEditor();
-        }
-
-        private void RegistryKeysButton_Click(object sender, EventArgs e)
-        {
-            _controller.RunRegistryKeysEditor();
-        }
-
-        private void SettingsButton_Click(object sender, EventArgs e)
-        {
-#if DEBUG
-            //SwitchContext(new SettingsForm()); // TODO: Implement
-#else
-            ConfigureGameFolder();
-#endif
-        }
-
-        private void LaunchGameButton_Click(object sender, EventArgs e)
-        {
-            var filePath = Settings.Default.UserGameLaunchCommand;
-
-            if (!File.Exists(filePath))
+            try
             {
-                MessageBox.Show(
-                    $"{Settings.Default.ApplicationName} was unable to launch the game. The following game executable file was not found.{Environment.NewLine}{Environment.NewLine}" +
-                    $"{filePath}{Environment.NewLine}{Environment.NewLine}" +
-                    $"You can change the path to the game executable file through the {Settings.Default.ApplicationName} Settings menu.",
-                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _controller.RunLanguageFileEditor();
             }
-
-            else
+            catch (Exception ex)
             {
-                Process.Start(filePath);
+                ShowErrorBox(ex);
             }
         }
 
-        private void ConfigureGameFolder()
+        private void SaveGameEditorButton_Click(object sender, EventArgs e)
         {
             try
             {
-                // Prompt the user to select the game folder
+                // TODO: _controller.RunSaveGameEditor();
+
+                MessageBox.Show(
+                    $"The save game editor is not available in this version of {Settings.Default.ApplicationName}.{Environment.NewLine}{Environment.NewLine}" +
+                    $"Please try upgrading to the latest version of {Settings.Default.ApplicationName} " +
+                    $"or search the Internet for the following editors to modify your save games.{Environment.NewLine}{Environment.NewLine}" +
+                    $"Grand Prix World Editor 3.2 (GPWedit32.zip){Environment.NewLine}" +
+                    $"GPW Patch v1.0 (gpwpatch.zip){Environment.NewLine}" +
+                    "GPW Editor Beta (Lexxgpweditor.zip)",
+                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                ShowErrorBox(ex);
+            }
+        }
+
+        private void GameFolderButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GameFolderPanel.Show();
+            }
+            catch (Exception ex)
+            {
+                ShowErrorBox(ex);
+            }
+        }
+
+        private void GameFolderChangeButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Get game folder from user
+                var dialogResult = GameFolderBrowserDialog.ShowDialog();
+
+                // Abort if user does not select a game folder
+                if (dialogResult != DialogResult.OK)
+                {
+                    return;
+                }
+
+                // Set game folder to selected folder
+                Settings.Default.UserGameFolderPath = GameFolderBrowserDialog.SelectedPath;
+                Settings.Default.Save();
+
+                GameFolderPathTextBox.Text = Settings.Default.UserGameFolderPath;
+            }
+            catch (Exception ex)
+            {
+                ShowErrorBox(ex);
+            }
+        }
+
+        private void GameFolderOkButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Hide panel if game folder has been set
+                if (!string.IsNullOrWhiteSpace(Settings.Default.UserGameFolderPath))
+                {
+                    GameFolderPanel.Hide();
+                    return;
+                }
+
+                // Else prompt the user to select the game folder
                 MessageBox.Show(
                     $"{Settings.Default.ApplicationName} requires you to select the {Settings.Default.GameName} installation folder.{Environment.NewLine}{Environment.NewLine}" +
                     $"Click OK to browse for the {Settings.Default.GameName} installation folder.",
@@ -122,68 +196,88 @@ namespace App.WindowsForms.Views
                 // Get game folder from user
                 var dialogResult = GameFolderBrowserDialog.ShowDialog();
 
-                // If user does not select an installation folder
+                // If user does not select a game folder
                 if (dialogResult != DialogResult.OK)
                 {
-                    // Set installation folder to default and show message to advise
+                    // Set game folder to default and show message to advise
                     Settings.Default.UserGameFolderPath = Settings.Default.DefaultGameFolderPath;
                     MessageBox.Show(
-                        $"As you did not select an installation folder for {Settings.Default.GameName}, {Settings.Default.ApplicationName} will assume that the game is installed at the following location.{Environment.NewLine}{Environment.NewLine}" +
+                        $"As you did not select an installation folder for {Settings.Default.GameName}, {Settings.Default.ApplicationName} " +
+                        $"will assume that the game is installed at the following location.{Environment.NewLine}{Environment.NewLine}" +
                         $"{Settings.Default.DefaultGameFolderPath}",
                         Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 else
                 {
+                    // Set game folder to selected folder
                     Settings.Default.UserGameFolderPath = GameFolderBrowserDialog.SelectedPath;
                 }
 
                 // Update other user paths
                 Settings.Default.UserGameLaunchCommand = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultGameExecutableName);
 
-                // Save selected game installation folder
                 Settings.Default.Save();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    $"{Settings.Default.ApplicationName} has encountered an error while attempting to configure the game folder.{Environment.NewLine}{Environment.NewLine}" +
-                    $"Error: {ex.Message}{Environment.NewLine}{Environment.NewLine}" +
-                    $"To resolve this error, try running {Settings.Default.ApplicationName} as an administrator.",
-                    Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowErrorBox(ex);
+            }
+        }
+
+        private void EditorSettingsButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _controller.RunEditorSettings();
+            }
+            catch (Exception ex)
+            {
+                ShowErrorBox(ex);
+            }
+        }
+
+        private void LaunchGameButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var filePath = Settings.Default.UserGameLaunchCommand;
+
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show(
+                        $"{Settings.Default.ApplicationName} was unable to launch the game.{Environment.NewLine}{Environment.NewLine}" +
+                        $"The following game executable file was not found.{Environment.NewLine}{Environment.NewLine}" +
+                        $"{filePath}{Environment.NewLine}{Environment.NewLine}" +
+                        $"You can change the path to the game executable file through the {Settings.Default.ApplicationName} Settings menu.",
+                        Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Process.Start(filePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowErrorBox(ex);
             }
         }
 
         private static string GetApplicationVersion()
         {
-#if (!DEBUG)
-            {
-                return System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed
-                    ? System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(2)
-                    : FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
-            }
-#else
+            if (Debugger.IsAttached)
             {
                 return FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
             }
-#endif
-        }
 
-        private void SwitchContext(Form form)
-        {
-            // If game folder has not been set
-            if (string.IsNullOrWhiteSpace(Settings.Default.UserGameFolderPath))
-            {
-                ConfigureGameFolder();
-                return;
-            }
-            SwitchToForm(this, form);
+            return System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed
+                    ? System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(2)
+                    : FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
         }
 
         private void SetLogo()
         {
-            var random = new Random();
-            var value = random.Next(5);
+            var value = _randomService.Next(5);
             switch (value)
             {
                 case 0:

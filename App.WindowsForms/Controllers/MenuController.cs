@@ -36,48 +36,50 @@ namespace App.WindowsForms.Controllers
 
         public void RunUpgradeGame()
         {
-            EnsureConfiguredGameFolder();
             _upgradeGameController.Run(_view);
         }
 
         public void RunConfigureGame()
         {
-            EnsureConfiguredGameFolder();
             _configureGameController.Run(_view);
         }
 
         public void RunBaseGameEditor()
         {
-            EnsureConfiguredGameFolder();
             _baseGameEditorController.Run(_view);
         }
 
         public void RunSaveGameEditor()
         {
-            //EnsureConfiguredGameFolder();
             //_saveGameEditorController.Run(_view);
         }
 
         public void RunLanguageFileEditor()
         {
-            EnsureConfiguredGameFolder();
             _languageFileEditorController.Run(_view);
         }
 
-        public void RunRegistryKeysEditor()
+        public void RunEditorSettings()
         {
-            //EnsureConfiguredGameFolder();
             //_registryKeysEditorController.Run(_view);
         }
 
-        private void EnsureConfiguredGameFolder()
+        public bool IsGameFolderAvailableFromWindowsRegistry()
         {
-            // TODO: // If game folder has not been set
-            // TODO: if (string.IsNullOrWhiteSpace(Settings.Default.UserGameFolderPath))
-            // TODO: {
-            // TODO:     ConfigureGameFolder();
-            // TODO:     return;
-            // TODO: }
+            // TODO: Implement
+            return false;
+        }
+
+        public string GetGameFolderFromWindowsRegistry()
+        {
+            // TODO: Implement
+            return null;
+        }
+
+        public bool IsGameFolderValid(string gameFolder)
+        {
+            // TODO: Implement
+            return false;
         }
     }
 }

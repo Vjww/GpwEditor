@@ -267,17 +267,27 @@ namespace App.WindowsForms.Views
             return string.IsNullOrWhiteSpace(value) ? @default : value;
         }
 
+        protected static void ShowErrorBox(Exception ex)
+        {
+            MessageBox.Show(
+                $"{Settings.Default.ApplicationName} has encountered an error.{Environment.NewLine}{Environment.NewLine}" +
+                $"Error: {ex.Message}{Environment.NewLine}{Environment.NewLine}" +
+                $"To resolve this error, try running {Settings.Default.ApplicationName} as an administrator.",
+                Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         protected static void ShowMessageBox(string message, MessageBoxIcon icon = MessageBoxIcon.Information)
         {
             MessageBox.Show(message, Settings.Default.ApplicationName, MessageBoxButtons.OK, icon);
         }
 
-        protected static void SwitchToForm(Form parentForm, Form childForm)
-        {
-            childForm.FormClosing += delegate { parentForm.Show(); };
-            childForm.Show(parentForm);
-            parentForm.Hide();
-        }
+        // TODO: remove
+        //protected static void SwitchToForm(Form parentForm, Form childForm)
+        //{
+        //    childForm.FormClosing += delegate { parentForm.Show(); };
+        //    childForm.Show(parentForm);
+        //    parentForm.Hide();
+        //}
 
         protected static void UpdateDataGridViewColumnHeaders<T>(DataGridView dataGridView)
         {

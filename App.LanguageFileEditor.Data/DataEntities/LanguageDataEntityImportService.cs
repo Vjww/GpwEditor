@@ -11,15 +11,18 @@ namespace App.LanguageFileEditor.Data.DataEntities
         private readonly DataEndpoint _dataEndpoint;
         private readonly IIntegerIdentityFactory<LanguageDataEntity> _dataEntityFactory;
         private readonly IIntegerIdentityFactory<LanguageDataLocator> _dataLocatorFactory;
+        private readonly LanguageValueConfigurationService _languageValueConfigurationService;
 
         public LanguageDataEntityImportService(
             DataEndpoint dataEndpoint,
             IIntegerIdentityFactory<LanguageDataEntity> dataEntityFactory,
-            IIntegerIdentityFactory<LanguageDataLocator> dataLocatorFactory)
+            IIntegerIdentityFactory<LanguageDataLocator> dataLocatorFactory,
+            LanguageValueConfigurationService languageValueConfigurationService)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataEntityFactory = dataEntityFactory ?? throw new ArgumentNullException(nameof(dataEntityFactory));
             _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));
+            _languageValueConfigurationService = languageValueConfigurationService ?? throw new ArgumentNullException(nameof(languageValueConfigurationService));
         }
 
         public LanguageDataEntity Import(int id)
@@ -34,6 +37,7 @@ namespace App.LanguageFileEditor.Data.DataEntities
             result.EnglishValue = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Id).Value;
             result.FrenchValue = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Id).Value;
             result.GermanValue = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Id).Value;
+            result.IsShared = _languageValueConfigurationService.GetSharedStatus(dataLocator.Id);
 
             return result;
         }
