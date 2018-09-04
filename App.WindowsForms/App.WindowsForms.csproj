@@ -186,6 +186,7 @@
     <Compile Include="Charts\PerformanceCurveChart.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\GameRegistryKeyService.cs" />
     <Compile Include="Views\LanguageFileEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +225,13 @@
     <Compile Include="Views\PerformanceCurveValuesForm.Designer.cs">
       <DependentUpon>PerformanceCurveValuesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\SettingsEditorController.cs" />
+    <Compile Include="Views\SettingsEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SettingsEditorForm.Designer.cs">
+      <DependentUpon>SettingsEditorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UpgradeGameForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PerformanceCurveValuesForm.resx">
       <DependentUpon>PerformanceCurveValuesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SettingsEditorForm.resx">
+      <DependentUpon>SettingsEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UpgradeGameForm.resx">
       <DependentUpon>UpgradeGameForm.cs</DependentUpon>

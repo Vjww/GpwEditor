@@ -47,29 +47,28 @@ namespace App.WindowsForms.Views
 
         private void GameFolderPathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetGameFolderPathFromFolderBrowserDialog();
-            GameFolderPath = string.IsNullOrEmpty(result) ? GameFolderPath : result;
+            try
+            {
+                var result = GetGameFolderPathFromFolderBrowserDialog();
+                GameFolderPath = string.IsNullOrEmpty(result) ? GameFolderPath : result;
+            }
+            catch (Exception ex)
+            {
+                ShowErrorBox(ex.Message);
+            }
         }
 
         private void UpgradeButton_Click(object sender, EventArgs e)
         {
-            Upgrade();
-        }
-
-        private void Upgrade()
-        {
-            Cursor.Current = Cursors.WaitCursor;
-
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
+
                 _controller.Upgrade();
             }
             catch (Exception ex)
             {
-                ShowMessageBox(
-                    $"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
-                    MessageBoxIcon.Error);
-                return;
+                ShowErrorBox(ex.Message);
             }
             finally
             {

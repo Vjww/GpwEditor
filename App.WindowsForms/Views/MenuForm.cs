@@ -27,47 +27,41 @@ namespace App.WindowsForms.Views
 
         private void MenuForm_Load(object sender, EventArgs e)
         {
-            try
+            Icon = Resources.icon1;
+            Text = $"{Settings.Default.ApplicationName} v{GetApplicationVersion()}";
+            SetLogo();
+
+            GameFolderAdministratorLabel.Text = string.Format(GameFolderAdministratorLabel.Text, Settings.Default.ApplicationName);
+            SettingsEditorButton.Text = string.Format(SettingsEditorButton.Text, Settings.Default.ApplicationName);
+
+            // On initial run
+            if (Settings.Default.InitialRun)
             {
-                Icon = Resources.icon1;
-                Text = $"{Settings.Default.ApplicationName} v{GetApplicationVersion()}";
-                SetLogo();
-
-                GameFolderAdministratorLabel.Text = string.Format(GameFolderAdministratorLabel.Text, Settings.Default.ApplicationName);
-
-                // On initial run
-                if (Settings.Default.InitialRun)
+                // Use game folder in registry if available and valid
+                if (_controller.IsGameFolderAvailableFromWindowsRegistry())
                 {
-                    // Use game folder in registry if available and valid
-                    if (_controller.IsGameFolderAvailableFromWindowsRegistry())
+                    var gameFolder = _controller.GetGameFolderFromWindowsRegistry();
+
+                    if (_controller.IsGameFolderValid(gameFolder))
                     {
-                        var gameFolder = _controller.GetGameFolderFromWindowsRegistry();
-
-                        if (_controller.IsGameFolderValid(gameFolder))
-                        {
-                            Settings.Default.UserGameFolderPath = gameFolder;
-                            Settings.Default.UserGameLaunchCommand = Path.Combine(gameFolder, Settings.Default.DefaultGameExecutableName);
-                        }
+                        Settings.Default.UserGameFolderPath = gameFolder;
+                        Settings.Default.UserGameLaunchCommand = Path.Combine(gameFolder, Settings.Default.DefaultGameExecutableName);
                     }
-
-                    if (Debugger.IsAttached)
-                    {
-                        // Override game folder
-                        Settings.Default.UserGameFolderPath = @"C:\Gpw";
-                        Settings.Default.UserGameLaunchCommand = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultGameExecutableName);
-                    }
-
-                    Settings.Default.InitialRun = false;
-                    Settings.Default.Save();
                 }
 
-                GameFolderPathTextBox.Text = Settings.Default.UserGameFolderPath;
-                GameFolderPanel.Show();
+                if (Debugger.IsAttached)
+                {
+                    // Override game folder
+                    Settings.Default.UserGameFolderPath = @"C:\Gpw";
+                    Settings.Default.UserGameLaunchCommand = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultGameExecutableName);
+                }
+
+                Settings.Default.InitialRun = false;
+                Settings.Default.Save();
             }
-            catch (Exception ex)
-            {
-                ShowErrorBox(ex);
-            }
+
+            GameFolderPathTextBox.Text = Settings.Default.UserGameFolderPath;
+            GameFolderPanel.Show();
         }
 
         private void UpgradeGameButton_Click(object sender, EventArgs e)
@@ -78,7 +72,7 @@ namespace App.WindowsForms.Views
             }
             catch (Exception ex)
             {
-                ShowErrorBox(ex);
+                ShowErrorBox(ex.Message);
             }
         }
 
@@ -90,7 +84,7 @@ namespace App.WindowsForms.Views
             }
             catch (Exception ex)
             {
-                ShowErrorBox(ex);
+                ShowErrorBox(ex.Message);
             }
         }
 
@@ -102,7 +96,7 @@ namespace App.WindowsForms.Views
             }
             catch (Exception ex)
             {
-                ShowErrorBox(ex);
+                ShowErrorBox(ex.Message);
             }
         }
 
@@ -114,7 +108,7 @@ namespace App.WindowsForms.Views
             }
             catch (Exception ex)
             {
-                ShowErrorBox(ex);
+                ShowErrorBox(ex.Message);
             }
         }
 
@@ -135,19 +129,19 @@ namespace App.WindowsForms.Views
             }
             catch (Exception ex)
             {
-                ShowErrorBox(ex);
+                ShowErrorBox(ex.Message);
             }
         }
 
-        private void GameFolderButton_Click(object sender, EventArgs e)
+        private void AnalyseTelemetryButton_Click(object sender, EventArgs e)
         {
             try
             {
-                GameFolderPanel.Show();
+                _controller.RunTelemetryViewer();
             }
             catch (Exception ex)
             {
-                ShowErrorBox(ex);
+                ShowErrorBox(ex.Message);
             }
         }
 
@@ -156,7 +150,7 @@ namespace App.WindowsForms.Views
             try
             {
                 // Get game folder from user
-                var dialogResult = GameFolderBrowserDialog.ShowDialog();
+                var dialogResult = ProgramFolderBrowserDialog.ShowDialog();
 
                 // Abort if user does not select a game folder
                 if (dialogResult != DialogResult.OK)
@@ -165,14 +159,14 @@ namespace App.WindowsForms.Views
                 }
 
                 // Set game folder to selected folder
-                Settings.Default.UserGameFolderPath = GameFolderBrowserDialog.SelectedPath;
+                Settings.Default.UserGameFolderPath = ProgramFolderBrowserDialog.SelectedPath;
                 Settings.Default.Save();
 
                 GameFolderPathTextBox.Text = Settings.Default.UserGameFolderPath;
             }
             catch (Exception ex)
             {
-                ShowErrorBox(ex);
+                ShowErrorBox(ex.Message);
             }
         }
 
@@ -184,6 +178,7 @@ namespace App.WindowsForms.Views
                 if (!string.IsNullOrWhiteSpace(Settings.Default.UserGameFolderPath))
                 {
                     GameFolderPanel.Hide();
+                    MenuPanel.Show();
                     return;
                 }
 
@@ -194,7 +189,7 @@ namespace App.WindowsForms.Views
                     Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Get game folder from user
-                var dialogResult = GameFolderBrowserDialog.ShowDialog();
+                var dialogResult = ProgramFolderBrowserDialog.ShowDialog();
 
                 // If user does not select a game folder
                 if (dialogResult != DialogResult.OK)
@@ -211,29 +206,32 @@ namespace App.WindowsForms.Views
                 else
                 {
                     // Set game folder to selected folder
-                    Settings.Default.UserGameFolderPath = GameFolderBrowserDialog.SelectedPath;
+                    Settings.Default.UserGameFolderPath = ProgramFolderBrowserDialog.SelectedPath;
                 }
 
                 // Update other user paths
                 Settings.Default.UserGameLaunchCommand = Path.Combine(Settings.Default.UserGameFolderPath, Settings.Default.DefaultGameExecutableName);
 
                 Settings.Default.Save();
+
+                GameFolderPanel.Hide();
+                MenuPanel.Show();
             }
             catch (Exception ex)
             {
-                ShowErrorBox(ex);
+                ShowErrorBox(ex.Message);
             }
         }
 
-        private void EditorSettingsButton_Click(object sender, EventArgs e)
+        private void SettingsEditorButton_Click(object sender, EventArgs e)
         {
             try
             {
-                _controller.RunEditorSettings();
+                _controller.RunSettingsEditor();
             }
             catch (Exception ex)
             {
-                ShowErrorBox(ex);
+                ShowErrorBox(ex.Message);
             }
         }
 
@@ -259,10 +257,11 @@ namespace App.WindowsForms.Views
             }
             catch (Exception ex)
             {
-                ShowErrorBox(ex);
+                ShowErrorBox(ex.Message);
             }
         }
 
+        // TODO: Refer to alternate in ControllerBase
         private static string GetApplicationVersion()
         {
             if (Debugger.IsAttached)

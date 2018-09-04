@@ -12,19 +12,22 @@ namespace App.WindowsForms.Controllers
         private readonly ConfigureGameController _configureGameController;
         private readonly BaseGameEditorController _baseGameEditorController;
         private readonly LanguageFileEditorController _languageFileEditorController;
+        private readonly SettingsEditorController _settingsEditorController;
 
         public MenuController(
             MenuForm view,
             UpgradeGameController upgradeGameController,
             ConfigureGameController configureGameController,
             BaseGameEditorController baseGameEditorController,
-            LanguageFileEditorController languageFileEditorController)
+            LanguageFileEditorController languageFileEditorController,
+            SettingsEditorController settingsEditorController)
         {
             _view = view ?? throw new ArgumentNullException(nameof(view));
             _upgradeGameController = upgradeGameController ?? throw new ArgumentNullException(nameof(upgradeGameController));
             _configureGameController = configureGameController ?? throw new ArgumentNullException(nameof(configureGameController));
             _baseGameEditorController = baseGameEditorController ?? throw new ArgumentNullException(nameof(baseGameEditorController));
             _languageFileEditorController = languageFileEditorController ?? throw new ArgumentNullException(nameof(languageFileEditorController));
+            _settingsEditorController = settingsEditorController ?? throw new ArgumentNullException(nameof(settingsEditorController));
 
             _view.SetController(this);
         }
@@ -59,9 +62,14 @@ namespace App.WindowsForms.Controllers
             _languageFileEditorController.Run(_view);
         }
 
-        public void RunEditorSettings()
+        public void RunSettingsEditor()
         {
-            //_registryKeysEditorController.Run(_view);
+            _settingsEditorController.Run(_view);
+        }
+
+        public void RunTelemetryViewer()
+        {
+            throw new NotImplementedException();
         }
 
         public bool IsGameFolderAvailableFromWindowsRegistry()

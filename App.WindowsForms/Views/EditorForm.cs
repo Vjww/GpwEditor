@@ -267,11 +267,11 @@ namespace App.WindowsForms.Views
             return string.IsNullOrWhiteSpace(value) ? @default : value;
         }
 
-        protected static void ShowErrorBox(Exception ex)
+        protected static void ShowErrorBox(string message)
         {
             MessageBox.Show(
                 $"{Settings.Default.ApplicationName} has encountered an error.{Environment.NewLine}{Environment.NewLine}" +
-                $"Error: {ex.Message}{Environment.NewLine}{Environment.NewLine}" +
+                $"Error: {message}{Environment.NewLine}{Environment.NewLine}" +
                 $"To resolve this error, try running {Settings.Default.ApplicationName} as an administrator.",
                 Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

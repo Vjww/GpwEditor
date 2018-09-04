@@ -48,6 +48,7 @@ namespace App.WindowsForms
             containerBuilder.RegisterType<PerformanceCurveValuesForm>().InstancePerDependency();
             containerBuilder.RegisterType<BaseGameEditorForm>().InstancePerDependency();
             containerBuilder.RegisterType<LanguageFileEditorForm>().InstancePerDependency();
+            containerBuilder.RegisterType<SettingsEditorForm>().InstancePerDependency();
 
             // Register transients
             containerBuilder.RegisterType<PerformanceCurveChart>().InstancePerDependency();

@@ -123,7 +123,25 @@
   <metadata name="ProgramFolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>199, 17</value>
   </metadata>
-  <metadata name="MenuToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>411, 17</value>
+  <data name="RegistryKeysDescriptionLabel.Text" xml:space="preserve">
+    <value>{0} has determined that there are no registry keys installed for {1}.
+
+Key: {2}
+
+Registry keys are created by the {1} installer on the original game CD, however the game will still run successfully without the registry keys in place.
+
+If you require the registry keys for troubleshooting or legacy support, please ensure {0} is running as an administrator and click on the button below to install the registry keys.</value>
+  </data>
+  <data name="AboutRichTextBox.Text" xml:space="preserve">
+    <value>{\rtf1\ansi\deff0Thank you for using GPW Edit to enjoy Grand Prix World!
+
+GPW Edit is dedicated to the efforts of many individuals over the last 20+ years who have worked tirelessly and out of pure passion to keep this game alive by troubleshooting compatibility issues, finding workarounds, creating editors, season mods, car liveries and other works. It has been tough going but the game continues to evolve as new ways of upgrading the game are found.
+
+Please visit www.forum.gpracegames.com and join the community!
+
+We are always welcoming new talent to take this game on and increase its moddability.}</value>
+  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>82</value>
   </metadata>
 </root>
