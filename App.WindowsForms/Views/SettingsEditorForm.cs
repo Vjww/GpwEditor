@@ -7,13 +7,13 @@ namespace App.WindowsForms.Views
     {
         private SettingsEditorController _controller;
 
-        public string GameFolder { get => GameFolderTextBox.Text; set => GameFolderTextBox.Text = value; }
-        public string LaunchGame { get => LaunchGameTextBox.Text; set => LaunchGameTextBox.Text = value; }
-        public string RegistryKey { get => RegistryKeyTextBox.Text; set => RegistryKeyTextBox.Text = value; }
-        public string InstallValue { get => InstallTextBox.Text; set => InstallTextBox.Text = value; }
-        public string LanguageValue { get => LanguageTextBox.Text; set => LanguageTextBox.Text = value; }
-        public string PathValue { get => PathTextBox.Text; set => PathTextBox.Text = value; }
-        public string ValidValue { get => ValidTextBox.Text; set => ValidTextBox.Text = value; }
+        public string GameFolderText { get => GameFolderTextBox.Text; set => GameFolderTextBox.Text = value; }
+        public string LaunchGameText { get => LaunchGameTextBox.Text; set => LaunchGameTextBox.Text = value; }
+        public string RegistryKeyText { get => RegistryKeyTextBox.Text; set => RegistryKeyTextBox.Text = value; }
+        public string RegistryInstallValueText { get => InstallTextBox.Text; set => InstallTextBox.Text = value; }
+        public string RegistryLanguageValueText { get => LanguageTextBox.Text; set => LanguageTextBox.Text = value; }
+        public string RegistryPathValueText { get => PathTextBox.Text; set => PathTextBox.Text = value; }
+        public string RegistryValidValueText { get => ValidTextBox.Text; set => ValidTextBox.Text = value; }
 
         public SettingsEditorForm()
         {
@@ -27,110 +27,72 @@ namespace App.WindowsForms.Views
 
         private void SettingsEditorForm_Load(object sender, EventArgs e)
         {
-            Icon = _controller.GetFormIcon();
-            Text = $@"{_controller.GetApplicationName()} - Settings";
-            ConvertLinesToRtf(AboutRichTextBox);
-
-            GameFolder = _controller.GetUserGameFolderPath();
-            LaunchGame = _controller.GetUserGameLaunchCommand();
-            RegistryKey = _controller.GetGameRegistryKey();
-
-            GameFolderDescriptionLabel.Text = string.Format(GameFolderDescriptionLabel.Text, _controller.GetApplicationName());
-            LaunchGameDescriptionLabel.Text = string.Format(LaunchGameDescriptionLabel.Text, _controller.GetApplicationName());
-            RegistryKeysDescriptionLabel.Text = string.Format(RegistryKeysDescriptionLabel.Text, _controller.GetApplicationName(), _controller.GetGameName(), _controller.GetGameRegistryKey());
-
-            if (_controller.DoGameRegistryKeysExist())
-            {
-                _controller.UpdateRegistryModelFromRegistryValues();
-                RegistryKeysPanel.Show();
-            }
-            else
-            {
-                RegistryKeysInstallPanel.Show();
-            }
+            _controller.LoadView();
         }
 
         private void GameFolderChangeButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Prompt user to select game folder and save original/changed selection
-                var result = _controller.GetGameFolderPathFromFolderBrowserDialog(ProgramFolderBrowserDialog);
-                GameFolder = string.IsNullOrEmpty(result) ? GameFolder : result;
-                _controller.SetUserGameFolderPath(GameFolder);
-            }
-            catch (Exception ex)
-            {
-                ShowErrorBox(ex.Message);
-            }
+            _controller.ChangeGameFolder();
         }
 
         private void LaunchGameChangeButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Prompt user to select game executable and save original/changed selection
-                var result = _controller.GetGameExecutablePathFromOpenFileDialog(ProgramOpenFileDialog);
-                LaunchGame = string.IsNullOrEmpty(result) ? LaunchGame : result;
-                _controller.SetUserGameLaunchCommand(LaunchGame);
-            }
-            catch (Exception ex)
-            {
-                ShowErrorBox(ex.Message);
-            }
-        }
-
-        private void RegistryKeysInstallButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                _controller.InstallRegistryKeys();
-                _controller.UpdateRegistryModelFromRegistryValues();
-                RegistryKeysInstallPanel.Hide();
-                RegistryKeysPanel.Show();
-            }
-            catch (Exception ex)
-            {
-                ShowErrorBox(ex.Message);
-            }
+            _controller.ChangeLaunchGame();
         }
 
         private void PathChangeButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!_controller.IsRegistryWritable())
-                {
-                    throw new Exception($"Unable to alter the registry key values due to insufficient permissions.");
-                }
+            _controller.ChangeRegistryGameFolder();
+        }
 
-                // Prompt user to select game folder and save original/changed selection
-                var result = _controller.GetGameFolderPathFromFolderBrowserDialog(ProgramFolderBrowserDialog);
-                PathValue = string.IsNullOrEmpty(result) ? PathValue : result;
-                _controller.UpdateRegistryValuesFromRegistryModel();
-            }
-            catch (Exception ex)
-            {
-                ShowErrorBox(ex.Message);
-            }
+        private void RegistryKeysInstallButton_Click(object sender, EventArgs e)
+        {
+            _controller.InstallRegistryKeys();
         }
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!_controller.IsRegistryWritable())
-                {
-                    throw new Exception($"Unable to alter the registry key values due to insufficient permissions.");
-                }
+            _controller.ResetRegistryKeys();
+        }
 
-                _controller.InstallRegistryKeys();
-                _controller.UpdateRegistryModelFromRegistryValues();
-            }
-            catch (Exception ex)
-            {
-                ShowErrorBox(ex.Message);
-            }
+        public void FormatGameFolderDescriptionLabelText(string applicationName)
+        {
+            GameFolderDescriptionLabel.Text = string.Format(GameFolderDescriptionLabel.Text, applicationName);
+        }
+
+        public void FormatLaunchGameDescriptionLabelText(string applicationName)
+        {
+            LaunchGameDescriptionLabel.Text = string.Format(LaunchGameDescriptionLabel.Text, applicationName);
+        }
+
+        public void FormatRegistryKeysDescriptionLabelText(string applicationName, string gameName, string gameRegistryKey)
+        {
+            RegistryKeysDescriptionLabel.Text = string.Format(RegistryKeysDescriptionLabel.Text, applicationName, gameName, gameRegistryKey);
+        }
+
+        public string[] GetRichTextBoxLines()
+        {
+            return AboutRichTextBox.Lines;
+        }
+
+        public void HideRegistryKeysInstallPanel()
+        {
+            RegistryKeysInstallPanel.Hide();
+        }
+
+        public void ShowRegistryKeysInstallPanel()
+        {
+            RegistryKeysInstallPanel.Show();
+        }
+
+        public void ShowRegistryKeysPanel()
+        {
+            RegistryKeysPanel.Show();
+        }
+
+        public void SetRichTextBoxRichText(string text)
+        {
+            AboutRichTextBox.Rtf = text;
         }
     }
 }

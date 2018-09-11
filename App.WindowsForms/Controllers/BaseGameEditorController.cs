@@ -15,6 +15,8 @@ namespace App.WindowsForms.Controllers
     public class BaseGameEditorController : ControllerBase
     {
         private BaseGameEditorForm _view;
+        private bool _isImportOccurred;
+        private bool _isModified;
 
         private readonly BaseGameEditorApplicationService _baseGameEditorApplicationService;
         private readonly FormFactory _formFactory;
@@ -38,74 +40,299 @@ namespace App.WindowsForms.Controllers
 
         public void Import()
         {
-            _baseGameEditorApplicationService.Import(
-                _view.GameFolderPath,
-                _view.GameExecutableFilePath,
-                _view.EnglishLanguageFilePath,
-                _view.FrenchLanguageFilePath,
-                _view.GermanLanguageFilePath,
-                _view.EnglishCommentaryFilePath,
-                _view.FrenchCommentaryFilePath,
-                _view.GermanCommentaryFilePath);
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
 
-            UpdateModelsFromService();
+                _baseGameEditorApplicationService.Import(
+                    _view.GameFolderPath,
+                    _view.GameExecutableFilePath,
+                    _view.EnglishLanguageFilePath,
+                    _view.FrenchLanguageFilePath,
+                    _view.GermanLanguageFilePath,
+                    _view.EnglishCommentaryFilePath,
+                    _view.FrenchCommentaryFilePath,
+                    _view.GermanCommentaryFilePath);
+
+                UpdateModelsFromService();
+
+                _isImportOccurred = true;
+                _isModified = false;
+            }
+            catch (Exception ex)
+            {
+                Cursor.Current = Cursors.Default;
+                _view.ShowErrorBox(ex.Message);
+                return;
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
+
+            _view.ShowMessageBox("Import complete!");
         }
 
         public void Export()
         {
-            UpdateServiceFromModels();
+            if (!_isImportOccurred)
+            {
+                _view.ShowMessageBox("Unable to export until a successful import has occurred.", MessageBoxIcon.Error);
+                return;
+            }
 
-            // TODO: Implement field validation
-            //if (!_baseGameEditorApplicationService.DomainModel.IsValid)
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                UpdateServiceFromModels();
+
+                // TODO: Implement field validation
+                //if (!_baseGameEditorApplicationService.DomainModel.IsValid)
+                //{
+                //    UpdateValidationModels();
+                //    DisplayValidationMessages();
+
+                //    throw new Exception("Your changes have failed validation. Please review the validation messages and try again.");
+                //}
+
+                _baseGameEditorApplicationService.Export(
+                    _view.GameFolderPath,
+                    _view.GameExecutableFilePath,
+                    _view.EnglishLanguageFilePath,
+                    _view.FrenchLanguageFilePath,
+                    _view.GermanLanguageFilePath,
+                    _view.EnglishCommentaryFilePath,
+                    _view.FrenchCommentaryFilePath,
+                    _view.GermanCommentaryFilePath);
+            }
+            catch (Exception ex)
+            {
+                Cursor.Current = Cursors.Default;
+                _view.ShowErrorBox(ex.Message);
+                return;
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
+
+            _view.ShowMessageBox("Export complete!");
+        }
+
+        public void LoadView()
+        {
+            _view.SetFormIcon(GetFormIcon());
+            _view.SetFormText($"{GetApplicationName()} - Game Executable Editor");
+            _view.SetRichTextBoxRichText(ConvertStringArrayToRichText(_view.GetRichTextBoxLines()));
+
+            // Populate paths with most recently used (MRU) or default
+            _view.GameFolderPath = GetGameFolderMruOrDefault();
+            _view.GameExecutableFilePath = GetGameExecutableMruOrDefault();
+            _view.EnglishLanguageFilePath = GetEnglishLanguageFileMruOrDefault();
+            _view.FrenchLanguageFilePath = GetFrenchLanguageFileMruOrDefault();
+            _view.GermanLanguageFilePath = GetGermanLanguageFileMruOrDefault();
+            _view.EnglishCommentaryFilePath = GetEnglishCommentaryFileMruOrDefault();
+            _view.FrenchCommentaryFilePath = GetFrenchCommentaryFileMruOrDefault();
+            _view.GermanCommentaryFilePath = GetGermanCommentaryFileMruOrDefault();
+
+            // ConfigureControls(); // TODO: Suspect no longer needed
+            _view.SubscribeDataGridViewControlsToGenericEvents(); // TODO: What's this for, I think it is still needed in the rewrite... for comboboxes
+        }
+
+        public bool CloseForm()
+        {
+            // TODO: Reconsider for validation rewrite, may now be redundant due to removal of validation when exiting a cell.
+            //if (_isFailedValidationForSwitchingContext) 
             //{
-            //    UpdateValidationModels();
-            //    DisplayValidationMessages();
-
-            //    throw new Exception("Your changes have failed validation. Please review the validation messages and try again.");
+            //    e.Cancel = true; // Abort event
+            //    _isFailedValidationForSwitchingContext = false; // Reset
+            //    return;
             //}
 
-            _baseGameEditorApplicationService.Export(
-                _view.GameFolderPath,
-                _view.GameExecutableFilePath,
-                _view.EnglishLanguageFilePath,
-                _view.FrenchLanguageFilePath,
-                _view.GermanLanguageFilePath,
-                _view.EnglishCommentaryFilePath,
-                _view.FrenchCommentaryFilePath,
-                _view.GermanCommentaryFilePath);
+            if (CloseFormConfirmation(_view, _isModified, $"Are you sure you wish to close this window?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost."))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool ChangeTab()
+        {
+            // TODO: Reconsider for validation rewrite, may now be redundant due to removal of validation when exiting a cell.
+            //if (_isFailedValidationForSwitchingContext)
+            //{
+            //    e.Cancel = true; // Abort event
+            //    _isFailedValidationForSwitchingContext = false; // Reset
+            //}
+
+            if (_isImportOccurred)
+            {
+                _isModified = true;
+                return true;
+            }
+
+            _view.ShowMessageBox("Unable to switch tabs until a successful import has occurred.", MessageBoxIcon.Error);
+            return false;
+        }
+
+        public void ChangeGameFolder()
+        {
+            try
+            {
+                var result = GetGameFolderPathFromFolderBrowserDialog(_view);
+                _view.GameFolderPath = string.IsNullOrEmpty(result) ? _view.GameFolderPath : result;
+            }
+            catch (Exception ex)
+            {
+                _view.ShowErrorBox(ex.Message);
+            }
+        }
+
+        public void ChangeGameExecutable()
+        {
+            try
+            {
+                var result = GetGameExecutablePathFromOpenFileDialog(_view);
+                _view.GameExecutableFilePath = string.IsNullOrEmpty(result) ? _view.GameExecutableFilePath : result;
+            }
+            catch (Exception ex)
+            {
+                _view.ShowErrorBox(ex.Message);
+            }
+        }
+
+        public void ChangeEnglishLanguageFile()
+        {
+            try
+            {
+                var result = GetEnglishLanguageFilePathFromOpenFileDialog(_view);
+                _view.EnglishLanguageFilePath = string.IsNullOrEmpty(result) ? _view.EnglishLanguageFilePath : result;
+            }
+            catch (Exception ex)
+            {
+                _view.ShowErrorBox(ex.Message);
+            }
+        }
+
+        public void ChangeFrenchLanguageFile()
+        {
+            try
+            {
+                var result = GetFrenchLanguageFilePathFromOpenFileDialog(_view);
+                _view.FrenchLanguageFilePath = string.IsNullOrEmpty(result) ? _view.FrenchLanguageFilePath : result;
+            }
+            catch (Exception ex)
+            {
+                _view.ShowErrorBox(ex.Message);
+            }
+        }
+
+        public void ChangeGermanLanguageFile()
+        {
+            try
+            {
+                var result = GetGermanLanguageFilePathFromOpenFileDialog(_view);
+                _view.GermanLanguageFilePath = string.IsNullOrEmpty(result) ? _view.GermanLanguageFilePath : result;
+            }
+            catch (Exception ex)
+            {
+                _view.ShowErrorBox(ex.Message);
+            }
+        }
+
+        public void ChangeEnglishCommentaryFile()
+        {
+            try
+            {
+                var result = GetEnglishCommentaryFilePathFromOpenFileDialog(_view);
+                _view.EnglishCommentaryFilePath = string.IsNullOrEmpty(result) ? _view.EnglishCommentaryFilePath : result;
+            }
+            catch (Exception ex)
+            {
+                _view.ShowErrorBox(ex.Message);
+            }
+        }
+
+        public void ChangeFrenchCommentaryFile()
+        {
+            try
+            {
+                var result = GetFrenchCommentaryFilePathFromOpenFileDialog(_view);
+                _view.FrenchCommentaryFilePath = string.IsNullOrEmpty(result) ? _view.FrenchCommentaryFilePath : result;
+            }
+            catch (Exception ex)
+            {
+                _view.ShowErrorBox(ex.Message);
+            }
+        }
+
+        public void ChangeGermanCommentaryFile()
+        {
+            try
+            {
+                var result = GetGermanCommentaryFilePathFromOpenFileDialog(_view);
+                _view.GermanCommentaryFilePath = string.IsNullOrEmpty(result) ? _view.GermanCommentaryFilePath : result;
+            }
+            catch (Exception ex)
+            {
+                _view.ShowErrorBox(ex.Message);
+            }
         }
 
         public void UpdateTeamsModelWithChassisHandlingValuesFromOriginalValues()
         {
-            var entities = MapperService.Map<IEnumerable<TeamModel>, IEnumerable<TeamEntity>>(_view.Teams);
+            try
+            {
+                var entities = MapperService.Map<IEnumerable<TeamModel>, IEnumerable<TeamEntity>>(_view.Teams);
 
-            var modifiedEntities = _baseGameEditorApplicationService.DomainModel.Teams.GetChassisHandlingValuesFromOriginalValues(entities);
+                var modifiedEntities = _baseGameEditorApplicationService.DomainModel.Teams.GetChassisHandlingValuesFromOriginalValues(entities);
 
-            var model = MapperService.Map<IEnumerable<TeamEntity>, IEnumerable<TeamModel>>(modifiedEntities);
-            _view.UpdateTeamsModelWithUpdatedChassisHandlingValues(model);
+                var model = MapperService.Map<IEnumerable<TeamEntity>, IEnumerable<TeamModel>>(modifiedEntities);
+                _view.UpdateTeamsModelWithUpdatedChassisHandlingValues(model);
+            }
+            catch (Exception ex)
+            {
+                _view.ShowErrorBox(ex.Message);
+            }
         }
 
         public void UpdateTeamsModelWithChassisHandlingValuesFromRandomisedModifiedDesignCalculation()
         {
-            var teamEntities = MapperService.Map<IEnumerable<TeamModel>, IEnumerable<TeamEntity>>(_view.Teams);
-            var chiefDesignerEntities = MapperService.Map<IEnumerable<F1ChiefDesignerModel>, IEnumerable<F1ChiefDesignerEntity>>(_view.F1ChiefDesigners);
-            var chiefEngineerEntities = MapperService.Map<IEnumerable<F1ChiefEngineerModel>, IEnumerable<F1ChiefEngineerEntity>>(_view.F1ChiefEngineers);
+            try
+            {
+                var teamEntities = MapperService.Map<IEnumerable<TeamModel>, IEnumerable<TeamEntity>>(_view.Teams);
+                var chiefDesignerEntities = MapperService.Map<IEnumerable<F1ChiefDesignerModel>, IEnumerable<F1ChiefDesignerEntity>>(_view.F1ChiefDesigners);
+                var chiefEngineerEntities = MapperService.Map<IEnumerable<F1ChiefEngineerModel>, IEnumerable<F1ChiefEngineerEntity>>(_view.F1ChiefEngineers);
 
-            var modifiedTeamEntities = _baseGameEditorApplicationService.DomainModel.Teams.GetChassisHandlingValuesFromRandomisedModifiedDesignCalculation(
-                teamEntities, chiefDesignerEntities, chiefEngineerEntities);
+                var modifiedTeamEntities = _baseGameEditorApplicationService.DomainModel.Teams.GetChassisHandlingValuesFromRandomisedModifiedDesignCalculation(
+                    teamEntities, chiefDesignerEntities, chiefEngineerEntities);
 
-            var model = MapperService.Map<IEnumerable<TeamEntity>, IEnumerable<TeamModel>>(modifiedTeamEntities);
-            _view.UpdateTeamsModelWithUpdatedChassisHandlingValues(model);
+                var model = MapperService.Map<IEnumerable<TeamEntity>, IEnumerable<TeamModel>>(modifiedTeamEntities);
+                _view.UpdateTeamsModelWithUpdatedChassisHandlingValues(model);
+            }
+            catch (Exception ex)
+            {
+                _view.ShowErrorBox(ex.Message);
+            }
         }
 
         public void UpdateTeamsModelWithChassisHandlingValuesFromRecommendedValues()
         {
-            var entities = MapperService.Map<IEnumerable<TeamModel>, IEnumerable<TeamEntity>>(_view.Teams);
+            try
+            {
+                var entities = MapperService.Map<IEnumerable<TeamModel>, IEnumerable<TeamEntity>>(_view.Teams);
 
-            var modifiedEntities = _baseGameEditorApplicationService.DomainModel.Teams.GetChassisHandlingValuesFromRecommendedValues(entities);
+                var modifiedEntities = _baseGameEditorApplicationService.DomainModel.Teams.GetChassisHandlingValuesFromRecommendedValues(entities);
 
-            var model = MapperService.Map<IEnumerable<TeamEntity>, IEnumerable<TeamModel>>(modifiedEntities);
-            _view.UpdateTeamsModelWithUpdatedChassisHandlingValues(model);
+                var model = MapperService.Map<IEnumerable<TeamEntity>, IEnumerable<TeamModel>>(modifiedEntities);
+                _view.UpdateTeamsModelWithUpdatedChassisHandlingValues(model);
+            }
+            catch (Exception ex)
+            {
+                _view.ShowErrorBox(ex.Message);
+            }
         }
 
         private void DisplayValidationMessages()

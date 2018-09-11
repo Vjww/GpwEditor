@@ -1,29 +1,10 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Collections.ObjectModel;
-//using System.ComponentModel.DataAnnotations;
-//using System.Linq;
-//using System.Reflection;
-//using System.Windows.Forms;
-//using Common.Extensions;
-//using Data.Collections.Language;
-//using Data.Databases;
-//using Data.Entities.Executable.Race;
-//using Data.Entities.Executable.Supplier;
-//using Data.Entities.Executable.Team;
-//using Data.Entities.Executable.Track;
-//using Data.Entities.Language;
-//using GpwEditor.Properties;
-//using Cursor = System.Windows.Forms.Cursor;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using App.WindowsForms.Controllers;
 using App.WindowsForms.Models;
 using App.WindowsForms.Models.Lookups;
-using App.WindowsForms.Properties;
 using App.WindowsForms.Views.Extensions;
 
 namespace App.WindowsForms.Views
@@ -31,8 +12,6 @@ namespace App.WindowsForms.Views
     public partial class BaseGameEditorForm : EditorForm
     {
         private BaseGameEditorController _controller;
-        private bool _isFailedValidationForSwitchingContext; // TODO: May now be redundant due to changes in raising grid events?
-        private bool _isImportOccurred;
 
         #region ToolTip Declarations
         private const string ReadOnlyToolTipText = " This field is read only.";
@@ -263,13 +242,6 @@ namespace App.WindowsForms.Views
             set => BuildTracksDataGridView(value);
         }
 
-        // TODO: Decide how this will work
-        //public IEnumerable<PerformanceCurveModel> PerformanceCurveValues
-        //{
-        //    get => ExtractPerformanceCurveValues;
-        //    set => BuildPerformanceCurveGraph(value);
-        //}
-
         public BaseGameEditorForm()
         {
             InitializeComponent();
@@ -278,21 +250,6 @@ namespace App.WindowsForms.Views
         public void SetController(BaseGameEditorController controller)
         {
             _controller = controller;
-        }
-
-        public void UpdateTeamsModelWithUpdatedChassisHandlingValues(IEnumerable<TeamModel> teams)
-        {
-            if (teams == null) throw new ArgumentNullException(nameof(teams));
-
-            var teamModel = teams.ToList();
-            var values = new int[teamModel.Count()];
-
-            for (var i = 0; i < teamModel.Count; i++)
-            {
-                values[i] = teamModel.Single(x => x.Id == i).ChassisHandling;
-            }
-
-            UpdateValuesInDataGridViewColumn(TeamsDataGridView, "ChassisHandling", values);
         }
 
         private void BuildTeamDataGridView(IEnumerable<TeamModel> dataSource)
@@ -640,120 +597,70 @@ namespace App.WindowsForms.Views
 
         private void GameExecutableEditorForm_Load(object sender, EventArgs e)
         {
-            Icon = Resources.icon1;
-            Text = $"{Settings.Default.ApplicationName} - Game Executable Editor";
-            ConvertLinesToRtf(OverviewRichTextBox);
-
-            // Populate paths with most recently used (MRU) or default
-            GameFolderPath = GetGameFolderMruOrDefault();
-            GameExecutableFilePath = GetGameExecutableMruOrDefault();
-            EnglishLanguageFilePath = GetEnglishLanguageFileMruOrDefault();
-            FrenchLanguageFilePath = GetFrenchLanguageFileMruOrDefault();
-            GermanLanguageFilePath = GetGermanLanguageFileMruOrDefault();
-            EnglishCommentaryFilePath = GetEnglishCommentaryFileMruOrDefault();
-            FrenchCommentaryFilePath = GetFrenchCommentaryFileMruOrDefault();
-            GermanCommentaryFilePath = GetGermanCommentaryFileMruOrDefault();
-
-            // ConfigureControls(); // TODO: Suspect no longer needed
-            SubscribeDataGridViewControlsToGenericEvents(); // TODO: What's this for, I think it is still needed in the rewrite...
+            _controller.LoadView();
         }
 
         private void GameExecutableEditorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (_isFailedValidationForSwitchingContext) // TODO: Reconsider for validation rewrite
-            {
-                e.Cancel = true; // Abort event
-                _isFailedValidationForSwitchingContext = false; // Reset
-                return;
-            }
-
-            if (CloseFormConfirmation(true, $"Are you sure you wish to close this window?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost."))
-            {
-                return;
-            }
-
-            e.Cancel = true; // Abort event
+            e.Cancel = !_controller.CloseForm(); // Abort event if returns false
         }
 
         private void BaseGameEditorTabControl_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (!_isImportOccurred)
-            {
-                e.Cancel = true; // Abort event
-                ShowMessageBox("Unable to switch tabs until a successful import has occurred.", MessageBoxIcon.Error);
-            }
-
-            if (_isFailedValidationForSwitchingContext)
-            {
-                e.Cancel = true; // Abort event
-                _isFailedValidationForSwitchingContext = false; // Reset
-            }
+            e.Cancel = !_controller.ChangeTab(); // Abort event if returns false
         }
 
         private void GameFolderPathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetGameFolderPathFromFolderBrowserDialog();
-            GameFolderPath = string.IsNullOrEmpty(result) ? GameFolderPath : result;
+            _controller.ChangeGameFolder();
         }
 
         private void GameExecutablePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetGameExecutablePathFromOpenFileDialog();
-            GameExecutableFilePath = string.IsNullOrEmpty(result) ? GameExecutableFilePath : result;
+            _controller.ChangeGameExecutable();
         }
 
         private void EnglishLanguageFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetEnglishLanguageFilePathFromOpenFileDialog();
-            EnglishLanguageFilePath = string.IsNullOrEmpty(result) ? EnglishLanguageFilePath : result;
+            _controller.ChangeEnglishLanguageFile();
         }
 
         private void FrenchLanguageFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetFrenchLanguageFilePathFromOpenFileDialog();
-            FrenchLanguageFilePath = string.IsNullOrEmpty(result) ? FrenchLanguageFilePath : result;
+            _controller.ChangeFrenchLanguageFile();
         }
 
         private void GermanLanguageFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetGermanLanguageFilePathFromOpenFileDialog();
-            GermanLanguageFilePath = string.IsNullOrEmpty(result) ? GermanLanguageFilePath : result;
+            _controller.ChangeGermanLanguageFile();
         }
 
         private void EnglishCommentaryFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetEnglishCommentaryFilePathFromOpenFileDialog();
-            EnglishCommentaryFilePath = string.IsNullOrEmpty(result) ? EnglishCommentaryFilePath : result;
+            _controller.ChangeEnglishCommentaryFile();
         }
 
         private void FrenchCommentaryFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetFrenchCommentaryFilePathFromOpenFileDialog();
-            FrenchCommentaryFilePath = string.IsNullOrEmpty(result) ? FrenchCommentaryFilePath : result;
+            _controller.ChangeFrenchCommentaryFile();
         }
 
         private void GermanCommentaryFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetGermanCommentaryFilePathFromOpenFileDialog();
-            GermanCommentaryFilePath = string.IsNullOrEmpty(result) ? GermanCommentaryFilePath : result;
+            _controller.ChangeGermanCommentaryFile();
         }
 
         private void ImportButton_Click(object sender, EventArgs e)
         {
-            Import();
+            _controller.Import();
         }
 
         private void ExportButton_Click(object sender, EventArgs e)
         {
-            if (!_isImportOccurred)
-            {
-                ShowMessageBox("Unable to export until a successful import has occurred.", MessageBoxIcon.Error);
-                return;
-            }
-
-            Export();
+            _controller.Export();
         }
 
+        // TODO: Review
         private static void GenericDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             var dataGridView = (DataGridView)sender;
@@ -773,11 +680,13 @@ namespace App.WindowsForms.Views
             }
         }
 
+        // TODO: Review
         private static void GenericDataGridView_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
             //
         }
 
+        // TODO: Review
         private void GenericDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             //_isFailedValidationForSwitchingContext = false; // Reset
@@ -792,6 +701,7 @@ namespace App.WindowsForms.Views
             //genericMethod.Invoke(this, new[] { sender, e });
         }
 
+        // TODO: Review
         private static void GenericDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             //// Handle error that occurs after viewing the datagridview with imported data, having previously viewed the datagridview with no data
@@ -803,6 +713,7 @@ namespace App.WindowsForms.Views
             //}
         }
 
+        // TODO: Review
         /* TODO: A dead method now as datasources are assigned by controller instead, could use code as reference
         //private void ConfigureControls()
         //{
@@ -836,75 +747,7 @@ namespace App.WindowsForms.Views
         //}
         */
 
-        private void Export()
-        {
-            Cursor.Current = Cursors.WaitCursor;
-
-            try
-            {
-                /* TODO: This block is all old code that can likely be removed, could use code as reference
-                    // TODO: FolderExists(gameFolderPath);
-                    FileExists(gameExecutablePath);
-                    FileExists(languageFilePath);
-
-                    // Fill database with data from controls and export to file
-                    var database = new ExecutableDatabase();
-                    PopulateRecords(database);
-                    database.ExportDataToFile(gameExecutablePath, languageFilePath);
-                */
-
-                _controller.Export();
-            }
-            catch (Exception ex)
-            {
-                ShowMessageBox(
-                    $"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
-                    MessageBoxIcon.Error);
-                return;
-            }
-            finally
-            {
-                Cursor.Current = Cursors.Default;
-            }
-
-            ShowMessageBox("Export complete!");
-        }
-
-        private void Import()
-        {
-            Cursor.Current = Cursors.WaitCursor;
-
-            try
-            {
-                /* TODO: This block is all old code that can likely be removed, could use code as reference
-                    //FolderExists(gameFolderPath); // TODO: Move to controller?
-                    FileExists(gameExecutablePath);
-                    FileExists(languageFilePath);
-
-                    // Import from file to database and fill controls with data
-                    var database = new ExecutableDatabase();
-                    database.ImportDataFromFile(gameExecutablePath, languageFilePath);
-                    PopulateControls(database);
-                */
-
-                _controller.Import();
-                _isImportOccurred = true;
-            }
-            catch (Exception ex)
-            {
-                ShowMessageBox(
-                    $"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
-                    MessageBoxIcon.Error);
-                return;
-            }
-            finally
-            {
-                Cursor.Current = Cursors.Default;
-            }
-
-            ShowMessageBox("Import complete!");
-        }
-
+        // TODO: Review
         /* TODO: A dead method now as datasources are assigned by controller instead, could use code as reference
             //private void PopulateControls(ExecutableDatabase database)
             //{
@@ -913,6 +756,7 @@ namespace App.WindowsForms.Views
             //}
         */
 
+        // TODO: Review
         /* TODO: A dead method now as view properties returns data instead, could use code as reference
         //private void PopulateRecords(ExecutableDatabase database)
         //{
@@ -921,7 +765,8 @@ namespace App.WindowsForms.Views
         //}
         */
 
-        private void SubscribeDataGridViewControlsToGenericEvents()
+        // TODO: Review
+        public void SubscribeDataGridViewControlsToGenericEvents()
         {
             // Find all datagridview controls on form and subscribe them to their generic events
             foreach (var control in this.GetAllControlsOfType(typeof(DataGridView)))
@@ -948,6 +793,7 @@ namespace App.WindowsForms.Views
             _controller.UpdateTeamsModelWithChassisHandlingValuesFromRandomisedModifiedDesignCalculation();
         }
 
+        // TODO: Review
         // TODO: Should be moved to common form
         // TODO: May now be redundant as values are retreived via dataSource rather than cells.
         private static int GetDataGridCellValue(DataGridView dataGridView, string columnName, int rowIndex)
@@ -1035,5 +881,30 @@ namespace App.WindowsForms.Views
         //        }
         //    }
         //}
+
+        public string[] GetRichTextBoxLines()
+        {
+            return OverviewRichTextBox.Lines;
+        }
+
+        public void SetRichTextBoxRichText(string text)
+        {
+            OverviewRichTextBox.Rtf = text;
+        }
+
+        public void UpdateTeamsModelWithUpdatedChassisHandlingValues(IEnumerable<TeamModel> teams)
+        {
+            if (teams == null) throw new ArgumentNullException(nameof(teams));
+
+            var teamModel = teams.ToList();
+            var values = new int[teamModel.Count()];
+
+            for (var i = 0; i < teamModel.Count; i++)
+            {
+                values[i] = teamModel.Single(x => x.Id == i).ChassisHandling;
+            }
+
+            UpdateValuesInDataGridViewColumn(TeamsDataGridView, "ChassisHandling", values);
+        }
     }
 }

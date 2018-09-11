@@ -39,7 +39,7 @@ namespace App.WindowsForms.Controllers
                 throw new NullReferenceException($"The member field '{nameof(_parentController)}' is null. Please ensure the '{nameof(Run)}' method is invoked prior to invoking the '{nameof(GetProposedSeriesValuesFromPerformanceCurveChart)}' method.");
             }
 
-            return _parentController.GetProposedSeriesValuesFromPerformanceCurveChart();
+            return _parentController.PerformanceCurveChart_GetProposedSeries();
         }
 
         public void UpdatePerformanceCurveChartWithHiddenSeriesValues(int[] values)
@@ -49,7 +49,7 @@ namespace App.WindowsForms.Controllers
                 throw new NullReferenceException($"The member field '{nameof(_parentController)}' is null. Please ensure the '{nameof(Run)}' method is invoked prior to invoking the '{nameof(UpdatePerformanceCurveChartWithHiddenSeriesValues)}' method.");
             }
 
-            _parentController.UpdatePerformanceCurveChartWithHiddenSeriesValues(values);
+            _parentController.PerformanceCurveChart_SetHiddenSeries(values);
         }
     }
 }

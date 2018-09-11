@@ -44,9 +44,6 @@
             this.LaunchGameChangeButton = new System.Windows.Forms.Button();
             this.RegistryKeysTabPage = new System.Windows.Forms.TabPage();
             this.RegistryKeysGroupBox = new System.Windows.Forms.GroupBox();
-            this.RegistryKeysInstallPanel = new System.Windows.Forms.Panel();
-            this.RegistryKeysDescriptionLabel = new System.Windows.Forms.Label();
-            this.RegistryKeysInstallButton = new System.Windows.Forms.Button();
             this.RegistryKeysPanel = new System.Windows.Forms.Panel();
             this.RegistryKeyLabel = new System.Windows.Forms.Label();
             this.RegistryKeyTextBox = new System.Windows.Forms.TextBox();
@@ -58,13 +55,16 @@
             this.PathTextBox = new System.Windows.Forms.TextBox();
             this.ValidLabel = new System.Windows.Forms.Label();
             this.ValidTextBox = new System.Windows.Forms.TextBox();
-            this.PathChangeButton = new System.Windows.Forms.Button();
-            this.RegistryKeysInstallAlternateKeyLabel = new System.Windows.Forms.Label();
-            this.RegistryKeysAlternateKeyLabel = new System.Windows.Forms.Label();
             this.ResetButton = new System.Windows.Forms.Button();
+            this.PathChangeButton = new System.Windows.Forms.Button();
+            this.RegistryKeysAlternateKeyLabel = new System.Windows.Forms.Label();
+            this.RegistryKeysInstallPanel = new System.Windows.Forms.Panel();
+            this.RegistryKeysDescriptionLabel = new System.Windows.Forms.Label();
+            this.RegistryKeysInstallButton = new System.Windows.Forms.Button();
+            this.RegistryKeysInstallAlternateKeyLabel = new System.Windows.Forms.Label();
             this.AboutTabPage = new System.Windows.Forms.TabPage();
-            this.AboutRichTextBox = new System.Windows.Forms.RichTextBox();
             this.AboutGroupBox = new System.Windows.Forms.GroupBox();
+            this.AboutRichTextBox = new System.Windows.Forms.RichTextBox();
             this.SettingsEditorTabControl.SuspendLayout();
             this.GameFolderTabPage.SuspendLayout();
             this.GameFolderGroupBox.SuspendLayout();
@@ -72,8 +72,8 @@
             this.LaunchGameGroupBox.SuspendLayout();
             this.RegistryKeysTabPage.SuspendLayout();
             this.RegistryKeysGroupBox.SuspendLayout();
-            this.RegistryKeysInstallPanel.SuspendLayout();
             this.RegistryKeysPanel.SuspendLayout();
+            this.RegistryKeysInstallPanel.SuspendLayout();
             this.AboutTabPage.SuspendLayout();
             this.AboutGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -130,7 +130,7 @@
             this.GameFolderLabel.Location = new System.Drawing.Point(42, 79);
             this.GameFolderLabel.Name = "GameFolderLabel";
             this.GameFolderLabel.Size = new System.Drawing.Size(70, 13);
-            this.GameFolderLabel.TabIndex = 10;
+            this.GameFolderLabel.TabIndex = 0;
             this.GameFolderLabel.Text = "Game Folder:";
             // 
             // GameFolderTextBox
@@ -236,41 +236,6 @@
             this.RegistryKeysGroupBox.Size = new System.Drawing.Size(444, 223);
             this.RegistryKeysGroupBox.TabIndex = 0;
             this.RegistryKeysGroupBox.TabStop = false;
-            // 
-            // RegistryKeysInstallPanel
-            // 
-            this.RegistryKeysInstallPanel.Controls.Add(this.RegistryKeysDescriptionLabel);
-            this.RegistryKeysInstallPanel.Controls.Add(this.RegistryKeysInstallButton);
-            this.RegistryKeysInstallPanel.Controls.Add(this.RegistryKeysInstallAlternateKeyLabel);
-            this.RegistryKeysInstallPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RegistryKeysInstallPanel.Location = new System.Drawing.Point(3, 16);
-            this.RegistryKeysInstallPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.RegistryKeysInstallPanel.Name = "RegistryKeysInstallPanel";
-            this.RegistryKeysInstallPanel.Size = new System.Drawing.Size(438, 204);
-            this.RegistryKeysInstallPanel.TabIndex = 0;
-            this.RegistryKeysInstallPanel.Visible = false;
-            // 
-            // RegistryKeysDescriptionLabel
-            // 
-            this.RegistryKeysDescriptionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.RegistryKeysDescriptionLabel.Location = new System.Drawing.Point(3, 3);
-            this.RegistryKeysDescriptionLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.RegistryKeysDescriptionLabel.Name = "RegistryKeysDescriptionLabel";
-            this.RegistryKeysDescriptionLabel.Size = new System.Drawing.Size(432, 121);
-            this.RegistryKeysDescriptionLabel.TabIndex = 0;
-            this.RegistryKeysDescriptionLabel.Text = resources.GetString("RegistryKeysDescriptionLabel.Text");
-            // 
-            // RegistryKeysInstallButton
-            // 
-            this.RegistryKeysInstallButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.RegistryKeysInstallButton.Location = new System.Drawing.Point(119, 149);
-            this.RegistryKeysInstallButton.Name = "RegistryKeysInstallButton";
-            this.RegistryKeysInstallButton.Size = new System.Drawing.Size(200, 23);
-            this.RegistryKeysInstallButton.TabIndex = 0;
-            this.RegistryKeysInstallButton.Text = "Install Registry Keys";
-            this.RegistryKeysInstallButton.UseVisualStyleBackColor = true;
-            this.RegistryKeysInstallButton.Click += new System.EventHandler(this.RegistryKeysInstallButton_Click);
             // 
             // RegistryKeysPanel
             // 
@@ -384,6 +349,16 @@
             this.ValidTextBox.TabIndex = 0;
             this.ValidTextBox.TabStop = false;
             // 
+            // ResetButton
+            // 
+            this.ResetButton.Location = new System.Drawing.Point(16, 152);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(197, 23);
+            this.ResetButton.TabIndex = 1;
+            this.ResetButton.Text = "Reset all subkeys to default values";
+            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            // 
             // PathChangeButton
             // 
             this.PathChangeButton.Location = new System.Drawing.Point(219, 152);
@@ -393,17 +368,6 @@
             this.PathChangeButton.Text = "Change Path to use game folder...";
             this.PathChangeButton.UseVisualStyleBackColor = true;
             this.PathChangeButton.Click += new System.EventHandler(this.PathChangeButton_Click);
-            // 
-            // RegistryKeysInstallAlternateKeyLabel
-            // 
-            this.RegistryKeysInstallAlternateKeyLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.RegistryKeysInstallAlternateKeyLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.RegistryKeysInstallAlternateKeyLabel.Location = new System.Drawing.Point(3, 191);
-            this.RegistryKeysInstallAlternateKeyLabel.Name = "RegistryKeysInstallAlternateKeyLabel";
-            this.RegistryKeysInstallAlternateKeyLabel.Size = new System.Drawing.Size(432, 13);
-            this.RegistryKeysInstallAlternateKeyLabel.TabIndex = 0;
-            this.RegistryKeysInstallAlternateKeyLabel.Text = "Key may also appear under HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node";
-            this.RegistryKeysInstallAlternateKeyLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // RegistryKeysAlternateKeyLabel
             // 
@@ -416,15 +380,51 @@
             this.RegistryKeysAlternateKeyLabel.Text = "Key may also appear under HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node";
             this.RegistryKeysAlternateKeyLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // ResetButton
+            // RegistryKeysInstallPanel
             // 
-            this.ResetButton.Location = new System.Drawing.Point(16, 152);
-            this.ResetButton.Name = "ResetButton";
-            this.ResetButton.Size = new System.Drawing.Size(197, 23);
-            this.ResetButton.TabIndex = 1;
-            this.ResetButton.Text = "Reset all subkeys to default values";
-            this.ResetButton.UseVisualStyleBackColor = true;
-            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            this.RegistryKeysInstallPanel.Controls.Add(this.RegistryKeysDescriptionLabel);
+            this.RegistryKeysInstallPanel.Controls.Add(this.RegistryKeysInstallButton);
+            this.RegistryKeysInstallPanel.Controls.Add(this.RegistryKeysInstallAlternateKeyLabel);
+            this.RegistryKeysInstallPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RegistryKeysInstallPanel.Location = new System.Drawing.Point(3, 16);
+            this.RegistryKeysInstallPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.RegistryKeysInstallPanel.Name = "RegistryKeysInstallPanel";
+            this.RegistryKeysInstallPanel.Size = new System.Drawing.Size(438, 204);
+            this.RegistryKeysInstallPanel.TabIndex = 0;
+            this.RegistryKeysInstallPanel.Visible = false;
+            // 
+            // RegistryKeysDescriptionLabel
+            // 
+            this.RegistryKeysDescriptionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.RegistryKeysDescriptionLabel.Location = new System.Drawing.Point(3, 3);
+            this.RegistryKeysDescriptionLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.RegistryKeysDescriptionLabel.Name = "RegistryKeysDescriptionLabel";
+            this.RegistryKeysDescriptionLabel.Size = new System.Drawing.Size(432, 121);
+            this.RegistryKeysDescriptionLabel.TabIndex = 0;
+            this.RegistryKeysDescriptionLabel.Text = resources.GetString("RegistryKeysDescriptionLabel.Text");
+            // 
+            // RegistryKeysInstallButton
+            // 
+            this.RegistryKeysInstallButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.RegistryKeysInstallButton.Location = new System.Drawing.Point(119, 149);
+            this.RegistryKeysInstallButton.Name = "RegistryKeysInstallButton";
+            this.RegistryKeysInstallButton.Size = new System.Drawing.Size(200, 23);
+            this.RegistryKeysInstallButton.TabIndex = 0;
+            this.RegistryKeysInstallButton.Text = "Install Registry Keys";
+            this.RegistryKeysInstallButton.UseVisualStyleBackColor = true;
+            this.RegistryKeysInstallButton.Click += new System.EventHandler(this.RegistryKeysInstallButton_Click);
+            // 
+            // RegistryKeysInstallAlternateKeyLabel
+            // 
+            this.RegistryKeysInstallAlternateKeyLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.RegistryKeysInstallAlternateKeyLabel.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.RegistryKeysInstallAlternateKeyLabel.Location = new System.Drawing.Point(3, 191);
+            this.RegistryKeysInstallAlternateKeyLabel.Name = "RegistryKeysInstallAlternateKeyLabel";
+            this.RegistryKeysInstallAlternateKeyLabel.Size = new System.Drawing.Size(432, 13);
+            this.RegistryKeysInstallAlternateKeyLabel.TabIndex = 0;
+            this.RegistryKeysInstallAlternateKeyLabel.Text = "Key may also appear under HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node";
+            this.RegistryKeysInstallAlternateKeyLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // AboutTabPage
             // 
@@ -436,6 +436,16 @@
             this.AboutTabPage.TabIndex = 3;
             this.AboutTabPage.Text = "About";
             this.AboutTabPage.UseVisualStyleBackColor = true;
+            // 
+            // AboutGroupBox
+            // 
+            this.AboutGroupBox.Controls.Add(this.AboutRichTextBox);
+            this.AboutGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AboutGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.AboutGroupBox.Name = "AboutGroupBox";
+            this.AboutGroupBox.Size = new System.Drawing.Size(444, 223);
+            this.AboutGroupBox.TabIndex = 0;
+            this.AboutGroupBox.TabStop = false;
             // 
             // AboutRichTextBox
             // 
@@ -450,16 +460,6 @@
             this.AboutRichTextBox.TabStop = false;
             this.AboutRichTextBox.Text = resources.GetString("AboutRichTextBox.Text");
             // 
-            // AboutGroupBox
-            // 
-            this.AboutGroupBox.Controls.Add(this.AboutRichTextBox);
-            this.AboutGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AboutGroupBox.Location = new System.Drawing.Point(3, 3);
-            this.AboutGroupBox.Name = "AboutGroupBox";
-            this.AboutGroupBox.Size = new System.Drawing.Size(444, 223);
-            this.AboutGroupBox.TabIndex = 0;
-            this.AboutGroupBox.TabStop = false;
-            // 
             // SettingsEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,6 +467,7 @@
             this.ClientSize = new System.Drawing.Size(464, 261);
             this.Controls.Add(this.SettingsEditorTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "SettingsEditorForm";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -480,9 +481,9 @@
             this.LaunchGameGroupBox.PerformLayout();
             this.RegistryKeysTabPage.ResumeLayout(false);
             this.RegistryKeysGroupBox.ResumeLayout(false);
-            this.RegistryKeysInstallPanel.ResumeLayout(false);
             this.RegistryKeysPanel.ResumeLayout(false);
             this.RegistryKeysPanel.PerformLayout();
+            this.RegistryKeysInstallPanel.ResumeLayout(false);
             this.AboutTabPage.ResumeLayout(false);
             this.AboutGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);

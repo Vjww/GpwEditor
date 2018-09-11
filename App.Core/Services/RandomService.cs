@@ -21,7 +21,7 @@ namespace App.Core.Services
             return _random.Next(maxValue);
         }
 
-        public int Next(int maxValue, int minValue)
+        public int Next(int minValue, int maxValue)
         {
             return _random.Next(minValue, maxValue);
         }

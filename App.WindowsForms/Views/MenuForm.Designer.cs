@@ -98,7 +98,7 @@
             this.TelemetryViewerButton.Text = "Telemetry Viewer";
             this.TelemetryViewerButton.UseVisualStyleBackColor = true;
             this.TelemetryViewerButton.Visible = false;
-            this.TelemetryViewerButton.Click += new System.EventHandler(this.AnalyseTelemetryButton_Click);
+            this.TelemetryViewerButton.Click += new System.EventHandler(this.TelemetryViewerButton_Click);
             // 
             // SettingsEditorButton
             // 

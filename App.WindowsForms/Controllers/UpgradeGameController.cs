@@ -38,28 +38,79 @@ namespace App.WindowsForms.Controllers
             // Preliminary validation
             if (!Directory.Exists(_view.GameFolderPath))
             {
-                throw new Exception("The selected game folder does not exist or is invalid. Please try again.");
+                _view.ShowMessageBox("Unable to upgrade as the selected game folder does not exist or is invalid.", MessageBoxIcon.Error);
+                return;
             }
 
-            // Use validated game folder path to build file paths with default file names retreived from project properties
-            var gameFolderPath = _view.GameFolderPath;
-            var gameExecutableFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultGameExecutableName);
-            var englishLanguageFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultEnglishLanguageFileName);
-            var frenchLanguageFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultFrenchLanguageFileName);
-            var germanLanguageFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultGermanLanguageFileName);
-            var englishCommentaryFilePath = Path.Combine(gameFolderPath, "text", Settings.Default.DefaultEnglishCommentaryFileName);
-            var frenchCommentaryFilePath = Path.Combine(gameFolderPath, "textf", Settings.Default.DefaultFrenchCommentaryFileName);
-            var germanCommentaryFilePath = Path.Combine(gameFolderPath, "textg", Settings.Default.DefaultGermanCommentaryFileName);
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
 
-            _upgradeGameApplicationService.Upgrade(
-                gameFolderPath,
-                gameExecutableFilePath,
-                englishLanguageFilePath,
-                frenchLanguageFilePath,
-                germanLanguageFilePath,
-                englishCommentaryFilePath,
-                frenchCommentaryFilePath,
-                germanCommentaryFilePath);
+                // Use earlier validated game folder path to build file paths with default file names retreived from project properties
+                var gameFolderPath = _view.GameFolderPath;
+                var gameExecutableFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultGameExecutableName);
+                var englishLanguageFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultEnglishLanguageFileName);
+                var frenchLanguageFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultFrenchLanguageFileName);
+                var germanLanguageFilePath = Path.Combine(gameFolderPath, Settings.Default.DefaultGermanLanguageFileName);
+                var englishCommentaryFilePath = Path.Combine(gameFolderPath, "text", Settings.Default.DefaultEnglishCommentaryFileName);
+                var frenchCommentaryFilePath = Path.Combine(gameFolderPath, "textf", Settings.Default.DefaultFrenchCommentaryFileName);
+                var germanCommentaryFilePath = Path.Combine(gameFolderPath, "textg", Settings.Default.DefaultGermanCommentaryFileName);
+
+                _upgradeGameApplicationService.Upgrade(
+                    gameFolderPath,
+                    gameExecutableFilePath,
+                    englishLanguageFilePath,
+                    frenchLanguageFilePath,
+                    germanLanguageFilePath,
+                    englishCommentaryFilePath,
+                    frenchCommentaryFilePath,
+                    germanCommentaryFilePath);
+            }
+            catch (Exception ex)
+            {
+                Cursor.Current = Cursors.Default;
+                _view.ShowErrorBox(ex.Message);
+                return;
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
+
+            _view.ShowMessageBox("Upgrade complete!");
+        }
+
+        public void LoadView()
+        {
+            _view.SetFormIcon(GetFormIcon());
+            _view.SetFormText($"{GetApplicationName()} - Upgrade Game");
+            _view.SetRichTextBoxRichText(ConvertStringArrayToRichText(_view.GetRichTextBoxLines()));
+
+            // Populate paths with most recently used (MRU) or default
+            _view.GameFolderPath = GetGameFolderMruOrDefault();
+        }
+
+        public bool CloseForm()
+        {
+            if (CloseFormConfirmation(_view, true, "Are you sure you wish to close this window?"))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public void ChangeGameFolder()
+        {
+            try
+            {
+                var result = GetGameFolderPathFromFolderBrowserDialog(_view);
+                _view.GameFolderPath = string.IsNullOrEmpty(result) ? _view.GameFolderPath : result;
+            }
+            catch (Exception ex)
+            {
+                _view.ShowErrorBox(ex.Message);
+            }
         }
     }
 }

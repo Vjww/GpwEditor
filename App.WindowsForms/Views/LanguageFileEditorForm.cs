@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using App.WindowsForms.Controllers;
 using App.WindowsForms.Models;
-using App.WindowsForms.Properties;
 
 namespace App.WindowsForms.Views
 {
@@ -11,7 +10,6 @@ namespace App.WindowsForms.Views
     {
         private LanguageFileEditorController _controller;
         private bool _isFirstRowResult;
-        private bool _isImportOccurred;
 
         private const int FirstLineId = 0;
         private const int LastLineId = 7172;
@@ -77,104 +75,70 @@ namespace App.WindowsForms.Views
 
         private void LanguageFileEditorForm_Load(object sender, EventArgs e)
         {
-            Icon = Resources.icon1;
-            Text = $"{Settings.Default.ApplicationName} - Language File Editor";
-            ConvertLinesToRtf(OverviewRichTextBox);
-
-            // Populate paths with most recently used (MRU) or default
-            GameFolderPath = GetGameFolderMruOrDefault();
-            GameExecutableFilePath = GetGameExecutableMruOrDefault();
-            EnglishLanguageFilePath = GetEnglishLanguageFileMruOrDefault();
-            FrenchLanguageFilePath = GetFrenchLanguageFileMruOrDefault();
-            GermanLanguageFilePath = GetGermanLanguageFileMruOrDefault();
-            EnglishCommentaryFilePath = GetEnglishCommentaryFileMruOrDefault();
-            FrenchCommentaryFilePath = GetFrenchCommentaryFileMruOrDefault();
-            GermanCommentaryFilePath = GetGermanCommentaryFileMruOrDefault();
+            _controller.LoadView();
         }
 
         private void LanguageFileEditorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (CloseFormConfirmation(true, $"Are you sure you wish to close this window?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost."))
-            {
-                return;
-            }
-
-            e.Cancel = true; // Abort event
+            e.Cancel = !_controller.CloseForm(); // Abort event if returns false
         }
 
         private void LanguageFileEditorTabControl_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (!_isImportOccurred)
-            {
-                e.Cancel = true; // Abort event
-                ShowMessageBox("Unable to switch tabs until a successful import has occurred.", MessageBoxIcon.Error);
-            }
-        }
-
-        private void ImportButton_Click(object sender, EventArgs e)
-        {
-            Import();
-        }
-
-        private void ExportButton_Click(object sender, EventArgs e)
-        {
-            if (!_isImportOccurred)
-            {
-                ShowMessageBox("Unable to export until a successful import has occurred.", MessageBoxIcon.Error);
-                return;
-            }
-
-            Export();
+            e.Cancel = !_controller.ChangeTab(); // Abort event if returns false
         }
 
         private void GameFolderPathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetGameFolderPathFromFolderBrowserDialog();
-            GameFolderPath = string.IsNullOrEmpty(result) ? GameFolderPath : result;
+            _controller.ChangeGameFolder();
         }
 
         private void GameExecutablePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetGameExecutablePathFromOpenFileDialog();
-            GameExecutableFilePath = string.IsNullOrEmpty(result) ? GameExecutableFilePath : result;
+            _controller.ChangeGameExecutable();
         }
 
         private void EnglishLanguageFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetEnglishLanguageFilePathFromOpenFileDialog();
-            EnglishLanguageFilePath = string.IsNullOrEmpty(result) ? EnglishLanguageFilePath : result;
+            _controller.ChangeEnglishLanguageFile();
         }
 
         private void FrenchLanguageFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetFrenchLanguageFilePathFromOpenFileDialog();
-            FrenchLanguageFilePath = string.IsNullOrEmpty(result) ? FrenchLanguageFilePath : result;
+            _controller.ChangeFrenchLanguageFile();
         }
 
         private void GermanLanguageFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetGermanLanguageFilePathFromOpenFileDialog();
-            GermanLanguageFilePath = string.IsNullOrEmpty(result) ? GermanLanguageFilePath : result;
+            _controller.ChangeGermanLanguageFile();
         }
 
         private void EnglishCommentaryFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetEnglishCommentaryFilePathFromOpenFileDialog();
-            EnglishCommentaryFilePath = string.IsNullOrEmpty(result) ? EnglishCommentaryFilePath : result;
+            _controller.ChangeEnglishCommentaryFile();
         }
 
         private void FrenchCommentaryFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetFrenchCommentaryFilePathFromOpenFileDialog();
-            FrenchCommentaryFilePath = string.IsNullOrEmpty(result) ? FrenchCommentaryFilePath : result;
+            _controller.ChangeFrenchCommentaryFile();
         }
 
         private void GermanCommentaryFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetGermanCommentaryFilePathFromOpenFileDialog();
-            GermanCommentaryFilePath = string.IsNullOrEmpty(result) ? GermanCommentaryFilePath : result;
+            _controller.ChangeGermanCommentaryFile();
         }
 
+        private void ImportButton_Click(object sender, EventArgs e)
+        {
+            _controller.Import();
+        }
+
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
+            _controller.Export();
+        }
+
+        // TODO: Review       
         private void GoToIndexTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -183,11 +147,13 @@ namespace App.WindowsForms.Views
             }
         }
 
+        // TODO: Review
         private void GoToIndexButton_Click(object sender, EventArgs e)
         {
             Search();
         }
 
+        // TODO: Review
         private void FindTextTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -196,17 +162,20 @@ namespace App.WindowsForms.Views
             }
         }
 
+        // TODO: Review
         private void FindTextButton_Click(object sender, EventArgs e)
         {
             Find();
         }
 
+        // TODO: Review
         private void QuickNavigationGroupBox_Enter(object sender, EventArgs e)
         {
             // Bounce focus onto the datagridview control
             LanguagesDataGridView.Focus();
         }
 
+        // TODO: Move logic to the controller, as views should not be concerned with logic where possible
         private void QuickNavigationRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             var radioButton = (RadioButton)sender;
@@ -239,135 +208,20 @@ namespace App.WindowsForms.Views
 
         private void UpdateTeamTextButton_Click(object sender, EventArgs e)
         {
-            ShowMessageBox("Not implemented yet.");
-
-            // TODO: Review and move logic to controller where necessary
-            // TODO: e.g. _controller.UpdateTeamText() which in return updates model
-
-            /* 
-            // Return if there is no data in the grid
-            if (LanguageDataGridView.RowCount <= 0)
-            {
-                return;
-            }
-
-            var dialogResult = MessageBox.Show(
-                "Text for short team names and team codes will be generated from the current team names entered in the language file." +
-                $"{Environment.NewLine}{Environment.NewLine}However you will still need to manually update the text for the team chassis and end-of-year results." +
-                $"{Environment.NewLine}{Environment.NewLine}Do you wish to proceed?",
-                Settings.Default.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-
-            if (dialogResult == DialogResult.Yes)
-            {
-                // Parse RadioButton.Tag properties
-                int teamsFullId;
-                if (!int.TryParse(TeamsFullRadioButton.Tag.ToString(), out teamsFullId))
-                {
-                    throw new Exception("Unable to parse RadioButton.Tag property to int.");
-                }
-                int teamsShortId;
-                if (!int.TryParse(TeamsShortRadioButton.Tag.ToString(), out teamsShortId))
-                {
-                    throw new Exception("Unable to parse RadioButton.Tag property to int.");
-                }
-                int teamsCodeAId;
-                if (!int.TryParse(TeamsCodeARadioButton.Tag.ToString(), out teamsCodeAId))
-                {
-                    throw new Exception("Unable to parse RadioButton.Tag property to int.");
-                }
-                int teamsCodeBId;
-                if (!int.TryParse(TeamsCodeBRadioButton.Tag.ToString(), out teamsCodeBId))
-                {
-                    throw new Exception("Unable to parse RadioButton.Tag property to int.");
-                }
-
-                for (var i = 0; i < 11; i++)
-                {
-                    var teamFull = LanguageDataGridView.Rows[teamsFullId + i].Cells[2].Value.ToString();
-                    var teamShort = teamFull.Substring(0, 3);
-                    var teamCode = teamFull.Substring(0, 2).ToUpper();
-
-                    LanguageDataGridView.Rows[teamsShortId + i].Cells[2].Value = teamShort;
-                    LanguageDataGridView.Rows[teamsCodeAId + i].Cells[2].Value = teamCode;
-                    LanguageDataGridView.Rows[teamsCodeBId + i].Cells[2].Value = teamCode;
-
-                    // TODO consider removing, as manual intervention may be easier or another facility
-                    //for (int j = 0; j < 12; j++)
-                    //{
-                    //    index = int.Parse(TeamsResultsRadioButton.Tag as string) + (i * j);
-                    //    teamResults = LanguageDataGridView.Rows[index].Cells[2].Value.ToString();
-                    //    oldTeamFull = "Arrows";
-                    //    teamResults = teamResults.Replace(oldTeamFull, teamFull);
-                    //    LanguageDataGridView.Rows[index].Cells[2].Value = teamResults;
-                    //}
-                }
-            }
-            */
+            _controller.UpdateTeamText();
         }
 
         private void UpdateTyreCodesButton_Click(object sender, EventArgs e)
         {
-            ShowMessageBox("Not implemented yet.");
-
-            // TODO: Make a call to the controller to update domain, or should happen automatically on export
-            // TODO: e.g. _controller.UpdateTyreCodes() which in return updates model
+            _controller.UpdateTyreCodes();
         }
 
         private void UpdateGameYearButton_Click(object sender, EventArgs e)
         {
-            ShowMessageBox("Not implemented yet.");
-
-            // TODO: Make a call to the controller to update domain, or should happen automatically on export
-            // TODO: e.g. _controller.UpdateTyreCodes() which in return updates model
+            _controller.UpdateGameYear();
         }
 
-        private void Export()
-        {
-            Cursor.Current = Cursors.WaitCursor;
-
-            try
-            {
-                _controller.Export();
-            }
-            catch (Exception ex)
-            {
-                ShowMessageBox(
-                    $"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
-                    MessageBoxIcon.Error);
-                return;
-            }
-            finally
-            {
-                Cursor.Current = Cursors.Default;
-            }
-
-            ShowMessageBox("Export complete!");
-        }
-
-        private void Import()
-        {
-            Cursor.Current = Cursors.WaitCursor;
-
-            try
-            {
-                _controller.Import();
-                _isImportOccurred = true;
-            }
-            catch (Exception ex)
-            {
-                ShowMessageBox(
-                    $"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
-                    MessageBoxIcon.Error);
-                return;
-            }
-            finally
-            {
-                Cursor.Current = Cursors.Default;
-            }
-
-            ShowMessageBox("Import complete!");
-        }
-
+        // TODO: Move logic to the controller, as views should not be concerned with logic where possible
         private void Find()
         {
             var isSearchValuePopulated = !string.IsNullOrWhiteSpace(FindTextTextBox.Text.Trim());
@@ -439,6 +293,12 @@ namespace App.WindowsForms.Views
             FindTextTextBox.Focus();
         }
 
+        public string[] GetRichTextBoxLines()
+        {
+            return OverviewRichTextBox.Lines;
+        }
+
+        // TODO: Review
         private void NavigateToRow(int index)
         {
             // If there are rows
@@ -461,6 +321,7 @@ namespace App.WindowsForms.Views
             }
         }
 
+        // TODO: Move logic to the controller, as views should not be concerned with logic where possible
         private void Search()
         {
             var text = GoToIndexTextBox.Text.Trim();
@@ -494,6 +355,12 @@ namespace App.WindowsForms.Views
             GoToIndexTextBox.Focus();
         }
 
+        public void SetRichTextBoxRichText(string text)
+        {
+            OverviewRichTextBox.Rtf = text;
+        }
+
+        // TODO: Move logic to the controller, as views should not be concerned with logic where possible
         private void LanguagesDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             // TODO: Need to handle recursive executions of this event, due to manual changing of cell value

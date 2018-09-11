@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using App.Core.Entities;
@@ -17,20 +18,20 @@ namespace App.WindowsForms.Views
             InitializeComponent();
         }
 
-        protected bool CloseFormConfirmation(bool isModified, string message)
-        {
-            // Return true if there are no unsaved changes 
-            if (!isModified)
-            {
-                return true;
-            }
+        //protected bool CloseFormConfirmation(bool isModified, string message)
+        //{
+        //    // Return true if there are no unsaved changes 
+        //    if (!isModified)
+        //    {
+        //        return true;
+        //    }
 
-            // Prompt user whether to close form with unsaved changes
-            var result = MessageBox.Show(message, Settings.Default.ApplicationName, MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+        //    // Prompt user whether to close form with unsaved changes
+        //    var result = MessageBox.Show(message, Settings.Default.ApplicationName, MessageBoxButtons.YesNo,
+        //        MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
-            return result == DialogResult.Yes;
-        }
+        //    return result == DialogResult.Yes;
+        //}
 
         protected static void ConvertLinesToRtf(RichTextBox richTextBox)
         {
@@ -83,205 +84,190 @@ namespace App.WindowsForms.Views
             ConfigureDataGridViewControl<T>(dataGridView, columnId, columnId, columnId, columnId, fillColumns);
         }
 
-        protected string GetGameFolderPathFromFolderBrowserDialog()
-        {
-            // Configure folder browser dialog
-            if (Directory.Exists(Settings.Default.MruGameFolderPath))
-            {
-                ProgramFolderBrowserDialog.SelectedPath = Settings.Default.MruGameFolderPath;
-            }
-            else
-            {
-                ProgramFolderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
-            }
+        //protected string GetGameFolderPathFromFolderBrowserDialog()
+        //{
+        //    // Configure folder browser dialog
+        //    if (Directory.Exists(Settings.Default.MruGameFolderPath))
+        //    {
+        //        ProgramFolderBrowserDialog.SelectedPath = Settings.Default.MruGameFolderPath;
+        //    }
+        //    else
+        //    {
+        //        ProgramFolderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
+        //    }
 
-            // Get folder from user
-            var dialogResult = ProgramFolderBrowserDialog.ShowDialog();
+        //    // Get folder from user
+        //    var dialogResult = ProgramFolderBrowserDialog.ShowDialog();
 
-            // Return if no folder was selected
-            if (dialogResult != DialogResult.OK) return null;
+        //    // Return if no folder was selected
+        //    if (dialogResult != DialogResult.OK) return null;
 
-            // Save selected folder
-            Settings.Default.MruGameFolderPath = ProgramFolderBrowserDialog.SelectedPath;
-            Settings.Default.Save();
+        //    // Save selected folder
+        //    Settings.Default.MruGameFolderPath = ProgramFolderBrowserDialog.SelectedPath;
+        //    Settings.Default.Save();
 
-            return Settings.Default.MruGameFolderPath;
-        }
+        //    return Settings.Default.MruGameFolderPath;
+        //}
 
-        protected string GetGameExecutablePathFromOpenFileDialog()
-        {
-            var result = GetFilePathFromOpenFileDialog();
+        //protected string GetGameExecutablePathFromOpenFileDialog()
+        //{
+        //    var result = GetFilePathFromOpenFileDialog();
 
-            if (string.IsNullOrEmpty(result)) return null;
+        //    if (string.IsNullOrEmpty(result)) return null;
 
-            Settings.Default.MruGameExecutablePath = result;
-            Settings.Default.Save();
+        //    Settings.Default.MruGameExecutablePath = result;
+        //    Settings.Default.Save();
 
-            return result;
-        }
+        //    return result;
+        //}
 
-        protected string GetEnglishLanguageFilePathFromOpenFileDialog()
-        {
-            var result = GetFilePathFromOpenFileDialog();
+        //protected string GetEnglishLanguageFilePathFromOpenFileDialog()
+        //{
+        //    var result = GetFilePathFromOpenFileDialog();
 
-            if (string.IsNullOrEmpty(result)) return null;
+        //    if (string.IsNullOrEmpty(result)) return null;
 
-            Settings.Default.MruEnglishLanguageFilePath = result;
-            Settings.Default.Save();
+        //    Settings.Default.MruEnglishLanguageFilePath = result;
+        //    Settings.Default.Save();
 
-            return result;
-        }
+        //    return result;
+        //}
 
-        protected string GetFrenchLanguageFilePathFromOpenFileDialog()
-        {
-            var result = GetFilePathFromOpenFileDialog();
+        //protected string GetFrenchLanguageFilePathFromOpenFileDialog()
+        //{
+        //    var result = GetFilePathFromOpenFileDialog();
 
-            if (string.IsNullOrEmpty(result)) return null;
+        //    if (string.IsNullOrEmpty(result)) return null;
 
-            Settings.Default.MruFrenchLanguageFilePath = result;
-            Settings.Default.Save();
+        //    Settings.Default.MruFrenchLanguageFilePath = result;
+        //    Settings.Default.Save();
 
-            return result;
-        }
+        //    return result;
+        //}
 
-        protected string GetGermanLanguageFilePathFromOpenFileDialog()
-        {
-            var result = GetFilePathFromOpenFileDialog();
+        //protected string GetGermanLanguageFilePathFromOpenFileDialog()
+        //{
+        //    var result = GetFilePathFromOpenFileDialog();
 
-            if (string.IsNullOrEmpty(result)) return null;
+        //    if (string.IsNullOrEmpty(result)) return null;
 
-            Settings.Default.MruGermanLanguageFilePath = result;
-            Settings.Default.Save();
+        //    Settings.Default.MruGermanLanguageFilePath = result;
+        //    Settings.Default.Save();
 
-            return result;
-        }
+        //    return result;
+        //}
 
-        protected string GetEnglishCommentaryFilePathFromOpenFileDialog()
-        {
-            var result = GetFilePathFromOpenFileDialog();
+        //protected string GetEnglishCommentaryFilePathFromOpenFileDialog()
+        //{
+        //    var result = GetFilePathFromOpenFileDialog();
 
-            if (string.IsNullOrEmpty(result)) return null;
+        //    if (string.IsNullOrEmpty(result)) return null;
 
-            Settings.Default.MruEnglishCommentaryFilePath = result;
-            Settings.Default.Save();
+        //    Settings.Default.MruEnglishCommentaryFilePath = result;
+        //    Settings.Default.Save();
 
-            return result;
-        }
+        //    return result;
+        //}
 
-        protected string GetFrenchCommentaryFilePathFromOpenFileDialog()
-        {
-            var result = GetFilePathFromOpenFileDialog();
+        //protected string GetFrenchCommentaryFilePathFromOpenFileDialog()
+        //{
+        //    var result = GetFilePathFromOpenFileDialog();
 
-            if (string.IsNullOrEmpty(result)) return null;
+        //    if (string.IsNullOrEmpty(result)) return null;
 
-            Settings.Default.MruFrenchCommentaryFilePath = result;
-            Settings.Default.Save();
+        //    Settings.Default.MruFrenchCommentaryFilePath = result;
+        //    Settings.Default.Save();
 
-            return result;
-        }
+        //    return result;
+        //}
 
-        protected string GetGermanCommentaryFilePathFromOpenFileDialog()
-        {
-            var result = GetFilePathFromOpenFileDialog();
+        //protected string GetGermanCommentaryFilePathFromOpenFileDialog()
+        //{
+        //    var result = GetFilePathFromOpenFileDialog();
 
-            if (string.IsNullOrEmpty(result)) return null;
+        //    if (string.IsNullOrEmpty(result)) return null;
 
-            Settings.Default.MruGermanCommentaryFilePath = result;
-            Settings.Default.Save();
+        //    Settings.Default.MruGermanCommentaryFilePath = result;
+        //    Settings.Default.Save();
 
-            return result;
-        }
+        //    return result;
+        //}
 
-        private string GetFilePathFromOpenFileDialog()
-        {
-            // Configure open file dialog
-            ProgramOpenFileDialog.InitialDirectory = Directory.Exists(Settings.Default.MruGameFolderPath)
-                ? Settings.Default.MruGameFolderPath
-                : Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            ProgramOpenFileDialog.FileName = null;
+        //private string GetFilePathFromOpenFileDialog()
+        //{
+        //    // Configure open file dialog
+        //    ProgramOpenFileDialog.InitialDirectory = Directory.Exists(Settings.Default.MruGameFolderPath)
+        //        ? Settings.Default.MruGameFolderPath
+        //        : Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        //    ProgramOpenFileDialog.FileName = null;
 
-            // Get file from user
-            var dialogResult = ProgramOpenFileDialog.ShowDialog();
+        //    // Get file from user
+        //    var dialogResult = ProgramOpenFileDialog.ShowDialog();
 
-            // Return null if no file was selected, else return filename of selected file
-            return dialogResult != DialogResult.OK ? null : ProgramOpenFileDialog.FileName;
-        }
+        //    // Return null if no file was selected, else return filename of selected file
+        //    return dialogResult != DialogResult.OK ? null : ProgramOpenFileDialog.FileName;
+        //}
 
-        protected string GetGameFolderMruOrDefault()
-        {
-            var defaultPath = GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.UserGameFolderPath, Settings.Default.DefaultGameFolderPath);
-            return GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.MruGameFolderPath, defaultPath);
-        }
+        //protected string GetGameFolderMruOrDefault()
+        //{
+        //    var defaultPath = GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.UserGameFolderPath, Settings.Default.DefaultGameFolderPath);
+        //    return GetValueOrDefaultIfNullOrWhiteSpace(Settings.Default.MruGameFolderPath, defaultPath);
+        //}
 
-        protected string GetGameExecutableMruOrDefault()
-        {
-            return GetFileMruOrDefault(Settings.Default.DefaultGameExecutableName, Settings.Default.MruGameExecutablePath);
-        }
+        //protected string GetGameExecutableMruOrDefault()
+        //{
+        //    return GetFileMruOrDefault(Settings.Default.DefaultGameExecutableName, Settings.Default.MruGameExecutablePath);
+        //}
 
-        protected string GetEnglishLanguageFileMruOrDefault()
-        {
-            return GetFileMruOrDefault(Settings.Default.DefaultEnglishLanguageFileName, Settings.Default.MruEnglishLanguageFilePath);
-        }
+        //protected string GetEnglishLanguageFileMruOrDefault()
+        //{
+        //    return GetFileMruOrDefault(Settings.Default.DefaultEnglishLanguageFileName, Settings.Default.MruEnglishLanguageFilePath);
+        //}
 
-        protected string GetFrenchLanguageFileMruOrDefault()
-        {
-            return GetFileMruOrDefault(Settings.Default.DefaultFrenchLanguageFileName, Settings.Default.MruFrenchLanguageFilePath);
-        }
+        //protected string GetFrenchLanguageFileMruOrDefault()
+        //{
+        //    return GetFileMruOrDefault(Settings.Default.DefaultFrenchLanguageFileName, Settings.Default.MruFrenchLanguageFilePath);
+        //}
 
-        protected string GetGermanLanguageFileMruOrDefault()
-        {
-            return GetFileMruOrDefault(Settings.Default.DefaultGermanLanguageFileName, Settings.Default.MruGermanLanguageFilePath);
-        }
+        //protected string GetGermanLanguageFileMruOrDefault()
+        //{
+        //    return GetFileMruOrDefault(Settings.Default.DefaultGermanLanguageFileName, Settings.Default.MruGermanLanguageFilePath);
+        //}
 
-        protected string GetEnglishCommentaryFileMruOrDefault()
-        {
-            return GetFileMruOrDefault(Settings.Default.DefaultEnglishCommentaryFileName, "text", Settings.Default.MruEnglishCommentaryFilePath);
-        }
+        //protected string GetEnglishCommentaryFileMruOrDefault()
+        //{
+        //    return GetFileMruOrDefault(Settings.Default.DefaultEnglishCommentaryFileName, "text", Settings.Default.MruEnglishCommentaryFilePath);
+        //}
 
-        protected string GetFrenchCommentaryFileMruOrDefault()
-        {
-            return GetFileMruOrDefault(Settings.Default.DefaultFrenchCommentaryFileName, "textf", Settings.Default.MruFrenchCommentaryFilePath);
-        }
+        //protected string GetFrenchCommentaryFileMruOrDefault()
+        //{
+        //    return GetFileMruOrDefault(Settings.Default.DefaultFrenchCommentaryFileName, "textf", Settings.Default.MruFrenchCommentaryFilePath);
+        //}
 
-        protected string GetGermanCommentaryFileMruOrDefault()
-        {
-            return GetFileMruOrDefault(Settings.Default.DefaultGermanCommentaryFileName, "textg", Settings.Default.MruGermanCommentaryFilePath);
-        }
+        //protected string GetGermanCommentaryFileMruOrDefault()
+        //{
+        //    return GetFileMruOrDefault(Settings.Default.DefaultGermanCommentaryFileName, "textg", Settings.Default.MruGermanCommentaryFilePath);
+        //}
 
-        private string GetFileMruOrDefault(string defaultFileName, string mruFilePath)
-        {
-            var gameFolderPath = GetGameFolderMruOrDefault();
-            var defaultFilePath = Path.Combine(gameFolderPath, defaultFileName);
-            return GetValueOrDefaultIfNullOrWhiteSpace(mruFilePath, defaultFilePath);
-        }
+        //private string GetFileMruOrDefault(string defaultFileName, string mruFilePath)
+        //{
+        //    var gameFolderPath = GetGameFolderMruOrDefault();
+        //    var defaultFilePath = Path.Combine(gameFolderPath, defaultFileName);
+        //    return GetValueOrDefaultIfNullOrWhiteSpace(mruFilePath, defaultFilePath);
+        //}
 
-        private string GetFileMruOrDefault(string defaultFileName, string defaultSubFolder, string mruFilePath)
-        {
-            var gameFolderPath = GetGameFolderMruOrDefault();
-            var defaultFilePath = Path.Combine(gameFolderPath, defaultSubFolder, defaultFileName);
-            return GetValueOrDefaultIfNullOrWhiteSpace(mruFilePath, defaultFilePath);
-        }
+        //private string GetFileMruOrDefault(string defaultFileName, string defaultSubFolder, string mruFilePath)
+        //{
+        //    var gameFolderPath = GetGameFolderMruOrDefault();
+        //    var defaultFilePath = Path.Combine(gameFolderPath, defaultSubFolder, defaultFileName);
+        //    return GetValueOrDefaultIfNullOrWhiteSpace(mruFilePath, defaultFilePath);
+        //}
 
-        protected string GetValueOrDefaultIfNullOrWhiteSpace(string value, string @default)
-        {
-            return string.IsNullOrWhiteSpace(value) ? @default : value;
-        }
+        //protected string GetValueOrDefaultIfNullOrWhiteSpace(string value, string @default)
+        //{
+        //    return string.IsNullOrWhiteSpace(value) ? @default : value;
+        //}
 
-        protected static void ShowErrorBox(string message)
-        {
-            MessageBox.Show(
-                $"{Settings.Default.ApplicationName} has encountered an error.{Environment.NewLine}{Environment.NewLine}" +
-                $"Error: {message}{Environment.NewLine}{Environment.NewLine}" +
-                $"To resolve this error, try running {Settings.Default.ApplicationName} as an administrator.",
-                Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        protected static void ShowMessageBox(string message, MessageBoxIcon icon = MessageBoxIcon.Information)
-        {
-            MessageBox.Show(message, Settings.Default.ApplicationName, MessageBoxButtons.OK, icon);
-        }
-
-        // TODO: remove
         //protected static void SwitchToForm(Form parentForm, Form childForm)
         //{
         //    childForm.FormClosing += delegate { parentForm.Show(); };
@@ -355,23 +341,11 @@ namespace App.WindowsForms.Views
             }
         }
 
-        /********************************** TODO: NEW CODE BELOW ******/
+        /********************************** TODO: OLD CODE ABOVE, NEW CODE BELOW ***** */
 
         public static void AddColumnToDataGridView(DataGridView dataGridView, DataGridViewColumn dataGridViewColumn)
         {
             dataGridView.Columns.Add(dataGridViewColumn);
-        }
-
-        public static void ResetDataGridView(DataGridView dataGridView, bool fillColumns = false)
-        {
-            if (dataGridView == null) throw new ArgumentNullException(nameof(dataGridView));
-
-            // Resolves defect with hidden columns becoming unhidden on grid recreation
-            // https://stackoverflow.com/a/38168418
-            dataGridView.DataSource = null;
-
-            dataGridView.AutoGenerateColumns = false;
-            dataGridView.Columns.Clear();
         }
 
         public static void ConfigureDataGridView(DataGridView dataGridView, string primaryColumnName, bool fillColumns = false)
@@ -399,21 +373,6 @@ namespace App.WindowsForms.Views
             dataGridView.RowHeadersVisible = false;
         }
 
-        public static DataGridViewTextBoxColumn CreateDataGridViewTextBoxColumn(string propertyName, string displayText, string toolTipText, bool visible = true, bool readOnly = false)
-        {
-            var dataGridViewTextBoxColumn = new DataGridViewTextBoxColumn
-            {
-                Name = propertyName,
-                DataPropertyName = propertyName,
-                HeaderText = displayText,
-                ToolTipText = toolTipText,
-                ReadOnly = readOnly,
-                Visible = visible
-            };
-
-            return dataGridViewTextBoxColumn;
-        }
-
         public static DataGridViewComboBoxColumn CreateDataGridViewComboBoxColumn(string propertyName, string displayText, string toolTipText)
         {
             var dataGridViewComboBoxColumn = new DataGridViewComboBoxColumn
@@ -429,9 +388,19 @@ namespace App.WindowsForms.Views
             return dataGridViewComboBoxColumn;
         }
 
-        public static void BindDataGridViewToDataSource(DataGridView dataGridView, IEnumerable<IEntity> dataSource)
+        public static DataGridViewTextBoxColumn CreateDataGridViewTextBoxColumn(string propertyName, string displayText, string toolTipText, bool visible = true, bool readOnly = false)
         {
-            dataGridView.DataSource = dataSource;
+            var dataGridViewTextBoxColumn = new DataGridViewTextBoxColumn
+            {
+                Name = propertyName,
+                DataPropertyName = propertyName,
+                HeaderText = displayText,
+                ToolTipText = toolTipText,
+                ReadOnly = readOnly,
+                Visible = visible
+            };
+
+            return dataGridViewTextBoxColumn;
         }
 
         public static void BindDataGridViewComboBoxColumnToDataSource(DataGridViewComboBoxColumn dataGridViewComboBoxColumn, IEnumerable<ILookup> dataSource)
@@ -439,6 +408,94 @@ namespace App.WindowsForms.Views
             dataGridViewComboBoxColumn.DataSource = dataSource;
             dataGridViewComboBoxColumn.ValueMember = "Value";
             dataGridViewComboBoxColumn.DisplayMember = "Description";
+        }
+
+        public static void BindDataGridViewToDataSource(DataGridView dataGridView, IEnumerable<IEntity> dataSource)
+        {
+            dataGridView.DataSource = dataSource;
+        }
+
+        public string GetFolderBrowserDialogSelectedPath()
+        {
+            return ProgramFolderBrowserDialog.SelectedPath;
+        }
+
+        public string GetOpenFileDialogFileName()
+        {
+            return ProgramOpenFileDialog.FileName;
+        }
+
+        public static void ResetDataGridView(DataGridView dataGridView, bool fillColumns = false)
+        {
+            if (dataGridView == null) throw new ArgumentNullException(nameof(dataGridView));
+
+            // Resolves defect with hidden columns becoming unhidden on grid recreation
+            // https://stackoverflow.com/a/38168418
+            dataGridView.DataSource = null;
+
+            dataGridView.AutoGenerateColumns = false;
+            dataGridView.Columns.Clear();
+        }
+
+        public void SetFolderBrowserDialogRootFolder(Environment.SpecialFolder specialFolder)
+        {
+            ProgramFolderBrowserDialog.RootFolder = specialFolder;
+        }
+
+        public void SetFolderBrowserDialogSelectedPath(string path)
+        {
+            ProgramFolderBrowserDialog.SelectedPath = path;
+        }
+
+        public void SetFormIcon(Icon icon)
+        {
+            Icon = icon;
+        }
+
+        public void SetFormText(string text)
+        {
+            Text = text;
+        }
+
+        public void SetOpenFileDialogFileName(string fileName)
+        {
+            ProgramOpenFileDialog.FileName = fileName;
+        }
+
+        public void SetOpenFileDialogInitialDirectory(string initialDirectory)
+        {
+            ProgramOpenFileDialog.InitialDirectory = initialDirectory;
+        }
+
+        public bool ShowConfirmationBox(string message)
+        {
+            var dialogResult = MessageBox.Show(message, Settings.Default.ApplicationName, MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            return dialogResult == DialogResult.Yes;
+        }
+
+        public void ShowErrorBox(string message)
+        {
+            MessageBox.Show(
+                $@"{Settings.Default.ApplicationName} has encountered an error.{Environment.NewLine}{Environment.NewLine}" +
+                $@"Error: {message}{Environment.NewLine}{Environment.NewLine}" +
+                $@"To resolve this error, try running {Settings.Default.ApplicationName} as an administrator.",
+                Settings.Default.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public DialogResult ShowFolderBrowserDialog()
+        {
+            return ProgramFolderBrowserDialog.ShowDialog();
+        }
+
+        public void ShowMessageBox(string message, MessageBoxIcon icon = MessageBoxIcon.Information)
+        {
+            MessageBox.Show(message, Settings.Default.ApplicationName, MessageBoxButtons.OK, icon);
+        }
+
+        public DialogResult ShowOpenFileDialog()
+        {
+            return ProgramOpenFileDialog.ShowDialog();
         }
     }
 }

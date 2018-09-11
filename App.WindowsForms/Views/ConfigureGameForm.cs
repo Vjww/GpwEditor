@@ -3,27 +3,17 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using App.WindowsForms.Charts;
+using System.Windows.Forms.DataVisualization.Charting;
 using App.WindowsForms.Controllers;
 using App.WindowsForms.Enums;
 using App.WindowsForms.Models;
 using App.WindowsForms.Properties;
-
-//using Data;
-//using Data.Collections.Language;
-//using Data.Databases;
-//using Data.Entities.Commentary;
-//using Data.Entities.Executable.Race;
-//using Data.Entities.Generic;
 
 namespace App.WindowsForms.Views
 {
     public partial class ConfigureGameForm : EditorForm
     {
         private ConfigureGameController _controller;
-        private readonly PerformanceCurveChart _performanceCurveChart;
-        private bool _isImportOccurred;
-        private bool _isModified;
 
         #region ToolTip Declarations
         private const string ReadOnlyToolTipText = " This field is read only.";
@@ -106,10 +96,8 @@ namespace App.WindowsForms.Views
             set => BuildPerformanceCurveChart(value);
         }
 
-        public ConfigureGameForm(PerformanceCurveChart performanceCurveChart)
+        public ConfigureGameForm()
         {
-            _performanceCurveChart = performanceCurveChart;
-
             InitializeComponent();
         }
 
@@ -184,157 +172,79 @@ namespace App.WindowsForms.Views
 
         private void BuildPerformanceCurveChart(IEnumerable<PerformanceCurveModel> dataSource)
         {
-            var currentSeriesValues = ConvertPerformanceCurveDataSourceToArray(dataSource);
-
             PerformanceCurveDefaultCheckBox.Checked = true; // Reset
             PerformanceCurveCurrentCheckBox.Checked = true; // Reset
             PerformanceCurveProposedCheckBox.Checked = true; // Reset
-            _performanceCurveChart.GenerateChart();
-            _performanceCurveChart.SetCurrentSeries(currentSeriesValues);
-            _performanceCurveChart.SetProposedSeriesToCurrentSeries();
+
+            var currentSeriesValues = ConvertPerformanceCurveDataSourceToArray(dataSource);
+            _controller.PerformanceCurveChart_LoadChart(currentSeriesValues);
+
             PerformanceCurveControlsGroupBox.Visible = true;
-        }
-
-        private static int[] ConvertPerformanceCurveDataSourceToArray(IEnumerable<PerformanceCurveModel> dataSource)
-        {
-            var performanceCurveValues = dataSource.ToList();
-            var result = new int[performanceCurveValues.Count];
-            var counter = 0;
-            foreach (var item in performanceCurveValues)
-            {
-                result[counter] = item.Value;
-                counter++;
-            }
-
-            return result;
-        }
-
-        private IEnumerable<PerformanceCurveModel> ConvertPerformanceCurveArrayToDataSource()
-        {
-            var result = new List<PerformanceCurveModel>();
-
-            var counter = 0;
-            foreach (var item in _performanceCurveChart.GetProposedSeries())
-            {
-                result.Add(new PerformanceCurveModel { Id = counter, Value = item });
-                counter++;
-            }
-
-            return result;
         }
 
         private void ConfigureGameForm_Load(object sender, EventArgs e)
         {
-            Icon = Resources.icon1;
-            Text = $"{Settings.Default.ApplicationName} - Configure Game";
-            ConvertLinesToRtf(OverviewRichTextBox);
-
-            // Populate paths with most recently used (MRU) or default
-            GameFolderPath = GetGameFolderMruOrDefault();
-            GameExecutableFilePath = GetGameExecutableMruOrDefault();
-            EnglishLanguageFilePath = GetEnglishLanguageFileMruOrDefault();
-            FrenchLanguageFilePath = GetFrenchLanguageFileMruOrDefault();
-            GermanLanguageFilePath = GetGermanLanguageFileMruOrDefault();
-            EnglishCommentaryFilePath = GetEnglishCommentaryFileMruOrDefault();
-            FrenchCommentaryFilePath = GetFrenchCommentaryFileMruOrDefault();
-            GermanCommentaryFilePath = GetGermanCommentaryFileMruOrDefault();
-
-            // Set modified as default
-            _isModified = true;
-
-            GenerateTooltips();
-            _performanceCurveChart.SetChart(PerformanceCurveChart);
-            DisablePitExitPriorityCheckBox.Visible = false;
-
-            InitialisePerformanceCurve(); // TODO: May become redundant once grids are manually built
-
-#if DEBUG
-            LanguageDataGridView.Visible = true; // TODO: Grid might become redundant now due to new domain model?
-            CommentaryResourcesDataGridView.Visible = true; // TODO: Grid might become redundant now due to new domain model?
-#endif
+            _controller.LoadView();
         }
 
         private void ConfigureGameForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (CloseFormConfirmation(_isModified, $"Are you sure you wish to close this window?{Environment.NewLine}{Environment.NewLine}Any changes not exported will be lost."))
-            {
-                return;
-            }
-
-            e.Cancel = true; // Abort event
+            e.Cancel = !_controller.CloseForm(); // Abort event if returns false
         }
 
         private void ConfigureGameTabControl_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (!_isImportOccurred)
-            {
-                e.Cancel = true; // Abort event
-                ShowMessageBox("Unable to switch tabs until a successful import has occurred.", MessageBoxIcon.Error);
-            }
+            e.Cancel = !_controller.ChangeTab(); // Abort event if returns false
         }
 
         private void GameFolderPathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetGameFolderPathFromFolderBrowserDialog();
-            GameFolderPath = string.IsNullOrEmpty(result) ? GameFolderPath : result;
+            _controller.ChangeGameFolder();
         }
 
         private void GameExecutablePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetGameExecutablePathFromOpenFileDialog();
-            GameExecutableFilePath = string.IsNullOrEmpty(result) ? GameExecutableFilePath : result;
+            _controller.ChangeGameExecutable();
         }
 
         private void EnglishLanguageFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetEnglishLanguageFilePathFromOpenFileDialog();
-            EnglishLanguageFilePath = string.IsNullOrEmpty(result) ? EnglishLanguageFilePath : result;
+            _controller.ChangeEnglishLanguageFile();
         }
 
         private void FrenchLanguageFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetFrenchLanguageFilePathFromOpenFileDialog();
-            FrenchLanguageFilePath = string.IsNullOrEmpty(result) ? FrenchLanguageFilePath : result;
+            _controller.ChangeFrenchLanguageFile();
         }
 
         private void GermanLanguageFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetGermanLanguageFilePathFromOpenFileDialog();
-            GermanLanguageFilePath = string.IsNullOrEmpty(result) ? GermanLanguageFilePath : result;
+            _controller.ChangeGermanLanguageFile();
         }
 
         private void EnglishCommentaryFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetEnglishCommentaryFilePathFromOpenFileDialog();
-            EnglishCommentaryFilePath = string.IsNullOrEmpty(result) ? EnglishCommentaryFilePath : result;
+            _controller.ChangeEnglishCommentaryFile();
         }
 
         private void FrenchCommentaryFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetFrenchCommentaryFilePathFromOpenFileDialog();
-            FrenchCommentaryFilePath = string.IsNullOrEmpty(result) ? FrenchCommentaryFilePath : result;
+            _controller.ChangeFrenchCommentaryFile();
         }
 
         private void GermanCommentaryFilePathBrowseButton_Click(object sender, EventArgs e)
         {
-            var result = GetGermanCommentaryFilePathFromOpenFileDialog();
-            GermanCommentaryFilePath = string.IsNullOrEmpty(result) ? GermanCommentaryFilePath : result;
+            _controller.ChangeGermanCommentaryFile();
         }
 
         private void ImportButton_Click(object sender, EventArgs e)
         {
-            Import();
+            _controller.Import();
         }
 
         private void ExportButton_Click(object sender, EventArgs e)
         {
-            if (!_isImportOccurred)
-            {
-                ShowMessageBox("Unable to export until a successful import has occurred.", MessageBoxIcon.Error);
-                return;
-            }
-
-            Export();
+            _controller.Export();
         }
 
         private void CommentaryIndicesDefaultButton_Click(object sender, EventArgs e)
@@ -363,8 +273,6 @@ namespace App.WindowsForms.Views
             _controller.UpdateCommentaryModelWithTeamPrefixesFromAnonymousValues();
         }
 
-        // TODO: Review below methods
-
         private void PerformanceCurveNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             var numericUpDownControl = (NumericUpDown)sender;
@@ -375,11 +283,11 @@ namespace App.WindowsForms.Views
             // Determine change in direction
             if (numericUpDownControl.Value > 0)
             {
-                _performanceCurveChart.AdjustCurve(position, NumericUpDownDirectionType.Up);
+                _controller.PerformanceCurveChart_AdjustCurve(position, NumericUpDownDirectionType.Up);
             }
             else if (numericUpDownControl.Value < 0)
             {
-                _performanceCurveChart.AdjustCurve(position, NumericUpDownDirectionType.Down);
+                _controller.PerformanceCurveChart_AdjustCurve(position, NumericUpDownDirectionType.Down);
             }
 
             // Reset control
@@ -395,22 +303,22 @@ namespace App.WindowsForms.Views
 
         private void PerformanceCurveSoftenCurveButton_Click(object sender, EventArgs e)
         {
-            _performanceCurveChart.SoftenCurve();
+            _controller.PerformanceCurveChart_SoftenCurve();
         }
 
         private void PerformanceCurveCopyDefaultButton_Click(object sender, EventArgs e)
         {
-            _performanceCurveChart.ResetCurveToDefault();
+            _controller.PerformanceCurveChart_ResetCurveToDefault();
         }
 
         private void PerformanceCurveCopyCurrentButton_Click(object sender, EventArgs e)
         {
-            _performanceCurveChart.ResetCurveToCurrent();
+            _controller.PerformanceCurveChart_ResetCurveToCurrent();
         }
 
         private void PerformanceCurveCopyRecommendedButton_Click(object sender, EventArgs e)
         {
-            _performanceCurveChart.ResetCurveToRecommended();
+            _controller.PerformanceCurveChart_ResetCurveToRecommended();
         }
 
         private void PerformanceCurveDefaultCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -421,7 +329,7 @@ namespace App.WindowsForms.Views
                 // And at least one other is checked
                 if (PerformanceCurveCurrentCheckBox.Checked || PerformanceCurveProposedCheckBox.Checked)
                 {
-                    _performanceCurveChart.ToggleDefaultSeries();
+                    _controller.PerformanceCurveChart_ToggleDefaultSeries();
                     return;
                 }
 
@@ -432,7 +340,7 @@ namespace App.WindowsForms.Views
                 return;
             }
 
-            _performanceCurveChart.ToggleDefaultSeries();
+            _controller.PerformanceCurveChart_ToggleDefaultSeries();
         }
 
         private void PerformanceCurveCurrentCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -443,7 +351,7 @@ namespace App.WindowsForms.Views
                 // And at least one other is checked
                 if (PerformanceCurveDefaultCheckBox.Checked || PerformanceCurveProposedCheckBox.Checked)
                 {
-                    _performanceCurveChart.ToggleCurrentSeries();
+                    _controller.PerformanceCurveChart_ToggleCurrentSeries();
                     return;
                 }
 
@@ -454,7 +362,7 @@ namespace App.WindowsForms.Views
                 return;
             }
 
-            _performanceCurveChart.ToggleCurrentSeries();
+            _controller.PerformanceCurveChart_ToggleCurrentSeries();
         }
 
         private void PerformanceCurveProposedCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -465,7 +373,7 @@ namespace App.WindowsForms.Views
                 // And at least one other is checked
                 if (PerformanceCurveDefaultCheckBox.Checked || PerformanceCurveCurrentCheckBox.Checked)
                 {
-                    _performanceCurveChart.ToggleProposedSeries();
+                    _controller.PerformanceCurveChart_ToggleProposedSeries();
                     return;
                 }
 
@@ -476,46 +384,10 @@ namespace App.WindowsForms.Views
                 return;
             }
 
-            _performanceCurveChart.ToggleProposedSeries();
+            _controller.PerformanceCurveChart_ToggleProposedSeries();
         }
 
-        private void Export()
-        {
-            Cursor.Current = Cursors.WaitCursor;
-
-            try
-            {
-                /* TODO: This block is all old code that can likely be removed, could use code as reference
-                    // Fill database with data from controls and export to file
-                    var database = new ConfigureGameDatabase();
-                    PopulateRecords(database);
-                    database.ExportDataToFile(gameFolderPath, gameExecutablePath, languageFilePath);
-                    
-                    // Update chart
-                    _performanceCurveChart.SetCurrentSeriesToProposedSeries(); // Note: implemented below
-                */
-
-                _controller.Export();
-
-                // Update chart
-                _performanceCurveChart.SetCurrentSeriesToProposedSeries();
-            }
-            catch (Exception ex)
-            {
-                ShowMessageBox(
-                    $"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
-                    MessageBoxIcon.Error);
-                return;
-            }
-            finally
-            {
-                Cursor.Current = Cursors.Default;
-            }
-
-            ShowMessageBox("Export complete!");
-        }
-
-        private void GenerateTooltips()
+        public void GenerateTooltips()
         {
             var toolTip = new ToolTip();
 
@@ -530,39 +402,22 @@ namespace App.WindowsForms.Views
             toolTip.SetToolTip(PerformanceCurveCopyRecommendedButton, $"Copies the curve that is recommended for use by the {Settings.Default.GameName} gaming community.");
         }
 
-        private void Import()
+        public Chart GetPerformanceCurveChart()
         {
-            Cursor.Current = Cursors.WaitCursor;
-
-            try
-            {
-                /* TODO: This block is all old code that can likely be removed, could use code as reference
-                    // Import from file to database and fill controls with data
-                    var database = new ConfigureGameDatabase();
-                    database.ImportDataFromFile(gameFolderPath, gameExecutablePath, languageFilePath);
-                    PopulateControls(database);
-                    _isImportOccurred = true;
-                */
-
-                _controller.Import();
-                _isImportOccurred = true;
-            }
-            catch (Exception ex)
-            {
-                ShowMessageBox(
-                    $"An error has occured. Process aborted.{Environment.NewLine}{Environment.NewLine}{ex.Message}",
-                    MessageBoxIcon.Error);
-                return;
-            }
-            finally
-            {
-                Cursor.Current = Cursors.Default;
-            }
-
-            ShowMessageBox("Import complete!");
+            return PerformanceCurveChart;
         }
 
-        private void InitialisePerformanceCurve()
+        public string[] GetRichTextBoxLines()
+        {
+            return OverviewRichTextBox.Lines;
+        }
+
+        public void HideDisablePitExitPriorityCheckBox()
+        {
+            DisablePitExitPriorityCheckBox.Visible = false;
+        }
+
+        public void InitialisePerformanceCurveContent()
         {
             // Configure initial display of performance curve content
             PerformanceCurveChart.Titles.Clear();
@@ -571,76 +426,9 @@ namespace App.WindowsForms.Views
             PerformanceCurveControlsGroupBox.Visible = false;
         }
 
-        /* TODO: A dead method now as datasources are assigned by controller instead, could use code as reference
-        private void PopulateControls(ConfigureGameDatabase database)
+        public void SetRichTextBoxRichText(string text)
         {
-            // Move data from database into controls
-            LanguageDataGridView.DataSource = database.LanguageResources;
-            CommentaryResourcesDataGridView.DataSource = database.CommentaryResources;
-            
-            DisableGameCdCheckBox.Checked = database.IsGameCdFixApplied;
-            DisableColourModeCheckBox.Checked = database.IsDisplayModeFixApplied;
-            DisableSampleAppCheckBox.Checked = database.IsSampleAppFixApplied;
-            DisableMemoryResetForRaceSoundsCheckbox.Checked = database.IsRaceSoundsFixApplied;
-            // TODO: DisablePitExitPriorityCheckBox.Checked = database.IsPitExitPriorityFixApplied;
-            
-            DisableYellowFlagPenaltiesCheckBox.Checked = database.IsYellowFlagFixApplied;
-            EnableCarHandlingDesignCalculationCheckbox.Checked = database.IsCarDesignCalculationUpdateApplied;
-            EnableCarPerformanceRaceCalcuationCheckbox.Checked = database.IsCarHandlingPerformanceFixApplied;
-            
-            CommentaryIndicesDriverDataGridView.DataSource = database.CommentaryIndicesDriver;
-            CommentaryIndicesTeamDataGridView.DataSource = database.CommentaryIndicesTeam;
-            CommentaryPrefixesDriverDataGridView.DataSource = database.CommentaryResourcesDriverPrefixes;
-            CommentaryPrefixesTeamDataGridView.DataSource = database.CommentaryResourcesTeamPrefixes;
-            CommentaryFilesDataGridView.DataSource = database.CommentaryResourcesWavSoundFiles;
-            
-            PointsScoringSystemDefaultRadioButton.Checked = database.IsPointsScoringSystemDefaultApplied;
-            PointsScoringSystemOption1RadioButton.Checked = database.IsPointsScoringSystemOption1Applied;
-            PointsScoringSystemOption2RadioButton.Checked = database.IsPointsScoringSystemOption2Applied;
-            PointsScoringSystemOption3RadioButton.Checked = database.IsPointsScoringSystemOption3Applied;
-            
-            // Generate chart
-            PerformanceCurveDefaultCheckBox.Checked = true; // Reset
-            PerformanceCurveCurrentCheckBox.Checked = true; // Reset
-            PerformanceCurveProposedCheckBox.Checked = true; // Reset
-            _performanceCurveChart.GenerateChart();
-            _performanceCurveChart.SetCurrentSeries(database.PerformanceCurve.Values);
-            _performanceCurveChart.SetProposedSeriesToCurrentSeries();
-            PerformanceCurveControlsGroupBox.Visible = true;
-        }
-        */
-
-        private void PopulateRecords()
-        // TODO: private void PopulateRecords(ConfigureGameDatabase database)
-        {
-            // TODO: // Move data from controls into database
-            // TODO: database.LanguageResources = (IdentityCollection)LanguageDataGridView.DataSource;
-            // TODO: database.CommentaryResources = (Collection<CommentaryResource>)CommentaryResourcesDataGridView.DataSource;
-            // TODO: 
-            // TODO: database.IsGameCdFixRequired = DisableGameCdCheckBox.Checked;
-            // TODO: database.IsDisplayModeFixRequired = DisableColourModeCheckBox.Checked;
-            // TODO: database.IsSampleAppFixRequired = DisableSampleAppCheckBox.Checked;
-            // TODO: database.IsRaceSoundsFixRequired = DisableMemoryResetForRaceSoundsCheckbox.Checked;
-            // TODO: // TODO: database.IsPitExitPriorityFixRequired = DisablePitExitPriorityCheckBox.Checked;
-            // TODO: 
-            // TODO: database.IsYellowFlagFixRequired = DisableYellowFlagPenaltiesCheckBox.Checked;
-            // TODO: database.IsCarDesignCalculationUpdateRequired = EnableCarHandlingDesignCalculationCheckbox.Checked;
-            // TODO: database.IsCarHandlingPerformanceFixRequired = EnableCarPerformanceRaceCalcuationCheckbox.Checked;
-            // TODO: 
-            // TODO: database.CommentaryIndicesDriver = (Collection<CommentaryDriverIndex>)CommentaryIndicesDriverDataGridView.DataSource;
-            // TODO: database.CommentaryIndicesTeam = (Collection<CommentaryTeamIndex>)CommentaryIndicesTeamDataGridView.DataSource;
-            // TODO: database.CommentaryResourcesDriverPrefixes = (Collection<CommentaryResource>)CommentaryPrefixesDriverDataGridView.DataSource;
-            // TODO: database.CommentaryResourcesTeamPrefixes = (Collection<CommentaryResource>)CommentaryPrefixesTeamDataGridView.DataSource;
-            // TODO: 
-            // TODO: database.IsPointsScoringSystemDefaultRequired = PointsScoringSystemDefaultRadioButton.Checked;
-            // TODO: database.IsPointsScoringSystemOption1Required = PointsScoringSystemOption1RadioButton.Checked;
-            // TODO: database.IsPointsScoringSystemOption2Required = PointsScoringSystemOption2RadioButton.Checked;
-            // TODO: database.IsPointsScoringSystemOption3Required = PointsScoringSystemOption3RadioButton.Checked;
-            // TODO: 
-            // TODO: database.PerformanceCurve = new PerformanceCurve
-            // TODO: {
-            // TODO:     Values = _performanceCurveChart.GetProposedSeries()
-            // TODO: };
+            OverviewRichTextBox.Rtf = text;
         }
 
         public void UpdateCommentaryIndicesDriverModelWithUpdatedCommentaryIndexValues(IEnumerable<CommentaryIndexDriverModel> indices)
@@ -703,14 +491,32 @@ namespace App.WindowsForms.Views
             UpdateValuesInDataGridViewColumn(CommentaryPrefixesTeamDataGridView, "FileNamePrefix", values);
         }
 
-        public IEnumerable<int> GetProposedSeriesValuesFromPerformanceCurveChart()
+        private IEnumerable<PerformanceCurveModel> ConvertPerformanceCurveArrayToDataSource()
         {
-            return _performanceCurveChart.GetProposedSeries();
+            var result = new List<PerformanceCurveModel>();
+
+            var counter = 0;
+            foreach (var item in _controller.PerformanceCurveChart_GetProposedSeries())
+            {
+                result.Add(new PerformanceCurveModel { Id = counter, Value = item });
+                counter++;
+            }
+
+            return result;
         }
 
-        public void UpdatePerformanceCurveChartWithHiddenSeriesValues(int[] values)
+        private static int[] ConvertPerformanceCurveDataSourceToArray(IEnumerable<PerformanceCurveModel> dataSource)
         {
-            _performanceCurveChart.SetHiddenSeries(values);
+            var performanceCurveValues = dataSource.ToList();
+            var result = new int[performanceCurveValues.Count];
+            var counter = 0;
+            foreach (var item in performanceCurveValues)
+            {
+                result[counter] = item.Value;
+                counter++;
+            }
+
+            return result;
         }
     }
 }
