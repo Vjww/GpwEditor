@@ -1,0 +1,159 @@
+1 = Team
+2 = Engine
+3 = Tyre
+4 = Fuel
+5-10 = Cash
+X =
+
+For missing sponsors, the data blocks are simply not populated.
+
+-- Williams (see reorder below)
+  byte_807FBA = 5;
+  v90 = (const char *)uf_XpLoadResourceString3(4965);
+  strcpy(&dword_7E5C90[140044], v90);
+  dword_807FEC = 1;
+  dword_8082A8 = 1;
+  byte_8085CE = 5;
+  v91 = (const char *)uf_XpLoadResourceString3(4966);
+  strcpy(&dword_7E5C90[141600], v91);
+  dword_808600 = 5;
+  dword_8088BC = 1;
+  byte_808BE2 = 5;
+  v92 = (const char *)uf_XpLoadResourceString3(4967);
+  strcpy(&dword_7E5C90[143156], v92);
+  dword_808C14 = 2;
+  dword_808ED0 = 1;
+  byte_8091F6 = 5;
+  v93 = (const char *)uf_XpLoadResourceString3(4968);
+  strcpy(&dword_7E5C90[144712], v93);
+  dword_809228 = 1;
+  dword_8094E4 = 1;
+  byte_80980A = 5;
+  v94 = (const char *)uf_XpLoadResourceString3(4969);
+  strcpy(&dword_7E5C90[146268], v94);
+  dword_80983C = 3;
+  dword_809AF8 = 1;
+  byte_809E1E = 5;
+  v95 = (const char *)uf_XpLoadResourceString3(4970);
+  strcpy(&dword_7E5C90[147824], v95);
+  dword_809E50 = 3;
+  dword_80A10C = 1;
+  
+  dword_120513C = 32500000;
+  dword_1205288 = 1;
+  dword_1205140 = -4500000;
+  dword_12052B0 = 2;
+  dword_1205148 = -150000;
+  dword_12052B8 = 4;
+  dword_1205144 = 120000;
+  dword_1205290 = 3;
+  dword_120514C = 1000000;
+  dword_12053D4 = 5;
+  dword_1205150 = 1000000;
+  dword_12053E0 = 6;
+  dword_1205154 = 1400000;
+  dword_12053DC = 7;
+  dword_1205158 = 1800000;
+  dword_12053E4 = 8;
+  dword_120515C = 1800000;
+  dword_12053E8 = 9;
+  dword_1205160 = 2600000;
+  dword_12053D8 = 10;
+  dword_12053F8 = 33000000;
+  result = dword_12053F8;
+  dword_9C8134 = dword_12053F8;
+
+-- Reorder
+dword_1205288 = 1;  +0
+dword_12052B0 = 2;  +40
+dword_1205290 = 3;  +8
+dword_12052B8 = 4;  +48
+dword_12053D4 = 5;  +76  1 AutoMotorSport
+dword_12053D8 = 10; +80  2 Castrol
+dword_12053DC = 7;  +84  3 Falke
+dword_12053E0 = 6;  +88  4 Komatsu
+dword_12053E4 = 8;  +92  5 Sonax
+dword_12053E8 = 9;  +96  6 Universal
+dword_12053F8 = 33000000;   +112
+dword_9C8134 = 33000000;
+
+dword_120513C = 32500000;  +0
+dword_1205140 = -4500000;  +4
+dword_1205144 = 120000;    +8
+dword_1205148 = -150000;   +12
+dword_120514C = 1000000;   +16
+dword_1205150 = 1000000;   +20
+dword_1205154 = 1400000;   +24
+dword_1205158 = 1800000;   +28
+dword_120515C = 1800000;   +32
+dword_1205160 = 2600000;   +36
+
+
+
+
+// byte_807F9C = ''; 4965  // String
+  v90 = (const char *)uf_XpLoadResourceString3(4965);
+  strcpy(&dword_7E5C90[140044], v90);
+   byte_807FBA = 5;        // Type
+  dword_807FEC = 1;        // Rating
+  dword_8082A8 = 1;        // Team
+// byte_8085B0 = ''; 4966
+  v91 = (const char *)uf_XpLoadResourceString3(4966);
+  strcpy(&dword_7E5C90[141600], v91);
+   byte_8085CE = 5;
+  dword_808600 = 5;
+  dword_8088BC = 1;
+// byte_808BC4 = ''; 4967
+  v92 = (const char *)uf_XpLoadResourceString3(4967);
+  strcpy(&dword_7E5C90[143156], v92);
+   byte_808BE2 = 5;
+  dword_808C14 = 2;
+  dword_808ED0 = 1;
+// byte_808BC4 = ''; 4968
+  v93 = (const char *)uf_XpLoadResourceString3(4968);
+  strcpy(&dword_7E5C90[144712], v93);
+   byte_8091F6 = 5;
+  dword_809228 = 1;
+  dword_8094E4 = 1;
+// byte_8091D8 = ''; 4969
+  v94 = (const char *)uf_XpLoadResourceString3(4969);
+  strcpy(&dword_7E5C90[146268], v94);
+   byte_80980A = 5;
+  dword_80983C = 3;
+  dword_809AF8 = 1;
+// byte_809E00 = ''; 4970
+  v95 = (const char *)uf_XpLoadResourceString3(4970);
+  strcpy(&dword_7E5C90[147824], v95);
+   byte_809E1E = 5;
+  dword_809E50 = 3;
+  dword_80A10C = 1;
+ 
+
+
+  
+-- Stewart
+  byte_8036CA = 5;
+  v78 = (const char *)uf_XpLoadResourceString3(4953);
+  strcpy(&dword_7E5C90[121372], v78);
+  dword_8036FC = 3;
+  dword_8039B8 = 9;
+  byte_803CDE = 5;
+  v79 = (const char *)uf_XpLoadResourceString3(4954);
+  strcpy(&dword_7E5C90[122928], v79);
+  dword_803D10 = 5;
+  dword_803FCC = 9;
+  byte_8042F2 = 5;
+  v80 = (const char *)uf_XpLoadResourceString3(4955);
+  strcpy(&dword_7E5C90[124484], v80);
+  dword_804324 = 3;
+  dword_8045E0 = 9;
+  byte_804906 = 5;
+  v81 = (const char *)uf_XpLoadResourceString3(4956);
+  strcpy(&dword_7E5C90[126040], v81);
+  dword_804938 = 4;
+  dword_804BF4 = 9;
+  byte_804F1A = 5;
+  v82 = (const char *)uf_XpLoadResourceString3(4957);
+  strcpy(&dword_7E5C90[127596], v82);
+  dword_804F4C = 2;
+  dword_805208 = 9;

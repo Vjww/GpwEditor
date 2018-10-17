@@ -52,6 +52,13 @@ namespace App.Shared.Data.FileResources
             _stream = _fileResourceImporter.Import(stream);
         }
 
+        public int ReadByte(int offset)
+        {
+            if (offset < 0) throw new ArgumentOutOfRangeException(nameof(offset));
+
+            return _fileResourceReader.ReadByte(_stream, offset);
+        }
+
         public int ReadInteger(int offset)
         {
             if (offset < 0) throw new ArgumentOutOfRangeException(nameof(offset));

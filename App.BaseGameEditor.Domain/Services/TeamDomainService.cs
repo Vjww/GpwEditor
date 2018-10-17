@@ -139,17 +139,17 @@ namespace App.BaseGameEditor.Domain.Services
 
             var values = new[]
             {
-                44,
-                50,
-                45,
-                66,
-                37,
-                26,
-                34,
-                23,
-                22,
-                13,
-                13
+                54,
+                58,
+                52,
+                82,
+                46,
+                35,
+                40,
+                29,
+                33,
+                27,
+                18
             };
 
             var teamEntities = teams.ToList();

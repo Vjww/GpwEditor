@@ -1,3 +1,14 @@
+
+- Sponsor strings in language should be reordered from Williams to Minardi
+- Sponsors numbers should reflect the new position of language strings
+- Editor should have ability to toggle a contract with a sponsor or not, for teams with inadequate sponsorship
+- Editor should have ability to mark a cash sponsor as the title sponsor
+
+
+* SponsorStruct11.txt
+- Lines 004E7A2E to and including 004E7BC8 is about team sponsors
+
+
 .text:004E7A2E C6 05 C6 62 7E 00 01                                mov     ds:byte_7E62C6, 1        // Value 1 - the team id?
 .text:004E7A35 68 0C 13 00 00                                      push    130Ch                    // Value 2 - the sponsor stringId (could fix up Marrano etc.)
 .text:004E7A3A E8 DC BC 02 00                                      call    uf_XpLoadResourceString3 // ...
@@ -13,10 +24,61 @@
 
 Offsets
 
-var Value1 = 4E7A2E + 6 (1 byte)
-var Value2 = 4E7A35 + 1 (4 bytes)
-var Value3 = 4E7A56 + 6 (1 byte)
-var Value4 = 
+var Value1   = 4E7A2E + 6 (1 byte)   // SponsorType ( 1 = Team )
+var Value2   = 4E7A35 + 1 (4 bytes)  // Sponsor string ( 4876 = Buzzin Hornets )
+var Variable = 4E7A48 + 1 (4 bytes)  // Offset required to get to data area from current instruction
+var Value3   = 4E7A56 + 6 (4 bytes)  // Cash rating ( East = 5, Red Bull = 1 ), could be changed to 1 byte C6 05
+var Value4   = 4E7A60 + 6 (4 bytes)  // TeamId ( 1 = Williams, 2 = Ferrari etc. ), could be changed to 1 byte C6 05
+
+Team Sponsors
+
+7E62C6, 1, 130Ch/4876, 2, 5, Buzzin Hornets
+7E68DA, 1, 130Dh/4877, 3, 6, Blondes
+7E6EEE, 1, 1ABAh/6842, 5, 2, Marrano
+7E7502, 1, 130Fh/4879, 4, 3, PlayLife
+7E7B16, 1, 1310h/4880, 1, 7, Red Bull
+7E812A, 1, 1311h/4881, 5, 4, East
+7E873E, 1, 1312h/4882, 5, 1, Winfried
+
+7E8D52, 3, 1313h/4883, 5, 4, Bridgestone
+
+
+Bridgestone from 004E7C04
+Tyre deals for Bridgestone from 004E7C0E
+
+This looks like 
+.text:004E7C0E C7 05 60 8E 7E 00 02 00 00 00                       mov     ds:dword_7E8E60, 2   // 2 3 0 0 0 0 - bonuses?
+.text:004E7C18 C7 05 40 90 7E 00 03 00 00 00                       mov     ds:dword_7E9040, 3   // TeamId?
+.text:004E7C22 C7 05 20 91 7E 00 02 00 00 00                       mov     ds:dword_7E9120, 2   // 2 3 1 1 1 1 - type? partner, works, customer
+.text:004E7C2C C7 05 64 93 20 01 02 00 00 00                       mov     ds:dword_1209364, 2  // 2 3 1 1 1 1 - type? partner, works, customer
+.text:004E7C36 C7 05 38 93 20 01 02 00 00 00                       mov     ds:dword_1209338, 2  // 2 3 0 0 0 0 - bonuses?
+.text:004E7C40 C7 05 64 8E 7E 00 03 00 00 00                       mov     ds:dword_7E8E64, 3   //
+.text:004E7C4A C7 05 44 90 7E 00 04 00 00 00                       mov     ds:dword_7E9044, 4   // TeamId?
+.text:004E7C54 C7 05 24 91 7E 00 03 00 00 00                       mov     ds:dword_7E9124, 3   //
+.text:004E7C5E C7 05 F4 B1 20 01 03 00 00 00                       mov     ds:dword_120B1F4, 3  //
+.text:004E7C68 C7 05 C8 B1 20 01 03 00 00 00                       mov     ds:dword_120B1C8, 3  //
+.text:004E7C72 C7 05 68 8E 7E 00 00 00 00 00                       mov     ds:dword_7E8E68, 0   //
+.text:004E7C7C C7 05 48 90 7E 00 06 00 00 00                       mov     ds:dword_7E9048, 6   // TeamId?
+.text:004E7C86 C7 05 28 91 7E 00 01 00 00 00                       mov     ds:dword_7E9128, 1   //
+.text:004E7C90 C7 05 14 EF 20 01 01 00 00 00                       mov     ds:dword_120EF14, 1  //
+.text:004E7C9A C7 05 E8 EE 20 01 00 00 00 00                       mov     ds:dword_120EEE8, 0  //
+.text:004E7CA4 C7 05 6C 8E 7E 00 00 00 00 00                       mov     ds:dword_7E8E6C, 0   //
+.text:004E7CAE C7 05 4C 90 7E 00 08 00 00 00                       mov     ds:dword_7E904C, 8   // TeamId?
+.text:004E7CB8 C7 05 2C 91 7E 00 01 00 00 00                       mov     ds:dword_7E912C, 1   //
+.text:004E7CC2 C7 05 34 2C 21 01 01 00 00 00                       mov     ds:dword_1212C34, 1  //
+.text:004E7CCC C7 05 08 2C 21 01 00 00 00 00                       mov     ds:dword_1212C08, 0  //
+.text:004E7CD6 C7 05 70 8E 7E 00 00 00 00 00                       mov     ds:dword_7E8E70, 0   //
+.text:004E7CE0 C7 05 50 90 7E 00 09 00 00 00                       mov     ds:dword_7E9050, 9   // TeamId?
+.text:004E7CEA C7 05 30 91 7E 00 01 00 00 00                       mov     ds:dword_7E9130, 1   //
+.text:004E7CF4 C7 05 C4 4A 21 01 01 00 00 00                       mov     ds:dword_1214AC4, 1  //
+.text:004E7CFE C7 05 98 4A 21 01 00 00 00 00                       mov     ds:dword_1214A98, 0  //
+.text:004E7D08 C7 05 74 8E 7E 00 00 00 00 00                       mov     ds:dword_7E8E74, 0   //
+.text:004E7D12 C7 05 54 90 7E 00 0B 00 00 00                       mov     ds:dword_7E9054, 0Bh // TeamId?
+.text:004E7D1C C7 05 34 91 7E 00 01 00 00 00                       mov     ds:dword_7E9134, 1   //
+.text:004E7D26 C7 05 E4 87 21 01 01 00 00 00                       mov     ds:dword_12187E4, 1  //
+.text:004E7D30 C7 05 B8 87 21 01 00 00 00 00                       mov     ds:dword_12187B8, 0  //
+
+-----
 
 But you have missing sponsors for Jordan... so maybe I need to rewrite the function after all to find space.
 

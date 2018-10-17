@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace App.BaseGameEditor.Application.Patchers.CodeShiftPatcher
 {
-    public static class RelocatedFunctionAt4718EA
+    public class RelocatedFunctionAt4718EA
     {
         public static byte[] GetInstructions()
         {

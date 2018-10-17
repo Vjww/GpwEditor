@@ -363,9 +363,11 @@ namespace App.WindowsForms.Controllers
             _view.NonF1ChiefMechanics = UpdateModelFromService<IEnumerable<NonF1ChiefMechanicEntity>, IEnumerable<NonF1ChiefMechanicModel>>(_baseGameEditorApplicationService.DomainModel.Persons.GetNonF1ChiefMechanics);
             _view.F1Drivers = UpdateModelFromService<IEnumerable<F1DriverEntity>, IEnumerable<F1DriverModel>>(_baseGameEditorApplicationService.DomainModel.Persons.GetF1Drivers);
             _view.NonF1Drivers = UpdateModelFromService<IEnumerable<NonF1DriverEntity>, IEnumerable<NonF1DriverModel>>(_baseGameEditorApplicationService.DomainModel.Persons.GetNonF1Drivers);
-            _view.Engines = UpdateModelFromService<IEnumerable<EngineEntity>, IEnumerable<EngineModel>>(_baseGameEditorApplicationService.DomainModel.Suppliers.GetEngines);
-            _view.Tyres = UpdateModelFromService<IEnumerable<TyreEntity>, IEnumerable<TyreModel>>(_baseGameEditorApplicationService.DomainModel.Suppliers.GetTyres);
-            _view.Fuels = UpdateModelFromService<IEnumerable<FuelEntity>, IEnumerable<FuelModel>>(_baseGameEditorApplicationService.DomainModel.Suppliers.GetFuels);
+            _view.SponsorshipTeams = UpdateModelFromService<IEnumerable<SponsorshipTeamEntity>, IEnumerable<SponsorshipTeamModel>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.GetSponsorshipTeams);
+            _view.SponsorshipEngines = UpdateModelFromService<IEnumerable<SponsorshipEngineEntity>, IEnumerable<SponsorshipEngineModel>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.GetSponsorshipEngines);
+            _view.SponsorshipTyres = UpdateModelFromService<IEnumerable<SponsorshipTyreEntity>, IEnumerable<SponsorshipTyreModel>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.GetSponsorshipTyres);
+            _view.SponsorshipFuels = UpdateModelFromService<IEnumerable<SponsorshipFuelEntity>, IEnumerable<SponsorshipFuelModel>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.GetSponsorshipFuels);
+            _view.SponsorshipCashs = UpdateModelFromService<IEnumerable<SponsorshipCashEntity>, IEnumerable<SponsorshipCashModel>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.GetSponsorshipCashs);
             _view.Tracks = UpdateModelFromService<IEnumerable<TrackEntity>, IEnumerable<TrackModel>>(_baseGameEditorApplicationService.DomainModel.Tracks.GetTracks);
 
             // TODO:
@@ -392,9 +394,11 @@ namespace App.WindowsForms.Controllers
             UpdateServiceFromModel<IEnumerable<NonF1ChiefMechanicModel>, IEnumerable<NonF1ChiefMechanicEntity>>(_baseGameEditorApplicationService.DomainModel.Persons.SetNonF1ChiefMechanics, _view.NonF1ChiefMechanics);
             UpdateServiceFromModel<IEnumerable<F1DriverModel>, IEnumerable<F1DriverEntity>>(_baseGameEditorApplicationService.DomainModel.Persons.SetF1Drivers, _view.F1Drivers);
             UpdateServiceFromModel<IEnumerable<NonF1DriverModel>, IEnumerable<NonF1DriverEntity>>(_baseGameEditorApplicationService.DomainModel.Persons.SetNonF1Drivers, _view.NonF1Drivers);
-            UpdateServiceFromModel<IEnumerable<EngineModel>, IEnumerable<EngineEntity>>(_baseGameEditorApplicationService.DomainModel.Suppliers.SetEngines, _view.Engines);
-            UpdateServiceFromModel<IEnumerable<TyreModel>, IEnumerable<TyreEntity>>(_baseGameEditorApplicationService.DomainModel.Suppliers.SetTyres, _view.Tyres);
-            UpdateServiceFromModel<IEnumerable<FuelModel>, IEnumerable<FuelEntity>>(_baseGameEditorApplicationService.DomainModel.Suppliers.SetFuels, _view.Fuels);
+            UpdateServiceFromModel<IEnumerable<SponsorshipTeamModel>, IEnumerable<SponsorshipTeamEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.SetSponsorshipTeams, _view.SponsorshipTeams);
+            UpdateServiceFromModel<IEnumerable<SponsorshipEngineModel>, IEnumerable<SponsorshipEngineEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.SetSponsorshipEngines, _view.SponsorshipEngines);
+            UpdateServiceFromModel<IEnumerable<SponsorshipTyreModel>, IEnumerable<SponsorshipTyreEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.SetSponsorshipTyres, _view.SponsorshipTyres);
+            UpdateServiceFromModel<IEnumerable<SponsorshipFuelModel>, IEnumerable<SponsorshipFuelEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.SetSponsorshipFuels, _view.SponsorshipFuels);
+            UpdateServiceFromModel<IEnumerable<SponsorshipCashModel>, IEnumerable<SponsorshipCashEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.SetSponsorshipCashs, _view.SponsorshipCashs);
             UpdateServiceFromModel<IEnumerable<TrackModel>, IEnumerable<TrackEntity>>(_baseGameEditorApplicationService.DomainModel.Tracks.SetTracks, _view.Tracks);
 
             // TODO:

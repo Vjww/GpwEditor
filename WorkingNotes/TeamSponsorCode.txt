@@ -1,0 +1,48 @@
+
+Plan:
+Move team sponsor code to its new function, call function and nop space or shorten function
+View will have a team per tab and 11 slots (incl. FIA)
+
+
+Team Sponsor
+------------
+
+BaseOffset = 0x4E7A2E; // Convert to local int
+LocalOffset = 60;
+
+counter = 0;
+forloop 7 times
+	StartAt(BaseOffset + LocalOffset * counter);
+	Advance(42)
+	var teamIdReferenceLocation = ReadDword() + 700d; // Constant offset between value locations
+	Advance(4)
+	OverwriteDword(Rating (1-5))
+	Advance(4)
+	if (hasContract)
+		OverwriteBytes(0xC7, 0x05)                         // Two bytes
+		OverwriteBytes(teamIdReferenceLocation.ToBytes())  // Four bytes
+		OverwriteDword(TeamId (1-11))                      // Four bytes
+	else
+		OverwriteBytes(0x90, 10)                           // Ten bytes
+	counter++;
+endloop
+
+
+Engine Sponsor
+--------------
+
+BaseOffset = 0x4E7EC2; // Convert to local int
+LocalOffset = ????; // Can not be determined due to adjusting supplier size.
+
+counter = 0;
+forloop 8 times
+	WriteSupplierInstructions(counter)
+	if (!randomRatings)
+		WriteSupplierCashRating(counter, value)
+		WriteSupplierRadRating(counter, value)
+	else
+		WriteSupplierRandomCashRating()
+		WriteSupplierRandomRadRating()
+	endloop
+
+endloop

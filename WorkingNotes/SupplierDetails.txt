@@ -1,0 +1,54 @@
+Williams
+Engine Mecachrome Customer 0
+Tyre Goodyear Partner 3
+Fuel Petrobras Customer 0
+
+Ferrari
+Engine Ferrari Works 3
+Tyre Goodyear Works 3
+Fuel Shell Works 3
+
+Benetton
+Engine Mecachrome Customer 0
+Tyre Bridgestone Partner 2
+Fuel Agip Partner 2
+
+McLaren
+Engine Mercedes Works 3
+Tyre Bridgestone Works 3
+Fuel Mobil Works 3
+
+Jordan
+Engine Mugen Partner 2
+Tyre Goodyear Customer 0
+Fuel Repsol Partner 2
+
+Prost
+Engine Peugeot Works 2
+Tyre Bridgestone Customer 0
+Fuel Total Partner 3
+
+Sauber
+Engine Ferrari Customer 0
+Tyre Goodyear Customer 0
+Fuel Shell Customer 0
+
+Arrows
+Engine Hart Customer 0
+Tyre Bridgestone Customer 0
+Fuel Elf Partner 3
+
+Stewart
+Engine Ford Works 2
+Tyre Bridgestone Customer 0
+Fuel Texaco Partner 2
+
+Tyrrell
+Engine Ford Customer 0
+Tyre Goodyear Customer 0
+Fuel Elf Customer 0
+
+Minardi
+Engine Ford Customer 0
+Tyre Bridgestone Customer 0
+Fuel Elf Customer 0

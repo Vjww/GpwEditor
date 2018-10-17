@@ -1,3 +1,6 @@
+TODO: Should automapper maps be moved from application to infrastructure?
+
+
 TODO: Delete App.Tests once all tests written
 
 TODO: Sort out the language text encoding in rewrite

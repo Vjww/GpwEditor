@@ -14,6 +14,15 @@ namespace App.Shared.Data.FileResources
             _streamReadService = streamReadService ?? throw new ArgumentNullException(nameof(streamReadService));
         }
 
+        public byte ReadByte(Stream stream, int offset)
+        {
+            if (stream == null) throw new ArgumentNullException(nameof(stream));
+            if (offset < 0) throw new ArgumentOutOfRangeException(nameof(offset));
+
+            var bytes = _streamReadService.Read(stream, offset, 1);
+            return bytes[0];
+        }
+
         public int ReadInteger(Stream stream, int offset)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));

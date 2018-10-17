@@ -1,4 +1,6 @@
-﻿namespace App.Shared.Data.Calculators
+﻿using System;
+
+namespace App.Shared.Data.Calculators
 {
     public class IdentityCalculator
     {
@@ -266,6 +268,45 @@
             };
 
             return idToResourceIdMap[id];
+        }
+
+        public int GetSponsorId(int id)
+        {
+            switch (GetSponsorType(id))
+            {
+                case 1: // Team Sponsor
+                    return id + 1;
+                case 3: // Tyre Supplier
+                    return id + 1 - 7;
+                case 2: // Engine Supplier
+                    return id + 1 - 10;
+                case 4: // Fuel Supplier
+                    return id + 1 - 18;
+                case 5: // Cash Sponsor
+                    return id + 1 - 27;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(id));
+            }
+        }
+
+        // TODO: Review whether this method is used
+        public int GetSponsorType(int id)
+        {
+            switch (id)
+            {
+                case int n when (n >= 0 && n < 7):
+                    return 1; // Team Sponsor
+                case int n when (n >= 7 && n < 10):
+                    return 3; // Tyre Supplier
+                case int n when (n >= 10 && n < 18):
+                    return 2; // Engine Supplier
+                case int n when (n >= 18 && n < 27):
+                    return 4; // Fuel Supplier
+                case int n when (n >= 27 && n < 98):
+                    return 5; // Cash Sponsor
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(id));
+            }
         }
     }
 }

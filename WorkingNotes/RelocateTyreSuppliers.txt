@@ -1,0 +1,125 @@
+-- Tyre Sponsors
+-- First line: .text:004E7BD2 C6 05 52 8D 7E 00 03
+-- Last line:  .text:004E7EB8 C7 05 3C 9D 7E 00 02 00 00 00
+-- Potential optimisation of C7 05 dword to C6 05 byte, not yet implemented
+-- Below code can be relocated to a subroutine if required.
+-- May require a fixed size subroutine per tyre supplier to allow for max 11 deals per supplier
+-- e.g. SeedTyreContractsForSupplier1(), SeedTyreContractsForSupplier2(), SeedTyreContractsForSupplier3()...
+-- Need to calculate max bytes required: Supplier = 40, Contract = 50, Fixed Ratings = 20 vs. Random Rating = 32 bytes, Inactive Flag = 10 bytes
+-- Suspected max is 3 suppliers, 11 contracts, 3 random ratings, 2 inactive = 120 + 550 + 96 + 20 = 786 bytes + function start and end
+
+----- Supplier 1
+.text:004E7BD2 C6 05 52 8D 7E 00 03                                mov     ds:byte_7E8D52, 3
+.text:004E7BD9 68 13 13 00 00                                      push    1313h
+.text:004E7BDE E8 38 BB 02 00                                      call    uf_XpLoadResourceString3
+.text:004E7BE3 83 C4 04                                            add     esp, 4
+.text:004E7BE6 50                                                  push    eax             ; Source
+.text:004E7BE7 B8 90 5C 7E 00                                      mov     eax, offset dword_7E5C90
+.text:004E7BEC 05 A4 30 00 00                                      add     eax, 30A4h
+.text:004E7BF1 50                                                  push    eax             ; Dest
+.text:004E7BF2 E8 95 49 19 00                                      call    _strcpy
+.text:004E7BF7 83 C4 08                                            add     esp, 8
+.text:004E7BFA C7 05 84 8D 7E 00 05 00 00 00                       mov     ds:dword_7E8D84, 5
+.text:004E7C04 C7 05 0C 91 7E 00 04 00 00 00                       mov     ds:dword_7E910C, 4
+
+.text:004E7C0E C7 05 60 8E 7E 00 02 00 00 00                       mov     ds:dword_7E8E60, 2     +0
+.text:004E7C18 C7 05 40 90 7E 00 03 00 00 00                       mov     ds:dword_7E9040, 3     +0
+.text:004E7C22 C7 05 20 91 7E 00 02 00 00 00                       mov     ds:dword_7E9120, 2     +0
+.text:004E7C2C C7 05 64 93 20 01 02 00 00 00                       mov     ds:dword_1209364, 2    +0
+.text:004E7C36 C7 05 38 93 20 01 02 00 00 00                       mov     ds:dword_1209338, 2    +0
+.text:004E7C40 C7 05 64 8E 7E 00 03 00 00 00                       mov     ds:dword_7E8E64, 3     +4
+.text:004E7C4A C7 05 44 90 7E 00 04 00 00 00                       mov     ds:dword_7E9044, 4     +4
+.text:004E7C54 C7 05 24 91 7E 00 03 00 00 00                       mov     ds:dword_7E9124, 3     +4
+.text:004E7C5E C7 05 F4 B1 20 01 03 00 00 00                       mov     ds:dword_120B1F4, 3    +??
+.text:004E7C68 C7 05 C8 B1 20 01 03 00 00 00                       mov     ds:dword_120B1C8, 3    +??
+.text:004E7C72 C7 05 68 8E 7E 00 00 00 00 00                       mov     ds:dword_7E8E68, 0     +8
+.text:004E7C7C C7 05 48 90 7E 00 06 00 00 00                       mov     ds:dword_7E9048, 6     +8
+.text:004E7C86 C7 05 28 91 7E 00 01 00 00 00                       mov     ds:dword_7E9128, 1     +8
+.text:004E7C90 C7 05 14 EF 20 01 01 00 00 00                       mov     ds:dword_120EF14, 1    +8
+.text:004E7C9A C7 05 E8 EE 20 01 00 00 00 00                       mov     ds:dword_120EEE8, 0    +8
+.text:004E7CA4 C7 05 6C 8E 7E 00 00 00 00 00                       mov     ds:dword_7E8E6C, 0    +12
+.text:004E7CAE C7 05 4C 90 7E 00 08 00 00 00                       mov     ds:dword_7E904C, 8    +12
+.text:004E7CB8 C7 05 2C 91 7E 00 01 00 00 00                       mov     ds:dword_7E912C, 1    +12
+.text:004E7CC2 C7 05 34 2C 21 01 01 00 00 00                       mov     ds:dword_1212C34, 1   +12
+.text:004E7CCC C7 05 08 2C 21 01 00 00 00 00                       mov     ds:dword_1212C08, 0   +12
+.text:004E7CD6 C7 05 70 8E 7E 00 00 00 00 00                       mov     ds:dword_7E8E70, 0    +16
+.text:004E7CE0 C7 05 50 90 7E 00 09 00 00 00                       mov     ds:dword_7E9050, 9    +16
+.text:004E7CEA C7 05 30 91 7E 00 01 00 00 00                       mov     ds:dword_7E9130, 1    +16
+.text:004E7CF4 C7 05 C4 4A 21 01 01 00 00 00                       mov     ds:dword_1214AC4, 1   +16
+.text:004E7CFE C7 05 98 4A 21 01 00 00 00 00                       mov     ds:dword_1214A98, 0   +16
+.text:004E7D08 C7 05 74 8E 7E 00 00 00 00 00                       mov     ds:dword_7E8E74, 0    +20
+.text:004E7D12 C7 05 54 90 7E 00 0B 00 00 00                       mov     ds:dword_7E9054, 0Bh  +20
+.text:004E7D1C C7 05 34 91 7E 00 01 00 00 00                       mov     ds:dword_7E9134, 1    +20
+.text:004E7D26 C7 05 E4 87 21 01 01 00 00 00                       mov     ds:dword_12187E4, 1   +20
+.text:004E7D30 C7 05 B8 87 21 01 00 00 00 00                       mov     ds:dword_12187B8, 0   +20
+
+6x5 rows above
+
+----- Supplier 2
+.text:004E7D3A C6 05 66 93 7E 00 03                                mov     ds:byte_7E9366, 3
+.text:004E7D41 68 14 13 00 00                                      push    1314h
+.text:004E7D46 E8 D0 B9 02 00                                      call    uf_XpLoadResourceString3
+.text:004E7D4B 83 C4 04                                            add     esp, 4
+.text:004E7D4E 50                                                  push    eax             ; Source
+.text:004E7D4F B8 90 5C 7E 00                                      mov     eax, offset dword_7E5C90
+.text:004E7D54 05 B8 36 00 00                                      add     eax, 36B8h
+.text:004E7D59 50                                                  push    eax             ; Dest
+.text:004E7D5A E8 2D 48 19 00                                      call    _strcpy
+.text:004E7D5F 83 C4 08                                            add     esp, 8
+.text:004E7D62 C7 05 98 93 7E 00 04 00 00 00                       mov     ds:dword_7E9398, 4
+.text:004E7D6C C7 05 20 97 7E 00 05 00 00 00                       mov     ds:dword_7E9720, 5
+
+.text:004E7D76 C7 05 74 94 7E 00 03 00 00 00                       mov     ds:dword_7E9474, 3
+.text:004E7D80 C7 05 54 96 7E 00 01 00 00 00                       mov     ds:dword_7E9654, 1
+.text:004E7D8A C7 05 34 97 7E 00 02 00 00 00                       mov     ds:dword_7E9734, 2
+.text:004E7D94 C7 05 44 56 20 01 02 00 00 00                       mov     ds:dword_1205644, 2
+.text:004E7D9E C7 05 18 56 20 01 03 00 00 00                       mov     ds:dword_1205618, 3
+.text:004E7DA8 C7 05 78 94 7E 00 03 00 00 00                       mov     ds:dword_7E9478, 3
+.text:004E7DB2 C7 05 58 96 7E 00 02 00 00 00                       mov     ds:dword_7E9658, 2
+.text:004E7DBC C7 05 38 97 7E 00 03 00 00 00                       mov     ds:dword_7E9738, 3
+.text:004E7DC6 C7 05 D4 74 20 01 03 00 00 00                       mov     ds:dword_12074D4, 3
+.text:004E7DD0 C7 05 A8 74 20 01 03 00 00 00                       mov     ds:dword_12074A8, 3
+.text:004E7DDA C7 05 7C 94 7E 00 00 00 00 00                       mov     ds:dword_7E947C, 0
+.text:004E7DE4 C7 05 5C 96 7E 00 05 00 00 00                       mov     ds:dword_7E965C, 5
+.text:004E7DEE C7 05 3C 97 7E 00 01 00 00 00                       mov     ds:dword_7E973C, 1
+.text:004E7DF8 C7 05 84 D0 20 01 01 00 00 00                       mov     ds:dword_120D084, 1
+.text:004E7E02 C7 05 58 D0 20 01 00 00 00 00                       mov     ds:dword_120D058, 0
+.text:004E7E0C C7 05 80 94 7E 00 00 00 00 00                       mov     ds:dword_7E9480, 0
+.text:004E7E16 C7 05 60 96 7E 00 07 00 00 00                       mov     ds:dword_7E9660, 7
+.text:004E7E20 C7 05 40 97 7E 00 01 00 00 00                       mov     ds:dword_7E9740, 1
+.text:004E7E2A C7 05 A4 0D 21 01 01 00 00 00                       mov     ds:dword_1210DA4, 1
+.text:004E7E34 C7 05 78 0D 21 01 00 00 00 00                       mov     ds:dword_1210D78, 0
+.text:004E7E3E C7 05 84 94 7E 00 00 00 00 00                       mov     ds:dword_7E9484, 0
+.text:004E7E48 C7 05 64 96 7E 00 0A 00 00 00                       mov     ds:dword_7E9664, 0Ah
+.text:004E7E52 C7 05 44 97 7E 00 01 00 00 00                       mov     ds:dword_7E9744, 1
+.text:004E7E5C C7 05 54 69 21 01 01 00 00 00                       mov     ds:dword_1216954, 1
+.text:004E7E66 C7 05 28 69 21 01 00 00 00 00                       mov     ds:dword_1216928, 0
+
+5x5 rows above
+
+----- Supplier 3
+.text:004E7E70 C6 05 7A 99 7E 00 03                                mov     ds:byte_7E997A, 3
+.text:004E7E77 68 15 13 00 00                                      push    1315h
+.text:004E7E7C E8 9A B8 02 00                                      call    uf_XpLoadResourceString3
+.text:004E7E81 83 C4 04                                            add     esp, 4
+.text:004E7E84 50                                                  push    eax             ; Source
+.text:004E7E85 B8 90 5C 7E 00                                      mov     eax, offset dword_7E5C90
+.text:004E7E8A 05 CC 3C 00 00                                      add     eax, 3CCCh
+.text:004E7E8F 50                                                  push    eax             ; Dest
+.text:004E7E90 E8 F7 46 19 00                                      call    _strcpy
+.text:004E7E95 83 C4 08                                            add     esp, 8
+
+.text:004E7E98 6A 05                                               push    5
+.text:004E7E9A E8 BB 0B FB FF                                      call    uf_GetRandomNumber
+.text:004E7E9F 83 C4 04                                            add     esp, 4
+.text:004E7EA2 40                                                  inc     eax
+.text:004E7EA3 A3 AC 99 7E 00                                      mov     ds:dword_7E99AC, eax
+.text:004E7EA8 6A 05                                               push    5
+.text:004E7EAA E8 AB 0B FB FF                                      call    uf_GetRandomNumber
+.text:004E7EAF 83 C4 04                                            add     esp, 4
+.text:004E7EB2 40                                                  inc     eax
+.text:004E7EB3 A3 34 9D 7E 00                                      mov     ds:dword_7E9D34, eax
+
+.text:004E7EB8 C7 05 3C 9D 7E 00 02 00 00 00                       mov     ds:dword_7E9D3C, 2
+
+0x5 rows above, last row could be inactive flag

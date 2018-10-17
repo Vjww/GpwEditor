@@ -1,0 +1,60 @@
+// Refer to rewrite below
+
+// Workings
+  dword_12129E8 = 9000000; // Arrows
+  dword_9C8150 = dword_12129E8;
+
+  dword_1209118 = 23000000; // Benetton
+  dword_9C813C = dword_1209118;
+
+  dword_1207288 = 31000000; // Ferrari
+  dword_9C8138 = dword_1207288;
+
+  dword_120CE38 = 13000000; // Jordan
+  dword_9C8144 = dword_120CE38;
+
+  dword_120AFA8 = 27000000; // McLaren
+  dword_9C8140 = dword_120AFA8;
+
+  dword_1218598 = 1000000; // Minardi
+  dword_9C815C = dword_1218598;
+  
+  dword_120ECC8 = 5000000; // Prost
+  dword_9C8148 = dword_120ECC8;
+  
+  dword_1210B58 = 11000000; // Sauber
+  dword_9C814C = dword_1210B58;
+
+  dword_1214878 = 7000000; // Stewart
+  dword_9C8154 = dword_1214878;
+
+  dword_1216708 = 3000000; // Tyrrell
+  dword_9C8158 = dword_1216708;
+
+  dword_12053F8 = 33000000; // Williams
+//result = dword_12053F8;
+  dword_9C8134 = dword_12053F8;
+
+// Rewrite for FIA Funding
+C7 05 F8 53 20 01 40 8A F7 01                       mov     ds:dword_12053F8, 1F78A40h // 33000000 // Williams
+C7 05 34 81 9C 00 40 8A F7 01                       mov     ds:dword_9C8134, 1F78A40h  // 33000000 // Williams
+C7 05 88 72 20 01 C0 05 D9 01                       mov     ds:dword_1207288, 1D905C0h // 31000000 // Ferrari
+C7 05 38 81 9C 00 C0 05 D9 01                       mov     ds:dword_9C8138, 1D905C0h  // 31000000 // Ferrari
+C7 05 18 91 20 01 C0 F3 5E 01                       mov     ds:dword_1209118, 15EF3C0h // 23000000 // Benetton
+C7 05 3C 81 9C 00 C0 F3 5E 01                       mov     ds:dword_9C813C, 15EF3C0h  // 23000000 // Benetton
+C7 05 A8 AF 20 01 C0 FC 9B 01                       mov     ds:dword_120AFA8, 19BFCC0h // 27000000 // McLaren
+C7 05 40 81 9C 00 C0 FC 9B 01                       mov     ds:dword_9C8140, 19BFCC0h  // 27000000 // McLaren
+C7 05 38 CE 20 01 40 5D C6 00                       mov     ds:dword_120CE38, C65D40h  // 13000000 // Jordan
+C7 05 44 81 9C 00 40 5D C6 00                       mov     ds:dword_9C8144, C65D40h   // 13000000 // Jordan
+C7 05 C8 EC 20 01 40 4B 4C 00                       mov     ds:dword_120ECC8, 4C4B40h  // 5000000  // Prost
+C7 05 48 81 9C 00 40 4B 4C 00                       mov     ds:dword_9C8148, 4C4B40h   // 5000000  // Prost
+C7 05 58 0B 21 01 C0 D8 A7 00                       mov     ds:dword_1210B58, A7D8C0h  // 11000000 // Sauber
+C7 05 4C 81 9C 00 C0 D8 A7 00                       mov     ds:dword_9C814C, A7D8C0h   // 11000000 // Sauber
+C7 05 E8 29 21 01 40 54 89 00                       mov     ds:dword_12129E8, 895440h  // 9000000  // Arrows
+C7 05 50 81 9C 00 40 54 89 00                       mov     ds:dword_9C8150, 895440h   // 9000000  // Arrows
+C7 05 78 48 21 01 C0 CF 6A 00                       mov     ds:dword_1214878, 6ACFC0h  // 7000000  // Stewart
+C7 05 54 81 9C 00 C0 CF 6A 00                       mov     ds:dword_9C8154, 6ACFC0h   // 7000000  // Stewart
+C7 05 08 67 21 01 C0 C6 2D 00                       mov     ds:dword_1216708, 2DC6C0h  // 3000000  // Tyrrell
+C7 05 58 81 9C 00 C0 C6 2D 00                       mov     ds:dword_9C8158, 2DC6C0h   // 3000000  // Tyrrell
+C7 05 98 85 21 01 40 42 0F 00                       mov     ds:dword_1218598, 0F4240h  // 1000000  // Minardi
+C7 05 5C 81 9C 00 40 42 0F 00                       mov     ds:dword_9C815C, 0F4240h   // 1000000  // Minardi

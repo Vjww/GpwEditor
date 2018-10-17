@@ -1,6 +1,6 @@
 ﻿namespace App.BaseGameEditor.Application.Patchers.CodeShiftPatcher
 {
-    public static class ReconstructedFunctionAt4706D7
+    public class ReconstructedFunctionAt4706D7
     {
         public static byte[] GetInstructions()
         {

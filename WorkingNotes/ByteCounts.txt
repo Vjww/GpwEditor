@@ -1,0 +1,56 @@
+NextFunctionStart - FunctionStart = ByteCount
+4EA3F0 - 4E7A25 = 29CB (10699 bytes)
+
+So function length is 10699 bytes. 9 + 9946 + 739 + 5 = 10699
+
+Available space = 9946 = 10699 - (9 + 739 + 5)
+
+StartFunctionStart = 4E7A25
+NonLoopCodeStart = 4E7A2E
+LoopCodeStart = 4EA108
+EndFunctionStart = 4EA3EB
+NextFunctionStart = 4EA3F0
+
+NonLoopCodeLength = 26DA (9946 bytes)
+LoopCodeLength = 2E3 (739 bytes)
+
+Function Targets
+sub_51371B - LoadFromLanguageResource
+sub_67C58C - _strcpy
+sub_498A5A - _rand
+
+Instruction lengths
+Entity = 3920
+CashRating = 1100 = 70 + 48 + 128 + 144 + 710
+R&DRating = 320 = 48 + 128 + 144
+Inactive = 200 = 30 + 80 + 90
+----------
+Total 5540
+
+Contract = 2430 = 70 + 550 + 550 + 550 + 710
+Slot = 1100
+CashSponsorship = 1100
+FIA = 220
+----------
+Total 4850
+
+Grand Total = 10390 = 5540 + 4850
+
+So there is a shortage of 444 bytes to shove the new code into the existing function.
+
+So maybe insert 5540 into existing function, relocate the remaining 4850 into new function.
+
+So using the function relocator, take the code from 9 + 5540 onwards to loop start and put into new function. From 004E8FD2 to 004EA108, to 00401000.
+
+And then nop new function and resize to fit 4850 bytes plus start and end.
+
+Relative addresses for new subs will need to be recalulated and manually rewritten due to rejig of code modules.
+
+CodeShiftPatcher should...
+- Nop old function NextFunctionStart - StartFunctionStart @ StartFunctionStart
+- Write newly constructed function @ StartFunctionStart (funcStart, Entity/CashRating/RadRating/Inactive, callRelocFunc, funcEnd)
+- Write relocated function @RelocFunctionStart (funcStart, Contract/Slot/CashSponsorship/Fia, funcEnd)
+
+1. Copy reworked instructions into ReconstructedFunctionAt4E7A25.GetInstructions()
+2. Copy moved instructions into RelocatedFunctionAt401000.GetInstructions()
+

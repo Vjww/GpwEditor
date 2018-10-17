@@ -1,0 +1,276 @@
+
+Subtract value 400C00
+
+
+Function Relocation
+-------------------
+
+004E7A2E
+004EA108
+00410000
+
+
+For each supplier, sponsor, add contract cash dollar value to bottom of each sponsor?
+
+
+
+
+Engine Sponsors Rewrite
+-----------------------
+Cash Rating?	Down		R&D Rating?		Down		Across
+0x007E9FC0		+0d			0x007EA348		+0d			+0d
+0x007EA5D4		+1556d		0x007EA95C		+1556d		+904d
+0x007EABE8		+1556d		0x007EAF70		+1556d		+904d
+0x007EB1FC		+1556d		0x007EB584		+1556d		+904d
+0x007EB810		+1556d		0x007EBB98		+1556d		+904d
+0x007EBE24		+1556d		0x007EC1AC		+1556d		+904d
+0x007EC438		+1556d		0x007EC7C0		+1556d		+904d
+0x007ECA4C		+1556d		0x007ECDD4		+1556d		+904d
+
+// Firstly write the engine sponsor entity with nops to allow space for random ratings instructions, if desired
+// Engine Supplier entity order must be based on the order of the language strings, to stay in line with other instructions (e.g. contract assignment).
+// Engine Supplier entity block is 1556 between blocks, in order of language string sponsor, starting approx 7E9XXX -> 7ECXXX.
+
+.text:004E7EC2 C6 05 8E 9F 7E 00 02                                mov     ds:byte_7E9F8E, 2                 Count: 7
+.text:004E7EC9 68 16 13 00 00                                      push    1316h                             Count: 5
+.text:004E7ECE E8 48 B8 02 00                                      call    uf_XpLoadResourceString3          Count: 5
+.text:004E7ED3 83 C4 04                                            add     esp, 4                            Count: 3
+.text:004E7ED6 50                                                  push    eax             ; Source          Count: 1
+.text:004E7ED7 B8 90 5C 7E 00                                      mov     eax, offset dword_7E5C90          Count: 5
+.text:004E7EDC 05 E0 42 00 00                                      add     eax, 42E0h                        Count: 5
+.text:004E7EE1 50                                                  push    eax             ; Dest            Count: 1
+.text:004E7EE2 E8 A5 46 19 00                                      call    _strcpy                           Count: 5
+.text:004E7EE7 83 C4 08                                            add     esp, 8                            Count: 3
+.text:004E7EEA C7 05 C0 9F 7E 00 01 00 00 00                       mov     ds:dword_7E9FC0, 1                Count: 10
+               90 90 90 90 90 90
+.text:004E7EF4 C7 05 48 A3 7E 00 01 00 00 00                       mov     ds:dword_7EA348, 1                Count: 10
+               90 90 90 90 90 90
+
+.text:004E7F30 C6 05 A2 A5 7E 00 02                                mov     ds:byte_7EA5A2, 2
+.text:004E7F37 68 17 13 00 00                                      push    1317h
+.text:004E7F3C E8 DA B7 02 00                                      call    uf_XpLoadResourceString3
+.text:004E7F41 83 C4 04                                            add     esp, 4
+.text:004E7F44 50                                                  push    eax             ; Source
+.text:004E7F45 B8 90 5C 7E 00                                      mov     eax, offset dword_7E5C90
+.text:004E7F4A 05 F4 48 00 00                                      add     eax, 48F4h
+.text:004E7F4F 50                                                  push    eax             ; Dest
+.text:004E7F50 E8 37 46 19 00                                      call    _strcpy
+.text:004E7F55 83 C4 08                                            add     esp, 8
+.text:004E7F58 C7 05 D4 A5 7E 00 05 00 00 00                       mov     ds:dword_7EA5D4, 5
+               90 90 90 90 90 90
+.text:004E7F62 C7 05 5C A9 7E 00 04 00 00 00                       mov     ds:dword_7EA95C, 4
+               90 90 90 90 90 90
+
+.text:004E7FD0 C6 05 B6 AB 7E 00 02                                mov     ds:byte_7EABB6, 2
+.text:004E7FD7 68 18 13 00 00                                      push    1318h
+.text:004E7FDC E8 3A B7 02 00                                      call    uf_XpLoadResourceString3
+.text:004E7FE1 83 C4 04                                            add     esp, 4
+.text:004E7FE4 50                                                  push    eax             ; Source
+.text:004E7FE5 B8 90 5C 7E 00                                      mov     eax, offset dword_7E5C90
+.text:004E7FEA 05 08 4F 00 00                                      add     eax, 4F08h
+.text:004E7FEF 50                                                  push    eax             ; Dest
+.text:004E7FF0 E8 97 45 19 00                                      call    _strcpy
+.text:004E7FF5 83 C4 08                                            add     esp, 8
+.text:004E7FF8 C7 05 E8 AB 7E 00 03 00 00 00                       mov     ds:dword_7EABE8, 3
+               90 90 90 90 90 90
+.text:004E8002 C7 05 70 AF 7E 00 05 00 00 00                       mov     ds:dword_7EAF70, 5
+               90 90 90 90 90 90
+
+.text:004E80A2 C6 05 CA B1 7E 00 02                                mov     ds:byte_7EB1CA, 2
+.text:004E80A9 68 19 13 00 00                                      push    1319h
+.text:004E80AE E8 68 B6 02 00                                      call    uf_XpLoadResourceString3
+.text:004E80B3 83 C4 04                                            add     esp, 4
+.text:004E80B6 50                                                  push    eax             ; Source
+.text:004E80B7 B8 90 5C 7E 00                                      mov     eax, offset dword_7E5C90
+.text:004E80BC 05 1C 55 00 00                                      add     eax, 551Ch
+.text:004E80C1 50                                                  push    eax             ; Dest
+.text:004E80C2 E8 C5 44 19 00                                      call    _strcpy
+.text:004E80C7 83 C4 08                                            add     esp, 8
+.text:004E80CA C7 05 FC B1 7E 00 05 00 00 00                       mov     ds:dword_7EB1FC, 5
+               90 90 90 90 90 90
+.text:004E80D4 C7 05 84 B5 7E 00 05 00 00 00                       mov     ds:dword_7EB584, 5
+               90 90 90 90 90 90
+
+.text:004E8110 C6 05 DE B7 7E 00 02                                mov     ds:byte_7EB7DE, 2
+.text:004E8117 68 1A 13 00 00                                      push    131Ah
+.text:004E811C E8 FA B5 02 00                                      call    uf_XpLoadResourceString3
+.text:004E8121 83 C4 04                                            add     esp, 4
+.text:004E8124 50                                                  push    eax             ; Source
+.text:004E8125 B8 90 5C 7E 00                                      mov     eax, offset dword_7E5C90
+.text:004E812A 05 30 5B 00 00                                      add     eax, 5B30h
+.text:004E812F 50                                                  push    eax             ; Dest
+.text:004E8130 E8 57 44 19 00                                      call    _strcpy
+.text:004E8135 83 C4 08                                            add     esp, 8
+.text:004E8138 C7 05 10 B8 7E 00 04 00 00 00                       mov     ds:dword_7EB810, 4
+               90 90 90 90 90 90
+.text:004E8142 C7 05 98 BB 7E 00 02 00 00 00                       mov     ds:dword_7EBB98, 2
+               90 90 90 90 90 90
+
+.text:004E817E C6 05 F2 BD 7E 00 02                                mov     ds:byte_7EBDF2, 2
+.text:004E8185 68 1B 13 00 00                                      push    131Bh
+.text:004E818A E8 8C B5 02 00                                      call    uf_XpLoadResourceString3
+.text:004E818F 83 C4 04                                            add     esp, 4
+.text:004E8192 50                                                  push    eax             ; Source
+.text:004E8193 B8 90 5C 7E 00                                      mov     eax, offset dword_7E5C90
+.text:004E8198 05 44 61 00 00                                      add     eax, 6144h
+.text:004E819D 50                                                  push    eax             ; Dest
+.text:004E819E E8 E9 43 19 00                                      call    _strcpy
+.text:004E81A3 83 C4 08                                            add     esp, 8
+.text:004E81A6 C7 05 24 BE 7E 00 04 00 00 00                       mov     ds:dword_7EBE24, 4
+               90 90 90 90 90 90
+.text:004E81B0 C7 05 AC C1 7E 00 03 00 00 00                       mov     ds:dword_7EC1AC, 3
+               90 90 90 90 90 90
+
+.text:004E81EC C6 05 06 C4 7E 00 02                                mov     ds:byte_7EC406, 2
+.text:004E81F3 68 1C 13 00 00                                      push    131Ch
+.text:004E81F8 E8 1E B5 02 00                                      call    uf_XpLoadResourceString3
+.text:004E81FD 83 C4 04                                            add     esp, 4
+.text:004E8200 50                                                  push    eax             ; Source
+.text:004E8201 B8 90 5C 7E 00                                      mov     eax, offset dword_7E5C90
+.text:004E8206 05 58 67 00 00                                      add     eax, 6758h
+.text:004E820B 50                                                  push    eax             ; Dest
+.text:004E820C E8 7B 43 19 00                                      call    _strcpy
+.text:004E8211 83 C4 08                                            add     esp, 8
+.text:004E8214 C7 05 38 C4 7E 00 02 00 00 00                       mov     ds:dword_7EC438, 2
+               90 90 90 90 90 90
+.text:004E821E C7 05 C0 C7 7E 00 02 00 00 00                       mov     ds:dword_7EC7C0, 2
+               90 90 90 90 90 90
+
+.text:004E828C C6 05 1A CA 7E 00 02                                mov     ds:byte_7ECA1A, 2                 Count: 7
+.text:004E8293 68 1D 13 00 00                                      push    131Dh                             Count: 5
+.text:004E8298 E8 7E B4 02 00                                      call    uf_XpLoadResourceString3          Count: 5
+.text:004E829D 83 C4 04                                            add     esp, 4                            Count: 3
+.text:004E82A0 50                                                  push    eax             ; Source          Count: 1
+.text:004E82A1 B8 90 5C 7E 00                                      mov     eax, offset dword_7E5C90          Count: 5
+.text:004E82A6 05 6C 6D 00 00                                      add     eax, 6D6Ch                        Count: 5
+.text:004E82AB 50                                                  push    eax             ; Dest            Count: 1
+.text:004E82AC E8 DB 42 19 00                                      call    _strcpy                           Count: 5
+.text:004E82B1 83 C4 08                                            add     esp, 8                            Count: 3
+.text:004E82B4 6A 05                                               push    5                                 Count: 2  
+.text:004E82B6 E8 9F 07 FB FF                                      call    uf_GetRandomNumber                Count: 5  
+.text:004E82BB 83 C4 04                                            add     esp, 4                            Count: 3  
+.text:004E82BE 40                                                  inc     eax                               Count: 1  
+.text:004E82BF A3 4C CA 7E 00                                      mov     ds:dword_7ECA4C, eax              Count: 5  
+.text:004E82C4 6A 05                                               push    5                                 Count: 2  
+.text:004E82C6 E8 8F 07 FB FF                                      call    uf_GetRandomNumber                Count: 5  
+.text:004E82CB 83 C4 04                                            add     esp, 4                            Count: 3  
+.text:004E82CE 40                                                  inc     eax                               Count: 1  
+.text:004E82CF A3 D4 CD 7E 00                                      mov     ds:dword_7ECDD4, eax              Count: 5  
+
+--------------------
+
+7EA27C				Arrows		HART
+7EA35C		224					HART
+1212C30							HART
+7EA09C		-480				HART
+1212C04		-44					HART
+
+7EA890		1556	Ferrari		FERRARI
+7EA970		224		1556		FERRARI
+12074D0		-46944				FERRARI
+7EA6B0		-480	1556		FERRARI
+12074A4		-44		-46944		FERRARI
+                                FERRARI
+7EA894		4		Sauber		FERRARI
+7EA974		224		4			FERRARI
+1210DA0		39120				FERRARI
+7EA6B4		-480	4			FERRARI
+1210D74		-44		39120		FERRARI
+
+7EAEA4		3112	Stewart		FORD
+7EAF84		224		3112		FORD
+1214AC0		7824				FORD
+7EACC4		-480	3112		FORD
+1214A94		-44		7824		FORD
+                                FORD
+7EAEA8		4		Tyrrell		FORD
+7EAF88		224		4			FORD
+1216950		7824				FORD
+7EACC8		-480	4			FORD
+1216924		-44		7824		FORD
+                                FORD
+7EAEAC		8		Minardi		FORD
+7EAF8C		224		8			FORD
+12187E0				15648		FORD
+7EACCC		-480	8			FORD
+12187B4		-44		15648		FORD
+
+
+// Secondly write the contracts for each supplier
+// Team block is 7824 between blocks, in order of championship position, starting approx 1205XXX -> 1218XXX.
+// Engine Supplier entity block is 1556 between blocks, in order of language string sponsor, starting approx 7E9XXX -> 7ECXXX.
+
+.text:004E7EFE C7 05 7C A2 7E 00 08 00 00 00                       mov     ds:dword_7EA27C, 8                // TeamId Arrows
+.text:004E7F08 C7 05 5C A3 7E 00 01 00 00 00                       mov     ds:dword_7EA35C, 1                // Customer
+.text:004E7F12 C7 05 30 2C 21 01 01 00 00 00                       mov     ds:dword_1212C30, 1               // Customer
+.text:004E7F1C C7 05 9C A0 7E 00 00 00 00 00                       mov     ds:dword_7EA09C, 0                // Terms
+.text:004E7F26 A1 9C A0 7E 00                                      mov     eax, ds:dword_7EA09C              // 
+.text:004E7F2B A3 04 2C 21 01                                      mov     ds:dword_1212C04, eax             // Terms
+
+.text:004E7F6C C7 05 90 A8 7E 00 02 00 00 00                       mov     ds:dword_7EA890, 2                // TeamId Ferrari
+.text:004E7F76 C7 05 70 A9 7E 00 03 00 00 00                       mov     ds:dword_7EA970, 3                // Works
+.text:004E7F80 C7 05 D0 74 20 01 03 00 00 00                       mov     ds:dword_12074D0, 3               // Works
+.text:004E7F8A C7 05 B0 A6 7E 00 03 00 00 00                       mov     ds:dword_7EA6B0, 3                // Terms
+.text:004E7F94 A1 B0 A6 7E 00                                      mov     eax, ds:dword_7EA6B0              // 
+.text:004E7F99 A3 A4 74 20 01                                      mov     ds:dword_12074A4, eax             // Terms
+.text:004E7F9E C7 05 94 A8 7E 00 07 00 00 00                       mov     ds:dword_7EA894, 7                // TeamId Sauber
+.text:004E7FA8 C7 05 74 A9 7E 00 01 00 00 00                       mov     ds:dword_7EA974, 1                // Customer
+.text:004E7FB2 C7 05 A0 0D 21 01 01 00 00 00                       mov     ds:dword_1210DA0, 1               // Customer
+.text:004E7FBC C7 05 B4 A6 7E 00 00 00 00 00                       mov     ds:dword_7EA6B4, 0                // Terms
+.text:004E7FC6 A1 B4 A6 7E 00                                      mov     eax, ds:dword_7EA6B4              // 
+.text:004E7FCB A3 74 0D 21 01                                      mov     ds:dword_1210D74, eax             // Terms
+
+.text:004E800C C7 05 A4 AE 7E 00 09 00 00 00                       mov     ds:dword_7EAEA4, 9                // TeamId Stewart
+.text:004E8016 C7 05 84 AF 7E 00 03 00 00 00                       mov     ds:dword_7EAF84, 3                // Works
+.text:004E8020 C7 05 C0 4A 21 01 03 00 00 00                       mov     ds:dword_1214AC0, 3               // Works
+.text:004E802A C7 05 C4 AC 7E 00 02 00 00 00                       mov     ds:dword_7EACC4, 2                // Terms
+.text:004E8034 A1 C4 AC 7E 00                                      mov     eax, ds:dword_7EACC4              // 
+.text:004E8039 A3 94 4A 21 01                                      mov     ds:dword_1214A94, eax             // Terms
+.text:004E803E C7 05 A8 AE 7E 00 0A 00 00 00                       mov     ds:dword_7EAEA8, 0Ah              // TeamId Tyrrell
+.text:004E8048 C7 05 88 AF 7E 00 01 00 00 00                       mov     ds:dword_7EAF88, 1                // Customer
+.text:004E8052 C7 05 50 69 21 01 01 00 00 00                       mov     ds:dword_1216950, 1               // Customer
+.text:004E805C C7 05 C8 AC 7E 00 00 00 00 00                       mov     ds:dword_7EACC8, 0                // Terms
+.text:004E8066 A1 C8 AC 7E 00                                      mov     eax, ds:dword_7EACC8              // 
+.text:004E806B A3 24 69 21 01                                      mov     ds:dword_1216924, eax             // Terms
+.text:004E8070 C7 05 AC AE 7E 00 0B 00 00 00                       mov     ds:dword_7EAEAC, 0Bh              // TeamId Minardi
+.text:004E807A C7 05 8C AF 7E 00 01 00 00 00                       mov     ds:dword_7EAF8C, 1                // Customer
+.text:004E8084 C7 05 E0 87 21 01 01 00 00 00                       mov     ds:dword_12187E0, 1               // Customer
+.text:004E808E C7 05 CC AC 7E 00 00 00 00 00                       mov     ds:dword_7EACCC, 0                // Terms
+.text:004E8098 A1 CC AC 7E 00                                      mov     eax, ds:dword_7EACCC              // 
+.text:004E809D A3 B4 87 21 01                                      mov     ds:dword_12187B4, eax             // Terms
+
+.text:004E80DE C7 05 B8 B4 7E 00 04 00 00 00                       mov     ds:dword_7EB4B8, 4                // TeamId McLaren
+.text:004E80E8 C7 05 98 B5 7E 00 03 00 00 00                       mov     ds:dword_7EB598, 3                // Works
+.text:004E80F2 C7 05 F0 B1 20 01 03 00 00 00                       mov     ds:dword_120B1F0, 3               // Works
+.text:004E80FC C7 05 D8 B2 7E 00 03 00 00 00                       mov     ds:dword_7EB2D8, 3                // Terms
+.text:004E8106 A1 D8 B2 7E 00                                      mov     eax, ds:dword_7EB2D8              // 
+.text:004E810B A3 C4 B1 20 01                                      mov     ds:dword_120B1C4, eax             // Terms
+
+.text:004E814C C7 05 CC BA 7E 00 05 00 00 00                       mov     ds:dword_7EBACC, 5                // TeamId Jordan
+.text:004E8156 C7 05 AC BB 7E 00 02 00 00 00                       mov     ds:dword_7EBBAC, 2                // Partner
+.text:004E8160 C7 05 80 D0 20 01 02 00 00 00                       mov     ds:dword_120D080, 2               // Partner
+.text:004E816A C7 05 EC B8 7E 00 02 00 00 00                       mov     ds:dword_7EB8EC, 2                // Terms
+.text:004E8174 A1 EC B8 7E 00                                      mov     eax, ds:dword_7EB8EC              // 
+.text:004E8179 A3 54 D0 20 01                                      mov     ds:dword_120D054, eax             // Terms
+
+.text:004E81BA C7 05 E0 C0 7E 00 06 00 00 00                       mov     ds:dword_7EC0E0, 6                // TeamId Prost
+.text:004E81C4 C7 05 C0 C1 7E 00 03 00 00 00                       mov     ds:dword_7EC1C0, 3                // Works
+.text:004E81CE C7 05 10 EF 20 01 03 00 00 00                       mov     ds:dword_120EF10, 3               // Works
+.text:004E81D8 C7 05 00 BF 7E 00 02 00 00 00                       mov     ds:dword_7EBF00, 2                // Terms
+.text:004E81E2 A1 00 BF 7E 00                                      mov     eax, ds:dword_7EBF00              // 
+.text:004E81E7 A3 E4 EE 20 01                                      mov     ds:dword_120EEE4, eax             // Terms
+
+.text:004E8228 C7 05 F4 C6 7E 00 01 00 00 00                       mov     ds:dword_7EC6F4, 1                // TeamId Williams
+.text:004E8232 C7 05 D4 C7 7E 00 01 00 00 00                       mov     ds:dword_7EC7D4, 1                // Customer
+.text:004E823C C7 05 40 56 20 01 01 00 00 00                       mov     ds:dword_1205640, 1               // Customer
+.text:004E8246 C7 05 14 C5 7E 00 00 00 00 00                       mov     ds:dword_7EC514, 0                // Terms
+.text:004E8250 A1 14 C5 7E 00                                      mov     eax, ds:dword_7EC514              // 
+.text:004E8255 A3 14 56 20 01                                      mov     ds:dword_1205614, eax             // Terms
+.text:004E825A C7 05 F8 C6 7E 00 03 00 00 00                       mov     ds:dword_7EC6F8, 3                // TeamId Benetton
+.text:004E8264 C7 05 D8 C7 7E 00 01 00 00 00                       mov     ds:dword_7EC7D8, 1                // Customer
+.text:004E826E C7 05 60 93 20 01 01 00 00 00                       mov     ds:dword_1209360, 1               // Customer
+.text:004E8278 C7 05 18 C5 7E 00 00 00 00 00                       mov     ds:dword_7EC518, 0                // Terms
+.text:004E8282 A1 18 C5 7E 00                                      mov     eax, ds:dword_7EC518              // 
+.text:004E8287 A3 34 93 20 01                                      mov     ds:dword_1209334, eax             // Terms
+
+.text:004E82D4 C7 05 DC CD 7E 00 02 00 00 00                       mov     ds:dword_7ECDDC, 2                // Inactive Flag?
