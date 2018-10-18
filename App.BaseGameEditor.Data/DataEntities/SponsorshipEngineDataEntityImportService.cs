@@ -1,6 +1,7 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataLocators;
 using App.Core.Factories;
+using App.Shared.Data.Calculators;
 using App.Shared.Data.DataEndpoints;
 using App.Shared.Data.Services;
 
@@ -11,15 +12,18 @@ namespace App.BaseGameEditor.Data.DataEntities
         private readonly DataEndpoint _dataEndpoint;
         private readonly IIntegerIdentityFactory<SponsorshipEngineDataEntity> _dataEntityFactory;
         private readonly IIntegerIdentityFactory<SponsorshipEngineDataLocator> _dataLocatorFactory;
+        private readonly IdentityCalculator _identityCalculator;
 
         public SponsorshipEngineDataEntityImportService(
             DataEndpoint dataEndpoint,
             IIntegerIdentityFactory<SponsorshipEngineDataEntity> dataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipEngineDataLocator> dataLocatorFactory)
+            IIntegerIdentityFactory<SponsorshipEngineDataLocator> dataLocatorFactory,
+            IdentityCalculator identityCalculator)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataEntityFactory = dataEntityFactory ?? throw new ArgumentNullException(nameof(dataEntityFactory));
             _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));
+            _identityCalculator = identityCalculator ?? throw new ArgumentNullException(nameof(identityCalculator));
         }
 
         public SponsorshipEngineDataEntity Import(int id)
@@ -38,6 +42,8 @@ namespace App.BaseGameEditor.Data.DataEntities
             result.EntityType = _dataEndpoint.GameExecutableFileResource.ReadByte(dataLocator.EntityTypeValue);
             result.EntityResource = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.EntityResourceValue);
             result.EntityData = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.EntityDataValue);
+            result.SponsorId = id + 1 + 10;
+            result.SponsorType = _identityCalculator.GetSponsorType(id + 10);
 
             var cashRatingInstructionValue = _dataEndpoint.GameExecutableFileResource.ReadByte(dataLocator.CashRatingInstruction);
             if (cashRatingInstructionValue == 0x6A)
