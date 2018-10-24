@@ -14,6 +14,14 @@ namespace App.Shared.Data.FileResources
             _streamWriteService = streamWriteService ?? throw new ArgumentNullException(nameof(streamWriteService));
         }
 
+        public void WriteBytes(Stream stream, int offset, byte[] value)
+        {
+            if (stream == null) throw new ArgumentNullException(nameof(stream));
+            if (offset < 0) throw new ArgumentOutOfRangeException(nameof(offset));
+
+            _streamWriteService.Write(stream, offset, value);
+        }
+
         public void WriteInteger(Stream stream, int offset, int value)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));

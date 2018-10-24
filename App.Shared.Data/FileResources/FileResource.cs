@@ -59,6 +59,13 @@ namespace App.Shared.Data.FileResources
             return _fileResourceReader.ReadByte(_stream, offset);
         }
 
+        public void WriteBytes(int offset, byte[] value)
+        {
+            if (offset < 0) throw new ArgumentOutOfRangeException(nameof(offset));
+
+            _fileResourceWriter.WriteBytes(_stream, offset, value);
+        }
+
         public int ReadInteger(int offset)
         {
             if (offset < 0) throw new ArgumentOutOfRangeException(nameof(offset));

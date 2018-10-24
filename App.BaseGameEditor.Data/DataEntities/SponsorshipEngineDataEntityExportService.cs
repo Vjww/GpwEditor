@@ -39,6 +39,33 @@ namespace App.BaseGameEditor.Data.DataEntities
             _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, frenchCatalogueItem);
             _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, germanCatalogueItem);
 
+            if (sponsorshipEngineDataEntity.CashRatingRandom)
+            {
+                //_dataEndpoint.GameExecutableFileResource.WriteBytes(new byte[] { "C7 05 3C 9D 7E 00 02 00 00 00" }); // TODO: Write random value instructions
+            }
+            else
+            {
+                //_dataEndpoint.GameExecutableFileResource.WriteBytes(new byte[] { }); // TODO: Write determined value instructions
+            }
+
+            if (sponsorshipEngineDataEntity.RadRatingRandom)
+            {
+                //_dataEndpoint.GameExecutableFileResource.WriteBytes(new byte[] { }); // TODO: Write random value instructions
+            }
+            else
+            {
+                //_dataEndpoint.GameExecutableFileResource.WriteBytes(new byte[] { }); // TODO: Write determined value instructions
+            }
+
+            if (sponsorshipEngineDataEntity.Inactive)
+            {
+                //_dataEndpoint.GameExecutableFileResource.WriteBytes(new byte[] { "C7 05 3C 9D 7E 00 02 00 00 00" }); // TODO: Write inactive instructions
+            }
+            else
+            {
+                //_dataEndpoint.GameExecutableFileResource.WriteBytes(dataLocator.InactiveInstruction, new byte[] { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 }); // TODO: Write nops
+            }
+
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Fuel, sponsorshipEngineDataEntity.Fuel);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Heat, sponsorshipEngineDataEntity.Heat);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Power, sponsorshipEngineDataEntity.Power);
