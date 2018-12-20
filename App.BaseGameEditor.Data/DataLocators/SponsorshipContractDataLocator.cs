@@ -1,4 +1,69 @@
-﻿//using System;
+﻿using App.Core.Identities;
+using App.Shared.Data.DataLocators;
+
+namespace App.BaseGameEditor.Data.DataLocators
+{
+    public class SponsorshipContractDataLocator : IntegerIdentityBase, IDataLocator
+    {
+        //    0x00001E90 (7824) between each team block
+
+        //Slot Base Address for Williams: 01205270 (sponsor 1)
+        //- initialise blocks where required
+        //- values in the 98 sponsor addresses per team
+
+        //Cash Base Address for Williams: 0120513C(sponsor 1)
+        //Team + 0
+        //Engine + 4
+        //Tyre + 8
+        //Fuel + 12
+        //Cash + 16, 20, 24, 28, 32, 36
+        //FIA + 700
+
+        //FIA Base Address for Williams: 012053F8
+        //FIA Base Address for Williams: 009C8134
+
+        //- Ferrari 01207288 +1E90
+        //- Ferrari 009C8138 +4
+
+
+
+        // TODO: The fields below are the fields we need to fulfill in the entity
+        // TODO: So we need to know where we can find this data or provide the importer/exporter with clues to find the data
+        //public int TeamId { get; set; }
+        //public int SlotId { get; set; }
+        //public int SponsorType { get; set; }
+        //public int SponsorId { get; set; }
+        //public int ContractValue { get; set; }
+        //public int ContractDeal { get; set; }
+        //public int ContractTerms { get; set; }
+
+        private const int SlotBaseOffset = 0x00401984 - 0x00400C00;
+
+        private const int SlotTeamOffset = 7824;
+        private const int SlotLocalOffset = 10;
+        private const int SlotInstructionOffset = 0;
+        private const int SlotAddressOffset = 2;
+        private const int SlotValueOffset = 6;
+
+        public int SlotInstruction(int teamId, int recordId) => SlotBaseOffset + SlotTeamOffset * (teamId - 1) + SlotLocalOffset * (recordId - 1) + SlotInstructionOffset;
+        public int SlotAddress(int teamId, int recordId) => SlotBaseOffset + SlotTeamOffset * (teamId - 1) + SlotLocalOffset * (recordId - 1) + SlotAddressOffset;
+        public int SlotValue(int teamId, int recordId) => SlotBaseOffset + SlotTeamOffset * (teamId - 1) + SlotLocalOffset * (recordId - 1) + SlotValueOffset;
+
+        private const int CashSponsorshipBaseOffset = 0x00401DD0 - 0x00400C00;
+
+        private const int CashSponsorshipTeamOffset = 100;
+        private const int CashSponsorshipLocalOffset = 10;
+        private const int CashSponsorshipValueOffset = 6;
+
+        public int CashSponsorshipValue(int teamId, int recordId) => CashSponsorshipBaseOffset + CashSponsorshipTeamOffset * (teamId - 1) + CashSponsorshipLocalOffset * (recordId - 1) + CashSponsorshipValueOffset;
+
+        public void Initialise()
+        {
+        }
+    }
+}
+
+//using System;
 //using App.Core.Identities;
 //using App.Shared.Data.DataLocators;
 

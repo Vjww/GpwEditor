@@ -56,6 +56,28 @@ namespace App.BaseGameEditor.Data.Services
         private readonly IRepositoryImportService<SponsorshipFuelDataEntity> _sponsorshipFuelRepositoryImportService;
         private readonly IRepositoryExportService<SponsorshipCashDataEntity> _sponsorshipCashRepositoryExportService;
         private readonly IRepositoryImportService<SponsorshipCashDataEntity> _sponsorshipCashRepositoryImportService;
+        private readonly IRepositoryExportService<SponsorshipContractTeam01DataEntity> _sponsorshipContractTeam01RepositoryExportService;
+        private readonly IRepositoryImportService<SponsorshipContractTeam01DataEntity> _sponsorshipContractTeam01RepositoryImportService;
+        private readonly IRepositoryExportService<SponsorshipContractTeam02DataEntity> _sponsorshipContractTeam02RepositoryExportService;
+        private readonly IRepositoryImportService<SponsorshipContractTeam02DataEntity> _sponsorshipContractTeam02RepositoryImportService;
+        private readonly IRepositoryExportService<SponsorshipContractTeam03DataEntity> _sponsorshipContractTeam03RepositoryExportService;
+        private readonly IRepositoryImportService<SponsorshipContractTeam03DataEntity> _sponsorshipContractTeam03RepositoryImportService;
+        private readonly IRepositoryExportService<SponsorshipContractTeam04DataEntity> _sponsorshipContractTeam04RepositoryExportService;
+        private readonly IRepositoryImportService<SponsorshipContractTeam04DataEntity> _sponsorshipContractTeam04RepositoryImportService;
+        private readonly IRepositoryExportService<SponsorshipContractTeam05DataEntity> _sponsorshipContractTeam05RepositoryExportService;
+        private readonly IRepositoryImportService<SponsorshipContractTeam05DataEntity> _sponsorshipContractTeam05RepositoryImportService;
+        private readonly IRepositoryExportService<SponsorshipContractTeam06DataEntity> _sponsorshipContractTeam06RepositoryExportService;
+        private readonly IRepositoryImportService<SponsorshipContractTeam06DataEntity> _sponsorshipContractTeam06RepositoryImportService;
+        private readonly IRepositoryExportService<SponsorshipContractTeam07DataEntity> _sponsorshipContractTeam07RepositoryExportService;
+        private readonly IRepositoryImportService<SponsorshipContractTeam07DataEntity> _sponsorshipContractTeam07RepositoryImportService;
+        private readonly IRepositoryExportService<SponsorshipContractTeam08DataEntity> _sponsorshipContractTeam08RepositoryExportService;
+        private readonly IRepositoryImportService<SponsorshipContractTeam08DataEntity> _sponsorshipContractTeam08RepositoryImportService;
+        private readonly IRepositoryExportService<SponsorshipContractTeam09DataEntity> _sponsorshipContractTeam09RepositoryExportService;
+        private readonly IRepositoryImportService<SponsorshipContractTeam09DataEntity> _sponsorshipContractTeam09RepositoryImportService;
+        private readonly IRepositoryExportService<SponsorshipContractTeam10DataEntity> _sponsorshipContractTeam10RepositoryExportService;
+        private readonly IRepositoryImportService<SponsorshipContractTeam10DataEntity> _sponsorshipContractTeam10RepositoryImportService;
+        private readonly IRepositoryExportService<SponsorshipContractTeam11DataEntity> _sponsorshipContractTeam11RepositoryExportService;
+        private readonly IRepositoryImportService<SponsorshipContractTeam11DataEntity> _sponsorshipContractTeam11RepositoryImportService;
         private readonly IRepositoryExportService<TrackDataEntity> _trackRepositoryExportService;
         private readonly IRepositoryImportService<TrackDataEntity> _trackRepositoryImportService;
         private readonly IRepositoryExportService<PerformanceCurveDataEntity> _performanceCurveRepositoryExportService;
@@ -93,6 +115,17 @@ namespace App.BaseGameEditor.Data.Services
         public IRepository<SponsorshipTyreDataEntity> SponsorshipTyres { get; }
         public IRepository<SponsorshipFuelDataEntity> SponsorshipFuels { get; }
         public IRepository<SponsorshipCashDataEntity> SponsorshipCashs { get; }
+        public IRepository<SponsorshipContractTeam01DataEntity> SponsorshipContractsTeam01 { get; }
+        public IRepository<SponsorshipContractTeam02DataEntity> SponsorshipContractsTeam02 { get; }
+        public IRepository<SponsorshipContractTeam03DataEntity> SponsorshipContractsTeam03 { get; }
+        public IRepository<SponsorshipContractTeam04DataEntity> SponsorshipContractsTeam04 { get; }
+        public IRepository<SponsorshipContractTeam05DataEntity> SponsorshipContractsTeam05 { get; }
+        public IRepository<SponsorshipContractTeam06DataEntity> SponsorshipContractsTeam06 { get; }
+        public IRepository<SponsorshipContractTeam07DataEntity> SponsorshipContractsTeam07 { get; }
+        public IRepository<SponsorshipContractTeam08DataEntity> SponsorshipContractsTeam08 { get; }
+        public IRepository<SponsorshipContractTeam09DataEntity> SponsorshipContractsTeam09 { get; }
+        public IRepository<SponsorshipContractTeam10DataEntity> SponsorshipContractsTeam10 { get; }
+        public IRepository<SponsorshipContractTeam11DataEntity> SponsorshipContractsTeam11 { get; }
         public IRepository<TrackDataEntity> Tracks { get; }
         public IRepository<PerformanceCurveDataEntity> PerformanceCurveValues { get; }
         public IRepository<ChiefDriverLoyaltyLookupDataEntity> ChiefDriverLoyaltyLookups { get; }
@@ -153,6 +186,28 @@ namespace App.BaseGameEditor.Data.Services
             IRepositoryImportService<SponsorshipFuelDataEntity> sponsorshipFuelRepositoryImportService,
             IRepositoryExportService<SponsorshipCashDataEntity> sponsorshipCashRepositoryExportService,
             IRepositoryImportService<SponsorshipCashDataEntity> sponsorshipCashRepositoryImportService,
+            IRepositoryExportService<SponsorshipContractTeam01DataEntity> sponsorshipContractTeam01RepositoryExportService,
+            IRepositoryImportService<SponsorshipContractTeam01DataEntity> sponsorshipContractTeam01RepositoryImportService,
+            IRepositoryExportService<SponsorshipContractTeam02DataEntity> sponsorshipContractTeam02RepositoryExportService,
+            IRepositoryImportService<SponsorshipContractTeam02DataEntity> sponsorshipContractTeam02RepositoryImportService,
+            IRepositoryExportService<SponsorshipContractTeam03DataEntity> sponsorshipContractTeam03RepositoryExportService,
+            IRepositoryImportService<SponsorshipContractTeam03DataEntity> sponsorshipContractTeam03RepositoryImportService,
+            IRepositoryExportService<SponsorshipContractTeam04DataEntity> sponsorshipContractTeam04RepositoryExportService,
+            IRepositoryImportService<SponsorshipContractTeam04DataEntity> sponsorshipContractTeam04RepositoryImportService,
+            IRepositoryExportService<SponsorshipContractTeam05DataEntity> sponsorshipContractTeam05RepositoryExportService,
+            IRepositoryImportService<SponsorshipContractTeam05DataEntity> sponsorshipContractTeam05RepositoryImportService,
+            IRepositoryExportService<SponsorshipContractTeam06DataEntity> sponsorshipContractTeam06RepositoryExportService,
+            IRepositoryImportService<SponsorshipContractTeam06DataEntity> sponsorshipContractTeam06RepositoryImportService,
+            IRepositoryExportService<SponsorshipContractTeam07DataEntity> sponsorshipContractTeam07RepositoryExportService,
+            IRepositoryImportService<SponsorshipContractTeam07DataEntity> sponsorshipContractTeam07RepositoryImportService,
+            IRepositoryExportService<SponsorshipContractTeam08DataEntity> sponsorshipContractTeam08RepositoryExportService,
+            IRepositoryImportService<SponsorshipContractTeam08DataEntity> sponsorshipContractTeam08RepositoryImportService,
+            IRepositoryExportService<SponsorshipContractTeam09DataEntity> sponsorshipContractTeam09RepositoryExportService,
+            IRepositoryImportService<SponsorshipContractTeam09DataEntity> sponsorshipContractTeam09RepositoryImportService,
+            IRepositoryExportService<SponsorshipContractTeam10DataEntity> sponsorshipContractTeam10RepositoryExportService,
+            IRepositoryImportService<SponsorshipContractTeam10DataEntity> sponsorshipContractTeam10RepositoryImportService,
+            IRepositoryExportService<SponsorshipContractTeam11DataEntity> sponsorshipContractTeam11RepositoryExportService,
+            IRepositoryImportService<SponsorshipContractTeam11DataEntity> sponsorshipContractTeam11RepositoryImportService,
             IRepositoryExportService<TrackDataEntity> trackRepositoryExportService,
             IRepositoryImportService<TrackDataEntity> trackRepositoryImportService,
             IRepositoryExportService<PerformanceCurveDataEntity> performanceCurveRepositoryExportService,
@@ -189,6 +244,17 @@ namespace App.BaseGameEditor.Data.Services
             IRepository<SponsorshipTyreDataEntity> sponsorshipTyreRepository,
             IRepository<SponsorshipFuelDataEntity> sponsorshipFuelRepository,
             IRepository<SponsorshipCashDataEntity> sponsorshipCashRepository,
+            IRepository<SponsorshipContractTeam01DataEntity> sponsorshipContractTeam01Repository,
+            IRepository<SponsorshipContractTeam02DataEntity> sponsorshipContractTeam02Repository,
+            IRepository<SponsorshipContractTeam03DataEntity> sponsorshipContractTeam03Repository,
+            IRepository<SponsorshipContractTeam04DataEntity> sponsorshipContractTeam04Repository,
+            IRepository<SponsorshipContractTeam05DataEntity> sponsorshipContractTeam05Repository,
+            IRepository<SponsorshipContractTeam06DataEntity> sponsorshipContractTeam06Repository,
+            IRepository<SponsorshipContractTeam07DataEntity> sponsorshipContractTeam07Repository,
+            IRepository<SponsorshipContractTeam08DataEntity> sponsorshipContractTeam08Repository,
+            IRepository<SponsorshipContractTeam09DataEntity> sponsorshipContractTeam09Repository,
+            IRepository<SponsorshipContractTeam10DataEntity> sponsorshipContractTeam10Repository,
+            IRepository<SponsorshipContractTeam11DataEntity> sponsorshipContractTeam11Repository,
             IRepository<TrackDataEntity> trackRepository,
             IRepository<PerformanceCurveDataEntity> performanceCurveRepository,
             IRepository<ChiefDriverLoyaltyLookupDataEntity> chiefDriverLoyaltyLookupRepository,
@@ -248,6 +314,28 @@ namespace App.BaseGameEditor.Data.Services
             _sponsorshipFuelRepositoryImportService = sponsorshipFuelRepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipFuelRepositoryImportService));
             _sponsorshipCashRepositoryExportService = sponsorshipCashRepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipCashRepositoryExportService));
             _sponsorshipCashRepositoryImportService = sponsorshipCashRepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipCashRepositoryImportService));
+            _sponsorshipContractTeam01RepositoryExportService = sponsorshipContractTeam01RepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam01RepositoryExportService));
+            _sponsorshipContractTeam01RepositoryImportService = sponsorshipContractTeam01RepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam01RepositoryImportService));
+            _sponsorshipContractTeam02RepositoryExportService = sponsorshipContractTeam02RepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam02RepositoryExportService));
+            _sponsorshipContractTeam02RepositoryImportService = sponsorshipContractTeam02RepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam02RepositoryImportService));
+            _sponsorshipContractTeam03RepositoryExportService = sponsorshipContractTeam03RepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam03RepositoryExportService));
+            _sponsorshipContractTeam03RepositoryImportService = sponsorshipContractTeam03RepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam03RepositoryImportService));
+            _sponsorshipContractTeam04RepositoryExportService = sponsorshipContractTeam04RepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam04RepositoryExportService));
+            _sponsorshipContractTeam04RepositoryImportService = sponsorshipContractTeam04RepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam04RepositoryImportService));
+            _sponsorshipContractTeam05RepositoryExportService = sponsorshipContractTeam05RepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam05RepositoryExportService));
+            _sponsorshipContractTeam05RepositoryImportService = sponsorshipContractTeam05RepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam05RepositoryImportService));
+            _sponsorshipContractTeam06RepositoryExportService = sponsorshipContractTeam06RepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam06RepositoryExportService));
+            _sponsorshipContractTeam06RepositoryImportService = sponsorshipContractTeam06RepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam06RepositoryImportService));
+            _sponsorshipContractTeam07RepositoryExportService = sponsorshipContractTeam07RepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam07RepositoryExportService));
+            _sponsorshipContractTeam07RepositoryImportService = sponsorshipContractTeam07RepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam07RepositoryImportService));
+            _sponsorshipContractTeam08RepositoryExportService = sponsorshipContractTeam08RepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam08RepositoryExportService));
+            _sponsorshipContractTeam08RepositoryImportService = sponsorshipContractTeam08RepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam08RepositoryImportService));
+            _sponsorshipContractTeam09RepositoryExportService = sponsorshipContractTeam09RepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam09RepositoryExportService));
+            _sponsorshipContractTeam09RepositoryImportService = sponsorshipContractTeam09RepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam09RepositoryImportService));
+            _sponsorshipContractTeam10RepositoryExportService = sponsorshipContractTeam10RepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam10RepositoryExportService));
+            _sponsorshipContractTeam10RepositoryImportService = sponsorshipContractTeam10RepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam10RepositoryImportService));
+            _sponsorshipContractTeam11RepositoryExportService = sponsorshipContractTeam11RepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam11RepositoryExportService));
+            _sponsorshipContractTeam11RepositoryImportService = sponsorshipContractTeam11RepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam11RepositoryImportService));
             _trackRepositoryExportService = trackRepositoryExportService ?? throw new ArgumentNullException(nameof(trackRepositoryExportService));
             _trackRepositoryImportService = trackRepositoryImportService ?? throw new ArgumentNullException(nameof(trackRepositoryImportService));
             _performanceCurveRepositoryExportService = performanceCurveRepositoryExportService ?? throw new ArgumentNullException(nameof(performanceCurveRepositoryExportService));
@@ -285,6 +373,17 @@ namespace App.BaseGameEditor.Data.Services
             SponsorshipTyres = sponsorshipTyreRepository ?? throw new ArgumentNullException(nameof(sponsorshipTyreRepository));
             SponsorshipFuels = sponsorshipFuelRepository ?? throw new ArgumentNullException(nameof(sponsorshipFuelRepository));
             SponsorshipCashs = sponsorshipCashRepository ?? throw new ArgumentNullException(nameof(sponsorshipCashRepository));
+            SponsorshipContractsTeam01 = sponsorshipContractTeam01Repository ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam01Repository));
+            SponsorshipContractsTeam02 = sponsorshipContractTeam02Repository ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam02Repository));
+            SponsorshipContractsTeam03 = sponsorshipContractTeam03Repository ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam03Repository));
+            SponsorshipContractsTeam04 = sponsorshipContractTeam04Repository ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam04Repository));
+            SponsorshipContractsTeam05 = sponsorshipContractTeam05Repository ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam05Repository));
+            SponsorshipContractsTeam06 = sponsorshipContractTeam06Repository ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam06Repository));
+            SponsorshipContractsTeam07 = sponsorshipContractTeam07Repository ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam07Repository));
+            SponsorshipContractsTeam08 = sponsorshipContractTeam08Repository ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam08Repository));
+            SponsorshipContractsTeam09 = sponsorshipContractTeam09Repository ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam09Repository));
+            SponsorshipContractsTeam10 = sponsorshipContractTeam10Repository ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam10Repository));
+            SponsorshipContractsTeam11 = sponsorshipContractTeam11Repository ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam11Repository));
             Tracks = trackRepository ?? throw new ArgumentNullException(nameof(trackRepository));
             PerformanceCurveValues = performanceCurveRepository ?? throw new ArgumentNullException(nameof(performanceCurveRepository));
             ChiefDriverLoyaltyLookups = chiefDriverLoyaltyLookupRepository ?? throw new ArgumentNullException(nameof(chiefDriverLoyaltyLookupRepository));
@@ -323,6 +422,17 @@ namespace App.BaseGameEditor.Data.Services
             _sponsorshipTyreRepositoryExportService.Export();
             _sponsorshipFuelRepositoryExportService.Export();
             _sponsorshipCashRepositoryExportService.Export();
+            _sponsorshipContractTeam01RepositoryExportService.Export();
+            _sponsorshipContractTeam02RepositoryExportService.Export();
+            _sponsorshipContractTeam03RepositoryExportService.Export();
+            _sponsorshipContractTeam04RepositoryExportService.Export();
+            _sponsorshipContractTeam05RepositoryExportService.Export();
+            _sponsorshipContractTeam06RepositoryExportService.Export();
+            _sponsorshipContractTeam07RepositoryExportService.Export();
+            _sponsorshipContractTeam08RepositoryExportService.Export();
+            _sponsorshipContractTeam09RepositoryExportService.Export();
+            _sponsorshipContractTeam10RepositoryExportService.Export();
+            _sponsorshipContractTeam11RepositoryExportService.Export();
             _trackRepositoryExportService.Export();
             _performanceCurveRepositoryExportService.Export();
         }
@@ -362,6 +472,17 @@ namespace App.BaseGameEditor.Data.Services
             _sponsorshipTyreRepositoryImportService.Import(3);
             _sponsorshipFuelRepositoryImportService.Import(9);
             _sponsorshipCashRepositoryImportService.Import(71);
+            _sponsorshipContractTeam01RepositoryImportService.Import(10);
+            _sponsorshipContractTeam02RepositoryImportService.Import(10);
+            _sponsorshipContractTeam03RepositoryImportService.Import(10);
+            _sponsorshipContractTeam04RepositoryImportService.Import(10);
+            _sponsorshipContractTeam05RepositoryImportService.Import(10);
+            _sponsorshipContractTeam06RepositoryImportService.Import(10);
+            _sponsorshipContractTeam07RepositoryImportService.Import(10);
+            _sponsorshipContractTeam08RepositoryImportService.Import(10);
+            _sponsorshipContractTeam09RepositoryImportService.Import(10);
+            _sponsorshipContractTeam10RepositoryImportService.Import(10);
+            _sponsorshipContractTeam11RepositoryImportService.Import(10);
             _trackRepositoryImportService.Import(16);
             _performanceCurveRepositoryImportService.Import(120);
         }

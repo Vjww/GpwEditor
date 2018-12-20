@@ -38,6 +38,8 @@ namespace App.BaseGameEditor.Data.DataEntities
             _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, englishCatalogueItem);
             _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, frenchCatalogueItem);
             _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, germanCatalogueItem);
+
+            _dataEndpoint.GameExecutableFileResource.WriteBytes(dataLocator.CashRatingValue, BitConverter.GetBytes(dataEntity.CashRating));
         }
     }
 }

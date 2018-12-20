@@ -121,6 +121,9 @@ namespace App.WindowsForms.Views
         private const string SponsorshipCashsNameToolTipText = "The name of the cash sponsor." + ReadOnlyToolTipText;
         private const string SponsorshipCashsCashRatingToolTipText = "The cash rating of the cash sponsor.";
 
+        private const string SponsorshipContractsIdToolTipText = "The id of the sponsor contract record.";
+        // TODO: private const string SponsorshipContractsNameToolTipText = "The name of the sponsor." + ReadOnlyToolTipText;
+
         private const string TracksIdToolTipText = "The id of the track record.";
         private const string TracksNameToolTipText = "The name of the track." + ReadOnlyToolTipText;
         private const string TracksLapsToolTipText = "The number of racing laps in a Grand Prix.";
@@ -260,6 +263,82 @@ namespace App.WindowsForms.Views
         {
             get => (IEnumerable<SponsorshipCashModel>)SponsorshipCashDataGridView.DataSource;
             set => BuildSponsorshipCashDataGridView(value);
+        }
+
+        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam01
+        {
+            get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam01DataGridView.DataSource;
+            set => BuildSponsorshipContractsTeam01DataGridView(value);
+        }
+
+        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam02
+        {
+            get => null;
+            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam02DataGridView.DataSource;
+            set => BuildSponsorshipContractsTeam02DataGridView(value);
+        }
+
+        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam03
+        {
+            get => null;
+            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam03DataGridView.DataSource;
+            set => BuildSponsorshipContractsTeam03DataGridView(value);
+        }
+
+        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam04
+        {
+            get => null;
+            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam04DataGridView.DataSource;
+            set => BuildSponsorshipContractsTeam04DataGridView(value);
+        }
+
+        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam05
+        {
+            get => null;
+            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam05DataGridView.DataSource;
+            set => BuildSponsorshipContractsTeam05DataGridView(value);
+        }
+
+        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam06
+        {
+            get => null;
+            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam06DataGridView.DataSource;
+            set => BuildSponsorshipContractsTeam06DataGridView(value);
+        }
+
+        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam07
+        {
+            get => null;
+            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam07DataGridView.DataSource;
+            set => BuildSponsorshipContractsTeam07DataGridView(value);
+        }
+
+        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam08
+        {
+            get => null;
+            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam08DataGridView.DataSource;
+            set => BuildSponsorshipContractsTeam08DataGridView(value);
+        }
+
+        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam09
+        {
+            get => null;
+            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam09DataGridView.DataSource;
+            set => BuildSponsorshipContractsTeam09DataGridView(value);
+        }
+
+        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam10
+        {
+            get => null;
+            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam10DataGridView.DataSource;
+            set => BuildSponsorshipContractsTeam10DataGridView(value);
+        }
+
+        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam11
+        {
+            get => null;
+            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam11DataGridView.DataSource;
+            set => BuildSponsorshipContractsTeam11DataGridView(value);
         }
 
         public IEnumerable<TrackModel> Tracks
@@ -646,6 +725,65 @@ namespace App.WindowsForms.Views
             BindDataGridViewToDataSource(SponsorshipCashDataGridView, dataSource);
 
             ConfigureDataGridView(SponsorshipCashDataGridView, "Name");
+        }
+
+        private void BuildSponsorshipContractsTeam01DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        {
+            ResetDataGridView(SponsorshipContractsTeam01DataGridView);
+
+            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorshipContractsIdToolTipText, false));
+            // TODO: AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorshipContractsNameToolTipText, true, true));
+            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor/Supplier", "")); // TODO: tooltip
+            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("SponsorType", "SponsorType", "")); // TODO: tooltip
+            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("SlotId", "SlotId", "")); // TODO: temporary
+            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("TeamId", "TeamId", "")); // TODO: temporary
+            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("ContractValue", "ContractValue", "")); // TODO: tooltip
+            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("ContractDeal", "ContractDeal", "")); // TODO: tooltip
+            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("ContractTerms", "ContractTerms", "")); // TODO: tooltip
+
+            BindDataGridViewToDataSource(SponsorshipContractsTeam01DataGridView, dataSource);
+
+            ConfigureDataGridView(SponsorshipContractsTeam01DataGridView, "SponsorId"); // TODO: Might need to choose another column as primary column
+        }
+
+        private void BuildSponsorshipContractsTeam02DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        {
+        }
+
+        private void BuildSponsorshipContractsTeam03DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        {
+        }
+
+        private void BuildSponsorshipContractsTeam04DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        {
+        }
+
+        private void BuildSponsorshipContractsTeam05DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        {
+        }
+
+        private void BuildSponsorshipContractsTeam06DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        {
+        }
+
+        private void BuildSponsorshipContractsTeam07DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        {
+        }
+
+        private void BuildSponsorshipContractsTeam08DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        {
+        }
+
+        private void BuildSponsorshipContractsTeam09DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        {
+        }
+
+        private void BuildSponsorshipContractsTeam10DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        {
+        }
+
+        private void BuildSponsorshipContractsTeam11DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        {
         }
 
         private void BuildTracksDataGridView(IEnumerable<TrackModel> dataSource)
