@@ -1,15 +1,20 @@
-﻿using App.Core.Entities;
+﻿using System.Collections.Generic;
+using App.Core.Entities;
 using App.Core.Identities;
+using App.Shared.Data.Objects;
 
 namespace App.BaseGameEditor.Domain.Entities
 {
     public class SponsorEntity : IntegerIdentityBase, IEntity
     {
+        public SponsorEntity()
+        {
+            Contracts = new List<SponsorContractObject>();
+        }
+
         public string Name { get; set; }
-
         public int SponsorId { get; set; }
-        public int SponsorType { get; set; }
-
+        public int SponsorTypeId { get; set; }
         public int EntityType { get; set; }
         public int EntityResource { get; set; }
         public int EntityData { get; set; }
@@ -19,6 +24,7 @@ namespace App.BaseGameEditor.Domain.Entities
         public int RadRating { get; set; }
         public bool RadRatingRandom { get; set; }
         public bool Inactive { get; set; }
+        public List<SponsorContractObject> Contracts { get; set; }
 
         public int Fuel { get; set; }
         public int Heat { get; set; }

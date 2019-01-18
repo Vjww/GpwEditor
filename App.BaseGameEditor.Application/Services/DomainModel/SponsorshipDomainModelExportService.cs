@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Data.Services;
 using App.BaseGameEditor.Domain.Services;
@@ -9,88 +10,165 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
 {
     public class SponsorshipDomainModelExportService
     {
-        private readonly SponsorshipDomainService _domainService;
+        private readonly SponsorDomainService _domainService;
         private readonly DataService _dataService;
-        private readonly IIntegerIdentityFactory<SponsorshipTeamDataEntity> _sponsorshipTeamDataEntityFactory;
-        private readonly IIntegerIdentityFactory<SponsorshipEngineDataEntity> _sponsorshipEngineDataEntityFactory;
-        private readonly IIntegerIdentityFactory<SponsorshipTyreDataEntity> _sponsorshipTyreDataEntityFactory;
-        private readonly IIntegerIdentityFactory<SponsorshipFuelDataEntity> _sponsorshipFuelDataEntityFactory;
-        private readonly IIntegerIdentityFactory<SponsorshipCashDataEntity> _sponsorshipCashDataEntityFactory;
-        private readonly IIntegerIdentityFactory<SponsorshipContractTeam01DataEntity> _sponsorshipContractTeam01DataEntityFactory;
-        private readonly IIntegerIdentityFactory<SponsorshipContractTeam02DataEntity> _sponsorshipContractTeam02DataEntityFactory;
-        private readonly IIntegerIdentityFactory<SponsorshipContractTeam03DataEntity> _sponsorshipContractTeam03DataEntityFactory;
-        private readonly IIntegerIdentityFactory<SponsorshipContractTeam04DataEntity> _sponsorshipContractTeam04DataEntityFactory;
-        private readonly IIntegerIdentityFactory<SponsorshipContractTeam05DataEntity> _sponsorshipContractTeam05DataEntityFactory;
-        private readonly IIntegerIdentityFactory<SponsorshipContractTeam06DataEntity> _sponsorshipContractTeam06DataEntityFactory;
-        private readonly IIntegerIdentityFactory<SponsorshipContractTeam07DataEntity> _sponsorshipContractTeam07DataEntityFactory;
-        private readonly IIntegerIdentityFactory<SponsorshipContractTeam08DataEntity> _sponsorshipContractTeam08DataEntityFactory;
-        private readonly IIntegerIdentityFactory<SponsorshipContractTeam09DataEntity> _sponsorshipContractTeam09DataEntityFactory;
-        private readonly IIntegerIdentityFactory<SponsorshipContractTeam10DataEntity> _sponsorshipContractTeam10DataEntityFactory;
-        private readonly IIntegerIdentityFactory<SponsorshipContractTeam11DataEntity> _sponsorshipContractTeam11DataEntityFactory;
+        private readonly IIntegerIdentityFactory<SponsorDataEntity> _sponsorDataEntityFactory;
+        private readonly IIntegerIdentityFactory<SponsorContractDataEntity> _sponsorContractDataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipTeamDataEntity> _sponsorshipTeamDataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipEngineDataEntity> _sponsorshipEngineDataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipTyreDataEntity> _sponsorshipTyreDataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipFuelDataEntity> _sponsorshipFuelDataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipCashDataEntity> _sponsorshipCashDataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipContractTeam01DataEntity> _sponsorshipContractTeam01DataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipContractTeam02DataEntity> _sponsorshipContractTeam02DataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipContractTeam03DataEntity> _sponsorshipContractTeam03DataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipContractTeam04DataEntity> _sponsorshipContractTeam04DataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipContractTeam05DataEntity> _sponsorshipContractTeam05DataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipContractTeam06DataEntity> _sponsorshipContractTeam06DataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipContractTeam07DataEntity> _sponsorshipContractTeam07DataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipContractTeam08DataEntity> _sponsorshipContractTeam08DataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipContractTeam09DataEntity> _sponsorshipContractTeam09DataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipContractTeam10DataEntity> _sponsorshipContractTeam10DataEntityFactory;
+        // TODO: private readonly IIntegerIdentityFactory<SponsorshipContractTeam11DataEntity> _sponsorshipContractTeam11DataEntityFactory;
         private readonly IMapperService _mapperService;
 
         public SponsorshipDomainModelExportService(
-            SponsorshipDomainService domainService,
+            SponsorDomainService domainService,
             DataService dataService,
-            IIntegerIdentityFactory<SponsorshipTeamDataEntity> sponsorshipTeamDataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipEngineDataEntity> sponsorshipEngineDataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipTyreDataEntity> sponsorshipTyreDataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipFuelDataEntity> sponsorshipFuelDataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipCashDataEntity> sponsorshipCashDataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipContractTeam01DataEntity> sponsorshipContractTeam01DataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipContractTeam02DataEntity> sponsorshipContractTeam02DataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipContractTeam03DataEntity> sponsorshipContractTeam03DataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipContractTeam04DataEntity> sponsorshipContractTeam04DataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipContractTeam05DataEntity> sponsorshipContractTeam05DataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipContractTeam06DataEntity> sponsorshipContractTeam06DataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipContractTeam07DataEntity> sponsorshipContractTeam07DataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipContractTeam08DataEntity> sponsorshipContractTeam08DataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipContractTeam09DataEntity> sponsorshipContractTeam09DataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipContractTeam10DataEntity> sponsorshipContractTeam10DataEntityFactory,
-            IIntegerIdentityFactory<SponsorshipContractTeam11DataEntity> sponsorshipContractTeam11DataEntityFactory,
+            IIntegerIdentityFactory<SponsorDataEntity> sponsorDataEntityFactory,
+            IIntegerIdentityFactory<SponsorContractDataEntity> sponsorContractDataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipTeamDataEntity> sponsorshipTeamDataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipEngineDataEntity> sponsorshipEngineDataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipTyreDataEntity> sponsorshipTyreDataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipFuelDataEntity> sponsorshipFuelDataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipCashDataEntity> sponsorshipCashDataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipContractTeam01DataEntity> sponsorshipContractTeam01DataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipContractTeam02DataEntity> sponsorshipContractTeam02DataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipContractTeam03DataEntity> sponsorshipContractTeam03DataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipContractTeam04DataEntity> sponsorshipContractTeam04DataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipContractTeam05DataEntity> sponsorshipContractTeam05DataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipContractTeam06DataEntity> sponsorshipContractTeam06DataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipContractTeam07DataEntity> sponsorshipContractTeam07DataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipContractTeam08DataEntity> sponsorshipContractTeam08DataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipContractTeam09DataEntity> sponsorshipContractTeam09DataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipContractTeam10DataEntity> sponsorshipContractTeam10DataEntityFactory,
+            // TODO: IIntegerIdentityFactory<SponsorshipContractTeam11DataEntity> sponsorshipContractTeam11DataEntityFactory,
             IMapperService mapperService)
         {
             _domainService = domainService ?? throw new ArgumentNullException(nameof(domainService));
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
-            _sponsorshipTeamDataEntityFactory = sponsorshipTeamDataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipTeamDataEntityFactory));
-            _sponsorshipEngineDataEntityFactory = sponsorshipEngineDataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipEngineDataEntityFactory));
-            _sponsorshipTyreDataEntityFactory = sponsorshipTyreDataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipTyreDataEntityFactory));
-            _sponsorshipFuelDataEntityFactory = sponsorshipFuelDataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipFuelDataEntityFactory));
-            _sponsorshipCashDataEntityFactory = sponsorshipCashDataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipCashDataEntityFactory));
-            _sponsorshipContractTeam01DataEntityFactory = sponsorshipContractTeam01DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam01DataEntityFactory));
-            _sponsorshipContractTeam02DataEntityFactory = sponsorshipContractTeam02DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam02DataEntityFactory));
-            _sponsorshipContractTeam03DataEntityFactory = sponsorshipContractTeam03DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam03DataEntityFactory));
-            _sponsorshipContractTeam04DataEntityFactory = sponsorshipContractTeam04DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam04DataEntityFactory));
-            _sponsorshipContractTeam05DataEntityFactory = sponsorshipContractTeam05DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam05DataEntityFactory));
-            _sponsorshipContractTeam06DataEntityFactory = sponsorshipContractTeam06DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam06DataEntityFactory));
-            _sponsorshipContractTeam07DataEntityFactory = sponsorshipContractTeam07DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam07DataEntityFactory));
-            _sponsorshipContractTeam08DataEntityFactory = sponsorshipContractTeam08DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam08DataEntityFactory));
-            _sponsorshipContractTeam09DataEntityFactory = sponsorshipContractTeam09DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam09DataEntityFactory));
-            _sponsorshipContractTeam10DataEntityFactory = sponsorshipContractTeam10DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam10DataEntityFactory));
-            _sponsorshipContractTeam11DataEntityFactory = sponsorshipContractTeam11DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam11DataEntityFactory));
+            _sponsorDataEntityFactory = sponsorDataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorDataEntityFactory));
+            _sponsorContractDataEntityFactory = sponsorContractDataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorContractDataEntityFactory));
+            // TODO: _sponsorshipTeamDataEntityFactory = sponsorshipTeamDataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipTeamDataEntityFactory));
+            // TODO: _sponsorshipEngineDataEntityFactory = sponsorshipEngineDataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipEngineDataEntityFactory));
+            // TODO: _sponsorshipTyreDataEntityFactory = sponsorshipTyreDataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipTyreDataEntityFactory));
+            // TODO: _sponsorshipFuelDataEntityFactory = sponsorshipFuelDataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipFuelDataEntityFactory));
+            // TODO: _sponsorshipCashDataEntityFactory = sponsorshipCashDataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipCashDataEntityFactory));
+            // TODO: _sponsorshipContractTeam01DataEntityFactory = sponsorshipContractTeam01DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam01DataEntityFactory));
+            // TODO: _sponsorshipContractTeam02DataEntityFactory = sponsorshipContractTeam02DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam02DataEntityFactory));
+            // TODO: _sponsorshipContractTeam03DataEntityFactory = sponsorshipContractTeam03DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam03DataEntityFactory));
+            // TODO: _sponsorshipContractTeam04DataEntityFactory = sponsorshipContractTeam04DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam04DataEntityFactory));
+            // TODO: _sponsorshipContractTeam05DataEntityFactory = sponsorshipContractTeam05DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam05DataEntityFactory));
+            // TODO: _sponsorshipContractTeam06DataEntityFactory = sponsorshipContractTeam06DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam06DataEntityFactory));
+            // TODO: _sponsorshipContractTeam07DataEntityFactory = sponsorshipContractTeam07DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam07DataEntityFactory));
+            // TODO: _sponsorshipContractTeam08DataEntityFactory = sponsorshipContractTeam08DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam08DataEntityFactory));
+            // TODO: _sponsorshipContractTeam09DataEntityFactory = sponsorshipContractTeam09DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam09DataEntityFactory));
+            // TODO: _sponsorshipContractTeam10DataEntityFactory = sponsorshipContractTeam10DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam10DataEntityFactory));
+            // TODO: _sponsorshipContractTeam11DataEntityFactory = sponsorshipContractTeam11DataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorshipContractTeam11DataEntityFactory));
             _mapperService = mapperService ?? throw new ArgumentNullException(nameof(mapperService));
         }
 
         public void Export()
         {
-            ExportSponsorshipTeams();
-            ExportSponsorshipEngines();
-            ExportSponsorshipFuels();
-            ExportSponsorshipTyres();
-            ExportSponsorshipCashs();
-            ExportSponsorshipContractsTeam01();
-            ExportSponsorshipContractsTeam02();
-            ExportSponsorshipContractsTeam03();
-            ExportSponsorshipContractsTeam04();
-            ExportSponsorshipContractsTeam05();
-            ExportSponsorshipContractsTeam06();
-            ExportSponsorshipContractsTeam07();
-            ExportSponsorshipContractsTeam08();
-            ExportSponsorshipContractsTeam09();
-            ExportSponsorshipContractsTeam10();
-            ExportSponsorshipContractsTeam11();
+            BlendDataBeforeExport();
+
+            ExportSponsors();
+            ExportSponsorContracts();
+
+            // TODO: ExportSponsorshipTeams();
+            // TODO: ExportSponsorshipEngines();
+            // TODO: ExportSponsorshipFuels();
+            // TODO: ExportSponsorshipTyres();
+            // TODO: ExportSponsorshipCashs();
+            // TODO: ExportSponsorshipContractsTeam01();
+            // TODO: ExportSponsorshipContractsTeam02();
+            // TODO: ExportSponsorshipContractsTeam03();
+            // TODO: ExportSponsorshipContractsTeam04();
+            // TODO: ExportSponsorshipContractsTeam05();
+            // TODO: ExportSponsorshipContractsTeam06();
+            // TODO: ExportSponsorshipContractsTeam07();
+            // TODO: ExportSponsorshipContractsTeam08();
+            // TODO: ExportSponsorshipContractsTeam09();
+            // TODO: ExportSponsorshipContractsTeam10();
+            // TODO: ExportSponsorshipContractsTeam11();
         }
 
+        private void BlendDataBeforeExport()
+        {
+            // TODO: Need to verify if reversing the logic was correct, depending on how the UI is updating the domain.
+
+            var sponsors = _domainService.GetSponsors().ToList();
+            var sponsorContracts = _domainService.GetSponsorContracts().ToList();
+
+            // Move values from SponsorContracts to Sponsor.Contracts
+            foreach (var sponsor in sponsors)
+            {
+                foreach (var contract in sponsor.Contracts)
+                {
+                    foreach (var sponsorContract in sponsorContracts)
+                    {
+                        if (sponsorContract.SlotTypeId == contract.SponsorTypeId && sponsorContract.TeamId == contract.TeamId)
+                        {
+                            sponsorContract.Cash = contract.Cash; // TODO: I have reversed this assignment, so need to check this is correct
+                        }
+                    }
+                }
+            }
+            _domainService.SetSponsors(sponsors);
+
+            // Move values from Sponsor.Contracts to SponsorContracts
+            foreach (var sponsorContract in sponsorContracts)
+            {
+                foreach (var sponsor in sponsors)
+                {
+                    foreach (var contract in sponsor.Contracts)
+                    {
+                        if (contract.SponsorTypeId == sponsorContract.SlotTypeId && contract.TeamId == sponsorContract.TeamId)
+                        {
+                            contract.DealId = sponsorContract.DealId; // TODO: I have reversed this assignment, so need to check this is correct
+                            contract.TermsId = sponsorContract.TermsId; // TODO: I have reversed this assignment, so need to check this is correct
+                        }
+                    }
+                }
+            }
+            _domainService.SetSponsorContracts(sponsorContracts);
+        }
+
+        private void ExportSponsors()
+        {
+            var entities = _domainService.GetSponsors();
+            foreach (var item in entities)
+            {
+                var dataEntity = _sponsorDataEntityFactory.Create(item.Id);
+                _mapperService.Map(item, dataEntity);
+
+                _dataService.Sponsors.SetById(dataEntity);
+            }
+        }
+
+        private void ExportSponsorContracts()
+        {
+            var entities = _domainService.GetSponsorContracts();
+            foreach (var item in entities)
+            {
+                var dataEntity = _sponsorContractDataEntityFactory.Create(item.Id);
+                _mapperService.Map(item, dataEntity);
+
+                _dataService.SponsorContracts.SetById(dataEntity);
+            }
+        }
+
+        /* TODO:
         private void ExportSponsorshipTeams()
         {
             var entities = _domainService.GetSponsorshipTeams();
@@ -282,5 +360,6 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
                 _dataService.SponsorshipContractsTeam11.SetById(dataEntity);
             }
         }
+        */
     }
 }

@@ -1,17 +1,19 @@
-﻿using App.Core.Entities;
-using App.Core.Identities;
+﻿// TODO: Is this redundant? Superseded by SponsorContractEntity?
 
-namespace App.BaseGameEditor.Domain.Entities
-{
-    public abstract class SponsorshipContractEntityBase : IntegerIdentityBase, IEntity
-    {
-        public int TeamId { get; set; }
-        public int SlotId { get; set; }
-        public int SponsorType { get; set; }
-        public int SponsorId { get; set; }
+//using App.Core.Entities;
+//using App.Core.Identities;
 
-        public int ContractValue { get; set; }
-        public int ContractDeal { get; set; }
-        public int ContractTerms { get; set; }
-    }
-}
+//namespace App.BaseGameEditor.Domain.Entities
+//{
+//    public abstract class SponsorshipContractEntityBase : IntegerIdentityBase, IEntity
+//    {
+//        public int TeamId { get; set; }
+//        public int SlotId { get; set; }
+//        public int SponsorType { get; set; }
+//        public int SponsorId { get; set; }
+
+//        public int ContractValue { get; set; }
+//        public int ContractDeal { get; set; }
+//        public int ContractTerms { get; set; }
+//    }
+//}

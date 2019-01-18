@@ -38,12 +38,11 @@ namespace App.BaseGameEditor.Data.DataEntities
             result.Name.French = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name).Value;
             result.Name.German = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name).Value;
 
-            // TODO: Remove temporary entity fields below, as are used in aid of module development
+            result.SponsorId = id + 1 + 7;
+            result.SponsorType = _identityCalculator.GetSponsorTypeId(id + 7);
             result.EntityType = _dataEndpoint.GameExecutableFileResource.ReadByte(dataLocator.EntityTypeValue);
             result.EntityResource = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.EntityResourceValue);
             result.EntityData = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.EntityDataValue);
-            result.SponsorId = id + 1 + 7;
-            result.SponsorType = _identityCalculator.GetSponsorType(id + 7);
 
             var cashRatingInstructionValue = _dataEndpoint.GameExecutableFileResource.ReadByte(dataLocator.CashRatingInstruction);
             if (cashRatingInstructionValue == 0x6A)

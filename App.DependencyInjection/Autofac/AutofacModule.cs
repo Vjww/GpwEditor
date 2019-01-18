@@ -10,6 +10,7 @@ using App.Shared.Data.Catalogues.Commentary;
 using App.Shared.Data.Catalogues.Language;
 using App.Shared.Data.Factories;
 using App.Shared.Data.FileResources;
+using App.Shared.Data.Objects;
 using App.Shared.Data.Services;
 using App.Shared.Infrastructure.Repositories;
 using Autofac;
@@ -69,6 +70,7 @@ namespace App.DependencyInjection.Autofac
 
             // Manual registrations for singletons
             builder.RegisterType<MemoryStreamFactory>().As<IStreamFactory>().SingleInstance();
+            builder.RegisterType<SponsorContractObjectFactory>().As<ISponsorContractObjectFactory>().SingleInstance();
             builder.RegisterGeneric(typeof(IntegerIdentityFactory<>)).As(typeof(IIntegerIdentityFactory<>)).SingleInstance();
             builder.RegisterGeneric(typeof(RepositoryExportService<>)).As(typeof(IRepositoryExportService<>)).SingleInstance();
             builder.RegisterGeneric(typeof(RepositoryImportService<>)).As(typeof(IRepositoryImportService<>)).SingleInstance();
@@ -81,6 +83,7 @@ namespace App.DependencyInjection.Autofac
             builder.RegisterType<CommentaryCatalogueExporter<ILanguagePhrases>>().InstancePerDependency();
             builder.RegisterType<CommentaryCatalogueImporter<ILanguagePhrases>>().InstancePerDependency();
             builder.RegisterType<LanguageCatalogueValue>().InstancePerDependency();
+            builder.RegisterType<SponsorContractObject>().InstancePerDependency();
 
             // Register types in the data layer as instance per dependancy
             builder.RegisterAssemblyTypes(assemblies)

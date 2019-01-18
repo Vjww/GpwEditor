@@ -185,6 +185,7 @@
     <Compile Include="Controllers\UpgradeGameController.cs" />
     <Compile Include="Enums\NumericUpDownDirectionType.cs" />
     <Compile Include="Factories\FormFactory.cs" />
+    <Compile Include="Maps\AutoMapper\SponsorEntityOnSponsorModelProfile.cs" />
     <Compile Include="Maps\AutoMapper\PersonEntityOnPersonModelProfile.cs" />
     <Compile Include="Maps\AutoMapper\Reference\PresentationMaps.cs" />
     <Compile Include="Models\CommentaryIndexDriverModel.cs" />
@@ -192,8 +193,10 @@
     <Compile Include="Models\CommentaryFileModel.cs" />
     <Compile Include="Models\CommentaryPrefixTeamModel.cs" />
     <Compile Include="Models\CommentaryPrefixDriverModel.cs" />
+    <Compile Include="Models\SponsorContractModel.cs" />
     <Compile Include="Models\SponsorshipContractModel.cs" />
     <Compile Include="Models\SponsorshipCashModel.cs" />
+    <Compile Include="Models\SponsorModel.cs" />
     <Compile Include="Models\SponsorshipTeamModel.cs" />
     <Compile Include="Models\SponsorshipEngineModel.cs" />
     <Compile Include="Models\F1ChiefCommercialModel.cs" />
@@ -361,6 +364,10 @@
     <ProjectReference Include="..\App.SaveGameEditor.Domain\App.SaveGameEditor.Domain.csproj">
       <Project>{d3213869-89e2-4b64-a5c4-57f0e1a62229}</Project>
       <Name>App.SaveGameEditor.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.Shared.Data\App.Shared.Data.csproj">
+      <Project>{AF47595F-2A48-4C67-8141-3E7A45A96BDB}</Project>
+      <Name>App.Shared.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\App.Shared.Infrastructure\App.Shared.Infrastructure.csproj">
       <Project>{065e058a-a3c9-472c-99e0-35316bdae21f}</Project>

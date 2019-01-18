@@ -235,109 +235,99 @@ namespace App.WindowsForms.Views
             set => BuildDriversNonF1DataGridView(value);
         }
 
-        public IEnumerable<SponsorshipTeamModel> SponsorshipTeams
+        public IEnumerable<SponsorModel> SponsorTeams
         {
-            get => (IEnumerable<SponsorshipTeamModel>)SponsorshipTeamDataGridView.DataSource;
-            set => BuildSponsorshipTeamDataGridView(value);
+            get => (IEnumerable<SponsorModel>)SponsorshipTeamDataGridView.DataSource;
+            set => BuildSponsorTeamDataGridView(value);
         }
 
-        public IEnumerable<SponsorshipEngineModel> SponsorshipEngines
+        public IEnumerable<SponsorModel> SponsorEngines
         {
-            get => (IEnumerable<SponsorshipEngineModel>)SponsorshipEngineDataGridView.DataSource;
-            set => BuildSponsorshipEngineDataGridView(value);
+            get => (IEnumerable<SponsorModel>)SponsorshipEngineDataGridView.DataSource;
+            set => BuildSponsorEngineDataGridView(value);
         }
 
-        public IEnumerable<SponsorshipTyreModel> SponsorshipTyres
+        public IEnumerable<SponsorModel> SponsorTyres
         {
-            get => (IEnumerable<SponsorshipTyreModel>)SponsorshipTyreDataGridView.DataSource;
-            set => BuildSponsorshipTyreDataGridView(value);
+            get => (IEnumerable<SponsorModel>)SponsorshipTyreDataGridView.DataSource;
+            set => BuildSponsorTyreDataGridView(value);
         }
 
-        public IEnumerable<SponsorshipFuelModel> SponsorshipFuels
+        public IEnumerable<SponsorModel> SponsorFuels
         {
-            get => (IEnumerable<SponsorshipFuelModel>)SponsorshipFuelDataGridView.DataSource;
-            set => BuildSponsorshipFuelDataGridView(value);
+            get => (IEnumerable<SponsorModel>)SponsorshipFuelDataGridView.DataSource;
+            set => BuildSponsorFuelDataGridView(value);
         }
 
-        public IEnumerable<SponsorshipCashModel> SponsorshipCashs
+        public IEnumerable<SponsorModel> SponsorCashs
         {
-            get => (IEnumerable<SponsorshipCashModel>)SponsorshipCashDataGridView.DataSource;
-            set => BuildSponsorshipCashDataGridView(value);
+            get => (IEnumerable<SponsorModel>)SponsorshipCashDataGridView.DataSource;
+            set => BuildSponsorCashDataGridView(value);
         }
 
-        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam01
+        public IEnumerable<SponsorContractModel> SponsorContractsTeam01
         {
-            get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam01DataGridView.DataSource;
+            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam01DataGridView.DataSource;
             set => BuildSponsorshipContractsTeam01DataGridView(value);
         }
 
-        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam02
+        public IEnumerable<SponsorContractModel> SponsorContractsTeam02
         {
-            get => null;
-            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam02DataGridView.DataSource;
+            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam02DataGridView.DataSource;
             set => BuildSponsorshipContractsTeam02DataGridView(value);
         }
 
-        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam03
+        public IEnumerable<SponsorContractModel> SponsorContractsTeam03
         {
-            get => null;
-            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam03DataGridView.DataSource;
+            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam03DataGridView.DataSource;
             set => BuildSponsorshipContractsTeam03DataGridView(value);
         }
 
-        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam04
+        public IEnumerable<SponsorContractModel> SponsorContractsTeam04
         {
-            get => null;
-            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam04DataGridView.DataSource;
+            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam04DataGridView.DataSource;
             set => BuildSponsorshipContractsTeam04DataGridView(value);
         }
 
-        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam05
+        public IEnumerable<SponsorContractModel> SponsorContractsTeam05
         {
-            get => null;
-            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam05DataGridView.DataSource;
+            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam05DataGridView.DataSource;
             set => BuildSponsorshipContractsTeam05DataGridView(value);
         }
 
-        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam06
+        public IEnumerable<SponsorContractModel> SponsorContractsTeam06
         {
-            get => null;
-            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam06DataGridView.DataSource;
+            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam06DataGridView.DataSource;
             set => BuildSponsorshipContractsTeam06DataGridView(value);
         }
 
-        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam07
+        public IEnumerable<SponsorContractModel> SponsorContractsTeam07
         {
-            get => null;
-            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam07DataGridView.DataSource;
+            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam07DataGridView.DataSource;
             set => BuildSponsorshipContractsTeam07DataGridView(value);
         }
 
-        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam08
+        public IEnumerable<SponsorContractModel> SponsorContractsTeam08
         {
-            get => null;
-            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam08DataGridView.DataSource;
+            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam08DataGridView.DataSource;
             set => BuildSponsorshipContractsTeam08DataGridView(value);
         }
 
-        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam09
+        public IEnumerable<SponsorContractModel> SponsorContractsTeam09
         {
-            get => null;
-            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam09DataGridView.DataSource;
+            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam09DataGridView.DataSource;
             set => BuildSponsorshipContractsTeam09DataGridView(value);
         }
 
-        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam10
+        public IEnumerable<SponsorContractModel> SponsorContractsTeam10
         {
-            get => null;
-            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam10DataGridView.DataSource;
+            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam10DataGridView.DataSource;
             set => BuildSponsorshipContractsTeam10DataGridView(value);
         }
 
-        public IEnumerable<SponsorshipContractModel> SponsorshipContractsTeam11
+        public IEnumerable<SponsorContractModel> SponsorContractsTeam11
         {
-            get => null;
-            //get => (IEnumerable<SponsorshipContractModel>)SponsorshipContractsTeam11DataGridView.DataSource;
+            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam11DataGridView.DataSource;
             set => BuildSponsorshipContractsTeam11DataGridView(value);
         }
 
@@ -600,40 +590,40 @@ namespace App.WindowsForms.Views
             ConfigureDataGridView(DriversNonF1DataGridView, "Name");
         }
 
-        private void BuildSponsorshipTeamDataGridView(IEnumerable<SponsorshipTeamModel> dataSource)
+        private void BuildSponsorTeamDataGridView(IEnumerable<SponsorModel> dataSource)
         {
             ResetDataGridView(SponsorshipTeamDataGridView);
 
             AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorshipTeamsIdToolTipText, false));
             AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorshipTeamsNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorshipTeamsCashRatingToolTipText));
+            AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
+            AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
             AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("EntityType", "Entity Type", ""));
             AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
             AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
-            AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
-            AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("SponsorType", "Sponsor Type", ""));
+            AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorshipTeamsCashRatingToolTipText));
 
             BindDataGridViewToDataSource(SponsorshipTeamDataGridView, dataSource);
 
             ConfigureDataGridView(SponsorshipTeamDataGridView, "Name");
         }
 
-        private void BuildSponsorshipEngineDataGridView(IEnumerable<SponsorshipEngineModel> dataSource)
+        private void BuildSponsorEngineDataGridView(IEnumerable<SponsorModel> dataSource)
         {
             ResetDataGridView(SponsorshipEngineDataGridView);
 
             AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorshipEnginesIdToolTipText, false));
             AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorshipEnginesNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorshipEnginesCashRatingToolTipText));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("CashRatingRandom", "Random Cash Rating", ""));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("RadRating", "R&D Rating", SponsorshipEnginesRadRatingToolTipText));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("RadRatingRandom", "Random R&D Rating", ""));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("Inactive", "Inactive", ""));
+            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
+            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
             AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("EntityType", "Entity Type", ""));
             AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
             AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("SponsorType", "Sponsor Type", ""));
+            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorshipEnginesCashRatingToolTipText));
+            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewCheckBoxColumn("CashRatingRandom", "Random Cash Rating", ""));
+            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("RadRating", "R&D Rating", SponsorshipEnginesRadRatingToolTipText));
+            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewCheckBoxColumn("RadRatingRandom", "Random R&D Rating", ""));
+            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewCheckBoxColumn("Inactive", "Inactive", ""));
             AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("Fuel", "Fuel", SponsorshipEnginesFuelToolTipText));
             AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("Heat", "Heat", SponsorshipEnginesHeatToolTipText));
             AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("Power", "Power", SponsorshipEnginesPowerToolTipText));
@@ -647,22 +637,22 @@ namespace App.WindowsForms.Views
             ConfigureDataGridView(SponsorshipEngineDataGridView, "Name");
         }
 
-        private void BuildSponsorshipTyreDataGridView(IEnumerable<SponsorshipTyreModel> dataSource)
+        private void BuildSponsorTyreDataGridView(IEnumerable<SponsorModel> dataSource)
         {
             ResetDataGridView(SponsorshipTyreDataGridView);
 
             AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorshipTyresIdToolTipText, false));
             AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorshipTyresNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorshipTyresCashRatingToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("CashRatingRandom", "Random Cash Rating", ""));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("RadRating", "R&D Rating", SponsorshipTyresRadRatingToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("RadRatingRandom", "Random R&D Rating", ""));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("Inactive", "Inactive", ""));
+            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
+            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
             AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("EntityType", "Entity Type", ""));
             AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
             AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("SponsorType", "Sponsor Type", ""));
+            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorshipTyresCashRatingToolTipText));
+            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewCheckBoxColumn("CashRatingRandom", "Random Cash Rating", ""));
+            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("RadRating", "R&D Rating", SponsorshipTyresRadRatingToolTipText));
+            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewCheckBoxColumn("RadRatingRandom", "Random R&D Rating", ""));
+            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewCheckBoxColumn("Inactive", "Inactive", ""));
             AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardGrip", "Dry Hard Grip", SponsorshipTyresDryHardGripToolTipText));
             AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardResilience", "Dry Hard Resilience", SponsorshipTyresDryHardResilienceToolTipText));
             AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardStiffness", "Dry Hard Stiffness", SponsorshipTyresDryHardStiffnessToolTipText));
@@ -685,22 +675,22 @@ namespace App.WindowsForms.Views
             ConfigureDataGridView(SponsorshipTyreDataGridView, "Name");
         }
 
-        private void BuildSponsorshipFuelDataGridView(IEnumerable<SponsorshipFuelModel> dataSource)
+        private void BuildSponsorFuelDataGridView(IEnumerable<SponsorModel> dataSource)
         {
             ResetDataGridView(SponsorshipFuelDataGridView);
 
             AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorshipFuelsIdToolTipText, false));
             AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorshipFuelsNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorshipFuelsCashRatingToolTipText));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("CashRatingRandom", "Random Cash Rating", ""));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("RadRating", "R&D Rating", SponsorshipFuelsRadRatingToolTipText));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("RadRatingRandom", "Random R&D Rating", ""));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("Inactive", "Inactive", ""));
+            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
+            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
             AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("EntityType", "Entity Type", ""));
             AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
             AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("SponsorType", "Sponsor Type", ""));
+            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorshipFuelsCashRatingToolTipText));
+            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewCheckBoxColumn("CashRatingRandom", "Random Cash Rating", ""));
+            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("RadRating", "R&D Rating", SponsorshipFuelsRadRatingToolTipText));
+            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewCheckBoxColumn("RadRatingRandom", "Random R&D Rating", ""));
+            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewCheckBoxColumn("Inactive", "Inactive", ""));
             AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("Performance", "Performance", SponsorshipFuelsPerformanceToolTipText));
             AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("Tolerance", "Tolerance", SponsorshipFuelsToleranceToolTipText));
 
@@ -709,81 +699,95 @@ namespace App.WindowsForms.Views
             ConfigureDataGridView(SponsorshipFuelDataGridView, "Name");
         }
 
-        private void BuildSponsorshipCashDataGridView(IEnumerable<SponsorshipCashModel> dataSource)
+        private void BuildSponsorCashDataGridView(IEnumerable<SponsorModel> dataSource)
         {
             ResetDataGridView(SponsorshipCashDataGridView);
 
             AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorshipCashsIdToolTipText, false));
             AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorshipCashsNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorshipCashsCashRatingToolTipText));
+            AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
+            AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
             AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("EntityType", "Entity Type", ""));
             AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
             AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
-            AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
-            AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("SponsorType", "Sponsor Type", ""));
+            AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorshipCashsCashRatingToolTipText));
 
             BindDataGridViewToDataSource(SponsorshipCashDataGridView, dataSource);
 
             ConfigureDataGridView(SponsorshipCashDataGridView, "Name");
         }
 
-        private void BuildSponsorshipContractsTeam01DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        private static void BuildSponsorContractsDataGridView(DataGridView dataGridView, IEnumerable<SponsorContractModel> dataSource)
         {
-            ResetDataGridView(SponsorshipContractsTeam01DataGridView);
+            ResetDataGridView(dataGridView);
 
-            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorshipContractsIdToolTipText, false));
-            // TODO: AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorshipContractsNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor/Supplier", "")); // TODO: tooltip
-            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("SponsorType", "SponsorType", "")); // TODO: tooltip
-            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("SlotId", "SlotId", "")); // TODO: temporary
-            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("TeamId", "TeamId", "")); // TODO: temporary
-            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("ContractValue", "ContractValue", "")); // TODO: tooltip
-            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("ContractDeal", "ContractDeal", "")); // TODO: tooltip
-            AddColumnToDataGridView(SponsorshipContractsTeam01DataGridView, CreateDataGridViewTextBoxColumn("ContractTerms", "ContractTerms", "")); // TODO: tooltip
+            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorshipContractsIdToolTipText, false));
+            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("TeamId", "TeamId", "")); // TODO: temporary
+            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("SlotId", "SlotId", "")); // TODO: temporary
+            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("SlotTypeId", "SlotTypeId", "")); // TODO: tooltip
+            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "SponsorId", "")); // TODO: tooltip
+            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("Cash", "Cash", "")); // TODO: tooltip
+            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("DealId", "DealId", "")); // TODO: tooltip
+            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("TermsId", "TermsId", "")); // TODO: tooltip
 
-            BindDataGridViewToDataSource(SponsorshipContractsTeam01DataGridView, dataSource);
+            BindDataGridViewToDataSource(dataGridView, dataSource);
 
-            ConfigureDataGridView(SponsorshipContractsTeam01DataGridView, "SponsorId"); // TODO: Might need to choose another column as primary column
+            ConfigureDataGridView(dataGridView, "SlotId");
         }
 
-        private void BuildSponsorshipContractsTeam02DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        private void BuildSponsorshipContractsTeam01DataGridView(IEnumerable<SponsorContractModel> dataSource)
         {
+            BuildSponsorContractsDataGridView(SponsorshipContractsTeam01DataGridView, dataSource);
         }
 
-        private void BuildSponsorshipContractsTeam03DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        private void BuildSponsorshipContractsTeam02DataGridView(IEnumerable<SponsorContractModel> dataSource)
         {
+            BuildSponsorContractsDataGridView(SponsorshipContractsTeam02DataGridView, dataSource);
         }
 
-        private void BuildSponsorshipContractsTeam04DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        private void BuildSponsorshipContractsTeam03DataGridView(IEnumerable<SponsorContractModel> dataSource)
         {
+            BuildSponsorContractsDataGridView(SponsorshipContractsTeam03DataGridView, dataSource);
         }
 
-        private void BuildSponsorshipContractsTeam05DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        private void BuildSponsorshipContractsTeam04DataGridView(IEnumerable<SponsorContractModel> dataSource)
         {
+            BuildSponsorContractsDataGridView(SponsorshipContractsTeam04DataGridView, dataSource);
         }
 
-        private void BuildSponsorshipContractsTeam06DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        private void BuildSponsorshipContractsTeam05DataGridView(IEnumerable<SponsorContractModel> dataSource)
         {
+            BuildSponsorContractsDataGridView(SponsorshipContractsTeam05DataGridView, dataSource);
         }
 
-        private void BuildSponsorshipContractsTeam07DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        private void BuildSponsorshipContractsTeam06DataGridView(IEnumerable<SponsorContractModel> dataSource)
         {
+            BuildSponsorContractsDataGridView(SponsorshipContractsTeam06DataGridView, dataSource);
         }
 
-        private void BuildSponsorshipContractsTeam08DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        private void BuildSponsorshipContractsTeam07DataGridView(IEnumerable<SponsorContractModel> dataSource)
         {
+            BuildSponsorContractsDataGridView(SponsorshipContractsTeam07DataGridView, dataSource);
         }
 
-        private void BuildSponsorshipContractsTeam09DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        private void BuildSponsorshipContractsTeam08DataGridView(IEnumerable<SponsorContractModel> dataSource)
         {
+            BuildSponsorContractsDataGridView(SponsorshipContractsTeam08DataGridView, dataSource);
         }
 
-        private void BuildSponsorshipContractsTeam10DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        private void BuildSponsorshipContractsTeam09DataGridView(IEnumerable<SponsorContractModel> dataSource)
         {
+            BuildSponsorContractsDataGridView(SponsorshipContractsTeam09DataGridView, dataSource);
         }
 
-        private void BuildSponsorshipContractsTeam11DataGridView(IEnumerable<SponsorshipContractModel> dataSource)
+        private void BuildSponsorshipContractsTeam10DataGridView(IEnumerable<SponsorContractModel> dataSource)
         {
+            BuildSponsorContractsDataGridView(SponsorshipContractsTeam10DataGridView, dataSource);
+        }
+
+        private void BuildSponsorshipContractsTeam11DataGridView(IEnumerable<SponsorContractModel> dataSource)
+        {
+            BuildSponsorContractsDataGridView(SponsorshipContractsTeam11DataGridView, dataSource);
         }
 
         private void BuildTracksDataGridView(IEnumerable<TrackModel> dataSource)

@@ -272,7 +272,7 @@ namespace App.Shared.Data.Calculators
 
         public int GetSponsorId(int id)
         {
-            switch (GetSponsorType(id))
+            switch (GetSponsorTypeId(id))
             {
                 case 1: // Team Sponsor
                     return id + 1;
@@ -289,8 +289,7 @@ namespace App.Shared.Data.Calculators
             }
         }
 
-        // TODO: Review whether this method is used
-        public int GetSponsorType(int id)
+        public int GetSponsorTypeId(int id)
         {
             switch (id)
             {

@@ -31,7 +31,7 @@ namespace App.BaseGameEditor.Data.DataLocators
         // TODO: So we need to know where we can find this data or provide the importer/exporter with clues to find the data
         //public int TeamId { get; set; }
         //public int SlotId { get; set; }
-        //public int SponsorType { get; set; }
+        //public int SponsorTypeId { get; set; }
         //public int SponsorId { get; set; }
         //public int ContractValue { get; set; }
         //public int ContractDeal { get; set; }
@@ -73,7 +73,7 @@ namespace App.BaseGameEditor.Data.DataLocators
 //    {
 //        private const int BaseOffset = 0x00401000 - 0x00400300; // TODO: Get location of where module instructions start;
 
-//        public int EntityType;
+//        public int EntityTypeId;
 
 //        // Contract
 //        private const int TeamContractBaseOffset = BaseOffset;
@@ -140,23 +140,23 @@ namespace App.BaseGameEditor.Data.DataLocators
 //            switch (Id)
 //            {
 //                case int n when (n >= 0 && n < 7):
-//                    EntityType = 1; // Team Sponsor
+//                    EntityTypeId = 1; // Team Sponsor
 //                    contractCalculatedOffset = TeamContractBaseOffset + TeamContractLocalOffset * Id;
 //                    break;
 //                case int n when (n >= 7 && n < 10):
-//                    EntityType = 3; // Tyre Supplier
+//                    EntityTypeId = 3; // Tyre Supplier
 //                    contractCalculatedOffset = TyreContractBaseOffset + TyreContractLocalOffset * (Id - 7);
 //                    break;
 //                case int n when (n >= 10 && n < 18):
-//                    EntityType = 2; // Engine Supplier
+//                    EntityTypeId = 2; // Engine Supplier
 //                    contractCalculatedOffset = EngineContractBaseOffset + EngineContractLocalOffset * (Id - 10);
 //                    break;
 //                case int n when (n >= 18 && n < 27):
-//                    EntityType = 4; // Fuel Supplier
+//                    EntityTypeId = 4; // Fuel Supplier
 //                    contractCalculatedOffset = FuelContractBaseOffset + FuelContractLocalOffset * (Id - 18);
 //                    break;
 //                case int n when (n >= 27 && n < 98):
-//                    EntityType = 5; // Cash Sponsor
+//                    EntityTypeId = 5; // Cash Sponsor
 //                    contractCalculatedOffset = CashContractBaseOffset + CashContractLocalOffset * (Id - 27);
 //                    break;
 //                default:

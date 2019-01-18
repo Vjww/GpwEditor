@@ -1,13 +1,15 @@
-﻿using System.Collections.Generic;
-using App.BaseGameEditor.Domain.Entities;
-using App.Shared.Infrastructure.Repositories;
+﻿// TODO: Is this redundant? Superseded by SponsorDataEntity?
 
-namespace App.BaseGameEditor.Infrastructure.Repositories.Domain
-{
-    public class SponsorshipEngineRepository : RepositoryBase<SponsorshipEngineEntity>
-    {
-        public SponsorshipEngineRepository(List<SponsorshipEngineEntity> list) : base(list)
-        {
-        }
-    }
-}
+//using System.Collections.Generic;
+//using App.BaseGameEditor.Domain.Entities;
+//using App.Shared.Infrastructure.Repositories;
+
+//namespace App.BaseGameEditor.Infrastructure.Repositories.Domain
+//{
+//    public class SponsorshipEngineRepository : RepositoryBase<SponsorEngineEntity>
+//    {
+//        public SponsorshipEngineRepository(List<SponsorEngineEntity> list) : base(list)
+//        {
+//        }
+//    }
+//}

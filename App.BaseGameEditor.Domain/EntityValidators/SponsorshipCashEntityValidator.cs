@@ -1,16 +1,18 @@
-﻿using System.Collections.Generic;
-using App.BaseGameEditor.Domain.Entities;
-using App.Shared.Domain.EntityValidators;
+﻿// TODO: Redundant?
 
-namespace App.BaseGameEditor.Domain.EntityValidators
-{
-    public class SponsorshipCashEntityValidator : IEntityValidator<SponsorshipCashEntity>
-    {
-        public IEnumerable<string> Validate(SponsorshipCashEntity entity)
-        {
-            var validationMessages = new List<string>();
+//using System.Collections.Generic;
+//using App.BaseGameEditor.Domain.Entities;
+//using App.Shared.Domain.EntityValidators;
 
-            return validationMessages;
-        }
-    }
-}
+//namespace App.BaseGameEditor.Domain.EntityValidators
+//{
+//    public class SponsorshipCashEntityValidator : IEntityValidator<SponsorCashEntity>
+//    {
+//        public IEnumerable<string> Validate(SponsorCashEntity entity)
+//        {
+//            var validationMessages = new List<string>();
+
+//            return validationMessages;
+//        }
+//    }
+//}

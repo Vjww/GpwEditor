@@ -1,25 +1,25 @@
-﻿using System;
-using App.Core.Entities;
-using App.Core.Identities;
-using App.Shared.Data.Catalogues.Language;
+﻿// TODO: Is this redundant? Superseded by SponsorDataEntity?
 
-namespace App.BaseGameEditor.Data.DataEntities
-{
-    public class SponsorshipTeamDataEntity : IntegerIdentityBase, IEntity
-    {
-        public SponsorshipTeamDataEntity(LanguageCatalogueValue languageCatalogueValue)
-        {
-            Name = languageCatalogueValue ?? throw new ArgumentNullException(nameof(languageCatalogueValue));
-        }
+//using System;
+//using App.Core.Entities;
+//using App.Core.Identities;
+//using App.Shared.Data.Catalogues.Language;
 
-        public LanguageCatalogueValue Name { get; set; }
-        public int CashRating { get; set; }
+//namespace App.BaseGameEditor.Data.DataEntities
+//{
+//    public class SponsorshipTeamDataEntity : IntegerIdentityBase, IEntity
+//    {
+//        public SponsorshipTeamDataEntity(LanguageCatalogueValue languageCatalogueValue)
+//        {
+//            Name = languageCatalogueValue ?? throw new ArgumentNullException(nameof(languageCatalogueValue));
+//        }
 
-        // TODO: Remove temporary entity/sponsor fields below, as are used in aid of module development
-        public int EntityType { get; set; }
-        public int EntityResource { get; set; }
-        public int EntityData { get; set; }
-        public int SponsorId { get; set; }
-        public int SponsorType { get; set; }
-    }
-}
+//        public LanguageCatalogueValue Name { get; set; }
+//        public int SponsorId { get; set; }
+//        public int SponsorType { get; set; }
+//        public int EntityType { get; set; }
+//        public int EntityResource { get; set; }
+//        public int EntityData { get; set; }
+//        public int CashRating { get; set; }
+//    }
+//}

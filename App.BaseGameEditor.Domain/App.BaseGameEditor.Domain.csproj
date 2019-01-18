@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\App.Shared.Domain\App.Shared.Domain.csproj" />
+    <ProjectReference Include="..\App.Shared.Infrastructure\App.Shared.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
