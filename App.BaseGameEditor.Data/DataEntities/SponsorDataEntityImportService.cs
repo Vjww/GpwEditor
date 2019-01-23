@@ -2,14 +2,14 @@
 using App.BaseGameEditor.Data.DataLocators;
 using App.Core.Factories;
 using App.Shared.Data.Calculators;
-using App.Shared.Data.Catalogues.Language;
 using App.Shared.Data.DataEndpoints;
+using App.Shared.Data.DataEntities;
 using App.Shared.Data.Factories;
 using App.Shared.Data.Services;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class SponsorDataEntityImportService : IDataEntityImportService<SponsorDataEntity>
+    public class SponsorDataEntityImportService : DataEntityImportServiceBase, IDataEntityImportService<SponsorDataEntity>
     {
         private readonly DataEndpoint _dataEndpoint;
         private readonly IIntegerIdentityFactory<SponsorDataEntity> _dataEntityFactory;
@@ -80,7 +80,7 @@ namespace App.BaseGameEditor.Data.DataEntities
 
         private void ImportEntityValues(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
         {
-            ImportLanguageCatalogueValue(dataEntity.Name, dataLocator.Name);
+            ImportLanguageCatalogueValue(_dataEndpoint, dataEntity.Name, dataLocator.Name);
 
             dataEntity.SponsorId = _identityCalculator.GetSponsorId(dataEntity.Id);
             dataEntity.SponsorTypeId = _identityCalculator.GetSponsorTypeId(dataEntity.Id);
@@ -336,14 +336,6 @@ namespace App.BaseGameEditor.Data.DataEntities
                     dataEntity.Contracts.Add(contract);
                 }
             }
-        }
-
-        // TODO: Refactor to use globally in project
-        private void ImportLanguageCatalogueValue(LanguageCatalogueValue value, int id)
-        {
-            value.English = _dataEndpoint.EnglishLanguageCatalogue.Read(id).Value;
-            value.French = _dataEndpoint.FrenchLanguageCatalogue.Read(id).Value;
-            value.German = _dataEndpoint.GermanLanguageCatalogue.Read(id).Value;
         }
     }
 }

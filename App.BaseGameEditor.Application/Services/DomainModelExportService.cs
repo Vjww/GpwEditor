@@ -8,7 +8,7 @@ namespace App.BaseGameEditor.Application.Services
         private readonly CommentaryDomainModelExportService _commentaryDomainModelExportService;
         private readonly TeamDomainModelExportService _teamDomainModelExportService;
         private readonly PersonDomainModelExportService _personDomainModelExportService;
-        private readonly SponsorshipDomainModelExportService _sponsorshipDomainModelExportService;
+        private readonly SponsorDomainModelExportService _sponsorDomainModelExportService;
         private readonly TrackDomainModelExportService _trackDomainModelExportService;
         private readonly PerformanceCurveDomainModelExportService _performanceCurveDomainModelExportService;
 
@@ -16,14 +16,14 @@ namespace App.BaseGameEditor.Application.Services
             CommentaryDomainModelExportService commentaryDomainModelExportService,
             TeamDomainModelExportService teamDomainModelExportService,
             PersonDomainModelExportService personDomainModelExportService,
-            SponsorshipDomainModelExportService sponsorshipDomainModelExportService,
+            SponsorDomainModelExportService sponsorDomainModelExportService,
             TrackDomainModelExportService trackDomainModelExportService,
             PerformanceCurveDomainModelExportService performanceCurveDomainModelExportService)
         {
             _commentaryDomainModelExportService = commentaryDomainModelExportService ?? throw new ArgumentNullException(nameof(commentaryDomainModelExportService));
             _teamDomainModelExportService = teamDomainModelExportService ?? throw new ArgumentNullException(nameof(teamDomainModelExportService));
             _personDomainModelExportService = personDomainModelExportService ?? throw new ArgumentNullException(nameof(personDomainModelExportService));
-            _sponsorshipDomainModelExportService = sponsorshipDomainModelExportService ?? throw new ArgumentNullException(nameof(sponsorshipDomainModelExportService));
+            _sponsorDomainModelExportService = sponsorDomainModelExportService ?? throw new ArgumentNullException(nameof(sponsorDomainModelExportService));
             _trackDomainModelExportService = trackDomainModelExportService ?? throw new ArgumentNullException(nameof(trackDomainModelExportService));
             _performanceCurveDomainModelExportService = performanceCurveDomainModelExportService ?? throw new ArgumentNullException(nameof(performanceCurveDomainModelExportService));
         }
@@ -33,7 +33,7 @@ namespace App.BaseGameEditor.Application.Services
             _commentaryDomainModelExportService.Export();
             _teamDomainModelExportService.Export();
             _personDomainModelExportService.Export();
-            _sponsorshipDomainModelExportService.Export();
+            _sponsorDomainModelExportService.Export();
             _trackDomainModelExportService.Export();
             _performanceCurveDomainModelExportService.Export();
         }

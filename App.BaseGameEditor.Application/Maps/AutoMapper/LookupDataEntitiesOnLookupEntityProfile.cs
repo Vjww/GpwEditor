@@ -23,6 +23,11 @@ namespace App.BaseGameEditor.Application.Maps.AutoMapper
                 .ReverseMap()
                 .ForMember(src => src.Id, opt => opt.Ignore());
 
+            CreateMap<SponsorNameLookupDataEntity, SponsorNameLookupEntity>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ReverseMap()
+                .ForMember(src => src.Id, opt => opt.Ignore());
+
             CreateMap<TeamDebutGrandPrixLookupDataEntity, TeamDebutGrandPrixLookupEntity>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ReverseMap()

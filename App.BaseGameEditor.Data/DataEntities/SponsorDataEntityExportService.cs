@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using App.BaseGameEditor.Data.DataLocators;
 using App.Core.Factories;
-using App.Shared.Data.Catalogues.Language;
 using App.Shared.Data.DataEndpoints;
+using App.Shared.Data.DataEntities;
 using App.Shared.Data.Services;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class SponsorDataEntityExportService : IDataEntityExportService<SponsorDataEntity>
+    public class SponsorDataEntityExportService : DataEntityExportServiceBase, IDataEntityExportService<SponsorDataEntity>
     {
         private readonly DataEndpoint _dataEndpoint;
         private readonly IIntegerIdentityFactory<SponsorDataLocator> _dataLocatorFactory;
@@ -66,7 +66,7 @@ namespace App.BaseGameEditor.Data.DataEntities
 
         private void ExportEntityValues(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
         {
-            ExportLanguageCatalogueValue(dataEntity.Name, dataLocator.Name);
+            ExportLanguageCatalogueValue(_dataEndpoint, dataEntity.Name, dataLocator.Name);
         }
 
         private void ExportSponsorCashRatingValue(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
@@ -311,56 +311,6 @@ namespace App.BaseGameEditor.Data.DataEntities
                 dataLocator.ContractEngineTermsIdSponsorValue,
                 dataLocator.ContractEngineTermsIdTeamAddress,
                 dataLocator.ContractEngineTermsIdTeamValue);
-
-            /* TODO: Delete code block below once functionality confirmed in above shared method
-            const int sponsorTeamIdBaseAddress = 0x007EA27C;
-            const int sponsorDealIdBaseAddress = 0x007EA35C;
-            const int sponsorTermsIdBaseAddress = 0x007EA09C;
-            const int sponsorBlockSize = 0x00000614;
-
-            const int teamDealIdBaseAddress = 0x01205640;
-            const int teamTermsIdBaseAddress = 0x01205614;
-            const int teamBlockSize = 0x00001E90;
-
-            // Iterate through any contracts against the current supplier and write contract data blocks into position based on team order (shown below)
-            // e.g. if Ferrari (2) and Sauber (7) have a contract with Ferrari (Supplier), write Ferrari's contract at block 2 and Sauber's contract at block 7.
-            // TODO: Where there are multiple contracts for a supplier, should contract data against the sponsor block be written in
-            // TODO: numerical order of teamId (as currently coded) or alphabetical order of team name (as coded in original game instructions).
-            var contractId = 0;
-            foreach (var contract in dataEntity.Contracts)
-            {
-                var offsetMultiplier = contract.TeamId - 1; // determines data block location
-                var calculatedOffset = SponsorDataLocator.ContractEngineLocalOffset * offsetMultiplier;
-                var sponsorMultiplier = contract.SponsorId - 1;
-                var teamMultiplier = contract.TeamId - 1; // determines data block location
-
-                // Write ingame address value and ingame TeamId value for ingame sponsor data block
-                var sponsorTeamIdAddress = sponsorTeamIdBaseAddress + sponsorBlockSize * sponsorMultiplier + 4 * contractId;
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractEngineTeamIdAddress + calculatedOffset, sponsorTeamIdAddress);
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractEngineTeamIdValue + calculatedOffset, contract.TeamId);
-
-                // Write ingame address value and ingame DealId value for ingame sponsor data block
-                var sponsorDealIdAddress = sponsorDealIdBaseAddress + sponsorBlockSize * sponsorMultiplier + 4 * contractId;
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractEngineDealIdSponsorAddress + calculatedOffset, sponsorDealIdAddress);
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractEngineDealIdSponsorValue + calculatedOffset, contract.DealId);
-
-                // Write ingame address value and ingame DealId value for ingame team data block
-                var teamDealIdAddress = teamDealIdBaseAddress + teamBlockSize * teamMultiplier;
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractEngineDealIdTeamAddress + calculatedOffset, teamDealIdAddress);
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractEngineDealIdTeamValue + calculatedOffset, contract.DealId);
-
-                // Write ingame address value and ingame TermsId value for ingame sponsor data block
-                var sponsorTermsIdAddress = sponsorTermsIdBaseAddress + sponsorBlockSize * sponsorMultiplier + 4 * contractId;
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractEngineTermsIdSponsorAddress + calculatedOffset, sponsorTermsIdAddress);
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractEngineTermsIdSponsorValue + calculatedOffset, contract.TermsId);
-
-                // Write ingame address value and ingame TermsId value for ingame team data block
-                var teamTermsIdAddress = teamTermsIdBaseAddress + teamBlockSize * teamMultiplier;
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractEngineTermsIdTeamAddress + calculatedOffset, teamTermsIdAddress);
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractEngineTermsIdTeamValue + calculatedOffset, contract.TermsId);
-
-                contractId++;
-            }*/
         }
 
         private void ExportTyreContracts(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
@@ -383,56 +333,6 @@ namespace App.BaseGameEditor.Data.DataEntities
                 dataLocator.ContractTyreTermsIdSponsorValue,
                 dataLocator.ContractTyreTermsIdTeamAddress,
                 dataLocator.ContractTyreTermsIdTeamValue);
-
-            /* TODO: Delete code block below once functionality confirmed in above shared method
-            const int sponsorTeamIdBaseAddress = 0x007E9040;
-            const int sponsorDealIdBaseAddress = 0x007E9120;
-            const int sponsorTermsIdBaseAddress = 0x007E8E60;
-            const int sponsorBlockSize = 0x00000614;
-
-            const int teamDealIdBaseAddress = 0x01205644;
-            const int teamTermsIdBaseAddress = 0x01205618;
-            const int teamBlockSize = 0x00001E90;
-
-            // Iterate through any contracts against the current supplier and write contract data blocks into position based on team order (shown below)
-            // e.g. if Ferrari (2) and Tyrrell (10) have a contract with Goodyear (Supplier), write Ferrari's contract at block 2 and Tyrrell's contract at block 10.
-            // TODO: Where there are multiple contracts for a supplier, should contract data against the sponsor block be written in
-            // TODO: numerical order of teamId (as currently coded) or alphabetical order of team name (as coded in original game instructions).
-            var contractId = 0;
-            foreach (var contract in dataEntity.Contracts)
-            {
-                var offsetMultiplier = contract.TeamId - 1; // determines data block location
-                var calculatedOffset = SponsorDataLocator.ContractTyreLocalOffset * offsetMultiplier;
-                var sponsorMultiplier = contract.SponsorId - 1;
-                var teamMultiplier = contract.TeamId - 1; // determines data block location
-
-                // Write ingame address value and ingame TeamId value for ingame sponsor data block
-                var sponsorTeamIdAddress = sponsorTeamIdBaseAddress + sponsorBlockSize * sponsorMultiplier + 4 * contractId;
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractTyreTeamIdAddress + calculatedOffset, sponsorTeamIdAddress);
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractTyreTeamIdValue + calculatedOffset, contract.TeamId);
-
-                // Write ingame address value and ingame DealId value for ingame sponsor data block
-                var sponsorDealIdAddress = sponsorDealIdBaseAddress + sponsorBlockSize * sponsorMultiplier + 4 * contractId;
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractTyreDealIdSponsorAddress + calculatedOffset, sponsorDealIdAddress);
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractTyreDealIdSponsorValue + calculatedOffset, contract.DealId);
-
-                // Write ingame address value and ingame DealId value for ingame team data block
-                var teamDealIdAddress = teamDealIdBaseAddress + teamBlockSize * teamMultiplier;
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractTyreDealIdTeamAddress + calculatedOffset, teamDealIdAddress);
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractTyreDealIdTeamValue + calculatedOffset, contract.DealId);
-
-                // Write ingame address value and ingame TermsId value for ingame sponsor data block
-                var sponsorTermsIdAddress = sponsorTermsIdBaseAddress + sponsorBlockSize * sponsorMultiplier + 4 * contractId;
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractTyreTermsIdSponsorAddress + calculatedOffset, sponsorTermsIdAddress);
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractTyreTermsIdSponsorValue + calculatedOffset, contract.TermsId);
-
-                // Write ingame address value and ingame TermsId value for ingame team data block
-                var teamTermsIdAddress = teamTermsIdBaseAddress + teamBlockSize * teamMultiplier;
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractTyreTermsIdTeamAddress + calculatedOffset, teamTermsIdAddress);
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractTyreTermsIdTeamValue + calculatedOffset, contract.TermsId);
-
-                contractId++;
-            }*/
         }
 
         private void ExportFuelContracts(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
@@ -455,73 +355,6 @@ namespace App.BaseGameEditor.Data.DataEntities
                 dataLocator.ContractFuelTermsIdSponsorValue,
                 dataLocator.ContractFuelTermsIdTeamAddress,
                 dataLocator.ContractFuelTermsIdTeamValue);
-
-            /* TODO: Delete code block below once functionality confirmed in above shared method
-            const int sponsorTeamIdBaseAddress = 0x007ED31C;
-            const int sponsorDealIdBaseAddress = 0x007ED3FC;
-            const int sponsorTermsIdBaseAddress = 0x007ED13C;
-            const int sponsorBlockSize = 0x00000614;
-
-            const int teamDealIdBaseAddress = 0x01205648;
-            const int teamTermsIdBaseAddress = 0x0120561C;
-            const int teamBlockSize = 0x00001E90;
-
-            // Iterate through any contracts against the current supplier and write contract data blocks into position based on team order (shown below)
-            // e.g. if Arrows (8), Minardi (11) and Tyrrell (10) have a contract with Elf (Supplier),
-            //      write Arrows's contract at block 8, Tyrrell's contract at block 10 and Minardi's contract at block 11.
-            // TODO: Where there are multiple contracts for a supplier, should contract data against the sponsor block be written in
-            // TODO: numerical order of teamId (as currently coded) or alphabetical order of team name (as coded in original game instructions).
-            var contractId = 0;
-            foreach (var contract in dataEntity.Contracts)
-            {
-                var offsetMultiplier = contract.TeamId - 1; // determines data block location
-                var calculatedOffset = SponsorDataLocator.ContractFuelLocalOffset * offsetMultiplier;
-                var sponsorMultiplier = contract.SponsorId - 1;
-                var teamMultiplier = contract.TeamId - 1; // determines data block location
-
-                // Write ingame address value and ingame TeamId value for ingame sponsor data block
-                var sponsorTeamIdAddress = sponsorTeamIdBaseAddress + sponsorBlockSize * sponsorMultiplier + 4 * contractId;
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractFuelTeamIdAddress + calculatedOffset, sponsorTeamIdAddress);
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractFuelTeamIdValue + calculatedOffset, contract.TeamId);
-
-                // Write ingame address value and ingame DealId value for ingame sponsor data block
-                var sponsorDealIdAddress = sponsorDealIdBaseAddress + sponsorBlockSize * sponsorMultiplier + 4 * contractId;
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractFuelDealIdSponsorAddress + calculatedOffset, sponsorDealIdAddress);
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractFuelDealIdSponsorValue + calculatedOffset, contract.DealId);
-
-                // Write ingame address value and ingame DealId value for ingame team data block
-                var teamDealIdAddress = teamDealIdBaseAddress + teamBlockSize * teamMultiplier;
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractFuelDealIdTeamAddress + calculatedOffset, teamDealIdAddress);
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractFuelDealIdTeamValue + calculatedOffset, contract.DealId);
-
-                // Write ingame address value and ingame TermsId value for ingame sponsor data block
-                var sponsorTermsIdAddress = sponsorTermsIdBaseAddress + sponsorBlockSize * sponsorMultiplier + 4 * contractId;
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractFuelTermsIdSponsorAddress + calculatedOffset, sponsorTermsIdAddress);
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractFuelTermsIdSponsorValue + calculatedOffset, contract.TermsId);
-
-                // Write ingame address value and ingame TermsId value for ingame team data block
-                var teamTermsIdAddress = teamTermsIdBaseAddress + teamBlockSize * teamMultiplier;
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractFuelTermsIdTeamAddress + calculatedOffset, teamTermsIdAddress);
-                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractFuelTermsIdTeamValue + calculatedOffset, contract.TermsId);
-
-                contractId++;
-            }*/
-        }
-
-        // TODO: Refactor to use globally in project
-        private void ExportLanguageCatalogueValue(LanguageCatalogueValue value, int id)
-        {
-            var englishCatalogueItem = _dataEndpoint.EnglishLanguageCatalogue.Read(id);
-            var frenchCatalogueItem = _dataEndpoint.FrenchLanguageCatalogue.Read(id);
-            var germanCatalogueItem = _dataEndpoint.GermanLanguageCatalogue.Read(id);
-
-            englishCatalogueItem.Value = value.English;
-            frenchCatalogueItem.Value = value.French;
-            germanCatalogueItem.Value = value.German;
-
-            _dataEndpoint.EnglishLanguageCatalogue.Write(id, englishCatalogueItem);
-            _dataEndpoint.FrenchLanguageCatalogue.Write(id, frenchCatalogueItem);
-            _dataEndpoint.GermanLanguageCatalogue.Write(id, germanCatalogueItem);
         }
     }
 }

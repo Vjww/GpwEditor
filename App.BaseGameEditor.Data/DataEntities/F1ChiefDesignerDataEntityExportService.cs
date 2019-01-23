@@ -2,11 +2,12 @@
 using App.BaseGameEditor.Data.DataLocators;
 using App.Core.Factories;
 using App.Shared.Data.DataEndpoints;
+using App.Shared.Data.DataEntities;
 using App.Shared.Data.Services;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class F1ChiefDesignerDataEntityExportService : IDataEntityExportService<F1ChiefDesignerDataEntity>
+    public class F1ChiefDesignerDataEntityExportService : DataEntityExportServiceBase, IDataEntityExportService<F1ChiefDesignerDataEntity>
     {
         private readonly DataEndpoint _dataEndpoint;
         private readonly IIntegerIdentityFactory<F1ChiefDesignerDataLocator> _dataLocatorFactory;
@@ -27,17 +28,7 @@ namespace App.BaseGameEditor.Data.DataEntities
             var dataLocator = _dataLocatorFactory.Create(f1ChiefDesignerDataEntity.Id);
             dataLocator.Initialise();
 
-            var englishCatalogueItem = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Name);
-            var frenchCatalogueItem = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name);
-            var germanCatalogueItem = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name);
-
-            englishCatalogueItem.Value = f1ChiefDesignerDataEntity.Name.English;
-            frenchCatalogueItem.Value = f1ChiefDesignerDataEntity.Name.French;
-            germanCatalogueItem.Value = f1ChiefDesignerDataEntity.Name.German;
-
-            _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, englishCatalogueItem);
-            _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, frenchCatalogueItem);
-            _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, germanCatalogueItem);
+            ExportLanguageCatalogueValue(_dataEndpoint, f1ChiefDesignerDataEntity.Name, dataLocator.Name);
 
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Age, f1ChiefDesignerDataEntity.Age);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Ability, f1ChiefDesignerDataEntity.Ability);

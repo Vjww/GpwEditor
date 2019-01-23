@@ -2,11 +2,12 @@
 using App.BaseGameEditor.Data.DataLocators;
 using App.Core.Factories;
 using App.Shared.Data.DataEndpoints;
+using App.Shared.Data.DataEntities;
 using App.Shared.Data.Services;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class F1DriverDataEntityExportService : IDataEntityExportService<F1DriverDataEntity>
+    public class F1DriverDataEntityExportService : DataEntityExportServiceBase, IDataEntityExportService<F1DriverDataEntity>
     {
         private readonly DataEndpoint _dataEndpoint;
         private readonly IIntegerIdentityFactory<F1DriverDataLocator> _dataLocatorFactory;
@@ -27,17 +28,7 @@ namespace App.BaseGameEditor.Data.DataEntities
             var dataLocator = _dataLocatorFactory.Create(f1DriverDataEntity.Id);
             dataLocator.Initialise();
 
-            var englishCatalogueItem = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Name);
-            var frenchCatalogueItem = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name);
-            var germanCatalogueItem = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name);
-
-            englishCatalogueItem.Value = f1DriverDataEntity.Name.English;
-            frenchCatalogueItem.Value = f1DriverDataEntity.Name.French;
-            germanCatalogueItem.Value = f1DriverDataEntity.Name.German;
-
-            _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, englishCatalogueItem);
-            _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, frenchCatalogueItem);
-            _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, germanCatalogueItem);
+            ExportLanguageCatalogueValue(_dataEndpoint, f1DriverDataEntity.Name, dataLocator.Name);
 
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Salary, f1DriverDataEntity.Salary);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.RaceBonus, f1DriverDataEntity.RaceBonus);

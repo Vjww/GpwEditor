@@ -15,6 +15,8 @@ namespace App.BaseGameEditor.Domain.Services
         private readonly IEntityValidator<DriverNationalityLookupEntity> _driverNationalityLookupEntityValidator;
         private readonly IRepository<DriverRoleLookupEntity> _driverRoleLookupRepository;
         private readonly IEntityValidator<DriverRoleLookupEntity> _driverRoleLookupEntityValidator;
+        private readonly IRepository<SponsorNameLookupEntity> _sponsorNameLookupRepository;
+        private readonly IEntityValidator<SponsorNameLookupEntity> _sponsorNameLookupEntityValidator;
         private readonly IRepository<TeamDebutGrandPrixLookupEntity> _teamDebutGrandPrixLookupRepository;
         private readonly IEntityValidator<TeamDebutGrandPrixLookupEntity> _teamDebutGrandPrixLookupEntityValidator;
         private readonly IRepository<TrackDriverLookupEntity> _trackDriverLookupRepository;
@@ -33,6 +35,8 @@ namespace App.BaseGameEditor.Domain.Services
             IEntityValidator<DriverNationalityLookupEntity> driverNationalityLookupEntityValidator,
             IRepository<DriverRoleLookupEntity> driverRoleLookupRepository,
             IEntityValidator<DriverRoleLookupEntity> driverRoleLookupEntityValidator,
+            IRepository<SponsorNameLookupEntity> sponsorNameLookupRepository,
+            IEntityValidator<SponsorNameLookupEntity> sponsorNameLookupEntityValidator,
             IRepository<TeamDebutGrandPrixLookupEntity> teamDebutGrandPrixLookupRepository,
             IEntityValidator<TeamDebutGrandPrixLookupEntity> teamDebutGrandPrixLookupEntityValidator,
             IRepository<TrackDriverLookupEntity> trackDriverLookupRepository,
@@ -50,6 +54,8 @@ namespace App.BaseGameEditor.Domain.Services
             _driverNationalityLookupEntityValidator = driverNationalityLookupEntityValidator ?? throw new ArgumentNullException(nameof(driverNationalityLookupEntityValidator));
             _driverRoleLookupRepository = driverRoleLookupRepository ?? throw new ArgumentNullException(nameof(driverRoleLookupRepository));
             _driverRoleLookupEntityValidator = driverRoleLookupEntityValidator ?? throw new ArgumentNullException(nameof(driverRoleLookupEntityValidator));
+            _sponsorNameLookupRepository = sponsorNameLookupRepository ?? throw new ArgumentNullException(nameof(sponsorNameLookupRepository));
+            _sponsorNameLookupEntityValidator = sponsorNameLookupEntityValidator ?? throw new ArgumentNullException(nameof(sponsorNameLookupEntityValidator));
             _teamDebutGrandPrixLookupRepository = teamDebutGrandPrixLookupRepository ?? throw new ArgumentNullException(nameof(teamDebutGrandPrixLookupRepository));
             _teamDebutGrandPrixLookupEntityValidator = teamDebutGrandPrixLookupEntityValidator ?? throw new ArgumentNullException(nameof(teamDebutGrandPrixLookupEntityValidator));
             _trackDriverLookupRepository = trackDriverLookupRepository ?? throw new ArgumentNullException(nameof(trackDriverLookupRepository));
@@ -195,6 +201,51 @@ namespace App.BaseGameEditor.Domain.Services
             }
 
             _driverRoleLookupRepository.SetById(driverRoleLookup);
+        }
+
+        public IEnumerable<SponsorNameLookupEntity> GetSponsorNameLookups()
+        {
+            return _sponsorNameLookupRepository.Get();
+        }
+
+        public void SetSponsorNameLookups(IEnumerable<SponsorNameLookupEntity> sponsorNameLookups)
+        {
+            if (sponsorNameLookups == null) throw new ArgumentNullException(nameof(sponsorNameLookups));
+
+            var validationMessages = new List<string>();
+
+            var list = sponsorNameLookups as IList<SponsorNameLookupEntity> ?? sponsorNameLookups.ToList();
+            foreach (var item in list)
+            {
+                var messages = _sponsorNameLookupEntityValidator.Validate(item);
+                validationMessages.AddRange(messages);
+            }
+
+            if (validationMessages.Any())
+            {
+                // TODO: Handle validation failures gracefully.
+                throw new ArgumentException();
+            }
+
+            _sponsorNameLookupRepository.Set(list);
+        }
+
+        public void SetSponsorNameLookup(SponsorNameLookupEntity sponsorNameLookup)
+        {
+            if (sponsorNameLookup == null) throw new ArgumentNullException(nameof(sponsorNameLookup));
+
+            var validationMessages = new List<string>();
+
+            var messages = _sponsorNameLookupEntityValidator.Validate(sponsorNameLookup);
+            validationMessages.AddRange(messages);
+
+            if (validationMessages.Any())
+            {
+                // TODO: Handle validation failures gracefully.
+                throw new ArgumentException();
+            }
+
+            _sponsorNameLookupRepository.SetById(sponsorNameLookup);
         }
 
         public IEnumerable<TeamDebutGrandPrixLookupEntity> GetTeamDebutGrandPrixLookups()

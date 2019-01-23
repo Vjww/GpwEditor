@@ -14,6 +14,7 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
         private const int ChiefDriverLoyaltyLookupItemCount = 45;
         private const int DriverNationalityLookupItemCount = 14;
         private const int DriverRoleLookupItemCount = 4;
+        private const int SponsorNameLookupItemCount = 99;
         private const int TeamDebutGrandPrixLookupItemCount = 19;
         private const int TrackDriverLookupItemCount = 48;
         private const int TrackLayoutLookupItemCount = 3;
@@ -25,6 +26,7 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
         private readonly IIntegerIdentityFactory<ChiefDriverLoyaltyLookupEntity> _chiefDriverLoyaltyLookupEntityFactory;
         private readonly IIntegerIdentityFactory<DriverNationalityLookupEntity> _driverNationalityLookupEntityFactory;
         private readonly IIntegerIdentityFactory<DriverRoleLookupEntity> _driverRoleLookupEntityFactory;
+        private readonly IIntegerIdentityFactory<SponsorNameLookupEntity> _sponsorNameLookupEntityFactory;
         private readonly IIntegerIdentityFactory<TeamDebutGrandPrixLookupEntity> _teamDebutGrandPrixLookupEntityFactory;
         private readonly IIntegerIdentityFactory<TrackDriverLookupEntity> _trackDriverLookupEntityFactory;
         private readonly IIntegerIdentityFactory<TrackLayoutLookupEntity> _trackLayoutLookupEntityFactory;
@@ -38,6 +40,7 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
             IIntegerIdentityFactory<ChiefDriverLoyaltyLookupEntity> chiefDriverLoyaltyLookupEntityFactory,
             IIntegerIdentityFactory<DriverNationalityLookupEntity> driverNationalityLookupEntityFactory,
             IIntegerIdentityFactory<DriverRoleLookupEntity> driverRoleLookupEntityFactory,
+            IIntegerIdentityFactory<SponsorNameLookupEntity> sponsorNameLookupEntityFactory,
             IIntegerIdentityFactory<TeamDebutGrandPrixLookupEntity> teamDebutGrandPrixLookupEntityFactory,
             IIntegerIdentityFactory<TrackDriverLookupEntity> trackDriverLookupEntityFactory,
             IIntegerIdentityFactory<TrackLayoutLookupEntity> trackLayoutLookupEntityFactory,
@@ -50,6 +53,7 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
             _chiefDriverLoyaltyLookupEntityFactory = chiefDriverLoyaltyLookupEntityFactory ?? throw new ArgumentNullException(nameof(chiefDriverLoyaltyLookupEntityFactory));
             _driverNationalityLookupEntityFactory = driverNationalityLookupEntityFactory ?? throw new ArgumentNullException(nameof(driverNationalityLookupEntityFactory));
             _driverRoleLookupEntityFactory = driverRoleLookupEntityFactory ?? throw new ArgumentNullException(nameof(driverRoleLookupEntityFactory));
+            _sponsorNameLookupEntityFactory = sponsorNameLookupEntityFactory ?? throw new ArgumentNullException(nameof(sponsorNameLookupEntityFactory));
             _teamDebutGrandPrixLookupEntityFactory = teamDebutGrandPrixLookupEntityFactory ?? throw new ArgumentNullException(nameof(teamDebutGrandPrixLookupEntityFactory));
             _trackDriverLookupEntityFactory = trackDriverLookupEntityFactory ?? throw new ArgumentNullException(nameof(trackDriverLookupEntityFactory));
             _trackLayoutLookupEntityFactory = trackLayoutLookupEntityFactory ?? throw new ArgumentNullException(nameof(trackLayoutLookupEntityFactory));
@@ -63,6 +67,7 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
             ImportChiefDriverLoyaltyLookups();
             ImportDriverNationalityLookups();
             ImportDriverRoleLookups();
+            ImportSponsorNameLookups();
             ImportTeamDebutGrandPrixLookups();
             ImportTrackDriverLookups();
             ImportTrackLayoutLookups();
@@ -119,6 +124,23 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
                 entities.Add(entity);
             }
             _domainService.SetDriverRoleLookups(entities);
+        }
+
+        private void ImportSponsorNameLookups()
+        {
+            var entities = new List<SponsorNameLookupEntity>();
+            for (var i = 0; i < SponsorNameLookupItemCount; i++)
+            {
+                var id = i;
+
+                var dataEntity = _dataService.SponsorNameLookups.Get(x => x.Id == id).Single();
+
+                var entity = _sponsorNameLookupEntityFactory.Create(id);
+                entity = _mapperService.Map(dataEntity, entity);
+
+                entities.Add(entity);
+            }
+            _domainService.SetSponsorNameLookups(entities);
         }
 
         private void ImportTeamDebutGrandPrixLookups()
