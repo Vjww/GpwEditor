@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using App.Core.Entities;
+﻿using App.Core.Entities;
 using App.Core.Identities;
 
 namespace App.WindowsForms.Models
@@ -9,7 +8,7 @@ namespace App.WindowsForms.Models
         public string Name { get; set; }
         public int SponsorId { get; set; }
         public int SponsorTypeId { get; set; }
-        public int EntityType { get; set; }
+        public int EntityTypeId { get; set; }
         public int EntityResource { get; set; }
         public int EntityData { get; set; }
 

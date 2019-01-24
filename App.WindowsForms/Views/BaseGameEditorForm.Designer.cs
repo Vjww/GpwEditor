@@ -116,78 +116,78 @@
             this.DriversNonF1TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.DriversNonF1GroupBox = new System.Windows.Forms.GroupBox();
             this.DriversNonF1DataGridView = new System.Windows.Forms.DataGridView();
-            this.SponsorshipTabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipTabControl = new System.Windows.Forms.TabControl();
-            this.SponsorshipTeamTabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipTeamTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipTeamGroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipTeamDataGridView = new System.Windows.Forms.DataGridView();
-            this.SponsorshipEngineTabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipEngineTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipEngineGroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipEngineDataGridView = new System.Windows.Forms.DataGridView();
-            this.SponsorshipTyreTabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipTyreTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipTyreGroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipTyreDataGridView = new System.Windows.Forms.DataGridView();
-            this.SponsorshipFuelTabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipFuelTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipFuelGroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipFuelDataGridView = new System.Windows.Forms.DataGridView();
-            this.SponsorshipCashTabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipCashTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipCashGroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipCashDataGridView = new System.Windows.Forms.DataGridView();
-            this.SponsorshipContractsTabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipContractsTabControl = new System.Windows.Forms.TabControl();
-            this.SponsorshipContractsTeam01TabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipContractsTeam01TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipContractsTeam01GroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipContractsTeam01DataGridView = new System.Windows.Forms.DataGridView();
-            this.SponsorshipContractsTeam02TabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipContractsTeam02TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipContractsTeam02GroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipContractsTeam02DataGridView = new System.Windows.Forms.DataGridView();
-            this.SponsorshipContractsTeam03TabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipContractsTeam03TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipContractsTeam03GroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipContractsTeam03DataGridView = new System.Windows.Forms.DataGridView();
-            this.SponsorshipContractsTeam04TabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipContractsTeam04TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipContractsTeam04GroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipContractsTeam04DataGridView = new System.Windows.Forms.DataGridView();
-            this.SponsorshipContractsTeam05TabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipContractsTeam05TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipContractsTeam05GroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipContractsTeam05DataGridView = new System.Windows.Forms.DataGridView();
-            this.SponsorshipContractsTeam06TabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipContractsTeam06TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipContractsTeam06GroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipContractsTeam06DataGridView = new System.Windows.Forms.DataGridView();
-            this.SponsorshipContractsTeam07TabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipContractsTeam07TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipContractsTeam07GroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipContractsTeam07DataGridView = new System.Windows.Forms.DataGridView();
-            this.SponsorshipContractsTeam08TabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipContractsTeam08TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipContractsTeam08GroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipContractsTeam08DataGridView = new System.Windows.Forms.DataGridView();
-            this.SponsorshipContractsTeam09TabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipContractsTeam09TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipContractsTeam09GroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipContractsTeam09DataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsTabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsTabControl = new System.Windows.Forms.TabControl();
+            this.SponsorsTeamTabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsTeamTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsTeamGroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsTeamDataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsEngineTabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsEngineTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsEngineGroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsEngineDataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsTyreTabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsTyreTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsTyreGroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsTyreDataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsFuelTabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsFuelTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsFuelGroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsFuelDataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsCashTabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsCashTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsCashGroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsCashDataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsContractTabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsContractTabControl = new System.Windows.Forms.TabControl();
+            this.SponsorsContractTeam01TabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsContractTeam01TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsContractTeam01GroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsContractTeam01DataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsContractTeam02TabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsContractTeam02TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsContractTeam02GroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsContractTeam02DataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsContractTeam03TabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsContractTeam03TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsContractTeam03GroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsContractTeam03DataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsContractTeam04TabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsContractTeam04TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsContractTeam04GroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsContractTeam04DataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsContractTeam05TabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsContractTeam05TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsContractTeam05GroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsContractTeam05DataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsContractTeam06TabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsContractTeam06TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsContractTeam06GroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsContractTeam06DataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsContractTeam07TabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsContractTeam07TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsContractTeam07GroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsContractTeam07DataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsContractTeam08TabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsContractTeam08TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsContractTeam08GroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsContractTeam08DataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsContractTeam09TabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsContractTeam09TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsContractTeam09GroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsContractTeam09DataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsContractTeam10TabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsContractTeam10TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsContractTeam10GroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsContractTeam10DataGridView = new System.Windows.Forms.DataGridView();
+            this.SponsorsContractTeam11TabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsContractTeam11TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsContractTeam11GroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsContractTeam11DataGridView = new System.Windows.Forms.DataGridView();
             this.TracksTabPage = new System.Windows.Forms.TabPage();
             this.TracksTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.TracksDataGridView = new System.Windows.Forms.DataGridView();
             this.TracksGroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipContractsTeam10TabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipContractsTeam10TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipContractsTeam10GroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipContractsTeam10DataGridView = new System.Windows.Forms.DataGridView();
-            this.SponsorshipContractsTeam11TabPage = new System.Windows.Forms.TabPage();
-            this.SponsorshipContractsTeam11TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorshipContractsTeam11GroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorshipContractsTeam11DataGridView = new System.Windows.Forms.DataGridView();
             this.BaseGameEditorTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).BeginInit();
@@ -235,61 +235,61 @@
             this.DriversNonF1TabPage.SuspendLayout();
             this.DriversNonF1TableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DriversNonF1DataGridView)).BeginInit();
-            this.SponsorshipTabPage.SuspendLayout();
-            this.SponsorshipTabControl.SuspendLayout();
-            this.SponsorshipTeamTabPage.SuspendLayout();
-            this.SponsorshipTeamTableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipTeamDataGridView)).BeginInit();
-            this.SponsorshipEngineTabPage.SuspendLayout();
-            this.SponsorshipEngineTableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipEngineDataGridView)).BeginInit();
-            this.SponsorshipTyreTabPage.SuspendLayout();
-            this.SponsorshipTyreTableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipTyreDataGridView)).BeginInit();
-            this.SponsorshipFuelTabPage.SuspendLayout();
-            this.SponsorshipFuelTableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipFuelDataGridView)).BeginInit();
-            this.SponsorshipCashTabPage.SuspendLayout();
-            this.SponsorshipCashTableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipCashDataGridView)).BeginInit();
-            this.SponsorshipContractsTabPage.SuspendLayout();
-            this.SponsorshipContractsTabControl.SuspendLayout();
-            this.SponsorshipContractsTeam01TabPage.SuspendLayout();
-            this.SponsorshipContractsTeam01TableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam01DataGridView)).BeginInit();
-            this.SponsorshipContractsTeam02TabPage.SuspendLayout();
-            this.SponsorshipContractsTeam02TableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam02DataGridView)).BeginInit();
-            this.SponsorshipContractsTeam03TabPage.SuspendLayout();
-            this.SponsorshipContractsTeam03TableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam03DataGridView)).BeginInit();
-            this.SponsorshipContractsTeam04TabPage.SuspendLayout();
-            this.SponsorshipContractsTeam04TableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam04DataGridView)).BeginInit();
-            this.SponsorshipContractsTeam05TabPage.SuspendLayout();
-            this.SponsorshipContractsTeam05TableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam05DataGridView)).BeginInit();
-            this.SponsorshipContractsTeam06TabPage.SuspendLayout();
-            this.SponsorshipContractsTeam06TableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam06DataGridView)).BeginInit();
-            this.SponsorshipContractsTeam07TabPage.SuspendLayout();
-            this.SponsorshipContractsTeam07TableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam07DataGridView)).BeginInit();
-            this.SponsorshipContractsTeam08TabPage.SuspendLayout();
-            this.SponsorshipContractsTeam08TableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam08DataGridView)).BeginInit();
-            this.SponsorshipContractsTeam09TabPage.SuspendLayout();
-            this.SponsorshipContractsTeam09TableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam09DataGridView)).BeginInit();
+            this.SponsorsTabPage.SuspendLayout();
+            this.SponsorsTabControl.SuspendLayout();
+            this.SponsorsTeamTabPage.SuspendLayout();
+            this.SponsorsTeamTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsTeamDataGridView)).BeginInit();
+            this.SponsorsEngineTabPage.SuspendLayout();
+            this.SponsorsEngineTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsEngineDataGridView)).BeginInit();
+            this.SponsorsTyreTabPage.SuspendLayout();
+            this.SponsorsTyreTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsTyreDataGridView)).BeginInit();
+            this.SponsorsFuelTabPage.SuspendLayout();
+            this.SponsorsFuelTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsFuelDataGridView)).BeginInit();
+            this.SponsorsCashTabPage.SuspendLayout();
+            this.SponsorsCashTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsCashDataGridView)).BeginInit();
+            this.SponsorsContractTabPage.SuspendLayout();
+            this.SponsorsContractTabControl.SuspendLayout();
+            this.SponsorsContractTeam01TabPage.SuspendLayout();
+            this.SponsorsContractTeam01TableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam01DataGridView)).BeginInit();
+            this.SponsorsContractTeam02TabPage.SuspendLayout();
+            this.SponsorsContractTeam02TableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam02DataGridView)).BeginInit();
+            this.SponsorsContractTeam03TabPage.SuspendLayout();
+            this.SponsorsContractTeam03TableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam03DataGridView)).BeginInit();
+            this.SponsorsContractTeam04TabPage.SuspendLayout();
+            this.SponsorsContractTeam04TableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam04DataGridView)).BeginInit();
+            this.SponsorsContractTeam05TabPage.SuspendLayout();
+            this.SponsorsContractTeam05TableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam05DataGridView)).BeginInit();
+            this.SponsorsContractTeam06TabPage.SuspendLayout();
+            this.SponsorsContractTeam06TableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam06DataGridView)).BeginInit();
+            this.SponsorsContractTeam07TabPage.SuspendLayout();
+            this.SponsorsContractTeam07TableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam07DataGridView)).BeginInit();
+            this.SponsorsContractTeam08TabPage.SuspendLayout();
+            this.SponsorsContractTeam08TableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam08DataGridView)).BeginInit();
+            this.SponsorsContractTeam09TabPage.SuspendLayout();
+            this.SponsorsContractTeam09TableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam09DataGridView)).BeginInit();
+            this.SponsorsContractTeam10TabPage.SuspendLayout();
+            this.SponsorsContractTeam10TableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam10DataGridView)).BeginInit();
+            this.SponsorsContractTeam11TabPage.SuspendLayout();
+            this.SponsorsContractTeam11TableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam11DataGridView)).BeginInit();
             this.TracksTabPage.SuspendLayout();
             this.TracksTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TracksDataGridView)).BeginInit();
-            this.SponsorshipContractsTeam10TabPage.SuspendLayout();
-            this.SponsorshipContractsTeam10TableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam10DataGridView)).BeginInit();
-            this.SponsorshipContractsTeam11TabPage.SuspendLayout();
-            this.SponsorshipContractsTeam11TableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam11DataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // BaseGameEditorTabControl
@@ -298,7 +298,7 @@
             this.BaseGameEditorTabControl.Controls.Add(this.TeamsTabPage);
             this.BaseGameEditorTabControl.Controls.Add(this.ChiefsTabPage);
             this.BaseGameEditorTabControl.Controls.Add(this.DriversTabPage);
-            this.BaseGameEditorTabControl.Controls.Add(this.SponsorshipTabPage);
+            this.BaseGameEditorTabControl.Controls.Add(this.SponsorsTabPage);
             this.BaseGameEditorTabControl.Controls.Add(this.TracksTabPage);
             this.BaseGameEditorTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BaseGameEditorTabControl.Location = new System.Drawing.Point(3, 3);
@@ -1249,691 +1249,803 @@
             this.DriversNonF1DataGridView.Size = new System.Drawing.Size(910, 437);
             this.DriversNonF1DataGridView.TabIndex = 0;
             // 
-            // SponsorshipTabPage
-            // 
-            this.SponsorshipTabPage.Controls.Add(this.SponsorshipTabControl);
-            this.SponsorshipTabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipTabPage.Name = "SponsorshipTabPage";
-            this.SponsorshipTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.SponsorshipTabPage.Size = new System.Drawing.Size(930, 529);
-            this.SponsorshipTabPage.TabIndex = 11;
-            this.SponsorshipTabPage.Text = "Sponsorship";
-            this.SponsorshipTabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipTabControl
-            // 
-            this.SponsorshipTabControl.Controls.Add(this.SponsorshipTeamTabPage);
-            this.SponsorshipTabControl.Controls.Add(this.SponsorshipEngineTabPage);
-            this.SponsorshipTabControl.Controls.Add(this.SponsorshipTyreTabPage);
-            this.SponsorshipTabControl.Controls.Add(this.SponsorshipFuelTabPage);
-            this.SponsorshipTabControl.Controls.Add(this.SponsorshipCashTabPage);
-            this.SponsorshipTabControl.Controls.Add(this.SponsorshipContractsTabPage);
-            this.SponsorshipTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipTabControl.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipTabControl.Name = "SponsorshipTabControl";
-            this.SponsorshipTabControl.SelectedIndex = 0;
-            this.SponsorshipTabControl.Size = new System.Drawing.Size(924, 523);
-            this.SponsorshipTabControl.TabIndex = 0;
-            // 
-            // SponsorshipTeamTabPage
-            // 
-            this.SponsorshipTeamTabPage.Controls.Add(this.SponsorshipTeamTableLayoutPanel);
-            this.SponsorshipTeamTabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipTeamTabPage.Name = "SponsorshipTeamTabPage";
-            this.SponsorshipTeamTabPage.Size = new System.Drawing.Size(916, 497);
-            this.SponsorshipTeamTabPage.TabIndex = 0;
-            this.SponsorshipTeamTabPage.Text = "Team";
-            this.SponsorshipTeamTabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipTeamTableLayoutPanel
-            // 
-            this.SponsorshipTeamTableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipTeamTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipTeamTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipTeamTableLayoutPanel.Controls.Add(this.SponsorshipTeamGroupBox, 0, 1);
-            this.SponsorshipTeamTableLayoutPanel.Controls.Add(this.SponsorshipTeamDataGridView, 0, 0);
-            this.SponsorshipTeamTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipTeamTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipTeamTableLayoutPanel.Name = "SponsorshipTeamTableLayoutPanel";
-            this.SponsorshipTeamTableLayoutPanel.RowCount = 2;
-            this.SponsorshipTeamTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipTeamTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipTeamTableLayoutPanel.Size = new System.Drawing.Size(916, 497);
-            this.SponsorshipTeamTableLayoutPanel.TabIndex = 3;
-            // 
-            // SponsorshipTeamGroupBox
-            // 
-            this.SponsorshipTeamGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipTeamGroupBox.Location = new System.Drawing.Point(3, 446);
-            this.SponsorshipTeamGroupBox.Name = "SponsorshipTeamGroupBox";
-            this.SponsorshipTeamGroupBox.Size = new System.Drawing.Size(910, 48);
-            this.SponsorshipTeamGroupBox.TabIndex = 3;
-            this.SponsorshipTeamGroupBox.TabStop = false;
-            this.SponsorshipTeamGroupBox.Text = "Team Sponsors - Options";
-            // 
-            // SponsorshipTeamDataGridView
-            // 
-            this.SponsorshipTeamDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipTeamDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipTeamDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipTeamDataGridView.Name = "SponsorshipTeamDataGridView";
-            this.SponsorshipTeamDataGridView.Size = new System.Drawing.Size(910, 437);
-            this.SponsorshipTeamDataGridView.TabIndex = 0;
-            // 
-            // SponsorshipEngineTabPage
-            // 
-            this.SponsorshipEngineTabPage.Controls.Add(this.SponsorshipEngineTableLayoutPanel);
-            this.SponsorshipEngineTabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipEngineTabPage.Name = "SponsorshipEngineTabPage";
-            this.SponsorshipEngineTabPage.Size = new System.Drawing.Size(916, 497);
-            this.SponsorshipEngineTabPage.TabIndex = 0;
-            this.SponsorshipEngineTabPage.Text = "Engine";
-            this.SponsorshipEngineTabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipEngineTableLayoutPanel
-            // 
-            this.SponsorshipEngineTableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipEngineTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipEngineTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipEngineTableLayoutPanel.Controls.Add(this.SponsorshipEngineGroupBox, 0, 1);
-            this.SponsorshipEngineTableLayoutPanel.Controls.Add(this.SponsorshipEngineDataGridView, 0, 0);
-            this.SponsorshipEngineTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipEngineTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipEngineTableLayoutPanel.Name = "SponsorshipEngineTableLayoutPanel";
-            this.SponsorshipEngineTableLayoutPanel.RowCount = 2;
-            this.SponsorshipEngineTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipEngineTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipEngineTableLayoutPanel.Size = new System.Drawing.Size(916, 497);
-            this.SponsorshipEngineTableLayoutPanel.TabIndex = 3;
-            // 
-            // SponsorshipEngineGroupBox
-            // 
-            this.SponsorshipEngineGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipEngineGroupBox.Location = new System.Drawing.Point(3, 446);
-            this.SponsorshipEngineGroupBox.Name = "SponsorshipEngineGroupBox";
-            this.SponsorshipEngineGroupBox.Size = new System.Drawing.Size(910, 48);
-            this.SponsorshipEngineGroupBox.TabIndex = 3;
-            this.SponsorshipEngineGroupBox.TabStop = false;
-            this.SponsorshipEngineGroupBox.Text = "Engine Suppliers - Options";
-            // 
-            // SponsorshipEngineDataGridView
-            // 
-            this.SponsorshipEngineDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipEngineDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipEngineDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipEngineDataGridView.Name = "SponsorshipEngineDataGridView";
-            this.SponsorshipEngineDataGridView.Size = new System.Drawing.Size(910, 437);
-            this.SponsorshipEngineDataGridView.TabIndex = 0;
-            // 
-            // SponsorshipTyreTabPage
-            // 
-            this.SponsorshipTyreTabPage.Controls.Add(this.SponsorshipTyreTableLayoutPanel);
-            this.SponsorshipTyreTabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipTyreTabPage.Name = "SponsorshipTyreTabPage";
-            this.SponsorshipTyreTabPage.Size = new System.Drawing.Size(916, 497);
-            this.SponsorshipTyreTabPage.TabIndex = 1;
-            this.SponsorshipTyreTabPage.Text = "Tyre";
-            this.SponsorshipTyreTabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipTyreTableLayoutPanel
-            // 
-            this.SponsorshipTyreTableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipTyreTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipTyreTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipTyreTableLayoutPanel.Controls.Add(this.SponsorshipTyreGroupBox, 0, 1);
-            this.SponsorshipTyreTableLayoutPanel.Controls.Add(this.SponsorshipTyreDataGridView, 0, 0);
-            this.SponsorshipTyreTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipTyreTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipTyreTableLayoutPanel.Name = "SponsorshipTyreTableLayoutPanel";
-            this.SponsorshipTyreTableLayoutPanel.RowCount = 2;
-            this.SponsorshipTyreTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipTyreTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipTyreTableLayoutPanel.Size = new System.Drawing.Size(916, 497);
-            this.SponsorshipTyreTableLayoutPanel.TabIndex = 4;
-            // 
-            // SponsorshipTyreGroupBox
-            // 
-            this.SponsorshipTyreGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipTyreGroupBox.Location = new System.Drawing.Point(3, 446);
-            this.SponsorshipTyreGroupBox.Name = "SponsorshipTyreGroupBox";
-            this.SponsorshipTyreGroupBox.Size = new System.Drawing.Size(910, 48);
-            this.SponsorshipTyreGroupBox.TabIndex = 3;
-            this.SponsorshipTyreGroupBox.TabStop = false;
-            this.SponsorshipTyreGroupBox.Text = "Tyre Suppliers - Options";
-            // 
-            // SponsorshipTyreDataGridView
-            // 
-            this.SponsorshipTyreDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipTyreDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipTyreDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipTyreDataGridView.Name = "SponsorshipTyreDataGridView";
-            this.SponsorshipTyreDataGridView.Size = new System.Drawing.Size(910, 437);
-            this.SponsorshipTyreDataGridView.TabIndex = 0;
-            // 
-            // SponsorshipFuelTabPage
-            // 
-            this.SponsorshipFuelTabPage.Controls.Add(this.SponsorshipFuelTableLayoutPanel);
-            this.SponsorshipFuelTabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipFuelTabPage.Name = "SponsorshipFuelTabPage";
-            this.SponsorshipFuelTabPage.Size = new System.Drawing.Size(916, 497);
-            this.SponsorshipFuelTabPage.TabIndex = 2;
-            this.SponsorshipFuelTabPage.Text = "Fuel";
-            this.SponsorshipFuelTabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipFuelTableLayoutPanel
-            // 
-            this.SponsorshipFuelTableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipFuelTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipFuelTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipFuelTableLayoutPanel.Controls.Add(this.SponsorshipFuelGroupBox, 0, 1);
-            this.SponsorshipFuelTableLayoutPanel.Controls.Add(this.SponsorshipFuelDataGridView, 0, 0);
-            this.SponsorshipFuelTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipFuelTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipFuelTableLayoutPanel.Name = "SponsorshipFuelTableLayoutPanel";
-            this.SponsorshipFuelTableLayoutPanel.RowCount = 2;
-            this.SponsorshipFuelTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipFuelTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipFuelTableLayoutPanel.Size = new System.Drawing.Size(916, 497);
-            this.SponsorshipFuelTableLayoutPanel.TabIndex = 4;
-            // 
-            // SponsorshipFuelGroupBox
-            // 
-            this.SponsorshipFuelGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipFuelGroupBox.Location = new System.Drawing.Point(3, 446);
-            this.SponsorshipFuelGroupBox.Name = "SponsorshipFuelGroupBox";
-            this.SponsorshipFuelGroupBox.Size = new System.Drawing.Size(910, 48);
-            this.SponsorshipFuelGroupBox.TabIndex = 3;
-            this.SponsorshipFuelGroupBox.TabStop = false;
-            this.SponsorshipFuelGroupBox.Text = "Fuel Suppliers - Options";
-            // 
-            // SponsorshipFuelDataGridView
-            // 
-            this.SponsorshipFuelDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipFuelDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipFuelDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipFuelDataGridView.Name = "SponsorshipFuelDataGridView";
-            this.SponsorshipFuelDataGridView.Size = new System.Drawing.Size(910, 437);
-            this.SponsorshipFuelDataGridView.TabIndex = 0;
-            // 
-            // SponsorshipCashTabPage
-            // 
-            this.SponsorshipCashTabPage.Controls.Add(this.SponsorshipCashTableLayoutPanel);
-            this.SponsorshipCashTabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipCashTabPage.Name = "SponsorshipCashTabPage";
-            this.SponsorshipCashTabPage.Size = new System.Drawing.Size(916, 497);
-            this.SponsorshipCashTabPage.TabIndex = 1;
-            this.SponsorshipCashTabPage.Text = "Cash";
-            this.SponsorshipCashTabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipCashTableLayoutPanel
-            // 
-            this.SponsorshipCashTableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipCashTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipCashTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipCashTableLayoutPanel.Controls.Add(this.SponsorshipCashGroupBox, 0, 1);
-            this.SponsorshipCashTableLayoutPanel.Controls.Add(this.SponsorshipCashDataGridView, 0, 0);
-            this.SponsorshipCashTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipCashTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipCashTableLayoutPanel.Name = "SponsorshipCashTableLayoutPanel";
-            this.SponsorshipCashTableLayoutPanel.RowCount = 2;
-            this.SponsorshipCashTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipCashTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipCashTableLayoutPanel.Size = new System.Drawing.Size(916, 497);
-            this.SponsorshipCashTableLayoutPanel.TabIndex = 4;
-            // 
-            // SponsorshipCashGroupBox
-            // 
-            this.SponsorshipCashGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipCashGroupBox.Location = new System.Drawing.Point(3, 446);
-            this.SponsorshipCashGroupBox.Name = "SponsorshipCashGroupBox";
-            this.SponsorshipCashGroupBox.Size = new System.Drawing.Size(910, 48);
-            this.SponsorshipCashGroupBox.TabIndex = 3;
-            this.SponsorshipCashGroupBox.TabStop = false;
-            this.SponsorshipCashGroupBox.Text = "Cash Sponsors - Options";
-            // 
-            // SponsorshipCashDataGridView
-            // 
-            this.SponsorshipCashDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipCashDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipCashDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipCashDataGridView.Name = "SponsorshipCashDataGridView";
-            this.SponsorshipCashDataGridView.Size = new System.Drawing.Size(910, 437);
-            this.SponsorshipCashDataGridView.TabIndex = 0;
-            // 
-            // SponsorshipContractsTabPage
-            // 
-            this.SponsorshipContractsTabPage.Controls.Add(this.SponsorshipContractsTabControl);
-            this.SponsorshipContractsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipContractsTabPage.Name = "SponsorshipContractsTabPage";
-            this.SponsorshipContractsTabPage.Size = new System.Drawing.Size(916, 497);
-            this.SponsorshipContractsTabPage.TabIndex = 3;
-            this.SponsorshipContractsTabPage.Text = "Contracts";
-            this.SponsorshipContractsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipContractsTabControl
-            // 
-            this.SponsorshipContractsTabControl.Controls.Add(this.SponsorshipContractsTeam01TabPage);
-            this.SponsorshipContractsTabControl.Controls.Add(this.SponsorshipContractsTeam02TabPage);
-            this.SponsorshipContractsTabControl.Controls.Add(this.SponsorshipContractsTeam03TabPage);
-            this.SponsorshipContractsTabControl.Controls.Add(this.SponsorshipContractsTeam04TabPage);
-            this.SponsorshipContractsTabControl.Controls.Add(this.SponsorshipContractsTeam05TabPage);
-            this.SponsorshipContractsTabControl.Controls.Add(this.SponsorshipContractsTeam06TabPage);
-            this.SponsorshipContractsTabControl.Controls.Add(this.SponsorshipContractsTeam07TabPage);
-            this.SponsorshipContractsTabControl.Controls.Add(this.SponsorshipContractsTeam08TabPage);
-            this.SponsorshipContractsTabControl.Controls.Add(this.SponsorshipContractsTeam09TabPage);
-            this.SponsorshipContractsTabControl.Controls.Add(this.SponsorshipContractsTeam10TabPage);
-            this.SponsorshipContractsTabControl.Controls.Add(this.SponsorshipContractsTeam11TabPage);
-            this.SponsorshipContractsTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTabControl.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipContractsTabControl.Name = "SponsorshipContractsTabControl";
-            this.SponsorshipContractsTabControl.SelectedIndex = 0;
-            this.SponsorshipContractsTabControl.Size = new System.Drawing.Size(916, 497);
-            this.SponsorshipContractsTabControl.TabIndex = 1;
-            // 
-            // SponsorshipContractsTeam01TabPage
-            // 
-            this.SponsorshipContractsTeam01TabPage.Controls.Add(this.SponsorshipContractsTeam01TableLayoutPanel);
-            this.SponsorshipContractsTeam01TabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipContractsTeam01TabPage.Name = "SponsorshipContractsTeam01TabPage";
-            this.SponsorshipContractsTeam01TabPage.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam01TabPage.TabIndex = 0;
-            this.SponsorshipContractsTeam01TabPage.Text = "Team 1";
-            this.SponsorshipContractsTeam01TabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipContractsTeam01TableLayoutPanel
-            // 
-            this.SponsorshipContractsTeam01TableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipContractsTeam01TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam01TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipContractsTeam01TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam01GroupBox, 0, 1);
-            this.SponsorshipContractsTeam01TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam01DataGridView, 0, 0);
-            this.SponsorshipContractsTeam01TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam01TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipContractsTeam01TableLayoutPanel.Name = "SponsorshipContractsTeam01TableLayoutPanel";
-            this.SponsorshipContractsTeam01TableLayoutPanel.RowCount = 2;
-            this.SponsorshipContractsTeam01TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam01TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipContractsTeam01TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam01TableLayoutPanel.TabIndex = 1;
-            // 
-            // SponsorshipContractsTeam01GroupBox
-            // 
-            this.SponsorshipContractsTeam01GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam01GroupBox.Location = new System.Drawing.Point(3, 420);
-            this.SponsorshipContractsTeam01GroupBox.Name = "SponsorshipContractsTeam01GroupBox";
-            this.SponsorshipContractsTeam01GroupBox.Size = new System.Drawing.Size(902, 48);
-            this.SponsorshipContractsTeam01GroupBox.TabIndex = 3;
-            this.SponsorshipContractsTeam01GroupBox.TabStop = false;
-            this.SponsorshipContractsTeam01GroupBox.Text = "Team 1 - Options";
-            // 
-            // SponsorshipContractsTeam01DataGridView
-            // 
-            this.SponsorshipContractsTeam01DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipContractsTeam01DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam01DataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipContractsTeam01DataGridView.Name = "SponsorshipContractsTeam01DataGridView";
-            this.SponsorshipContractsTeam01DataGridView.Size = new System.Drawing.Size(902, 411);
-            this.SponsorshipContractsTeam01DataGridView.TabIndex = 0;
-            // 
-            // SponsorshipContractsTeam02TabPage
-            // 
-            this.SponsorshipContractsTeam02TabPage.Controls.Add(this.SponsorshipContractsTeam02TableLayoutPanel);
-            this.SponsorshipContractsTeam02TabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipContractsTeam02TabPage.Name = "SponsorshipContractsTeam02TabPage";
-            this.SponsorshipContractsTeam02TabPage.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam02TabPage.TabIndex = 1;
-            this.SponsorshipContractsTeam02TabPage.Text = "Team 2";
-            this.SponsorshipContractsTeam02TabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipContractsTeam02TableLayoutPanel
-            // 
-            this.SponsorshipContractsTeam02TableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipContractsTeam02TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam02TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipContractsTeam02TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam02GroupBox, 0, 1);
-            this.SponsorshipContractsTeam02TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam02DataGridView, 0, 0);
-            this.SponsorshipContractsTeam02TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam02TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipContractsTeam02TableLayoutPanel.Name = "SponsorshipContractsTeam02TableLayoutPanel";
-            this.SponsorshipContractsTeam02TableLayoutPanel.RowCount = 2;
-            this.SponsorshipContractsTeam02TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam02TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipContractsTeam02TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam02TableLayoutPanel.TabIndex = 2;
-            // 
-            // SponsorshipContractsTeam02GroupBox
-            // 
-            this.SponsorshipContractsTeam02GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam02GroupBox.Location = new System.Drawing.Point(3, 420);
-            this.SponsorshipContractsTeam02GroupBox.Name = "SponsorshipContractsTeam02GroupBox";
-            this.SponsorshipContractsTeam02GroupBox.Size = new System.Drawing.Size(902, 48);
-            this.SponsorshipContractsTeam02GroupBox.TabIndex = 4;
-            this.SponsorshipContractsTeam02GroupBox.TabStop = false;
-            this.SponsorshipContractsTeam02GroupBox.Text = "Team 2 - Options";
-            // 
-            // SponsorshipContractsTeam02DataGridView
-            // 
-            this.SponsorshipContractsTeam02DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipContractsTeam02DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam02DataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipContractsTeam02DataGridView.Name = "SponsorshipContractsTeam02DataGridView";
-            this.SponsorshipContractsTeam02DataGridView.Size = new System.Drawing.Size(902, 411);
-            this.SponsorshipContractsTeam02DataGridView.TabIndex = 0;
-            // 
-            // SponsorshipContractsTeam03TabPage
-            // 
-            this.SponsorshipContractsTeam03TabPage.Controls.Add(this.SponsorshipContractsTeam03TableLayoutPanel);
-            this.SponsorshipContractsTeam03TabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipContractsTeam03TabPage.Name = "SponsorshipContractsTeam03TabPage";
-            this.SponsorshipContractsTeam03TabPage.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam03TabPage.TabIndex = 2;
-            this.SponsorshipContractsTeam03TabPage.Text = "Team 3";
-            this.SponsorshipContractsTeam03TabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipContractsTeam03TableLayoutPanel
-            // 
-            this.SponsorshipContractsTeam03TableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipContractsTeam03TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam03TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipContractsTeam03TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam03GroupBox, 0, 1);
-            this.SponsorshipContractsTeam03TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam03DataGridView, 0, 0);
-            this.SponsorshipContractsTeam03TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam03TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipContractsTeam03TableLayoutPanel.Name = "SponsorshipContractsTeam03TableLayoutPanel";
-            this.SponsorshipContractsTeam03TableLayoutPanel.RowCount = 2;
-            this.SponsorshipContractsTeam03TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam03TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipContractsTeam03TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam03TableLayoutPanel.TabIndex = 2;
-            // 
-            // SponsorshipContractsTeam03GroupBox
-            // 
-            this.SponsorshipContractsTeam03GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam03GroupBox.Location = new System.Drawing.Point(3, 420);
-            this.SponsorshipContractsTeam03GroupBox.Name = "SponsorshipContractsTeam03GroupBox";
-            this.SponsorshipContractsTeam03GroupBox.Size = new System.Drawing.Size(902, 48);
-            this.SponsorshipContractsTeam03GroupBox.TabIndex = 4;
-            this.SponsorshipContractsTeam03GroupBox.TabStop = false;
-            this.SponsorshipContractsTeam03GroupBox.Text = "Team 3 - Options";
-            // 
-            // SponsorshipContractsTeam03DataGridView
-            // 
-            this.SponsorshipContractsTeam03DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipContractsTeam03DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam03DataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipContractsTeam03DataGridView.Name = "SponsorshipContractsTeam03DataGridView";
-            this.SponsorshipContractsTeam03DataGridView.Size = new System.Drawing.Size(902, 411);
-            this.SponsorshipContractsTeam03DataGridView.TabIndex = 0;
-            // 
-            // SponsorshipContractsTeam04TabPage
-            // 
-            this.SponsorshipContractsTeam04TabPage.Controls.Add(this.SponsorshipContractsTeam04TableLayoutPanel);
-            this.SponsorshipContractsTeam04TabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipContractsTeam04TabPage.Name = "SponsorshipContractsTeam04TabPage";
-            this.SponsorshipContractsTeam04TabPage.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam04TabPage.TabIndex = 3;
-            this.SponsorshipContractsTeam04TabPage.Text = "Team 4";
-            this.SponsorshipContractsTeam04TabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipContractsTeam04TableLayoutPanel
-            // 
-            this.SponsorshipContractsTeam04TableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipContractsTeam04TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam04TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipContractsTeam04TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam04GroupBox, 0, 1);
-            this.SponsorshipContractsTeam04TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam04DataGridView, 0, 0);
-            this.SponsorshipContractsTeam04TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam04TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipContractsTeam04TableLayoutPanel.Name = "SponsorshipContractsTeam04TableLayoutPanel";
-            this.SponsorshipContractsTeam04TableLayoutPanel.RowCount = 2;
-            this.SponsorshipContractsTeam04TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam04TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipContractsTeam04TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam04TableLayoutPanel.TabIndex = 2;
-            // 
-            // SponsorshipContractsTeam04GroupBox
-            // 
-            this.SponsorshipContractsTeam04GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam04GroupBox.Location = new System.Drawing.Point(3, 420);
-            this.SponsorshipContractsTeam04GroupBox.Name = "SponsorshipContractsTeam04GroupBox";
-            this.SponsorshipContractsTeam04GroupBox.Size = new System.Drawing.Size(902, 48);
-            this.SponsorshipContractsTeam04GroupBox.TabIndex = 4;
-            this.SponsorshipContractsTeam04GroupBox.TabStop = false;
-            this.SponsorshipContractsTeam04GroupBox.Text = "Team 4 - Options";
-            // 
-            // SponsorshipContractsTeam04DataGridView
-            // 
-            this.SponsorshipContractsTeam04DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipContractsTeam04DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam04DataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipContractsTeam04DataGridView.Name = "SponsorshipContractsTeam04DataGridView";
-            this.SponsorshipContractsTeam04DataGridView.Size = new System.Drawing.Size(902, 411);
-            this.SponsorshipContractsTeam04DataGridView.TabIndex = 0;
-            // 
-            // SponsorshipContractsTeam05TabPage
-            // 
-            this.SponsorshipContractsTeam05TabPage.Controls.Add(this.SponsorshipContractsTeam05TableLayoutPanel);
-            this.SponsorshipContractsTeam05TabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipContractsTeam05TabPage.Name = "SponsorshipContractsTeam05TabPage";
-            this.SponsorshipContractsTeam05TabPage.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam05TabPage.TabIndex = 4;
-            this.SponsorshipContractsTeam05TabPage.Text = "Team 5";
-            this.SponsorshipContractsTeam05TabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipContractsTeam05TableLayoutPanel
-            // 
-            this.SponsorshipContractsTeam05TableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipContractsTeam05TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam05TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipContractsTeam05TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam05GroupBox, 0, 1);
-            this.SponsorshipContractsTeam05TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam05DataGridView, 0, 0);
-            this.SponsorshipContractsTeam05TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam05TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipContractsTeam05TableLayoutPanel.Name = "SponsorshipContractsTeam05TableLayoutPanel";
-            this.SponsorshipContractsTeam05TableLayoutPanel.RowCount = 2;
-            this.SponsorshipContractsTeam05TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam05TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipContractsTeam05TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam05TableLayoutPanel.TabIndex = 1;
-            // 
-            // SponsorshipContractsTeam05GroupBox
-            // 
-            this.SponsorshipContractsTeam05GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam05GroupBox.Location = new System.Drawing.Point(3, 420);
-            this.SponsorshipContractsTeam05GroupBox.Name = "SponsorshipContractsTeam05GroupBox";
-            this.SponsorshipContractsTeam05GroupBox.Size = new System.Drawing.Size(902, 48);
-            this.SponsorshipContractsTeam05GroupBox.TabIndex = 3;
-            this.SponsorshipContractsTeam05GroupBox.TabStop = false;
-            this.SponsorshipContractsTeam05GroupBox.Text = "Team 5 - Options";
-            // 
-            // SponsorshipContractsTeam05DataGridView
-            // 
-            this.SponsorshipContractsTeam05DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipContractsTeam05DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam05DataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipContractsTeam05DataGridView.Name = "SponsorshipContractsTeam05DataGridView";
-            this.SponsorshipContractsTeam05DataGridView.Size = new System.Drawing.Size(902, 411);
-            this.SponsorshipContractsTeam05DataGridView.TabIndex = 0;
-            // 
-            // SponsorshipContractsTeam06TabPage
-            // 
-            this.SponsorshipContractsTeam06TabPage.Controls.Add(this.SponsorshipContractsTeam06TableLayoutPanel);
-            this.SponsorshipContractsTeam06TabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipContractsTeam06TabPage.Name = "SponsorshipContractsTeam06TabPage";
-            this.SponsorshipContractsTeam06TabPage.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam06TabPage.TabIndex = 5;
-            this.SponsorshipContractsTeam06TabPage.Text = "Team 6";
-            this.SponsorshipContractsTeam06TabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipContractsTeam06TableLayoutPanel
-            // 
-            this.SponsorshipContractsTeam06TableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipContractsTeam06TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam06TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipContractsTeam06TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam06GroupBox, 0, 1);
-            this.SponsorshipContractsTeam06TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam06DataGridView, 0, 0);
-            this.SponsorshipContractsTeam06TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam06TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipContractsTeam06TableLayoutPanel.Name = "SponsorshipContractsTeam06TableLayoutPanel";
-            this.SponsorshipContractsTeam06TableLayoutPanel.RowCount = 2;
-            this.SponsorshipContractsTeam06TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam06TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipContractsTeam06TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam06TableLayoutPanel.TabIndex = 1;
-            // 
-            // SponsorshipContractsTeam06GroupBox
-            // 
-            this.SponsorshipContractsTeam06GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam06GroupBox.Location = new System.Drawing.Point(3, 420);
-            this.SponsorshipContractsTeam06GroupBox.Name = "SponsorshipContractsTeam06GroupBox";
-            this.SponsorshipContractsTeam06GroupBox.Size = new System.Drawing.Size(902, 48);
-            this.SponsorshipContractsTeam06GroupBox.TabIndex = 3;
-            this.SponsorshipContractsTeam06GroupBox.TabStop = false;
-            this.SponsorshipContractsTeam06GroupBox.Text = "Team 6 - Options";
-            // 
-            // SponsorshipContractsTeam06DataGridView
-            // 
-            this.SponsorshipContractsTeam06DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipContractsTeam06DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam06DataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipContractsTeam06DataGridView.Name = "SponsorshipContractsTeam06DataGridView";
-            this.SponsorshipContractsTeam06DataGridView.Size = new System.Drawing.Size(902, 411);
-            this.SponsorshipContractsTeam06DataGridView.TabIndex = 0;
-            // 
-            // SponsorshipContractsTeam07TabPage
-            // 
-            this.SponsorshipContractsTeam07TabPage.Controls.Add(this.SponsorshipContractsTeam07TableLayoutPanel);
-            this.SponsorshipContractsTeam07TabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipContractsTeam07TabPage.Name = "SponsorshipContractsTeam07TabPage";
-            this.SponsorshipContractsTeam07TabPage.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam07TabPage.TabIndex = 6;
-            this.SponsorshipContractsTeam07TabPage.Text = "Team 7";
-            this.SponsorshipContractsTeam07TabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipContractsTeam07TableLayoutPanel
-            // 
-            this.SponsorshipContractsTeam07TableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipContractsTeam07TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam07TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipContractsTeam07TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam07GroupBox, 0, 1);
-            this.SponsorshipContractsTeam07TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam07DataGridView, 0, 0);
-            this.SponsorshipContractsTeam07TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam07TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipContractsTeam07TableLayoutPanel.Name = "SponsorshipContractsTeam07TableLayoutPanel";
-            this.SponsorshipContractsTeam07TableLayoutPanel.RowCount = 2;
-            this.SponsorshipContractsTeam07TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam07TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipContractsTeam07TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam07TableLayoutPanel.TabIndex = 1;
-            // 
-            // SponsorshipContractsTeam07GroupBox
-            // 
-            this.SponsorshipContractsTeam07GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam07GroupBox.Location = new System.Drawing.Point(3, 420);
-            this.SponsorshipContractsTeam07GroupBox.Name = "SponsorshipContractsTeam07GroupBox";
-            this.SponsorshipContractsTeam07GroupBox.Size = new System.Drawing.Size(902, 48);
-            this.SponsorshipContractsTeam07GroupBox.TabIndex = 3;
-            this.SponsorshipContractsTeam07GroupBox.TabStop = false;
-            this.SponsorshipContractsTeam07GroupBox.Text = "Team 7 - Options";
-            // 
-            // SponsorshipContractsTeam07DataGridView
-            // 
-            this.SponsorshipContractsTeam07DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipContractsTeam07DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam07DataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipContractsTeam07DataGridView.Name = "SponsorshipContractsTeam07DataGridView";
-            this.SponsorshipContractsTeam07DataGridView.Size = new System.Drawing.Size(902, 411);
-            this.SponsorshipContractsTeam07DataGridView.TabIndex = 0;
-            // 
-            // SponsorshipContractsTeam08TabPage
-            // 
-            this.SponsorshipContractsTeam08TabPage.Controls.Add(this.SponsorshipContractsTeam08TableLayoutPanel);
-            this.SponsorshipContractsTeam08TabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipContractsTeam08TabPage.Name = "SponsorshipContractsTeam08TabPage";
-            this.SponsorshipContractsTeam08TabPage.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam08TabPage.TabIndex = 7;
-            this.SponsorshipContractsTeam08TabPage.Text = "Team 8";
-            this.SponsorshipContractsTeam08TabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipContractsTeam08TableLayoutPanel
-            // 
-            this.SponsorshipContractsTeam08TableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipContractsTeam08TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam08TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipContractsTeam08TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam08GroupBox, 0, 1);
-            this.SponsorshipContractsTeam08TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam08DataGridView, 0, 0);
-            this.SponsorshipContractsTeam08TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam08TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipContractsTeam08TableLayoutPanel.Name = "SponsorshipContractsTeam08TableLayoutPanel";
-            this.SponsorshipContractsTeam08TableLayoutPanel.RowCount = 2;
-            this.SponsorshipContractsTeam08TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam08TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipContractsTeam08TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam08TableLayoutPanel.TabIndex = 1;
-            // 
-            // SponsorshipContractsTeam08GroupBox
-            // 
-            this.SponsorshipContractsTeam08GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam08GroupBox.Location = new System.Drawing.Point(3, 420);
-            this.SponsorshipContractsTeam08GroupBox.Name = "SponsorshipContractsTeam08GroupBox";
-            this.SponsorshipContractsTeam08GroupBox.Size = new System.Drawing.Size(902, 48);
-            this.SponsorshipContractsTeam08GroupBox.TabIndex = 3;
-            this.SponsorshipContractsTeam08GroupBox.TabStop = false;
-            this.SponsorshipContractsTeam08GroupBox.Text = "Team 8 - Options";
-            // 
-            // SponsorshipContractsTeam08DataGridView
-            // 
-            this.SponsorshipContractsTeam08DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipContractsTeam08DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam08DataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipContractsTeam08DataGridView.Name = "SponsorshipContractsTeam08DataGridView";
-            this.SponsorshipContractsTeam08DataGridView.Size = new System.Drawing.Size(902, 411);
-            this.SponsorshipContractsTeam08DataGridView.TabIndex = 0;
-            // 
-            // SponsorshipContractsTeam09TabPage
-            // 
-            this.SponsorshipContractsTeam09TabPage.Controls.Add(this.SponsorshipContractsTeam09TableLayoutPanel);
-            this.SponsorshipContractsTeam09TabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipContractsTeam09TabPage.Name = "SponsorshipContractsTeam09TabPage";
-            this.SponsorshipContractsTeam09TabPage.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam09TabPage.TabIndex = 8;
-            this.SponsorshipContractsTeam09TabPage.Text = "Team 9";
-            this.SponsorshipContractsTeam09TabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipContractsTeam09TableLayoutPanel
-            // 
-            this.SponsorshipContractsTeam09TableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipContractsTeam09TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam09TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipContractsTeam09TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam09GroupBox, 0, 1);
-            this.SponsorshipContractsTeam09TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam09DataGridView, 0, 0);
-            this.SponsorshipContractsTeam09TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam09TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipContractsTeam09TableLayoutPanel.Name = "SponsorshipContractsTeam09TableLayoutPanel";
-            this.SponsorshipContractsTeam09TableLayoutPanel.RowCount = 2;
-            this.SponsorshipContractsTeam09TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam09TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipContractsTeam09TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam09TableLayoutPanel.TabIndex = 1;
-            // 
-            // SponsorshipContractsTeam09GroupBox
-            // 
-            this.SponsorshipContractsTeam09GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam09GroupBox.Location = new System.Drawing.Point(3, 420);
-            this.SponsorshipContractsTeam09GroupBox.Name = "SponsorshipContractsTeam09GroupBox";
-            this.SponsorshipContractsTeam09GroupBox.Size = new System.Drawing.Size(902, 48);
-            this.SponsorshipContractsTeam09GroupBox.TabIndex = 3;
-            this.SponsorshipContractsTeam09GroupBox.TabStop = false;
-            this.SponsorshipContractsTeam09GroupBox.Text = "Team 9 - Options";
-            // 
-            // SponsorshipContractsTeam09DataGridView
-            // 
-            this.SponsorshipContractsTeam09DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipContractsTeam09DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam09DataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipContractsTeam09DataGridView.Name = "SponsorshipContractsTeam09DataGridView";
-            this.SponsorshipContractsTeam09DataGridView.Size = new System.Drawing.Size(902, 411);
-            this.SponsorshipContractsTeam09DataGridView.TabIndex = 0;
+            // SponsorsTabPage
+            // 
+            this.SponsorsTabPage.Controls.Add(this.SponsorsTabControl);
+            this.SponsorsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsTabPage.Name = "SponsorsTabPage";
+            this.SponsorsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.SponsorsTabPage.Size = new System.Drawing.Size(930, 529);
+            this.SponsorsTabPage.TabIndex = 11;
+            this.SponsorsTabPage.Text = "Sponsors";
+            this.SponsorsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsTabControl
+            // 
+            this.SponsorsTabControl.Controls.Add(this.SponsorsTeamTabPage);
+            this.SponsorsTabControl.Controls.Add(this.SponsorsEngineTabPage);
+            this.SponsorsTabControl.Controls.Add(this.SponsorsTyreTabPage);
+            this.SponsorsTabControl.Controls.Add(this.SponsorsFuelTabPage);
+            this.SponsorsTabControl.Controls.Add(this.SponsorsCashTabPage);
+            this.SponsorsTabControl.Controls.Add(this.SponsorsContractTabPage);
+            this.SponsorsTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsTabControl.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsTabControl.Name = "SponsorsTabControl";
+            this.SponsorsTabControl.SelectedIndex = 0;
+            this.SponsorsTabControl.Size = new System.Drawing.Size(924, 523);
+            this.SponsorsTabControl.TabIndex = 0;
+            // 
+            // SponsorsTeamTabPage
+            // 
+            this.SponsorsTeamTabPage.Controls.Add(this.SponsorsTeamTableLayoutPanel);
+            this.SponsorsTeamTabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsTeamTabPage.Name = "SponsorsTeamTabPage";
+            this.SponsorsTeamTabPage.Size = new System.Drawing.Size(916, 497);
+            this.SponsorsTeamTabPage.TabIndex = 0;
+            this.SponsorsTeamTabPage.Text = "Team";
+            this.SponsorsTeamTabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsTeamTableLayoutPanel
+            // 
+            this.SponsorsTeamTableLayoutPanel.ColumnCount = 1;
+            this.SponsorsTeamTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsTeamTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsTeamTableLayoutPanel.Controls.Add(this.SponsorsTeamGroupBox, 0, 1);
+            this.SponsorsTeamTableLayoutPanel.Controls.Add(this.SponsorsTeamDataGridView, 0, 0);
+            this.SponsorsTeamTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsTeamTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsTeamTableLayoutPanel.Name = "SponsorsTeamTableLayoutPanel";
+            this.SponsorsTeamTableLayoutPanel.RowCount = 2;
+            this.SponsorsTeamTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsTeamTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsTeamTableLayoutPanel.Size = new System.Drawing.Size(916, 497);
+            this.SponsorsTeamTableLayoutPanel.TabIndex = 3;
+            // 
+            // SponsorsTeamGroupBox
+            // 
+            this.SponsorsTeamGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsTeamGroupBox.Location = new System.Drawing.Point(3, 446);
+            this.SponsorsTeamGroupBox.Name = "SponsorsTeamGroupBox";
+            this.SponsorsTeamGroupBox.Size = new System.Drawing.Size(910, 48);
+            this.SponsorsTeamGroupBox.TabIndex = 3;
+            this.SponsorsTeamGroupBox.TabStop = false;
+            this.SponsorsTeamGroupBox.Text = "Team Sponsors - Options";
+            // 
+            // SponsorsTeamDataGridView
+            // 
+            this.SponsorsTeamDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsTeamDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsTeamDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsTeamDataGridView.Name = "SponsorsTeamDataGridView";
+            this.SponsorsTeamDataGridView.Size = new System.Drawing.Size(910, 437);
+            this.SponsorsTeamDataGridView.TabIndex = 0;
+            // 
+            // SponsorsEngineTabPage
+            // 
+            this.SponsorsEngineTabPage.Controls.Add(this.SponsorsEngineTableLayoutPanel);
+            this.SponsorsEngineTabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsEngineTabPage.Name = "SponsorsEngineTabPage";
+            this.SponsorsEngineTabPage.Size = new System.Drawing.Size(916, 497);
+            this.SponsorsEngineTabPage.TabIndex = 0;
+            this.SponsorsEngineTabPage.Text = "Engine";
+            this.SponsorsEngineTabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsEngineTableLayoutPanel
+            // 
+            this.SponsorsEngineTableLayoutPanel.ColumnCount = 1;
+            this.SponsorsEngineTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsEngineTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsEngineTableLayoutPanel.Controls.Add(this.SponsorsEngineGroupBox, 0, 1);
+            this.SponsorsEngineTableLayoutPanel.Controls.Add(this.SponsorsEngineDataGridView, 0, 0);
+            this.SponsorsEngineTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsEngineTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsEngineTableLayoutPanel.Name = "SponsorsEngineTableLayoutPanel";
+            this.SponsorsEngineTableLayoutPanel.RowCount = 2;
+            this.SponsorsEngineTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsEngineTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsEngineTableLayoutPanel.Size = new System.Drawing.Size(916, 497);
+            this.SponsorsEngineTableLayoutPanel.TabIndex = 3;
+            // 
+            // SponsorsEngineGroupBox
+            // 
+            this.SponsorsEngineGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsEngineGroupBox.Location = new System.Drawing.Point(3, 446);
+            this.SponsorsEngineGroupBox.Name = "SponsorsEngineGroupBox";
+            this.SponsorsEngineGroupBox.Size = new System.Drawing.Size(910, 48);
+            this.SponsorsEngineGroupBox.TabIndex = 3;
+            this.SponsorsEngineGroupBox.TabStop = false;
+            this.SponsorsEngineGroupBox.Text = "Engine Suppliers - Options";
+            // 
+            // SponsorsEngineDataGridView
+            // 
+            this.SponsorsEngineDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsEngineDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsEngineDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsEngineDataGridView.Name = "SponsorsEngineDataGridView";
+            this.SponsorsEngineDataGridView.Size = new System.Drawing.Size(910, 437);
+            this.SponsorsEngineDataGridView.TabIndex = 0;
+            // 
+            // SponsorsTyreTabPage
+            // 
+            this.SponsorsTyreTabPage.Controls.Add(this.SponsorsTyreTableLayoutPanel);
+            this.SponsorsTyreTabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsTyreTabPage.Name = "SponsorsTyreTabPage";
+            this.SponsorsTyreTabPage.Size = new System.Drawing.Size(916, 497);
+            this.SponsorsTyreTabPage.TabIndex = 1;
+            this.SponsorsTyreTabPage.Text = "Tyre";
+            this.SponsorsTyreTabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsTyreTableLayoutPanel
+            // 
+            this.SponsorsTyreTableLayoutPanel.ColumnCount = 1;
+            this.SponsorsTyreTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsTyreTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsTyreTableLayoutPanel.Controls.Add(this.SponsorsTyreGroupBox, 0, 1);
+            this.SponsorsTyreTableLayoutPanel.Controls.Add(this.SponsorsTyreDataGridView, 0, 0);
+            this.SponsorsTyreTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsTyreTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsTyreTableLayoutPanel.Name = "SponsorsTyreTableLayoutPanel";
+            this.SponsorsTyreTableLayoutPanel.RowCount = 2;
+            this.SponsorsTyreTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsTyreTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsTyreTableLayoutPanel.Size = new System.Drawing.Size(916, 497);
+            this.SponsorsTyreTableLayoutPanel.TabIndex = 4;
+            // 
+            // SponsorsTyreGroupBox
+            // 
+            this.SponsorsTyreGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsTyreGroupBox.Location = new System.Drawing.Point(3, 446);
+            this.SponsorsTyreGroupBox.Name = "SponsorsTyreGroupBox";
+            this.SponsorsTyreGroupBox.Size = new System.Drawing.Size(910, 48);
+            this.SponsorsTyreGroupBox.TabIndex = 3;
+            this.SponsorsTyreGroupBox.TabStop = false;
+            this.SponsorsTyreGroupBox.Text = "Tyre Suppliers - Options";
+            // 
+            // SponsorsTyreDataGridView
+            // 
+            this.SponsorsTyreDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsTyreDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsTyreDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsTyreDataGridView.Name = "SponsorsTyreDataGridView";
+            this.SponsorsTyreDataGridView.Size = new System.Drawing.Size(910, 437);
+            this.SponsorsTyreDataGridView.TabIndex = 0;
+            // 
+            // SponsorsFuelTabPage
+            // 
+            this.SponsorsFuelTabPage.Controls.Add(this.SponsorsFuelTableLayoutPanel);
+            this.SponsorsFuelTabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsFuelTabPage.Name = "SponsorsFuelTabPage";
+            this.SponsorsFuelTabPage.Size = new System.Drawing.Size(916, 497);
+            this.SponsorsFuelTabPage.TabIndex = 2;
+            this.SponsorsFuelTabPage.Text = "Fuel";
+            this.SponsorsFuelTabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsFuelTableLayoutPanel
+            // 
+            this.SponsorsFuelTableLayoutPanel.ColumnCount = 1;
+            this.SponsorsFuelTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsFuelTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsFuelTableLayoutPanel.Controls.Add(this.SponsorsFuelGroupBox, 0, 1);
+            this.SponsorsFuelTableLayoutPanel.Controls.Add(this.SponsorsFuelDataGridView, 0, 0);
+            this.SponsorsFuelTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsFuelTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsFuelTableLayoutPanel.Name = "SponsorsFuelTableLayoutPanel";
+            this.SponsorsFuelTableLayoutPanel.RowCount = 2;
+            this.SponsorsFuelTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsFuelTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsFuelTableLayoutPanel.Size = new System.Drawing.Size(916, 497);
+            this.SponsorsFuelTableLayoutPanel.TabIndex = 4;
+            // 
+            // SponsorsFuelGroupBox
+            // 
+            this.SponsorsFuelGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsFuelGroupBox.Location = new System.Drawing.Point(3, 446);
+            this.SponsorsFuelGroupBox.Name = "SponsorsFuelGroupBox";
+            this.SponsorsFuelGroupBox.Size = new System.Drawing.Size(910, 48);
+            this.SponsorsFuelGroupBox.TabIndex = 3;
+            this.SponsorsFuelGroupBox.TabStop = false;
+            this.SponsorsFuelGroupBox.Text = "Fuel Suppliers - Options";
+            // 
+            // SponsorsFuelDataGridView
+            // 
+            this.SponsorsFuelDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsFuelDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsFuelDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsFuelDataGridView.Name = "SponsorsFuelDataGridView";
+            this.SponsorsFuelDataGridView.Size = new System.Drawing.Size(910, 437);
+            this.SponsorsFuelDataGridView.TabIndex = 0;
+            // 
+            // SponsorsCashTabPage
+            // 
+            this.SponsorsCashTabPage.Controls.Add(this.SponsorsCashTableLayoutPanel);
+            this.SponsorsCashTabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsCashTabPage.Name = "SponsorsCashTabPage";
+            this.SponsorsCashTabPage.Size = new System.Drawing.Size(916, 497);
+            this.SponsorsCashTabPage.TabIndex = 1;
+            this.SponsorsCashTabPage.Text = "Cash";
+            this.SponsorsCashTabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsCashTableLayoutPanel
+            // 
+            this.SponsorsCashTableLayoutPanel.ColumnCount = 1;
+            this.SponsorsCashTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsCashTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsCashTableLayoutPanel.Controls.Add(this.SponsorsCashGroupBox, 0, 1);
+            this.SponsorsCashTableLayoutPanel.Controls.Add(this.SponsorsCashDataGridView, 0, 0);
+            this.SponsorsCashTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsCashTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsCashTableLayoutPanel.Name = "SponsorsCashTableLayoutPanel";
+            this.SponsorsCashTableLayoutPanel.RowCount = 2;
+            this.SponsorsCashTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsCashTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsCashTableLayoutPanel.Size = new System.Drawing.Size(916, 497);
+            this.SponsorsCashTableLayoutPanel.TabIndex = 4;
+            // 
+            // SponsorsCashGroupBox
+            // 
+            this.SponsorsCashGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsCashGroupBox.Location = new System.Drawing.Point(3, 446);
+            this.SponsorsCashGroupBox.Name = "SponsorsCashGroupBox";
+            this.SponsorsCashGroupBox.Size = new System.Drawing.Size(910, 48);
+            this.SponsorsCashGroupBox.TabIndex = 3;
+            this.SponsorsCashGroupBox.TabStop = false;
+            this.SponsorsCashGroupBox.Text = "Cash Sponsors - Options";
+            // 
+            // SponsorsCashDataGridView
+            // 
+            this.SponsorsCashDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsCashDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsCashDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsCashDataGridView.Name = "SponsorsCashDataGridView";
+            this.SponsorsCashDataGridView.Size = new System.Drawing.Size(910, 437);
+            this.SponsorsCashDataGridView.TabIndex = 0;
+            // 
+            // SponsorsContractTabPage
+            // 
+            this.SponsorsContractTabPage.Controls.Add(this.SponsorsContractTabControl);
+            this.SponsorsContractTabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsContractTabPage.Name = "SponsorsContractTabPage";
+            this.SponsorsContractTabPage.Size = new System.Drawing.Size(916, 497);
+            this.SponsorsContractTabPage.TabIndex = 3;
+            this.SponsorsContractTabPage.Text = "Contracts";
+            this.SponsorsContractTabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsContractTabControl
+            // 
+            this.SponsorsContractTabControl.Controls.Add(this.SponsorsContractTeam01TabPage);
+            this.SponsorsContractTabControl.Controls.Add(this.SponsorsContractTeam02TabPage);
+            this.SponsorsContractTabControl.Controls.Add(this.SponsorsContractTeam03TabPage);
+            this.SponsorsContractTabControl.Controls.Add(this.SponsorsContractTeam04TabPage);
+            this.SponsorsContractTabControl.Controls.Add(this.SponsorsContractTeam05TabPage);
+            this.SponsorsContractTabControl.Controls.Add(this.SponsorsContractTeam06TabPage);
+            this.SponsorsContractTabControl.Controls.Add(this.SponsorsContractTeam07TabPage);
+            this.SponsorsContractTabControl.Controls.Add(this.SponsorsContractTeam08TabPage);
+            this.SponsorsContractTabControl.Controls.Add(this.SponsorsContractTeam09TabPage);
+            this.SponsorsContractTabControl.Controls.Add(this.SponsorsContractTeam10TabPage);
+            this.SponsorsContractTabControl.Controls.Add(this.SponsorsContractTeam11TabPage);
+            this.SponsorsContractTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTabControl.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsContractTabControl.Name = "SponsorsContractTabControl";
+            this.SponsorsContractTabControl.SelectedIndex = 0;
+            this.SponsorsContractTabControl.Size = new System.Drawing.Size(916, 497);
+            this.SponsorsContractTabControl.TabIndex = 1;
+            // 
+            // SponsorsContractTeam01TabPage
+            // 
+            this.SponsorsContractTeam01TabPage.Controls.Add(this.SponsorsContractTeam01TableLayoutPanel);
+            this.SponsorsContractTeam01TabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsContractTeam01TabPage.Name = "SponsorsContractTeam01TabPage";
+            this.SponsorsContractTeam01TabPage.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam01TabPage.TabIndex = 0;
+            this.SponsorsContractTeam01TabPage.Text = "Team 1";
+            this.SponsorsContractTeam01TabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsContractTeam01TableLayoutPanel
+            // 
+            this.SponsorsContractTeam01TableLayoutPanel.ColumnCount = 1;
+            this.SponsorsContractTeam01TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam01TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsContractTeam01TableLayoutPanel.Controls.Add(this.SponsorsContractTeam01GroupBox, 0, 1);
+            this.SponsorsContractTeam01TableLayoutPanel.Controls.Add(this.SponsorsContractTeam01DataGridView, 0, 0);
+            this.SponsorsContractTeam01TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam01TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsContractTeam01TableLayoutPanel.Name = "SponsorsContractTeam01TableLayoutPanel";
+            this.SponsorsContractTeam01TableLayoutPanel.RowCount = 2;
+            this.SponsorsContractTeam01TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam01TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsContractTeam01TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam01TableLayoutPanel.TabIndex = 1;
+            // 
+            // SponsorsContractTeam01GroupBox
+            // 
+            this.SponsorsContractTeam01GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam01GroupBox.Location = new System.Drawing.Point(3, 420);
+            this.SponsorsContractTeam01GroupBox.Name = "SponsorsContractTeam01GroupBox";
+            this.SponsorsContractTeam01GroupBox.Size = new System.Drawing.Size(902, 48);
+            this.SponsorsContractTeam01GroupBox.TabIndex = 3;
+            this.SponsorsContractTeam01GroupBox.TabStop = false;
+            this.SponsorsContractTeam01GroupBox.Text = "Team 1 - Options";
+            // 
+            // SponsorsContractTeam01DataGridView
+            // 
+            this.SponsorsContractTeam01DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsContractTeam01DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam01DataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsContractTeam01DataGridView.Name = "SponsorsContractTeam01DataGridView";
+            this.SponsorsContractTeam01DataGridView.Size = new System.Drawing.Size(902, 411);
+            this.SponsorsContractTeam01DataGridView.TabIndex = 0;
+            this.SponsorsContractTeam01DataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SponsorsContractDataGridView_CellFormatting);
+            this.SponsorsContractTeam01DataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.SponsorsContractDataGridView_DataBindingComplete);
+            // 
+            // SponsorsContractTeam02TabPage
+            // 
+            this.SponsorsContractTeam02TabPage.Controls.Add(this.SponsorsContractTeam02TableLayoutPanel);
+            this.SponsorsContractTeam02TabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsContractTeam02TabPage.Name = "SponsorsContractTeam02TabPage";
+            this.SponsorsContractTeam02TabPage.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam02TabPage.TabIndex = 1;
+            this.SponsorsContractTeam02TabPage.Text = "Team 2";
+            this.SponsorsContractTeam02TabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsContractTeam02TableLayoutPanel
+            // 
+            this.SponsorsContractTeam02TableLayoutPanel.ColumnCount = 1;
+            this.SponsorsContractTeam02TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam02TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsContractTeam02TableLayoutPanel.Controls.Add(this.SponsorsContractTeam02GroupBox, 0, 1);
+            this.SponsorsContractTeam02TableLayoutPanel.Controls.Add(this.SponsorsContractTeam02DataGridView, 0, 0);
+            this.SponsorsContractTeam02TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam02TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsContractTeam02TableLayoutPanel.Name = "SponsorsContractTeam02TableLayoutPanel";
+            this.SponsorsContractTeam02TableLayoutPanel.RowCount = 2;
+            this.SponsorsContractTeam02TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam02TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsContractTeam02TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam02TableLayoutPanel.TabIndex = 2;
+            // 
+            // SponsorsContractTeam02GroupBox
+            // 
+            this.SponsorsContractTeam02GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam02GroupBox.Location = new System.Drawing.Point(3, 420);
+            this.SponsorsContractTeam02GroupBox.Name = "SponsorsContractTeam02GroupBox";
+            this.SponsorsContractTeam02GroupBox.Size = new System.Drawing.Size(902, 48);
+            this.SponsorsContractTeam02GroupBox.TabIndex = 4;
+            this.SponsorsContractTeam02GroupBox.TabStop = false;
+            this.SponsorsContractTeam02GroupBox.Text = "Team 2 - Options";
+            // 
+            // SponsorsContractTeam02DataGridView
+            // 
+            this.SponsorsContractTeam02DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsContractTeam02DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam02DataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsContractTeam02DataGridView.Name = "SponsorsContractTeam02DataGridView";
+            this.SponsorsContractTeam02DataGridView.Size = new System.Drawing.Size(902, 411);
+            this.SponsorsContractTeam02DataGridView.TabIndex = 0;
+            this.SponsorsContractTeam02DataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SponsorsContractDataGridView_CellFormatting);
+            this.SponsorsContractTeam02DataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.SponsorsContractDataGridView_DataBindingComplete);
+            // 
+            // SponsorsContractTeam03TabPage
+            // 
+            this.SponsorsContractTeam03TabPage.Controls.Add(this.SponsorsContractTeam03TableLayoutPanel);
+            this.SponsorsContractTeam03TabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsContractTeam03TabPage.Name = "SponsorsContractTeam03TabPage";
+            this.SponsorsContractTeam03TabPage.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam03TabPage.TabIndex = 2;
+            this.SponsorsContractTeam03TabPage.Text = "Team 3";
+            this.SponsorsContractTeam03TabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsContractTeam03TableLayoutPanel
+            // 
+            this.SponsorsContractTeam03TableLayoutPanel.ColumnCount = 1;
+            this.SponsorsContractTeam03TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam03TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsContractTeam03TableLayoutPanel.Controls.Add(this.SponsorsContractTeam03GroupBox, 0, 1);
+            this.SponsorsContractTeam03TableLayoutPanel.Controls.Add(this.SponsorsContractTeam03DataGridView, 0, 0);
+            this.SponsorsContractTeam03TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam03TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsContractTeam03TableLayoutPanel.Name = "SponsorsContractTeam03TableLayoutPanel";
+            this.SponsorsContractTeam03TableLayoutPanel.RowCount = 2;
+            this.SponsorsContractTeam03TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam03TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsContractTeam03TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam03TableLayoutPanel.TabIndex = 2;
+            // 
+            // SponsorsContractTeam03GroupBox
+            // 
+            this.SponsorsContractTeam03GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam03GroupBox.Location = new System.Drawing.Point(3, 420);
+            this.SponsorsContractTeam03GroupBox.Name = "SponsorsContractTeam03GroupBox";
+            this.SponsorsContractTeam03GroupBox.Size = new System.Drawing.Size(902, 48);
+            this.SponsorsContractTeam03GroupBox.TabIndex = 4;
+            this.SponsorsContractTeam03GroupBox.TabStop = false;
+            this.SponsorsContractTeam03GroupBox.Text = "Team 3 - Options";
+            // 
+            // SponsorsContractTeam03DataGridView
+            // 
+            this.SponsorsContractTeam03DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsContractTeam03DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam03DataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsContractTeam03DataGridView.Name = "SponsorsContractTeam03DataGridView";
+            this.SponsorsContractTeam03DataGridView.Size = new System.Drawing.Size(902, 411);
+            this.SponsorsContractTeam03DataGridView.TabIndex = 0;
+            this.SponsorsContractTeam03DataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SponsorsContractDataGridView_CellFormatting);
+            this.SponsorsContractTeam03DataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.SponsorsContractDataGridView_DataBindingComplete);
+            // 
+            // SponsorsContractTeam04TabPage
+            // 
+            this.SponsorsContractTeam04TabPage.Controls.Add(this.SponsorsContractTeam04TableLayoutPanel);
+            this.SponsorsContractTeam04TabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsContractTeam04TabPage.Name = "SponsorsContractTeam04TabPage";
+            this.SponsorsContractTeam04TabPage.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam04TabPage.TabIndex = 3;
+            this.SponsorsContractTeam04TabPage.Text = "Team 4";
+            this.SponsorsContractTeam04TabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsContractTeam04TableLayoutPanel
+            // 
+            this.SponsorsContractTeam04TableLayoutPanel.ColumnCount = 1;
+            this.SponsorsContractTeam04TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam04TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsContractTeam04TableLayoutPanel.Controls.Add(this.SponsorsContractTeam04GroupBox, 0, 1);
+            this.SponsorsContractTeam04TableLayoutPanel.Controls.Add(this.SponsorsContractTeam04DataGridView, 0, 0);
+            this.SponsorsContractTeam04TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam04TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsContractTeam04TableLayoutPanel.Name = "SponsorsContractTeam04TableLayoutPanel";
+            this.SponsorsContractTeam04TableLayoutPanel.RowCount = 2;
+            this.SponsorsContractTeam04TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam04TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsContractTeam04TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam04TableLayoutPanel.TabIndex = 2;
+            // 
+            // SponsorsContractTeam04GroupBox
+            // 
+            this.SponsorsContractTeam04GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam04GroupBox.Location = new System.Drawing.Point(3, 420);
+            this.SponsorsContractTeam04GroupBox.Name = "SponsorsContractTeam04GroupBox";
+            this.SponsorsContractTeam04GroupBox.Size = new System.Drawing.Size(902, 48);
+            this.SponsorsContractTeam04GroupBox.TabIndex = 4;
+            this.SponsorsContractTeam04GroupBox.TabStop = false;
+            this.SponsorsContractTeam04GroupBox.Text = "Team 4 - Options";
+            // 
+            // SponsorsContractTeam04DataGridView
+            // 
+            this.SponsorsContractTeam04DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsContractTeam04DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam04DataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsContractTeam04DataGridView.Name = "SponsorsContractTeam04DataGridView";
+            this.SponsorsContractTeam04DataGridView.Size = new System.Drawing.Size(902, 411);
+            this.SponsorsContractTeam04DataGridView.TabIndex = 0;
+            this.SponsorsContractTeam04DataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SponsorsContractDataGridView_CellFormatting);
+            this.SponsorsContractTeam04DataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.SponsorsContractDataGridView_DataBindingComplete);
+            // 
+            // SponsorsContractTeam05TabPage
+            // 
+            this.SponsorsContractTeam05TabPage.Controls.Add(this.SponsorsContractTeam05TableLayoutPanel);
+            this.SponsorsContractTeam05TabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsContractTeam05TabPage.Name = "SponsorsContractTeam05TabPage";
+            this.SponsorsContractTeam05TabPage.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam05TabPage.TabIndex = 4;
+            this.SponsorsContractTeam05TabPage.Text = "Team 5";
+            this.SponsorsContractTeam05TabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsContractTeam05TableLayoutPanel
+            // 
+            this.SponsorsContractTeam05TableLayoutPanel.ColumnCount = 1;
+            this.SponsorsContractTeam05TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam05TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsContractTeam05TableLayoutPanel.Controls.Add(this.SponsorsContractTeam05GroupBox, 0, 1);
+            this.SponsorsContractTeam05TableLayoutPanel.Controls.Add(this.SponsorsContractTeam05DataGridView, 0, 0);
+            this.SponsorsContractTeam05TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam05TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsContractTeam05TableLayoutPanel.Name = "SponsorsContractTeam05TableLayoutPanel";
+            this.SponsorsContractTeam05TableLayoutPanel.RowCount = 2;
+            this.SponsorsContractTeam05TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam05TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsContractTeam05TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam05TableLayoutPanel.TabIndex = 1;
+            // 
+            // SponsorsContractTeam05GroupBox
+            // 
+            this.SponsorsContractTeam05GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam05GroupBox.Location = new System.Drawing.Point(3, 420);
+            this.SponsorsContractTeam05GroupBox.Name = "SponsorsContractTeam05GroupBox";
+            this.SponsorsContractTeam05GroupBox.Size = new System.Drawing.Size(902, 48);
+            this.SponsorsContractTeam05GroupBox.TabIndex = 3;
+            this.SponsorsContractTeam05GroupBox.TabStop = false;
+            this.SponsorsContractTeam05GroupBox.Text = "Team 5 - Options";
+            // 
+            // SponsorsContractTeam05DataGridView
+            // 
+            this.SponsorsContractTeam05DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsContractTeam05DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam05DataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsContractTeam05DataGridView.Name = "SponsorsContractTeam05DataGridView";
+            this.SponsorsContractTeam05DataGridView.Size = new System.Drawing.Size(902, 411);
+            this.SponsorsContractTeam05DataGridView.TabIndex = 0;
+            this.SponsorsContractTeam05DataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SponsorsContractDataGridView_CellFormatting);
+            this.SponsorsContractTeam05DataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.SponsorsContractDataGridView_DataBindingComplete);
+            // 
+            // SponsorsContractTeam06TabPage
+            // 
+            this.SponsorsContractTeam06TabPage.Controls.Add(this.SponsorsContractTeam06TableLayoutPanel);
+            this.SponsorsContractTeam06TabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsContractTeam06TabPage.Name = "SponsorsContractTeam06TabPage";
+            this.SponsorsContractTeam06TabPage.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam06TabPage.TabIndex = 5;
+            this.SponsorsContractTeam06TabPage.Text = "Team 6";
+            this.SponsorsContractTeam06TabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsContractTeam06TableLayoutPanel
+            // 
+            this.SponsorsContractTeam06TableLayoutPanel.ColumnCount = 1;
+            this.SponsorsContractTeam06TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam06TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsContractTeam06TableLayoutPanel.Controls.Add(this.SponsorsContractTeam06GroupBox, 0, 1);
+            this.SponsorsContractTeam06TableLayoutPanel.Controls.Add(this.SponsorsContractTeam06DataGridView, 0, 0);
+            this.SponsorsContractTeam06TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam06TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsContractTeam06TableLayoutPanel.Name = "SponsorsContractTeam06TableLayoutPanel";
+            this.SponsorsContractTeam06TableLayoutPanel.RowCount = 2;
+            this.SponsorsContractTeam06TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam06TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsContractTeam06TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam06TableLayoutPanel.TabIndex = 1;
+            // 
+            // SponsorsContractTeam06GroupBox
+            // 
+            this.SponsorsContractTeam06GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam06GroupBox.Location = new System.Drawing.Point(3, 420);
+            this.SponsorsContractTeam06GroupBox.Name = "SponsorsContractTeam06GroupBox";
+            this.SponsorsContractTeam06GroupBox.Size = new System.Drawing.Size(902, 48);
+            this.SponsorsContractTeam06GroupBox.TabIndex = 3;
+            this.SponsorsContractTeam06GroupBox.TabStop = false;
+            this.SponsorsContractTeam06GroupBox.Text = "Team 6 - Options";
+            // 
+            // SponsorsContractTeam06DataGridView
+            // 
+            this.SponsorsContractTeam06DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsContractTeam06DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam06DataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsContractTeam06DataGridView.Name = "SponsorsContractTeam06DataGridView";
+            this.SponsorsContractTeam06DataGridView.Size = new System.Drawing.Size(902, 411);
+            this.SponsorsContractTeam06DataGridView.TabIndex = 0;
+            this.SponsorsContractTeam06DataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SponsorsContractDataGridView_CellFormatting);
+            this.SponsorsContractTeam06DataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.SponsorsContractDataGridView_DataBindingComplete);
+            // 
+            // SponsorsContractTeam07TabPage
+            // 
+            this.SponsorsContractTeam07TabPage.Controls.Add(this.SponsorsContractTeam07TableLayoutPanel);
+            this.SponsorsContractTeam07TabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsContractTeam07TabPage.Name = "SponsorsContractTeam07TabPage";
+            this.SponsorsContractTeam07TabPage.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam07TabPage.TabIndex = 6;
+            this.SponsorsContractTeam07TabPage.Text = "Team 7";
+            this.SponsorsContractTeam07TabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsContractTeam07TableLayoutPanel
+            // 
+            this.SponsorsContractTeam07TableLayoutPanel.ColumnCount = 1;
+            this.SponsorsContractTeam07TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam07TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsContractTeam07TableLayoutPanel.Controls.Add(this.SponsorsContractTeam07GroupBox, 0, 1);
+            this.SponsorsContractTeam07TableLayoutPanel.Controls.Add(this.SponsorsContractTeam07DataGridView, 0, 0);
+            this.SponsorsContractTeam07TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam07TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsContractTeam07TableLayoutPanel.Name = "SponsorsContractTeam07TableLayoutPanel";
+            this.SponsorsContractTeam07TableLayoutPanel.RowCount = 2;
+            this.SponsorsContractTeam07TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam07TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsContractTeam07TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam07TableLayoutPanel.TabIndex = 1;
+            // 
+            // SponsorsContractTeam07GroupBox
+            // 
+            this.SponsorsContractTeam07GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam07GroupBox.Location = new System.Drawing.Point(3, 420);
+            this.SponsorsContractTeam07GroupBox.Name = "SponsorsContractTeam07GroupBox";
+            this.SponsorsContractTeam07GroupBox.Size = new System.Drawing.Size(902, 48);
+            this.SponsorsContractTeam07GroupBox.TabIndex = 3;
+            this.SponsorsContractTeam07GroupBox.TabStop = false;
+            this.SponsorsContractTeam07GroupBox.Text = "Team 7 - Options";
+            // 
+            // SponsorsContractTeam07DataGridView
+            // 
+            this.SponsorsContractTeam07DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsContractTeam07DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam07DataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsContractTeam07DataGridView.Name = "SponsorsContractTeam07DataGridView";
+            this.SponsorsContractTeam07DataGridView.Size = new System.Drawing.Size(902, 411);
+            this.SponsorsContractTeam07DataGridView.TabIndex = 0;
+            this.SponsorsContractTeam07DataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SponsorsContractDataGridView_CellFormatting);
+            this.SponsorsContractTeam07DataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.SponsorsContractDataGridView_DataBindingComplete);
+            // 
+            // SponsorsContractTeam08TabPage
+            // 
+            this.SponsorsContractTeam08TabPage.Controls.Add(this.SponsorsContractTeam08TableLayoutPanel);
+            this.SponsorsContractTeam08TabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsContractTeam08TabPage.Name = "SponsorsContractTeam08TabPage";
+            this.SponsorsContractTeam08TabPage.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam08TabPage.TabIndex = 7;
+            this.SponsorsContractTeam08TabPage.Text = "Team 8";
+            this.SponsorsContractTeam08TabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsContractTeam08TableLayoutPanel
+            // 
+            this.SponsorsContractTeam08TableLayoutPanel.ColumnCount = 1;
+            this.SponsorsContractTeam08TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam08TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsContractTeam08TableLayoutPanel.Controls.Add(this.SponsorsContractTeam08GroupBox, 0, 1);
+            this.SponsorsContractTeam08TableLayoutPanel.Controls.Add(this.SponsorsContractTeam08DataGridView, 0, 0);
+            this.SponsorsContractTeam08TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam08TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsContractTeam08TableLayoutPanel.Name = "SponsorsContractTeam08TableLayoutPanel";
+            this.SponsorsContractTeam08TableLayoutPanel.RowCount = 2;
+            this.SponsorsContractTeam08TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam08TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsContractTeam08TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam08TableLayoutPanel.TabIndex = 1;
+            // 
+            // SponsorsContractTeam08GroupBox
+            // 
+            this.SponsorsContractTeam08GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam08GroupBox.Location = new System.Drawing.Point(3, 420);
+            this.SponsorsContractTeam08GroupBox.Name = "SponsorsContractTeam08GroupBox";
+            this.SponsorsContractTeam08GroupBox.Size = new System.Drawing.Size(902, 48);
+            this.SponsorsContractTeam08GroupBox.TabIndex = 3;
+            this.SponsorsContractTeam08GroupBox.TabStop = false;
+            this.SponsorsContractTeam08GroupBox.Text = "Team 8 - Options";
+            // 
+            // SponsorsContractTeam08DataGridView
+            // 
+            this.SponsorsContractTeam08DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsContractTeam08DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam08DataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsContractTeam08DataGridView.Name = "SponsorsContractTeam08DataGridView";
+            this.SponsorsContractTeam08DataGridView.Size = new System.Drawing.Size(902, 411);
+            this.SponsorsContractTeam08DataGridView.TabIndex = 0;
+            this.SponsorsContractTeam08DataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SponsorsContractDataGridView_CellFormatting);
+            this.SponsorsContractTeam08DataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.SponsorsContractDataGridView_DataBindingComplete);
+            // 
+            // SponsorsContractTeam09TabPage
+            // 
+            this.SponsorsContractTeam09TabPage.Controls.Add(this.SponsorsContractTeam09TableLayoutPanel);
+            this.SponsorsContractTeam09TabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsContractTeam09TabPage.Name = "SponsorsContractTeam09TabPage";
+            this.SponsorsContractTeam09TabPage.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam09TabPage.TabIndex = 8;
+            this.SponsorsContractTeam09TabPage.Text = "Team 9";
+            this.SponsorsContractTeam09TabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsContractTeam09TableLayoutPanel
+            // 
+            this.SponsorsContractTeam09TableLayoutPanel.ColumnCount = 1;
+            this.SponsorsContractTeam09TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam09TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsContractTeam09TableLayoutPanel.Controls.Add(this.SponsorsContractTeam09GroupBox, 0, 1);
+            this.SponsorsContractTeam09TableLayoutPanel.Controls.Add(this.SponsorsContractTeam09DataGridView, 0, 0);
+            this.SponsorsContractTeam09TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam09TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsContractTeam09TableLayoutPanel.Name = "SponsorsContractTeam09TableLayoutPanel";
+            this.SponsorsContractTeam09TableLayoutPanel.RowCount = 2;
+            this.SponsorsContractTeam09TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam09TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsContractTeam09TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam09TableLayoutPanel.TabIndex = 1;
+            // 
+            // SponsorsContractTeam09GroupBox
+            // 
+            this.SponsorsContractTeam09GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam09GroupBox.Location = new System.Drawing.Point(3, 420);
+            this.SponsorsContractTeam09GroupBox.Name = "SponsorsContractTeam09GroupBox";
+            this.SponsorsContractTeam09GroupBox.Size = new System.Drawing.Size(902, 48);
+            this.SponsorsContractTeam09GroupBox.TabIndex = 3;
+            this.SponsorsContractTeam09GroupBox.TabStop = false;
+            this.SponsorsContractTeam09GroupBox.Text = "Team 9 - Options";
+            // 
+            // SponsorsContractTeam09DataGridView
+            // 
+            this.SponsorsContractTeam09DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsContractTeam09DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam09DataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsContractTeam09DataGridView.Name = "SponsorsContractTeam09DataGridView";
+            this.SponsorsContractTeam09DataGridView.Size = new System.Drawing.Size(902, 411);
+            this.SponsorsContractTeam09DataGridView.TabIndex = 0;
+            this.SponsorsContractTeam09DataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SponsorsContractDataGridView_CellFormatting);
+            this.SponsorsContractTeam09DataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.SponsorsContractDataGridView_DataBindingComplete);
+            // 
+            // SponsorsContractTeam10TabPage
+            // 
+            this.SponsorsContractTeam10TabPage.Controls.Add(this.SponsorsContractTeam10TableLayoutPanel);
+            this.SponsorsContractTeam10TabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsContractTeam10TabPage.Name = "SponsorsContractTeam10TabPage";
+            this.SponsorsContractTeam10TabPage.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam10TabPage.TabIndex = 9;
+            this.SponsorsContractTeam10TabPage.Text = "Team 10";
+            this.SponsorsContractTeam10TabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsContractTeam10TableLayoutPanel
+            // 
+            this.SponsorsContractTeam10TableLayoutPanel.ColumnCount = 1;
+            this.SponsorsContractTeam10TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam10TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsContractTeam10TableLayoutPanel.Controls.Add(this.SponsorsContractTeam10GroupBox, 0, 1);
+            this.SponsorsContractTeam10TableLayoutPanel.Controls.Add(this.SponsorsContractTeam10DataGridView, 0, 0);
+            this.SponsorsContractTeam10TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam10TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsContractTeam10TableLayoutPanel.Name = "SponsorsContractTeam10TableLayoutPanel";
+            this.SponsorsContractTeam10TableLayoutPanel.RowCount = 2;
+            this.SponsorsContractTeam10TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam10TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsContractTeam10TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam10TableLayoutPanel.TabIndex = 1;
+            // 
+            // SponsorsContractTeam10GroupBox
+            // 
+            this.SponsorsContractTeam10GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam10GroupBox.Location = new System.Drawing.Point(3, 420);
+            this.SponsorsContractTeam10GroupBox.Name = "SponsorsContractTeam10GroupBox";
+            this.SponsorsContractTeam10GroupBox.Size = new System.Drawing.Size(902, 48);
+            this.SponsorsContractTeam10GroupBox.TabIndex = 3;
+            this.SponsorsContractTeam10GroupBox.TabStop = false;
+            this.SponsorsContractTeam10GroupBox.Text = "Team 10 - Options";
+            // 
+            // SponsorsContractTeam10DataGridView
+            // 
+            this.SponsorsContractTeam10DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsContractTeam10DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam10DataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsContractTeam10DataGridView.Name = "SponsorsContractTeam10DataGridView";
+            this.SponsorsContractTeam10DataGridView.Size = new System.Drawing.Size(902, 411);
+            this.SponsorsContractTeam10DataGridView.TabIndex = 0;
+            this.SponsorsContractTeam10DataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SponsorsContractDataGridView_CellFormatting);
+            this.SponsorsContractTeam10DataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.SponsorsContractDataGridView_DataBindingComplete);
+            // 
+            // SponsorsContractTeam11TabPage
+            // 
+            this.SponsorsContractTeam11TabPage.Controls.Add(this.SponsorsContractTeam11TableLayoutPanel);
+            this.SponsorsContractTeam11TabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsContractTeam11TabPage.Name = "SponsorsContractTeam11TabPage";
+            this.SponsorsContractTeam11TabPage.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam11TabPage.TabIndex = 10;
+            this.SponsorsContractTeam11TabPage.Text = "Team 11";
+            this.SponsorsContractTeam11TabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsContractTeam11TableLayoutPanel
+            // 
+            this.SponsorsContractTeam11TableLayoutPanel.ColumnCount = 1;
+            this.SponsorsContractTeam11TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam11TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsContractTeam11TableLayoutPanel.Controls.Add(this.SponsorsContractTeam11GroupBox, 0, 1);
+            this.SponsorsContractTeam11TableLayoutPanel.Controls.Add(this.SponsorsContractTeam11DataGridView, 0, 0);
+            this.SponsorsContractTeam11TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam11TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsContractTeam11TableLayoutPanel.Name = "SponsorsContractTeam11TableLayoutPanel";
+            this.SponsorsContractTeam11TableLayoutPanel.RowCount = 2;
+            this.SponsorsContractTeam11TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsContractTeam11TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsContractTeam11TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
+            this.SponsorsContractTeam11TableLayoutPanel.TabIndex = 1;
+            // 
+            // SponsorsContractTeam11GroupBox
+            // 
+            this.SponsorsContractTeam11GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam11GroupBox.Location = new System.Drawing.Point(3, 420);
+            this.SponsorsContractTeam11GroupBox.Name = "SponsorsContractTeam11GroupBox";
+            this.SponsorsContractTeam11GroupBox.Size = new System.Drawing.Size(902, 48);
+            this.SponsorsContractTeam11GroupBox.TabIndex = 3;
+            this.SponsorsContractTeam11GroupBox.TabStop = false;
+            this.SponsorsContractTeam11GroupBox.Text = "Team 11 - Options";
+            // 
+            // SponsorsContractTeam11DataGridView
+            // 
+            this.SponsorsContractTeam11DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsContractTeam11DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsContractTeam11DataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsContractTeam11DataGridView.Name = "SponsorsContractTeam11DataGridView";
+            this.SponsorsContractTeam11DataGridView.Size = new System.Drawing.Size(902, 411);
+            this.SponsorsContractTeam11DataGridView.TabIndex = 0;
+            this.SponsorsContractTeam11DataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.SponsorsContractDataGridView_CellFormatting);
+            this.SponsorsContractTeam11DataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.SponsorsContractDataGridView_DataBindingComplete);
             // 
             // TracksTabPage
             // 
@@ -1979,96 +2091,6 @@
             this.TracksGroupBox.TabIndex = 2;
             this.TracksGroupBox.TabStop = false;
             this.TracksGroupBox.Text = "Tracks - Options";
-            // 
-            // SponsorshipContractsTeam10TabPage
-            // 
-            this.SponsorshipContractsTeam10TabPage.Controls.Add(this.SponsorshipContractsTeam10TableLayoutPanel);
-            this.SponsorshipContractsTeam10TabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipContractsTeam10TabPage.Name = "SponsorshipContractsTeam10TabPage";
-            this.SponsorshipContractsTeam10TabPage.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam10TabPage.TabIndex = 9;
-            this.SponsorshipContractsTeam10TabPage.Text = "Team 10";
-            this.SponsorshipContractsTeam10TabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipContractsTeam10TableLayoutPanel
-            // 
-            this.SponsorshipContractsTeam10TableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipContractsTeam10TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam10TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipContractsTeam10TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam10GroupBox, 0, 1);
-            this.SponsorshipContractsTeam10TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam10DataGridView, 0, 0);
-            this.SponsorshipContractsTeam10TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam10TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipContractsTeam10TableLayoutPanel.Name = "SponsorshipContractsTeam10TableLayoutPanel";
-            this.SponsorshipContractsTeam10TableLayoutPanel.RowCount = 2;
-            this.SponsorshipContractsTeam10TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam10TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipContractsTeam10TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam10TableLayoutPanel.TabIndex = 1;
-            // 
-            // SponsorshipContractsTeam10GroupBox
-            // 
-            this.SponsorshipContractsTeam10GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam10GroupBox.Location = new System.Drawing.Point(3, 420);
-            this.SponsorshipContractsTeam10GroupBox.Name = "SponsorshipContractsTeam10GroupBox";
-            this.SponsorshipContractsTeam10GroupBox.Size = new System.Drawing.Size(902, 48);
-            this.SponsorshipContractsTeam10GroupBox.TabIndex = 3;
-            this.SponsorshipContractsTeam10GroupBox.TabStop = false;
-            this.SponsorshipContractsTeam10GroupBox.Text = "Team 10 - Options";
-            // 
-            // SponsorshipContractsTeam10DataGridView
-            // 
-            this.SponsorshipContractsTeam10DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipContractsTeam10DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam10DataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipContractsTeam10DataGridView.Name = "SponsorshipContractsTeam10DataGridView";
-            this.SponsorshipContractsTeam10DataGridView.Size = new System.Drawing.Size(902, 411);
-            this.SponsorshipContractsTeam10DataGridView.TabIndex = 0;
-            // 
-            // SponsorshipContractsTeam11TabPage
-            // 
-            this.SponsorshipContractsTeam11TabPage.Controls.Add(this.SponsorshipContractsTeam11TableLayoutPanel);
-            this.SponsorshipContractsTeam11TabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorshipContractsTeam11TabPage.Name = "SponsorshipContractsTeam11TabPage";
-            this.SponsorshipContractsTeam11TabPage.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam11TabPage.TabIndex = 10;
-            this.SponsorshipContractsTeam11TabPage.Text = "Team 11";
-            this.SponsorshipContractsTeam11TabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorshipContractsTeam11TableLayoutPanel
-            // 
-            this.SponsorshipContractsTeam11TableLayoutPanel.ColumnCount = 1;
-            this.SponsorshipContractsTeam11TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam11TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorshipContractsTeam11TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam11GroupBox, 0, 1);
-            this.SponsorshipContractsTeam11TableLayoutPanel.Controls.Add(this.SponsorshipContractsTeam11DataGridView, 0, 0);
-            this.SponsorshipContractsTeam11TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam11TableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorshipContractsTeam11TableLayoutPanel.Name = "SponsorshipContractsTeam11TableLayoutPanel";
-            this.SponsorshipContractsTeam11TableLayoutPanel.RowCount = 2;
-            this.SponsorshipContractsTeam11TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorshipContractsTeam11TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorshipContractsTeam11TableLayoutPanel.Size = new System.Drawing.Size(908, 471);
-            this.SponsorshipContractsTeam11TableLayoutPanel.TabIndex = 1;
-            // 
-            // SponsorshipContractsTeam11GroupBox
-            // 
-            this.SponsorshipContractsTeam11GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam11GroupBox.Location = new System.Drawing.Point(3, 420);
-            this.SponsorshipContractsTeam11GroupBox.Name = "SponsorshipContractsTeam11GroupBox";
-            this.SponsorshipContractsTeam11GroupBox.Size = new System.Drawing.Size(902, 48);
-            this.SponsorshipContractsTeam11GroupBox.TabIndex = 3;
-            this.SponsorshipContractsTeam11GroupBox.TabStop = false;
-            this.SponsorshipContractsTeam11GroupBox.Text = "Team 11 - Options";
-            // 
-            // SponsorshipContractsTeam11DataGridView
-            // 
-            this.SponsorshipContractsTeam11DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorshipContractsTeam11DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorshipContractsTeam11DataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorshipContractsTeam11DataGridView.Name = "SponsorshipContractsTeam11DataGridView";
-            this.SponsorshipContractsTeam11DataGridView.Size = new System.Drawing.Size(902, 411);
-            this.SponsorshipContractsTeam11DataGridView.TabIndex = 0;
             // 
             // BaseGameEditorForm
             // 
@@ -2130,61 +2152,61 @@
             this.DriversNonF1TabPage.ResumeLayout(false);
             this.DriversNonF1TableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DriversNonF1DataGridView)).EndInit();
-            this.SponsorshipTabPage.ResumeLayout(false);
-            this.SponsorshipTabControl.ResumeLayout(false);
-            this.SponsorshipTeamTabPage.ResumeLayout(false);
-            this.SponsorshipTeamTableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipTeamDataGridView)).EndInit();
-            this.SponsorshipEngineTabPage.ResumeLayout(false);
-            this.SponsorshipEngineTableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipEngineDataGridView)).EndInit();
-            this.SponsorshipTyreTabPage.ResumeLayout(false);
-            this.SponsorshipTyreTableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipTyreDataGridView)).EndInit();
-            this.SponsorshipFuelTabPage.ResumeLayout(false);
-            this.SponsorshipFuelTableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipFuelDataGridView)).EndInit();
-            this.SponsorshipCashTabPage.ResumeLayout(false);
-            this.SponsorshipCashTableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipCashDataGridView)).EndInit();
-            this.SponsorshipContractsTabPage.ResumeLayout(false);
-            this.SponsorshipContractsTabControl.ResumeLayout(false);
-            this.SponsorshipContractsTeam01TabPage.ResumeLayout(false);
-            this.SponsorshipContractsTeam01TableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam01DataGridView)).EndInit();
-            this.SponsorshipContractsTeam02TabPage.ResumeLayout(false);
-            this.SponsorshipContractsTeam02TableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam02DataGridView)).EndInit();
-            this.SponsorshipContractsTeam03TabPage.ResumeLayout(false);
-            this.SponsorshipContractsTeam03TableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam03DataGridView)).EndInit();
-            this.SponsorshipContractsTeam04TabPage.ResumeLayout(false);
-            this.SponsorshipContractsTeam04TableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam04DataGridView)).EndInit();
-            this.SponsorshipContractsTeam05TabPage.ResumeLayout(false);
-            this.SponsorshipContractsTeam05TableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam05DataGridView)).EndInit();
-            this.SponsorshipContractsTeam06TabPage.ResumeLayout(false);
-            this.SponsorshipContractsTeam06TableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam06DataGridView)).EndInit();
-            this.SponsorshipContractsTeam07TabPage.ResumeLayout(false);
-            this.SponsorshipContractsTeam07TableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam07DataGridView)).EndInit();
-            this.SponsorshipContractsTeam08TabPage.ResumeLayout(false);
-            this.SponsorshipContractsTeam08TableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam08DataGridView)).EndInit();
-            this.SponsorshipContractsTeam09TabPage.ResumeLayout(false);
-            this.SponsorshipContractsTeam09TableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam09DataGridView)).EndInit();
+            this.SponsorsTabPage.ResumeLayout(false);
+            this.SponsorsTabControl.ResumeLayout(false);
+            this.SponsorsTeamTabPage.ResumeLayout(false);
+            this.SponsorsTeamTableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsTeamDataGridView)).EndInit();
+            this.SponsorsEngineTabPage.ResumeLayout(false);
+            this.SponsorsEngineTableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsEngineDataGridView)).EndInit();
+            this.SponsorsTyreTabPage.ResumeLayout(false);
+            this.SponsorsTyreTableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsTyreDataGridView)).EndInit();
+            this.SponsorsFuelTabPage.ResumeLayout(false);
+            this.SponsorsFuelTableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsFuelDataGridView)).EndInit();
+            this.SponsorsCashTabPage.ResumeLayout(false);
+            this.SponsorsCashTableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsCashDataGridView)).EndInit();
+            this.SponsorsContractTabPage.ResumeLayout(false);
+            this.SponsorsContractTabControl.ResumeLayout(false);
+            this.SponsorsContractTeam01TabPage.ResumeLayout(false);
+            this.SponsorsContractTeam01TableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam01DataGridView)).EndInit();
+            this.SponsorsContractTeam02TabPage.ResumeLayout(false);
+            this.SponsorsContractTeam02TableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam02DataGridView)).EndInit();
+            this.SponsorsContractTeam03TabPage.ResumeLayout(false);
+            this.SponsorsContractTeam03TableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam03DataGridView)).EndInit();
+            this.SponsorsContractTeam04TabPage.ResumeLayout(false);
+            this.SponsorsContractTeam04TableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam04DataGridView)).EndInit();
+            this.SponsorsContractTeam05TabPage.ResumeLayout(false);
+            this.SponsorsContractTeam05TableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam05DataGridView)).EndInit();
+            this.SponsorsContractTeam06TabPage.ResumeLayout(false);
+            this.SponsorsContractTeam06TableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam06DataGridView)).EndInit();
+            this.SponsorsContractTeam07TabPage.ResumeLayout(false);
+            this.SponsorsContractTeam07TableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam07DataGridView)).EndInit();
+            this.SponsorsContractTeam08TabPage.ResumeLayout(false);
+            this.SponsorsContractTeam08TableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam08DataGridView)).EndInit();
+            this.SponsorsContractTeam09TabPage.ResumeLayout(false);
+            this.SponsorsContractTeam09TableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam09DataGridView)).EndInit();
+            this.SponsorsContractTeam10TabPage.ResumeLayout(false);
+            this.SponsorsContractTeam10TableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam10DataGridView)).EndInit();
+            this.SponsorsContractTeam11TabPage.ResumeLayout(false);
+            this.SponsorsContractTeam11TableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsContractTeam11DataGridView)).EndInit();
             this.TracksTabPage.ResumeLayout(false);
             this.TracksTableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TracksDataGridView)).EndInit();
-            this.SponsorshipContractsTeam10TabPage.ResumeLayout(false);
-            this.SponsorshipContractsTeam10TableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam10DataGridView)).EndInit();
-            this.SponsorshipContractsTeam11TabPage.ResumeLayout(false);
-            this.SponsorshipContractsTeam11TableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorshipContractsTeam11DataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2211,11 +2233,11 @@
         private System.Windows.Forms.TabControl DriversTabControl;
         private System.Windows.Forms.TabPage DriversF1TabPage;
         private System.Windows.Forms.TabPage DriversNonF1TabPage;
-        private System.Windows.Forms.TabPage SponsorshipTabPage;
-        private System.Windows.Forms.TabControl SponsorshipTabControl;
-        private System.Windows.Forms.TabPage SponsorshipEngineTabPage;
-        private System.Windows.Forms.TabPage SponsorshipTyreTabPage;
-        private System.Windows.Forms.TabPage SponsorshipFuelTabPage;
+        private System.Windows.Forms.TabPage SponsorsTabPage;
+        private System.Windows.Forms.TabControl SponsorsTabControl;
+        private System.Windows.Forms.TabPage SponsorsEngineTabPage;
+        private System.Windows.Forms.TabPage SponsorsTyreTabPage;
+        private System.Windows.Forms.TabPage SponsorsFuelTabPage;
         private System.Windows.Forms.TabPage TracksTabPage;
         private System.Windows.Forms.DataGridView LanguageDataGridView;
         private System.Windows.Forms.DataGridView TeamsDataGridView;
@@ -2229,9 +2251,9 @@
         private System.Windows.Forms.DataGridView ChiefsNonF1MechanicDataGridView;
         private System.Windows.Forms.DataGridView DriversF1DataGridView;
         private System.Windows.Forms.DataGridView DriversNonF1DataGridView;
-        private System.Windows.Forms.DataGridView SponsorshipEngineDataGridView;
-        private System.Windows.Forms.DataGridView SponsorshipTyreDataGridView;
-        private System.Windows.Forms.DataGridView SponsorshipFuelDataGridView;
+        private System.Windows.Forms.DataGridView SponsorsEngineDataGridView;
+        private System.Windows.Forms.DataGridView SponsorsTyreDataGridView;
+        private System.Windows.Forms.DataGridView SponsorsFuelDataGridView;
         private System.Windows.Forms.DataGridView TracksDataGridView;
         private System.Windows.Forms.GroupBox FilesGroupBox;
         private System.Windows.Forms.Label GameExecutablePathLabel;
@@ -2259,9 +2281,9 @@
         private System.Windows.Forms.TableLayoutPanel ChiefsNonF1MechanicTableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel DriversF1TableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel DriversNonF1TableLayoutPanel;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipEngineTableLayoutPanel;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipTyreTableLayoutPanel;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipFuelTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel SponsorsEngineTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel SponsorsTyreTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel SponsorsFuelTableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel TracksTableLayoutPanel;
         private System.Windows.Forms.GroupBox TracksGroupBox;
         private System.Windows.Forms.Label GermanLanguageFilePathLabel;
@@ -2292,62 +2314,62 @@
         private System.Windows.Forms.GroupBox ChiefsNonF1MechanicGroupBox;
         private System.Windows.Forms.GroupBox DriversF1GroupBox;
         private System.Windows.Forms.GroupBox DriversNonF1GroupBox;
-        private System.Windows.Forms.GroupBox SponsorshipEngineGroupBox;
-        private System.Windows.Forms.GroupBox SponsorshipTyreGroupBox;
-        private System.Windows.Forms.GroupBox SponsorshipFuelGroupBox;
-        private System.Windows.Forms.TabPage SponsorshipTeamTabPage;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipTeamTableLayoutPanel;
-        private System.Windows.Forms.GroupBox SponsorshipTeamGroupBox;
-        private System.Windows.Forms.DataGridView SponsorshipTeamDataGridView;
-        private System.Windows.Forms.TabPage SponsorshipCashTabPage;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipCashTableLayoutPanel;
-        private System.Windows.Forms.GroupBox SponsorshipCashGroupBox;
-        private System.Windows.Forms.DataGridView SponsorshipCashDataGridView;
-        private System.Windows.Forms.TabPage SponsorshipContractsTabPage;
-        private System.Windows.Forms.TabControl SponsorshipContractsTabControl;
-        private System.Windows.Forms.TabPage SponsorshipContractsTeam01TabPage;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipContractsTeam01TableLayoutPanel;
-        private System.Windows.Forms.GroupBox SponsorshipContractsTeam01GroupBox;
-        private System.Windows.Forms.DataGridView SponsorshipContractsTeam01DataGridView;
-        private System.Windows.Forms.TabPage SponsorshipContractsTeam02TabPage;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipContractsTeam02TableLayoutPanel;
-        private System.Windows.Forms.GroupBox SponsorshipContractsTeam02GroupBox;
-        private System.Windows.Forms.DataGridView SponsorshipContractsTeam02DataGridView;
-        private System.Windows.Forms.TabPage SponsorshipContractsTeam03TabPage;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipContractsTeam03TableLayoutPanel;
-        private System.Windows.Forms.GroupBox SponsorshipContractsTeam03GroupBox;
-        private System.Windows.Forms.DataGridView SponsorshipContractsTeam03DataGridView;
-        private System.Windows.Forms.TabPage SponsorshipContractsTeam04TabPage;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipContractsTeam04TableLayoutPanel;
-        private System.Windows.Forms.GroupBox SponsorshipContractsTeam04GroupBox;
-        private System.Windows.Forms.DataGridView SponsorshipContractsTeam04DataGridView;
-        private System.Windows.Forms.TabPage SponsorshipContractsTeam05TabPage;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipContractsTeam05TableLayoutPanel;
-        private System.Windows.Forms.GroupBox SponsorshipContractsTeam05GroupBox;
-        private System.Windows.Forms.DataGridView SponsorshipContractsTeam05DataGridView;
-        private System.Windows.Forms.TabPage SponsorshipContractsTeam06TabPage;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipContractsTeam06TableLayoutPanel;
-        private System.Windows.Forms.GroupBox SponsorshipContractsTeam06GroupBox;
-        private System.Windows.Forms.DataGridView SponsorshipContractsTeam06DataGridView;
-        private System.Windows.Forms.TabPage SponsorshipContractsTeam07TabPage;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipContractsTeam07TableLayoutPanel;
-        private System.Windows.Forms.GroupBox SponsorshipContractsTeam07GroupBox;
-        private System.Windows.Forms.DataGridView SponsorshipContractsTeam07DataGridView;
-        private System.Windows.Forms.TabPage SponsorshipContractsTeam08TabPage;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipContractsTeam08TableLayoutPanel;
-        private System.Windows.Forms.GroupBox SponsorshipContractsTeam08GroupBox;
-        private System.Windows.Forms.DataGridView SponsorshipContractsTeam08DataGridView;
-        private System.Windows.Forms.TabPage SponsorshipContractsTeam09TabPage;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipContractsTeam09TableLayoutPanel;
-        private System.Windows.Forms.GroupBox SponsorshipContractsTeam09GroupBox;
-        private System.Windows.Forms.DataGridView SponsorshipContractsTeam09DataGridView;
-        private System.Windows.Forms.TabPage SponsorshipContractsTeam10TabPage;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipContractsTeam10TableLayoutPanel;
-        private System.Windows.Forms.GroupBox SponsorshipContractsTeam10GroupBox;
-        private System.Windows.Forms.DataGridView SponsorshipContractsTeam10DataGridView;
-        private System.Windows.Forms.TabPage SponsorshipContractsTeam11TabPage;
-        private System.Windows.Forms.TableLayoutPanel SponsorshipContractsTeam11TableLayoutPanel;
-        private System.Windows.Forms.GroupBox SponsorshipContractsTeam11GroupBox;
-        private System.Windows.Forms.DataGridView SponsorshipContractsTeam11DataGridView;
+        private System.Windows.Forms.GroupBox SponsorsEngineGroupBox;
+        private System.Windows.Forms.GroupBox SponsorsTyreGroupBox;
+        private System.Windows.Forms.GroupBox SponsorsFuelGroupBox;
+        private System.Windows.Forms.TabPage SponsorsTeamTabPage;
+        private System.Windows.Forms.TableLayoutPanel SponsorsTeamTableLayoutPanel;
+        private System.Windows.Forms.GroupBox SponsorsTeamGroupBox;
+        private System.Windows.Forms.DataGridView SponsorsTeamDataGridView;
+        private System.Windows.Forms.TabPage SponsorsCashTabPage;
+        private System.Windows.Forms.TableLayoutPanel SponsorsCashTableLayoutPanel;
+        private System.Windows.Forms.GroupBox SponsorsCashGroupBox;
+        private System.Windows.Forms.DataGridView SponsorsCashDataGridView;
+        private System.Windows.Forms.TabPage SponsorsContractTabPage;
+        private System.Windows.Forms.TabControl SponsorsContractTabControl;
+        private System.Windows.Forms.TabPage SponsorsContractTeam01TabPage;
+        private System.Windows.Forms.TableLayoutPanel SponsorsContractTeam01TableLayoutPanel;
+        private System.Windows.Forms.GroupBox SponsorsContractTeam01GroupBox;
+        private System.Windows.Forms.DataGridView SponsorsContractTeam01DataGridView;
+        private System.Windows.Forms.TabPage SponsorsContractTeam02TabPage;
+        private System.Windows.Forms.TableLayoutPanel SponsorsContractTeam02TableLayoutPanel;
+        private System.Windows.Forms.GroupBox SponsorsContractTeam02GroupBox;
+        private System.Windows.Forms.DataGridView SponsorsContractTeam02DataGridView;
+        private System.Windows.Forms.TabPage SponsorsContractTeam03TabPage;
+        private System.Windows.Forms.TableLayoutPanel SponsorsContractTeam03TableLayoutPanel;
+        private System.Windows.Forms.GroupBox SponsorsContractTeam03GroupBox;
+        private System.Windows.Forms.DataGridView SponsorsContractTeam03DataGridView;
+        private System.Windows.Forms.TabPage SponsorsContractTeam04TabPage;
+        private System.Windows.Forms.TableLayoutPanel SponsorsContractTeam04TableLayoutPanel;
+        private System.Windows.Forms.GroupBox SponsorsContractTeam04GroupBox;
+        private System.Windows.Forms.DataGridView SponsorsContractTeam04DataGridView;
+        private System.Windows.Forms.TabPage SponsorsContractTeam05TabPage;
+        private System.Windows.Forms.TableLayoutPanel SponsorsContractTeam05TableLayoutPanel;
+        private System.Windows.Forms.GroupBox SponsorsContractTeam05GroupBox;
+        private System.Windows.Forms.DataGridView SponsorsContractTeam05DataGridView;
+        private System.Windows.Forms.TabPage SponsorsContractTeam06TabPage;
+        private System.Windows.Forms.TableLayoutPanel SponsorsContractTeam06TableLayoutPanel;
+        private System.Windows.Forms.GroupBox SponsorsContractTeam06GroupBox;
+        private System.Windows.Forms.DataGridView SponsorsContractTeam06DataGridView;
+        private System.Windows.Forms.TabPage SponsorsContractTeam07TabPage;
+        private System.Windows.Forms.TableLayoutPanel SponsorsContractTeam07TableLayoutPanel;
+        private System.Windows.Forms.GroupBox SponsorsContractTeam07GroupBox;
+        private System.Windows.Forms.DataGridView SponsorsContractTeam07DataGridView;
+        private System.Windows.Forms.TabPage SponsorsContractTeam08TabPage;
+        private System.Windows.Forms.TableLayoutPanel SponsorsContractTeam08TableLayoutPanel;
+        private System.Windows.Forms.GroupBox SponsorsContractTeam08GroupBox;
+        private System.Windows.Forms.DataGridView SponsorsContractTeam08DataGridView;
+        private System.Windows.Forms.TabPage SponsorsContractTeam09TabPage;
+        private System.Windows.Forms.TableLayoutPanel SponsorsContractTeam09TableLayoutPanel;
+        private System.Windows.Forms.GroupBox SponsorsContractTeam09GroupBox;
+        private System.Windows.Forms.DataGridView SponsorsContractTeam09DataGridView;
+        private System.Windows.Forms.TabPage SponsorsContractTeam10TabPage;
+        private System.Windows.Forms.TableLayoutPanel SponsorsContractTeam10TableLayoutPanel;
+        private System.Windows.Forms.GroupBox SponsorsContractTeam10GroupBox;
+        private System.Windows.Forms.DataGridView SponsorsContractTeam10DataGridView;
+        private System.Windows.Forms.TabPage SponsorsContractTeam11TabPage;
+        private System.Windows.Forms.TableLayoutPanel SponsorsContractTeam11TableLayoutPanel;
+        private System.Windows.Forms.GroupBox SponsorsContractTeam11GroupBox;
+        private System.Windows.Forms.DataGridView SponsorsContractTeam11DataGridView;
     }
 }

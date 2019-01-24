@@ -10,7 +10,10 @@ namespace App.WindowsForms.Maps.AutoMapper
         {
             CreateMap<SponsorEntity, SponsorModel>()
                 .ReverseMap();
-                //.ForMember(dest => dest.Contracts, opt => opt.Ignore());
+
+            CreateMap<SponsorContractEntity, SponsorContractModel>()
+                .ForMember(src => src.SlotDescription, opt => opt.Ignore())
+                .ReverseMap();
         }
     }
 }

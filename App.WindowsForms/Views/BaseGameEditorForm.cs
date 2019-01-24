@@ -73,56 +73,61 @@ namespace App.WindowsForms.Views
         private const string DriversStaminaToolTipText = "The stamina rating of the driver.";
         private const string DriversMoraleToolTipText = "The morale level of the driver.";
 
-        private const string SponsorshipTeamsIdToolTipText = "The id of the team sponsor record.";
-        private const string SponsorshipTeamsNameToolTipText = "The name of the team sponsor." + ReadOnlyToolTipText;
-        private const string SponsorshipTeamsCashRatingToolTipText = "The cash rating of the team sponsor.";
+        private const string SponsorsTeamIdToolTipText = "The id of the team sponsor record.";
+        private const string SponsorsTeamNameToolTipText = "The name of the team sponsor." + ReadOnlyToolTipText;
+        private const string SponsorsTeamCashRatingToolTipText = "The cash rating of the team sponsor.";
 
-        private const string SponsorshipEnginesIdToolTipText = "The id of the engine supplier record.";
-        private const string SponsorshipEnginesNameToolTipText = "The name of the engine supplier." + ReadOnlyToolTipText;
-        private const string SponsorshipEnginesCashRatingToolTipText = "The cash rating of the engine supplier.";
-        private const string SponsorshipEnginesRadRatingToolTipText = "The research and design rating of the engine supplier.";
-        private const string SponsorshipEnginesFuelToolTipText = "The fuel rating of the engine.";
-        private const string SponsorshipEnginesHeatToolTipText = "The heat rating of the engine.";
-        private const string SponsorshipEnginesPowerToolTipText = "The power rating of the engine.";
-        private const string SponsorshipEnginesReliabilityToolTipText = "The reliability rating of the engine.";
-        private const string SponsorshipEnginesResponseToolTipText = "The response rating of the engine.";
-        private const string SponsorshipEnginesRigidityToolTipText = "The rigidity rating of the engine.";
-        private const string SponsorshipEnginesWeightToolTipText = "The weight rating of the engine.";
+        private const string SponsorsEngineIdToolTipText = "The id of the engine supplier record.";
+        private const string SponsorsEngineNameToolTipText = "The name of the engine supplier." + ReadOnlyToolTipText;
+        private const string SponsorsEngineCashRatingToolTipText = "The cash rating of the engine supplier.";
+        private const string SponsorsEngineRadRatingToolTipText = "The research and design rating of the engine supplier.";
+        private const string SponsorsEngineFuelToolTipText = "The fuel rating of the engine.";
+        private const string SponsorsEngineHeatToolTipText = "The heat rating of the engine.";
+        private const string SponsorsEnginePowerToolTipText = "The power rating of the engine.";
+        private const string SponsorsEngineReliabilityToolTipText = "The reliability rating of the engine.";
+        private const string SponsorsEngineResponseToolTipText = "The response rating of the engine.";
+        private const string SponsorsEngineRigidityToolTipText = "The rigidity rating of the engine.";
+        private const string SponsorsEngineWeightToolTipText = "The weight rating of the engine.";
 
-        private const string SponsorshipTyresIdToolTipText = "The id of the tyre supplier record.";
-        private const string SponsorshipTyresNameToolTipText = "The name of the tyre supplier." + ReadOnlyToolTipText;
-        private const string SponsorshipTyresCashRatingToolTipText = "The cash rating of the tyre supplier.";
-        private const string SponsorshipTyresRadRatingToolTipText = "The research and design rating of the tyre supplier.";
-        private const string SponsorshipTyresDryHardGripToolTipText = "The grip rating of the dry hard tyre.";
-        private const string SponsorshipTyresDryHardResilienceToolTipText = "The resilience rating of the dry hard tyre.";
-        private const string SponsorshipTyresDryHardStiffnessToolTipText = "The stiffness rating of the dry hard tyre.";
-        private const string SponsorshipTyresDryHardTemperatureToolTipText = "The temperature rating of the dry hard tyre.";
-        private const string SponsorshipTyresDrySoftGripToolTipText = "The grip rating of the dry soft tyre.";
-        private const string SponsorshipTyresDrySoftResilienceToolTipText = "The resilience rating of the dry soft tyre.";
-        private const string SponsorshipTyresDrySoftStiffnessToolTipText = "The stiffness rating of the dry soft tyre.";
-        private const string SponsorshipTyresDrySoftTemperatureToolTipText = "The temperature rating of the dry soft tyre.";
-        private const string SponsorshipTyresIntermediateGripToolTipText = "The grip rating of the intermediate tyre.";
-        private const string SponsorshipTyresIntermediateResilienceToolTipText = "The resilience rating of the intermediate tyre.";
-        private const string SponsorshipTyresIntermediateStiffnessToolTipText = "The stiffness rating of the intermediate tyre.";
-        private const string SponsorshipTyresIntermediateTemperatureToolTipText = "The temperature rating of the intermediate tyre.";
-        private const string SponsorshipTyresWetWeatherGripToolTipText = "The grip rating of the wet weather tyre.";
-        private const string SponsorshipTyresWetWeatherResilienceToolTipText = "The resilience rating of the wet weather tyre.";
-        private const string SponsorshipTyresWetWeatherStiffnessToolTipText = "The stiffness rating of the wet weather tyre.";
-        private const string SponsorshipTyresWetWeatherTemperatureToolTipText = "The temperature rating of the wet weather tyre.";
+        private const string SponsorsTyreIdToolTipText = "The id of the tyre supplier record.";
+        private const string SponsorsTyreNameToolTipText = "The name of the tyre supplier." + ReadOnlyToolTipText;
+        private const string SponsorsTyreCashRatingToolTipText = "The cash rating of the tyre supplier.";
+        private const string SponsorsTyreRadRatingToolTipText = "The research and design rating of the tyre supplier.";
+        private const string SponsorsTyreDryHardGripToolTipText = "The grip rating of the dry hard tyre.";
+        private const string SponsorsTyreDryHardResilienceToolTipText = "The resilience rating of the dry hard tyre.";
+        private const string SponsorsTyreDryHardStiffnessToolTipText = "The stiffness rating of the dry hard tyre.";
+        private const string SponsorsTyreDryHardTemperatureToolTipText = "The temperature rating of the dry hard tyre.";
+        private const string SponsorsTyreDrySoftGripToolTipText = "The grip rating of the dry soft tyre.";
+        private const string SponsorsTyreDrySoftResilienceToolTipText = "The resilience rating of the dry soft tyre.";
+        private const string SponsorsTyreDrySoftStiffnessToolTipText = "The stiffness rating of the dry soft tyre.";
+        private const string SponsorsTyreDrySoftTemperatureToolTipText = "The temperature rating of the dry soft tyre.";
+        private const string SponsorsTyreIntermediateGripToolTipText = "The grip rating of the intermediate tyre.";
+        private const string SponsorsTyreIntermediateResilienceToolTipText = "The resilience rating of the intermediate tyre.";
+        private const string SponsorsTyreIntermediateStiffnessToolTipText = "The stiffness rating of the intermediate tyre.";
+        private const string SponsorsTyreIntermediateTemperatureToolTipText = "The temperature rating of the intermediate tyre.";
+        private const string SponsorsTyreWetWeatherGripToolTipText = "The grip rating of the wet weather tyre.";
+        private const string SponsorsTyreWetWeatherResilienceToolTipText = "The resilience rating of the wet weather tyre.";
+        private const string SponsorsTyreWetWeatherStiffnessToolTipText = "The stiffness rating of the wet weather tyre.";
+        private const string SponsorsTyreWetWeatherTemperatureToolTipText = "The temperature rating of the wet weather tyre.";
 
-        private const string SponsorshipFuelsIdToolTipText = "The id of the fuel supplier record.";
-        private const string SponsorshipFuelsNameToolTipText = "The name of the fuel supplier." + ReadOnlyToolTipText;
-        private const string SponsorshipFuelsCashRatingToolTipText = "The cash rating of the fuel supplier.";
-        private const string SponsorshipFuelsRadRatingToolTipText = "The research and design rating of the fuel supplier.";
-        private const string SponsorshipFuelsPerformanceToolTipText = "The performance rating of the fuel.";
-        private const string SponsorshipFuelsToleranceToolTipText = "The tolerance rating of the fuel.";
+        private const string SponsorsFuelIdToolTipText = "The id of the fuel supplier record.";
+        private const string SponsorsFuelNameToolTipText = "The name of the fuel supplier." + ReadOnlyToolTipText;
+        private const string SponsorsFuelCashRatingToolTipText = "The cash rating of the fuel supplier.";
+        private const string SponsorsFuelRadRatingToolTipText = "The research and design rating of the fuel supplier.";
+        private const string SponsorsFuelPerformanceToolTipText = "The performance rating of the fuel.";
+        private const string SponsorsFuelToleranceToolTipText = "The tolerance rating of the fuel.";
 
-        private const string SponsorshipCashsIdToolTipText = "The id of the cash sponsor record.";
-        private const string SponsorshipCashsNameToolTipText = "The name of the cash sponsor." + ReadOnlyToolTipText;
-        private const string SponsorshipCashsCashRatingToolTipText = "The cash rating of the cash sponsor.";
+        private const string SponsorsCashIdToolTipText = "The id of the cash sponsor record.";
+        private const string SponsorsCashNameToolTipText = "The name of the cash sponsor." + ReadOnlyToolTipText;
+        private const string SponsorsCashCashRatingToolTipText = "The cash rating of the cash sponsor.";
 
-        private const string SponsorshipContractsIdToolTipText = "The id of the sponsor contract record.";
-        // TODO: private const string SponsorshipContractsNameToolTipText = "The name of the sponsor." + ReadOnlyToolTipText;
+        private const string SponsorsContractIdToolTipText = "The id of the sponsor contract record.";
+        private const string SponsorsContractSlotTypeIdToolTipText = "The id of the type of sponsorship offered." + ReadOnlyToolTipText;
+        private const string SponsorsContractSlotDescriptionToolTipText = "The type of sponsorship offered." + ReadOnlyToolTipText;
+        private const string SponsorsContractSponsorIdToolTipText = "The name of the sponsor/supplier that holds the contract.";
+        private const string SponsorsContractCashToolTipText = "The cash value of the contract. Suppliers can have a positive or negative cash value.";
+        private const string SponsorsContractDealIdToolTipText = "The agreed deal of the supplier contract.";
+        private const string SponsorsContractTermsIdToolTipText = "The agreed terms of the supplier contract.";
 
         private const string TracksIdToolTipText = "The id of the track record.";
         private const string TracksNameToolTipText = "The name of the track." + ReadOnlyToolTipText;
@@ -164,6 +169,9 @@ namespace App.WindowsForms.Views
         public IEnumerable<DriverRoleLookupModel> DriverRoleLookups { get; set; }
         public IEnumerable<TeamDebutGrandPrixLookupModel> TeamDebutGrandPrixLookups { get; set; }
         public IEnumerable<TeamLocationLookupModel> TeamLocationLookups { get; set; }
+        public IEnumerable<SponsorNameLookupModel> SponsorNameLookups { get; set; }
+        public IEnumerable<SponsorDealLookupModel> SponsorDealLookups { get; set; }
+        public IEnumerable<SponsorTermsLookupModel> SponsorTermsLookups { get; set; }
         public IEnumerable<TrackDriverLookupModel> TrackDriverLookups { get; set; }
         public IEnumerable<TrackLayoutLookupModel> TrackLayoutLookups { get; set; }
         public IEnumerable<TrackTeamLookupModel> TrackTeamLookups { get; set; }
@@ -237,98 +245,98 @@ namespace App.WindowsForms.Views
 
         public IEnumerable<SponsorModel> SponsorTeams
         {
-            get => (IEnumerable<SponsorModel>)SponsorshipTeamDataGridView.DataSource;
-            set => BuildSponsorTeamDataGridView(value);
+            get => (IEnumerable<SponsorModel>)SponsorsTeamDataGridView.DataSource;
+            set => BuildSponsorsTeamDataGridView(value);
         }
 
         public IEnumerable<SponsorModel> SponsorEngines
         {
-            get => (IEnumerable<SponsorModel>)SponsorshipEngineDataGridView.DataSource;
-            set => BuildSponsorEngineDataGridView(value);
+            get => (IEnumerable<SponsorModel>)SponsorsEngineDataGridView.DataSource;
+            set => BuildSponsorsEngineDataGridView(value);
         }
 
         public IEnumerable<SponsorModel> SponsorTyres
         {
-            get => (IEnumerable<SponsorModel>)SponsorshipTyreDataGridView.DataSource;
-            set => BuildSponsorTyreDataGridView(value);
+            get => (IEnumerable<SponsorModel>)SponsorsTyreDataGridView.DataSource;
+            set => BuildSponsorsTyreDataGridView(value);
         }
 
         public IEnumerable<SponsorModel> SponsorFuels
         {
-            get => (IEnumerable<SponsorModel>)SponsorshipFuelDataGridView.DataSource;
-            set => BuildSponsorFuelDataGridView(value);
+            get => (IEnumerable<SponsorModel>)SponsorsFuelDataGridView.DataSource;
+            set => BuildSponsorsFuelDataGridView(value);
         }
 
         public IEnumerable<SponsorModel> SponsorCashs
         {
-            get => (IEnumerable<SponsorModel>)SponsorshipCashDataGridView.DataSource;
-            set => BuildSponsorCashDataGridView(value);
+            get => (IEnumerable<SponsorModel>)SponsorsCashDataGridView.DataSource;
+            set => BuildSponsorsCashDataGridView(value);
         }
 
         public IEnumerable<SponsorContractModel> SponsorContractsTeam01
         {
-            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam01DataGridView.DataSource;
-            set => BuildSponsorshipContractsTeam01DataGridView(value);
+            get => (IEnumerable<SponsorContractModel>)SponsorsContractTeam01DataGridView.DataSource;
+            set => BuildSponsorsContractTeam01DataGridView(value);
         }
 
         public IEnumerable<SponsorContractModel> SponsorContractsTeam02
         {
-            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam02DataGridView.DataSource;
-            set => BuildSponsorshipContractsTeam02DataGridView(value);
+            get => (IEnumerable<SponsorContractModel>)SponsorsContractTeam02DataGridView.DataSource;
+            set => BuildSponsorsContractTeam02DataGridView(value);
         }
 
         public IEnumerable<SponsorContractModel> SponsorContractsTeam03
         {
-            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam03DataGridView.DataSource;
-            set => BuildSponsorshipContractsTeam03DataGridView(value);
+            get => (IEnumerable<SponsorContractModel>)SponsorsContractTeam03DataGridView.DataSource;
+            set => BuildSponsorsContractTeam03DataGridView(value);
         }
 
         public IEnumerable<SponsorContractModel> SponsorContractsTeam04
         {
-            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam04DataGridView.DataSource;
-            set => BuildSponsorshipContractsTeam04DataGridView(value);
+            get => (IEnumerable<SponsorContractModel>)SponsorsContractTeam04DataGridView.DataSource;
+            set => BuildSponsorsContractTeam04DataGridView(value);
         }
 
         public IEnumerable<SponsorContractModel> SponsorContractsTeam05
         {
-            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam05DataGridView.DataSource;
-            set => BuildSponsorshipContractsTeam05DataGridView(value);
+            get => (IEnumerable<SponsorContractModel>)SponsorsContractTeam05DataGridView.DataSource;
+            set => BuildSponsorsContractTeam05DataGridView(value);
         }
 
         public IEnumerable<SponsorContractModel> SponsorContractsTeam06
         {
-            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam06DataGridView.DataSource;
-            set => BuildSponsorshipContractsTeam06DataGridView(value);
+            get => (IEnumerable<SponsorContractModel>)SponsorsContractTeam06DataGridView.DataSource;
+            set => BuildSponsorsContractTeam06DataGridView(value);
         }
 
         public IEnumerable<SponsorContractModel> SponsorContractsTeam07
         {
-            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam07DataGridView.DataSource;
-            set => BuildSponsorshipContractsTeam07DataGridView(value);
+            get => (IEnumerable<SponsorContractModel>)SponsorsContractTeam07DataGridView.DataSource;
+            set => BuildSponsorsContractTeam07DataGridView(value);
         }
 
         public IEnumerable<SponsorContractModel> SponsorContractsTeam08
         {
-            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam08DataGridView.DataSource;
-            set => BuildSponsorshipContractsTeam08DataGridView(value);
+            get => (IEnumerable<SponsorContractModel>)SponsorsContractTeam08DataGridView.DataSource;
+            set => BuildSponsorsContractTeam08DataGridView(value);
         }
 
         public IEnumerable<SponsorContractModel> SponsorContractsTeam09
         {
-            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam09DataGridView.DataSource;
-            set => BuildSponsorshipContractsTeam09DataGridView(value);
+            get => (IEnumerable<SponsorContractModel>)SponsorsContractTeam09DataGridView.DataSource;
+            set => BuildSponsorsContractTeam09DataGridView(value);
         }
 
         public IEnumerable<SponsorContractModel> SponsorContractsTeam10
         {
-            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam10DataGridView.DataSource;
-            set => BuildSponsorshipContractsTeam10DataGridView(value);
+            get => (IEnumerable<SponsorContractModel>)SponsorsContractTeam10DataGridView.DataSource;
+            set => BuildSponsorsContractTeam10DataGridView(value);
         }
 
         public IEnumerable<SponsorContractModel> SponsorContractsTeam11
         {
-            get => (IEnumerable<SponsorContractModel>)SponsorshipContractsTeam11DataGridView.DataSource;
-            set => BuildSponsorshipContractsTeam11DataGridView(value);
+            get => (IEnumerable<SponsorContractModel>)SponsorsContractTeam11DataGridView.DataSource;
+            set => BuildSponsorsContractTeam11DataGridView(value);
         }
 
         public IEnumerable<TrackModel> Tracks
@@ -590,204 +598,206 @@ namespace App.WindowsForms.Views
             ConfigureDataGridView(DriversNonF1DataGridView, "Name");
         }
 
-        private void BuildSponsorTeamDataGridView(IEnumerable<SponsorModel> dataSource)
+        private void BuildSponsorsTeamDataGridView(IEnumerable<SponsorModel> dataSource)
         {
-            ResetDataGridView(SponsorshipTeamDataGridView);
+            ResetDataGridView(SponsorsTeamDataGridView);
 
-            AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorshipTeamsIdToolTipText, false));
-            AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorshipTeamsNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
-            AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
-            AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("EntityType", "Entity Type", ""));
-            AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
-            AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
-            AddColumnToDataGridView(SponsorshipTeamDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorshipTeamsCashRatingToolTipText));
+            AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorsTeamIdToolTipText, false));
+            AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorsTeamNameToolTipText, true, true));
+            AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
+            AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
+            AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("EntityTypeId", "Entity Type", ""));
+            AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
+            AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
+            AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorsTeamCashRatingToolTipText));
 
-            BindDataGridViewToDataSource(SponsorshipTeamDataGridView, dataSource);
+            BindDataGridViewToDataSource(SponsorsTeamDataGridView, dataSource);
 
-            ConfigureDataGridView(SponsorshipTeamDataGridView, "Name");
+            ConfigureDataGridView(SponsorsTeamDataGridView, "Name");
         }
 
-        private void BuildSponsorEngineDataGridView(IEnumerable<SponsorModel> dataSource)
+        private void BuildSponsorsEngineDataGridView(IEnumerable<SponsorModel> dataSource)
         {
-            ResetDataGridView(SponsorshipEngineDataGridView);
+            ResetDataGridView(SponsorsEngineDataGridView);
 
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorshipEnginesIdToolTipText, false));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorshipEnginesNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("EntityType", "Entity Type", ""));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorshipEnginesCashRatingToolTipText));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewCheckBoxColumn("CashRatingRandom", "Random Cash Rating", ""));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("RadRating", "R&D Rating", SponsorshipEnginesRadRatingToolTipText));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewCheckBoxColumn("RadRatingRandom", "Random R&D Rating", ""));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewCheckBoxColumn("Inactive", "Inactive", ""));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("Fuel", "Fuel", SponsorshipEnginesFuelToolTipText));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("Heat", "Heat", SponsorshipEnginesHeatToolTipText));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("Power", "Power", SponsorshipEnginesPowerToolTipText));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("Reliability", "Reliability", SponsorshipEnginesReliabilityToolTipText));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("Response", "Response", SponsorshipEnginesResponseToolTipText));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("Rigidity", "Rigidity", SponsorshipEnginesRigidityToolTipText));
-            AddColumnToDataGridView(SponsorshipEngineDataGridView, CreateDataGridViewTextBoxColumn("Weight", "Weight", SponsorshipEnginesWeightToolTipText));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorsEngineIdToolTipText, false));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorsEngineNameToolTipText, true, true));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("EntityTypeId", "Entity Type", ""));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorsEngineCashRatingToolTipText));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewCheckBoxColumn("CashRatingRandom", "Random Cash Rating", ""));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("RadRating", "R&D Rating", SponsorsEngineRadRatingToolTipText));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewCheckBoxColumn("RadRatingRandom", "Random R&D Rating", ""));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewCheckBoxColumn("Inactive", "Inactive", ""));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("Fuel", "Fuel", SponsorsEngineFuelToolTipText));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("Heat", "Heat", SponsorsEngineHeatToolTipText));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("Power", "Power", SponsorsEnginePowerToolTipText));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("Reliability", "Reliability", SponsorsEngineReliabilityToolTipText));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("Response", "Response", SponsorsEngineResponseToolTipText));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("Rigidity", "Rigidity", SponsorsEngineRigidityToolTipText));
+            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("Weight", "Weight", SponsorsEngineWeightToolTipText));
 
-            BindDataGridViewToDataSource(SponsorshipEngineDataGridView, dataSource);
+            BindDataGridViewToDataSource(SponsorsEngineDataGridView, dataSource);
 
-            ConfigureDataGridView(SponsorshipEngineDataGridView, "Name");
+            ConfigureDataGridView(SponsorsEngineDataGridView, "Name");
         }
 
-        private void BuildSponsorTyreDataGridView(IEnumerable<SponsorModel> dataSource)
+        private void BuildSponsorsTyreDataGridView(IEnumerable<SponsorModel> dataSource)
         {
-            ResetDataGridView(SponsorshipTyreDataGridView);
+            ResetDataGridView(SponsorsTyreDataGridView);
 
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorshipTyresIdToolTipText, false));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorshipTyresNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("EntityType", "Entity Type", ""));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorshipTyresCashRatingToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewCheckBoxColumn("CashRatingRandom", "Random Cash Rating", ""));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("RadRating", "R&D Rating", SponsorshipTyresRadRatingToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewCheckBoxColumn("RadRatingRandom", "Random R&D Rating", ""));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewCheckBoxColumn("Inactive", "Inactive", ""));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardGrip", "Dry Hard Grip", SponsorshipTyresDryHardGripToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardResilience", "Dry Hard Resilience", SponsorshipTyresDryHardResilienceToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardStiffness", "Dry Hard Stiffness", SponsorshipTyresDryHardStiffnessToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardTemperature", "Dry Hard Temperature", SponsorshipTyresDryHardTemperatureToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftGrip", "Dry Soft Grip", SponsorshipTyresDrySoftGripToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftResilience", "Dry Soft Resilience", SponsorshipTyresDrySoftResilienceToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftStiffness", "Dry Soft Stiffness", SponsorshipTyresDrySoftStiffnessToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftTemperature", "Dry Soft Temperature", SponsorshipTyresDrySoftTemperatureToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateGrip", "Intermediate Grip", SponsorshipTyresIntermediateGripToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateResilience", "Intermediate Resilience", SponsorshipTyresIntermediateResilienceToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateStiffness", "Intermediate Stiffness", SponsorshipTyresIntermediateStiffnessToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateTemperature", "Intermediate Temperature", SponsorshipTyresIntermediateTemperatureToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherGrip", "Wet Weather Grip", SponsorshipTyresWetWeatherGripToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherResilience", "Wet Weather Resilience", SponsorshipTyresWetWeatherResilienceToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherStiffness", "Wet Weather Stiffness", SponsorshipTyresWetWeatherStiffnessToolTipText));
-            AddColumnToDataGridView(SponsorshipTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherTemperature", "Wet Weather Temperature", SponsorshipTyresWetWeatherTemperatureToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorsTyreIdToolTipText, false));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorsTyreNameToolTipText, true, true));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("EntityTypeId", "Entity Type", ""));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorsTyreCashRatingToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewCheckBoxColumn("CashRatingRandom", "Random Cash Rating", ""));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("RadRating", "R&D Rating", SponsorsTyreRadRatingToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewCheckBoxColumn("RadRatingRandom", "Random R&D Rating", ""));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewCheckBoxColumn("Inactive", "Inactive", ""));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardGrip", "Dry Hard Grip", SponsorsTyreDryHardGripToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardResilience", "Dry Hard Resilience", SponsorsTyreDryHardResilienceToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardStiffness", "Dry Hard Stiffness", SponsorsTyreDryHardStiffnessToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("DryHardTemperature", "Dry Hard Temperature", SponsorsTyreDryHardTemperatureToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftGrip", "Dry Soft Grip", SponsorsTyreDrySoftGripToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftResilience", "Dry Soft Resilience", SponsorsTyreDrySoftResilienceToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftStiffness", "Dry Soft Stiffness", SponsorsTyreDrySoftStiffnessToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("DrySoftTemperature", "Dry Soft Temperature", SponsorsTyreDrySoftTemperatureToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateGrip", "Intermediate Grip", SponsorsTyreIntermediateGripToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateResilience", "Intermediate Resilience", SponsorsTyreIntermediateResilienceToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateStiffness", "Intermediate Stiffness", SponsorsTyreIntermediateStiffnessToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("IntermediateTemperature", "Intermediate Temperature", SponsorsTyreIntermediateTemperatureToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherGrip", "Wet Weather Grip", SponsorsTyreWetWeatherGripToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherResilience", "Wet Weather Resilience", SponsorsTyreWetWeatherResilienceToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherStiffness", "Wet Weather Stiffness", SponsorsTyreWetWeatherStiffnessToolTipText));
+            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("WetWeatherTemperature", "Wet Weather Temperature", SponsorsTyreWetWeatherTemperatureToolTipText));
 
-            BindDataGridViewToDataSource(SponsorshipTyreDataGridView, dataSource);
+            BindDataGridViewToDataSource(SponsorsTyreDataGridView, dataSource);
 
-            ConfigureDataGridView(SponsorshipTyreDataGridView, "Name");
+            ConfigureDataGridView(SponsorsTyreDataGridView, "Name");
         }
 
-        private void BuildSponsorFuelDataGridView(IEnumerable<SponsorModel> dataSource)
+        private void BuildSponsorsFuelDataGridView(IEnumerable<SponsorModel> dataSource)
         {
-            ResetDataGridView(SponsorshipFuelDataGridView);
+            ResetDataGridView(SponsorsFuelDataGridView);
 
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorshipFuelsIdToolTipText, false));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorshipFuelsNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("EntityType", "Entity Type", ""));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorshipFuelsCashRatingToolTipText));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewCheckBoxColumn("CashRatingRandom", "Random Cash Rating", ""));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("RadRating", "R&D Rating", SponsorshipFuelsRadRatingToolTipText));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewCheckBoxColumn("RadRatingRandom", "Random R&D Rating", ""));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewCheckBoxColumn("Inactive", "Inactive", ""));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("Performance", "Performance", SponsorshipFuelsPerformanceToolTipText));
-            AddColumnToDataGridView(SponsorshipFuelDataGridView, CreateDataGridViewTextBoxColumn("Tolerance", "Tolerance", SponsorshipFuelsToleranceToolTipText));
+            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorsFuelIdToolTipText, false));
+            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorsFuelNameToolTipText, true, true));
+            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
+            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
+            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("EntityTypeId", "Entity Type", ""));
+            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
+            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
+            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorsFuelCashRatingToolTipText));
+            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewCheckBoxColumn("CashRatingRandom", "Random Cash Rating", ""));
+            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("RadRating", "R&D Rating", SponsorsFuelRadRatingToolTipText));
+            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewCheckBoxColumn("RadRatingRandom", "Random R&D Rating", ""));
+            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewCheckBoxColumn("Inactive", "Inactive", ""));
+            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("Performance", "Performance", SponsorsFuelPerformanceToolTipText));
+            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("Tolerance", "Tolerance", SponsorsFuelToleranceToolTipText));
 
-            BindDataGridViewToDataSource(SponsorshipFuelDataGridView, dataSource);
+            BindDataGridViewToDataSource(SponsorsFuelDataGridView, dataSource);
 
-            ConfigureDataGridView(SponsorshipFuelDataGridView, "Name");
+            ConfigureDataGridView(SponsorsFuelDataGridView, "Name");
         }
 
-        private void BuildSponsorCashDataGridView(IEnumerable<SponsorModel> dataSource)
+        private void BuildSponsorsCashDataGridView(IEnumerable<SponsorModel> dataSource)
         {
-            ResetDataGridView(SponsorshipCashDataGridView);
+            ResetDataGridView(SponsorsCashDataGridView);
 
-            AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorshipCashsIdToolTipText, false));
-            AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorshipCashsNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
-            AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
-            AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("EntityType", "Entity Type", ""));
-            AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
-            AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
-            AddColumnToDataGridView(SponsorshipCashDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorshipCashsCashRatingToolTipText));
+            AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorsCashIdToolTipText, false));
+            AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorsCashNameToolTipText, true, true));
+            AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
+            AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
+            AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("EntityTypeId", "Entity Type", ""));
+            AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
+            AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
+            AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorsCashCashRatingToolTipText));
 
-            BindDataGridViewToDataSource(SponsorshipCashDataGridView, dataSource);
+            BindDataGridViewToDataSource(SponsorsCashDataGridView, dataSource);
 
-            ConfigureDataGridView(SponsorshipCashDataGridView, "Name");
+            ConfigureDataGridView(SponsorsCashDataGridView, "Name");
         }
 
-        private static void BuildSponsorContractsDataGridView(DataGridView dataGridView, IEnumerable<SponsorContractModel> dataSource)
+        private void BuildSponsorsContractTeam01DataGridView(IEnumerable<SponsorContractModel> dataSource)
+        {
+            BuildSponsorsContractDataGridView(SponsorsContractTeam01DataGridView, dataSource);
+        }
+
+        private void BuildSponsorsContractTeam02DataGridView(IEnumerable<SponsorContractModel> dataSource)
+        {
+            BuildSponsorsContractDataGridView(SponsorsContractTeam02DataGridView, dataSource);
+        }
+
+        private void BuildSponsorsContractTeam03DataGridView(IEnumerable<SponsorContractModel> dataSource)
+        {
+            BuildSponsorsContractDataGridView(SponsorsContractTeam03DataGridView, dataSource);
+        }
+
+        private void BuildSponsorsContractTeam04DataGridView(IEnumerable<SponsorContractModel> dataSource)
+        {
+            BuildSponsorsContractDataGridView(SponsorsContractTeam04DataGridView, dataSource);
+        }
+
+        private void BuildSponsorsContractTeam05DataGridView(IEnumerable<SponsorContractModel> dataSource)
+        {
+            BuildSponsorsContractDataGridView(SponsorsContractTeam05DataGridView, dataSource);
+        }
+
+        private void BuildSponsorsContractTeam06DataGridView(IEnumerable<SponsorContractModel> dataSource)
+        {
+            BuildSponsorsContractDataGridView(SponsorsContractTeam06DataGridView, dataSource);
+        }
+
+        private void BuildSponsorsContractTeam07DataGridView(IEnumerable<SponsorContractModel> dataSource)
+        {
+            BuildSponsorsContractDataGridView(SponsorsContractTeam07DataGridView, dataSource);
+        }
+
+        private void BuildSponsorsContractTeam08DataGridView(IEnumerable<SponsorContractModel> dataSource)
+        {
+            BuildSponsorsContractDataGridView(SponsorsContractTeam08DataGridView, dataSource);
+        }
+
+        private void BuildSponsorsContractTeam09DataGridView(IEnumerable<SponsorContractModel> dataSource)
+        {
+            BuildSponsorsContractDataGridView(SponsorsContractTeam09DataGridView, dataSource);
+        }
+
+        private void BuildSponsorsContractTeam10DataGridView(IEnumerable<SponsorContractModel> dataSource)
+        {
+            BuildSponsorsContractDataGridView(SponsorsContractTeam10DataGridView, dataSource);
+        }
+
+        private void BuildSponsorsContractTeam11DataGridView(IEnumerable<SponsorContractModel> dataSource)
+        {
+            BuildSponsorsContractDataGridView(SponsorsContractTeam11DataGridView, dataSource);
+        }
+
+        private void BuildSponsorsContractDataGridView(DataGridView dataGridView, IEnumerable<SponsorContractModel> dataSource)
         {
             ResetDataGridView(dataGridView);
 
-            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorshipContractsIdToolTipText, false));
-            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("TeamId", "TeamId", "")); // TODO: temporary
-            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("SlotId", "SlotId", "")); // TODO: temporary
-            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("SlotTypeId", "SlotTypeId", "")); // TODO: tooltip
-            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "SponsorId", "")); // TODO: tooltip
-            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("Cash", "Cash", "")); // TODO: tooltip
-            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("DealId", "DealId", "")); // TODO: tooltip
-            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("TermsId", "TermsId", "")); // TODO: tooltip
+            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorsContractIdToolTipText, false));
+            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("SlotTypeId", "SlotTypeId", SponsorsContractSlotTypeIdToolTipText, false, true));
+            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("SlotDescription", "Slot", SponsorsContractSlotDescriptionToolTipText, true, true));
+            AddColumnToDataGridView(dataGridView, CreateDataGridViewComboBoxColumn("SponsorId", "Sponsor", SponsorsContractSponsorIdToolTipText));
+            AddColumnToDataGridView(dataGridView, CreateDataGridViewTextBoxColumn("Cash", "Cash", SponsorsContractCashToolTipText));
+            AddColumnToDataGridView(dataGridView, CreateDataGridViewComboBoxColumn("DealId", "Deal", SponsorsContractDealIdToolTipText));
+            AddColumnToDataGridView(dataGridView, CreateDataGridViewComboBoxColumn("TermsId", "Terms", SponsorsContractTermsIdToolTipText));
 
+            BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)dataGridView.Columns["SponsorId"], SponsorNameLookups);
+            BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)dataGridView.Columns["DealId"], SponsorDealLookups);
+            BindDataGridViewComboBoxColumnToDataSource((DataGridViewComboBoxColumn)dataGridView.Columns["TermsId"], SponsorTermsLookups);
             BindDataGridViewToDataSource(dataGridView, dataSource);
 
-            ConfigureDataGridView(dataGridView, "SlotId");
-        }
-
-        private void BuildSponsorshipContractsTeam01DataGridView(IEnumerable<SponsorContractModel> dataSource)
-        {
-            BuildSponsorContractsDataGridView(SponsorshipContractsTeam01DataGridView, dataSource);
-        }
-
-        private void BuildSponsorshipContractsTeam02DataGridView(IEnumerable<SponsorContractModel> dataSource)
-        {
-            BuildSponsorContractsDataGridView(SponsorshipContractsTeam02DataGridView, dataSource);
-        }
-
-        private void BuildSponsorshipContractsTeam03DataGridView(IEnumerable<SponsorContractModel> dataSource)
-        {
-            BuildSponsorContractsDataGridView(SponsorshipContractsTeam03DataGridView, dataSource);
-        }
-
-        private void BuildSponsorshipContractsTeam04DataGridView(IEnumerable<SponsorContractModel> dataSource)
-        {
-            BuildSponsorContractsDataGridView(SponsorshipContractsTeam04DataGridView, dataSource);
-        }
-
-        private void BuildSponsorshipContractsTeam05DataGridView(IEnumerable<SponsorContractModel> dataSource)
-        {
-            BuildSponsorContractsDataGridView(SponsorshipContractsTeam05DataGridView, dataSource);
-        }
-
-        private void BuildSponsorshipContractsTeam06DataGridView(IEnumerable<SponsorContractModel> dataSource)
-        {
-            BuildSponsorContractsDataGridView(SponsorshipContractsTeam06DataGridView, dataSource);
-        }
-
-        private void BuildSponsorshipContractsTeam07DataGridView(IEnumerable<SponsorContractModel> dataSource)
-        {
-            BuildSponsorContractsDataGridView(SponsorshipContractsTeam07DataGridView, dataSource);
-        }
-
-        private void BuildSponsorshipContractsTeam08DataGridView(IEnumerable<SponsorContractModel> dataSource)
-        {
-            BuildSponsorContractsDataGridView(SponsorshipContractsTeam08DataGridView, dataSource);
-        }
-
-        private void BuildSponsorshipContractsTeam09DataGridView(IEnumerable<SponsorContractModel> dataSource)
-        {
-            BuildSponsorContractsDataGridView(SponsorshipContractsTeam09DataGridView, dataSource);
-        }
-
-        private void BuildSponsorshipContractsTeam10DataGridView(IEnumerable<SponsorContractModel> dataSource)
-        {
-            BuildSponsorContractsDataGridView(SponsorshipContractsTeam10DataGridView, dataSource);
-        }
-
-        private void BuildSponsorshipContractsTeam11DataGridView(IEnumerable<SponsorContractModel> dataSource)
-        {
-            BuildSponsorContractsDataGridView(SponsorshipContractsTeam11DataGridView, dataSource);
+            ConfigureDataGridView(dataGridView, "SlotDescription");
         }
 
         private void BuildTracksDataGridView(IEnumerable<TrackModel> dataSource)
@@ -894,7 +904,6 @@ namespace App.WindowsForms.Views
             _controller.Export();
         }
 
-        // TODO: Review
         private static void GenericDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             var dataGridView = (DataGridView)sender;
@@ -908,9 +917,13 @@ namespace App.WindowsForms.Views
             // If combobox column
             if (dataGridView.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn)
             {
-                // Drop down the drop down
-                dataGridView.BeginEdit(true);
-                ((ComboBox)dataGridView.EditingControl).DroppedDown = true;
+                // If combobox cell
+                if (dataGridView[e.ColumnIndex, e.RowIndex] is DataGridViewComboBoxCell)
+                {
+                    // Drop down the drop down
+                    dataGridView.BeginEdit(true);
+                    ((ComboBox)dataGridView.EditingControl).DroppedDown = true;
+                }
             }
         }
 
@@ -1139,6 +1152,46 @@ namespace App.WindowsForms.Views
             }
 
             UpdateValuesInDataGridViewColumn(TeamsDataGridView, "ChassisHandling", values);
+        }
+
+        private void SponsorsContractDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (!(sender is DataGridView dataGridView)) return;
+
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                // If row is for a non-supplier
+                var slotTypeId = (int)row.Cells["SlotTypeId"].Value;
+                if (slotTypeId != 2 && slotTypeId != 3 && slotTypeId != 4)
+                {
+                    // Change DealId cell from ComboBoxCell to TextBoxCell and set to readonly
+                    row.Cells["DealId"] = new DataGridViewTextBoxCell();
+                    row.Cells["DealId"].ReadOnly = true;
+
+                    // Change TermsId cell from ComboBoxCell to TextBoxCell and set to readonly
+                    row.Cells["TermsId"] = new DataGridViewTextBoxCell();
+                    row.Cells["TermsId"].ReadOnly = true;
+                }
+            }
+        }
+
+        private void SponsorsContractDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (!(sender is DataGridView dataGridView)) return;
+
+            // If cell is in the DealId or TermsId columns
+            if (dataGridView.Columns["DealId"] != null && e.ColumnIndex == dataGridView.Columns["DealId"].Index ||
+               dataGridView.Columns["TermsId"] != null && e.ColumnIndex == dataGridView.Columns["TermsId"].Index)
+            {
+                // If row is for a non-supplier
+                var slotTypeId = (int)dataGridView["SlotTypeId", e.RowIndex].Value;
+                if (slotTypeId != 2 && slotTypeId != 3 && slotTypeId != 4)
+                {
+                    // Format cell to not show data
+                    e.Value = "";
+                    e.FormattingApplied = true;
+                }
+            }
         }
     }
 }

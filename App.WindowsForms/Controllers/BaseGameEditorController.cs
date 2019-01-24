@@ -345,6 +345,9 @@ namespace App.WindowsForms.Controllers
             _view.ChiefDriverLoyaltyLookups = UpdateModelFromService<IEnumerable<ChiefDriverLoyaltyLookupEntity>, IEnumerable<ChiefDriverLoyaltyLookupModel>>(_baseGameEditorApplicationService.DomainModel.Lookups.GetChiefDriverLoyaltyLookups);
             _view.DriverNationalityLookups = UpdateModelFromService<IEnumerable<DriverNationalityLookupEntity>, IEnumerable<DriverNationalityLookupModel>>(_baseGameEditorApplicationService.DomainModel.Lookups.GetDriverNationalityLookups);
             _view.DriverRoleLookups = UpdateModelFromService<IEnumerable<DriverRoleLookupEntity>, IEnumerable<DriverRoleLookupModel>>(_baseGameEditorApplicationService.DomainModel.Lookups.GetDriverRoleLookups);
+            _view.SponsorNameLookups = UpdateModelFromService<IEnumerable<SponsorNameLookupEntity>, IEnumerable<SponsorNameLookupModel>>(_baseGameEditorApplicationService.DomainModel.Lookups.GetSponsorNameLookups);
+            _view.SponsorDealLookups = UpdateSponsorDealLookupModel();
+            _view.SponsorTermsLookups = UpdateSponsorTermsLookupModel();
             _view.TeamDebutGrandPrixLookups = UpdateModelFromService<IEnumerable<TeamDebutGrandPrixLookupEntity>, IEnumerable<TeamDebutGrandPrixLookupModel>>(_baseGameEditorApplicationService.DomainModel.Lookups.GetTeamDebutGrandPrixLookups);
             _view.TeamLocationLookups = UpdateTeamLocationLookupModel();
             _view.TrackDriverLookups = UpdateModelFromService<IEnumerable<TrackDriverLookupEntity>, IEnumerable<TrackDriverLookupModel>>(_baseGameEditorApplicationService.DomainModel.Lookups.GetTrackDriverLookups);
@@ -442,6 +445,28 @@ namespace App.WindowsForms.Controllers
                 new TeamLocationLookupModel {Id = 1, Description = "Great Britain", Value = 1},
                 new TeamLocationLookupModel {Id = 2, Description = "Italy", Value = 2},
                 new TeamLocationLookupModel {Id = 3, Description = "Switzerland", Value = 3}
+            };
+        }
+
+        private static IEnumerable<SponsorDealLookupModel> UpdateSponsorDealLookupModel()
+        {
+            return new List<SponsorDealLookupModel>
+            {
+                new SponsorDealLookupModel {Id = 0, Description = "None", Value = 0},
+                new SponsorDealLookupModel {Id = 1, Description = "Customer", Value = 1},
+                new SponsorDealLookupModel {Id = 2, Description = "Partner", Value = 2},
+                new SponsorDealLookupModel {Id = 3, Description = "Works", Value = 3}
+            };
+        }
+
+        private static IEnumerable<SponsorTermsLookupModel> UpdateSponsorTermsLookupModel()
+        {
+            return new List<SponsorTermsLookupModel>
+            {
+                new SponsorTermsLookupModel {Id = 0, Description = "None", Value = 0},
+                new SponsorTermsLookupModel {Id = 1, Description = "Level 1", Value = 1},
+                new SponsorTermsLookupModel {Id = 2, Description = "Level 2", Value = 2},
+                new SponsorTermsLookupModel {Id = 3, Description = "Level 3", Value = 3}
             };
         }
 
