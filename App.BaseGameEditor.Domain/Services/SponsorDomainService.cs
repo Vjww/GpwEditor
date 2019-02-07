@@ -13,17 +13,23 @@ namespace App.BaseGameEditor.Domain.Services
         private readonly IEntityValidator<SponsorEntity> _sponsorEntityValidator;
         private readonly IRepository<SponsorContractEntity> _sponsorContractRepository;
         private readonly IEntityValidator<SponsorContractEntity> _sponsorContractEntityValidator;
+        private readonly IRepository<SponsorFiaEntity> _sponsorFiaRepository;
+        private readonly IEntityValidator<SponsorFiaEntity> _sponsorFiaEntityValidator;
 
         public SponsorDomainService(
             IRepository<SponsorEntity> sponsorRepository,
             IEntityValidator<SponsorEntity> sponsorEntityValidator,
             IRepository<SponsorContractEntity> sponsorContractRepository,
-            IEntityValidator<SponsorContractEntity> sponsorContractEntityValidator)
+            IEntityValidator<SponsorContractEntity> sponsorContractEntityValidator,
+            IRepository<SponsorFiaEntity> sponsorFiaRepository,
+            IEntityValidator<SponsorFiaEntity> sponsorFiaEntityValidator)
         {
             _sponsorRepository = sponsorRepository ?? throw new ArgumentNullException(nameof(sponsorRepository));
             _sponsorEntityValidator = sponsorEntityValidator ?? throw new ArgumentNullException(nameof(sponsorEntityValidator));
             _sponsorContractRepository = sponsorContractRepository ?? throw new ArgumentNullException(nameof(sponsorContractRepository));
             _sponsorContractEntityValidator = sponsorContractEntityValidator ?? throw new ArgumentNullException(nameof(sponsorContractEntityValidator));
+            _sponsorFiaRepository = sponsorFiaRepository ?? throw new ArgumentNullException(nameof(sponsorFiaRepository));
+            _sponsorFiaEntityValidator = sponsorFiaEntityValidator ?? throw new ArgumentNullException(nameof(sponsorFiaEntityValidator));
         }
 
         public IEnumerable<SponsorEntity> GetSponsors()
@@ -321,6 +327,51 @@ namespace App.BaseGameEditor.Domain.Services
         public void SetSponsorContractsTeam11(IEnumerable<SponsorContractEntity> sponsorContracts)
         {
             SetSponsorContractsByTeamId(11, sponsorContracts);
+        }
+
+        public IEnumerable<SponsorFiaEntity> GetSponsorFias()
+        {
+            return _sponsorFiaRepository.Get();
+        }
+
+        public void SetSponsorFias(IEnumerable<SponsorFiaEntity> sponsorFias)
+        {
+            if (sponsorFias == null) throw new ArgumentNullException(nameof(sponsorFias));
+
+            var validationMessages = new List<string>();
+
+            var list = sponsorFias as IList<SponsorFiaEntity> ?? sponsorFias.ToList();
+            foreach (var item in list)
+            {
+                var messages = _sponsorFiaEntityValidator.Validate(item);
+                validationMessages.AddRange(messages);
+            }
+
+            if (validationMessages.Any())
+            {
+                // TODO: Handle validation failures gracefully.
+                throw new ArgumentException();
+            }
+
+            _sponsorFiaRepository.Set(list);
+        }
+
+        public void SetSponsorFia(SponsorFiaEntity sponsorFia)
+        {
+            if (sponsorFia == null) throw new ArgumentNullException(nameof(sponsorFia));
+
+            var validationMessages = new List<string>();
+
+            var messages = _sponsorFiaEntityValidator.Validate(sponsorFia);
+            validationMessages.AddRange(messages);
+
+            if (validationMessages.Any())
+            {
+                // TODO: Handle validation failures gracefully.
+                throw new ArgumentException();
+            }
+
+            _sponsorFiaRepository.SetById(sponsorFia);
         }
     }
 }

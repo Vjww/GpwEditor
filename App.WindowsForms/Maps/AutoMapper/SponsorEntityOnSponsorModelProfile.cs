@@ -14,6 +14,9 @@ namespace App.WindowsForms.Maps.AutoMapper
             CreateMap<SponsorContractEntity, SponsorContractModel>()
                 .ForMember(src => src.SlotDescription, opt => opt.Ignore())
                 .ReverseMap();
+
+            CreateMap<SponsorFiaEntity, SponsorFiaModel>()
+                .ReverseMap();
         }
     }
 }

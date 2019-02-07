@@ -13,11 +13,13 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
     {
         private const int SponsorItemCount = 98;
         private const int SponsorContractItemCount = 110;
+        private const int SponsorFiaItemCount = 11;
 
         private readonly SponsorDomainService _domainService;
         private readonly DataService _dataService;
         private readonly IIntegerIdentityFactory<SponsorEntity> _sponsorEntityFactory;
         private readonly IIntegerIdentityFactory<SponsorContractEntity> _sponsorContractEntityFactory;
+        private readonly IIntegerIdentityFactory<SponsorFiaEntity> _sponsorFiaEntityFactory;
         private readonly IMapperService _mapperService;
 
         public SponsorDomainModelImportService(
@@ -25,12 +27,14 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
             DataService dataService,
             IIntegerIdentityFactory<SponsorEntity> sponsorEntityFactory,
             IIntegerIdentityFactory<SponsorContractEntity> sponsorContractEntityFactory,
+            IIntegerIdentityFactory<SponsorFiaEntity> sponsorFiaEntityFactory,
             IMapperService mapperService)
         {
             _domainService = domainService ?? throw new ArgumentNullException(nameof(domainService));
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
             _sponsorEntityFactory = sponsorEntityFactory ?? throw new ArgumentNullException(nameof(sponsorEntityFactory));
             _sponsorContractEntityFactory = sponsorContractEntityFactory ?? throw new ArgumentNullException(nameof(sponsorContractEntityFactory));
+            _sponsorFiaEntityFactory = sponsorFiaEntityFactory ?? throw new ArgumentNullException(nameof(sponsorFiaEntityFactory));
             _mapperService = mapperService ?? throw new ArgumentNullException(nameof(mapperService));
         }
 
@@ -38,6 +42,7 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
         {
             ImportSponsors();
             ImportSponsorContracts();
+            ImportSponsorFias();
 
             BlendDataAfterImport();
         }
@@ -113,6 +118,23 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
                 entities.Add(entity);
             }
             _domainService.SetSponsorContracts(entities);
+        }
+
+        private void ImportSponsorFias()
+        {
+            var entities = new List<SponsorFiaEntity>();
+            for (var i = 0; i < SponsorFiaItemCount; i++)
+            {
+                var id = i;
+
+                var dataEntity = _dataService.SponsorFias.Get(x => x.Id == id).Single();
+
+                var entity = _sponsorFiaEntityFactory.Create(id);
+                entity = _mapperService.Map(dataEntity, entity);
+
+                entities.Add(entity);
+            }
+            _domainService.SetSponsorFias(entities);
         }
     }
 }

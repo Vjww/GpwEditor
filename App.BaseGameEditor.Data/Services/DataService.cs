@@ -50,7 +50,8 @@ namespace App.BaseGameEditor.Data.Services
         private readonly IRepositoryImportService<SponsorDataEntity> _sponsorRepositoryImportService;
         private readonly IRepositoryExportService<SponsorContractDataEntity> _sponsorContractRepositoryExportService;
         private readonly IRepositoryImportService<SponsorContractDataEntity> _sponsorContractRepositoryImportService;
-
+        private readonly IRepositoryExportService<SponsorFiaDataEntity> _sponsorFiaRepositoryExportService;
+        private readonly IRepositoryImportService<SponsorFiaDataEntity> _sponsorFiaRepositoryImportService;
         private readonly IRepositoryExportService<TrackDataEntity> _trackRepositoryExportService;
         private readonly IRepositoryImportService<TrackDataEntity> _trackRepositoryImportService;
         private readonly IRepositoryExportService<PerformanceCurveDataEntity> _performanceCurveRepositoryExportService;
@@ -86,6 +87,7 @@ namespace App.BaseGameEditor.Data.Services
         public IRepository<TeamDataEntity> Teams { get; }
         public IRepository<SponsorDataEntity> Sponsors { get; }
         public IRepository<SponsorContractDataEntity> SponsorContracts { get; }
+        public IRepository<SponsorFiaDataEntity> SponsorFias { get; }
         public IRepository<TrackDataEntity> Tracks { get; }
         public IRepository<PerformanceCurveDataEntity> PerformanceCurveValues { get; }
         public IRepository<ChiefDriverLoyaltyLookupDataEntity> ChiefDriverLoyaltyLookups { get; }
@@ -141,6 +143,8 @@ namespace App.BaseGameEditor.Data.Services
             IRepositoryImportService<SponsorDataEntity> sponsorRepositoryImportService,
             IRepositoryExportService<SponsorContractDataEntity> sponsorContractRepositoryExportService,
             IRepositoryImportService<SponsorContractDataEntity> sponsorContractRepositoryImportService,
+            IRepositoryExportService<SponsorFiaDataEntity> sponsorFiaRepositoryExportService,
+            IRepositoryImportService<SponsorFiaDataEntity> sponsorFiaRepositoryImportService,
             IRepositoryExportService<TrackDataEntity> trackRepositoryExportService,
             IRepositoryImportService<TrackDataEntity> trackRepositoryImportService,
             IRepositoryExportService<PerformanceCurveDataEntity> performanceCurveRepositoryExportService,
@@ -175,6 +179,7 @@ namespace App.BaseGameEditor.Data.Services
             IRepository<TeamDataEntity> teamRepository,
             IRepository<SponsorDataEntity> sponsorRepository,
             IRepository<SponsorContractDataEntity> sponsorContractRepository,
+            IRepository<SponsorFiaDataEntity> sponsorFiaRepository,
             IRepository<TrackDataEntity> trackRepository,
             IRepository<PerformanceCurveDataEntity> performanceCurveRepository,
             IRepository<ChiefDriverLoyaltyLookupDataEntity> chiefDriverLoyaltyLookupRepository,
@@ -229,6 +234,8 @@ namespace App.BaseGameEditor.Data.Services
             _sponsorRepositoryImportService = sponsorRepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorRepositoryImportService));
             _sponsorContractRepositoryExportService = sponsorContractRepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorContractRepositoryExportService));
             _sponsorContractRepositoryImportService = sponsorContractRepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorContractRepositoryImportService));
+            _sponsorFiaRepositoryExportService = sponsorFiaRepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorFiaRepositoryExportService));
+            _sponsorFiaRepositoryImportService = sponsorFiaRepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorFiaRepositoryImportService));
             _trackRepositoryExportService = trackRepositoryExportService ?? throw new ArgumentNullException(nameof(trackRepositoryExportService));
             _trackRepositoryImportService = trackRepositoryImportService ?? throw new ArgumentNullException(nameof(trackRepositoryImportService));
             _performanceCurveRepositoryExportService = performanceCurveRepositoryExportService ?? throw new ArgumentNullException(nameof(performanceCurveRepositoryExportService));
@@ -264,6 +271,7 @@ namespace App.BaseGameEditor.Data.Services
             Teams = teamRepository ?? throw new ArgumentNullException(nameof(teamRepository));
             Sponsors = sponsorRepository ?? throw new ArgumentNullException(nameof(sponsorRepository));
             SponsorContracts = sponsorContractRepository ?? throw new ArgumentNullException(nameof(sponsorContractRepository));
+            SponsorFias = sponsorFiaRepository ?? throw new ArgumentNullException(nameof(sponsorFiaRepository));
             Tracks = trackRepository ?? throw new ArgumentNullException(nameof(trackRepository));
             PerformanceCurveValues = performanceCurveRepository ?? throw new ArgumentNullException(nameof(performanceCurveRepository));
             ChiefDriverLoyaltyLookups = chiefDriverLoyaltyLookupRepository ?? throw new ArgumentNullException(nameof(chiefDriverLoyaltyLookupRepository));
@@ -300,6 +308,7 @@ namespace App.BaseGameEditor.Data.Services
             _teamRepositoryExportService.Export();
             _sponsorRepositoryExportService.Export();
             _sponsorContractRepositoryExportService.Export();
+            _sponsorFiaRepositoryExportService.Export();
             _trackRepositoryExportService.Export();
             _performanceCurveRepositoryExportService.Export();
         }
@@ -337,6 +346,7 @@ namespace App.BaseGameEditor.Data.Services
             _teamRepositoryImportService.Import(11);
             _sponsorRepositoryImportService.Import(98);
             _sponsorContractRepositoryImportService.Import(110);
+            _sponsorFiaRepositoryImportService.Import(11);
             _trackRepositoryImportService.Import(16);
             _performanceCurveRepositoryImportService.Import(120);
         }

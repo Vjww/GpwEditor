@@ -48,6 +48,10 @@ namespace App.WindowsForms.Controllers
 
         public void Run(Form parentView)
         {
+            // Reset flags
+            _isImportOccurred = false;
+            _isModified = false;
+
             _view = _formFactory.Create<LanguageFileEditorForm>();
             _view.SetController(this);
             ShowView(parentView, _view);

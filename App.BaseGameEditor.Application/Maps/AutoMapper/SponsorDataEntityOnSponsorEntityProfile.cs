@@ -19,6 +19,13 @@ namespace App.BaseGameEditor.Application.Maps.AutoMapper
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ReverseMap()
                 .ForMember(src => src.Id, opt => opt.Ignore());
+
+            CreateMap<SponsorFiaDataEntity, SponsorFiaEntity>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name.Shared))
+                .ReverseMap()
+                .ForMember(src => src.Id, opt => opt.Ignore())
+                .ForPath(src => src.Name.Shared, opt => opt.MapFrom(dest => dest.Name));
         }
     }
 }

@@ -15,6 +15,7 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
         private readonly DataService _dataService;
         private readonly IIntegerIdentityFactory<SponsorDataEntity> _sponsorDataEntityFactory;
         private readonly IIntegerIdentityFactory<SponsorContractDataEntity> _sponsorContractDataEntityFactory;
+        private readonly IIntegerIdentityFactory<SponsorFiaDataEntity> _sponsorFiaDataEntityFactory;
         private readonly IMapperService _mapperService;
 
         public SponsorDomainModelExportService(
@@ -22,12 +23,14 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
             DataService dataService,
             IIntegerIdentityFactory<SponsorDataEntity> sponsorDataEntityFactory,
             IIntegerIdentityFactory<SponsorContractDataEntity> sponsorContractDataEntityFactory,
+            IIntegerIdentityFactory<SponsorFiaDataEntity> sponsorFiaDataEntityFactory,
             IMapperService mapperService)
         {
             _domainService = domainService ?? throw new ArgumentNullException(nameof(domainService));
             _dataService = dataService ?? throw new ArgumentNullException(nameof(dataService));
             _sponsorDataEntityFactory = sponsorDataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorDataEntityFactory));
             _sponsorContractDataEntityFactory = sponsorContractDataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorContractDataEntityFactory));
+            _sponsorFiaDataEntityFactory = sponsorFiaDataEntityFactory ?? throw new ArgumentNullException(nameof(sponsorFiaDataEntityFactory));
             _mapperService = mapperService ?? throw new ArgumentNullException(nameof(mapperService));
         }
 
@@ -37,6 +40,7 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
 
             ExportSponsors();
             ExportSponsorContracts();
+            ExportSponsorFias();
         }
 
         private void BlendDataBeforeExport()
@@ -113,6 +117,18 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
                 _mapperService.Map(item, dataEntity);
 
                 _dataService.SponsorContracts.SetById(dataEntity);
+            }
+        }
+
+        private void ExportSponsorFias()
+        {
+            var entities = _domainService.GetSponsorFias();
+            foreach (var item in entities)
+            {
+                var dataEntity = _sponsorFiaDataEntityFactory.Create(item.Id);
+                _mapperService.Map(item, dataEntity);
+
+                _dataService.SponsorFias.SetById(dataEntity);
             }
         }
     }

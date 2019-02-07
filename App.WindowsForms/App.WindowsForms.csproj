@@ -196,6 +196,7 @@
     <Compile Include="Models\Lookups\SponsorNameLookupModel.cs" />
     <Compile Include="Models\Lookups\SponsorTermsLookupModel.cs" />
     <Compile Include="Models\Lookups\SponsorDealLookupModel.cs" />
+    <Compile Include="Models\SponsorFiaModel.cs" />
     <Compile Include="Models\SponsorContractModel.cs" />
     <Compile Include="Models\SponsorModel.cs" />
     <Compile Include="Models\F1ChiefCommercialModel.cs" />

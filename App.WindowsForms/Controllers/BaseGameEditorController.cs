@@ -33,6 +33,10 @@ namespace App.WindowsForms.Controllers
 
         public void Run(Form parentView)
         {
+            // Reset flags
+            _isImportOccurred = false;
+            _isModified = false;
+
             _view = _formFactory.Create<BaseGameEditorForm>();
             _view.SetController(this);
             ShowView(parentView, _view);
@@ -366,6 +370,7 @@ namespace App.WindowsForms.Controllers
             _view.NonF1ChiefMechanics = UpdateModelFromService<IEnumerable<NonF1ChiefMechanicEntity>, IEnumerable<NonF1ChiefMechanicModel>>(_baseGameEditorApplicationService.DomainModel.Persons.GetNonF1ChiefMechanics);
             _view.F1Drivers = UpdateModelFromService<IEnumerable<F1DriverEntity>, IEnumerable<F1DriverModel>>(_baseGameEditorApplicationService.DomainModel.Persons.GetF1Drivers);
             _view.NonF1Drivers = UpdateModelFromService<IEnumerable<NonF1DriverEntity>, IEnumerable<NonF1DriverModel>>(_baseGameEditorApplicationService.DomainModel.Persons.GetNonF1Drivers);
+            _view.SponsorFias = UpdateModelFromService<IEnumerable<SponsorFiaEntity>, IEnumerable<SponsorFiaModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorFias);
             _view.SponsorTeams = UpdateModelFromService<IEnumerable<SponsorEntity>, IEnumerable<SponsorModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorTeams);
             _view.SponsorEngines = UpdateModelFromService<IEnumerable<SponsorEntity>, IEnumerable<SponsorModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorEngines);
             _view.SponsorTyres = UpdateModelFromService<IEnumerable<SponsorEntity>, IEnumerable<SponsorModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorTyres);
@@ -408,6 +413,7 @@ namespace App.WindowsForms.Controllers
             UpdateServiceFromModel<IEnumerable<NonF1ChiefMechanicModel>, IEnumerable<NonF1ChiefMechanicEntity>>(_baseGameEditorApplicationService.DomainModel.Persons.SetNonF1ChiefMechanics, _view.NonF1ChiefMechanics);
             UpdateServiceFromModel<IEnumerable<F1DriverModel>, IEnumerable<F1DriverEntity>>(_baseGameEditorApplicationService.DomainModel.Persons.SetF1Drivers, _view.F1Drivers);
             UpdateServiceFromModel<IEnumerable<NonF1DriverModel>, IEnumerable<NonF1DriverEntity>>(_baseGameEditorApplicationService.DomainModel.Persons.SetNonF1Drivers, _view.NonF1Drivers);
+            UpdateServiceFromModel<IEnumerable<SponsorFiaModel>, IEnumerable<SponsorFiaEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorFias, _view.SponsorFias);
             UpdateServiceFromModel<IEnumerable<SponsorModel>, IEnumerable<SponsorEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorTeams, _view.SponsorTeams);
             UpdateServiceFromModel<IEnumerable<SponsorModel>, IEnumerable<SponsorEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorEngines, _view.SponsorEngines);
             UpdateServiceFromModel<IEnumerable<SponsorModel>, IEnumerable<SponsorEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorTyres, _view.SponsorTyres);
