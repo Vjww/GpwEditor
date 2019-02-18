@@ -66,14 +66,14 @@ namespace App.BaseGameEditor.Application.Services.Application
                 throw new Exception("Failed to validate data connection.");
             }
 
-            // Export configuration changes to game executable
-            _gameExecutableCodePatcher.ExportConfiguration(DomainModel, gameExecutableFilePath);
-
             // Export from domain layer into data layer
             _domainModelExportService.Export();
 
             // Export from data layer into files
             _dataExportService.Export(_dataConnection);
+
+            // Export configuration changes to game executable
+            _gameExecutableCodePatcher.ExportConfiguration(DomainModel, gameExecutableFilePath);
         }
 
         public void Import(

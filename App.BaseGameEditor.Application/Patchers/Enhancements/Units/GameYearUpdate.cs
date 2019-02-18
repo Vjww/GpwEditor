@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 
 namespace App.BaseGameEditor.Application.Patchers.Enhancements.Units
 {
@@ -95,89 +94,6 @@ namespace App.BaseGameEditor.Application.Patchers.Enhancements.Units
         {
             using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                Debug.Assert(executableConnection.ReadInteger(GameStartDateOffset) == 8);
-                Debug.Assert(executableConnection.ReadInteger(GameStartDayOfWeekOffset) == 4);
-
-                Debug.Assert(executableConnection.ReadInteger(GameYear199601Offset) == 1996);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199602Offset) == 1996);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199603Offset) == 1996);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199604Offset) == 1996);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199605Offset) == 1996);
-
-                Debug.Assert(executableConnection.ReadInteger(GameYear199701Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199702Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199703Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199704Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199705Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199706Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199707Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199708Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199709Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199710Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199711Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199712Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199713Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199714Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199715Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199716Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199717Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199718Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199719Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199720Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199721Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199722Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199723Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199724Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199725Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199726Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199727Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199728Offset) == 1997);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199729Offset) == 1997);
-
-                Debug.Assert(executableConnection.ReadInteger(GameYear199801Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199802Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199803Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199804Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199805Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199806Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199807Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199808Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199809Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199810Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199811Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199812Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199813Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199814Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199815Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199816Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199817Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199818Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199819Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199820Offset) == 1998);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199821Offset) == 1998);
-
-                Debug.Assert(executableConnection.ReadInteger(GameYear199901Offset) == 1999);
-                Debug.Assert(executableConnection.ReadInteger(GameYear199902Offset) == 1999);
-
-                Debug.Assert(executableConnection.ReadInteger(GameYear200001Offset) == 2000);
-                Debug.Assert(executableConnection.ReadInteger(GameYear200002Offset) == 2000);
-                Debug.Assert(executableConnection.ReadInteger(GameYear200003Offset) == 2000);
-
-                Debug.Assert(executableConnection.ReadInteger(GameYear200101Offset) == 2001);
-
-                Debug.Assert(executableConnection.ReadInteger(GameYear200401Offset) == 2004);
-                Debug.Assert(executableConnection.ReadInteger(GameYear200402Offset) == 2004);
-                Debug.Assert(executableConnection.ReadInteger(GameYear200403Offset) == 2004);
-
-                Debug.Assert(executableConnection.ReadInteger(GameYear200501Offset) == 2005);
-
-                Debug.Assert(executableConnection.ReadInteger(GameYear200701Offset) == 2007);
-                Debug.Assert(executableConnection.ReadInteger(GameYear200702Offset) == 2007);
-
-                Debug.Assert(executableConnection.ReadInteger(GameYear200801Offset) == 2008);
-
-                Debug.Assert(executableConnection.ReadInteger(GameYear201201Offset) == 2012);
-
                 var result = executableConnection.ReadInteger(GameYear199801Offset);
                 return result;
             }
@@ -252,7 +168,7 @@ namespace App.BaseGameEditor.Application.Patchers.Enhancements.Units
             // Update all values affected by change in game year
             using (var executableConnection = new ExecutableConnection(gameExecutableFilePath))
             {
-                executableConnection.WriteInteger(GameStartDateOffset, gameStartDate);
+                executableConnection.WriteByte(GameStartDateOffset, (byte)gameStartDate);
                 executableConnection.WriteInteger(GameStartDayOfWeekOffset, gameStartDayOfWeek);
 
                 executableConnection.WriteInteger(GameYear199601Offset, year1996);

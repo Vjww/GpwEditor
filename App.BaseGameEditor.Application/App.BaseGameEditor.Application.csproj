@@ -26,6 +26,7 @@
     <None Remove="Resources\text\COMME.TXT" />
     <None Remove="Resources\text\Commf.txt" />
     <None Remove="Resources\text\Commg.TXT" />
+    <None Remove="Resources\tga\Backdrop\RaceTee.tga" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,6 +51,7 @@
     <EmbeddedResource Include="Resources\text\COMME.TXT" />
     <EmbeddedResource Include="Resources\text\Commf.txt" />
     <EmbeddedResource Include="Resources\text\Commg.TXT" />
+    <EmbeddedResource Include="Resources\tga\Backdrop\RaceTee.tga" />
   </ItemGroup>
 
   <ItemGroup>

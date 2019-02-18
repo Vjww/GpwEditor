@@ -188,6 +188,7 @@
     <Compile Include="Maps\AutoMapper\SponsorEntityOnSponsorModelProfile.cs" />
     <Compile Include="Maps\AutoMapper\PersonEntityOnPersonModelProfile.cs" />
     <Compile Include="Maps\AutoMapper\Reference\PresentationMaps.cs" />
+    <Compile Include="Models\GameYearModel.cs" />
     <Compile Include="Models\CommentaryIndexDriverModel.cs" />
     <Compile Include="Models\CommentaryIndexTeamModel.cs" />
     <Compile Include="Models\CommentaryFileModel.cs" />

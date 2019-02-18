@@ -472,14 +472,33 @@ namespace App.WindowsForms.Controllers
             _view.PointsScoringSystemOption2 = _configureGameApplicationService.DomainModel.Configurations.PointsScoringSystemOption2;
             _view.PointsScoringSystemOption3 = _configureGameApplicationService.DomainModel.Configurations.PointsScoringSystemOption3;
 
+            _view.GameYears = UpdateGameYearModel();
+            _view.GameYear = _configureGameApplicationService.DomainModel.Configurations.GameYear;
+
             _view.CommentaryIndexDrivers = UpdateModelFromService<IEnumerable<CommentaryIndexDriverEntity>, IEnumerable<CommentaryIndexDriverModel>>(_configureGameApplicationService.DomainModel.Commentaries.GetCommentaryIndexDrivers);
             _view.CommentaryIndexTeams = UpdateModelFromService<IEnumerable<CommentaryIndexTeamEntity>, IEnumerable<CommentaryIndexTeamModel>>(_configureGameApplicationService.DomainModel.Commentaries.GetCommentaryIndexTeams);
             _view.CommentaryPrefixDrivers = UpdateModelFromService<IEnumerable<CommentaryPrefixDriverEntity>, IEnumerable<CommentaryPrefixDriverModel>>(_configureGameApplicationService.DomainModel.Commentaries.GetCommentaryPrefixDrivers);
             _view.CommentaryPrefixTeams = UpdateModelFromService<IEnumerable<CommentaryPrefixTeamEntity>, IEnumerable<CommentaryPrefixTeamModel>>(_configureGameApplicationService.DomainModel.Commentaries.GetCommentaryPrefixTeams);
             _view.CommentaryFiles = UpdateCommentaryFilesModelFromService(_view.GameFolderPath);
 
+            _view.EnableTrackEditor = _configureGameApplicationService.DomainModel.Configurations.EnableTrackEditor;
+
             // TODO: Perhaps the data type of Performance Curve should be int[] rather than a model, or the model is not enumerable but rather a model of PerformanceCurveModel.Values
             _view.PerformanceCurves = UpdateModelFromService<IEnumerable<PerformanceCurveEntity>, IEnumerable<PerformanceCurveModel>>(_configureGameApplicationService.DomainModel.PerformanceCurveValues.GetPerformanceCurves);
+        }
+
+        private static IEnumerable<GameYearModel> UpdateGameYearModel()
+        {
+            var result = new List<GameYearModel>();
+
+            const int startYear = 1950;
+            const int endYear = 2050;
+            for (var i = startYear; i <= endYear; i++)
+            {
+                result.Add(new GameYearModel { Id = i - startYear, Description = $"{i}", Value = i });
+            }
+
+            return result;
         }
 
         private void UpdateServiceFromModels()
@@ -497,6 +516,8 @@ namespace App.WindowsForms.Controllers
             _configureGameApplicationService.DomainModel.Configurations.PointsScoringSystemOption2 = _view.PointsScoringSystemOption2;
             _configureGameApplicationService.DomainModel.Configurations.PointsScoringSystemOption3 = _view.PointsScoringSystemOption3;
 
+            _configureGameApplicationService.DomainModel.Configurations.GameYear = _view.GameYear;
+
             // Update commentary driver services
             UpdateServiceFromModel<IEnumerable<CommentaryIndexDriverModel>, IEnumerable<CommentaryIndexDriverEntity>>(_configureGameApplicationService.DomainModel.Commentaries.SetCommentaryIndexDrivers, _view.CommentaryIndexDrivers);
             UpdateServiceFromModel<IEnumerable<CommentaryPrefixDriverModel>, IEnumerable<CommentaryPrefixDriverEntity>>(_configureGameApplicationService.DomainModel.Commentaries.SetCommentaryPrefixDrivers, _view.CommentaryPrefixDrivers);
@@ -506,6 +527,8 @@ namespace App.WindowsForms.Controllers
             UpdateServiceFromModel<IEnumerable<CommentaryIndexTeamModel>, IEnumerable<CommentaryIndexTeamEntity>>(_configureGameApplicationService.DomainModel.Commentaries.SetCommentaryIndexTeams, _view.CommentaryIndexTeams);
             UpdateServiceFromModel<IEnumerable<CommentaryPrefixTeamModel>, IEnumerable<CommentaryPrefixTeamEntity>>(_configureGameApplicationService.DomainModel.Commentaries.SetCommentaryPrefixTeams, _view.CommentaryPrefixTeams);
             SynchroniseChangesToCommentaryTeamsService();
+
+            _configureGameApplicationService.DomainModel.Configurations.EnableTrackEditor = _view.EnableTrackEditor;
 
             UpdateServiceFromModel<IEnumerable<PerformanceCurveModel>, IEnumerable<PerformanceCurveEntity>>(_configureGameApplicationService.DomainModel.PerformanceCurveValues.SetPerformanceCurves, _view.PerformanceCurves);
         }

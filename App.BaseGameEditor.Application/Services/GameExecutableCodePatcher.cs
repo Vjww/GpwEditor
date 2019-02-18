@@ -16,6 +16,7 @@ namespace App.BaseGameEditor.Application.Services
         private readonly GlobalUnlockPatcher _globalUnlockPatcher;
         private readonly JumpBypassPatcher _jumpBypassPatcher;
         private readonly SwitchIdiomPatcher _switchIdiomPatcher;
+        private readonly GameYearUpdate _gameYearUpdate;
         private readonly PointsSystemF119912002Update _pointsSystemF119912002Update;
         private readonly PointsSystemF119811990Update _pointsSystemF119811990Update;
         private readonly PointsSystemF120032009Update _pointsSystemF120032009Update;
@@ -27,12 +28,14 @@ namespace App.BaseGameEditor.Application.Services
         private readonly YellowFlagFix _yellowFlagFix;
         private readonly CarDesignCalculationUpdate _carDesignCalculationUpdate;
         private readonly CarHandlingPerformanceFix _carHandlingPerformanceFix;
+        private readonly TrackEditorFix _trackEditorFix;
 
         public GameExecutableCodePatcher(
             CodeShiftPatcher codeShiftPatcher,
             GlobalUnlockPatcher globalUnlockPatcher,
             JumpBypassPatcher jumpBypassPatcher,
             SwitchIdiomPatcher switchIdiomPatcher,
+            GameYearUpdate gameYearUpdate,
             PointsSystemF119912002Update pointsSystemF119912002Update,
             PointsSystemF119811990Update pointsSystemF119811990Update,
             PointsSystemF120032009Update pointsSystemF120032009Update,
@@ -43,12 +46,14 @@ namespace App.BaseGameEditor.Application.Services
             RaceSoundsFix raceSoundsFix,
             YellowFlagFix yellowFlagFix,
             CarDesignCalculationUpdate carDesignCalculationUpdate,
-            CarHandlingPerformanceFix carHandlingPerformanceFix)
+            CarHandlingPerformanceFix carHandlingPerformanceFix,
+            TrackEditorFix trackEditorFix)
         {
             _codeShiftPatcher = codeShiftPatcher ?? throw new ArgumentNullException(nameof(codeShiftPatcher));
             _globalUnlockPatcher = globalUnlockPatcher ?? throw new ArgumentNullException(nameof(globalUnlockPatcher));
             _jumpBypassPatcher = jumpBypassPatcher ?? throw new ArgumentNullException(nameof(jumpBypassPatcher));
             _switchIdiomPatcher = switchIdiomPatcher ?? throw new ArgumentNullException(nameof(switchIdiomPatcher));
+            _gameYearUpdate = gameYearUpdate ?? throw new ArgumentNullException(nameof(gameYearUpdate));
             _pointsSystemF119912002Update = pointsSystemF119912002Update ?? throw new ArgumentNullException(nameof(pointsSystemF119912002Update));
             _pointsSystemF119811990Update = pointsSystemF119811990Update ?? throw new ArgumentNullException(nameof(pointsSystemF119811990Update));
             _pointsSystemF120032009Update = pointsSystemF120032009Update ?? throw new ArgumentNullException(nameof(pointsSystemF120032009Update));
@@ -60,6 +65,7 @@ namespace App.BaseGameEditor.Application.Services
             _yellowFlagFix = yellowFlagFix ?? throw new ArgumentNullException(nameof(yellowFlagFix));
             _carDesignCalculationUpdate = carDesignCalculationUpdate ?? throw new ArgumentNullException(nameof(carDesignCalculationUpdate));
             _carHandlingPerformanceFix = carHandlingPerformanceFix ?? throw new ArgumentNullException(nameof(carHandlingPerformanceFix));
+            _trackEditorFix = trackEditorFix ?? throw new ArgumentNullException(nameof(trackEditorFix));
         }
 
         public void Upgrade(string gameExecutableFilePath)
@@ -162,6 +168,8 @@ namespace App.BaseGameEditor.Application.Services
                 ApplyReversibleCode(_carHandlingPerformanceFix, isCarHandlingPerformanceFixRequired, gameExecutableFilePath);
             }
 
+            _gameYearUpdate.SetGameYear(domainModel.Configurations.GameYear, gameExecutableFilePath);
+
             // Scenarios for each irreversible code module
             // Scenario 1: If currently not applied and should be applied, apply modified code
             // Scenario 2: If currently not applied and should not be applied, do nothing
@@ -195,6 +203,14 @@ namespace App.BaseGameEditor.Application.Services
             {
                 ApplyIrreversibleCode(_pointsSystemF1201020XxUpdate, gameExecutableFilePath);
             }
+
+            // Track Editor
+            var isTrackEditorFixApplied = _trackEditorFix.IsCodeModified(gameExecutableFilePath);
+            var isTrackEditorFixRequired = domainModel.Configurations.EnableTrackEditor;
+            if (isTrackEditorFixApplied != isTrackEditorFixRequired)
+            {
+                ApplyReversibleCode(_trackEditorFix, isTrackEditorFixRequired, gameExecutableFilePath);
+            }
         }
 
         public void ImportConfiguration(DomainModelService domainModel, string gameExecutableFilePath)
@@ -210,12 +226,16 @@ namespace App.BaseGameEditor.Application.Services
             domainModel.Configurations.DisableYellowFlagPenalties = _yellowFlagFix.IsCodeModified(gameExecutableFilePath);
             domainModel.Configurations.EnableCarHandlingDesignCalculation = _carDesignCalculationUpdate.IsCodeModified(gameExecutableFilePath);
             domainModel.Configurations.EnableCarPerformanceRaceCalcuation = _carHandlingPerformanceFix.IsCodeModified(gameExecutableFilePath);
+            domainModel.Configurations.GameYear = _gameYearUpdate.GetGameYear(gameExecutableFilePath);
 
             // Points Scoring System
             domainModel.Configurations.PointsScoringSystemDefault = _pointsSystemF119912002Update.IsCodeModified(gameExecutableFilePath);
             domainModel.Configurations.PointsScoringSystemOption1 = _pointsSystemF119811990Update.IsCodeModified(gameExecutableFilePath);
             domainModel.Configurations.PointsScoringSystemOption2 = _pointsSystemF120032009Update.IsCodeModified(gameExecutableFilePath);
             domainModel.Configurations.PointsScoringSystemOption3 = _pointsSystemF1201020XxUpdate.IsCodeModified(gameExecutableFilePath);
+
+            // Track Editor
+            domainModel.Configurations.EnableTrackEditor = _trackEditorFix.IsCodeModified(gameExecutableFilePath);
         }
 
         private static void ApplyReversibleCode(IDataPatcherUnitBase dataPatcherUnitBase, bool applyModified, string gameExecutableFilePath)

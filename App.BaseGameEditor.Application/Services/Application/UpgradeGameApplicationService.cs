@@ -89,6 +89,9 @@ namespace App.BaseGameEditor.Application.Services.Application
             // Deploy driver changes
             _embeddedResourceDeployer.DeployDriverResourcesToGameFolder(gameFolderPath);
 
+            // Deploy track editor files
+            _embeddedResourceDeployer.DeployTrackEditorResourcesToGameFolder(gameFolderPath);
+
             // Apply code changes to game executable
             _gameExecutableCodePatcher.Upgrade(gameExecutableFilePath);
 

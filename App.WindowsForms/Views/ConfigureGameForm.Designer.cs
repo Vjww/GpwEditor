@@ -74,6 +74,8 @@
             this.DisableSampleAppCheckBox = new System.Windows.Forms.CheckBox();
             this.GameplayTabPage = new System.Windows.Forms.TabPage();
             this.GameplayGroupBox = new System.Windows.Forms.GroupBox();
+            this.GameYearComboBox = new System.Windows.Forms.ComboBox();
+            this.GameYearLabel = new System.Windows.Forms.Label();
             this.DisableYellowFlagPenaltiesCheckBox = new System.Windows.Forms.CheckBox();
             this.EnableCarPerformanceRaceCalcuationCheckBox = new System.Windows.Forms.CheckBox();
             this.EnableCarHandlingDesignCalculationCheckBox = new System.Windows.Forms.CheckBox();
@@ -101,9 +103,9 @@
             this.PointsScoringSystemOption2RadioButton = new System.Windows.Forms.RadioButton();
             this.PointsScoringSystemOption1RadioButton = new System.Windows.Forms.RadioButton();
             this.PointsScoringSystemDefaultRadioButton = new System.Windows.Forms.RadioButton();
-            this.ViewportsTabPage = new System.Windows.Forms.TabPage();
-            this.ViewportsGroupBox = new System.Windows.Forms.GroupBox();
-            this.ViewportsLabel = new System.Windows.Forms.Label();
+            this.TrackEditorTabPage = new System.Windows.Forms.TabPage();
+            this.TrackEditorGroupBox = new System.Windows.Forms.GroupBox();
+            this.TrackEditorLabel = new System.Windows.Forms.Label();
             this.PerformanceCurveTabPage = new System.Windows.Forms.TabPage();
             this.PerformanceCurveGroupBox = new System.Windows.Forms.GroupBox();
             this.PerformanceCurveControlsGroupBox = new System.Windows.Forms.GroupBox();
@@ -129,6 +131,8 @@
             this.PerformanceCurveChartBox010NumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.PerformanceCurveChartBox110NumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.PerformanceCurveChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.GameYearCommentLabel = new System.Windows.Forms.Label();
+            this.EnableTrackEditorCheckBox = new System.Windows.Forms.CheckBox();
             this.ConfigureGameTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
             this.FilesGroupBox.SuspendLayout();
@@ -154,8 +158,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.CommentaryIndicesTeamDataGridView)).BeginInit();
             this.PointsScoringSystemTabPage.SuspendLayout();
             this.PointsScoringSystemGroupBox.SuspendLayout();
-            this.ViewportsTabPage.SuspendLayout();
-            this.ViewportsGroupBox.SuspendLayout();
+            this.TrackEditorTabPage.SuspendLayout();
+            this.TrackEditorGroupBox.SuspendLayout();
             this.PerformanceCurveTabPage.SuspendLayout();
             this.PerformanceCurveGroupBox.SuspendLayout();
             this.PerformanceCurveControlsGroupBox.SuspendLayout();
@@ -182,7 +186,7 @@
             this.ConfigureGameTabControl.Controls.Add(this.GameplayTabPage);
             this.ConfigureGameTabControl.Controls.Add(this.CommentaryTabPage);
             this.ConfigureGameTabControl.Controls.Add(this.PointsScoringSystemTabPage);
-            this.ConfigureGameTabControl.Controls.Add(this.ViewportsTabPage);
+            this.ConfigureGameTabControl.Controls.Add(this.TrackEditorTabPage);
             this.ConfigureGameTabControl.Controls.Add(this.PerformanceCurveTabPage);
             this.ConfigureGameTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ConfigureGameTabControl.Location = new System.Drawing.Point(3, 3);
@@ -615,6 +619,9 @@
             // 
             // GameplayGroupBox
             // 
+            this.GameplayGroupBox.Controls.Add(this.GameYearCommentLabel);
+            this.GameplayGroupBox.Controls.Add(this.GameYearComboBox);
+            this.GameplayGroupBox.Controls.Add(this.GameYearLabel);
             this.GameplayGroupBox.Controls.Add(this.DisableYellowFlagPenaltiesCheckBox);
             this.GameplayGroupBox.Controls.Add(this.EnableCarPerformanceRaceCalcuationCheckBox);
             this.GameplayGroupBox.Controls.Add(this.EnableCarHandlingDesignCalculationCheckBox);
@@ -625,10 +632,27 @@
             this.GameplayGroupBox.TabStop = false;
             this.GameplayGroupBox.Text = "Gameplay";
             // 
+            // GameYearComboBox
+            // 
+            this.GameYearComboBox.FormattingEnabled = true;
+            this.GameYearComboBox.Location = new System.Drawing.Point(72, 19);
+            this.GameYearComboBox.Name = "GameYearComboBox";
+            this.GameYearComboBox.Size = new System.Drawing.Size(121, 21);
+            this.GameYearComboBox.TabIndex = 5;
+            // 
+            // GameYearLabel
+            // 
+            this.GameYearLabel.AutoSize = true;
+            this.GameYearLabel.Location = new System.Drawing.Point(6, 22);
+            this.GameYearLabel.Name = "GameYearLabel";
+            this.GameYearLabel.Size = new System.Drawing.Size(60, 13);
+            this.GameYearLabel.TabIndex = 4;
+            this.GameYearLabel.Text = "Game Year";
+            // 
             // DisableYellowFlagPenaltiesCheckBox
             // 
             this.DisableYellowFlagPenaltiesCheckBox.AutoSize = true;
-            this.DisableYellowFlagPenaltiesCheckBox.Location = new System.Drawing.Point(6, 19);
+            this.DisableYellowFlagPenaltiesCheckBox.Location = new System.Drawing.Point(6, 56);
             this.DisableYellowFlagPenaltiesCheckBox.Name = "DisableYellowFlagPenaltiesCheckBox";
             this.DisableYellowFlagPenaltiesCheckBox.Size = new System.Drawing.Size(158, 17);
             this.DisableYellowFlagPenaltiesCheckBox.TabIndex = 1;
@@ -639,7 +663,7 @@
             // 
             this.EnableCarPerformanceRaceCalcuationCheckBox.AutoSize = true;
             this.EnableCarPerformanceRaceCalcuationCheckBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.EnableCarPerformanceRaceCalcuationCheckBox.Location = new System.Drawing.Point(6, 65);
+            this.EnableCarPerformanceRaceCalcuationCheckBox.Location = new System.Drawing.Point(6, 102);
             this.EnableCarPerformanceRaceCalcuationCheckBox.Name = "EnableCarPerformanceRaceCalcuationCheckBox";
             this.EnableCarPerformanceRaceCalcuationCheckBox.Size = new System.Drawing.Size(225, 17);
             this.EnableCarPerformanceRaceCalcuationCheckBox.TabIndex = 3;
@@ -650,7 +674,7 @@
             // 
             this.EnableCarHandlingDesignCalculationCheckBox.AutoSize = true;
             this.EnableCarHandlingDesignCalculationCheckBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.EnableCarHandlingDesignCalculationCheckBox.Location = new System.Drawing.Point(6, 42);
+            this.EnableCarHandlingDesignCalculationCheckBox.Location = new System.Drawing.Point(6, 79);
             this.EnableCarHandlingDesignCalculationCheckBox.Name = "EnableCarHandlingDesignCalculationCheckBox";
             this.EnableCarHandlingDesignCalculationCheckBox.Size = new System.Drawing.Size(219, 17);
             this.EnableCarHandlingDesignCalculationCheckBox.TabIndex = 2;
@@ -926,37 +950,38 @@
             this.PointsScoringSystemDefaultRadioButton.Text = "Default - 10-6-4-3-2-1 (top 6 finishers, 1991-2002)";
             this.PointsScoringSystemDefaultRadioButton.UseVisualStyleBackColor = true;
             // 
-            // ViewportsTabPage
+            // TrackEditorTabPage
             // 
-            this.ViewportsTabPage.Controls.Add(this.ViewportsGroupBox);
-            this.ViewportsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.ViewportsTabPage.Name = "ViewportsTabPage";
-            this.ViewportsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ViewportsTabPage.Size = new System.Drawing.Size(930, 529);
-            this.ViewportsTabPage.TabIndex = 5;
-            this.ViewportsTabPage.Text = "Viewports";
-            this.ViewportsTabPage.UseVisualStyleBackColor = true;
+            this.TrackEditorTabPage.Controls.Add(this.TrackEditorGroupBox);
+            this.TrackEditorTabPage.Location = new System.Drawing.Point(4, 22);
+            this.TrackEditorTabPage.Name = "TrackEditorTabPage";
+            this.TrackEditorTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.TrackEditorTabPage.Size = new System.Drawing.Size(930, 529);
+            this.TrackEditorTabPage.TabIndex = 5;
+            this.TrackEditorTabPage.Text = "Track Editor";
+            this.TrackEditorTabPage.UseVisualStyleBackColor = true;
             // 
-            // ViewportsGroupBox
+            // TrackEditorGroupBox
             // 
-            this.ViewportsGroupBox.Controls.Add(this.ViewportsLabel);
-            this.ViewportsGroupBox.Location = new System.Drawing.Point(6, 6);
-            this.ViewportsGroupBox.Name = "ViewportsGroupBox";
-            this.ViewportsGroupBox.Size = new System.Drawing.Size(918, 517);
-            this.ViewportsGroupBox.TabIndex = 0;
-            this.ViewportsGroupBox.TabStop = false;
-            this.ViewportsGroupBox.Text = "Viewports";
+            this.TrackEditorGroupBox.Controls.Add(this.EnableTrackEditorCheckBox);
+            this.TrackEditorGroupBox.Controls.Add(this.TrackEditorLabel);
+            this.TrackEditorGroupBox.Location = new System.Drawing.Point(6, 6);
+            this.TrackEditorGroupBox.Name = "TrackEditorGroupBox";
+            this.TrackEditorGroupBox.Size = new System.Drawing.Size(918, 517);
+            this.TrackEditorGroupBox.TabIndex = 0;
+            this.TrackEditorGroupBox.TabStop = false;
+            this.TrackEditorGroupBox.Text = "Track Editor";
             // 
-            // ViewportsLabel
+            // TrackEditorLabel
             // 
-            this.ViewportsLabel.AutoSize = true;
-            this.ViewportsLabel.Location = new System.Drawing.Point(6, 16);
-            this.ViewportsLabel.Name = "ViewportsLabel";
-            this.ViewportsLabel.Size = new System.Drawing.Size(858, 13);
-            this.ViewportsLabel.TabIndex = 0;
-            this.ViewportsLabel.Text = "This feature is currently unavailable and in development. In a future version of " +
-    "this program, you will be able to choose the layout of the screens when watching" +
-    " qualifying or the race.";
+            this.TrackEditorLabel.AutoSize = true;
+            this.TrackEditorLabel.Location = new System.Drawing.Point(6, 16);
+            this.TrackEditorLabel.Name = "TrackEditorLabel";
+            this.TrackEditorLabel.Size = new System.Drawing.Size(852, 13);
+            this.TrackEditorLabel.TabIndex = 0;
+            this.TrackEditorLabel.Text = "If enabled, the track editor will load in place of the qualifying and race sessio" +
+    "ns. This will allow you to view and modify the racing lines of the cars that ove" +
+    "rlay the track photographs.";
             // 
             // PerformanceCurveTabPage
             // 
@@ -1388,6 +1413,26 @@
             title1.Text = "Performance Curve";
             this.PerformanceCurveChart.Titles.Add(title1);
             // 
+            // GameYearCommentLabel
+            // 
+            this.GameYearCommentLabel.AutoSize = true;
+            this.GameYearCommentLabel.Location = new System.Drawing.Point(199, 22);
+            this.GameYearCommentLabel.Name = "GameYearCommentLabel";
+            this.GameYearCommentLabel.Size = new System.Drawing.Size(669, 13);
+            this.GameYearCommentLabel.TabIndex = 6;
+            this.GameYearCommentLabel.Text = "After changing the game year and exporting changes, use the Language File Editor " +
+    "to update the game year references in the language files.";
+            // 
+            // EnableTrackEditorCheckBox
+            // 
+            this.EnableTrackEditorCheckBox.AutoSize = true;
+            this.EnableTrackEditorCheckBox.Location = new System.Drawing.Point(6, 39);
+            this.EnableTrackEditorCheckBox.Name = "EnableTrackEditorCheckBox";
+            this.EnableTrackEditorCheckBox.Size = new System.Drawing.Size(115, 17);
+            this.EnableTrackEditorCheckBox.TabIndex = 2;
+            this.EnableTrackEditorCheckBox.Text = "Enable track editor";
+            this.EnableTrackEditorCheckBox.UseVisualStyleBackColor = true;
+            // 
             // ConfigureGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1430,9 +1475,9 @@
             this.PointsScoringSystemTabPage.ResumeLayout(false);
             this.PointsScoringSystemGroupBox.ResumeLayout(false);
             this.PointsScoringSystemGroupBox.PerformLayout();
-            this.ViewportsTabPage.ResumeLayout(false);
-            this.ViewportsGroupBox.ResumeLayout(false);
-            this.ViewportsGroupBox.PerformLayout();
+            this.TrackEditorTabPage.ResumeLayout(false);
+            this.TrackEditorGroupBox.ResumeLayout(false);
+            this.TrackEditorGroupBox.PerformLayout();
             this.PerformanceCurveTabPage.ResumeLayout(false);
             this.PerformanceCurveGroupBox.ResumeLayout(false);
             this.PerformanceCurveControlsGroupBox.ResumeLayout(false);
@@ -1477,8 +1522,8 @@
         private System.Windows.Forms.RadioButton PointsScoringSystemDefaultRadioButton;
         private System.Windows.Forms.GroupBox CompatibilityGroupBox;
         private System.Windows.Forms.GroupBox GameplayGroupBox;
-        private System.Windows.Forms.TabPage ViewportsTabPage;
-        private System.Windows.Forms.GroupBox ViewportsGroupBox;
+        private System.Windows.Forms.TabPage TrackEditorTabPage;
+        private System.Windows.Forms.GroupBox TrackEditorGroupBox;
         private System.Windows.Forms.GroupBox OverviewGroupBox;
         private System.Windows.Forms.RichTextBox OverviewRichTextBox;
         private System.Windows.Forms.DataGridView LanguageDataGridView;
@@ -1561,7 +1606,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn resourceIdDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn resourceTextDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn commentaryIndexDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.Label ViewportsLabel;
+        private System.Windows.Forms.Label TrackEditorLabel;
         private System.Windows.Forms.GroupBox FilesGroupBox;
         private System.Windows.Forms.Label GameFolderPathLabel;
         private System.Windows.Forms.TextBox GameFolderPathTextBox;
@@ -1589,5 +1634,9 @@
         private System.Windows.Forms.Button GermanLanguageFilePathBrowseButton;
         private System.Windows.Forms.Button ImportButton;
         private System.Windows.Forms.Button ExportButton;
+        private System.Windows.Forms.ComboBox GameYearComboBox;
+        private System.Windows.Forms.Label GameYearLabel;
+        private System.Windows.Forms.Label GameYearCommentLabel;
+        private System.Windows.Forms.CheckBox EnableTrackEditorCheckBox;
     }
 }
