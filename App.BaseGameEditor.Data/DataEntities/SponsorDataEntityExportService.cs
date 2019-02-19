@@ -78,7 +78,7 @@ namespace App.BaseGameEditor.Data.DataEntities
         {
             const int sponsorBlockSize = 0x00000614;
             var sponsorMultiplier = dataEntity.SponsorId - 1;
-            var sponsorCashRatingAddress = sponsorCashRatingBaseAddress + sponsorBlockSize + sponsorMultiplier;
+            var sponsorCashRatingAddress = sponsorCashRatingBaseAddress + sponsorBlockSize * sponsorMultiplier;
 
             if (dataEntity.CashRatingRandom)
             {
@@ -91,7 +91,7 @@ namespace App.BaseGameEditor.Data.DataEntities
                 cashRatingInstructions.AddRange(BitConverter.GetBytes(cashRatingRelativeSubAddress)); //         sub_498A5A
                 cashRatingInstructions.AddRange(new byte[] { 0x83, 0xC4, 0x04 });                     // add     esp, 4
                 cashRatingInstructions.AddRange(new byte[] { 0x40 });                                 // inc     eax
-                cashRatingInstructions.AddRange(new byte[] { 0xE8 });                                 // mov
+                cashRatingInstructions.AddRange(new byte[] { 0xA3 });                                 // mov
                 cashRatingInstructions.AddRange(BitConverter.GetBytes(sponsorCashRatingAddress));     //         ds:dword_XXXXXX, eax
 
                 _dataEndpoint.GameExecutableFileResource.WriteBytes(dataLocator.CashRatingInstruction, cashRatingInstructions.ToArray());
@@ -126,7 +126,7 @@ namespace App.BaseGameEditor.Data.DataEntities
                 radRatingInstructions.AddRange(BitConverter.GetBytes(radRatingRelativeSubAddress)); //         sub_498A5A
                 radRatingInstructions.AddRange(new byte[] { 0x83, 0xC4, 0x04 });                    // add     esp, 4
                 radRatingInstructions.AddRange(new byte[] { 0x40 });                                // inc     eax
-                radRatingInstructions.AddRange(new byte[] { 0xE8 });                                // mov
+                radRatingInstructions.AddRange(new byte[] { 0xA3 });                                // mov
                 radRatingInstructions.AddRange(BitConverter.GetBytes(sponsorRadRatingAddress));     //         ds:dword_XXXXXX, eax
 
                 _dataEndpoint.GameExecutableFileResource.WriteBytes(dataLocator.RadRatingInstruction, radRatingInstructions.ToArray());
