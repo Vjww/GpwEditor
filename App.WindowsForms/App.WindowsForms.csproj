@@ -58,7 +58,7 @@
     <ManifestKeyFile>App.WindowsForms_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>false</GenerateManifests>
+    <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -374,11 +374,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Base\ss1.png" />
-    <Content Include="Resources\Base\ss2.png" />
-    <Content Include="Resources\Base\ss3.png" />
-    <Content Include="Resources\Base\ss4.png" />
-    <Content Include="Resources\Base\ss5.png" />
+    <None Include="Resources\Base\ss1.png" />
+    <None Include="Resources\Base\ss2.png" />
+    <None Include="Resources\Base\ss3.png" />
+    <None Include="Resources\Base\ss4.png" />
+    <None Include="Resources\Base\ss5.png" />
     <Content Include="Resources\icon1.ico" />
     <Content Include="Resources\logo1.png" />
     <Content Include="Resources\logo2.png" />
