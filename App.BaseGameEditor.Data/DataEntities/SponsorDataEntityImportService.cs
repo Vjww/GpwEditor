@@ -46,6 +46,7 @@ namespace App.BaseGameEditor.Data.DataEntities
             {
                 case 1: // Team Sponsor
                     ImportSponsorCashRatingValue(result, dataLocator);
+                    ImportTeamContract(result, dataLocator);
                     break;
                 case 2: // Engine Supplier
                     ImportSupplierCashRatingValues(result, dataLocator);
@@ -70,6 +71,7 @@ namespace App.BaseGameEditor.Data.DataEntities
                     break;
                 case 5: // Cash Sponsor
                     ImportSponsorCashRatingValue(result, dataLocator);
+                    ImportCashContract(result, dataLocator);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(result.SponsorTypeId));
@@ -93,6 +95,26 @@ namespace App.BaseGameEditor.Data.DataEntities
         private void ImportSponsorCashRatingValue(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
         {
             dataEntity.CashRating = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.CashRatingValue);
+        }
+
+        private void ImportTeamContract(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
+        {
+            var contract = _sponsorContractObjectFactory.Create();
+            contract.SponsorId = dataEntity.SponsorId;
+            contract.SponsorTypeId = dataEntity.SponsorTypeId; // Populate from parent
+            contract.Cash = 0; // Leave unpopulated
+            contract.TeamId = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ContractTeamTeamIdValue);
+            dataEntity.Contracts.Add(contract);
+        }
+
+        private void ImportCashContract(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
+        {
+            var contract = _sponsorContractObjectFactory.Create();
+            contract.SponsorId = dataEntity.SponsorId;
+            contract.SponsorTypeId = dataEntity.SponsorTypeId; // Populate from parent
+            contract.Cash = 0; // Leave unpopulated
+            contract.TeamId = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ContractCashTeamIdValue);
+            dataEntity.Contracts.Add(contract);
         }
 
         private void ImportSupplierCashRatingValues(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
@@ -167,138 +189,6 @@ namespace App.BaseGameEditor.Data.DataEntities
             dataEntity.Tolerance = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.Tolerance);
         }
 
-        private void ImportEngineContracts(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
-        {
-            // Pass parameters in context of engine suppliers
-            ImportSupplierContracts(
-                dataEntity,
-                0x007EA27C,
-                SponsorDataLocator.ContractEngineLocalOffset,
-                dataLocator.ContractEngineTeamIdAddress,
-                dataLocator.ContractEngineTeamIdValue,
-                dataLocator.ContractEngineDealIdTeamValue,
-                dataLocator.ContractEngineTermsIdTeamValue);
-
-            /* TODO: Delete code block below once functionality confirmed in above shared method
-            // Scan each contract block and add contracts that involve the supplier
-            for (var contractId = 0; contractId < 11; contractId++)
-            {
-                // Get the sponsor address in the contract record
-                var calculatedOffset = SponsorDataLocator.ContractEngineLocalOffset * contractId;
-                var sponsorTeamIdAddress = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ContractEngineTeamIdAddress + calculatedOffset);
-
-                // Determine the sponsor involved in the contract via the sponsor address
-                const int sponsorTeamIdBaseAddress = 0x007EA27C;
-                const int sponsorBlockSize = 0x00000614;
-                var difference = sponsorTeamIdAddress - sponsorTeamIdBaseAddress; // Gives us a base figure to work with
-                var derivedSponsorId = difference / sponsorBlockSize; // Gives us the zero based sponsor id
-
-                // ReSharper disable once UnusedVariable
-                var derivedContractId = (difference - sponsorBlockSize * derivedSponsorId) / 4; // Gives us the zero based contract number for the sponsor id
-
-                // If contract record involves current sponsor, create contract
-                if (dataEntity.SponsorId == derivedSponsorId + 1)
-                {
-                    var contract = _sponsorContractObjectFactory.Create();
-                    contract.SponsorId = derivedSponsorId + 1;
-                    contract.SponsorTypeId = 2;
-                    contract.Cash = 0; // Leave unpopulated
-                    contract.TeamId = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ContractEngineTeamIdValue + calculatedOffset);
-                    contract.DealId = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ContractEngineDealIdTeamValue + calculatedOffset);
-                    contract.TermsId = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ContractEngineTermsIdTeamValue + calculatedOffset);
-                    dataEntity.Contracts.Add(contract);
-                }
-            }*/
-        }
-
-        private void ImportTyreContracts(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
-        {
-            // Pass parameters in context of tyre suppliers
-            ImportSupplierContracts(
-                dataEntity,
-                0x007E9040,
-                SponsorDataLocator.ContractTyreLocalOffset,
-                dataLocator.ContractTyreTeamIdAddress,
-                dataLocator.ContractTyreTeamIdValue,
-                dataLocator.ContractTyreDealIdTeamValue,
-                dataLocator.ContractTyreTermsIdTeamValue);
-
-            /* TODO: Delete code block below once functionality confirmed in above shared method
-            // Scan each contract block and add contracts that involve the supplier
-            for (var contractId = 0; contractId < 11; contractId++)
-            {
-                // Get the sponsor address in the contract record
-                var calculatedOffset = SponsorDataLocator.ContractTyreLocalOffset * contractId;
-                var sponsorTeamIdAddress = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ContractTyreTeamIdAddress + calculatedOffset);
-
-                // Determine the sponsor involved in the contract via the sponsor address
-                const int sponsorTeamIdBaseAddress = 0x007E9040;
-                const int sponsorBlockSize = 0x00000614;
-                var difference = sponsorTeamIdAddress - sponsorTeamIdBaseAddress; // Gives us a base figure to work with
-                var derivedSponsorId = difference / sponsorBlockSize; // Gives us the zero based sponsor id
-
-                // ReSharper disable once UnusedVariable
-                var derivedContractId = (difference - sponsorBlockSize * derivedSponsorId) / 4; // Gives us the zero based contract number for the sponsor id
-
-                // If contract record involves current sponsor, create contract
-                if (dataEntity.SponsorId == derivedSponsorId + 1)
-                {
-                    var contract = _sponsorContractObjectFactory.Create();
-                    contract.SponsorId = derivedSponsorId + 1;
-                    contract.SponsorTypeId = 3;
-                    contract.Cash = 0; // Leave unpopulated
-                    contract.TeamId = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ContractTyreTeamIdValue + calculatedOffset);
-                    contract.DealId = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ContractTyreDealIdTeamValue + calculatedOffset);
-                    contract.TermsId = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ContractTyreTermsIdTeamValue + calculatedOffset);
-                    dataEntity.Contracts.Add(contract);
-                }
-            }*/
-        }
-
-        private void ImportFuelContracts(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
-        {
-            // Pass parameters in context of fuel suppliers
-            ImportSupplierContracts(
-                dataEntity,
-                0x007ED31C,
-                SponsorDataLocator.ContractFuelLocalOffset,
-                dataLocator.ContractFuelTeamIdAddress,
-                dataLocator.ContractFuelTeamIdValue,
-                dataLocator.ContractFuelDealIdTeamValue,
-                dataLocator.ContractFuelTermsIdTeamValue);
-
-            /* TODO: Delete code block below once functionality confirmed in above shared method
-            // Scan each contract block and add contracts that involve the supplier
-            for (var contractId = 0; contractId < 11; contractId++)
-            {
-                // Get the sponsor address in the contract record
-                var calculatedOffset = SponsorDataLocator.ContractFuelLocalOffset * contractId;
-                var sponsorTeamIdAddress = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ContractFuelTeamIdAddress + calculatedOffset);
-
-                // Determine the sponsor involved in the contract via the sponsor address
-                const int sponsorTeamIdBaseAddress = 0x007ED31C;
-                const int sponsorBlockSize = 0x00000614;
-                var difference = sponsorTeamIdAddress - sponsorTeamIdBaseAddress; // Gives us a base figure to work with
-                var derivedSponsorId = difference / sponsorBlockSize; // Gives us the zero based sponsor id
-
-                // ReSharper disable once UnusedVariable
-                var derivedContractId = (difference - sponsorBlockSize * derivedSponsorId) / 4; // Gives us the zero based contract number for the sponsor id
-
-                // If contract record involves current sponsor, create contract
-                if (dataEntity.SponsorId == derivedSponsorId + 1)
-                {
-                    var contract = _sponsorContractObjectFactory.Create();
-                    contract.SponsorId = derivedSponsorId + 1;
-                    contract.SponsorTypeId = 4;
-                    contract.Cash = 0; // Leave unpopulated
-                    contract.TeamId = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ContractFuelTeamIdValue + calculatedOffset);
-                    contract.DealId = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ContractFuelDealIdTeamValue + calculatedOffset);
-                    contract.TermsId = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.ContractFuelTermsIdTeamValue + calculatedOffset);
-                    dataEntity.Contracts.Add(contract);
-                }
-            }*/
-        }
-
         private void ImportSupplierContracts(
             SponsorDataEntity dataEntity,
             int sponsorTeamIdBaseAddress,
@@ -336,6 +226,45 @@ namespace App.BaseGameEditor.Data.DataEntities
                     dataEntity.Contracts.Add(contract);
                 }
             }
+        }
+
+        private void ImportEngineContracts(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
+        {
+            // Pass parameters in context of engine suppliers
+            ImportSupplierContracts(
+                dataEntity,
+                0x007EA27C,
+                SponsorDataLocator.ContractEngineLocalOffset,
+                dataLocator.ContractEngineTeamIdAddress,
+                dataLocator.ContractEngineTeamIdValue,
+                dataLocator.ContractEngineDealIdTeamValue,
+                dataLocator.ContractEngineTermsIdTeamValue);
+        }
+
+        private void ImportTyreContracts(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
+        {
+            // Pass parameters in context of tyre suppliers
+            ImportSupplierContracts(
+                dataEntity,
+                0x007E9040,
+                SponsorDataLocator.ContractTyreLocalOffset,
+                dataLocator.ContractTyreTeamIdAddress,
+                dataLocator.ContractTyreTeamIdValue,
+                dataLocator.ContractTyreDealIdTeamValue,
+                dataLocator.ContractTyreTermsIdTeamValue);
+        }
+
+        private void ImportFuelContracts(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
+        {
+            // Pass parameters in context of fuel suppliers
+            ImportSupplierContracts(
+                dataEntity,
+                0x007ED31C,
+                SponsorDataLocator.ContractFuelLocalOffset,
+                dataLocator.ContractFuelTeamIdAddress,
+                dataLocator.ContractFuelTeamIdValue,
+                dataLocator.ContractFuelDealIdTeamValue,
+                dataLocator.ContractFuelTermsIdTeamValue);
         }
     }
 }

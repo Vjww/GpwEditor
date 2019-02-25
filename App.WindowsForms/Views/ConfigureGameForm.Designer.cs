@@ -74,6 +74,7 @@
             this.DisableSampleAppCheckBox = new System.Windows.Forms.CheckBox();
             this.GameplayTabPage = new System.Windows.Forms.TabPage();
             this.GameplayGroupBox = new System.Windows.Forms.GroupBox();
+            this.GameYearCommentLabel = new System.Windows.Forms.Label();
             this.GameYearComboBox = new System.Windows.Forms.ComboBox();
             this.GameYearLabel = new System.Windows.Forms.Label();
             this.DisableYellowFlagPenaltiesCheckBox = new System.Windows.Forms.CheckBox();
@@ -105,6 +106,7 @@
             this.PointsScoringSystemDefaultRadioButton = new System.Windows.Forms.RadioButton();
             this.TrackEditorTabPage = new System.Windows.Forms.TabPage();
             this.TrackEditorGroupBox = new System.Windows.Forms.GroupBox();
+            this.EnableTrackEditorCheckBox = new System.Windows.Forms.CheckBox();
             this.TrackEditorLabel = new System.Windows.Forms.Label();
             this.PerformanceCurveTabPage = new System.Windows.Forms.TabPage();
             this.PerformanceCurveGroupBox = new System.Windows.Forms.GroupBox();
@@ -131,8 +133,6 @@
             this.PerformanceCurveChartBox010NumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.PerformanceCurveChartBox110NumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.PerformanceCurveChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.GameYearCommentLabel = new System.Windows.Forms.Label();
-            this.EnableTrackEditorCheckBox = new System.Windows.Forms.CheckBox();
             this.ConfigureGameTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
             this.FilesGroupBox.SuspendLayout();
@@ -632,6 +632,16 @@
             this.GameplayGroupBox.TabStop = false;
             this.GameplayGroupBox.Text = "Gameplay";
             // 
+            // GameYearCommentLabel
+            // 
+            this.GameYearCommentLabel.AutoSize = true;
+            this.GameYearCommentLabel.Location = new System.Drawing.Point(199, 22);
+            this.GameYearCommentLabel.Name = "GameYearCommentLabel";
+            this.GameYearCommentLabel.Size = new System.Drawing.Size(669, 13);
+            this.GameYearCommentLabel.TabIndex = 6;
+            this.GameYearCommentLabel.Text = "After changing the game year and exporting changes, use the Language File Editor " +
+    "to update the game year references in the language files.";
+            // 
             // GameYearComboBox
             // 
             this.GameYearComboBox.FormattingEnabled = true;
@@ -971,6 +981,16 @@
             this.TrackEditorGroupBox.TabIndex = 0;
             this.TrackEditorGroupBox.TabStop = false;
             this.TrackEditorGroupBox.Text = "Track Editor";
+            // 
+            // EnableTrackEditorCheckBox
+            // 
+            this.EnableTrackEditorCheckBox.AutoSize = true;
+            this.EnableTrackEditorCheckBox.Location = new System.Drawing.Point(6, 39);
+            this.EnableTrackEditorCheckBox.Name = "EnableTrackEditorCheckBox";
+            this.EnableTrackEditorCheckBox.Size = new System.Drawing.Size(115, 17);
+            this.EnableTrackEditorCheckBox.TabIndex = 2;
+            this.EnableTrackEditorCheckBox.Text = "Enable track editor";
+            this.EnableTrackEditorCheckBox.UseVisualStyleBackColor = true;
             // 
             // TrackEditorLabel
             // 
@@ -1412,26 +1432,6 @@
             title1.Name = "Title1";
             title1.Text = "Performance Curve";
             this.PerformanceCurveChart.Titles.Add(title1);
-            // 
-            // GameYearCommentLabel
-            // 
-            this.GameYearCommentLabel.AutoSize = true;
-            this.GameYearCommentLabel.Location = new System.Drawing.Point(199, 22);
-            this.GameYearCommentLabel.Name = "GameYearCommentLabel";
-            this.GameYearCommentLabel.Size = new System.Drawing.Size(669, 13);
-            this.GameYearCommentLabel.TabIndex = 6;
-            this.GameYearCommentLabel.Text = "After changing the game year and exporting changes, use the Language File Editor " +
-    "to update the game year references in the language files.";
-            // 
-            // EnableTrackEditorCheckBox
-            // 
-            this.EnableTrackEditorCheckBox.AutoSize = true;
-            this.EnableTrackEditorCheckBox.Location = new System.Drawing.Point(6, 39);
-            this.EnableTrackEditorCheckBox.Name = "EnableTrackEditorCheckBox";
-            this.EnableTrackEditorCheckBox.Size = new System.Drawing.Size(115, 17);
-            this.EnableTrackEditorCheckBox.TabIndex = 2;
-            this.EnableTrackEditorCheckBox.Text = "Enable track editor";
-            this.EnableTrackEditorCheckBox.UseVisualStyleBackColor = true;
             // 
             // ConfigureGameForm
             // 

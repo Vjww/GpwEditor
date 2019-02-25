@@ -627,11 +627,11 @@ namespace App.WindowsForms.Views
 
             AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorsTeamIdToolTipText, false));
             AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorsTeamNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
-            AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
-            AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("EntityTypeId", "Entity Type", ""));
-            AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
-            AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
+            //AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
+            //AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
+            //AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("EntityTypeId", "Entity Type", ""));
+            //AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
+            //AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
             AddColumnToDataGridView(SponsorsTeamDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorsTeamCashRatingToolTipText));
 
             BindDataGridViewToDataSource(SponsorsTeamDataGridView, dataSource);
@@ -645,11 +645,11 @@ namespace App.WindowsForms.Views
 
             AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorsEngineIdToolTipText, false));
             AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorsEngineNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
-            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
-            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("EntityTypeId", "Entity Type", ""));
-            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
-            AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
+            //AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
+            //AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
+            //AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("EntityTypeId", "Entity Type", ""));
+            //AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
+            //AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
             AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorsEngineCashRatingToolTipText));
             AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewCheckBoxColumn("CashRatingRandom", "Random Cash Rating", ""));
             AddColumnToDataGridView(SponsorsEngineDataGridView, CreateDataGridViewTextBoxColumn("RadRating", "R&D Rating", SponsorsEngineRadRatingToolTipText));
@@ -674,11 +674,11 @@ namespace App.WindowsForms.Views
 
             AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorsTyreIdToolTipText, false));
             AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorsTyreNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
-            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
-            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("EntityTypeId", "Entity Type", ""));
-            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
-            AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
+            //AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
+            //AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
+            //AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("EntityTypeId", "Entity Type", ""));
+            //AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
+            //AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
             AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorsTyreCashRatingToolTipText));
             AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewCheckBoxColumn("CashRatingRandom", "Random Cash Rating", ""));
             AddColumnToDataGridView(SponsorsTyreDataGridView, CreateDataGridViewTextBoxColumn("RadRating", "R&D Rating", SponsorsTyreRadRatingToolTipText));
@@ -712,11 +712,11 @@ namespace App.WindowsForms.Views
 
             AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorsFuelIdToolTipText, false));
             AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorsFuelNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
-            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
-            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("EntityTypeId", "Entity Type", ""));
-            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
-            AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
+            //AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
+            //AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
+            //AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("EntityTypeId", "Entity Type", ""));
+            //AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
+            //AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
             AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorsFuelCashRatingToolTipText));
             AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewCheckBoxColumn("CashRatingRandom", "Random Cash Rating", ""));
             AddColumnToDataGridView(SponsorsFuelDataGridView, CreateDataGridViewTextBoxColumn("RadRating", "R&D Rating", SponsorsFuelRadRatingToolTipText));
@@ -736,11 +736,11 @@ namespace App.WindowsForms.Views
 
             AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("Id", "Id", SponsorsCashIdToolTipText, false));
             AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("Name", "Name", SponsorsCashNameToolTipText, true, true));
-            AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
-            AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
-            AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("EntityTypeId", "Entity Type", ""));
-            AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
-            AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
+            //AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("SponsorId", "Sponsor Id", ""));
+            //AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("SponsorTypeId", "Sponsor Type", ""));
+            //AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("EntityTypeId", "Entity Type", ""));
+            //AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("EntityResource", "Entity Resource", ""));
+            //AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("EntityData", "Entity Data", ""));
             AddColumnToDataGridView(SponsorsCashDataGridView, CreateDataGridViewTextBoxColumn("CashRating", "Cash Rating", SponsorsCashCashRatingToolTipText));
 
             BindDataGridViewToDataSource(SponsorsCashDataGridView, dataSource);

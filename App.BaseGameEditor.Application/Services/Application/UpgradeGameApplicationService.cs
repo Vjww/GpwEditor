@@ -110,6 +110,7 @@ namespace App.BaseGameEditor.Application.Services.Application
             UpgradeDriverFileNamePrefixes();
             UpgradeDriverCommentaryIndices();
             UpgradeTeamCommentaryIndices();
+            UpgradeSponsorNames();
 
             Export(
                 gameFolderPath,
@@ -120,6 +121,16 @@ namespace App.BaseGameEditor.Application.Services.Application
                 englishCommentaryFilePath,
                 frenchCommentaryFilePath,
                 germanCommentaryFilePath);
+        }
+
+        private void UpgradeSponsorNames()
+        {
+            // Update the domain to update the names in the language file(s)
+            var sponsors = DomainModel.Sponsors.GetSponsorTeams().ToList();
+
+            sponsors.Single(x => x.Id == 2).Name = "Marrano"; // Replaces "MainOne" (Ferrari)
+
+            DomainModel.Sponsors.SetSponsorTeams(sponsors);
         }
 
         private void UpgradeDriverNames()

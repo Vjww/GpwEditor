@@ -118,6 +118,10 @@
             this.DriversNonF1DataGridView = new System.Windows.Forms.DataGridView();
             this.SponsorsTabPage = new System.Windows.Forms.TabPage();
             this.SponsorsTabControl = new System.Windows.Forms.TabControl();
+            this.SponsorsFiaTabPage = new System.Windows.Forms.TabPage();
+            this.SponsorsFiaTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SponsorsFiaGroupBox = new System.Windows.Forms.GroupBox();
+            this.SponsorsFiaDataGridView = new System.Windows.Forms.DataGridView();
             this.SponsorsTeamTabPage = new System.Windows.Forms.TabPage();
             this.SponsorsTeamTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SponsorsTeamGroupBox = new System.Windows.Forms.GroupBox();
@@ -188,10 +192,6 @@
             this.TracksTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.TracksDataGridView = new System.Windows.Forms.DataGridView();
             this.TracksGroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorsFiaTabPage = new System.Windows.Forms.TabPage();
-            this.SponsorsFiaTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.SponsorsFiaGroupBox = new System.Windows.Forms.GroupBox();
-            this.SponsorsFiaDataGridView = new System.Windows.Forms.DataGridView();
             this.BaseGameEditorTabControl.SuspendLayout();
             this.HomeTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LanguageDataGridView)).BeginInit();
@@ -241,6 +241,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DriversNonF1DataGridView)).BeginInit();
             this.SponsorsTabPage.SuspendLayout();
             this.SponsorsTabControl.SuspendLayout();
+            this.SponsorsFiaTabPage.SuspendLayout();
+            this.SponsorsFiaTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsFiaDataGridView)).BeginInit();
             this.SponsorsTeamTabPage.SuspendLayout();
             this.SponsorsTeamTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SponsorsTeamDataGridView)).BeginInit();
@@ -294,9 +297,6 @@
             this.TracksTabPage.SuspendLayout();
             this.TracksTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TracksDataGridView)).BeginInit();
-            this.SponsorsFiaTabPage.SuspendLayout();
-            this.SponsorsFiaTableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorsFiaDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // BaseGameEditorTabControl
@@ -1283,6 +1283,51 @@
             this.SponsorsTabControl.Size = new System.Drawing.Size(924, 523);
             this.SponsorsTabControl.TabIndex = 0;
             // 
+            // SponsorsFiaTabPage
+            // 
+            this.SponsorsFiaTabPage.Controls.Add(this.SponsorsFiaTableLayoutPanel);
+            this.SponsorsFiaTabPage.Location = new System.Drawing.Point(4, 22);
+            this.SponsorsFiaTabPage.Name = "SponsorsFiaTabPage";
+            this.SponsorsFiaTabPage.Size = new System.Drawing.Size(916, 497);
+            this.SponsorsFiaTabPage.TabIndex = 4;
+            this.SponsorsFiaTabPage.Text = "FIA";
+            this.SponsorsFiaTabPage.UseVisualStyleBackColor = true;
+            // 
+            // SponsorsFiaTableLayoutPanel
+            // 
+            this.SponsorsFiaTableLayoutPanel.ColumnCount = 1;
+            this.SponsorsFiaTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsFiaTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.SponsorsFiaTableLayoutPanel.Controls.Add(this.SponsorsFiaGroupBox, 0, 1);
+            this.SponsorsFiaTableLayoutPanel.Controls.Add(this.SponsorsFiaDataGridView, 0, 0);
+            this.SponsorsFiaTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsFiaTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.SponsorsFiaTableLayoutPanel.Name = "SponsorsFiaTableLayoutPanel";
+            this.SponsorsFiaTableLayoutPanel.RowCount = 2;
+            this.SponsorsFiaTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.SponsorsFiaTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.SponsorsFiaTableLayoutPanel.Size = new System.Drawing.Size(916, 497);
+            this.SponsorsFiaTableLayoutPanel.TabIndex = 3;
+            // 
+            // SponsorsFiaGroupBox
+            // 
+            this.SponsorsFiaGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsFiaGroupBox.Location = new System.Drawing.Point(3, 446);
+            this.SponsorsFiaGroupBox.Name = "SponsorsFiaGroupBox";
+            this.SponsorsFiaGroupBox.Size = new System.Drawing.Size(910, 48);
+            this.SponsorsFiaGroupBox.TabIndex = 3;
+            this.SponsorsFiaGroupBox.TabStop = false;
+            this.SponsorsFiaGroupBox.Text = "FIA Sponsorship - Options";
+            // 
+            // SponsorsFiaDataGridView
+            // 
+            this.SponsorsFiaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SponsorsFiaDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SponsorsFiaDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SponsorsFiaDataGridView.Name = "SponsorsFiaDataGridView";
+            this.SponsorsFiaDataGridView.Size = new System.Drawing.Size(910, 437);
+            this.SponsorsFiaDataGridView.TabIndex = 0;
+            // 
             // SponsorsTeamTabPage
             // 
             this.SponsorsTeamTabPage.Controls.Add(this.SponsorsTeamTableLayoutPanel);
@@ -2100,51 +2145,6 @@
             this.TracksGroupBox.TabStop = false;
             this.TracksGroupBox.Text = "Tracks - Options";
             // 
-            // SponsorsFiaTabPage
-            // 
-            this.SponsorsFiaTabPage.Controls.Add(this.SponsorsFiaTableLayoutPanel);
-            this.SponsorsFiaTabPage.Location = new System.Drawing.Point(4, 22);
-            this.SponsorsFiaTabPage.Name = "SponsorsFiaTabPage";
-            this.SponsorsFiaTabPage.Size = new System.Drawing.Size(916, 497);
-            this.SponsorsFiaTabPage.TabIndex = 4;
-            this.SponsorsFiaTabPage.Text = "FIA";
-            this.SponsorsFiaTabPage.UseVisualStyleBackColor = true;
-            // 
-            // SponsorsFiaTableLayoutPanel
-            // 
-            this.SponsorsFiaTableLayoutPanel.ColumnCount = 1;
-            this.SponsorsFiaTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorsFiaTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.SponsorsFiaTableLayoutPanel.Controls.Add(this.SponsorsFiaGroupBox, 0, 1);
-            this.SponsorsFiaTableLayoutPanel.Controls.Add(this.SponsorsFiaDataGridView, 0, 0);
-            this.SponsorsFiaTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorsFiaTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.SponsorsFiaTableLayoutPanel.Name = "SponsorsFiaTableLayoutPanel";
-            this.SponsorsFiaTableLayoutPanel.RowCount = 2;
-            this.SponsorsFiaTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SponsorsFiaTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.SponsorsFiaTableLayoutPanel.Size = new System.Drawing.Size(916, 497);
-            this.SponsorsFiaTableLayoutPanel.TabIndex = 3;
-            // 
-            // SponsorsFiaGroupBox
-            // 
-            this.SponsorsFiaGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorsFiaGroupBox.Location = new System.Drawing.Point(3, 446);
-            this.SponsorsFiaGroupBox.Name = "SponsorsFiaGroupBox";
-            this.SponsorsFiaGroupBox.Size = new System.Drawing.Size(910, 48);
-            this.SponsorsFiaGroupBox.TabIndex = 3;
-            this.SponsorsFiaGroupBox.TabStop = false;
-            this.SponsorsFiaGroupBox.Text = "FIA Sponsorship - Options";
-            // 
-            // SponsorsFiaDataGridView
-            // 
-            this.SponsorsFiaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SponsorsFiaDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SponsorsFiaDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SponsorsFiaDataGridView.Name = "SponsorsFiaDataGridView";
-            this.SponsorsFiaDataGridView.Size = new System.Drawing.Size(910, 437);
-            this.SponsorsFiaDataGridView.TabIndex = 0;
-            // 
             // BaseGameEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2207,6 +2207,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DriversNonF1DataGridView)).EndInit();
             this.SponsorsTabPage.ResumeLayout(false);
             this.SponsorsTabControl.ResumeLayout(false);
+            this.SponsorsFiaTabPage.ResumeLayout(false);
+            this.SponsorsFiaTableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SponsorsFiaDataGridView)).EndInit();
             this.SponsorsTeamTabPage.ResumeLayout(false);
             this.SponsorsTeamTableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SponsorsTeamDataGridView)).EndInit();
@@ -2260,9 +2263,6 @@
             this.TracksTabPage.ResumeLayout(false);
             this.TracksTableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TracksDataGridView)).EndInit();
-            this.SponsorsFiaTabPage.ResumeLayout(false);
-            this.SponsorsFiaTableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SponsorsFiaDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }

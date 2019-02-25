@@ -1,7 +1,6 @@
 ﻿using System;
 using App.BaseGameEditor.Data.DataLocators;
 using App.Core.Factories;
-using App.Shared.Data.Calculators;
 using App.Shared.Data.DataEndpoints;
 using App.Shared.Data.Services;
 
@@ -12,18 +11,15 @@ namespace App.BaseGameEditor.Data.DataEntities
         private readonly DataEndpoint _dataEndpoint;
         private readonly IIntegerIdentityFactory<SponsorContractDataEntity> _dataEntityFactory;
         private readonly IIntegerIdentityFactory<SponsorContractDataLocator> _dataLocatorFactory;
-        private readonly IdentityCalculator _identityCalculator;
 
         public SponsorContractDataEntityImportService(
             DataEndpoint dataEndpoint,
             IIntegerIdentityFactory<SponsorContractDataEntity> dataEntityFactory,
-            IIntegerIdentityFactory<SponsorContractDataLocator> dataLocatorFactory,
-            IdentityCalculator identityCalculator)
+            IIntegerIdentityFactory<SponsorContractDataLocator> dataLocatorFactory)
         {
             _dataEndpoint = dataEndpoint ?? throw new ArgumentNullException(nameof(dataEndpoint));
             _dataEntityFactory = dataEntityFactory ?? throw new ArgumentNullException(nameof(dataEntityFactory));
             _dataLocatorFactory = dataLocatorFactory ?? throw new ArgumentNullException(nameof(dataLocatorFactory));
-            _identityCalculator = identityCalculator ?? throw new ArgumentNullException(nameof(identityCalculator));
         }
 
         public SponsorContractDataEntity Import(int id)
@@ -67,22 +63,19 @@ namespace App.BaseGameEditor.Data.DataEntities
             var instructionValue = _dataEndpoint.GameExecutableFileResource.ReadByte(dataLocator.SlotInstruction);
             if (instructionValue == 0x90) return 0;
 
-            // TODO: Enable validation, requires SlotData instructions to be ordered 1-10, not 1,2,4,3,5 as currently
-            /*
-                // Get the slot value in the slot record
-                var slotValue = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.SlotValue);
+            // Get the slot value in the slot record
+            var slotValue = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.SlotValue);
 
-                // Throw exception if game data is not correctly ordered by slots
-                if (slotValue != slotId)
-                {
-                    throw new ArgumentOutOfRangeException(nameof(slotValue));
-                }
-                */
+            // Throw exception if game data is not correctly ordered by slots
+            if (slotValue != slotId)
+            {
+                throw new ArgumentOutOfRangeException(nameof(slotValue));
+            }
 
             // Get the slot address in the slot record
             var slotAddress = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.SlotAddress);
 
-            // Calculate the sponsor id using the address where the slot value is recorded against
+            // Calculate and return the sponsor id using the address where the slot value is recorded against
             var teamMultiplier = teamId - 1;
             var slotReferenceAddress = slotReferenceBaseAddress + teamBlockSize * teamMultiplier; // Address of SponsorId 0 (none)
             return (slotAddress - slotReferenceAddress) / 4;
@@ -94,6 +87,7 @@ namespace App.BaseGameEditor.Data.DataEntities
             var instructionValue = _dataEndpoint.GameExecutableFileResource.ReadByte(dataLocator.CashInstruction);
             if (instructionValue == 0x90) return 0;
 
+            // Else return cash value
             return _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.CashValue);
         }
     }

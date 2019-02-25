@@ -34,6 +34,7 @@ namespace App.BaseGameEditor.Data.DataEntities
             {
                 case 1: // Team Sponsor
                     ExportSponsorCashRatingValue(dataEntity, dataLocator);
+                    ExportSponsorTeamContract(dataEntity, dataLocator);
                     break;
                 case 2: // Engine Supplier
                     ExportSupplierCashRatingValues(dataEntity, dataLocator, 0x007E9FC0);
@@ -58,6 +59,7 @@ namespace App.BaseGameEditor.Data.DataEntities
                     break;
                 case 5: // Cash Sponsor
                     ExportSponsorCashRatingValue(dataEntity, dataLocator);
+                    ExportSponsorCashContract(dataEntity, dataLocator);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(dataEntity.SponsorTypeId));
@@ -72,6 +74,22 @@ namespace App.BaseGameEditor.Data.DataEntities
         private void ExportSponsorCashRatingValue(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
         {
             _dataEndpoint.GameExecutableFileResource.WriteBytes(dataLocator.CashRatingValue, BitConverter.GetBytes(dataEntity.CashRating));
+        }
+
+        private void ExportSponsorTeamContract(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
+        {
+            foreach (var contract in dataEntity.Contracts)
+            {
+                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractTeamTeamIdValue, contract.TeamId);
+            }
+        }
+
+        private void ExportSponsorCashContract(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator)
+        {
+            foreach (var contract in dataEntity.Contracts)
+            {
+                _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.ContractCashTeamIdValue, contract.TeamId);
+            }
         }
 
         private void ExportSupplierCashRatingValues(SponsorDataEntity dataEntity, SponsorDataLocator dataLocator, int sponsorCashRatingBaseAddress)

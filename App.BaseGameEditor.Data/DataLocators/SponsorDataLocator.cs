@@ -43,7 +43,7 @@ namespace App.BaseGameEditor.Data.DataLocators
         private const int InactiveInstructionOffset = 0;
         private const int InactiveAddressOffset = 2;
         private const int InactiveValueOffset = 6;
-        private const int ContractTeamBaseOffset = 0x00401007 - 0x00400C00;
+        private const int ContractTeamBaseOffset = 0x00401006 - 0x00400C00;
         private const int ContractTeamLocalOffset = 10;
         private const int ContractEngineBaseOffset = 0x00401272 - 0x00400C00;
         public const int ContractEngineLocalOffset = 50; // Intentionally scoped as public for import/export logic to utilise.
@@ -51,7 +51,7 @@ namespace App.BaseGameEditor.Data.DataLocators
         public const int ContractTyreLocalOffset = 50; // Intentionally scoped as public for import/export logic to utilise.
         private const int ContractFuelBaseOffset = 0x00401498 - 0x00400C00;
         public const int ContractFuelLocalOffset = 50; // Intentionally scoped as public for import/export logic to utilise.
-        private const int ContractCashBaseOffset = 0x004016BF - 0x00400C00;
+        private const int ContractCashBaseOffset = 0x004016BE - 0x00400C00;
         private const int ContractCashLocalOffset = 10;
         private const int ContractTeamIdAddressOffset = 2;
         private const int ContractTeamIdValueOffset = 6;
@@ -97,8 +97,8 @@ namespace App.BaseGameEditor.Data.DataLocators
         public int InactiveAddress { get; set; }
         public int InactiveValue { get; set; }
 
-        public int ContractTeamAddress { get; set; }
-        public int ContractTeamValue { get; set; }
+        public int ContractTeamTeamIdAddress { get; set; }
+        public int ContractTeamTeamIdValue { get; set; }
         public int ContractEngineTeamIdAddress { get; set; }
         public int ContractEngineTeamIdValue { get; set; }
         public int ContractEngineDealIdSponsorAddress { get; set; }
@@ -129,8 +129,8 @@ namespace App.BaseGameEditor.Data.DataLocators
         public int ContractFuelTermsIdSponsorValue { get; set; }
         public int ContractFuelTermsIdTeamAddress { get; set; }
         public int ContractFuelTermsIdTeamValue { get; set; }
-        public int ContractCashAddress { get; set; }
-        public int ContractCashValue { get; set; }
+        public int ContractCashTeamIdAddress { get; set; }
+        public int ContractCashTeamIdValue { get; set; }
 
         public int Fuel { get; set; }
         public int Heat { get; set; }
@@ -311,8 +311,8 @@ namespace App.BaseGameEditor.Data.DataLocators
             {
                 case 1: // Team Sponsor
                     contractCalculatedOffset = ContractTeamBaseOffset + ContractTeamLocalOffset * localId;
-                    ContractTeamAddress = contractCalculatedOffset + ContractTeamIdAddressOffset;
-                    ContractTeamValue = contractCalculatedOffset + ContractTeamIdValueOffset;
+                    ContractTeamTeamIdAddress = contractCalculatedOffset + ContractTeamIdAddressOffset;
+                    ContractTeamTeamIdValue = contractCalculatedOffset + ContractTeamIdValueOffset;
                     break;
                 case 2: // Engine Supplier
                     // Calculated offset intentionally excludes local offset multiplier. Offsets should be managed by the import/export logic.
@@ -364,8 +364,8 @@ namespace App.BaseGameEditor.Data.DataLocators
                     break;
                 case 5: // Cash Sponsor
                     contractCalculatedOffset = ContractCashBaseOffset + ContractCashLocalOffset * localId;
-                    ContractCashAddress = contractCalculatedOffset + ContractTeamIdAddressOffset;
-                    ContractCashValue = contractCalculatedOffset + ContractTeamIdValueOffset;
+                    ContractCashTeamIdAddress = contractCalculatedOffset + ContractTeamIdAddressOffset;
+                    ContractCashTeamIdValue = contractCalculatedOffset + ContractTeamIdValueOffset;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(localTypeId));

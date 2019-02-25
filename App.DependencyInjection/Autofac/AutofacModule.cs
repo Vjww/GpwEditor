@@ -82,6 +82,7 @@ namespace App.DependencyInjection.Autofac
             builder.RegisterType<LanguageCatalogueImporter>().InstancePerDependency();
             builder.RegisterType<CommentaryCatalogueExporter<ILanguagePhrases>>().InstancePerDependency();
             builder.RegisterType<CommentaryCatalogueImporter<ILanguagePhrases>>().InstancePerDependency();
+            builder.RegisterType<CommentaryCatalogueItem>().InstancePerDependency();
             builder.RegisterType<LanguageCatalogueValue>().InstancePerDependency();
             builder.RegisterType<SponsorContractObject>().InstancePerDependency();
 

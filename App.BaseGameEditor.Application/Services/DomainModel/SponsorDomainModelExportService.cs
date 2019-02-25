@@ -51,16 +51,13 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
             // Move values from SponsorContracts to Sponsor.Contracts by generating new contracts from existing data
             foreach (var sponsor in sponsors)
             {
-                // Skip if sponsor is not a supplier
-                if (sponsor.SponsorTypeId != 2 && sponsor.SponsorTypeId != 3 && sponsor.SponsorTypeId != 4)
-                {
-                    continue;
-                }
-
-                // Get contracts matching current supplier
+                // Get contracts matching current sponsor/supplier
                 int rebasedSponsorId; // Temporary index rebased on all available sponsors (e.g. 1-98)
                 switch (sponsor.SponsorTypeId)
                 {
+                    case 1: // Team Supplier
+                        rebasedSponsorId = sponsor.SponsorId + 0; // 1-7
+                        break;
                     case 3: // Tyre Supplier
                         rebasedSponsorId = sponsor.SponsorId + 7; // 8-10
                         break;
@@ -69,6 +66,9 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
                         break;
                     case 4: // Fuel Supplier
                         rebasedSponsorId = sponsor.SponsorId + 18; // 19-27
+                        break;
+                    case 5: // Cash Supplier
+                        rebasedSponsorId = sponsor.SponsorId + 27; // 28-98
                         break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(sponsor.SponsorTypeId));
@@ -83,7 +83,7 @@ namespace App.BaseGameEditor.Application.Services.DomainModel
                 {
                     sponsor.Contracts.Add(new SponsorContractObject
                     {
-                        SponsorId = sponsor.SponsorId, // Uses non-rebased index (e.g. 1-3, 1-8, 1-9)
+                        SponsorId = sponsor.SponsorId, // Uses non-rebased index (e.g. 1-7, 1-3, 1-8, 1-9, 1-71)
                         SponsorTypeId = contract.SlotTypeId,
                         TeamId = contract.TeamId,
                         Cash = contract.Cash,
