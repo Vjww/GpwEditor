@@ -1,31 +1,33 @@
-﻿using System.Reflection;
-using App.BaseGameEditor.Application.Maps.AutoMapper.Reference;
-using App.BaseGameEditor.Data.Catalogues.Language;
+﻿using App.BaseGameEditor.Application.Tests.Fixtures;
 using App.BaseGameEditor.Data.DataEntities;
 using App.BaseGameEditor.Domain.Entities;
 using App.BaseGameEditor.Infrastructure.Factories;
 using App.BaseGameEditor.Infrastructure.Objects;
-using App.BaseGameEditor.Infrastructure.Services;
-using AutoMapper;
+using App.Shared.Data.Catalogues.Language;
+using App.Shared.Infrastructure.Services;
 using FluentAssertions;
 using Xunit;
 
 namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
 {
+    [Collection("Application Maps Collection")]
     public class TeamDataEntityOnTeamEntityProfile
     {
+        private readonly AutoMapperMapperService _mapperService;
+
+        public TeamDataEntityOnTeamEntityProfile(ApplicationMapsFixture applicationMapsFixture)
+        {
+            _mapperService = applicationMapsFixture.GetService<AutoMapperMapperService>();
+        }
+
         [Fact]
         public void TeamDataEntityOnTeamEntityProfile_WhenMappingFromPopulatedTeamDataEntity_ExpectPopulatedTeamEntity()
         {
-            var teamDataEntityFactory = new IntegerIdentityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue())); // TODO: Mock it
-            var chassisHandlingDataEntityFactory = new IntegerIdentityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
-            var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
-            var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
-
-            var assembly = Assembly.GetAssembly(typeof(ApplicationMaps));
-            var mapperConfiguration = new MapperConfiguration(c => c.AddProfiles(assembly));
-            var mapper = mapperConfiguration.CreateMapper();
-            var mapperService = new AutoMapperMapperService(mapper);
+            // Arrange
+            var teamDataEntityFactory = new IntegerIdentityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue()));
+            var chassisHandlingDataEntityFactory = new IntegerIdentityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity());
+            var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject());
+            var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity());
 
             // Initialise data entities using unique non-default dummy values to verify mappings
             const int teamDataEntityId = 1;
@@ -33,15 +35,15 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             teamDataEntity.Name.Shared = "UnitTest";
             teamDataEntity.LastPosition = 11;
             teamDataEntity.LastPoints = 12;
-            teamDataEntity.FirstGpTrack = 13;
-            teamDataEntity.FirstGpYear = 14;
+            teamDataEntity.DebutGrandPrix = 13;
+            teamDataEntity.DebutYear = 14;
             teamDataEntity.Wins = 15;
             teamDataEntity.YearlyBudget = 16;
             teamDataEntity.UnknownA = 17;
-            teamDataEntity.CountryMapId = 18;
-            teamDataEntity.LocationPointerX = 19;
-            teamDataEntity.LocationPointerY = 20;
-            teamDataEntity.TyreSupplierId = 21;
+            teamDataEntity.Location = 18;
+            teamDataEntity.LocationX = 19;
+            teamDataEntity.LocationY = 20;
+            teamDataEntity.TyreSupplier = 21;
 
             const int chassisHandlingDataEntityId = 2;
             var chassisHandlingDataEntity = chassisHandlingDataEntityFactory.Create(chassisHandlingDataEntityId);
@@ -57,55 +59,55 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             teamEntity.Name = teamDataEntity.Name.Shared;
             teamEntity.LastPosition = teamDataEntity.LastPosition;
             teamEntity.LastPoints = teamDataEntity.LastPoints;
-            teamEntity.FirstGpTrack = teamDataEntity.FirstGpTrack;
-            teamEntity.FirstGpYear = teamDataEntity.FirstGpYear;
+            teamEntity.DebutGrandPrix = teamDataEntity.DebutGrandPrix;
+            teamEntity.DebutYear = teamDataEntity.DebutYear;
             teamEntity.Wins = teamDataEntity.Wins;
             teamEntity.YearlyBudget = teamDataEntity.YearlyBudget;
-            teamEntity.CountryMapId = teamDataEntity.CountryMapId;
-            teamEntity.LocationPointerX = teamDataEntity.LocationPointerX;
-            teamEntity.LocationPointerY = teamDataEntity.LocationPointerY;
-            teamEntity.TyreSupplierId = teamDataEntity.TyreSupplierId;
+            teamEntity.Location = teamDataEntity.Location;
+            teamEntity.LocationX = teamDataEntity.LocationX;
+            teamEntity.LocationY = teamDataEntity.LocationY;
+            teamEntity.TyreSupplier = teamDataEntity.TyreSupplier;
             teamEntity.ChassisHandling = chassisHandlingDataEntity.Value;
             teamEntity.CarNumberDriver1 = carNumbersObject.CarNumberDriver1;
             teamEntity.CarNumberDriver2 = carNumbersObject.CarNumberDriver2;
 
+            // Act
             var sut = teamEntityFactory.Create(teamEntity.Id);
-            mapperService.Map(teamDataEntity, sut);
+            _mapperService.Map(teamDataEntity, sut);
 
+            // Assert
             sut.Should().NotBeNull();
             sut.Id.Should().Be(teamEntity.Id);
             sut.Name.Should().Be(teamDataEntity.Name.Shared);
             sut.LastPosition.Should().Be(teamDataEntity.LastPosition);
             sut.LastPoints.Should().Be(teamDataEntity.LastPoints);
-            sut.FirstGpTrack.Should().Be(teamDataEntity.FirstGpTrack);
-            sut.FirstGpYear.Should().Be(teamDataEntity.FirstGpYear);
+            sut.DebutGrandPrix.Should().Be(teamDataEntity.DebutGrandPrix);
+            sut.DebutYear.Should().Be(teamDataEntity.DebutYear);
             sut.Wins.Should().Be(teamDataEntity.Wins);
             sut.YearlyBudget.Should().Be(teamDataEntity.YearlyBudget);
-            sut.CountryMapId.Should().Be(teamDataEntity.CountryMapId);
-            sut.LocationPointerX.Should().Be(teamDataEntity.LocationPointerX);
-            sut.LocationPointerY.Should().Be(teamDataEntity.LocationPointerY);
-            sut.TyreSupplierId.Should().Be(teamDataEntity.TyreSupplierId);
+            sut.Location.Should().Be(teamDataEntity.Location);
+            sut.LocationX.Should().Be(teamDataEntity.LocationX);
+            sut.LocationY.Should().Be(teamDataEntity.LocationY);
+            sut.TyreSupplier.Should().Be(teamDataEntity.TyreSupplier);
         }
 
         [Fact]
         public void TeamDataEntityOnTeamEntityProfile_WhenMappingFromPopulatedChassisHandlingDataEntity_ExpectPopulatedTeamEntity()
         {
-            var chassisHandlingDataEntityFactory = new IntegerIdentityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
-            var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
-
-            var assembly = Assembly.GetAssembly(typeof(ApplicationMaps));
-            var mapperConfiguration = new MapperConfiguration(c => c.AddProfiles(assembly));
-            var mapper = mapperConfiguration.CreateMapper();
-            var mapperService = new AutoMapperMapperService(mapper);
+            // Arrange
+            var chassisHandlingDataEntityFactory = new IntegerIdentityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity());
+            var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity());
 
             const int chassisHandlingDataEntityId = 2;
             var chassisHandlingDataEntity = chassisHandlingDataEntityFactory.Create(chassisHandlingDataEntityId);
             chassisHandlingDataEntity.Value = 22;
 
+            // Act
             const int teamEntityId = 1;
             var sut = teamEntityFactory.Create(teamEntityId);
-            mapperService.Map(chassisHandlingDataEntity, sut);
+            _mapperService.Map(chassisHandlingDataEntity, sut);
 
+            // Assert
             sut.Should().NotBeNull();
             sut.ChassisHandling.Should().Be(chassisHandlingDataEntity.Value);
         }
@@ -113,23 +115,21 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
         [Fact]
         public void TeamDataEntityOnTeamEntityProfile_WhenMappingFromPopulatedCarNumbersObject_ExpectPopulatedTeamEntity()
         {
-            var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
-            var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
-
-            var assembly = Assembly.GetAssembly(typeof(ApplicationMaps));
-            var mapperConfiguration = new MapperConfiguration(c => c.AddProfiles(assembly));
-            var mapper = mapperConfiguration.CreateMapper();
-            var mapperService = new AutoMapperMapperService(mapper);
+            // Arrange
+            var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject());
+            var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity());
 
             const int teamDataEntityId = 1;
             var carNumbersObject = carNumbersObjectFactory.Create(teamDataEntityId);
             carNumbersObject.CarNumberDriver1 = 23;
             carNumbersObject.CarNumberDriver2 = 24;
 
+            // Act
             const int teamEntityId = 1;
             var sut = teamEntityFactory.Create(teamEntityId);
-            mapperService.Map(carNumbersObject, sut);
+            _mapperService.Map(carNumbersObject, sut);
 
+            // Assert
             sut.Should().NotBeNull();
             sut.CarNumberDriver1.Should().Be(carNumbersObject.CarNumberDriver1);
             sut.CarNumberDriver2.Should().Be(carNumbersObject.CarNumberDriver2);
@@ -138,15 +138,11 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
         [Fact]
         public void TeamDataEntityOnTeamEntityProfile_WhenMappingFromThreeSourcesToOne_ExpectPopulatedTeamEntity()
         {
-            var teamDataEntityFactory = new IntegerIdentityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue())); // TODO: Mock it
-            var chassisHandlingDataEntityFactory = new IntegerIdentityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
-            var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
-            var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
-
-            var assembly = Assembly.GetAssembly(typeof(ApplicationMaps));
-            var mapperConfiguration = new MapperConfiguration(c => c.AddProfiles(assembly));
-            var mapper = mapperConfiguration.CreateMapper();
-            var mapperService = new AutoMapperMapperService(mapper);
+            // Arrange
+            var teamDataEntityFactory = new IntegerIdentityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue()));
+            var chassisHandlingDataEntityFactory = new IntegerIdentityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity());
+            var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject());
+            var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity());
 
             // Initialise data entities using unique non-default dummy values to verify mappings
             const int teamDataEntityId = 1;
@@ -154,15 +150,15 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             teamDataEntity.Name.Shared = "UnitTest";
             teamDataEntity.LastPosition = 11;
             teamDataEntity.LastPoints = 12;
-            teamDataEntity.FirstGpTrack = 13;
-            teamDataEntity.FirstGpYear = 14;
+            teamDataEntity.DebutGrandPrix = 13;
+            teamDataEntity.DebutYear = 14;
             teamDataEntity.Wins = 15;
             teamDataEntity.YearlyBudget = 16;
             teamDataEntity.UnknownA = 17;
-            teamDataEntity.CountryMapId = 18;
-            teamDataEntity.LocationPointerX = 19;
-            teamDataEntity.LocationPointerY = 20;
-            teamDataEntity.TyreSupplierId = 21;
+            teamDataEntity.Location = 18;
+            teamDataEntity.LocationX = 19;
+            teamDataEntity.LocationY = 20;
+            teamDataEntity.TyreSupplier = 21;
 
             const int chassisHandlingDataEntityId = 2;
             var chassisHandlingDataEntity = chassisHandlingDataEntityFactory.Create(chassisHandlingDataEntityId);
@@ -178,36 +174,38 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             teamEntity.Name = teamDataEntity.Name.Shared;
             teamEntity.LastPosition = teamDataEntity.LastPosition;
             teamEntity.LastPoints = teamDataEntity.LastPoints;
-            teamEntity.FirstGpTrack = teamDataEntity.FirstGpTrack;
-            teamEntity.FirstGpYear = teamDataEntity.FirstGpYear;
+            teamEntity.DebutGrandPrix = teamDataEntity.DebutGrandPrix;
+            teamEntity.DebutYear = teamDataEntity.DebutYear;
             teamEntity.Wins = teamDataEntity.Wins;
             teamEntity.YearlyBudget = teamDataEntity.YearlyBudget;
-            teamEntity.CountryMapId = teamDataEntity.CountryMapId;
-            teamEntity.LocationPointerX = teamDataEntity.LocationPointerX;
-            teamEntity.LocationPointerY = teamDataEntity.LocationPointerY;
-            teamEntity.TyreSupplierId = teamDataEntity.TyreSupplierId;
+            teamEntity.Location = teamDataEntity.Location;
+            teamEntity.LocationX = teamDataEntity.LocationX;
+            teamEntity.LocationY = teamDataEntity.LocationY;
+            teamEntity.TyreSupplier = teamDataEntity.TyreSupplier;
             teamEntity.ChassisHandling = chassisHandlingDataEntity.Value;
             teamEntity.CarNumberDriver1 = carNumbersObject.CarNumberDriver1;
             teamEntity.CarNumberDriver2 = carNumbersObject.CarNumberDriver2;
 
+            // Act
             var sut = teamEntityFactory.Create(teamEntity.Id);
-            mapperService.Map(teamDataEntity, sut);
-            mapperService.Map(chassisHandlingDataEntity, sut);
-            mapperService.Map(carNumbersObject, sut);
+            _mapperService.Map(teamDataEntity, sut);
+            _mapperService.Map(chassisHandlingDataEntity, sut);
+            _mapperService.Map(carNumbersObject, sut);
 
+            // Assert
             sut.Should().NotBeNull();
             sut.Id.Should().Be(teamEntity.Id);
             sut.Name.Should().Be(teamDataEntity.Name.Shared);
             sut.LastPosition.Should().Be(teamDataEntity.LastPosition);
             sut.LastPoints.Should().Be(teamDataEntity.LastPoints);
-            sut.FirstGpTrack.Should().Be(teamDataEntity.FirstGpTrack);
-            sut.FirstGpYear.Should().Be(teamDataEntity.FirstGpYear);
+            sut.DebutGrandPrix.Should().Be(teamDataEntity.DebutGrandPrix);
+            sut.DebutYear.Should().Be(teamDataEntity.DebutYear);
             sut.Wins.Should().Be(teamDataEntity.Wins);
             sut.YearlyBudget.Should().Be(teamDataEntity.YearlyBudget);
-            sut.CountryMapId.Should().Be(teamDataEntity.CountryMapId);
-            sut.LocationPointerX.Should().Be(teamDataEntity.LocationPointerX);
-            sut.LocationPointerY.Should().Be(teamDataEntity.LocationPointerY);
-            sut.TyreSupplierId.Should().Be(teamDataEntity.TyreSupplierId);
+            sut.Location.Should().Be(teamDataEntity.Location);
+            sut.LocationX.Should().Be(teamDataEntity.LocationX);
+            sut.LocationY.Should().Be(teamDataEntity.LocationY);
+            sut.TyreSupplier.Should().Be(teamDataEntity.TyreSupplier);
             sut.ChassisHandling.Should().Be(chassisHandlingDataEntity.Value);
             sut.CarNumberDriver1.Should().Be(carNumbersObject.CarNumberDriver1);
             sut.CarNumberDriver2.Should().Be(carNumbersObject.CarNumberDriver2);
@@ -216,15 +214,11 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
         [Fact]
         public void TeamDataEntityOnTeamEntityProfile_WhenMappingFromPopulatedTeamEntity_ExpectPopulatedTeamDataEntity()
         {
-            var teamDataEntityFactory = new IntegerIdentityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue())); // TODO: Mock it
-            var chassisHandlingDataEntityFactory = new IntegerIdentityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
-            var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
-            var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
-
-            var assembly = Assembly.GetAssembly(typeof(ApplicationMaps));
-            var mapperConfiguration = new MapperConfiguration(c => c.AddProfiles(assembly));
-            var mapper = mapperConfiguration.CreateMapper();
-            var mapperService = new AutoMapperMapperService(mapper);
+            // Arrange
+            var teamDataEntityFactory = new IntegerIdentityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue()));
+            var chassisHandlingDataEntityFactory = new IntegerIdentityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity());
+            var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject());
+            var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity());
 
             // Initialise data entities using unique non-default dummy values to verify mappings
             const int teamDataEntityId = 1;
@@ -232,15 +226,15 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             teamDataEntity.Name.Shared = "UnitTest";
             teamDataEntity.LastPosition = 11;
             teamDataEntity.LastPoints = 12;
-            teamDataEntity.FirstGpTrack = 13;
-            teamDataEntity.FirstGpYear = 14;
+            teamDataEntity.DebutGrandPrix = 13;
+            teamDataEntity.DebutYear = 14;
             teamDataEntity.Wins = 15;
             teamDataEntity.YearlyBudget = 16;
             teamDataEntity.UnknownA = 17;
-            teamDataEntity.CountryMapId = 18;
-            teamDataEntity.LocationPointerX = 19;
-            teamDataEntity.LocationPointerY = 20;
-            teamDataEntity.TyreSupplierId = 21;
+            teamDataEntity.Location = 18;
+            teamDataEntity.LocationX = 19;
+            teamDataEntity.LocationY = 20;
+            teamDataEntity.TyreSupplier = 21;
 
             const int chassisHandlingDataEntityId = 2;
             var chassisHandlingDataEntity = chassisHandlingDataEntityFactory.Create(chassisHandlingDataEntityId);
@@ -256,48 +250,46 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             teamEntity.Name = teamDataEntity.Name.Shared;
             teamEntity.LastPosition = teamDataEntity.LastPosition;
             teamEntity.LastPoints = teamDataEntity.LastPoints;
-            teamEntity.FirstGpTrack = teamDataEntity.FirstGpTrack;
-            teamEntity.FirstGpYear = teamDataEntity.FirstGpYear;
+            teamEntity.DebutGrandPrix = teamDataEntity.DebutGrandPrix;
+            teamEntity.DebutYear = teamDataEntity.DebutYear;
             teamEntity.Wins = teamDataEntity.Wins;
             teamEntity.YearlyBudget = teamDataEntity.YearlyBudget;
-            teamEntity.CountryMapId = teamDataEntity.CountryMapId;
-            teamEntity.LocationPointerX = teamDataEntity.LocationPointerX;
-            teamEntity.LocationPointerY = teamDataEntity.LocationPointerY;
-            teamEntity.TyreSupplierId = teamDataEntity.TyreSupplierId;
+            teamEntity.Location = teamDataEntity.Location;
+            teamEntity.LocationX = teamDataEntity.LocationX;
+            teamEntity.LocationY = teamDataEntity.LocationY;
+            teamEntity.TyreSupplier = teamDataEntity.TyreSupplier;
             teamEntity.ChassisHandling = chassisHandlingDataEntity.Value;
             teamEntity.CarNumberDriver1 = carNumbersObject.CarNumberDriver1;
             teamEntity.CarNumberDriver2 = carNumbersObject.CarNumberDriver2;
 
+            // Act
             var newTeamDataEntity = teamDataEntityFactory.Create(teamDataEntity.Id);
-            var sut = mapperService.Map(teamEntity, newTeamDataEntity);
+            var sut = _mapperService.Map(teamEntity, newTeamDataEntity);
 
+            // Assert
             sut.Should().NotBeNull();
             sut.Id.Should().Be(teamDataEntity.Id);
             sut.Name.Shared.Should().Be(teamEntity.Name);
             sut.LastPosition.Should().Be(teamEntity.LastPosition);
             sut.LastPoints.Should().Be(teamEntity.LastPoints);
-            sut.FirstGpTrack.Should().Be(teamEntity.FirstGpTrack);
-            sut.FirstGpYear.Should().Be(teamEntity.FirstGpYear);
+            sut.DebutGrandPrix.Should().Be(teamEntity.DebutGrandPrix);
+            sut.DebutYear.Should().Be(teamEntity.DebutYear);
             sut.Wins.Should().Be(teamEntity.Wins);
             sut.YearlyBudget.Should().Be(teamEntity.YearlyBudget);
-            sut.CountryMapId.Should().Be(teamEntity.CountryMapId);
-            sut.LocationPointerX.Should().Be(teamEntity.LocationPointerX);
-            sut.LocationPointerY.Should().Be(teamEntity.LocationPointerY);
-            sut.TyreSupplierId.Should().Be(teamEntity.TyreSupplierId);
+            sut.Location.Should().Be(teamEntity.Location);
+            sut.LocationX.Should().Be(teamEntity.LocationX);
+            sut.LocationY.Should().Be(teamEntity.LocationY);
+            sut.TyreSupplier.Should().Be(teamEntity.TyreSupplier);
         }
 
         [Fact]
         public void TeamDataEntityOnTeamEntityProfile_WhenMappingFromPopulatedTeamEntity_ExpectPopulatedChassisHandlingDataEntity()
         {
-            var teamDataEntityFactory = new IntegerIdentityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue())); // TODO: Mock it
-            var chassisHandlingDataEntityFactory = new IntegerIdentityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
-            var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
-            var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
-
-            var assembly = Assembly.GetAssembly(typeof(ApplicationMaps));
-            var mapperConfiguration = new MapperConfiguration(c => c.AddProfiles(assembly));
-            var mapper = mapperConfiguration.CreateMapper();
-            var mapperService = new AutoMapperMapperService(mapper);
+            // Arrange
+            var teamDataEntityFactory = new IntegerIdentityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue()));
+            var chassisHandlingDataEntityFactory = new IntegerIdentityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity());
+            var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject());
+            var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity());
 
             // Initialise data entities using unique non-default dummy values to verify mappings
             const int teamDataEntityId = 1;
@@ -305,15 +297,15 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             teamDataEntity.Name.Shared = "UnitTest";
             teamDataEntity.LastPosition = 11;
             teamDataEntity.LastPoints = 12;
-            teamDataEntity.FirstGpTrack = 13;
-            teamDataEntity.FirstGpYear = 14;
+            teamDataEntity.DebutGrandPrix = 13;
+            teamDataEntity.DebutYear = 14;
             teamDataEntity.Wins = 15;
             teamDataEntity.YearlyBudget = 16;
             teamDataEntity.UnknownA = 17;
-            teamDataEntity.CountryMapId = 18;
-            teamDataEntity.LocationPointerX = 19;
-            teamDataEntity.LocationPointerY = 20;
-            teamDataEntity.TyreSupplierId = 21;
+            teamDataEntity.Location = 18;
+            teamDataEntity.LocationX = 19;
+            teamDataEntity.LocationY = 20;
+            teamDataEntity.TyreSupplier = 21;
 
             const int chassisHandlingDataEntityId = 2;
             var chassisHandlingDataEntity = chassisHandlingDataEntityFactory.Create(chassisHandlingDataEntityId);
@@ -329,21 +321,23 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             teamEntity.Name = teamDataEntity.Name.Shared;
             teamEntity.LastPosition = teamDataEntity.LastPosition;
             teamEntity.LastPoints = teamDataEntity.LastPoints;
-            teamEntity.FirstGpTrack = teamDataEntity.FirstGpTrack;
-            teamEntity.FirstGpYear = teamDataEntity.FirstGpYear;
+            teamEntity.DebutGrandPrix = teamDataEntity.DebutGrandPrix;
+            teamEntity.DebutYear = teamDataEntity.DebutYear;
             teamEntity.Wins = teamDataEntity.Wins;
             teamEntity.YearlyBudget = teamDataEntity.YearlyBudget;
-            teamEntity.CountryMapId = teamDataEntity.CountryMapId;
-            teamEntity.LocationPointerX = teamDataEntity.LocationPointerX;
-            teamEntity.LocationPointerY = teamDataEntity.LocationPointerY;
-            teamEntity.TyreSupplierId = teamDataEntity.TyreSupplierId;
+            teamEntity.Location = teamDataEntity.Location;
+            teamEntity.LocationX = teamDataEntity.LocationX;
+            teamEntity.LocationY = teamDataEntity.LocationY;
+            teamEntity.TyreSupplier = teamDataEntity.TyreSupplier;
             teamEntity.ChassisHandling = chassisHandlingDataEntity.Value;
             teamEntity.CarNumberDriver1 = carNumbersObject.CarNumberDriver1;
             teamEntity.CarNumberDriver2 = carNumbersObject.CarNumberDriver2;
 
+            // Act
             var newChassisHandlingDataEntity = chassisHandlingDataEntityFactory.Create(chassisHandlingDataEntity.Id);
-            var sut = mapperService.Map(teamEntity, newChassisHandlingDataEntity);
+            var sut = _mapperService.Map(teamEntity, newChassisHandlingDataEntity);
 
+            // Assert
             sut.Should().NotBeNull();
             sut.Id.Should().Be(chassisHandlingDataEntity.Id);
             sut.Value.Should().Be(teamEntity.ChassisHandling);
@@ -352,15 +346,11 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
         [Fact]
         public void TeamDataEntityOnTeamEntityProfile_WhenMappingFromPopulatedTeamEntity_ExpectPopulatedCarNumbersObject()
         {
-            var teamDataEntityFactory = new IntegerIdentityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue())); // TODO: Mock it
-            var chassisHandlingDataEntityFactory = new IntegerIdentityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity()); // TODO: Mock it
-            var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject()); // TODO: Mock it
-            var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity()); // TODO: Mock it
-
-            var assembly = Assembly.GetAssembly(typeof(ApplicationMaps));
-            var mapperConfiguration = new MapperConfiguration(c => c.AddProfiles(assembly));
-            var mapper = mapperConfiguration.CreateMapper();
-            var mapperService = new AutoMapperMapperService(mapper);
+            // Arrange
+            var teamDataEntityFactory = new IntegerIdentityFactory<TeamDataEntity>(() => new TeamDataEntity(new LanguageCatalogueValue()));
+            var chassisHandlingDataEntityFactory = new IntegerIdentityFactory<ChassisHandlingDataEntity>(() => new ChassisHandlingDataEntity());
+            var carNumbersObjectFactory = new CarNumbersObjectFactory(() => new CarNumbersObject());
+            var teamEntityFactory = new IntegerIdentityFactory<TeamEntity>(() => new TeamEntity());
 
             // Initialise data entities using unique non-default dummy values to verify mappings
             const int teamDataEntityId = 1;
@@ -368,15 +358,15 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             teamDataEntity.Name.Shared = "UnitTest";
             teamDataEntity.LastPosition = 11;
             teamDataEntity.LastPoints = 12;
-            teamDataEntity.FirstGpTrack = 13;
-            teamDataEntity.FirstGpYear = 14;
+            teamDataEntity.DebutGrandPrix = 13;
+            teamDataEntity.DebutYear = 14;
             teamDataEntity.Wins = 15;
             teamDataEntity.YearlyBudget = 16;
             teamDataEntity.UnknownA = 17;
-            teamDataEntity.CountryMapId = 18;
-            teamDataEntity.LocationPointerX = 19;
-            teamDataEntity.LocationPointerY = 20;
-            teamDataEntity.TyreSupplierId = 21;
+            teamDataEntity.Location = 18;
+            teamDataEntity.LocationX = 19;
+            teamDataEntity.LocationY = 20;
+            teamDataEntity.TyreSupplier = 21;
 
             const int chassisHandlingDataEntityId = 2;
             var chassisHandlingDataEntity = chassisHandlingDataEntityFactory.Create(chassisHandlingDataEntityId);
@@ -392,21 +382,23 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             teamEntity.Name = teamDataEntity.Name.Shared;
             teamEntity.LastPosition = teamDataEntity.LastPosition;
             teamEntity.LastPoints = teamDataEntity.LastPoints;
-            teamEntity.FirstGpTrack = teamDataEntity.FirstGpTrack;
-            teamEntity.FirstGpYear = teamDataEntity.FirstGpYear;
+            teamEntity.DebutGrandPrix = teamDataEntity.DebutGrandPrix;
+            teamEntity.DebutYear = teamDataEntity.DebutYear;
             teamEntity.Wins = teamDataEntity.Wins;
             teamEntity.YearlyBudget = teamDataEntity.YearlyBudget;
-            teamEntity.CountryMapId = teamDataEntity.CountryMapId;
-            teamEntity.LocationPointerX = teamDataEntity.LocationPointerX;
-            teamEntity.LocationPointerY = teamDataEntity.LocationPointerY;
-            teamEntity.TyreSupplierId = teamDataEntity.TyreSupplierId;
+            teamEntity.Location = teamDataEntity.Location;
+            teamEntity.LocationX = teamDataEntity.LocationX;
+            teamEntity.LocationY = teamDataEntity.LocationY;
+            teamEntity.TyreSupplier = teamDataEntity.TyreSupplier;
             teamEntity.ChassisHandling = chassisHandlingDataEntity.Value;
             teamEntity.CarNumberDriver1 = carNumbersObject.CarNumberDriver1;
             teamEntity.CarNumberDriver2 = carNumbersObject.CarNumberDriver2;
 
+            // Act
             var newCarNumbersObject = carNumbersObjectFactory.Create(teamEntity.Id);
-            var sut = mapperService.Map(teamEntity, newCarNumbersObject);
+            var sut = _mapperService.Map(teamEntity, newCarNumbersObject);
 
+            // Assert
             sut.Should().NotBeNull();
             sut.CarNumberDriver1.Should().Be(teamEntity.CarNumberDriver1);
             sut.CarNumberDriver2.Should().Be(teamEntity.CarNumberDriver2);

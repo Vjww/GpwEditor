@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Shared.Domain", "App.Sh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.LanguageFileEditor.Infrastructure", "App.LanguageFileEditor.Infrastructure\App.LanguageFileEditor.Infrastructure.csproj", "{F359E868-6169-4EFD-87D0-E3060B15B41E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.BaseGameEditor.Application.Tests", "App.BaseGameEditor.Application.Tests\App.BaseGameEditor.Application.Tests.csproj", "{9712C47E-D15A-4CDA-AB51-6228BFEC7D5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{F359E868-6169-4EFD-87D0-E3060B15B41E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F359E868-6169-4EFD-87D0-E3060B15B41E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F359E868-6169-4EFD-87D0-E3060B15B41E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9712C47E-D15A-4CDA-AB51-6228BFEC7D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9712C47E-D15A-4CDA-AB51-6228BFEC7D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9712C47E-D15A-4CDA-AB51-6228BFEC7D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9712C47E-D15A-4CDA-AB51-6228BFEC7D5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
