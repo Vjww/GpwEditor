@@ -33,6 +33,10 @@ namespace App.WindowsForms.Controllers
 
         public void Run(Form parentView)
         {
+            // Reset flags
+            _isImportOccurred = false;
+            _isModified = false;
+
             _view = _formFactory.Create<BaseGameEditorForm>();
             _view.SetController(this);
             ShowView(parentView, _view);
@@ -345,6 +349,9 @@ namespace App.WindowsForms.Controllers
             _view.ChiefDriverLoyaltyLookups = UpdateModelFromService<IEnumerable<ChiefDriverLoyaltyLookupEntity>, IEnumerable<ChiefDriverLoyaltyLookupModel>>(_baseGameEditorApplicationService.DomainModel.Lookups.GetChiefDriverLoyaltyLookups);
             _view.DriverNationalityLookups = UpdateModelFromService<IEnumerable<DriverNationalityLookupEntity>, IEnumerable<DriverNationalityLookupModel>>(_baseGameEditorApplicationService.DomainModel.Lookups.GetDriverNationalityLookups);
             _view.DriverRoleLookups = UpdateModelFromService<IEnumerable<DriverRoleLookupEntity>, IEnumerable<DriverRoleLookupModel>>(_baseGameEditorApplicationService.DomainModel.Lookups.GetDriverRoleLookups);
+            _view.SponsorNameLookups = UpdateModelFromService<IEnumerable<SponsorNameLookupEntity>, IEnumerable<SponsorNameLookupModel>>(_baseGameEditorApplicationService.DomainModel.Lookups.GetSponsorNameLookups);
+            _view.SponsorDealLookups = UpdateSponsorDealLookupModel();
+            _view.SponsorTermsLookups = UpdateSponsorTermsLookupModel();
             _view.TeamDebutGrandPrixLookups = UpdateModelFromService<IEnumerable<TeamDebutGrandPrixLookupEntity>, IEnumerable<TeamDebutGrandPrixLookupModel>>(_baseGameEditorApplicationService.DomainModel.Lookups.GetTeamDebutGrandPrixLookups);
             _view.TeamLocationLookups = UpdateTeamLocationLookupModel();
             _view.TrackDriverLookups = UpdateModelFromService<IEnumerable<TrackDriverLookupEntity>, IEnumerable<TrackDriverLookupModel>>(_baseGameEditorApplicationService.DomainModel.Lookups.GetTrackDriverLookups);
@@ -363,11 +370,23 @@ namespace App.WindowsForms.Controllers
             _view.NonF1ChiefMechanics = UpdateModelFromService<IEnumerable<NonF1ChiefMechanicEntity>, IEnumerable<NonF1ChiefMechanicModel>>(_baseGameEditorApplicationService.DomainModel.Persons.GetNonF1ChiefMechanics);
             _view.F1Drivers = UpdateModelFromService<IEnumerable<F1DriverEntity>, IEnumerable<F1DriverModel>>(_baseGameEditorApplicationService.DomainModel.Persons.GetF1Drivers);
             _view.NonF1Drivers = UpdateModelFromService<IEnumerable<NonF1DriverEntity>, IEnumerable<NonF1DriverModel>>(_baseGameEditorApplicationService.DomainModel.Persons.GetNonF1Drivers);
-            _view.SponsorshipTeams = UpdateModelFromService<IEnumerable<SponsorshipTeamEntity>, IEnumerable<SponsorshipTeamModel>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.GetSponsorshipTeams);
-            _view.SponsorshipEngines = UpdateModelFromService<IEnumerable<SponsorshipEngineEntity>, IEnumerable<SponsorshipEngineModel>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.GetSponsorshipEngines);
-            _view.SponsorshipTyres = UpdateModelFromService<IEnumerable<SponsorshipTyreEntity>, IEnumerable<SponsorshipTyreModel>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.GetSponsorshipTyres);
-            _view.SponsorshipFuels = UpdateModelFromService<IEnumerable<SponsorshipFuelEntity>, IEnumerable<SponsorshipFuelModel>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.GetSponsorshipFuels);
-            _view.SponsorshipCashs = UpdateModelFromService<IEnumerable<SponsorshipCashEntity>, IEnumerable<SponsorshipCashModel>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.GetSponsorshipCashs);
+            _view.SponsorFias = UpdateModelFromService<IEnumerable<SponsorFiaEntity>, IEnumerable<SponsorFiaModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorFias);
+            _view.SponsorTeams = UpdateModelFromService<IEnumerable<SponsorEntity>, IEnumerable<SponsorModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorTeams);
+            _view.SponsorEngines = UpdateModelFromService<IEnumerable<SponsorEntity>, IEnumerable<SponsorModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorEngines);
+            _view.SponsorTyres = UpdateModelFromService<IEnumerable<SponsorEntity>, IEnumerable<SponsorModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorTyres);
+            _view.SponsorFuels = UpdateModelFromService<IEnumerable<SponsorEntity>, IEnumerable<SponsorModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorFuels);
+            _view.SponsorCashs = UpdateModelFromService<IEnumerable<SponsorEntity>, IEnumerable<SponsorModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorCashs);
+            _view.SponsorContractsTeam01 = UpdateModelFromService<IEnumerable<SponsorContractEntity>, IEnumerable<SponsorContractModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorContractsTeam01);
+            _view.SponsorContractsTeam02 = UpdateModelFromService<IEnumerable<SponsorContractEntity>, IEnumerable<SponsorContractModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorContractsTeam02);
+            _view.SponsorContractsTeam03 = UpdateModelFromService<IEnumerable<SponsorContractEntity>, IEnumerable<SponsorContractModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorContractsTeam03);
+            _view.SponsorContractsTeam04 = UpdateModelFromService<IEnumerable<SponsorContractEntity>, IEnumerable<SponsorContractModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorContractsTeam04);
+            _view.SponsorContractsTeam05 = UpdateModelFromService<IEnumerable<SponsorContractEntity>, IEnumerable<SponsorContractModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorContractsTeam05);
+            _view.SponsorContractsTeam06 = UpdateModelFromService<IEnumerable<SponsorContractEntity>, IEnumerable<SponsorContractModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorContractsTeam06);
+            _view.SponsorContractsTeam07 = UpdateModelFromService<IEnumerable<SponsorContractEntity>, IEnumerable<SponsorContractModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorContractsTeam07);
+            _view.SponsorContractsTeam08 = UpdateModelFromService<IEnumerable<SponsorContractEntity>, IEnumerable<SponsorContractModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorContractsTeam08);
+            _view.SponsorContractsTeam09 = UpdateModelFromService<IEnumerable<SponsorContractEntity>, IEnumerable<SponsorContractModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorContractsTeam09);
+            _view.SponsorContractsTeam10 = UpdateModelFromService<IEnumerable<SponsorContractEntity>, IEnumerable<SponsorContractModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorContractsTeam10);
+            _view.SponsorContractsTeam11 = UpdateModelFromService<IEnumerable<SponsorContractEntity>, IEnumerable<SponsorContractModel>>(_baseGameEditorApplicationService.DomainModel.Sponsors.GetSponsorContractsTeam11);
             _view.Tracks = UpdateModelFromService<IEnumerable<TrackEntity>, IEnumerable<TrackModel>>(_baseGameEditorApplicationService.DomainModel.Tracks.GetTracks);
 
             // TODO:
@@ -394,11 +413,23 @@ namespace App.WindowsForms.Controllers
             UpdateServiceFromModel<IEnumerable<NonF1ChiefMechanicModel>, IEnumerable<NonF1ChiefMechanicEntity>>(_baseGameEditorApplicationService.DomainModel.Persons.SetNonF1ChiefMechanics, _view.NonF1ChiefMechanics);
             UpdateServiceFromModel<IEnumerable<F1DriverModel>, IEnumerable<F1DriverEntity>>(_baseGameEditorApplicationService.DomainModel.Persons.SetF1Drivers, _view.F1Drivers);
             UpdateServiceFromModel<IEnumerable<NonF1DriverModel>, IEnumerable<NonF1DriverEntity>>(_baseGameEditorApplicationService.DomainModel.Persons.SetNonF1Drivers, _view.NonF1Drivers);
-            UpdateServiceFromModel<IEnumerable<SponsorshipTeamModel>, IEnumerable<SponsorshipTeamEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.SetSponsorshipTeams, _view.SponsorshipTeams);
-            UpdateServiceFromModel<IEnumerable<SponsorshipEngineModel>, IEnumerable<SponsorshipEngineEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.SetSponsorshipEngines, _view.SponsorshipEngines);
-            UpdateServiceFromModel<IEnumerable<SponsorshipTyreModel>, IEnumerable<SponsorshipTyreEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.SetSponsorshipTyres, _view.SponsorshipTyres);
-            UpdateServiceFromModel<IEnumerable<SponsorshipFuelModel>, IEnumerable<SponsorshipFuelEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.SetSponsorshipFuels, _view.SponsorshipFuels);
-            UpdateServiceFromModel<IEnumerable<SponsorshipCashModel>, IEnumerable<SponsorshipCashEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsorships.SetSponsorshipCashs, _view.SponsorshipCashs);
+            UpdateServiceFromModel<IEnumerable<SponsorFiaModel>, IEnumerable<SponsorFiaEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorFias, _view.SponsorFias);
+            UpdateServiceFromModel<IEnumerable<SponsorModel>, IEnumerable<SponsorEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorTeams, _view.SponsorTeams);
+            UpdateServiceFromModel<IEnumerable<SponsorModel>, IEnumerable<SponsorEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorEngines, _view.SponsorEngines);
+            UpdateServiceFromModel<IEnumerable<SponsorModel>, IEnumerable<SponsorEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorTyres, _view.SponsorTyres);
+            UpdateServiceFromModel<IEnumerable<SponsorModel>, IEnumerable<SponsorEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorFuels, _view.SponsorFuels);
+            UpdateServiceFromModel<IEnumerable<SponsorModel>, IEnumerable<SponsorEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorCashs, _view.SponsorCashs);
+            UpdateServiceFromModel<IEnumerable<SponsorContractModel>, IEnumerable<SponsorContractEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorContractsTeam01, _view.SponsorContractsTeam01);
+            UpdateServiceFromModel<IEnumerable<SponsorContractModel>, IEnumerable<SponsorContractEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorContractsTeam02, _view.SponsorContractsTeam02);
+            UpdateServiceFromModel<IEnumerable<SponsorContractModel>, IEnumerable<SponsorContractEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorContractsTeam03, _view.SponsorContractsTeam03);
+            UpdateServiceFromModel<IEnumerable<SponsorContractModel>, IEnumerable<SponsorContractEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorContractsTeam04, _view.SponsorContractsTeam04);
+            UpdateServiceFromModel<IEnumerable<SponsorContractModel>, IEnumerable<SponsorContractEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorContractsTeam05, _view.SponsorContractsTeam05);
+            UpdateServiceFromModel<IEnumerable<SponsorContractModel>, IEnumerable<SponsorContractEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorContractsTeam06, _view.SponsorContractsTeam06);
+            UpdateServiceFromModel<IEnumerable<SponsorContractModel>, IEnumerable<SponsorContractEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorContractsTeam07, _view.SponsorContractsTeam07);
+            UpdateServiceFromModel<IEnumerable<SponsorContractModel>, IEnumerable<SponsorContractEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorContractsTeam08, _view.SponsorContractsTeam08);
+            UpdateServiceFromModel<IEnumerable<SponsorContractModel>, IEnumerable<SponsorContractEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorContractsTeam09, _view.SponsorContractsTeam09);
+            UpdateServiceFromModel<IEnumerable<SponsorContractModel>, IEnumerable<SponsorContractEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorContractsTeam10, _view.SponsorContractsTeam10);
+            UpdateServiceFromModel<IEnumerable<SponsorContractModel>, IEnumerable<SponsorContractEntity>>(_baseGameEditorApplicationService.DomainModel.Sponsors.SetSponsorContractsTeam11, _view.SponsorContractsTeam11);
             UpdateServiceFromModel<IEnumerable<TrackModel>, IEnumerable<TrackEntity>>(_baseGameEditorApplicationService.DomainModel.Tracks.SetTracks, _view.Tracks);
 
             // TODO:
@@ -420,6 +451,28 @@ namespace App.WindowsForms.Controllers
                 new TeamLocationLookupModel {Id = 1, Description = "Great Britain", Value = 1},
                 new TeamLocationLookupModel {Id = 2, Description = "Italy", Value = 2},
                 new TeamLocationLookupModel {Id = 3, Description = "Switzerland", Value = 3}
+            };
+        }
+
+        private static IEnumerable<SponsorDealLookupModel> UpdateSponsorDealLookupModel()
+        {
+            return new List<SponsorDealLookupModel>
+            {
+                new SponsorDealLookupModel {Id = 0, Description = "None", Value = 0},
+                new SponsorDealLookupModel {Id = 1, Description = "Customer", Value = 1},
+                new SponsorDealLookupModel {Id = 2, Description = "Partner", Value = 2},
+                new SponsorDealLookupModel {Id = 3, Description = "Works", Value = 3}
+            };
+        }
+
+        private static IEnumerable<SponsorTermsLookupModel> UpdateSponsorTermsLookupModel()
+        {
+            return new List<SponsorTermsLookupModel>
+            {
+                new SponsorTermsLookupModel {Id = 0, Description = "None", Value = 0},
+                new SponsorTermsLookupModel {Id = 1, Description = "Level 1", Value = 1},
+                new SponsorTermsLookupModel {Id = 2, Description = "Level 2", Value = 2},
+                new SponsorTermsLookupModel {Id = 3, Description = "Level 3", Value = 3}
             };
         }
 

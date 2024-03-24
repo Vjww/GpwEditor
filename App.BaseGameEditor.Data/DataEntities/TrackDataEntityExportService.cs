@@ -2,11 +2,12 @@
 using App.BaseGameEditor.Data.DataLocators;
 using App.Core.Factories;
 using App.Shared.Data.DataEndpoints;
+using App.Shared.Data.DataEntities;
 using App.Shared.Data.Services;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class TrackDataEntityExportService : IDataEntityExportService<TrackDataEntity>
+    public class TrackDataEntityExportService : DataEntityExportServiceBase, IDataEntityExportService<TrackDataEntity>
     {
         private readonly DataEndpoint _dataEndpoint;
         private readonly IIntegerIdentityFactory<TrackDataLocator> _dataLocatorFactory;
@@ -27,17 +28,7 @@ namespace App.BaseGameEditor.Data.DataEntities
             var dataLocator = _dataLocatorFactory.Create(trackDataEntity.Id);
             dataLocator.Initialise();
 
-            var englishCatalogueItem = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Name);
-            var frenchCatalogueItem = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name);
-            var germanCatalogueItem = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name);
-
-            englishCatalogueItem.Value = trackDataEntity.Name.English;
-            frenchCatalogueItem.Value = trackDataEntity.Name.French;
-            germanCatalogueItem.Value = trackDataEntity.Name.German;
-
-            _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, englishCatalogueItem);
-            _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, frenchCatalogueItem);
-            _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, germanCatalogueItem);
+            ExportLanguageCatalogueValue(_dataEndpoint, trackDataEntity.Name, dataLocator.Name);
 
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Laps, trackDataEntity.Laps);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Layout, trackDataEntity.Layout);

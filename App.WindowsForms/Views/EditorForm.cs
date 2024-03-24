@@ -388,6 +388,21 @@ namespace App.WindowsForms.Views
             return dataGridViewComboBoxColumn;
         }
 
+        public static DataGridViewCheckBoxColumn CreateDataGridViewCheckBoxColumn(string propertyName, string displayText, string toolTipText, bool visible = true, bool readOnly = false)
+        {
+            var dataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn
+            {
+                Name = propertyName,
+                DataPropertyName = propertyName,
+                HeaderText = displayText,
+                ToolTipText = toolTipText,
+                ReadOnly = readOnly,
+                Visible = visible
+            };
+
+            return dataGridViewCheckBoxColumn;
+        }
+
         public static DataGridViewTextBoxColumn CreateDataGridViewTextBoxColumn(string propertyName, string displayText, string toolTipText, bool visible = true, bool readOnly = false)
         {
             var dataGridViewTextBoxColumn = new DataGridViewTextBoxColumn

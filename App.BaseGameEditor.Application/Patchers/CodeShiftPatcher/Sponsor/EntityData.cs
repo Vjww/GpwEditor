@@ -34,7 +34,7 @@ namespace App.BaseGameEditor.Application.Patchers.CodeShiftPatcher.Sponsor
 
             for (var i = 0; i < 98; i++)
             {
-                var entityType = Convert.ToByte(_identityCalculator.GetSponsorType(i));
+                var entityType = Convert.ToByte(_identityCalculator.GetSponsorTypeId(i));
                 var entityTypeMemoryAddress = entityTypeMemoryAddressBase + entityTypeMemoryAddressOffset * i;
                 var resourceStringIndex = resourceStringIndexBase + i;
                 var resourceStringSubRelativeAddress = resourceStringSubRelativeAddressBase - resourceStringSubRelativeAddressOffset * i;

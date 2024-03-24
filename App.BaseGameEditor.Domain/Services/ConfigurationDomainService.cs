@@ -12,9 +12,13 @@
         public bool EnableCarHandlingDesignCalculation { get; set; }
         public bool EnableCarPerformanceRaceCalcuation { get; set; }
 
+        public int GameYear { get; set; }
+
         public bool PointsScoringSystemDefault { get; set; }
         public bool PointsScoringSystemOption1 { get; set; }
         public bool PointsScoringSystemOption2 { get; set; }
         public bool PointsScoringSystemOption3 { get; set; }
+
+        public bool EnableTrackEditor { get; set; }
     }
 }

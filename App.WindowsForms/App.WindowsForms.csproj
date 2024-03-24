@@ -61,7 +61,13 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
@@ -179,22 +185,26 @@
     <Compile Include="Controllers\UpgradeGameController.cs" />
     <Compile Include="Enums\NumericUpDownDirectionType.cs" />
     <Compile Include="Factories\FormFactory.cs" />
+    <Compile Include="Maps\AutoMapper\SponsorEntityOnSponsorModelProfile.cs" />
     <Compile Include="Maps\AutoMapper\PersonEntityOnPersonModelProfile.cs" />
     <Compile Include="Maps\AutoMapper\Reference\PresentationMaps.cs" />
+    <Compile Include="Models\GameYearModel.cs" />
     <Compile Include="Models\CommentaryIndexDriverModel.cs" />
     <Compile Include="Models\CommentaryIndexTeamModel.cs" />
     <Compile Include="Models\CommentaryFileModel.cs" />
     <Compile Include="Models\CommentaryPrefixTeamModel.cs" />
     <Compile Include="Models\CommentaryPrefixDriverModel.cs" />
-    <Compile Include="Models\SponsorshipCashModel.cs" />
-    <Compile Include="Models\SponsorshipTeamModel.cs" />
-    <Compile Include="Models\SponsorshipEngineModel.cs" />
+    <Compile Include="Models\Lookups\SponsorNameLookupModel.cs" />
+    <Compile Include="Models\Lookups\SponsorTermsLookupModel.cs" />
+    <Compile Include="Models\Lookups\SponsorDealLookupModel.cs" />
+    <Compile Include="Models\SponsorFiaModel.cs" />
+    <Compile Include="Models\SponsorContractModel.cs" />
+    <Compile Include="Models\SponsorModel.cs" />
     <Compile Include="Models\F1ChiefCommercialModel.cs" />
     <Compile Include="Models\F1ChiefDesignerModel.cs" />
     <Compile Include="Models\F1ChiefEngineerModel.cs" />
     <Compile Include="Models\F1ChiefMechanicModel.cs" />
     <Compile Include="Models\F1DriverModel.cs" />
-    <Compile Include="Models\SponsorshipFuelModel.cs" />
     <Compile Include="Models\Lookups\DriverRoleLookupModel.cs" />
     <Compile Include="Models\Lookups\TeamLocationModel.cs" />
     <Compile Include="Models\Lookups\TrackTeamLookupModel.cs" />
@@ -213,7 +223,6 @@
     <Compile Include="Models\LanguageModel.cs" />
     <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Models\TrackModel.cs" />
-    <Compile Include="Models\SponsorshipTyreModel.cs" />
     <Compile Include="Charts\PerformanceCurveChart.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -306,6 +315,7 @@
     </EmbeddedResource>
     <None Include="App.WindowsForms_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -354,17 +364,21 @@
       <Project>{d3213869-89e2-4b64-a5c4-57f0e1a62229}</Project>
       <Name>App.SaveGameEditor.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.Shared.Data\App.Shared.Data.csproj">
+      <Project>{AF47595F-2A48-4C67-8141-3E7A45A96BDB}</Project>
+      <Name>App.Shared.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.Shared.Infrastructure\App.Shared.Infrastructure.csproj">
       <Project>{065e058a-a3c9-472c-99e0-35316bdae21f}</Project>
       <Name>App.Shared.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Base\ss1.png" />
-    <Content Include="Resources\Base\ss2.png" />
-    <Content Include="Resources\Base\ss3.png" />
-    <Content Include="Resources\Base\ss4.png" />
-    <Content Include="Resources\Base\ss5.png" />
+    <None Include="Resources\Base\ss1.png" />
+    <None Include="Resources\Base\ss2.png" />
+    <None Include="Resources\Base\ss3.png" />
+    <None Include="Resources\Base\ss4.png" />
+    <None Include="Resources\Base\ss5.png" />
     <Content Include="Resources\icon1.ico" />
     <Content Include="Resources\logo1.png" />
     <Content Include="Resources\logo2.png" />

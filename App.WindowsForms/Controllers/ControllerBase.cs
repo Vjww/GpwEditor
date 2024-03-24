@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
-using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 using App.Shared.Infrastructure.Services;
 using App.WindowsForms.Properties;

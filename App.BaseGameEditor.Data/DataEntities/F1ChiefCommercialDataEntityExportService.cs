@@ -2,11 +2,12 @@
 using App.BaseGameEditor.Data.DataLocators;
 using App.Core.Factories;
 using App.Shared.Data.DataEndpoints;
+using App.Shared.Data.DataEntities;
 using App.Shared.Data.Services;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class F1ChiefCommercialDataEntityExportService : IDataEntityExportService<F1ChiefCommercialDataEntity>
+    public class F1ChiefCommercialDataEntityExportService : DataEntityExportServiceBase, IDataEntityExportService<F1ChiefCommercialDataEntity>
     {
         private readonly DataEndpoint _dataEndpoint;
         private readonly IIntegerIdentityFactory<F1ChiefCommercialDataLocator> _dataLocatorFactory;
@@ -27,17 +28,7 @@ namespace App.BaseGameEditor.Data.DataEntities
             var dataLocator = _dataLocatorFactory.Create(f1ChiefCommercialDataEntity.Id);
             dataLocator.Initialise();
 
-            var englishCatalogueItem = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Name);
-            var frenchCatalogueItem = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name);
-            var germanCatalogueItem = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name);
-
-            englishCatalogueItem.Value = f1ChiefCommercialDataEntity.Name.English;
-            frenchCatalogueItem.Value = f1ChiefCommercialDataEntity.Name.French;
-            germanCatalogueItem.Value = f1ChiefCommercialDataEntity.Name.German;
-
-            _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, englishCatalogueItem);
-            _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, frenchCatalogueItem);
-            _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, germanCatalogueItem);
+            ExportLanguageCatalogueValue(_dataEndpoint, f1ChiefCommercialDataEntity.Name, dataLocator.Name);
 
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Ability, f1ChiefCommercialDataEntity.Ability);
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.Age, f1ChiefCommercialDataEntity.Age);

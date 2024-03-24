@@ -2,11 +2,12 @@
 using App.BaseGameEditor.Data.DataLocators;
 using App.Core.Factories;
 using App.Shared.Data.DataEndpoints;
+using App.Shared.Data.DataEntities;
 using App.Shared.Data.Services;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class CommentaryIndexTeamDataEntityImportService : IDataEntityImportService<CommentaryIndexTeamDataEntity>
+    public class CommentaryIndexTeamDataEntityImportService : DataEntityImportServiceBase, IDataEntityImportService<CommentaryIndexTeamDataEntity>
     {
         private readonly DataEndpoint _dataEndpoint;
         private readonly IIntegerIdentityFactory<CommentaryIndexTeamDataEntity> _dataEntityFactory;
@@ -30,9 +31,7 @@ namespace App.BaseGameEditor.Data.DataEntities
             dataLocator.Initialise();
 
             var result = _dataEntityFactory.Create(id);
-            result.Name.English = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Name).Value;
-            result.Name.French = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name).Value;
-            result.Name.German = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name).Value;
+            ImportLanguageCatalogueValue(_dataEndpoint, result.Name, dataLocator.Name);
             result.CommentaryIndex = _dataEndpoint.GameExecutableFileResource.ReadInteger(dataLocator.CommentaryIndex);
 
             return result;

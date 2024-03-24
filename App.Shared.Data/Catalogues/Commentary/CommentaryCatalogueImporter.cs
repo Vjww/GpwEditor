@@ -9,13 +9,16 @@ namespace App.Shared.Data.Catalogues.Commentary
         where TLanguagePhrases : class, ILanguagePhrases
     {
         private readonly CommentaryCatalogueParser<TLanguagePhrases> _catalogueParser;
+        private readonly Func<CommentaryCatalogueItem> _catalogueItemFactory;
         private readonly FileResource _fileResource;
 
         public CommentaryCatalogueImporter(
             CommentaryCatalogueParser<TLanguagePhrases> catalogueParser,
+            Func<CommentaryCatalogueItem> catalogueItemFactory,
             FileResource fileResource)
         {
             _catalogueParser = catalogueParser ?? throw new ArgumentNullException(nameof(catalogueParser));
+            _catalogueItemFactory = catalogueItemFactory ?? throw new ArgumentNullException(nameof(catalogueItemFactory));
             _fileResource = fileResource ?? throw new ArgumentNullException(nameof(fileResource));
         }
 
@@ -49,18 +52,15 @@ namespace App.Shared.Data.Catalogues.Commentary
                 var transcriptPrefix = _catalogueParser.ExtractTranscriptPrefix(transcript, commentaryType);
                 var transcriptSuffix = _catalogueParser.ExtractTranscriptSuffix(commentaryType);
 
-                // TODO: Use factory
-                var commentaryCatalogueItem = new CommentaryCatalogueItem
-                {
-                    Id = id,
-                    FileName = fileName,
-                    FileNamePrefix = fileNamePrefix,
-                    FileNameSuffix = fileNameSuffix,
-                    Transcript = transcript,
-                    TranscriptPrefix = transcriptPrefix,
-                    TranscriptSuffix = transcriptSuffix,
-                    CommentaryType = commentaryType
-                };
+                var commentaryCatalogueItem = _catalogueItemFactory.Invoke();
+                commentaryCatalogueItem.Id = id;
+                commentaryCatalogueItem.FileName = fileName;
+                commentaryCatalogueItem.FileNamePrefix = fileNamePrefix;
+                commentaryCatalogueItem.FileNameSuffix = fileNameSuffix;
+                commentaryCatalogueItem.Transcript = transcript;
+                commentaryCatalogueItem.TranscriptPrefix = transcriptPrefix;
+                commentaryCatalogueItem.TranscriptSuffix = transcriptSuffix;
+                commentaryCatalogueItem.CommentaryType = commentaryType;
 
                 catalogue.Add(commentaryCatalogueItem);
 

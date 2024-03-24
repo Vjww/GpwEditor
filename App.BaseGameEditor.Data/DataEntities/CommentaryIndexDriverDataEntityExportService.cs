@@ -2,11 +2,12 @@
 using App.BaseGameEditor.Data.DataLocators;
 using App.Core.Factories;
 using App.Shared.Data.DataEndpoints;
+using App.Shared.Data.DataEntities;
 using App.Shared.Data.Services;
 
 namespace App.BaseGameEditor.Data.DataEntities
 {
-    public class CommentaryIndexDriverDataEntityExportService : IDataEntityExportService<CommentaryIndexDriverDataEntity>
+    public class CommentaryIndexDriverDataEntityExportService : DataEntityExportServiceBase, IDataEntityExportService<CommentaryIndexDriverDataEntity>
     {
         private readonly DataEndpoint _dataEndpoint;
         private readonly IIntegerIdentityFactory<CommentaryIndexDriverDataLocator> _dataLocatorFactory;
@@ -27,17 +28,7 @@ namespace App.BaseGameEditor.Data.DataEntities
             var dataLocator = _dataLocatorFactory.Create(commentaryIndexDriverDataEntity.Id);
             dataLocator.Initialise();
 
-            var englishCatalogueItem = _dataEndpoint.EnglishLanguageCatalogue.Read(dataLocator.Name);
-            var frenchCatalogueItem = _dataEndpoint.FrenchLanguageCatalogue.Read(dataLocator.Name);
-            var germanCatalogueItem = _dataEndpoint.GermanLanguageCatalogue.Read(dataLocator.Name);
-
-            englishCatalogueItem.Value = commentaryIndexDriverDataEntity.Name.English;
-            frenchCatalogueItem.Value = commentaryIndexDriverDataEntity.Name.French;
-            germanCatalogueItem.Value = commentaryIndexDriverDataEntity.Name.German;
-
-            _dataEndpoint.EnglishLanguageCatalogue.Write(dataLocator.Name, englishCatalogueItem);
-            _dataEndpoint.FrenchLanguageCatalogue.Write(dataLocator.Name, frenchCatalogueItem);
-            _dataEndpoint.GermanLanguageCatalogue.Write(dataLocator.Name, germanCatalogueItem);
+            ExportLanguageCatalogueValue(_dataEndpoint, commentaryIndexDriverDataEntity.Name, dataLocator.Name);
 
             _dataEndpoint.GameExecutableFileResource.WriteInteger(dataLocator.CommentaryIndex, commentaryIndexDriverDataEntity.CommentaryIndex);
         }

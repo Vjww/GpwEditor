@@ -59,6 +59,19 @@ namespace App.WindowsForms.Views
         public bool PointsScoringSystemOption1 { get => PointsScoringSystemOption1RadioButton.Checked; set => PointsScoringSystemOption1RadioButton.Checked = value; }
         public bool PointsScoringSystemOption2 { get => PointsScoringSystemOption2RadioButton.Checked; set => PointsScoringSystemOption2RadioButton.Checked = value; }
         public bool PointsScoringSystemOption3 { get => PointsScoringSystemOption3RadioButton.Checked; set => PointsScoringSystemOption3RadioButton.Checked = value; }
+        public bool EnableTrackEditor { get => EnableTrackEditorCheckBox.Checked; set => EnableTrackEditorCheckBox.Checked = value; }
+
+        public int GameYear
+        {
+            get => int.Parse(GameYearComboBox.SelectedValue.ToString());
+            set => GameYearComboBox.SelectedValue = value;
+        }
+
+        public IEnumerable<GameYearModel> GameYears
+        {
+            get => (IEnumerable<GameYearModel>)GameYearComboBox.DataSource;
+            set => BuildGameYearComboBox(value);
+        }
 
         public IEnumerable<CommentaryIndexDriverModel> CommentaryIndexDrivers
         {
@@ -104,6 +117,14 @@ namespace App.WindowsForms.Views
         public void SetController(ConfigureGameController controller)
         {
             _controller = controller;
+        }
+
+        private void BuildGameYearComboBox(IEnumerable<GameYearModel> dataSource)
+        {
+            GameYearComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            GameYearComboBox.DataSource = dataSource;
+            GameYearComboBox.ValueMember = "Value";
+            GameYearComboBox.DisplayMember = "Description";
         }
 
         private void BuildCommentaryIndicesDriverDataGridView(IEnumerable<CommentaryIndexDriverModel> dataSource)

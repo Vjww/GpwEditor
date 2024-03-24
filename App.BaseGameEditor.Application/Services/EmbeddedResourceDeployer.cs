@@ -54,6 +54,11 @@ namespace App.BaseGameEditor.Application.Services
             ExportEmbeddedResourceToFile(Path.Combine(gameFolderPath, @"bmp\dheads\72.bmp"), "Resources.bmp.dheads.72.bmp");     // Overwrite
         }
 
+        public void DeployTrackEditorResourcesToGameFolder(string gameFolderPath)
+        {
+            ExportEmbeddedResourceToFile(Path.Combine(gameFolderPath, @"tga\Backdrop\RaceTee.tga"), "Resources.tga.Backdrop.RaceTee.tga"); // New
+        }
+
         private void ExportEmbeddedResourceToFile(string filePath, string caseSensitiveResourcePath)
         {
             var fileResource = _fileResourceFactory.Create();

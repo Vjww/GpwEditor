@@ -46,16 +46,12 @@ namespace App.BaseGameEditor.Data.Services
         private readonly IRepositoryImportService<NonF1DriverDataEntity> _nonF1DriverRepositoryImportService;
         private readonly IRepositoryExportService<TeamDataEntity> _teamRepositoryExportService;
         private readonly IRepositoryImportService<TeamDataEntity> _teamRepositoryImportService;
-        private readonly IRepositoryExportService<SponsorshipTeamDataEntity> _sponsorshipTeamRepositoryExportService;
-        private readonly IRepositoryImportService<SponsorshipTeamDataEntity> _sponsorshipTeamRepositoryImportService;
-        private readonly IRepositoryExportService<SponsorshipEngineDataEntity> _sponsorshipEngineRepositoryExportService;
-        private readonly IRepositoryImportService<SponsorshipEngineDataEntity> _sponsorshipEngineRepositoryImportService;
-        private readonly IRepositoryExportService<SponsorshipTyreDataEntity> _sponsorshipTyreRepositoryExportService;
-        private readonly IRepositoryImportService<SponsorshipTyreDataEntity> _sponsorshipTyreRepositoryImportService;
-        private readonly IRepositoryExportService<SponsorshipFuelDataEntity> _sponsorshipFuelRepositoryExportService;
-        private readonly IRepositoryImportService<SponsorshipFuelDataEntity> _sponsorshipFuelRepositoryImportService;
-        private readonly IRepositoryExportService<SponsorshipCashDataEntity> _sponsorshipCashRepositoryExportService;
-        private readonly IRepositoryImportService<SponsorshipCashDataEntity> _sponsorshipCashRepositoryImportService;
+        private readonly IRepositoryExportService<SponsorDataEntity> _sponsorRepositoryExportService;
+        private readonly IRepositoryImportService<SponsorDataEntity> _sponsorRepositoryImportService;
+        private readonly IRepositoryExportService<SponsorContractDataEntity> _sponsorContractRepositoryExportService;
+        private readonly IRepositoryImportService<SponsorContractDataEntity> _sponsorContractRepositoryImportService;
+        private readonly IRepositoryExportService<SponsorFiaDataEntity> _sponsorFiaRepositoryExportService;
+        private readonly IRepositoryImportService<SponsorFiaDataEntity> _sponsorFiaRepositoryImportService;
         private readonly IRepositoryExportService<TrackDataEntity> _trackRepositoryExportService;
         private readonly IRepositoryImportService<TrackDataEntity> _trackRepositoryImportService;
         private readonly IRepositoryExportService<PerformanceCurveDataEntity> _performanceCurveRepositoryExportService;
@@ -63,6 +59,7 @@ namespace App.BaseGameEditor.Data.Services
         private readonly IRepositoryImportService<ChiefDriverLoyaltyLookupDataEntity> _chiefDriverLoyaltyLookupRepositoryImportService;
         private readonly IRepositoryImportService<DriverNationalityLookupDataEntity> _driverNationalityLookupRepositoryImportService;
         private readonly IRepositoryImportService<DriverRoleLookupDataEntity> _driverRoleLookupRepositoryImportService;
+        private readonly IRepositoryImportService<SponsorNameLookupDataEntity> _sponsorNameLookupRepositoryImportService;
         private readonly IRepositoryImportService<TeamDebutGrandPrixLookupDataEntity> _teamDebutGrandPrixLookupRepositoryImportService;
         private readonly IRepositoryImportService<TrackDriverLookupDataEntity> _trackDriverLookupRepositoryImportService;
         private readonly IRepositoryImportService<TrackLayoutLookupDataEntity> _trackLayoutLookupRepositoryImportService;
@@ -88,16 +85,15 @@ namespace App.BaseGameEditor.Data.Services
         public IRepository<NonF1ChiefMechanicDataEntity> NonF1ChiefMechanics { get; }
         public IRepository<NonF1DriverDataEntity> NonF1Drivers { get; }
         public IRepository<TeamDataEntity> Teams { get; }
-        public IRepository<SponsorshipTeamDataEntity> SponsorshipTeams { get; }
-        public IRepository<SponsorshipEngineDataEntity> SponsorshipEngines { get; }
-        public IRepository<SponsorshipTyreDataEntity> SponsorshipTyres { get; }
-        public IRepository<SponsorshipFuelDataEntity> SponsorshipFuels { get; }
-        public IRepository<SponsorshipCashDataEntity> SponsorshipCashs { get; }
+        public IRepository<SponsorDataEntity> Sponsors { get; }
+        public IRepository<SponsorContractDataEntity> SponsorContracts { get; }
+        public IRepository<SponsorFiaDataEntity> SponsorFias { get; }
         public IRepository<TrackDataEntity> Tracks { get; }
         public IRepository<PerformanceCurveDataEntity> PerformanceCurveValues { get; }
         public IRepository<ChiefDriverLoyaltyLookupDataEntity> ChiefDriverLoyaltyLookups { get; }
         public IRepository<DriverNationalityLookupDataEntity> DriverNationalityLookups { get; }
         public IRepository<DriverRoleLookupDataEntity> DriverRoleLookups { get; }
+        public IRepository<SponsorNameLookupDataEntity> SponsorNameLookups { get; }
         public IRepository<TeamDebutGrandPrixLookupDataEntity> TeamDebutGrandPrixLookups { get; }
         public IRepository<TrackDriverLookupDataEntity> TrackDriverLookups { get; }
         public IRepository<TrackLayoutLookupDataEntity> TrackLayoutLookups { get; }
@@ -143,16 +139,12 @@ namespace App.BaseGameEditor.Data.Services
             IRepositoryImportService<NonF1DriverDataEntity> nonF1DriverRepositoryImportService,
             IRepositoryExportService<TeamDataEntity> teamRepositoryExportService,
             IRepositoryImportService<TeamDataEntity> teamRepositoryImportService,
-            IRepositoryExportService<SponsorshipTeamDataEntity> sponsorshipTeamRepositoryExportService,
-            IRepositoryImportService<SponsorshipTeamDataEntity> sponsorshipTeamRepositoryImportService,
-            IRepositoryExportService<SponsorshipEngineDataEntity> sponsorshipEngineRepositoryExportService,
-            IRepositoryImportService<SponsorshipEngineDataEntity> sponsorshipEngineRepositoryImportService,
-            IRepositoryExportService<SponsorshipTyreDataEntity> sponsorshipTyreRepositoryExportService,
-            IRepositoryImportService<SponsorshipTyreDataEntity> sponsorshipTyreRepositoryImportService,
-            IRepositoryExportService<SponsorshipFuelDataEntity> sponsorshipFuelRepositoryExportService,
-            IRepositoryImportService<SponsorshipFuelDataEntity> sponsorshipFuelRepositoryImportService,
-            IRepositoryExportService<SponsorshipCashDataEntity> sponsorshipCashRepositoryExportService,
-            IRepositoryImportService<SponsorshipCashDataEntity> sponsorshipCashRepositoryImportService,
+            IRepositoryExportService<SponsorDataEntity> sponsorRepositoryExportService,
+            IRepositoryImportService<SponsorDataEntity> sponsorRepositoryImportService,
+            IRepositoryExportService<SponsorContractDataEntity> sponsorContractRepositoryExportService,
+            IRepositoryImportService<SponsorContractDataEntity> sponsorContractRepositoryImportService,
+            IRepositoryExportService<SponsorFiaDataEntity> sponsorFiaRepositoryExportService,
+            IRepositoryImportService<SponsorFiaDataEntity> sponsorFiaRepositoryImportService,
             IRepositoryExportService<TrackDataEntity> trackRepositoryExportService,
             IRepositoryImportService<TrackDataEntity> trackRepositoryImportService,
             IRepositoryExportService<PerformanceCurveDataEntity> performanceCurveRepositoryExportService,
@@ -160,6 +152,7 @@ namespace App.BaseGameEditor.Data.Services
             IRepositoryImportService<ChiefDriverLoyaltyLookupDataEntity> chiefDriverLoyaltyLookupRepositoryImportService,
             IRepositoryImportService<DriverNationalityLookupDataEntity> driverNationalityLookupRepositoryImportService,
             IRepositoryImportService<DriverRoleLookupDataEntity> driverRoleLookupRepositoryImportService,
+            IRepositoryImportService<SponsorNameLookupDataEntity> sponsorNameLookupRepositoryImportService,
             IRepositoryImportService<TeamDebutGrandPrixLookupDataEntity> teamDebutGrandPrixLookupRepositoryImportService,
             IRepositoryImportService<TrackDriverLookupDataEntity> trackDriverLookupRepositoryImportService,
             IRepositoryImportService<TrackLayoutLookupDataEntity> trackLayoutLookupRepositoryImportService,
@@ -184,16 +177,15 @@ namespace App.BaseGameEditor.Data.Services
             IRepository<NonF1ChiefMechanicDataEntity> nonF1ChiefMechanicRepository,
             IRepository<NonF1DriverDataEntity> nonF1DriverRepository,
             IRepository<TeamDataEntity> teamRepository,
-            IRepository<SponsorshipTeamDataEntity> sponsorshipTeamRepository,
-            IRepository<SponsorshipEngineDataEntity> sponsorshipEngineRepository,
-            IRepository<SponsorshipTyreDataEntity> sponsorshipTyreRepository,
-            IRepository<SponsorshipFuelDataEntity> sponsorshipFuelRepository,
-            IRepository<SponsorshipCashDataEntity> sponsorshipCashRepository,
+            IRepository<SponsorDataEntity> sponsorRepository,
+            IRepository<SponsorContractDataEntity> sponsorContractRepository,
+            IRepository<SponsorFiaDataEntity> sponsorFiaRepository,
             IRepository<TrackDataEntity> trackRepository,
             IRepository<PerformanceCurveDataEntity> performanceCurveRepository,
             IRepository<ChiefDriverLoyaltyLookupDataEntity> chiefDriverLoyaltyLookupRepository,
             IRepository<DriverNationalityLookupDataEntity> driverNationalityLookupRepository,
             IRepository<DriverRoleLookupDataEntity> driverRoleLookupRepository,
+            IRepository<SponsorNameLookupDataEntity> sponsorNameLookupRepository,
             IRepository<TeamDebutGrandPrixLookupDataEntity> teamDebutGrandPrixLookupRepository,
             IRepository<TrackDriverLookupDataEntity> trackDriverLookupRepository,
             IRepository<TrackLayoutLookupDataEntity> trackLayoutLookupRepository,
@@ -238,16 +230,12 @@ namespace App.BaseGameEditor.Data.Services
             _nonF1DriverRepositoryImportService = nonF1DriverRepositoryImportService ?? throw new ArgumentNullException(nameof(nonF1DriverRepositoryImportService));
             _teamRepositoryExportService = teamRepositoryExportService ?? throw new ArgumentNullException(nameof(teamRepositoryExportService));
             _teamRepositoryImportService = teamRepositoryImportService ?? throw new ArgumentNullException(nameof(teamRepositoryImportService));
-            _sponsorshipTeamRepositoryExportService = sponsorshipTeamRepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipTeamRepositoryExportService));
-            _sponsorshipTeamRepositoryImportService = sponsorshipTeamRepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipTeamRepositoryImportService));
-            _sponsorshipEngineRepositoryExportService = sponsorshipEngineRepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipEngineRepositoryExportService));
-            _sponsorshipEngineRepositoryImportService = sponsorshipEngineRepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipEngineRepositoryImportService));
-            _sponsorshipTyreRepositoryExportService = sponsorshipTyreRepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipTyreRepositoryExportService));
-            _sponsorshipTyreRepositoryImportService = sponsorshipTyreRepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipTyreRepositoryImportService));
-            _sponsorshipFuelRepositoryExportService = sponsorshipFuelRepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipFuelRepositoryExportService));
-            _sponsorshipFuelRepositoryImportService = sponsorshipFuelRepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipFuelRepositoryImportService));
-            _sponsorshipCashRepositoryExportService = sponsorshipCashRepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorshipCashRepositoryExportService));
-            _sponsorshipCashRepositoryImportService = sponsorshipCashRepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorshipCashRepositoryImportService));
+            _sponsorRepositoryExportService = sponsorRepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorRepositoryExportService));
+            _sponsorRepositoryImportService = sponsorRepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorRepositoryImportService));
+            _sponsorContractRepositoryExportService = sponsorContractRepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorContractRepositoryExportService));
+            _sponsorContractRepositoryImportService = sponsorContractRepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorContractRepositoryImportService));
+            _sponsorFiaRepositoryExportService = sponsorFiaRepositoryExportService ?? throw new ArgumentNullException(nameof(sponsorFiaRepositoryExportService));
+            _sponsorFiaRepositoryImportService = sponsorFiaRepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorFiaRepositoryImportService));
             _trackRepositoryExportService = trackRepositoryExportService ?? throw new ArgumentNullException(nameof(trackRepositoryExportService));
             _trackRepositoryImportService = trackRepositoryImportService ?? throw new ArgumentNullException(nameof(trackRepositoryImportService));
             _performanceCurveRepositoryExportService = performanceCurveRepositoryExportService ?? throw new ArgumentNullException(nameof(performanceCurveRepositoryExportService));
@@ -255,6 +243,7 @@ namespace App.BaseGameEditor.Data.Services
             _chiefDriverLoyaltyLookupRepositoryImportService = chiefDriverLoyaltyLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(chiefDriverLoyaltyLookupRepositoryImportService));
             _driverNationalityLookupRepositoryImportService = driverNationalityLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(driverNationalityLookupRepositoryImportService));
             _driverRoleLookupRepositoryImportService = driverRoleLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(driverRoleLookupRepositoryImportService));
+            _sponsorNameLookupRepositoryImportService = sponsorNameLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(sponsorNameLookupRepositoryImportService));
             _teamDebutGrandPrixLookupRepositoryImportService = teamDebutGrandPrixLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(teamDebutGrandPrixLookupRepositoryImportService));
             _trackDriverLookupRepositoryImportService = trackDriverLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(trackDriverLookupRepositoryImportService));
             _trackLayoutLookupRepositoryImportService = trackLayoutLookupRepositoryImportService ?? throw new ArgumentNullException(nameof(trackLayoutLookupRepositoryImportService));
@@ -280,16 +269,15 @@ namespace App.BaseGameEditor.Data.Services
             NonF1ChiefMechanics = nonF1ChiefMechanicRepository ?? throw new ArgumentNullException(nameof(nonF1ChiefMechanicRepository));
             NonF1Drivers = nonF1DriverRepository ?? throw new ArgumentNullException(nameof(nonF1DriverRepository));
             Teams = teamRepository ?? throw new ArgumentNullException(nameof(teamRepository));
-            SponsorshipTeams = sponsorshipTeamRepository ?? throw new ArgumentNullException(nameof(sponsorshipTeamRepository));
-            SponsorshipEngines = sponsorshipEngineRepository ?? throw new ArgumentNullException(nameof(sponsorshipEngineRepository));
-            SponsorshipTyres = sponsorshipTyreRepository ?? throw new ArgumentNullException(nameof(sponsorshipTyreRepository));
-            SponsorshipFuels = sponsorshipFuelRepository ?? throw new ArgumentNullException(nameof(sponsorshipFuelRepository));
-            SponsorshipCashs = sponsorshipCashRepository ?? throw new ArgumentNullException(nameof(sponsorshipCashRepository));
+            Sponsors = sponsorRepository ?? throw new ArgumentNullException(nameof(sponsorRepository));
+            SponsorContracts = sponsorContractRepository ?? throw new ArgumentNullException(nameof(sponsorContractRepository));
+            SponsorFias = sponsorFiaRepository ?? throw new ArgumentNullException(nameof(sponsorFiaRepository));
             Tracks = trackRepository ?? throw new ArgumentNullException(nameof(trackRepository));
             PerformanceCurveValues = performanceCurveRepository ?? throw new ArgumentNullException(nameof(performanceCurveRepository));
             ChiefDriverLoyaltyLookups = chiefDriverLoyaltyLookupRepository ?? throw new ArgumentNullException(nameof(chiefDriverLoyaltyLookupRepository));
             DriverNationalityLookups = driverNationalityLookupRepository ?? throw new ArgumentNullException(nameof(driverNationalityLookupRepository));
             DriverRoleLookups = driverRoleLookupRepository ?? throw new ArgumentNullException(nameof(driverRoleLookupRepository));
+            SponsorNameLookups = sponsorNameLookupRepository ?? throw new ArgumentNullException(nameof(sponsorNameLookupRepository));
             TeamDebutGrandPrixLookups = teamDebutGrandPrixLookupRepository ?? throw new ArgumentNullException(nameof(teamDebutGrandPrixLookupRepository));
             TrackDriverLookups = trackDriverLookupRepository ?? throw new ArgumentNullException(nameof(trackDriverLookupRepository));
             TrackLayoutLookups = trackLayoutLookupRepository ?? throw new ArgumentNullException(nameof(trackLayoutLookupRepository));
@@ -318,11 +306,9 @@ namespace App.BaseGameEditor.Data.Services
             _nonF1ChiefMechanicRepositoryExportService.Export();
             _nonF1DriverRepositoryExportService.Export();
             _teamRepositoryExportService.Export();
-            _sponsorshipTeamRepositoryExportService.Export();
-            _sponsorshipEngineRepositoryExportService.Export();
-            _sponsorshipTyreRepositoryExportService.Export();
-            _sponsorshipFuelRepositoryExportService.Export();
-            _sponsorshipCashRepositoryExportService.Export();
+            _sponsorRepositoryExportService.Export();
+            _sponsorContractRepositoryExportService.Export();
+            _sponsorFiaRepositoryExportService.Export();
             _trackRepositoryExportService.Export();
             _performanceCurveRepositoryExportService.Export();
         }
@@ -332,6 +318,7 @@ namespace App.BaseGameEditor.Data.Services
             _chiefDriverLoyaltyLookupRepositoryImportService.Import(45);
             _driverNationalityLookupRepositoryImportService.Import(14);
             _driverRoleLookupRepositoryImportService.Import(4);
+            _sponsorNameLookupRepositoryImportService.Import(99);
             _teamDebutGrandPrixLookupRepositoryImportService.Import(19);
             _trackDriverLookupRepositoryImportService.Import(48);
             _trackLayoutLookupRepositoryImportService.Import(3);
@@ -357,11 +344,9 @@ namespace App.BaseGameEditor.Data.Services
             _nonF1ChiefMechanicRepositoryImportService.Import(10);
             _nonF1DriverRepositoryImportService.Import(11);
             _teamRepositoryImportService.Import(11);
-            _sponsorshipTeamRepositoryImportService.Import(7);
-            _sponsorshipEngineRepositoryImportService.Import(8);
-            _sponsorshipTyreRepositoryImportService.Import(3);
-            _sponsorshipFuelRepositoryImportService.Import(9);
-            _sponsorshipCashRepositoryImportService.Import(71);
+            _sponsorRepositoryImportService.Import(98);
+            _sponsorContractRepositoryImportService.Import(110);
+            _sponsorFiaRepositoryImportService.Import(11);
             _trackRepositoryImportService.Import(16);
             _performanceCurveRepositoryImportService.Import(120);
         }

@@ -8,7 +8,7 @@ namespace App.BaseGameEditor.Application.Services
         private readonly CommentaryDomainModelImportService _commentaryDomainModelImportService;
         private readonly TeamDomainModelImportService _teamDomainModelImportService;
         private readonly PersonDomainModelImportService _personDomainModelImportService;
-        private readonly SponsorshipDomainModelImportService _sponsorshipDomainModelImportService;
+        private readonly SponsorDomainModelImportService _sponsorDomainModelImportService;
         private readonly TrackDomainModelImportService _trackDomainModelImportService;
         private readonly PerformanceCurveDomainModelImportService _performanceCurveDomainModelImportService;
         private readonly LookupDomainModelImportService _lookupDomainModelImportService;
@@ -17,7 +17,7 @@ namespace App.BaseGameEditor.Application.Services
             CommentaryDomainModelImportService commentaryDomainModelImportService,
             TeamDomainModelImportService teamDomainModelImportService,
             PersonDomainModelImportService personDomainModelImportService,
-            SponsorshipDomainModelImportService sponsorshipDomainModelImportService,
+            SponsorDomainModelImportService sponsorDomainModelImportService,
             TrackDomainModelImportService trackDomainModelImportService,
             PerformanceCurveDomainModelImportService performanceCurveDomainModelImportService,
             LookupDomainModelImportService lookupDomainModelImportService)
@@ -25,7 +25,7 @@ namespace App.BaseGameEditor.Application.Services
             _commentaryDomainModelImportService = commentaryDomainModelImportService ?? throw new ArgumentNullException(nameof(commentaryDomainModelImportService));
             _teamDomainModelImportService = teamDomainModelImportService ?? throw new ArgumentNullException(nameof(teamDomainModelImportService));
             _personDomainModelImportService = personDomainModelImportService ?? throw new ArgumentNullException(nameof(personDomainModelImportService));
-            _sponsorshipDomainModelImportService = sponsorshipDomainModelImportService ?? throw new ArgumentNullException(nameof(sponsorshipDomainModelImportService));
+            _sponsorDomainModelImportService = sponsorDomainModelImportService ?? throw new ArgumentNullException(nameof(sponsorDomainModelImportService));
             _trackDomainModelImportService = trackDomainModelImportService ?? throw new ArgumentNullException(nameof(trackDomainModelImportService));
             _performanceCurveDomainModelImportService = performanceCurveDomainModelImportService ?? throw new ArgumentNullException(nameof(performanceCurveDomainModelImportService));
             _lookupDomainModelImportService = lookupDomainModelImportService ?? throw new ArgumentNullException(nameof(lookupDomainModelImportService));
@@ -36,7 +36,7 @@ namespace App.BaseGameEditor.Application.Services
             _commentaryDomainModelImportService.Import();
             _teamDomainModelImportService.Import();
             _personDomainModelImportService.Import();
-            _sponsorshipDomainModelImportService.Import();
+            _sponsorDomainModelImportService.Import();
             _trackDomainModelImportService.Import();
             _performanceCurveDomainModelImportService.Import();
             _lookupDomainModelImportService.Import();
