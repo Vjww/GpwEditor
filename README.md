@@ -3,9 +3,7 @@ GpwEditor
 
 A game editor for MicroProse Grand Prix World.
 
-Download the GPW Edit v1.1 installer (as of 31st October 2020)
-http://s000.tinyupload.com/index.php?file_id=01430953434759029272
+Download the GPW Edit v1.0 installer.
+https://github.com/Vjww/GpwEditor/releases/download/v1.0.0/GpwEdit_1_0_0_0.zip
 
-Viva https://gpmplanet.proboards.com/
-
-RIP https://www.gpracegames.com/
+For further assistence, join GPM Planet at https://gpmplanet.proboards.com/
