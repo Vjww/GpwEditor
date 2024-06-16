@@ -62,8 +62,8 @@ namespace App.BaseGameEditor.Application.Tests.Maps.AutoMapper.Profiles
             personEntity.Salary = personDataEntity.Salary;
             personEntity.RaceBonus = personDataEntity.RaceBonus;
             personEntity.ChampionshipBonus = personDataEntity.ChampionshipBonus;
-            personEntity.PayRating = 4;
-            personEntity.PositiveSalary = 7600000;
+            personEntity.PayRating = personDataEntity.PayRating;
+            personEntity.PositiveSalary = personDataEntity.PositiveSalary;
             personEntity.LastChampionshipPosition = personDataEntity.LastChampionshipPosition;
             personEntity.Role = personDataEntity.Role;
             personEntity.Age = personDataEntity.Age;
