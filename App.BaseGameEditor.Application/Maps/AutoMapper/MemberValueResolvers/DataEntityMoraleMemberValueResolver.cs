@@ -1,6 +1,6 @@
-﻿using System;
-using App.BaseGameEditor.Application.Services;
+﻿using App.BaseGameEditor.Application.Services;
 using AutoMapper;
+using System;
 
 namespace App.BaseGameEditor.Application.Maps.AutoMapper.MemberValueResolvers
 {
